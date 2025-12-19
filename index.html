@@ -30,6 +30,106 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #ffa1ac;
         }
+
+        /* Tightly Compact Chat Content */
+        .chat-content {
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+        .chat-content h2 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #292F36;
+            margin-top: 0.75rem;
+            margin-bottom: 0.25rem;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .chat-content h3 {
+            font-size: 0.85rem;
+            font-weight: 900;
+            color: #FF4761;
+            margin-top: 0.75rem;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .chat-content strong {
+            font-weight: 700;
+            color: #FF4761;
+        }
+        .chat-content p {
+            margin-bottom: 0.5rem;
+        }
+        .chat-content hr {
+            border: 0;
+            border-top: 1px solid #ffe4e6;
+            margin: 0.75rem 0;
+        }
+        
+        /* Compact Educational Tables */
+        .chat-content .table-wrapper {
+            overflow-x: auto;
+            margin: 0.5rem 0;
+            border-radius: 0.75rem;
+            border: 1px solid #fecdd3;
+        }
+        .chat-content table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            min-width: 300px;
+        }
+        .chat-content th {
+            background: #fff1f2;
+            color: #be123c;
+            font-weight: 800;
+            text-align: left;
+            padding: 0.4rem 0.6rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid #fecdd3;
+            white-space: nowrap;
+        }
+        .chat-content td {
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid #fff1f2;
+            font-size: 0.85rem;
+            color: #374151;
+        }
+        .chat-content tr:last-child td {
+            border-bottom: none;
+        }
+        .chat-content tr:nth-child(even) {
+            background-color: #fffafb;
+        }
+
+        /* Lists */
+        .chat-content ul {
+            margin: 0.5rem 0;
+        }
+        .chat-content li {
+            padding-left: 1.25rem;
+            position: relative;
+            margin-bottom: 0.2rem;
+        }
+        .chat-content li::before {
+            content: "•";
+            position: absolute;
+            left: 0.4rem;
+            color: #FF4761;
+            font-weight: bold;
+        }
+        
+        /* Pronunciation Guides */
+        .chat-content .pronunciation {
+            font-family: monospace;
+            background: #f1f5f9;
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.25rem;
+            color: #64748b;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
     </style>
 <script type="importmap">
 {

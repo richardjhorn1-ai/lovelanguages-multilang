@@ -1,7 +1,6 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-// Fixed: Correct initialization of GoogleGenAI following SDK guidelines.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export interface ExtractedWord {
@@ -10,6 +9,7 @@ export interface ExtractedWord {
   type: 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
   importance: number;
   context: string;
+  rootWord?: string;
 }
 
 export const geminiService = {
@@ -17,10 +17,47 @@ export const geminiService = {
    * Generates a response based on the mode and extracts Polish words from the dialogue.
    */
   async generateAndExtract(prompt: string, mode: string, userLog: string[]): Promise<{ text: string; words: ExtractedWord[] }> {
+    const commonInstructions = `
+You are part of a couple-based language learning app focused on emotional bonding, confidence, and clarity.
+
+GLOBAL INVARIANTS:
+- NEVER reply fully in Polish unless explicitly asked to do so.
+- ALWAYS explain Polish using clear English first.
+- Polish examples MUST be accompanied by English meaning.
+- Prefer high-density information over long sections.
+- When teaching verbs, aim to group multiple tenses into ONE wide table.
+
+PEDAGOGY:
+- Teach explicitly. Use contrast with English.
+- EMOTIONAL TONE: Warm, encouraging, human.
+
+FORMATTING REQUIREMENTS:
+- Use Markdown Tables for ANY lists.
+- For conjugations, use a single table with multiple tense columns to save vertical space.
+- Use ### for headers. Keep headers short.
+- Use **bolding** for Polish terms.
+- Use [pronunciation-in-brackets] after tricky words.
+
+JSON OUTPUT REQUIREMENT:
+You must ALWAYS return a JSON object with:
+1. "replyText": Your teaching response.
+2. "newWords": An array of Polish words/phrases used. 
+   - CRITICAL: For verbs, use the "rootWord" property to specify the infinitive (e.g., for "jestem", the rootWord is "być"). This allows us to group them in the UI.
+`;
+
     const systemInstructions = {
-      listen: "You are a fly on the wall translator. Translate the following English/Polish conversation segments into the other language. Focus on accuracy and natural phrasing.",
-      chat: "You are a friendly Polish language learning assistant for couples. The user currently knows English and is learning Polish. Engage in conversation, provide corrections gently, and help them express romantic or everyday couple situations in Polish.",
-      tutor: `You are an expert Polish tutor. Based on the words they have already encountered: [${userLog.join(', ')}], provide a short lesson, review a few concepts, or quiz them. Keep it encouraging and cute.`
+      listen: `You are a fly on the wall translator for an English/Polish couple. ${commonInstructions}`,
+      chat: `
+You are a conversational Polish language coach. 
+If the user asks about a word or grammar, explain the WHY and provide a single compact table for forms.
+${commonInstructions}
+`,
+      tutor: `
+You are an expert polyglot tutor.
+LOVE LOG: [${userLog.join(', ')}]
+Introduce ONE new concept using compact TABLES.
+${commonInstructions}
+`
     };
 
     const response = await ai.models.generateContent({
@@ -32,23 +69,18 @@ export const geminiService = {
         responseSchema: {
           type: Type.OBJECT,
           properties: {
-            replyText: {
-              type: Type.STRING,
-              description: "Your helpful response in the conversation."
-            },
+            replyText: { type: Type.STRING },
             newWords: {
               type: Type.ARRAY,
               items: {
                 type: Type.OBJECT,
                 properties: {
-                  word: { type: Type.STRING, description: "The Polish word or phrase." },
-                  translation: { type: Type.STRING, description: "The English translation." },
-                  type: { 
-                    type: Type.STRING, 
-                    enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] 
-                  },
-                  importance: { type: Type.INTEGER, description: "Importance rank from 1-100." },
-                  context: { type: Type.STRING, description: "Contextual usage." }
+                  word: { type: Type.STRING },
+                  translation: { type: Type.STRING },
+                  type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
+                  importance: { type: Type.INTEGER },
+                  context: { type: Type.STRING },
+                  rootWord: { type: Type.STRING, description: "The infinitive or base form for grouping (e.g. 'być' for 'jestem')." }
                 },
                 required: ["word", "translation", "type", "importance"]
               }
@@ -60,22 +92,20 @@ export const geminiService = {
     });
 
     try {
-      // Fixed: Explicitly map the properties from the model's JSON output to the function's return type.
       const parsed = JSON.parse(response.text || '{}');
       return {
         text: parsed.replyText || '',
-        words: parsed.newWords || []
+        words: (parsed.newWords || []).map((w: any) => ({
+          ...w,
+          word: w.word.toLowerCase().trim(),
+          rootWord: w.rootWord?.toLowerCase().trim()
+        }))
       };
     } catch (e) {
-      console.error("Failed to parse Gemini response", e);
-      // Fixed: Ensure the catch block return object matches the declared interface { text, words }.
       return { text: "I'm sorry, I had a little hiccup!", words: [] };
     }
   },
 
-  /**
-   * Simple method for chat history titles
-   */
   async generateTitle(firstMessage: string): Promise<string> {
     const res = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
