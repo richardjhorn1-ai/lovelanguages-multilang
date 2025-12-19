@@ -1,3 +1,4 @@
+
 import { GoogleGenAI, Type } from "@google/genai";
 
 export default async function handler(req: any, res: any) {
@@ -30,11 +31,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Vercel Node.js Body Parsing
-    // In Vercel Node runtime (without body-parser middleware), req.body might be null if not handled, 
-    // but usually Vercel parses JSON automatically for functions.
     let body = req.body;
-    
-    // Fallback: if body is string, parse it.
     if (typeof body === 'string') {
       try {
         body = JSON.parse(body);
@@ -49,7 +46,6 @@ export default async function handler(req: any, res: any) {
     }
 
     const { prompt, mode, userLog, action, images } = body;
-
     const ai = new GoogleGenAI({ apiKey });
 
     // Action: Generate Title
@@ -61,36 +57,54 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ title: response.text?.replace(/"/g, '') || "New Chat" });
     }
 
-    // Action: Default Chat/Tutor
-    const commonInstructions = `
-You are part of a couple-based language learning app focused on emotional bonding, confidence, and clarity.
-GLOBAL INVARIANTS:
-- NEVER reply fully in Polish unless explicitly asked to do so.
-- ALWAYS explain Polish using clear English first.
-- Polish examples MUST be accompanied by English meaning.
-- Prefer high-density information over long sections.
-- When teaching verbs, aim to group multiple tenses into ONE wide table.
-PEDAGOGY:
-- Teach explicitly. Use contrast with English.
-- EMOTIONAL TONE: Warm, encouraging, human.
-FORMATTING REQUIREMENTS:
-- Use Markdown Tables for ANY lists.
-- For conjugations, use a single table with multiple tense columns.
-- Use ### for headers. Keep headers short.
-- Use **bolding** for Polish terms.
-- Use [pronunciation-in-brackets] after tricky words.
-JSON OUTPUT REQUIREMENT:
-You must ALWAYS return a JSON object with:
-1. "replyText": Your teaching response.
-2. "newWords": An array of Polish words/phrases used. 
-   - CRITICAL: For verbs, use the "rootWord" property to specify the infinitive.
+    // --- SYSTEMS ENGINEERING: PROMPT ARCHITECTURE ---
+
+    const PEDAGOGICAL_INVARIANTS = `
+1. **Contrastive Analysis:** Never just translate. Explain the delta between English Logic and Polish Logic. (e.g., "In English you say 'I have', in Polish we say 'At me is'").
+2. **Visual Scaffolding:** Use Markdown Tables for ANY morphological changes (cases, conjugations). Tables must be compact.
+3. **Gender/Case Explicit:** Nouns must always be identified by gender (m/f/n) if relevant to the grammar rule being discussed.
+4. **Tone:** Warm, specific, romantic, non-academic. Use emoji sparingly but effectively.
+5. **JSON Adherence:** The response MUST be valid JSON matching the schema. The 'newWords' array acts as the user's permanent memory bank.
 `;
 
-    const systemInstructionsMap: Record<string, string> = {
-      listen: `You are a fly on the wall translator for an English/Polish couple. ${commonInstructions}`,
-      chat: `You are a conversational Polish language coach. If the user asks about a word or grammar, explain the WHY and provide a single compact table for forms. ${commonInstructions}`,
-      tutor: `You are an expert polyglot tutor. LOVE LOG: [${userLog?.join(', ') || ''}] Introduce ONE new concept using compact TABLES. ${commonInstructions}`
+    const MODE_DEFINITIONS = {
+        listen: `
+**MODE: SIMULTANEOUS INTERPRETER (Fly on the Wall)**
+- **Objective:** Facilitate understanding between partners without interrupting the flow.
+- **Input Analysis:** Detect the language of the prompt.
+- **Output Logic:**
+  - If English -> Provide Polish translation + 1-sentence cultural context (if needed).
+  - If Polish -> Provide English translation + 1-sentence grammatical nuance (if needed).
+- **Constraint:** Be invisible. Do not teach lessons unless explicitly asked.
+`,
+        chat: `
+**MODE: SOCRATIC COACH (Active Conversation)**
+- **Objective:** Guide the user to construct sentences themselves using the "Lego Block" method.
+- **Algorithm:**
+  1. Acknowledge the user's intent.
+  2. Isolate the key grammatical structure (e.g., "Instrumental Case").
+  3. Provide the "Root" word + the "Ending" rule in a Markdown Table.
+  4. Ask the user to assemble them.
+- **Constraint:** Prioritize high-frequency "couple" vocabulary (emotions, plans, compliments).
+`,
+        tutor: `
+**MODE: CURRICULUM ARCHITECT (Structured Learning)**
+- **Objective:** Introduce ONE new high-value concept based on the user's history.
+- **Context:** User has learned: [${userLog?.slice(0, 50).join(', ') || 'Nothing yet'}].
+- **Algorithm:**
+  1. Select a concept that bridges a gap in their current log.
+  2. Present the "Concept" (The Rule).
+  3. Present the "Example" (The Sentence).
+  4. Present the "Drill" (A question for the user).
+- **Constraint:** Maximum 150 words of text. Rely heavily on tables.
+`
     };
+
+    const activeSystemInstruction = `
+${MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.chat}
+
+${PEDAGOGICAL_INVARIANTS}
+`;
 
     const parts: any[] = [];
     if (images && Array.isArray(images)) {
@@ -106,7 +120,7 @@ You must ALWAYS return a JSON object with:
       model: "gemini-3-flash-preview",
       contents: { parts },
       config: {
-        systemInstruction: systemInstructionsMap[mode] || systemInstructionsMap.chat,
+        systemInstruction: activeSystemInstruction,
         responseMimeType: "application/json",
         responseSchema: {
           type: Type.OBJECT,
@@ -117,14 +131,14 @@ You must ALWAYS return a JSON object with:
               items: {
                 type: Type.OBJECT,
                 properties: {
-                  word: { type: Type.STRING },
+                  word: { type: Type.STRING, description: "The conjugated/inflected form as used in the sentence" },
                   translation: { type: Type.STRING },
                   type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
                   importance: { type: Type.INTEGER },
                   context: { type: Type.STRING },
-                  rootWord: { type: Type.STRING }
+                  rootWord: { type: Type.STRING, description: "The dictionary headword (Infinitive for verbs, Nominative for nouns)" }
                 },
-                required: ["word", "translation", "type", "importance"]
+                required: ["word", "translation", "type", "importance", "rootWord"]
               }
             }
           },
