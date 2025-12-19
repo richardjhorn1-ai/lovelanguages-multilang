@@ -19,14 +19,19 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   }, [profile]);
 
   const fetchEntries = async () => {
-    // Also fetch words from the partner if linked
-    const query = supabase
+    // If tutor, view linked partner's data. 
+    // FALLBACK: If no partner linked, or if student, view own data.
+    // This allows students to see their own tutor dashboard for testing.
+    const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) 
+      ? profile.linked_user_id 
+      : profile.id;
+
+    const { data } = await supabase
       .from('dictionary')
       .select('*')
-      .or(`user_id.eq.${profile.id}${profile.linked_user_id ? `,user_id.eq.${profile.linked_user_id}` : ''}`)
+      .eq('user_id', targetUserId)
       .order('unlocked_at', { ascending: false });
 
-    const { data } = await query;
     if (data) setEntries(data);
     setLoading(false);
   };
@@ -34,97 +39,124 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const filtered = entries.filter(e => {
     const matchesFilter = filter === 'all' || e.word_type === filter;
     const matchesSearch = e.word.toLowerCase().includes(search.toLowerCase()) || 
-                          e.translation.toLowerCase().includes(search.toLowerCase());
+                          e.translation.toLowerCase().includes(search.toLowerCase()) ||
+                          (e.root_word && e.root_word.toLowerCase().includes(search.toLowerCase()));
     return matchesFilter && matchesSearch;
   });
 
-  const getImportanceColor = (rank: number) => {
-    if (rank >= 80) return 'text-rose-600 bg-rose-50';
-    if (rank >= 50) return 'text-amber-600 bg-amber-50';
-    return 'text-blue-600 bg-blue-50';
-  };
+  // Grouping logic for verbs
+  const groupedData: { [key: string]: DictionaryEntry[] } = {};
+  const individuals: DictionaryEntry[] = [];
+
+  filtered.forEach(entry => {
+    if (entry.root_word && entry.word_type === 'verb') {
+      if (!groupedData[entry.root_word]) groupedData[entry.root_word] = [];
+      groupedData[entry.root_word].push(entry);
+    } else {
+      individuals.push(entry);
+    }
+  });
+
+  const wordTypes: (WordType | 'all')[] = ['all', 'noun', 'verb', 'adjective', 'phrase'];
 
   return (
     <div className="h-full flex flex-col bg-[#fdfcfd]">
-      <div className="p-6 border-b border-gray-100 bg-white">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <h2 className="text-3xl font-bold font-header flex items-center gap-2">
-              Love Log <span className="text-rose-300 text-sm">({entries.length} Unlocked)</span>
-            </h2>
-            <p className="text-gray-500 text-sm mt-1">Your combined dictionary of Polish discoveries.</p>
-          </div>
-
-          <div className="flex gap-2">
-            <div className="relative flex-1 min-w-[200px]">
-              <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+      <div className="p-4 bg-white border-b border-gray-100 sticky top-0 z-20">
+        <div className="max-w-6xl mx-auto flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500">
+                <ICONS.Book className="w-5 h-5" />
+              </div>
+              <div>
+                <h2 className="text-lg font-black font-header text-gray-800 leading-tight">Love Log</h2>
+                <p className="text-[9px] uppercase tracking-widest font-black text-rose-300">
+                  {profile.role === 'tutor' && profile.linked_user_id ? "Partner's collection" : "Your collection"} • {entries.length} items
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative w-48 sm:w-64">
+              <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3.5 h-3.5" />
               <input 
                 type="text" 
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search words..."
-                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-rose-200"
+                placeholder="Search..."
+                className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-100 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-rose-200 font-medium"
               />
             </div>
-            <select 
-              value={filter}
-              onChange={(e) => setFilter(e.target.value as any)}
-              className="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm font-medium focus:outline-none"
-            >
-              <option value="all">All Types</option>
-              <option value="noun">Nouns</option>
-              <option value="verb">Verbs</option>
-              <option value="adjective">Adjectives</option>
-              <option value="phrase">Phrases</option>
-            </select>
+          </div>
+
+          <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+            {wordTypes.map(t => (
+              <button
+                key={t}
+                onClick={() => setFilter(t)}
+                className={`px-3 py-1 rounded-full text-[10px] font-black whitespace-nowrap transition-all uppercase tracking-tighter ${
+                  filter === t ? 'bg-[#FF4761] text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                }`}
+              >
+                {t}s
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="flex-1 overflow-y-auto p-4 bg-[#fcf9f9]">
+        <div className="max-w-6xl mx-auto space-y-6">
           {loading ? (
-            Array(8).fill(0).map((_, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm animate-pulse">
-                <div className="h-6 w-24 bg-gray-100 rounded mb-4"></div>
-                <div className="h-4 w-16 bg-gray-50 rounded"></div>
-              </div>
-            ))
-          ) : filtered.length === 0 ? (
-            <div className="col-span-full flex flex-col items-center justify-center py-20 text-center opacity-40">
-              <ICONS.Book className="w-16 h-16 mb-4" />
-              <p>No words found in your collection yet.</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {Array(8).fill(0).map((_, i) => <div key={i} className="h-20 bg-gray-100 rounded-xl animate-pulse"></div>)}
             </div>
+          ) : filtered.length === 0 ? (
+            <div className="py-20 text-center text-gray-400 text-sm font-bold">No results found.</div>
           ) : (
-            filtered.map((entry) => (
-              <div 
-                key={entry.id} 
-                className="group bg-white border border-gray-100 hover:border-rose-200 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all relative overflow-hidden flex flex-col"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded ${getImportanceColor(entry.importance)}`}>
-                    Rank {entry.importance}
-                  </span>
-                  <span className="text-[10px] font-medium text-gray-400">{entry.word_type}</span>
-                </div>
-                
-                <h3 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-rose-500 transition-colors">
-                  {entry.word}
-                </h3>
-                <p className="text-gray-500 font-medium italic">{entry.translation}</p>
-                
-                {entry.context && (
-                  <div className="mt-4 pt-4 border-t border-gray-50">
-                    <p className="text-xs text-gray-400 italic">"{entry.context}"</p>
+            <>
+              {Object.keys(groupedData).length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-[10px] font-black uppercase text-rose-300 tracking-widest pl-1">Verb Families</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {Object.entries(groupedData).map(([root, forms]) => (
+                      <div key={root} className="bg-white border border-rose-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="text-sm font-black text-rose-500">ROOT: {root}</h4>
+                          <span className="text-[8px] bg-rose-50 text-rose-400 px-1.5 py-0.5 rounded font-black uppercase">{forms.length} forms</span>
+                        </div>
+                        <div className="space-y-1.5">
+                          {forms.map(f => (
+                            <div key={f.id} className="flex justify-between items-baseline border-b border-gray-50 pb-1">
+                              <span className="text-xs font-bold text-gray-700">{f.word}</span>
+                              <span className="text-[10px] text-gray-400 italic font-medium">{f.translation}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                )}
+                </div>
+              )}
 
-                <div className="absolute top-0 right-0 w-24 h-24 bg-rose-500/5 rounded-full -mr-10 -mt-10 blur-2xl group-hover:scale-150 transition-transform"></div>
-              </div>
-            ))
+              {individuals.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-[10px] font-black uppercase text-rose-300 tracking-widest pl-1">Individual Discoveries</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                    {individuals.map((entry) => (
+                      <div key={entry.id} className="bg-white border border-gray-100 rounded-xl p-3 shadow-sm flex flex-col justify-center min-h-[80px] hover:border-rose-100 transition-colors">
+                        <span className="text-[7px] font-black uppercase text-gray-300 mb-1">{entry.word_type}</span>
+                        <h3 className="text-sm font-black text-gray-800 leading-tight">{entry.word}</h3>
+                        <p className="text-[11px] text-gray-500 font-medium italic truncate">{entry.translation}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
+      <style>{`.no-scrollbar::-webkit-scrollbar { display: none; }`}</style>
     </div>
   );
 };

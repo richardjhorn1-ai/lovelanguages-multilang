@@ -22,6 +22,7 @@ export interface DictionaryEntry {
   context: string;
   unlocked_at: string;
   added_by_tutor: boolean;
+  root_word?: string;
 }
 
 export type ChatMode = 'listen' | 'chat' | 'tutor';
