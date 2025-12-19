@@ -1,31 +1,52 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-// Vercel Serverless Function (Node.js runtime)
 export default async function handler(req: any, res: any) {
-  // 1. CORS Headers (Optional but good for safety if needed later)
-  // Vercel handles CORS via vercel.json usually, but we can set headers if this is a direct fetch.
-  
+  console.log("Function invoked"); // Debug log
+
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const apiKey = process.env.API_KEY;
-
-  if (!apiKey) {
-    console.error("Server Error: process.env.API_KEY is missing");
-    return res.status(500).json({ 
-      error: "Server Configuration Error", 
-      details: "API Key is missing on the server. Please check Vercel environment variables." 
-    });
-  }
-
   try {
-    const ai = new GoogleGenAI({ apiKey });
-    
-    // In Vercel Node.js functions, req.body is automatically parsed if Content-Type is application/json
-    const { prompt, mode, userLog, action, images } = req.body;
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+      console.error("Missing API Key");
+      return res.status(500).json({ error: "Server Error: API Key missing" });
+    }
 
-    // Handle Title Generation
+    // Body Parsing Logic
+    let body = req.body;
+    if (typeof body === 'string') {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        console.error("Failed to parse body string:", e);
+        return res.status(400).json({ error: "Invalid JSON body" });
+      }
+    }
+    
+    if (!body) {
+        return res.status(400).json({ error: "Missing request body" });
+    }
+
+    const { prompt, mode, userLog, action, images } = body;
+
+    const ai = new GoogleGenAI({ apiKey });
+
+    // Action: Generate Title
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
@@ -34,51 +55,37 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ title: response.text?.replace(/"/g, '') || "New Chat" });
     }
 
-    // Default action: Chat/Tutor Generation
+    // Action: Default Chat
     const commonInstructions = `
 You are part of a couple-based language learning app focused on emotional bonding, confidence, and clarity.
-
 GLOBAL INVARIANTS:
 - NEVER reply fully in Polish unless explicitly asked to do so.
 - ALWAYS explain Polish using clear English first.
 - Polish examples MUST be accompanied by English meaning.
 - Prefer high-density information over long sections.
 - When teaching verbs, aim to group multiple tenses into ONE wide table.
-
 PEDAGOGY:
 - Teach explicitly. Use contrast with English.
 - EMOTIONAL TONE: Warm, encouraging, human.
-
 FORMATTING REQUIREMENTS:
 - Use Markdown Tables for ANY lists.
-- For conjugations, use a single table with multiple tense columns to save vertical space.
+- For conjugations, use a single table with multiple tense columns.
 - Use ### for headers. Keep headers short.
 - Use **bolding** for Polish terms.
 - Use [pronunciation-in-brackets] after tricky words.
-
 JSON OUTPUT REQUIREMENT:
 You must ALWAYS return a JSON object with:
 1. "replyText": Your teaching response.
 2. "newWords": An array of Polish words/phrases used. 
-   - CRITICAL: For verbs, use the "rootWord" property to specify the infinitive (e.g., for "jestem", the rootWord is "być"). This allows us to group them in the UI.
+   - CRITICAL: For verbs, use the "rootWord" property to specify the infinitive.
 `;
 
     const systemInstructionsMap: Record<string, string> = {
       listen: `You are a fly on the wall translator for an English/Polish couple. ${commonInstructions}`,
-      chat: `
-You are a conversational Polish language coach. 
-If the user asks about a word or grammar, explain the WHY and provide a single compact table for forms.
-${commonInstructions}
-`,
-      tutor: `
-You are an expert polyglot tutor.
-LOVE LOG: [${userLog?.join(', ') || ''}]
-Introduce ONE new concept using compact TABLES.
-${commonInstructions}
-`
+      chat: `You are a conversational Polish language coach. If the user asks about a word or grammar, explain the WHY and provide a single compact table for forms. ${commonInstructions}`,
+      tutor: `You are an expert polyglot tutor. LOVE LOG: [${userLog?.join(', ') || ''}] Introduce ONE new concept using compact TABLES. ${commonInstructions}`
     };
 
-    // Construct content parts (Text + Images)
     const parts: any[] = [];
     if (images && Array.isArray(images)) {
       images.forEach((img: any) => {
@@ -109,7 +116,7 @@ ${commonInstructions}
                   type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
                   importance: { type: Type.INTEGER },
                   context: { type: Type.STRING },
-                  rootWord: { type: Type.STRING, description: "The infinitive or base form for grouping (e.g. 'być' for 'jestem')." }
+                  rootWord: { type: Type.STRING }
                 },
                 required: ["word", "translation", "type", "importance"]
               }
@@ -120,13 +127,18 @@ ${commonInstructions}
       }
     });
 
-    // Send the text response directly. 
-    // We set Content-Type to JSON because the model is instructed to return JSON.
+    if (!response || !response.text) {
+      throw new Error("Empty response from Gemini");
+    }
+
     res.setHeader('Content-Type', 'application/json');
     return res.status(200).send(response.text);
 
   } catch (error: any) {
-    console.error("API Error:", error);
-    return res.status(500).json({ error: "Failed to process request", details: error.message });
+    console.error("API Handler Error:", error);
+    return res.status(500).json({ 
+      error: "Internal Server Error", 
+      details: error.message 
+    });
   }
 }

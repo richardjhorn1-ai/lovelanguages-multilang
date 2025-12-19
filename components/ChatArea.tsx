@@ -209,10 +209,21 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       return;
     }
 
-    const apiKey = process.env.API_KEY;
+    let apiKey = process.env.API_KEY;
     if (!apiKey) {
-      alert("API Key is missing! Please configure the API_KEY environment variable in Vercel.");
-      return;
+      // Fallback: Check local storage or prompt user
+      const storedKey = localStorage.getItem('GEMINI_API_KEY');
+      if (storedKey) {
+        apiKey = storedKey;
+      } else {
+        const userInput = window.prompt("API Key missing from environment. Please paste your Gemini API Key to enable Live Mode:");
+        if (userInput) {
+          apiKey = userInput.trim();
+          localStorage.setItem('GEMINI_API_KEY', apiKey);
+        } else {
+          return;
+        }
+      }
     }
 
     setIsLive(true);
