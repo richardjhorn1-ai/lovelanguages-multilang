@@ -2,6 +2,7 @@
   "name": "Love Languages 3",
   "description": "A cute, couple-centric Polish language learning app powered by Gemini 3 Flash, featuring a 'Love Log' dictionary, AI-powered chat modes, and Memrise-style flashcards.",
   "requestFramePermissions": [
-    "camera"
+    "camera",
+    "microphone"
   ]
 }
