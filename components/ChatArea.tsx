@@ -4,8 +4,6 @@ import { supabase } from '../services/supabase';
 import { geminiService, Attachment } from '../services/gemini';
 import { Profile, Chat, Message, ChatMode } from '../types';
 import { ICONS } from '../constants';
-import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
-import { createBlob, decode, decodeAudioData } from '../services/live-session';
 
 interface ChatAreaProps {
   profile: Profile;
@@ -20,29 +18,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [loading, setLoading] = useState(false);
   const [attachments, setAttachments] = useState<Attachment[]>([]);
   
-  // Live API State
-  const [isLive, setIsLive] = useState(false);
-  const [liveStatus, setLiveStatus] = useState<string>('');
-  const [liveTranscript, setLiveTranscript] = useState<{ user: string; model: string }>({ user: '', model: '' });
-  const [audioLevel, setAudioLevel] = useState(0);
-  
-  // Refs for managing live session state without closure staleness
-  const isLiveRef = useRef(false);
-  const liveSessionRef = useRef<Promise<any> | null>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const inputContextRef = useRef<AudioContext | null>(null);
-  const nextStartTimeRef = useRef<number>(0);
-  const sourcesRef = useRef<Set<AudioBufferSourceNode>>(new Set());
-  const streamRef = useRef<MediaStream | null>(null);
-
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetchChats();
-    return () => {
-      stopLiveSession();
-    };
   }, [profile]);
 
   useEffect(() => {
@@ -56,7 +36,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages, loading, attachments, liveTranscript]);
+  }, [messages, loading, attachments]);
 
   const fetchChats = async () => {
     try {
@@ -176,220 +156,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setAttachments(prev => prev.filter((_, i) => i !== index));
   };
 
-  // --- Live API Logic ---
-  
-  const stopLiveSession = () => {
-    isLiveRef.current = false;
-    setIsLive(false);
-    setLiveStatus('');
-    setLiveTranscript({ user: '', model: '' });
-    setAudioLevel(0);
-
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach(track => track.stop());
-      streamRef.current = null;
-    }
-    
-    if (inputContextRef.current) {
-      inputContextRef.current.close();
-      inputContextRef.current = null;
-    }
-    
-    if (audioContextRef.current) {
-      audioContextRef.current.close();
-      audioContextRef.current = null;
-    }
-
-    sourcesRef.current.forEach(s => {
-        try { s.stop(); } catch(e) {}
-    });
-    sourcesRef.current.clear();
-    liveSessionRef.current = null;
-  };
-
-  const toggleLiveSession = async () => {
-    if (isLiveRef.current) {
-      stopLiveSession();
-      return;
-    }
-
-    let apiKey = process.env.API_KEY;
-    if (!apiKey) {
-      // Fallback: Check local storage or prompt user
-      const storedKey = localStorage.getItem('GEMINI_API_KEY');
-      if (storedKey) {
-        apiKey = storedKey;
-      } else {
-        const userInput = window.prompt("API Key missing from environment. Please paste your Gemini API Key to enable Live Mode:");
-        if (userInput) {
-          apiKey = userInput.trim();
-          localStorage.setItem('GEMINI_API_KEY', apiKey);
-        } else {
-          return;
-        }
-      }
-    }
-
-    setIsLive(true);
-    isLiveRef.current = true;
-    setLiveStatus('Connecting...');
-
-    try {
-      const ai = new GoogleGenAI({ apiKey });
-      nextStartTimeRef.current = 0;
-      
-      // Initialize Audio Contexts
-      // NOTE: We do NOT force sampleRate here, we let the hardware decide (often 44.1k or 48k)
-      // We will downsample later.
-      inputContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
-      await inputContextRef.current.resume(); // Explicitly resume to ensure it's active
-
-      const recordingRate = inputContextRef.current.sampleRate;
-      console.log(`Live Input Hardware Rate: ${recordingRate}`);
-
-      audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
-      await audioContextRef.current.resume();
-      
-      const outputNode = audioContextRef.current.createGain();
-      outputNode.connect(audioContextRef.current.destination);
-
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      streamRef.current = stream;
-      
-      const sessionPromise = ai.live.connect({
-        model: 'gemini-2.5-flash-native-audio-preview-09-2025',
-        config: {
-          responseModalities: [Modality.AUDIO],
-          inputAudioTranscription: {}, 
-          outputAudioTranscription: {},
-          speechConfig: {
-            voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Zephyr' } },
-          },
-          systemInstruction: 'You are a warm, helpful Polish language tutor engaged in a voice conversation. Speak clearly. Do not use markdown formatting in speech.',
-        },
-        callbacks: {
-          onopen: () => {
-            if (!isLiveRef.current) return;
-            setLiveStatus('Listening...');
-            console.log("Live Session Open");
-            
-            const source = inputContextRef.current!.createMediaStreamSource(stream);
-            // Buffer size 4096 is standard for ScriptProcessor
-            const scriptProcessor = inputContextRef.current!.createScriptProcessor(4096, 1, 1);
-            
-            scriptProcessor.onaudioprocess = (e) => {
-              if (!isLiveRef.current) return;
-              
-              const inputData = e.inputBuffer.getChannelData(0);
-              
-              // Simple volume check for visual feedback
-              let sum = 0;
-              for (let i = 0; i < inputData.length; i += 100) { // Check every 100th sample for speed
-                sum += Math.abs(inputData[i]);
-              }
-              const avg = sum / (inputData.length / 100);
-              setAudioLevel(Math.min(100, avg * 500)); // Amplify for visual
-              
-              // CRITICAL: We downsample to 16000Hz before sending to Gemini
-              const pcmBlob = createBlob(inputData, recordingRate, 16000); 
-              
-              if (liveSessionRef.current) {
-                  liveSessionRef.current.then(session => {
-                      session.sendRealtimeInput({ media: pcmBlob });
-                  }).catch(err => {
-                      console.error("Error sending audio chunk:", err);
-                  });
-              }
-            };
-            
-            source.connect(scriptProcessor);
-            
-            // PREVENT ECHO: Connect scriptProcessor to a mute gain node instead of destination
-            // Some browsers require ScriptProcessor to be connected to destination to fire events.
-            const muteNode = inputContextRef.current!.createGain();
-            muteNode.gain.value = 0;
-            scriptProcessor.connect(muteNode);
-            muteNode.connect(inputContextRef.current!.destination);
-          },
-          onmessage: async (message: LiveServerMessage) => {
-            if (!isLiveRef.current) return;
-            
-            // Handle Transcripts
-            if (message.serverContent?.inputTranscription) {
-                const text = message.serverContent.inputTranscription.text;
-                if (text) setLiveTranscript(prev => ({ ...prev, user: prev.user + text }));
-            }
-            if (message.serverContent?.outputTranscription) {
-                const text = message.serverContent.outputTranscription.text;
-                if (text) setLiveTranscript(prev => ({ ...prev, model: prev.model + text }));
-            }
-
-            if (message.serverContent?.turnComplete) {
-                setLiveTranscript(prev => {
-                    return { user: '', model: '' };
-                });
-            }
-
-            // Handle Audio
-            const base64Audio = message.serverContent?.modelTurn?.parts[0]?.inlineData?.data;
-            if (base64Audio && audioContextRef.current) {
-                setLiveStatus('Speaking...');
-                const ctx = audioContextRef.current;
-                
-                if (ctx.state === 'suspended') await ctx.resume();
-
-                nextStartTimeRef.current = Math.max(nextStartTimeRef.current, ctx.currentTime);
-                
-                const audioBuffer = await decodeAudioData(
-                    decode(base64Audio),
-                    ctx,
-                    24000,
-                    1
-                );
-                
-                const source = ctx.createBufferSource();
-                source.buffer = audioBuffer;
-                source.connect(outputNode);
-                source.addEventListener('ended', () => {
-                    sourcesRef.current.delete(source);
-                    if (sourcesRef.current.size === 0) setLiveStatus('Listening...');
-                });
-                
-                source.start(nextStartTimeRef.current);
-                nextStartTimeRef.current += audioBuffer.duration;
-                sourcesRef.current.add(source);
-            }
-            
-            if (message.serverContent?.interrupted) {
-                sourcesRef.current.forEach(s => s.stop());
-                sourcesRef.current.clear();
-                nextStartTimeRef.current = 0;
-                setLiveStatus('Interrupted');
-                setLiveTranscript({ user: '', model: '' });
-            }
-          },
-          onclose: () => {
-            console.log("Session closed");
-            stopLiveSession();
-          },
-          onerror: (e) => {
-            console.error("Live API Error", e);
-            setLiveStatus('Connection Error');
-            // Optional: alert(e.message);
-          }
-        }
-      });
-      
-      liveSessionRef.current = sessionPromise;
-      
-    } catch (e) {
-      console.error("Failed to start live session", e);
-      setIsLive(false);
-      isLiveRef.current = false;
-      alert("Could not start live session. Check console for details.");
-    }
-  };
-
   const formatText = (text: string) => {
     return text
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
@@ -505,45 +271,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 <button key={m} onClick={() => handleModeChange(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${mode === m ? 'bg-white shadow-sm text-[#FF4761]' : 'text-gray-500 hover:text-gray-700'}`}>{m.toUpperCase()}</button>
                 ))}
             </div>
-            {isLive && (
-                <div className="flex items-center gap-2 px-3 py-1 bg-red-50 text-red-500 rounded-full border border-red-100 animate-pulse relative overflow-hidden">
-                    <div className="w-2 h-2 rounded-full bg-red-500 z-10"></div>
-                    <span className="text-[10px] font-black uppercase tracking-wider z-10">{liveStatus}</span>
-                    <div 
-                      className="absolute bottom-0 left-0 bg-red-200/50 h-full transition-all duration-100" 
-                      style={{ width: `${audioLevel}%` }}
-                    ></div>
-                </div>
-            )}
           </div>
           <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest px-3">{profile.role}</span>
         </div>
 
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9] relative">
-          {/* Live Transcript Overlay */}
-          {isLive && (liveTranscript.user || liveTranscript.model) && (
-            <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-white via-white/95 to-transparent z-10 pointer-events-none flex flex-col justify-end min-h-[50%]">
-              <div className="max-w-3xl mx-auto w-full space-y-4">
-                {liveTranscript.user && (
-                    <div className="self-end animate-in slide-in-from-bottom-2 fade-in">
-                         <span className="text-[10px] uppercase font-black text-gray-400 tracking-widest mb-1 block text-right">You</span>
-                         <div className="bg-gray-100 text-gray-600 rounded-2xl rounded-tr-none px-4 py-3 text-lg font-medium leading-relaxed shadow-sm">
-                            {liveTranscript.user}
-                         </div>
-                    </div>
-                )}
-                {liveTranscript.model && (
-                    <div className="self-start animate-in slide-in-from-bottom-2 fade-in">
-                         <span className="text-[10px] uppercase font-black text-rose-400 tracking-widest mb-1 block">Tutor</span>
-                         <div className="bg-white text-gray-800 border border-rose-100 rounded-2xl rounded-tl-none px-5 py-4 text-xl font-bold leading-relaxed shadow-lg">
-                            {liveTranscript.model}
-                         </div>
-                    </div>
-                )}
-              </div>
-            </div>
-          )}
-
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}>
               <div className={`max-w-[95%] sm:max-w-[85%] rounded-2xl px-5 py-3 shadow-sm ${
@@ -582,14 +314,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
         <div className="p-4 bg-white border-t border-gray-100 z-30">
           <div className="max-w-4xl mx-auto flex gap-3 items-center relative">
-            <button 
-                onClick={toggleLiveSession}
-                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isLive ? 'bg-red-500 text-white animate-pulse shadow-red-200 shadow-lg' : 'bg-rose-50 text-[#FF4761] hover:bg-rose-100'}`}
-                title="Toggle Live Voice Mode"
-            >
-                <ICONS.Mic className="w-5 h-5" />
-            </button>
-            
             <button 
                 onClick={() => fileInputRef.current?.click()} 
                 className="w-10 h-10 bg-gray-50 text-gray-500 rounded-xl flex items-center justify-center transition-all hover:bg-gray-100"
