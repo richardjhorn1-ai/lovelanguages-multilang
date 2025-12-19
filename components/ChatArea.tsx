@@ -24,6 +24,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [isLive, setIsLive] = useState(false);
   const [liveStatus, setLiveStatus] = useState<string>('');
   const [liveTranscript, setLiveTranscript] = useState<{ user: string; model: string }>({ user: '', model: '' });
+  const [audioLevel, setAudioLevel] = useState(0);
   
   // Refs for managing live session state without closure staleness
   const isLiveRef = useRef(false);
@@ -182,6 +183,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setIsLive(false);
     setLiveStatus('');
     setLiveTranscript({ user: '', model: '' });
+    setAudioLevel(0);
 
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(track => track.stop());
@@ -269,6 +271,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           onopen: () => {
             if (!isLiveRef.current) return;
             setLiveStatus('Listening...');
+            console.log("Live Session Open");
             
             const source = inputContextRef.current!.createMediaStreamSource(stream);
             // Buffer size 4096 is standard for ScriptProcessor
@@ -278,13 +281,24 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               if (!isLiveRef.current) return;
               
               const inputData = e.inputBuffer.getChannelData(0);
+              
+              // Simple volume check for visual feedback
+              let sum = 0;
+              for (let i = 0; i < inputData.length; i += 100) { // Check every 100th sample for speed
+                sum += Math.abs(inputData[i]);
+              }
+              const avg = sum / (inputData.length / 100);
+              setAudioLevel(Math.min(100, avg * 500)); // Amplify for visual
+              
               // CRITICAL: We downsample to 16000Hz before sending to Gemini
               const pcmBlob = createBlob(inputData, recordingRate, 16000); 
               
               if (liveSessionRef.current) {
                   liveSessionRef.current.then(session => {
                       session.sendRealtimeInput({ media: pcmBlob });
-                  }).catch(console.error);
+                  }).catch(err => {
+                      console.error("Error sending audio chunk:", err);
+                  });
               }
             };
             
@@ -361,6 +375,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           onerror: (e) => {
             console.error("Live API Error", e);
             setLiveStatus('Connection Error');
+            // Optional: alert(e.message);
           }
         }
       });
@@ -491,9 +506,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 ))}
             </div>
             {isLive && (
-                <div className="flex items-center gap-2 px-3 py-1 bg-red-50 text-red-500 rounded-full border border-red-100 animate-pulse">
-                    <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                    <span className="text-[10px] font-black uppercase tracking-wider">{liveStatus}</span>
+                <div className="flex items-center gap-2 px-3 py-1 bg-red-50 text-red-500 rounded-full border border-red-100 animate-pulse relative overflow-hidden">
+                    <div className="w-2 h-2 rounded-full bg-red-500 z-10"></div>
+                    <span className="text-[10px] font-black uppercase tracking-wider z-10">{liveStatus}</span>
+                    <div 
+                      className="absolute bottom-0 left-0 bg-red-200/50 h-full transition-all duration-100" 
+                      style={{ width: `${audioLevel}%` }}
+                    ></div>
                 </div>
             )}
           </div>
