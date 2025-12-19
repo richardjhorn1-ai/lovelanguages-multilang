@@ -1,10 +1,10 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
 export default async function handler(req: any, res: any) {
-  console.log("Function invoked"); // Debug log
+  console.log("API Handler Invoked (ESM)");
 
   // Set CORS headers
-  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
   res.setHeader(
@@ -27,8 +27,12 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: "Server Error: API Key missing" });
     }
 
-    // Body Parsing Logic
+    // Vercel Node.js Body Parsing
+    // In Vercel Node runtime (without body-parser middleware), req.body might be null if not handled, 
+    // but usually Vercel parses JSON automatically for functions.
     let body = req.body;
+    
+    // Fallback: if body is string, parse it.
     if (typeof body === 'string') {
       try {
         body = JSON.parse(body);
@@ -55,7 +59,7 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ title: response.text?.replace(/"/g, '') || "New Chat" });
     }
 
-    // Action: Default Chat
+    // Action: Default Chat/Tutor
     const commonInstructions = `
 You are part of a couple-based language learning app focused on emotional bonding, confidence, and clarity.
 GLOBAL INVARIANTS:
