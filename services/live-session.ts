@@ -1,8 +1,9 @@
 
 import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
+import { RefObject } from 'react';
 
 export interface LiveSessionConfig {
-  videoElement?: HTMLVideoElement;
+  videoRef?: RefObject<HTMLVideoElement | null>;
   onTranscript?: (role: 'user' | 'model', text: string) => void;
   onClose?: () => void;
 }
@@ -40,7 +41,7 @@ export class LiveSession {
         onopen: async () => {
           console.log('Live Session Connected');
           await this.startAudioInput(sessionPromise);
-          if (this.config.videoElement) {
+          if (this.config.videoRef) {
             this.startVideoInput(sessionPromise);
           }
         },
@@ -90,15 +91,16 @@ export class LiveSession {
   }
 
   private startVideoInput(sessionPromise: Promise<any>) {
-    if (!this.config.videoElement) return;
+    if (!this.config.videoRef) return;
     
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    const video = this.config.videoElement;
 
     // Send a frame every 1s (1 FPS) to save bandwidth but maintain context
     this.videoInterval = window.setInterval(() => {
-        if (!video.videoWidth || !ctx) return;
+        const video = this.config.videoRef?.current;
+        if (!video || !video.videoWidth || !ctx) return;
+        
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         ctx.drawImage(video, 0, 0);
