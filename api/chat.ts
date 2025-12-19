@@ -1,9 +1,4 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
-
-export const config = {
-  runtime: 'edge',
-};
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
@@ -13,7 +8,7 @@ export default async function handler(req: Request) {
   }
 
   try {
-    const { prompt, mode, userLog, action } = await req.json();
+    const { prompt, mode, userLog, action, images } = await req.json();
 
     // Handle Title Generation
     if (action === 'generateTitle') {
@@ -70,9 +65,20 @@ ${commonInstructions}
 `
     };
 
+    // Construct content parts (Text + Images)
+    const parts: any[] = [];
+    if (images && Array.isArray(images)) {
+      images.forEach((img: any) => {
+        if (img.data && img.mimeType) {
+          parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } });
+        }
+      });
+    }
+    parts.push({ text: prompt || " " });
+
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: prompt,
+      contents: { parts },
       config: {
         systemInstruction: systemInstructionsMap[mode] || systemInstructionsMap.chat,
         responseMimeType: "application/json",
@@ -105,9 +111,9 @@ ${commonInstructions}
       headers: { 'Content-Type': 'application/json' }
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("API Error:", error);
-    return new Response(JSON.stringify({ error: "Failed to process request" }), { 
+    return new Response(JSON.stringify({ error: "Failed to process request", details: error.message }), { 
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

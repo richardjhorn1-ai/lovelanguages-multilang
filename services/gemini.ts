@@ -8,12 +8,17 @@ export interface ExtractedWord {
   rootWord?: string;
 }
 
+export interface Attachment {
+  data: string;
+  mimeType: string;
+}
+
 export const geminiService = {
   /**
    * Generates a response based on the mode and extracts Polish words from the dialogue.
    * Now proxies through the server-side API to keep keys secure.
    */
-  async generateAndExtract(prompt: string, mode: string, userLog: string[]): Promise<{ text: string; words: ExtractedWord[] }> {
+  async generateAndExtract(prompt: string, mode: string, userLog: string[], images: Attachment[] = []): Promise<{ text: string; words: ExtractedWord[] }> {
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
@@ -24,12 +29,14 @@ export const geminiService = {
           prompt,
           mode,
           userLog,
-          action: 'generateAndExtract'
+          action: 'generateAndExtract',
+          images
         }),
       });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        const errText = await response.text();
+        throw new Error(`Network response was not ok: ${errText}`);
       }
 
       const parsed = await response.json();
@@ -44,7 +51,7 @@ export const geminiService = {
       };
     } catch (e) {
       console.error("Gemini Service Error:", e);
-      return { text: "I'm sorry, I had a little hiccup connecting to the brain!", words: [] };
+      return { text: "I'm sorry, I had a little hiccup connecting to the brain! Please try again.", words: [] };
     }
   },
 
