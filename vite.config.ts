@@ -7,12 +7,13 @@ export default defineConfig(({ mode }) => {
   // Set the third parameter to '' to load all env regardless of the `VITE_` prefix.
   const env = loadEnv(mode, process.cwd(), '');
   
-  // Vercel sometimes injects env vars into process.env directly during build
-  const apiKey = env.API_KEY || process.env.API_KEY;
+  // Look for GEMINI_API_KEY first, then API_KEY
+  const apiKey = env.GEMINI_API_KEY || env.API_KEY || process.env.GEMINI_API_KEY || process.env.API_KEY;
 
   return {
     plugins: [react()],
     define: {
+      // Map it to process.env.API_KEY so the client code (ChatArea.tsx) doesn't need to change
       'process.env.API_KEY': JSON.stringify(apiKey)
     }
   }

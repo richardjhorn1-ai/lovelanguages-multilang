@@ -21,9 +21,11 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const apiKey = process.env.API_KEY;
+    // Check for GEMINI_API_KEY first, fallback to API_KEY
+    const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+    
     if (!apiKey) {
-      console.error("Missing API Key");
+      console.error("Missing API Key (Checked GEMINI_API_KEY and API_KEY)");
       return res.status(500).json({ error: "Server Error: API Key missing" });
     }
 
