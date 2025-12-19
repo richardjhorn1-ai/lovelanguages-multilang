@@ -209,12 +209,18 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       return;
     }
 
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+      alert("API Key is missing! Please configure the API_KEY environment variable in Vercel.");
+      return;
+    }
+
     setIsLive(true);
     isLiveRef.current = true;
     setLiveStatus('Connecting...');
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = new GoogleGenAI({ apiKey });
       nextStartTimeRef.current = 0;
       
       // Initialize Audio Contexts
@@ -320,7 +326,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       console.error("Failed to start live session", e);
       setIsLive(false);
       isLiveRef.current = false;
-      alert("Could not start live session. Check console.");
+      alert("Could not start live session. Check console for details.");
     }
   };
 

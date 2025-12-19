@@ -1,13 +1,25 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export default async function handler(req: Request) {
   if (req.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
   }
 
+  const apiKey = process.env.API_KEY;
+
+  if (!apiKey) {
+    console.error("Server Error: process.env.API_KEY is missing");
+    return new Response(JSON.stringify({ 
+      error: "Server Configuration Error", 
+      details: "API Key is missing on the server. Please check Vercel environment variables." 
+    }), { 
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
   try {
+    const ai = new GoogleGenAI({ apiKey });
     const { prompt, mode, userLog, action, images } = await req.json();
 
     // Handle Title Generation
