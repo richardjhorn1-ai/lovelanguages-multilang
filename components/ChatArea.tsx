@@ -30,9 +30,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [isLiveActive, setIsLiveActive] = useState(false);
   const [liveMode, setLiveMode] = useState<'audio' | 'video'>('audio');
   const [transcripts, setTranscripts] = useState<TranscriptItem[]>([]);
+  const [localStream, setLocalStream] = useState<MediaStream | null>(null);
 
   const scrollRef = useRef<HTMLDivElement>(null);
-  const transcriptRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -53,13 +53,14 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages, loading, attachments]);
+  }, [messages, loading, attachments, transcripts, isLiveActive]);
 
   useEffect(() => {
-    if (transcriptRef.current) {
-        transcriptRef.current.scrollTop = transcriptRef.current.scrollHeight;
+    if (isLiveActive && liveMode === 'video' && videoRef.current && localStream) {
+        videoRef.current.srcObject = localStream;
+        videoRef.current.play().catch(e => console.error("Video play failed", e));
     }
-  }, [transcripts]);
+  }, [isLiveActive, liveMode, localStream]);
 
   // --- Chat Data Logic ---
 
@@ -193,24 +194,19 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setTranscripts([]);
 
     try {
-        let stream;
+        let stream = null;
         if (type === 'video') {
             stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-            if (videoRef.current) {
-                videoRef.current.srcObject = stream;
-                videoRef.current.play();
-            }
+            setLocalStream(stream);
         }
         
         liveSessionRef.current = new LiveSession({
-            videoElement: type === 'video' ? videoRef.current! : undefined,
+            videoRef: videoRef, // Pass ref to LiveSession
             onClose: endLiveSession,
             onTranscript: (role, text) => {
                 setTranscripts(prev => {
                     const last = prev[prev.length - 1];
-                    // Simple logic: if same role, append text, else new item.
-                    // Note: Gemini streams chunks, sometimes duplicates. 
-                    // This is a naive implementation; for production, use IDs if available or smarter diffing.
+                    // Append transcript delta
                     if (last && last.role === role) {
                          return [...prev.slice(0, -1), { role, text: last.text + text }];
                     }
@@ -234,9 +230,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         liveSessionRef.current = null;
     }
     
-    if (videoRef.current && videoRef.current.srcObject) {
-        const stream = videoRef.current.srcObject as MediaStream;
-        stream.getTracks().forEach(t => t.stop());
+    if (localStream) {
+        localStream.getTracks().forEach(t => t.stop());
+        setLocalStream(null);
+    }
+
+    if (videoRef.current) {
         videoRef.current.srcObject = null;
     }
 
@@ -247,7 +246,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const formatText = (text: string) => text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]/g, '<span class="pronunciation">$1</span>');
   
   const formatMessage = (content: string) => {
-    // (Same parsing logic as before, abbreviated for brevity in changes but fully retained in implementation)
     const lines = content.split('\n');
     let htmlOutput = '';
     let inTable = false;
@@ -337,7 +335,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest px-3">{profile.role}</span>
         </div>
 
-        {/* Messages */}
+        {/* Messages List & Inline Live Deck */}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9] relative pb-32">
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}>
@@ -351,7 +349,74 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               </div>
             </div>
           ))}
+          
           {loading && <div className="flex justify-start"><div className="bg-white border border-rose-100 px-3 py-1.5 rounded-xl flex gap-1 animate-pulse"><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div></div></div>}
+
+          {/* INLINE LIVE SESSION CARD */}
+          {isLiveActive && (
+            <div className="mt-6 mx-auto w-full max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="bg-white border border-rose-100 rounded-[1.5rem] shadow-sm overflow-hidden">
+                    {/* Status Header */}
+                    <div className="bg-rose-50 px-4 py-2 flex items-center justify-between">
+                         <div className="flex items-center gap-2">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                            </span>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-rose-400">
+                                {liveMode === 'audio' ? 'Live Voice' : 'Live Video'} Active
+                            </span>
+                         </div>
+                         <button onClick={endLiveSession} className="text-rose-300 hover:text-red-500 transition-colors">
+                            <ICONS.X className="w-4 h-4" />
+                         </button>
+                    </div>
+
+                    {/* Video Area (Only if Video Mode) */}
+                    <div className={liveMode === 'video' ? 'block' : 'hidden'}>
+                        <video 
+                            ref={videoRef} 
+                            className="w-full h-64 object-cover bg-black" 
+                            autoPlay 
+                            muted 
+                            playsInline 
+                        />
+                    </div>
+
+                    {/* Transcripts / Content */}
+                    <div className="p-4 space-y-3 min-h-[100px] max-h-[300px] overflow-y-auto">
+                        {transcripts.length === 0 ? (
+                            <div className="flex flex-col items-center justify-center py-6 text-gray-300">
+                                <ICONS.Mic className="w-8 h-8 mb-2 opacity-50" />
+                                <p className="text-xs font-bold uppercase tracking-wide">Listening...</p>
+                            </div>
+                        ) : (
+                            transcripts.map((t, i) => (
+                                <div key={i} className={`flex ${t.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                                    <div className={`px-4 py-2 rounded-2xl text-sm font-medium leading-snug max-w-[85%] ${
+                                        t.role === 'user' 
+                                        ? 'bg-rose-500 text-white rounded-tr-none' 
+                                        : 'bg-gray-100 text-gray-700 rounded-tl-none'
+                                    }`}>
+                                    {t.text}
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+
+                    {/* Footer Actions */}
+                    <div className="p-3 bg-gray-50 flex justify-center border-t border-gray-100">
+                        <button 
+                            onClick={endLiveSession} 
+                            className="text-gray-400 hover:text-rose-500 text-[10px] font-black uppercase tracking-widest transition-colors flex items-center gap-1"
+                        >
+                            End Session
+                        </button>
+                    </div>
+                </div>
+            </div>
+          )}
         </div>
 
         {/* Attachment Previews */}
@@ -371,63 +436,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 ))}
             </div>
         )}
-
-        {/* --- LIVE CONTROL DECK (Compact) --- */}
-        {isLiveActive && (
-            <div className="absolute bottom-20 left-4 right-4 z-40 animate-in slide-in-from-bottom-5 duration-300">
-                <div className="relative bg-white/95 backdrop-blur-xl border border-rose-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col h-64 sm:h-72">
-                    
-                    {/* Header */}
-                    <div className="px-4 py-3 border-b border-rose-100 flex items-center justify-between bg-rose-50/50">
-                        <div className="flex items-center gap-2">
-                             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                             <span className="text-xs font-black uppercase tracking-wider text-rose-500">
-                                {liveMode === 'audio' ? 'Live Voice' : 'Live Video'}
-                             </span>
-                        </div>
-                        <button onClick={endLiveSession} className="text-rose-300 hover:text-red-500 transition-colors">
-                            <ICONS.X className="w-5 h-5" />
-                        </button>
-                    </div>
-
-                    {/* Main Content Area */}
-                    <div className="flex-1 relative overflow-hidden bg-gray-50">
-                        {/* Video Background Layer */}
-                        {liveMode === 'video' && (
-                             <video 
-                                ref={videoRef}
-                                className="absolute inset-0 w-full h-full object-cover opacity-80"
-                                autoPlay
-                                muted
-                                playsInline
-                             />
-                        )}
-
-                        {/* Transcripts Layer */}
-                        <div ref={transcriptRef} className={`absolute inset-0 overflow-y-auto p-4 space-y-3 ${liveMode === 'video' ? 'bg-gradient-to-t from-black/80 to-transparent' : ''}`}>
-                             {transcripts.length === 0 && (
-                                 <div className={`h-full flex flex-col items-center justify-center text-center ${liveMode === 'video' ? 'text-white/70' : 'text-gray-400'}`}>
-                                     <ICONS.Mic className={`w-8 h-8 mb-2 ${liveMode === 'video' ? 'text-white/50' : 'text-gray-300'}`} />
-                                     <p className="text-xs font-bold">Listening...</p>
-                                 </div>
-                             )}
-                             {transcripts.map((t, i) => (
-                                 <div key={i} className={`flex ${t.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                     <div className={`max-w-[85%] rounded-2xl px-3 py-2 text-xs font-medium leading-relaxed ${
-                                         t.role === 'user' 
-                                            ? 'bg-rose-500 text-white rounded-tr-none' 
-                                            : (liveMode === 'video' ? 'bg-white/90 text-gray-800' : 'bg-white border border-rose-100 text-gray-700') + ' rounded-tl-none'
-                                     }`}>
-                                         {t.text}
-                                     </div>
-                                 </div>
-                             ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )}
-
 
         {/* Input Area */}
         <div className="p-4 bg-white border-t border-gray-100 z-30">
