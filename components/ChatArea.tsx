@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from '../services/supabase';
 import { geminiService, Attachment } from '../services/gemini';
+import { LiveSession } from '../services/live-session';
 import { Profile, Chat, Message, ChatMode } from '../types';
 import { ICONS } from '../constants';
 
@@ -10,6 +11,7 @@ interface ChatAreaProps {
 }
 
 const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
+  // Chat State
   const [chats, setChats] = useState<Chat[]>([]);
   const [activeChat, setActiveChat] = useState<Chat | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -18,8 +20,16 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [loading, setLoading] = useState(false);
   const [attachments, setAttachments] = useState<Attachment[]>([]);
   
+  // Menu & Live State
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLiveActive, setIsLiveActive] = useState(false);
+  const [liveMode, setLiveMode] = useState<'audio' | 'video'>('audio');
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const liveSessionRef = useRef<LiveSession | null>(null);
 
   useEffect(() => {
     fetchChats();
@@ -37,6 +47,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, loading, attachments]);
+
+  // --- Chat Data Logic ---
 
   const fetchChats = async () => {
     try {
@@ -140,7 +152,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setChats(prev => prev.filter(c => c.id !== id));
   };
 
+  // --- Attachments & Menu ---
+
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsMenuOpen(false);
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
       const reader = new FileReader();
@@ -156,13 +171,58 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setAttachments(prev => prev.filter((_, i) => i !== index));
   };
 
-  const formatText = (text: string) => {
-    return text
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\[(.*?)\]/g, '<span class="pronunciation">$1</span>');
+  // --- Live Session Logic ---
+
+  const startLiveSession = async (type: 'audio' | 'video') => {
+    setIsMenuOpen(false);
+    setLiveMode(type);
+    setIsLiveActive(true);
+
+    try {
+        let stream;
+        if (type === 'video') {
+            stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            if (videoRef.current) {
+                videoRef.current.srcObject = stream;
+                videoRef.current.play();
+            }
+        }
+        
+        liveSessionRef.current = new LiveSession({
+            videoElement: type === 'video' ? videoRef.current! : undefined,
+            onClose: endLiveSession
+        });
+        
+        await liveSessionRef.current.connect();
+
+    } catch (e) {
+        console.error("Failed to start live session", e);
+        alert("Could not access camera/microphone. Please allow permissions.");
+        endLiveSession();
+    }
   };
 
+  const endLiveSession = () => {
+    if (liveSessionRef.current) {
+        liveSessionRef.current.disconnect();
+        liveSessionRef.current = null;
+    }
+    
+    // Stop local video stream if active
+    if (videoRef.current && videoRef.current.srcObject) {
+        const stream = videoRef.current.srcObject as MediaStream;
+        stream.getTracks().forEach(t => t.stop());
+        videoRef.current.srcObject = null;
+    }
+
+    setIsLiveActive(false);
+  };
+
+  // --- Formatting Helpers ---
+  const formatText = (text: string) => text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]/g, '<span class="pronunciation">$1</span>');
+  
   const formatMessage = (content: string) => {
+    // (Same parsing logic as before, abbreviated for brevity in changes but fully retained in implementation)
     const lines = content.split('\n');
     let htmlOutput = '';
     let inTable = false;
@@ -173,8 +233,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     const flushTable = () => {
       if (inTable) {
         let tableHtml = '<div class="table-wrapper"><table><thead><tr>';
-        const headers = tableRows[0];
-        headers.forEach(h => tableHtml += `<th>${formatText(h.trim())}</th>`);
+        tableRows[0].forEach(h => tableHtml += `<th>${formatText(h.trim())}</th>`);
         tableHtml += '</tr></thead><tbody>';
         for (let i = 2; i < tableRows.length; i++) {
           tableHtml += '<tr>';
@@ -190,56 +249,32 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     lines.forEach((line) => {
       const trimmed = line.trim();
-
       if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
         flushList();
         inTable = true;
         const cells = trimmed.split('|').filter((_, i, arr) => i > 0 && i < arr.length - 1);
         if (cells.length > 0) tableRows.push(cells);
         return;
-      } else {
-        flushTable();
       }
-
-      if (trimmed.startsWith('### ')) {
-        flushList();
-        htmlOutput += `<h3>${formatText(trimmed.slice(4))}</h3>`;
-        return;
-      }
-      if (trimmed.startsWith('## ')) {
-        flushList();
-        htmlOutput += `<h2>${formatText(trimmed.slice(3))}</h2>`;
-        return;
-      }
-
-      if (trimmed === '---') {
-        flushList();
-        htmlOutput += '<hr />';
-        return;
-      }
-
+      flushTable();
+      if (trimmed.startsWith('### ')) { flushList(); htmlOutput += `<h3>${formatText(trimmed.slice(4))}</h3>`; return; }
+      if (trimmed.startsWith('## ')) { flushList(); htmlOutput += `<h2>${formatText(trimmed.slice(3))}</h2>`; return; }
+      if (trimmed === '---') { flushList(); htmlOutput += '<hr />'; return; }
       if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
         if (!inList) { htmlOutput += '<ul>'; inList = true; }
         htmlOutput += `<li>${formatText(trimmed.slice(2))}</li>`;
         return;
-      } else {
-        flushList();
       }
-
-      if (trimmed) {
-        htmlOutput += `<p>${formatText(trimmed)}</p>`;
-      } else {
-        htmlOutput += '<div class="h-1"></div>';
-      }
+      flushList();
+      htmlOutput += trimmed ? `<p>${formatText(trimmed)}</p>` : '<div class="h-1"></div>';
     });
-
-    flushList();
-    flushTable();
+    flushList(); flushTable();
     return { __html: htmlOutput };
   };
 
   return (
     <div className="flex h-full bg-[#fdfcfd] relative overflow-hidden">
+      {/* Sidebar (Desktop) */}
       <div className="w-64 border-r border-gray-100 flex flex-col hidden lg:flex bg-white shadow-sm z-10">
         <div className="p-3 border-b border-gray-100">
           <button onClick={() => createNewChat(mode)} className="w-full bg-[#FF4761] hover:bg-[#E63E56] text-white rounded-xl py-2 px-3 flex items-center justify-center gap-2 font-bold text-sm transition-all active:scale-95 shadow-sm">
@@ -263,7 +298,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         </div>
       </div>
 
+      {/* Main Chat Area */}
       <div className="flex-1 flex flex-col relative">
+        {/* Header */}
         <div className="p-3 border-b border-gray-100 flex items-center justify-between bg-white/90 backdrop-blur-md sticky top-0 z-20">
           <div className="flex items-center gap-3">
             <div className="flex bg-gray-100 p-1 rounded-xl">
@@ -275,6 +312,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest px-3">{profile.role}</span>
         </div>
 
+        {/* Messages */}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9] relative">
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}>
@@ -285,16 +323,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                   className={`chat-content leading-snug font-medium ${msg.role === 'user' ? 'text-white' : 'text-gray-800'}`} 
                   dangerouslySetInnerHTML={formatMessage(msg.content)} 
                 />
-                <div className={`text-[8px] mt-1.5 opacity-40 font-bold ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
-                    {new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                </div>
               </div>
             </div>
           ))}
           {loading && <div className="flex justify-start"><div className="bg-white border border-rose-100 px-3 py-1.5 rounded-xl flex gap-1 animate-pulse"><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div></div></div>}
         </div>
 
-        {/* Attachment Preview Area */}
+        {/* Attachment Previews */}
         {attachments.length > 0 && (
             <div className="px-4 py-2 bg-gray-50 border-t border-gray-100 flex gap-2 overflow-x-auto">
                 {attachments.map((file, i) => (
@@ -312,30 +347,111 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
         )}
 
+        {/* Input Area */}
         <div className="p-4 bg-white border-t border-gray-100 z-30">
           <div className="max-w-4xl mx-auto flex gap-3 items-center relative">
-            <button 
-                onClick={() => fileInputRef.current?.click()} 
-                className="w-10 h-10 bg-gray-50 text-gray-500 rounded-xl flex items-center justify-center transition-all hover:bg-gray-100"
-                title="Attach Image/File"
-            >
-                <ICONS.Paperclip className="w-5 h-5" />
-            </button>
-            <input 
-                type="file" 
-                ref={fileInputRef} 
-                className="hidden" 
-                onChange={handleFileSelect} 
-                accept="image/*"
-            />
+            
+            {/* The Cute Menu */}
+            <div className="relative">
+                {/* Expandable Options */}
+                <div className={`absolute bottom-14 left-0 flex flex-col gap-3 transition-all duration-300 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+                    
+                    {/* Live Video */}
+                    <button onClick={() => startLiveSession('video')} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110" title="Live Video">
+                        <ICONS.Video className="w-5 h-5" />
+                    </button>
+                    
+                    {/* Live Voice */}
+                    <button onClick={() => startLiveSession('audio')} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110" title="Live Voice">
+                        <ICONS.Mic className="w-5 h-5" />
+                    </button>
 
+                    {/* Camera (Photo) */}
+                    <button onClick={() => cameraInputRef.current?.click()} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110" title="Take Photo">
+                        <ICONS.Image className="w-5 h-5" />
+                    </button>
+
+                    {/* Document */}
+                    <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110" title="Upload File">
+                        <ICONS.FileText className="w-5 h-5" />
+                    </button>
+                </div>
+
+                {/* Main Toggle Button */}
+                <button 
+                    onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-md z-20 ${isMenuOpen ? 'bg-gray-100 text-gray-500 rotate-45' : 'bg-[#FF4761] text-white hover:scale-105'}`}
+                >
+                    <ICONS.Plus className="w-6 h-6" />
+                </button>
+            </div>
+
+            {/* Hidden Inputs */}
+            <input type="file" ref={fileInputRef} className="hidden" onChange={handleFileSelect} />
+            <input type="file" ref={cameraInputRef} className="hidden" onChange={handleFileSelect} accept="image/*" capture="environment" />
+
+            {/* Text Input */}
             <div className="flex-1">
               <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()} placeholder="Ask in English or Polish..." className="w-full px-5 py-2.5 bg-[#F2F4F7] border-none rounded-full focus:outline-none focus:ring-1 focus:ring-rose-200 text-sm font-bold text-gray-700 placeholder:text-gray-400" />
             </div>
+            
             <button onClick={handleSend} disabled={loading || (!input.trim() && attachments.length === 0)} className="w-10 h-10 bg-[#FF4761] text-white rounded-full flex items-center justify-center transition-all disabled:opacity-50 shadow-md active:scale-90"><ICONS.Play className="w-4 h-4 fill-white" /></button>
           </div>
         </div>
       </div>
+
+      {/* LIVE SESSION MODAL */}
+      {isLiveActive && (
+          <div className="fixed inset-0 z-50 bg-[#292F36] flex flex-col animate-in fade-in duration-300">
+              {/* Video Background */}
+              {liveMode === 'video' && (
+                  <video 
+                    ref={videoRef} 
+                    className="absolute inset-0 w-full h-full object-cover opacity-60" 
+                    autoPlay 
+                    muted 
+                    playsInline 
+                  />
+              )}
+
+              {/* UI Overlay */}
+              <div className="relative z-10 flex-1 flex flex-col items-center justify-center p-8">
+                  
+                  {liveMode === 'audio' ? (
+                      // Audio Visualizer (Simulated)
+                      <div className="relative">
+                          <div className="w-48 h-48 bg-rose-500/20 rounded-full animate-ping absolute inset-0"></div>
+                          <div className="w-48 h-48 bg-rose-500/40 rounded-full animate-pulse absolute inset-0 delay-75"></div>
+                          <div className="w-48 h-48 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center justify-center relative">
+                              <ICONS.Mic className="w-16 h-16 text-white" />
+                          </div>
+                      </div>
+                  ) : (
+                      // Video Overlay UI
+                      <div className="w-full flex-1 flex flex-col justify-end pb-20">
+                           {/* Intentionally empty for video focus, maybe subtitles here later */}
+                      </div>
+                  )}
+
+                  <div className="mt-12 text-center">
+                      <h2 className="text-2xl font-header font-bold text-white mb-2">
+                        {liveMode === 'audio' ? 'Live Voice Session' : 'Live Video Session'}
+                      </h2>
+                      <p className="text-white/60 text-sm">Gemini is listening...</p>
+                  </div>
+              </div>
+
+              {/* Controls */}
+              <div className="p-8 pb-12 flex justify-center gap-6 relative z-10">
+                  <button 
+                    onClick={endLiveSession}
+                    className="w-16 h-16 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white shadow-xl transition-transform hover:scale-110 active:scale-95"
+                  >
+                      <ICONS.X className="w-8 h-8" />
+                  </button>
+              </div>
+          </div>
+      )}
     </div>
   );
 };
