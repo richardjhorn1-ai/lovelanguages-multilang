@@ -23,6 +23,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   // Live API State
   const [isLive, setIsLive] = useState(false);
   const [liveStatus, setLiveStatus] = useState<string>('');
+  const [liveTranscript, setLiveTranscript] = useState<{ user: string; model: string }>({ user: '', model: '' });
   
   // Refs for managing live session state without closure staleness
   const isLiveRef = useRef(false);
@@ -54,7 +55,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages, loading, attachments]);
+  }, [messages, loading, attachments, liveTranscript]);
 
   const fetchChats = async () => {
     try {
@@ -180,6 +181,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     isLiveRef.current = false;
     setIsLive(false);
     setLiveStatus('');
+    setLiveTranscript({ user: '', model: '' });
 
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(track => track.stop());
@@ -235,8 +237,16 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       nextStartTimeRef.current = 0;
       
       // Initialize Audio Contexts
-      inputContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
+      // NOTE: We do NOT force sampleRate here, we let the hardware decide (often 44.1k or 48k)
+      // We will downsample later.
+      inputContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      await inputContextRef.current.resume(); // Explicitly resume to ensure it's active
+
+      const recordingRate = inputContextRef.current.sampleRate;
+      console.log(`Live Input Hardware Rate: ${recordingRate}`);
+
       audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
+      await audioContextRef.current.resume();
       
       const outputNode = audioContextRef.current.createGain();
       outputNode.connect(audioContextRef.current.destination);
@@ -248,25 +258,28 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         model: 'gemini-2.5-flash-native-audio-preview-09-2025',
         config: {
           responseModalities: [Modality.AUDIO],
+          inputAudioTranscription: {}, 
+          outputAudioTranscription: {},
           speechConfig: {
             voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Zephyr' } },
           },
-          systemInstruction: 'You are a warm, helpful Polish language tutor engaged in a voice conversation.',
+          systemInstruction: 'You are a warm, helpful Polish language tutor engaged in a voice conversation. Speak clearly. Do not use markdown formatting in speech.',
         },
         callbacks: {
           onopen: () => {
             if (!isLiveRef.current) return;
-            setLiveStatus('Live');
+            setLiveStatus('Listening...');
             
             const source = inputContextRef.current!.createMediaStreamSource(stream);
+            // Buffer size 4096 is standard for ScriptProcessor
             const scriptProcessor = inputContextRef.current!.createScriptProcessor(4096, 1, 1);
             
             scriptProcessor.onaudioprocess = (e) => {
               if (!isLiveRef.current) return;
               
               const inputData = e.inputBuffer.getChannelData(0);
-              // Pass the actual sample rate so the util knows if it needs to adjust/header
-              const pcmBlob = createBlob(inputData); 
+              // CRITICAL: We downsample to 16000Hz before sending to Gemini
+              const pcmBlob = createBlob(inputData, recordingRate, 16000); 
               
               if (liveSessionRef.current) {
                   liveSessionRef.current.then(session => {
@@ -276,21 +289,41 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             };
             
             source.connect(scriptProcessor);
-            scriptProcessor.connect(inputContextRef.current!.destination);
+            
+            // PREVENT ECHO: Connect scriptProcessor to a mute gain node instead of destination
+            // Some browsers require ScriptProcessor to be connected to destination to fire events.
+            const muteNode = inputContextRef.current!.createGain();
+            muteNode.gain.value = 0;
+            scriptProcessor.connect(muteNode);
+            muteNode.connect(inputContextRef.current!.destination);
           },
           onmessage: async (message: LiveServerMessage) => {
             if (!isLiveRef.current) return;
             
+            // Handle Transcripts
+            if (message.serverContent?.inputTranscription) {
+                const text = message.serverContent.inputTranscription.text;
+                if (text) setLiveTranscript(prev => ({ ...prev, user: prev.user + text }));
+            }
+            if (message.serverContent?.outputTranscription) {
+                const text = message.serverContent.outputTranscription.text;
+                if (text) setLiveTranscript(prev => ({ ...prev, model: prev.model + text }));
+            }
+
+            if (message.serverContent?.turnComplete) {
+                setLiveTranscript(prev => {
+                    return { user: '', model: '' };
+                });
+            }
+
+            // Handle Audio
             const base64Audio = message.serverContent?.modelTurn?.parts[0]?.inlineData?.data;
             if (base64Audio && audioContextRef.current) {
+                setLiveStatus('Speaking...');
                 const ctx = audioContextRef.current;
                 
-                // Resume context if suspended (browser autoplay policy)
-                if (ctx.state === 'suspended') {
-                    await ctx.resume();
-                }
+                if (ctx.state === 'suspended') await ctx.resume();
 
-                // Ensure we don't schedule in the past
                 nextStartTimeRef.current = Math.max(nextStartTimeRef.current, ctx.currentTime);
                 
                 const audioBuffer = await decodeAudioData(
@@ -305,6 +338,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 source.connect(outputNode);
                 source.addEventListener('ended', () => {
                     sourcesRef.current.delete(source);
+                    if (sourcesRef.current.size === 0) setLiveStatus('Listening...');
                 });
                 
                 source.start(nextStartTimeRef.current);
@@ -316,6 +350,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 sourcesRef.current.forEach(s => s.stop());
                 sourcesRef.current.clear();
                 nextStartTimeRef.current = 0;
+                setLiveStatus('Interrupted');
+                setLiveTranscript({ user: '', model: '' });
             }
           },
           onclose: () => {
@@ -324,9 +360,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           },
           onerror: (e) => {
             console.error("Live API Error", e);
-            setLiveStatus('Error');
-            // Don't auto-stop immediately on minor errors, but for connection error yes
-            // stopLiveSession(); 
+            setLiveStatus('Connection Error');
           }
         }
       });
@@ -466,7 +500,31 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest px-3">{profile.role}</span>
         </div>
 
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9]">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9] relative">
+          {/* Live Transcript Overlay */}
+          {isLive && (liveTranscript.user || liveTranscript.model) && (
+            <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-white via-white/95 to-transparent z-10 pointer-events-none flex flex-col justify-end min-h-[50%]">
+              <div className="max-w-3xl mx-auto w-full space-y-4">
+                {liveTranscript.user && (
+                    <div className="self-end animate-in slide-in-from-bottom-2 fade-in">
+                         <span className="text-[10px] uppercase font-black text-gray-400 tracking-widest mb-1 block text-right">You</span>
+                         <div className="bg-gray-100 text-gray-600 rounded-2xl rounded-tr-none px-4 py-3 text-lg font-medium leading-relaxed shadow-sm">
+                            {liveTranscript.user}
+                         </div>
+                    </div>
+                )}
+                {liveTranscript.model && (
+                    <div className="self-start animate-in slide-in-from-bottom-2 fade-in">
+                         <span className="text-[10px] uppercase font-black text-rose-400 tracking-widest mb-1 block">Tutor</span>
+                         <div className="bg-white text-gray-800 border border-rose-100 rounded-2xl rounded-tl-none px-5 py-4 text-xl font-bold leading-relaxed shadow-lg">
+                            {liveTranscript.model}
+                         </div>
+                    </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}>
               <div className={`max-w-[95%] sm:max-w-[85%] rounded-2xl px-5 py-3 shadow-sm ${
@@ -503,7 +561,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
         )}
 
-        <div className="p-4 bg-white border-t border-gray-100">
+        <div className="p-4 bg-white border-t border-gray-100 z-30">
           <div className="max-w-4xl mx-auto flex gap-3 items-center relative">
             <button 
                 onClick={toggleLiveSession}
