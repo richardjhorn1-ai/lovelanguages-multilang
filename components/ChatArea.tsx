@@ -10,6 +10,11 @@ interface ChatAreaProps {
   profile: Profile;
 }
 
+interface TranscriptItem {
+    role: 'user' | 'model';
+    text: string;
+}
+
 const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   // Chat State
   const [chats, setChats] = useState<Chat[]>([]);
@@ -24,8 +29,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLiveActive, setIsLiveActive] = useState(false);
   const [liveMode, setLiveMode] = useState<'audio' | 'video'>('audio');
+  const [transcripts, setTranscripts] = useState<TranscriptItem[]>([]);
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const transcriptRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -47,6 +54,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, loading, attachments]);
+
+  useEffect(() => {
+    if (transcriptRef.current) {
+        transcriptRef.current.scrollTop = transcriptRef.current.scrollHeight;
+    }
+  }, [transcripts]);
 
   // --- Chat Data Logic ---
 
@@ -177,6 +190,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setIsMenuOpen(false);
     setLiveMode(type);
     setIsLiveActive(true);
+    setTranscripts([]);
 
     try {
         let stream;
@@ -190,7 +204,19 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         
         liveSessionRef.current = new LiveSession({
             videoElement: type === 'video' ? videoRef.current! : undefined,
-            onClose: endLiveSession
+            onClose: endLiveSession,
+            onTranscript: (role, text) => {
+                setTranscripts(prev => {
+                    const last = prev[prev.length - 1];
+                    // Simple logic: if same role, append text, else new item.
+                    // Note: Gemini streams chunks, sometimes duplicates. 
+                    // This is a naive implementation; for production, use IDs if available or smarter diffing.
+                    if (last && last.role === role) {
+                         return [...prev.slice(0, -1), { role, text: last.text + text }];
+                    }
+                    return [...prev, { role, text }];
+                });
+            }
         });
         
         await liveSessionRef.current.connect();
@@ -208,7 +234,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         liveSessionRef.current = null;
     }
     
-    // Stop local video stream if active
     if (videoRef.current && videoRef.current.srcObject) {
         const stream = videoRef.current.srcObject as MediaStream;
         stream.getTracks().forEach(t => t.stop());
@@ -313,7 +338,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         </div>
 
         {/* Messages */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9] relative">
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9] relative pb-32">
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}>
               <div className={`max-w-[95%] sm:max-w-[85%] rounded-2xl px-5 py-3 shadow-sm ${
@@ -346,6 +371,63 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 ))}
             </div>
         )}
+
+        {/* --- LIVE CONTROL DECK (Compact) --- */}
+        {isLiveActive && (
+            <div className="absolute bottom-20 left-4 right-4 z-40 animate-in slide-in-from-bottom-5 duration-300">
+                <div className="relative bg-white/95 backdrop-blur-xl border border-rose-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col h-64 sm:h-72">
+                    
+                    {/* Header */}
+                    <div className="px-4 py-3 border-b border-rose-100 flex items-center justify-between bg-rose-50/50">
+                        <div className="flex items-center gap-2">
+                             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                             <span className="text-xs font-black uppercase tracking-wider text-rose-500">
+                                {liveMode === 'audio' ? 'Live Voice' : 'Live Video'}
+                             </span>
+                        </div>
+                        <button onClick={endLiveSession} className="text-rose-300 hover:text-red-500 transition-colors">
+                            <ICONS.X className="w-5 h-5" />
+                        </button>
+                    </div>
+
+                    {/* Main Content Area */}
+                    <div className="flex-1 relative overflow-hidden bg-gray-50">
+                        {/* Video Background Layer */}
+                        {liveMode === 'video' && (
+                             <video 
+                                ref={videoRef}
+                                className="absolute inset-0 w-full h-full object-cover opacity-80"
+                                autoPlay
+                                muted
+                                playsInline
+                             />
+                        )}
+
+                        {/* Transcripts Layer */}
+                        <div ref={transcriptRef} className={`absolute inset-0 overflow-y-auto p-4 space-y-3 ${liveMode === 'video' ? 'bg-gradient-to-t from-black/80 to-transparent' : ''}`}>
+                             {transcripts.length === 0 && (
+                                 <div className={`h-full flex flex-col items-center justify-center text-center ${liveMode === 'video' ? 'text-white/70' : 'text-gray-400'}`}>
+                                     <ICONS.Mic className={`w-8 h-8 mb-2 ${liveMode === 'video' ? 'text-white/50' : 'text-gray-300'}`} />
+                                     <p className="text-xs font-bold">Listening...</p>
+                                 </div>
+                             )}
+                             {transcripts.map((t, i) => (
+                                 <div key={i} className={`flex ${t.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                                     <div className={`max-w-[85%] rounded-2xl px-3 py-2 text-xs font-medium leading-relaxed ${
+                                         t.role === 'user' 
+                                            ? 'bg-rose-500 text-white rounded-tr-none' 
+                                            : (liveMode === 'video' ? 'bg-white/90 text-gray-800' : 'bg-white border border-rose-100 text-gray-700') + ' rounded-tl-none'
+                                     }`}>
+                                         {t.text}
+                                     </div>
+                                 </div>
+                             ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )}
+
 
         {/* Input Area */}
         <div className="p-4 bg-white border-t border-gray-100 z-30">
@@ -399,59 +481,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           </div>
         </div>
       </div>
-
-      {/* LIVE SESSION MODAL */}
-      {isLiveActive && (
-          <div className="fixed inset-0 z-50 bg-[#292F36] flex flex-col animate-in fade-in duration-300">
-              {/* Video Background */}
-              {liveMode === 'video' && (
-                  <video 
-                    ref={videoRef} 
-                    className="absolute inset-0 w-full h-full object-cover opacity-60" 
-                    autoPlay 
-                    muted 
-                    playsInline 
-                  />
-              )}
-
-              {/* UI Overlay */}
-              <div className="relative z-10 flex-1 flex flex-col items-center justify-center p-8">
-                  
-                  {liveMode === 'audio' ? (
-                      // Audio Visualizer (Simulated)
-                      <div className="relative">
-                          <div className="w-48 h-48 bg-rose-500/20 rounded-full animate-ping absolute inset-0"></div>
-                          <div className="w-48 h-48 bg-rose-500/40 rounded-full animate-pulse absolute inset-0 delay-75"></div>
-                          <div className="w-48 h-48 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center justify-center relative">
-                              <ICONS.Mic className="w-16 h-16 text-white" />
-                          </div>
-                      </div>
-                  ) : (
-                      // Video Overlay UI
-                      <div className="w-full flex-1 flex flex-col justify-end pb-20">
-                           {/* Intentionally empty for video focus, maybe subtitles here later */}
-                      </div>
-                  )}
-
-                  <div className="mt-12 text-center">
-                      <h2 className="text-2xl font-header font-bold text-white mb-2">
-                        {liveMode === 'audio' ? 'Live Voice Session' : 'Live Video Session'}
-                      </h2>
-                      <p className="text-white/60 text-sm">Gemini is listening...</p>
-                  </div>
-              </div>
-
-              {/* Controls */}
-              <div className="p-8 pb-12 flex justify-center gap-6 relative z-10">
-                  <button 
-                    onClick={endLiveSession}
-                    className="w-16 h-16 bg-red-500 hover:bg-red-600 rounded-full flex items-center justify-center text-white shadow-xl transition-transform hover:scale-110 active:scale-95"
-                  >
-                      <ICONS.X className="w-8 h-8" />
-                  </button>
-              </div>
-          </div>
-      )}
     </div>
   );
 };
