@@ -2,6 +2,7 @@
   "name": "love-languages-polish",
   "version": "1.0.0",
   "description": "Love Languages - Polish for Couples",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
