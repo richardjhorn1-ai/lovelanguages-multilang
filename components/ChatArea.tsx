@@ -1,9 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { GoogleGenAI, Modality } from '@google/genai';
 import { supabase } from '../services/supabase';
-import { geminiService, ExtractedWord } from '../services/gemini';
-import { createBlob, decode, decodeAudioData } from '../services/live-session';
+import { geminiService } from '../services/gemini';
 import { Profile, Chat, Message, ChatMode } from '../types';
 import { ICONS } from '../constants';
 
@@ -285,3 +283,4 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 };
 
 export default ChatArea;
+    
