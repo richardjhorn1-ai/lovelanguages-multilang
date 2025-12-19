@@ -1,26 +1,29 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-export default async function handler(req: Request) {
+// Vercel Serverless Function (Node.js runtime)
+export default async function handler(req: any, res: any) {
+  // 1. CORS Headers (Optional but good for safety if needed later)
+  // Vercel handles CORS via vercel.json usually, but we can set headers if this is a direct fetch.
+  
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const apiKey = process.env.API_KEY;
 
   if (!apiKey) {
     console.error("Server Error: process.env.API_KEY is missing");
-    return new Response(JSON.stringify({ 
+    return res.status(500).json({ 
       error: "Server Configuration Error", 
       details: "API Key is missing on the server. Please check Vercel environment variables." 
-    }), { 
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
     });
   }
 
   try {
     const ai = new GoogleGenAI({ apiKey });
-    const { prompt, mode, userLog, action, images } = await req.json();
+    
+    // In Vercel Node.js functions, req.body is automatically parsed if Content-Type is application/json
+    const { prompt, mode, userLog, action, images } = req.body;
 
     // Handle Title Generation
     if (action === 'generateTitle') {
@@ -28,9 +31,7 @@ export default async function handler(req: Request) {
         model: "gemini-3-flash-preview",
         contents: `Generate a cute, short 2-3 word title for a language learning chat that starts with: "${prompt}"`,
       });
-      return new Response(JSON.stringify({ title: response.text?.replace(/"/g, '') || "New Chat" }), {
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return res.status(200).json({ title: response.text?.replace(/"/g, '') || "New Chat" });
     }
 
     // Default action: Chat/Tutor Generation
@@ -119,15 +120,13 @@ ${commonInstructions}
       }
     });
 
-    return new Response(response.text, {
-      headers: { 'Content-Type': 'application/json' }
-    });
+    // Send the text response directly. 
+    // We set Content-Type to JSON because the model is instructed to return JSON.
+    res.setHeader('Content-Type', 'application/json');
+    return res.status(200).send(response.text);
 
   } catch (error: any) {
     console.error("API Error:", error);
-    return new Response(JSON.stringify({ error: "Failed to process request", details: error.message }), { 
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return res.status(500).json({ error: "Failed to process request", details: error.message });
   }
 }
