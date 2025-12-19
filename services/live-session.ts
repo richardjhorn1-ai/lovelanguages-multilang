@@ -4,6 +4,7 @@ import { RefObject } from 'react';
 
 export interface LiveSessionConfig {
   videoRef?: RefObject<HTMLVideoElement | null>;
+  userLog?: string[]; // Add context awareness
   onTranscript?: (role: 'user' | 'model', text: string) => void;
   onClose?: () => void;
 }
@@ -31,9 +32,13 @@ export class LiveSession {
     this.inputAudioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
     this.outputAudioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
     
-    // Resume AudioContexts (needed for some browsers)
     if (this.inputAudioContext.state === 'suspended') await this.inputAudioContext.resume();
     if (this.outputAudioContext.state === 'suspended') await this.outputAudioContext.resume();
+
+    // Prepare context string
+    const knownWords = this.config.userLog && this.config.userLog.length > 0 
+      ? `User knows these Polish words: ${this.config.userLog.slice(0, 50).join(', ')}.`
+      : "User is a complete beginner.";
 
     const sessionPromise = this.client.live.connect({
       model: 'gemini-2.5-flash-native-audio-preview-09-2025',
@@ -61,22 +66,22 @@ export class LiveSession {
         inputAudioTranscription: {},
         outputAudioTranscription: {},
         systemInstruction: `
-CRITICAL OPERATIONAL DIRECTIVES:
-1. ROLE: You are a charming, bilingual "Wingman" and Polish Tutor. Your goal is to make the user feel confident and romantic.
-2. INPUT: You will receive Audio (and potentially Video frames).
-3. OUTPUT: You will generate Audio.
+CONTEXT:
+${knownWords}
 
-AUDIO OPTIMIZATION RULES:
-- BREVITY: Keep turns under 20 seconds. No lectures. Speak in short, punchy sentences.
-- PHONETICS: Do not "spell" words out. Describe sounds using English references (e.g., "It sounds like the 'sz' in 'fresh'").
-- PACING: Speak slightly slower than a native speaker, but with exaggerated clarity on Polish words.
+IDENTITY:
+You are a charming, bilingual "Wingman" and Polish Language Coach.
+You are speaking to an ENGLISH speaker who is a BEGINNER in Polish.
 
-INTERACTION LOOP:
-1. ACKNOWLEDGE: Validate what they said ("Great try!", "So close!").
-2. CORRECT: Give the specific Polish correction immediately.
-3. PROMPT: Ask them to repeat it, or ask a simple follow-up question to keep the conversation moving.
+CRITICAL RULES:
+1. **SPEAK ENGLISH 90% OF THE TIME.** Only use Polish for the specific word/phrase you are teaching.
+2. **NEVER** start a sentence in Polish unless asked.
+3. **EXPLAIN FIRST:** Before asking the user to say a Polish word, tell them what it means and how to pronounce it (using English sounds, e.g. "Rhymes with...").
+4. **SCAFFOLDING:** If the user struggles, switch immediately to pure English to reassure them.
+5. **LENGTH:** Keep responses under 2 sentences. This is a voice conversation, not a lecture.
 
-TONE: Flirty, encouraging, warm, distinct. You are a third wheel who makes the date go *better*.
+GOAL:
+Teach them ONE new romantic or useful phrase per turn. Make them feel confident.
 `,
       },
     });
@@ -113,7 +118,6 @@ TONE: Flirty, encouraging, warm, distinct. You are a third wheel who makes the d
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
-    // Send a frame every 1s (1 FPS) to save bandwidth but maintain context
     this.videoInterval = window.setInterval(() => {
         const video = this.config.videoRef?.current;
         if (!video || !video.videoWidth || !ctx) return;
@@ -135,22 +139,16 @@ TONE: Flirty, encouraging, warm, distinct. You are a third wheel who makes the d
   private async handleMessage(message: LiveServerMessage) {
     const serverContent = message.serverContent;
     
-    // Handle Audio
     if (serverContent?.modelTurn?.parts?.[0]?.inlineData?.data) {
         const base64Audio = serverContent.modelTurn.parts[0].inlineData.data;
         this.playAudioChunk(base64Audio);
     }
 
-    // Handle Transcription
     if (serverContent?.inputTranscription) {
         this.config.onTranscript?.('user', serverContent.inputTranscription.text);
     }
     if (serverContent?.outputTranscription) {
         this.config.onTranscript?.('model', serverContent.outputTranscription.text);
-    }
-
-    if (serverContent?.turnComplete) {
-        // Turn complete logic if needed
     }
   }
 
@@ -195,8 +193,6 @@ TONE: Flirty, encouraging, warm, distinct. You are a third wheel who makes the d
     this.inputAudioContext?.close();
     this.outputAudioContext?.close();
   }
-
-  // --- Helpers from Google Guidelines ---
 
   private createPcmBlob(data: Float32Array): { mimeType: string; data: string } {
     const l = data.length;

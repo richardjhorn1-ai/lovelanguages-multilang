@@ -193,6 +193,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setIsLiveActive(true);
     setTranscripts([]);
 
+    // Fetch user log for context
+    const userLog = (await supabase.from('dictionary').select('word').eq('user_id', profile.id)).data?.map(d => d.word) || [];
+
     try {
         let stream = null;
         if (type === 'video') {
@@ -201,7 +204,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         }
         
         liveSessionRef.current = new LiveSession({
-            videoRef: videoRef, // Pass ref to LiveSession
+            videoRef: videoRef,
+            userLog: userLog, // Pass known words
             onClose: endLiveSession,
             onTranscript: (role, text) => {
                 setTranscripts(prev => {
@@ -224,22 +228,58 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     }
   };
 
-  const endLiveSession = () => {
+  const endLiveSession = async () => {
+    // Stop AV Hardware
     if (liveSessionRef.current) {
         liveSessionRef.current.disconnect();
         liveSessionRef.current = null;
     }
-    
     if (localStream) {
         localStream.getTracks().forEach(t => t.stop());
         setLocalStream(null);
     }
-
-    if (videoRef.current) {
-        videoRef.current.srcObject = null;
-    }
-
+    if (videoRef.current) videoRef.current.srcObject = null;
     setIsLiveActive(false);
+
+    // PROCESS TRANSCRIPT (Save to Chat & Extract Words)
+    if (transcripts.length > 0 && activeChat) {
+        setLoading(true);
+        const fullTranscript = transcripts.map(t => `${t.role.toUpperCase()}: ${t.text}`).join('\n\n');
+        
+        // 1. Save Transcript to Message History
+        const { data: savedMsg } = await supabase.from('messages').insert({
+            chat_id: activeChat.id,
+            role: 'model',
+            content: `**🎙️ Live Session Transcript**\n\n${fullTranscript}`
+        }).select().single();
+
+        if (savedMsg) setMessages(prev => [...prev, savedMsg]);
+
+        // 2. Extract Vocabulary (Async)
+        const newWords = await geminiService.extractFromTranscript(fullTranscript);
+        if (newWords.length > 0) {
+            for (const w of newWords) {
+                await supabase.from('dictionary').upsert({
+                    user_id: profile.id,
+                    word: w.word,
+                    translation: w.translation,
+                    word_type: w.type,
+                    importance: w.importance,
+                    context: w.context,
+                    root_word: w.rootWord,
+                    unlocked_at: new Date().toISOString()
+                }, { onConflict: 'user_id,word' });
+            }
+            // Add a confirmation message
+            const { data: confirmMsg } = await supabase.from('messages').insert({
+                chat_id: activeChat.id,
+                role: 'model',
+                content: `✅ I've processed our voice session and added **${newWords.length}** new words to your Love Log!`
+            }).select().single();
+            if (confirmMsg) setMessages(prev => [...prev, confirmMsg]);
+        }
+        setLoading(false);
+    }
   };
 
   // --- Formatting Helpers ---
@@ -411,7 +451,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                             onClick={endLiveSession} 
                             className="text-gray-400 hover:text-rose-500 text-[10px] font-black uppercase tracking-widest transition-colors flex items-center gap-1"
                         >
-                            End Session
+                            End Session & Save to Log
                         </button>
                     </div>
                 </div>
