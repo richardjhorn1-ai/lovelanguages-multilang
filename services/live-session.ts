@@ -3,7 +3,7 @@ import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
 
 export interface LiveSessionConfig {
   videoElement?: HTMLVideoElement;
-  onTranscript?: (text: string) => void;
+  onTranscript?: (role: 'user' | 'model', text: string) => void;
   onClose?: () => void;
 }
 
@@ -57,6 +57,8 @@ export class LiveSession {
         speechConfig: {
           voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Kore' } },
         },
+        inputAudioTranscription: {},
+        outputAudioTranscription: {},
         systemInstruction: "You are a friendly, encouraging Polish language tutor. You are speaking to a student live. Be brief, clear, and charming.",
       },
     });
@@ -114,9 +116,18 @@ export class LiveSession {
   private async handleMessage(message: LiveServerMessage) {
     const serverContent = message.serverContent;
     
+    // Handle Audio
     if (serverContent?.modelTurn?.parts?.[0]?.inlineData?.data) {
         const base64Audio = serverContent.modelTurn.parts[0].inlineData.data;
         this.playAudioChunk(base64Audio);
+    }
+
+    // Handle Transcription
+    if (serverContent?.inputTranscription) {
+        this.config.onTranscript?.('user', serverContent.inputTranscription.text);
+    }
+    if (serverContent?.outputTranscription) {
+        this.config.onTranscript?.('model', serverContent.outputTranscription.text);
     }
 
     if (serverContent?.turnComplete) {
@@ -150,8 +161,6 @@ export class LiveSession {
 
   disconnect() {
     this.cleanup();
-    // No explicit close method on session object in some versions, 
-    // but stopping streams breaks the connection effectively.
   }
 
   private cleanup() {
