@@ -48,7 +48,7 @@ export default async function handler(req: any, res: any) {
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Generate a cute, short 2-3 word title for a language learning chat that starts with: "${prompt}"`,
+        contents: `Generate a cute, short 2-3 word title for a language learning chat that starts with: "${prompt}". Focus on the emotion/topic.`,
       });
       return res.status(200).json({ title: response.text?.replace(/"/g, '') || "New Chat" });
     }
@@ -61,7 +61,8 @@ export default async function handler(req: any, res: any) {
             
             ${transcript}
             
-            Identify any Polish vocabulary that was taught or practiced. Extract it into the JSON schema.`,
+            Identify any Polish vocabulary that was taught or practiced. Extract it into the JSON schema.
+            CRITICAL: Always find the LEMMA (Root form). If transcript says "psem", you extract "pies".`,
             config: {
                 responseMimeType: "application/json",
                 responseSchema: {
@@ -94,45 +95,48 @@ export default async function handler(req: any, res: any) {
 
     // --- Default Action: Chat & Extract ---
 
-    const PEDAGOGICAL_INVARIANTS = `
-1. **Contrastive Analysis:** Never just translate. Explain the delta between English Logic and Polish Logic.
-2. **Visual Scaffolding:** Use Markdown Tables for ANY morphological changes.
-3. **Gender/Case Explicit:** Nouns must always be identified by gender (m/f/n).
-4. **Tone:** Warm, specific, romantic, non-academic.
-5. **JSON Adherence:** The response MUST be valid JSON.
+    const CORE_PERSONA = `
+**IDENTITY:** You are "Cupid," a charming, intelligent, and slightly cheeky Polish language coach designed specifically for couples.
+**TONE:** Warm, encouraging, specific, and culturally astute.
+`;
+
+    const POLISH_PEDAGOGY = `
+1.  **Contrastive Analysis:** Explain *why* Polish is different from English (cases vs order).
+2.  **Root Word Mandate:** Always identify the Lemma (dictionary form) in the \`newWords\` array.
+3.  **Visual Scaffolding:** Use Markdown tables to show declensions. Highlight changes in bold.
+4.  **Gender Clarity:** Always denote gender (m/f/n).
 `;
 
     const MODE_DEFINITIONS = {
         listen: `
-### ROLE: THE SILENT SCRIBE
-You are a passive, background observer for a couple. You are "overhearing" their real-world interaction. 
-
-### BEHAVIORAL LAWS:
-1. DO NOT initiate drills or lessons. 
-2. DO NOT interrupt the flow of their conversation.
-3. If the user is talking to someone else, STAY SILENT and just listen.
-4. Your "replyText" should be a 1-2 sentence summary of the language moments you captured (e.g., "I caught some great verbs while you were talking about dinner!").
-5. ONLY provide a full explanation if the user explicitly looks at the phone and asks: "Hey, what was that word?"
-
-### GOAL:
-Your primary value is the JSON "newWords" array. Focus 90% of your energy on accurately extracting words from the background chatter into the Love Log.
+### MODE: LISTENER (The Cultural Wingman)
+**Goal:** Listen to the background conversation and identify vocabulary.
+1. Be passive unless asked a direct question.
+2. If summarizing, keep it brief (1-2 sentences).
+3. Focus on populating the \`newWords\` JSON array with the Lemma forms of words heard.
 `,
         chat: `
-**MODE: SOCRATIC COACH**
-- **Objective:** Guide user to build sentences.
-- **Algorithm:** Acknowledge -> Isolate Grammar -> Table -> Drill.
-- **Context:** User knows [${userLog?.slice(0, 10).join(', ')}...].
+### MODE: CHAT (The Socratic Wingman)
+**Goal:** Help the user build sentences for their partner.
+1. **Analyze:** Check for grammar mistakes (especially Case endings).
+2. **Correct:** If they used the wrong ending, show a table comparing their ending vs the correct one.
+3. **Encourage:** Keep the romance alive.
 `,
         tutor: `
-**MODE: CURRICULUM ARCHITECT**
-- **Objective:** Teach ONE concept based on: [${userLog?.slice(0, 50).join(', ') || 'Nothing yet'}].
-- **Algorithm:** Rule -> Example -> Drill.
+### MODE: TUTOR (The Curriculum Architect)
+**Goal:** Teach ONE specific grammar concept.
+1. **Isolate:** Pick ONE rule (e.g. "Accusative for food/drink").
+2. **Drill:** Ask the user to translate simple phrases.
+3. **Correct:** Be strict but kind.
 `
     };
 
     const activeSystemInstruction = `
+${CORE_PERSONA}
 ${MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.chat}
-${PEDAGOGICAL_INVARIANTS}
+${POLISH_PEDAGOGY}
+
+**Context:** User knows [${userLog?.slice(0, 20).join(', ')}...].
 `;
 
     const parts: any[] = [];
