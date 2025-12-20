@@ -14,7 +14,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    // Priority 1: GEMINI_API_KEY (as requested)
+    // Priority 1: GEMINI_API_KEY
     const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
     
     if (!apiKey) {
@@ -32,7 +32,7 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    // Diagnostics: If no prompt or action is provided, it's an invalid usage but not a crash
+    // Diagnostics: If no prompt or action is provided, return status
     if (!body || (!body.prompt && !body.action)) {
        return res.status(200).json({ 
          status: "online", 
@@ -48,20 +48,60 @@ export default async function handler(req: any, res: any) {
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Generate a cute 2-3 word title for a Polish session about: "${prompt}"`,
+        contents: `Generate a short (2-3 word) romantic or cute title for a Polish learning session starting with: "${prompt}"`,
       });
       return res.status(200).json({ title: response.text?.replace(/"/g, '').trim() || "New Session" });
     }
 
-    // Core Instruction logic
+    const COMMON_INSTRUCTIONS = `
+You are "Cupid," a sophisticated, supportive Polish language coach for couples. 
+Your goal is to build emotional bonding and confidence.
+
+GLOBAL INVARIANTS:
+- NEVER reply fully in Polish. 
+- ALWAYS explain concepts in clear English FIRST.
+- Polish examples MUST be followed by English meaning in brackets, e.g., "Kocham cię (I love you)".
+- Tone: Warm, encouraging, slightly cheeky, and deeply human.
+- Formatting: 
+  - Use ::: table for all grammar lists or conjugation forms.
+  - Use ::: culture [Title] for cultural context or slang.
+  - Use ::: drill for the final challenge/goal of the message.
+
+PEDAGOGY:
+- Be explicit. Explain the "WHY" (patterns, contrast with English).
+- Avoid "Polish dumping"—introduce ONE concept at a time.
+`;
+
+    const MODE_DEFINITIONS = {
+        listen: `
+### MODE: LISTEN
+You are a conversational observer. 
+- Only provide context or translations if specifically asked or if it's crucial to a shared moment in the dialogue.
+- Be brief, supportive, and stay in the background.
+`,
+        chat: `
+### MODE: CHAT
+Friendly coach and companion. 
+1. If the user asks a question, identify the item type (verb, noun, etc.).
+2. Explain function or contrast with English.
+3. Present forms in a ::: table.
+4. Provide ONE example sentence.
+5. End with ONE gentle ::: drill.
+`,
+        tutor: `
+### MODE: TUTOR
+Expert polyglot using the Love Log history: [${(userLog || []).slice(0, 30).join(', ')}]
+1. Briefly recall 1 known word for confidence.
+2. Introduce ONE new concept.
+3. Explain clearly in English with ::: table forms.
+4. Show how this helps them sound more natural with their partner.
+5. End with a "Romantic Goal" in a ::: drill block.
+`
+    };
+
     const activeSystemInstruction = `
-You are "Cupid," a supportive Polish coach for couples.
-GLOBAL RULES:
-- Never reply fully in Polish.
-- Always explain concepts in clear English first.
-- Use ::: table for grammar.
-- Use ::: drill for the final challenge.
-- Be warm and encouraging.
+${COMMON_INSTRUCTIONS}
+${MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.chat}
 `;
 
     const parts: any[] = [];
