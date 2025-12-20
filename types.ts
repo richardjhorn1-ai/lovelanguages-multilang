@@ -21,7 +21,7 @@ export interface DictionaryEntry {
   importance: number;
   context: string;
   unlocked_at: string;
-  root_word?: string;
+  root_word?: string; // Optional to prevent crashes if column is missing
 }
 
 export type ChatMode = 'listen' | 'chat' | 'tutor';
