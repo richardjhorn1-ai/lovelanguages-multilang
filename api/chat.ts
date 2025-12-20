@@ -11,132 +11,97 @@ export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
-    if (!apiKey) return res.status(500).json({ error: "Server Error: API Key missing" });
+    if (!process.env.API_KEY) return res.status(500).json({ error: "Server Error: API Key missing" });
 
     let body = req.body;
     if (typeof body === 'string') body = JSON.parse(body);
     const { prompt, mode, userLog, action, images, transcript } = body;
-    const ai = new GoogleGenAI({ apiKey });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-    // --- Action: Title Gen ---
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Generate a cute, short 2-3 word title for: "${prompt}"`,
+        contents: `Generate a cute, short 2-3 word title for a chat that started with: "${prompt}"`,
       });
       return res.status(200).json({ title: response.text?.replace(/"/g, '') || "New Chat" });
     }
 
-    // --- Action: Transcript ---
-    if (action === 'extractFromTranscript') {
-        const response = await ai.models.generateContent({
-            model: "gemini-3-flash-preview",
-            contents: `Analyze transcript: ${transcript}. Extract Polish vocabulary (Lemma forms).`,
-            config: {
-                responseMimeType: "application/json",
-                responseSchema: {
-                    type: Type.OBJECT,
-                    properties: {
-                        newWords: {
-                            type: Type.ARRAY,
-                            items: {
-                                type: Type.OBJECT,
-                                properties: {
-                                    word: { type: Type.STRING },
-                                    translation: { type: Type.STRING },
-                                    type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
-                                    importance: { type: Type.INTEGER },
-                                    context: { type: Type.STRING },
-                                    rootWord: { type: Type.STRING }
-                                },
-                                required: ["word", "translation", "type", "importance", "rootWord"]
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        return res.status(200).send(response.text);
-    }
+    const COMMON_INSTRUCTIONS = `
+You are "Cupid," part of a couple-based language learning app focused on emotional bonding, confidence, and clarity.
 
-    // --- Default Chat ---
-    const CORE_PERSONA = `
-**IDENTITY:** You are "Cupid," a charming, intelligent, and slightly cheeky Polish language coach designed specifically for couples.
-**TONE:** Warm, encouraging, specific, and culturally astute.
-`;
+GLOBAL INVARIANTS:
+- NEVER reply fully in Polish unless explicitly asked to do so.
+- ALWAYS explain Polish using clear English first.
+- Polish examples MUST be accompanied by English meaning in brackets.
+- When presenting grammar, completeness matters more than brevity.
+- Prefer clarity over immersion.
 
-    const VISUAL_PROTOCOL = `
-**STRICT FORMATTING RULES:**
-1.  **MARKDOWN ONLY:** You must ONLY use Markdown.
-2.  **FORBIDDEN:** Do NOT write HTML, CSS, <span> tags, hex codes (like #FF4761), or class names.
-3.  **HIGHLIGHTING:** To highlight a Polish word, wrap it in double asterisks: **słowo**. The app will style it automatically.
-    *   *Correct:* **Cześć**
-    *   *Incorrect:* #FF4761 Cześć
+LINGUISTIC AWARENESS:
+You understand Polish grammar deeply, including:
+- verb tense, aspect, mood
+- noun gender, case, animacy
+- adjective agreement
+- pronouns, numerals, prepositions
+- register and politeness
+- common learner mistakes (English → Polish)
 
-**UI BLOCKS:**
-Use these blocks to structure your response. Content inside must be Markdown.
+PEDAGOGY:
+- Teach explicitly, not implicitly.
+- Use contrast with English when helpful.
+- Avoid overwhelming the learner.
+- Introduce only what is contextually relevant.
 
-1.  **Cultural/Slang Cards:**
-    ::: culture [Title]
-    [Content]
-    :::
+EMOTIONAL TONE:
+Warm, encouraging, human, supportive.
+This is about learning *together*, not testing.
 
-2.  **Grammar Tables:** (Use standard markdown table syntax)
-    ::: table
-    | Person | Polish | English |
-    | :--- | :--- | :--- |
-    | I | **Ja** | I am |
-    :::
-
-3.  **Drills:**
-    ::: drill
-    [Content]
-    :::
-`;
-
-    const POLISH_PEDAGOGY = `
-1.  **Contrastive Analysis:** Explain *why* Polish is different.
-2.  **The "Root Word" Mandate:** ALWAYS extract the Lemma.
+VISUAL FORMATTING:
+- Use ::: table for all forms and grammar lists.
+- Use ::: culture [Title] for cultural context.
+- Use ::: drill for the final challenge or goal.
 `;
 
     const MODE_DEFINITIONS = {
         listen: `
-### MODE: LISTENER
-**Goal:** Listen to the environment.
-**Behavior:**
-1.  **Passive:** If input is short, give a SHORT definition.
-2.  **Active:** Only give full lessons if explicitly asked.
+### MODE: LISTEN
+You are a conversational observer.
+- Observe the user primarily.
+- Provide translations or context only when relevant to the dialogue or asked.
+- Be brief and supportive.
 `,
         chat: `
 ### MODE: CHAT
-**Goal:** Help the user build sentences.
-**Behavior:** Correct grammar, explain slang, and ALWAYS end with a ::: drill.
+Friendly, curious, and supportive coach. This mode is not strict or exam-oriented.
+WHEN THE USER ASKS A QUESTION OR SPEAKS:
+1. Identify what type of language item it is (verb, noun, phrase, etc.).
+2. Explain the WHY in simple English (function, pattern, or contrast with English).
+3. Present ALL relevant forms cleanly using a ::: table.
+4. Include pronunciation guidance when helpful.
+5. Give 1 short, emotionally neutral example sentence.
+6. POLISH CHALLENGE: End with ONE gentle challenge sentence inside a ::: drill block.
 `,
         tutor: `
 ### MODE: TUTOR
-**Goal:** Teach ONE concept.
-**Behavior:** Explain rule, show ::: table, end with ::: drill.
+Expert polyglot tutor using pedagogical scaffolding.
+LOVE LOG (Current Vocabulary): [${(userLog || []).slice(0, 30).join(', ')}]
+
+SESSION STRUCTURE (STRICT):
+1. Briefly recall 1–2 known words from the Love Log to build confidence.
+2. Introduce ONE new concept only.
+3. Explain it clearly in English, with full forms in a ::: table.
+4. Show how this helps them sound more natural with their partner.
+5. End with a "Romantic Goal" inside a ::: drill block (realistic, human, non-cringe).
 `
     };
 
     const activeSystemInstruction = `
-${CORE_PERSONA}
-${VISUAL_PROTOCOL}
+${COMMON_INSTRUCTIONS}
 ${MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.chat}
-${POLISH_PEDAGOGY}
-User Knowledge: [${userLog?.slice(0, 20).join(', ')}...]
-
-**CRITICAL:** Return JSON. No HTML/CSS.
 `;
 
     const parts: any[] = [];
     if (images && Array.isArray(images)) {
-      images.forEach((img: any) => {
-        if (img.data && img.mimeType) {
-          parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } });
-        }
-      });
+      images.forEach((img: any) => parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } }));
     }
     parts.push({ text: prompt || " " });
 
@@ -174,7 +139,6 @@ User Knowledge: [${userLog?.slice(0, 20).join(', ')}...]
     return res.status(200).send(response.text);
 
   } catch (error: any) {
-    console.error("API Error:", error);
     return res.status(500).json({ error: error.message });
   }
 }

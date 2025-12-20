@@ -42,7 +42,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       const harvested = await geminiService.analyzeHistory(messages.reverse(), knownWords);
 
       if (harvested.length > 0) {
-        // Map to DB schema
         const wordsToSave = harvested.map(w => ({
           user_id: profile.id,
           word: String(w.word).toLowerCase().trim(),
@@ -52,13 +51,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
           context: JSON.stringify({ 
             original: w.context, 
             examples: w.examples || [],
-            root: w.rootWord || w.word 
+            root: w.rootWord || w.word,
+            proTip: w.proTip || ""
           }),
           unlocked_at: new Date().toISOString()
         }));
 
-        // USE UPSERT TO FIX 409 CONFLICT (Duplicate Key Error)
-        // This ensures if a word exists, we just update it (or ignore) instead of crashing
         const { error } = await supabase
           .from('dictionary')
           .upsert(wordsToSave, { 
@@ -71,7 +69,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       }
     } catch (e: any) {
       console.error("Harvesting failed:", e);
-      // We don't alert for duplicates anymore as upsert handles it, but keep for other errors
       if (e.code !== '23505') alert(`Harvest error: ${e.message}`);
     } finally {
       setIsHarvesting(false);
@@ -86,14 +83,15 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   });
 
   const parseContext = (ctxStr: any) => {
-    const fallback = { original: '', examples: [] as string[], root: '' };
+    const fallback = { original: '', examples: [] as string[], root: '', proTip: '' };
     if (!ctxStr) return fallback;
     try {
       const parsed = typeof ctxStr === 'string' ? JSON.parse(ctxStr) : ctxStr;
       return {
         original: parsed?.original || '',
         examples: Array.isArray(parsed?.examples) ? parsed.examples : [],
-        root: parsed?.root || ''
+        root: parsed?.root || '',
+        proTip: parsed?.proTip || ''
       };
     } catch {
       return { ...fallback, original: String(ctxStr) };
@@ -110,7 +108,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
   return (
     <div className="h-full flex flex-col bg-[#fdfcfd]">
-      {/* ULTRA COMPACT HEADER */}
       <div className="px-6 py-4 bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -152,23 +149,23 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               <div key={e.id} className="relative h-[280px] w-full perspective-2000" onClick={() => !isFlipped && setFlippedId(e.id)}>
                 <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d cursor-pointer ${isFlipped ? 'rotate-y-180' : ''}`}>
                   
-                  {/* --- FRONT: COMPACT & BRANDED --- */}
-                  <div className="absolute inset-0 bg-white border border-rose-50 rounded-[2rem] p-5 flex flex-col items-center justify-between shadow-sm hover:shadow-lg transition-all backface-hidden">
-                    <span className="text-[8px] font-black uppercase tracking-[0.3em] text-rose-200 mt-1">{e.word_type}</span>
+                  {/* --- FRONT: PERFECTLY CENTERED --- */}
+                  <div className="absolute inset-0 bg-white border border-rose-50 rounded-[2rem] p-5 flex flex-col shadow-sm hover:shadow-lg transition-all backface-hidden overflow-hidden">
+                    <span className="text-[8px] font-black uppercase tracking-[0.4em] text-rose-200 mt-1 text-center w-full">{e.word_type}</span>
                     
-                    <div className="flex flex-col items-center justify-center -translate-y-2 w-full px-2">
-                      <h3 className="text-2xl font-black text-[#FF4761] font-header text-center leading-tight break-words w-full">{e.word}</h3>
-                      <p className="text-sm text-gray-300 italic mt-2 font-medium text-center truncate w-full">{e.translation}</p>
+                    <div className="flex-1 flex flex-col items-center justify-center w-full px-4 text-center">
+                      <h3 className="text-2xl font-black text-[#FF4761] font-header leading-tight mb-2 break-words w-full">{e.word}</h3>
+                      <p className="text-sm text-gray-400 italic font-medium">{e.translation}</p>
                     </div>
 
-                    <div className="flex items-center gap-1.5 mb-1">
+                    <div className="flex items-center justify-center gap-1.5 mb-1 w-full">
                        <ICONS.Heart className="w-2 h-2 fill-rose-100" />
                        <div className="text-[8px] font-black uppercase tracking-[0.2em] text-gray-200">Love Languages</div>
                        <ICONS.Heart className="w-2 h-2 fill-rose-100" />
                     </div>
                   </div>
 
-                  {/* --- BACK: HIGH DENSITY INTEL --- */}
+                  {/* --- BACK: DYNAMIC INTEL --- */}
                   <div className="absolute inset-0 bg-[#FF4761] text-white rounded-[2rem] p-5 flex flex-col shadow-xl backface-hidden rotate-y-180 overflow-hidden" onClick={(ev) => { ev.stopPropagation(); setFlippedId(null); }}>
                     <div className="flex justify-between items-center mb-3 border-b border-white/20 pb-1.5">
                         <span className="text-[7px] font-black uppercase tracking-[0.1em] text-white/60">Module Intel</span>
@@ -176,7 +173,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     </div>
 
                     <div className="flex-1 flex flex-col gap-3 min-h-0 overflow-hidden">
-                        {/* Usage Section */}
                         <div className="flex flex-col gap-1.5 flex-1 min-h-0">
                           <div className="flex items-center justify-between">
                               <h4 className="text-[7px] font-black uppercase tracking-widest text-white/50">Context</h4>
@@ -197,7 +193,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                           </div>
                         </div>
 
-                        {/* Mastery Section */}
                         <div className="pt-2 border-t border-white/10">
                           {e.word_type === 'verb' ? (
                             <div className="grid grid-cols-2 gap-1">
@@ -213,10 +208,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                             </div>
                           ) : (
                             <div className="space-y-2">
-                              <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
-                                  <p className="text-[6px] font-black uppercase text-white/40 mb-0.5">Cupid's Pro-Tip</p>
-                                  <p className="text-[9px] font-bold leading-tight">Pair with a wink for 2x effect.</p>
-                              </div>
+                              {ctx.proTip && (
+                                <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
+                                    <p className="text-[6px] font-black uppercase text-white/40 mb-0.5">Cupid's Pro-Tip</p>
+                                    <p className="text-[9px] font-bold leading-tight">{ctx.proTip}</p>
+                                </div>
+                              )}
                               <div className="w-full h-0.5 bg-white/10 rounded-full overflow-hidden">
                                   <div className="h-full bg-white w-2/3" />
                               </div>

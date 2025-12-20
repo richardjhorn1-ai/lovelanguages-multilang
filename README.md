@@ -3,57 +3,27 @@
 
 A sophisticated, couple-centric language learning application built with **React**, **Supabase**, and **Google Gemini 3 Flash**. This app is designed to help couples learn Polish together through shared progress, AI-driven coaching, and contextual vocabulary "harvesting."
 
-## 🚀 Key Features
+## 📂 System Prompt Documentation
 
-### 1. The Love Log (Dictionary)
-- **Shared Lexicon:** Partners can see each other's discovered words.
-- **Harvesting Engine:** Uses Gemini to analyze chat history and extract new vocabulary automatically.
-- **Dual-Column Intel:** Cards flip to reveal AI-generated examples, usage tips, and verb conjugation tracking.
+The intelligence of Cupid is strictly regulated to prevent learner overwhelm.
 
-### 2. Cupid: Your AI Coach
-- **Modes:** 
-  - `Chat`: General conversation with grammar corrections.
-  - `Tutor`: Targeted mini-lessons.
-  - `Listen`: Passive background interpretation.
-- **Live API Integration:** Real-time audio interaction using the `gemini-2.5-flash-native-audio` model.
+### 1. Core Persona & Identity
+**Prompt Context:** `api/chat.ts` & `services/live-session.ts`
+> "IDENTITY: You are 'Cupid,' a charming, intelligent, and slightly cheeky Polish language coach designed specifically for couples. TONE: Warm, encouraging, specific, and culturally astute."
 
-### 3. Couple Linking
-- **Invites:** Users can link accounts via email to share their dictionary and view partner progress on a shared dashboard.
-- **Role Switching:** Users can toggle between `Student` and `Tutor` roles to adjust UI perspective.
+### 2. Pedagogy Rules (Strict)
+To prevent the "Polish Dumping" issue, the following rules are enforced:
+- **ENGLISH FIRST:** Use English as the primary language for all explanations.
+- **TRANSLATION MANDATE:** Never output a Polish word or sentence without an immediate English translation in brackets or as a clear followup.
+- **ANTI-OVERWHELM:** Introduce only one Polish concept or sentence at a time.
 
-## 🛠 Tech Stack
+### 3. Mode Definitions
+- **Listen:** Passive behavior, provides brief definitions or slang context based on dialogue.
+- **Chat:** Natural English conversation. Corrects user errors and provides 1-2 Polish alternatives. Ends with a ::: drill.
+- **Tutor:** Explains a single rule (e.g. noun gender) in English. Provides a ::: table. Ends with a ::: drill.
 
-- **Frontend:** React (TypeScript), Tailwind CSS.
-- **Backend/DB:** Supabase (Auth, Postgres, Realtime).
-- **AI:** Google Generative AI SDK (@google/genai).
-  - `gemini-3-flash-preview` for text tasks and parsing.
-  - `gemini-2.5-flash-native-audio` for real-time voice sessions.
-
-## 📂 Project Structure
-
-```text
-/
-├── components/
-│   ├── ChatArea.tsx       # Main conversation UI with Cupid
-│   ├── LoveLog.tsx        # Dictionary with 3D flip cards
-│   ├── FlashcardGame.tsx  # Gamified SRS (Spaced Repetition)
-│   ├── Navbar.tsx         # Global navigation with notifications
-│   └── ProfileView.tsx    # Connection settings and role management
-├── services/
-│   ├── gemini.ts          # Core AI service for text and harvesting
-│   ├── supabase.ts        # Database client initialization
-│   └── live-session.ts    # Audio processing logic for Live API
-├── types.ts               # Global TypeScript interfaces
-└── constants.tsx          # UI design tokens and icons
-```
-
-## 🧠 Core Logic: Harvesting
-The `LoveLog` uses a unique "Harvesting" pattern. When a user clicks "Update Log," the app:
-1. Fetches the last 100 messages from the database.
-2. Sends the history to Gemini with a schema-strict prompt.
-3. Gemini identifies new Polish words, provides English translations, generates 5 contextual examples, and identifies the root word (Lemma).
-4. The results are saved to Supabase, automatically excluding words the user already knows.
-
-## 🔒 Security & Performance
-- **RLS (Row Level Security):** Ensures users can only access their own data or their linked partner's data.
-- **JSON Metadata:** Extra linguistic data (examples, root words) are stored in a single `context` JSONB column to keep the schema flexible.
+### 4. Vocabulary Harvesting (`services/gemini.ts`)
+Analyzes logs to find new words.
+- Generates 5 example sentences (Polish + English).
+- Extracts Root Word (Lemma).
+- Provides a cheeky "proTip" (e.g., "Use this word when you're making coffee for them in the morning").
