@@ -21,7 +21,6 @@ export interface DictionaryEntry {
   importance: number;
   context: string;
   unlocked_at: string;
-  added_by_tutor: boolean;
   root_word?: string;
 }
 
