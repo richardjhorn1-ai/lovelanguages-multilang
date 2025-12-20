@@ -2,110 +2,79 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
 export default async function handler(req: any, res: any) {
+  // CORS Headers
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
-  if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  // Handle preflight
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
 
   try {
-    if (!process.env.API_KEY) return res.status(500).json({ error: "Server Error: API Key missing" });
+    // Priority 1: GEMINI_API_KEY (as requested)
+    const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+    
+    if (!apiKey) {
+      console.error("API Configuration Error: GEMINI_API_KEY not found.");
+      return res.status(500).json({ error: "Server Configuration Error: GEMINI_API_KEY missing." });
+    }
 
+    // Robust Body Parsing
     let body = req.body;
-    if (typeof body === 'string') body = JSON.parse(body);
-    const { prompt, mode, userLog, action, images, transcript } = body;
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    if (typeof body === 'string' && body.length > 0) {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        return res.status(400).json({ error: "Invalid JSON format in request body." });
+      }
+    }
 
+    // Diagnostics: If no prompt or action is provided, it's an invalid usage but not a crash
+    if (!body || (!body.prompt && !body.action)) {
+       return res.status(200).json({ 
+         status: "online", 
+         message: "Cupid API is ready. Send a POST request with a prompt.",
+         methodReceived: req.method 
+       });
+    }
+
+    const { prompt, mode = 'chat', userLog = [], action, images } = body;
+    const ai = new GoogleGenAI({ apiKey });
+
+    // Handle Title Generation
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Generate a cute, short 2-3 word title for a chat that started with: "${prompt}"`,
+        contents: `Generate a cute 2-3 word title for a Polish session about: "${prompt}"`,
       });
-      return res.status(200).json({ title: response.text?.replace(/"/g, '') || "New Chat" });
+      return res.status(200).json({ title: response.text?.replace(/"/g, '').trim() || "New Session" });
     }
 
-    const COMMON_INSTRUCTIONS = `
-You are "Cupid," part of a couple-based language learning app focused on emotional bonding, confidence, and clarity.
-
-GLOBAL INVARIANTS:
-- NEVER reply fully in Polish unless explicitly asked to do so.
-- ALWAYS explain Polish using clear English first.
-- Polish examples MUST be accompanied by English meaning in brackets.
-- When presenting grammar, completeness matters more than brevity.
-- Prefer clarity over immersion.
-
-LINGUISTIC AWARENESS:
-You understand Polish grammar deeply, including:
-- verb tense, aspect, mood
-- noun gender, case, animacy
-- adjective agreement
-- pronouns, numerals, prepositions
-- register and politeness
-- common learner mistakes (English → Polish)
-
-PEDAGOGY:
-- Teach explicitly, not implicitly.
-- Use contrast with English when helpful.
-- Avoid overwhelming the learner.
-- Introduce only what is contextually relevant.
-
-EMOTIONAL TONE:
-Warm, encouraging, human, supportive.
-This is about learning *together*, not testing.
-
-VISUAL FORMATTING:
-- Use ::: table for all forms and grammar lists.
-- Use ::: culture [Title] for cultural context.
-- Use ::: drill for the final challenge or goal.
-`;
-
-    const MODE_DEFINITIONS = {
-        listen: `
-### MODE: LISTEN
-You are a conversational observer.
-- Observe the user primarily.
-- Provide translations or context only when relevant to the dialogue or asked.
-- Be brief and supportive.
-`,
-        chat: `
-### MODE: CHAT
-Friendly, curious, and supportive coach. This mode is not strict or exam-oriented.
-WHEN THE USER ASKS A QUESTION OR SPEAKS:
-1. Identify what type of language item it is (verb, noun, phrase, etc.).
-2. Explain the WHY in simple English (function, pattern, or contrast with English).
-3. Present ALL relevant forms cleanly using a ::: table.
-4. Include pronunciation guidance when helpful.
-5. Give 1 short, emotionally neutral example sentence.
-6. POLISH CHALLENGE: End with ONE gentle challenge sentence inside a ::: drill block.
-`,
-        tutor: `
-### MODE: TUTOR
-Expert polyglot tutor using pedagogical scaffolding.
-LOVE LOG (Current Vocabulary): [${(userLog || []).slice(0, 30).join(', ')}]
-
-SESSION STRUCTURE (STRICT):
-1. Briefly recall 1–2 known words from the Love Log to build confidence.
-2. Introduce ONE new concept only.
-3. Explain it clearly in English, with full forms in a ::: table.
-4. Show how this helps them sound more natural with their partner.
-5. End with a "Romantic Goal" inside a ::: drill block (realistic, human, non-cringe).
-`
-    };
-
+    // Core Instruction logic
     const activeSystemInstruction = `
-${COMMON_INSTRUCTIONS}
-${MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.chat}
+You are "Cupid," a supportive Polish coach for couples.
+GLOBAL RULES:
+- Never reply fully in Polish.
+- Always explain concepts in clear English first.
+- Use ::: table for grammar.
+- Use ::: drill for the final challenge.
+- Be warm and encouraging.
 `;
 
     const parts: any[] = [];
     if (images && Array.isArray(images)) {
-      images.forEach((img: any) => parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } }));
+      images.forEach((img: any) => {
+        if (img.data && img.mimeType) {
+          parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } });
+        }
+      });
     }
     parts.push({ text: prompt || " " });
 
-    const response = await ai.models.generateContent({
+    const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: { parts },
       config: {
@@ -136,9 +105,15 @@ ${MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.ch
       }
     });
 
-    return res.status(200).send(response.text);
+    const output = result.text;
+    try {
+      return res.status(200).json(JSON.parse(output));
+    } catch (parseError) {
+      return res.status(200).json({ replyText: output, newWords: [] });
+    }
 
   } catch (error: any) {
-    return res.status(500).json({ error: error.message });
+    console.error("Gemini API Error:", error);
+    return res.status(500).json({ error: error.message || "Internal Server Error" });
   }
 }
