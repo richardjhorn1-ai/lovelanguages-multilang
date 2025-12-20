@@ -15,6 +15,131 @@ interface TranscriptItem {
     text: string;
 }
 
+// --- Rich Component Renderers ---
+
+// Utility to parse basic markdown bold/code since we aren't using a full markdown library
+const parseMarkdown = (text: string) => {
+  if (!text) return '';
+  let parsed = text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+    .replace(/\[(.*?)\]/g, '<span class="px-1.5 py-0.5 bg-gray-100 rounded text-gray-500 font-mono text-xs">$1</span>') // Context tags
+    .replace(/\n/g, '<br />'); // Newlines
+  return parsed;
+};
+
+const CultureCard: React.FC<{ title: string; content: string }> = ({ title, content }) => (
+  <div className="my-4 overflow-hidden rounded-2xl bg-gradient-to-br from-[#FFF0F3] to-white border border-rose-100 shadow-sm animate-in zoom-in-95 duration-300 w-full">
+    <div className="bg-[#FF4761]/10 px-4 py-2 border-b border-rose-100 flex items-center gap-2">
+      <ICONS.Sparkles className="w-4 h-4 text-[#FF4761]" />
+      <h3 className="text-xs font-black uppercase tracking-widest text-[#FF4761]">{title || "Culture Note"}</h3>
+    </div>
+    <div className="p-4 text-sm text-gray-700 leading-relaxed">
+      <div dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
+    </div>
+  </div>
+);
+
+const DrillCard: React.FC<{ content: string }> = ({ content }) => (
+  <div className="my-4 rounded-2xl border-2 border-dashed border-teal-200 bg-teal-50/50 p-1 relative w-full">
+    <div className="absolute -top-3 left-4 bg-teal-100 text-teal-600 text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-teal-200">
+      Your Turn
+    </div>
+    <div className="p-4 text-sm text-gray-800 font-medium">
+      <div dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
+    </div>
+  </div>
+);
+
+const GrammarTable: React.FC<{ content: string }> = ({ content }) => {
+  // Simple markdown table parser (handles | separator)
+  const rows = content.trim().split('\n').filter(r => r.trim() && !r.includes('---')); // Filter out empty lines and divider lines
+  
+  if (rows.length < 2) return null;
+
+  const header = rows[0].split('|').map(c => c.trim()).filter(c => c);
+  const body = rows.slice(1).map(r => r.split('|').map(c => c.trim()).filter(c => c));
+
+  return (
+    <div className="my-4 overflow-hidden rounded-xl border border-gray-200 shadow-sm bg-white w-full">
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm text-left min-w-[300px]">
+          <thead className="bg-gray-50 text-gray-500 text-[10px] uppercase font-bold tracking-wider">
+            <tr>
+              {header.map((h, i) => <th key={i} className="px-4 py-3 font-black whitespace-nowrap">{h}</th>)}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100">
+            {body.map((row, i) => (
+              <tr key={i} className="hover:bg-gray-50/50">
+                {row.map((cell, j) => (
+                  <td key={j} className="px-4 py-2.5 text-gray-700 font-medium whitespace-nowrap" dangerouslySetInnerHTML={{ __html: parseMarkdown(cell) }} />
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+const RichMessageRenderer: React.FC<{ content: string }> = ({ content }) => {
+  // Regex to find blocks. Captures the type, optional title, and content.
+  // This supports ::: type [Title] \n content ::: syntax
+  const parts = content.split(/(:::\s*[a-z]+.*)/i);
+  
+  let currentBlockType = 'text';
+  let currentBlockTitle = '';
+  
+  return (
+    <div className="space-y-2 w-full break-words">
+      {parts.map((part, index) => {
+        const trimmed = part.trim();
+        if (!trimmed) return null;
+
+        // Check if this part initiates a block
+        const match = trimmed.match(/^:::\s*([a-z]+)(.*)$/i);
+        if (match) {
+          currentBlockType = match[1].toLowerCase();
+          const titleMatch = match[2].match(/\[(.*?)\]/);
+          currentBlockTitle = titleMatch ? titleMatch[1] : '';
+          return null; 
+        }
+
+        // Check for block closure
+        if (trimmed === ':::') {
+          currentBlockType = 'text';
+          return null;
+        }
+
+        // Render based on current state
+        if (currentBlockType === 'culture' || currentBlockType === 'slang') {
+          const type = currentBlockType;
+          currentBlockType = 'text'; // Reset so subsequent text isn't swallowed if ::: is missing
+          return <CultureCard key={index} title={currentBlockTitle} content={trimmed} />;
+        }
+        
+        if (currentBlockType === 'drill') {
+          currentBlockType = 'text';
+          return <DrillCard key={index} content={trimmed} />;
+        }
+
+        if (currentBlockType === 'table') {
+          currentBlockType = 'text';
+          return <GrammarTable key={index} content={trimmed} />;
+        }
+
+        // Default Text
+        return (
+          <div key={index} className="text-sm leading-relaxed text-gray-800" dangerouslySetInnerHTML={{ __html: parseMarkdown(trimmed) }} />
+        );
+      })}
+    </div>
+  );
+};
+
+// --- Main ChatArea Component ---
+
 const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   // Chat State
   const [chats, setChats] = useState<Chat[]>([]);
@@ -105,7 +230,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     const currentAttachments = [...attachments];
     
     setInput('');
-    setAttachments([]); // Clear immediately
+    setAttachments([]); 
     setLoading(true);
 
     const isFirstMessage = messages.length === 0;
@@ -167,8 +292,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setChats(prev => prev.filter(c => c.id !== id));
   };
 
-  // --- Attachments & Menu ---
-
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsMenuOpen(false);
     if (e.target.files && e.target.files.length > 0) {
@@ -186,8 +309,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setAttachments(prev => prev.filter((_, i) => i !== index));
   };
 
-  // --- Live Session Logic ---
-
+  // --- Live Session Logic (Unchanged but included for context) ---
   const startLiveSession = async (type: 'audio' | 'video') => {
     if (isSaving) return;
     setIsMenuOpen(false);
@@ -195,7 +317,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setIsLiveActive(true);
     setTranscripts([]);
 
-    // Fetch user log for context
     const userLog = (await supabase.from('dictionary').select('word').eq('user_id', profile.id)).data?.map(d => d.word) || [];
 
     try {
@@ -207,18 +328,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         
         liveSessionRef.current = new LiveSession({
             videoRef: videoRef,
-            userLog: userLog, // Pass known words
-            onClose: () => {
-                // Handle unexpected closure (e.g. error) by triggering save
-                if (!isSaving) endLiveSession();
-            },
+            userLog: userLog,
+            onClose: () => { if (!isSaving) endLiveSession(); },
             onTranscript: (role, text) => {
                 setTranscripts(prev => {
                     const last = prev[prev.length - 1];
-                    // Append transcript delta
-                    if (last && last.role === role) {
-                         return [...prev.slice(0, -1), { role, text: last.text + text }];
-                    }
+                    if (last && last.role === role) return [...prev.slice(0, -1), { role, text: last.text + text }];
                     return [...prev, { role, text }];
                 });
             }
@@ -234,12 +349,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const endLiveSession = async () => {
-    if (isSaving) return; // Prevent double taps
+    if (isSaving) return;
     setIsSaving(true);
 
-    // 1. Stop AV Hardware immediately (Visual Feedback: UI stays open but 'Listening' stops)
     if (liveSessionRef.current) {
-        // Remove callback to prevent recursion loop if we called it from onClose
         liveSessionRef.current['config'].onClose = undefined; 
         liveSessionRef.current.disconnect();
         liveSessionRef.current = null;
@@ -250,26 +363,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     }
     if (videoRef.current) videoRef.current.srcObject = null;
     
-    // 2. Process Data if transcripts exist
     if (transcripts.length > 0 && activeChat) {
-        
-        // Save history
-        const messagesToInsert = transcripts.map(t => ({
-            chat_id: activeChat.id,
-            role: t.role,
-            content: t.text
-        }));
+        const messagesToInsert = transcripts.map(t => ({ chat_id: activeChat.id, role: t.role, content: t.text }));
+        const { data: savedMessages } = await supabase.from('messages').insert(messagesToInsert).select();
+        if (savedMessages) setMessages(prev => [...prev, ...savedMessages]);
 
-        const { data: savedMessages } = await supabase
-            .from('messages')
-            .insert(messagesToInsert)
-            .select();
-
-        if (savedMessages) {
-             setMessages(prev => [...prev, ...savedMessages]);
-        }
-
-        // Extract Vocabulary
         const fullTranscript = transcripts.map(t => `${t.role.toUpperCase()}: ${t.text}`).join('\n\n');
         const newWords = await geminiService.extractFromTranscript(fullTranscript);
         
@@ -288,76 +386,17 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             }
         }
         
-        // Explicit feedback message
         const feedbackText = newWords.length > 0 
-            ? `✅ Session complete! I found **${newWords.length}** new words for your Love Log.` 
-            : `📝 Session saved to transcript. No new vocabulary detected this time.`;
+            ? `✅ Session complete! I found **${newWords.length}** new words.` 
+            : `📝 Session saved.`;
 
-        const { data: confirmMsg } = await supabase.from('messages').insert({
-            chat_id: activeChat.id,
-            role: 'model',
-            content: feedbackText
-        }).select().single();
+        const { data: confirmMsg } = await supabase.from('messages').insert({ chat_id: activeChat.id, role: 'model', content: feedbackText }).select().single();
         if (confirmMsg) setMessages(prev => [...prev, confirmMsg]);
     }
     
-    // 3. Reset State & Close UI
     setTranscripts([]);
     setIsLiveActive(false);
     setIsSaving(false);
-  };
-
-  // --- Formatting Helpers ---
-  const formatText = (text: string) => text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\[(.*?)\]/g, '<span class="pronunciation">$1</span>');
-  
-  const formatMessage = (content: string) => {
-    const lines = content.split('\n');
-    let htmlOutput = '';
-    let inTable = false;
-    let tableRows: string[][] = [];
-    let inList = false;
-
-    const flushList = () => { if (inList) { htmlOutput += '</ul>'; inList = false; } };
-    const flushTable = () => {
-      if (inTable) {
-        let tableHtml = '<div class="table-wrapper"><table><thead><tr>';
-        tableRows[0].forEach(h => tableHtml += `<th>${formatText(h.trim())}</th>`);
-        tableHtml += '</tr></thead><tbody>';
-        for (let i = 2; i < tableRows.length; i++) {
-          tableHtml += '<tr>';
-          tableRows[i].forEach(cell => tableHtml += `<td>${formatText(cell.trim())}</td>`);
-          tableHtml += '</tr>';
-        }
-        tableHtml += '</tbody></table></div>';
-        htmlOutput += tableHtml;
-        inTable = false;
-        tableRows = [];
-      }
-    };
-
-    lines.forEach((line) => {
-      const trimmed = line.trim();
-      if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
-        flushList();
-        inTable = true;
-        const cells = trimmed.split('|').filter((_, i, arr) => i > 0 && i < arr.length - 1);
-        if (cells.length > 0) tableRows.push(cells);
-        return;
-      }
-      flushTable();
-      if (trimmed.startsWith('### ')) { flushList(); htmlOutput += `<h3>${formatText(trimmed.slice(4))}</h3>`; return; }
-      if (trimmed.startsWith('## ')) { flushList(); htmlOutput += `<h2>${formatText(trimmed.slice(3))}</h2>`; return; }
-      if (trimmed === '---') { flushList(); htmlOutput += '<hr />'; return; }
-      if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
-        if (!inList) { htmlOutput += '<ul>'; inList = true; }
-        htmlOutput += `<li>${formatText(trimmed.slice(2))}</li>`;
-        return;
-      }
-      flushList();
-      htmlOutput += trimmed ? `<p>${formatText(trimmed)}</p>` : '<div class="h-1"></div>';
-    });
-    flushList(); flushTable();
-    return { __html: htmlOutput };
   };
 
   return (
@@ -387,7 +426,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       </div>
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col relative">
+      <div className="flex-1 flex flex-col relative overflow-hidden">
         {/* Header */}
         <div className="p-3 border-b border-gray-100 flex items-center justify-between bg-white/90 backdrop-blur-md sticky top-0 z-20">
           <div className="flex items-center gap-3">
@@ -400,43 +439,43 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest px-3">{profile.role}</span>
         </div>
 
-        {/* Messages List & Real-time Transcripts */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9] relative pb-32">
-          {/* History Messages */}
+        {/* Messages List */}
+        <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-6 bg-[#fcf9f9] relative pb-32">
           {messages.map((msg, i) => (
-            <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}>
-              <div className={`max-w-[95%] sm:max-w-[85%] rounded-2xl px-5 py-3 shadow-sm ${
+            <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300 w-full`}>
+              <div className={`max-w-[95%] sm:max-w-[85%] rounded-2xl px-5 py-3 shadow-sm transition-all overflow-hidden ${
                   msg.role === 'user' ? 'bg-[#FF4761] text-white rounded-tr-none' : 'bg-white border border-rose-50 text-gray-800 rounded-tl-none'
               }`}>
-                <div 
-                  className={`chat-content leading-snug font-medium ${msg.role === 'user' ? 'text-white' : 'text-gray-800'}`} 
-                  dangerouslySetInnerHTML={formatMessage(msg.content)} 
-                />
+                {msg.role === 'user' ? (
+                  <div className="text-sm font-medium leading-relaxed break-words">{msg.content}</div>
+                ) : (
+                  <RichMessageRenderer content={msg.content} />
+                )}
               </div>
             </div>
           ))}
           
-          {/* Live Streaming Messages (Bubbles) */}
           {isLiveActive && transcripts.map((t, i) => (
-             <div key={`live-${i}`} className={`flex ${t.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-200`}>
-                <div className={`max-w-[95%] sm:max-w-[85%] rounded-2xl px-5 py-3 shadow-sm transition-all ${
-                    t.role === 'user' 
-                    ? 'bg-[#FF4761]/90 text-white rounded-tr-none' 
-                    : 'bg-white/90 border border-rose-100 text-gray-700 rounded-tl-none'
-                }`}>
-                    <div className="flex items-center gap-2 mb-1">
-                        <span className={`w-1.5 h-1.5 rounded-full ${t.role === 'user' ? 'bg-white' : 'bg-rose-400'} animate-pulse`}></span>
-                        <span className="text-[8px] font-black uppercase tracking-widest opacity-70">Live</span>
-                    </div>
-                    <div className="leading-snug font-medium">{t.text}</div>
+             <div key={`live-${i}`} className={`flex ${t.role === 'user' ? 'justify-end' : 'justify-start'} opacity-80`}>
+                <div className={`max-w-[80%] rounded-2xl px-4 py-2 text-xs ${t.role === 'user' ? 'bg-rose-400 text-white' : 'bg-gray-100 text-gray-600'}`}>
+                    <span className="font-bold uppercase text-[8px] opacity-70 block mb-1">Live</span>
+                    {t.text}
                 </div>
              </div>
           ))}
           
-          {loading && !isSaving && <div className="flex justify-start"><div className="bg-white border border-rose-100 px-3 py-1.5 rounded-xl flex gap-1 animate-pulse"><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div></div></div>}
+          {loading && !isSaving && (
+            <div className="flex justify-start">
+              <div className="bg-white border border-rose-100 px-4 py-3 rounded-2xl rounded-tl-none flex gap-1.5 shadow-sm">
+                <div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce"></div>
+                <div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce [animation-delay:0.1s]"></div>
+                <div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Live Active Status Bar (Floating) */}
+        {/* Live Active Status Bar */}
         {isLiveActive && (
              <div className="absolute top-16 left-0 right-0 z-30 flex justify-center pointer-events-none">
                 <div className="bg-white/95 backdrop-blur-xl border border-rose-100 shadow-xl rounded-full pl-4 pr-1.5 py-1.5 flex items-center gap-4 pointer-events-auto mt-2 transition-all duration-300">
@@ -450,24 +489,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                             </span>
                         )}
                         <span className="text-[10px] font-black uppercase tracking-widest text-rose-500">
-                            {isSaving ? "Saving & Analyzing..." : "Live Voice"}
+                            {isSaving ? "Saving..." : "Live Voice"}
                         </span>
                     </div>
-                    
-                    {/* Tiny Video Preview */}
                     <div className={`w-16 h-10 bg-black rounded-lg overflow-hidden border border-gray-200 transition-all ${liveMode === 'video' && !isSaving ? 'block' : 'hidden'}`}>
                          <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
                     </div>
-
-                    <button 
-                        onClick={endLiveSession}
-                        disabled={isSaving}
-                        className={`p-2 rounded-full transition-all flex items-center justify-center ${
-                            isSaving 
-                            ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-                            : 'bg-rose-500 hover:bg-rose-600 text-white shadow-md hover:shadow-lg'
-                        }`}
-                    >
+                    <button onClick={endLiveSession} disabled={isSaving} className={`p-2 rounded-full transition-all flex items-center justify-center ${isSaving ? 'bg-gray-100 text-gray-400' : 'bg-rose-500 text-white'}`}>
                         <ICONS.X className="w-4 h-4" />
                     </button>
                 </div>
@@ -495,52 +523,20 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         {/* Input Area */}
         <div className="p-4 bg-white border-t border-gray-100 z-30">
           <div className="max-w-4xl mx-auto flex gap-3 items-center relative">
-            
-            {/* The Cute Menu */}
             <div className="relative">
-                {/* Expandable Options */}
                 <div className={`absolute bottom-14 left-0 flex flex-col gap-3 transition-all duration-300 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-                    
-                    {/* Live Video */}
-                    <button onClick={() => startLiveSession('video')} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110" title="Live Video">
-                        <ICONS.Video className="w-5 h-5" />
-                    </button>
-                    
-                    {/* Live Voice */}
-                    <button onClick={() => startLiveSession('audio')} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110" title="Live Voice">
-                        <ICONS.Mic className="w-5 h-5" />
-                    </button>
-
-                    {/* Camera (Photo) */}
-                    <button onClick={() => cameraInputRef.current?.click()} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110" title="Take Photo">
-                        <ICONS.Image className="w-5 h-5" />
-                    </button>
-
-                    {/* Document */}
-                    <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110" title="Upload File">
-                        <ICONS.FileText className="w-5 h-5" />
-                    </button>
+                    <button onClick={() => startLiveSession('video')} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110"><ICONS.Video className="w-5 h-5" /></button>
+                    <button onClick={() => startLiveSession('audio')} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110"><ICONS.Mic className="w-5 h-5" /></button>
+                    <button onClick={() => cameraInputRef.current?.click()} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110"><ICONS.Image className="w-5 h-5" /></button>
+                    <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 bg-white border border-rose-100 rounded-full flex items-center justify-center text-rose-500 shadow-lg hover:bg-rose-50 transition-transform hover:scale-110"><ICONS.FileText className="w-5 h-5" /></button>
                 </div>
-
-                {/* Main Toggle Button */}
-                <button 
-                    onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                    disabled={isLiveActive}
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-md z-20 ${isMenuOpen ? 'bg-gray-100 text-gray-500 rotate-45' : 'bg-[#FF4761] text-white hover:scale-105'} ${isLiveActive ? 'opacity-50 cursor-not-allowed' : ''}`}
-                >
-                    <ICONS.Plus className="w-6 h-6" />
-                </button>
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} disabled={isLiveActive} className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-md z-20 ${isMenuOpen ? 'bg-gray-100 text-gray-500 rotate-45' : 'bg-[#FF4761] text-white hover:scale-105'} ${isLiveActive ? 'opacity-50 cursor-not-allowed' : ''}`}><ICONS.Plus className="w-6 h-6" /></button>
             </div>
-
-            {/* Hidden Inputs */}
             <input type="file" ref={fileInputRef} className="hidden" onChange={handleFileSelect} />
             <input type="file" ref={cameraInputRef} className="hidden" onChange={handleFileSelect} accept="image/*" capture="environment" />
-
-            {/* Text Input */}
             <div className="flex-1">
-              <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()} placeholder="Ask in English or Polish..." className="w-full px-5 py-2.5 bg-[#F2F4F7] border-none rounded-full focus:outline-none focus:ring-1 focus:ring-rose-200 text-sm font-bold text-gray-700 placeholder:text-gray-400" />
+              <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()} placeholder="Message Cupid..." className="w-full px-5 py-2.5 bg-[#F2F4F7] border-none rounded-full focus:outline-none focus:ring-1 focus:ring-rose-200 text-sm font-bold text-gray-700 placeholder:text-gray-400" />
             </div>
-            
             <button onClick={handleSend} disabled={loading || (!input.trim() && attachments.length === 0)} className="w-10 h-10 bg-[#FF4761] text-white rounded-full flex items-center justify-center transition-all disabled:opacity-50 shadow-md active:scale-90"><ICONS.Play className="w-4 h-4 fill-white" /></button>
           </div>
         </div>

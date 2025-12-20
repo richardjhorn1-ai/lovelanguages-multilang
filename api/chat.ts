@@ -2,67 +2,37 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
 export default async function handler(req: any, res: any) {
-  console.log("API Handler Invoked (ESM)");
-
-  // Set CORS headers
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
     const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
-    
-    if (!apiKey) {
-      return res.status(500).json({ error: "Server Error: API Key missing" });
-    }
+    if (!apiKey) return res.status(500).json({ error: "Server Error: API Key missing" });
 
     let body = req.body;
-    if (typeof body === 'string') {
-      try {
-        body = JSON.parse(body);
-      } catch (e) {
-        return res.status(400).json({ error: "Invalid JSON body" });
-      }
-    }
-    
-    if (!body) {
-        return res.status(400).json({ error: "Missing request body" });
-    }
-
+    if (typeof body === 'string') body = JSON.parse(body);
     const { prompt, mode, userLog, action, images, transcript } = body;
     const ai = new GoogleGenAI({ apiKey });
 
-    // --- Action: Generate Title ---
+    // --- Action: Title Gen ---
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Generate a cute, short 2-3 word title for a language learning chat that starts with: "${prompt}". Focus on the emotion/topic.`,
+        contents: `Generate a cute, short 2-3 word title for: "${prompt}"`,
       });
       return res.status(200).json({ title: response.text?.replace(/"/g, '') || "New Chat" });
     }
 
-    // --- Action: Extract Vocabulary from Transcript ---
+    // --- Action: Transcript ---
     if (action === 'extractFromTranscript') {
         const response = await ai.models.generateContent({
             model: "gemini-3-flash-preview",
-            contents: `Here is a transcript of a voice lesson between a tutor and a student:
-            
-            ${transcript}
-            
-            Identify any Polish vocabulary that was taught or practiced. Extract it into the JSON schema.
-            CRITICAL: Always find the LEMMA (Root form). If transcript says "psem", you extract "pies".`,
+            contents: `Analyze transcript: ${transcript}. Extract Polish vocabulary (Lemma forms).`,
             config: {
                 responseMimeType: "application/json",
                 responseSchema: {
@@ -87,56 +57,77 @@ export default async function handler(req: any, res: any) {
                 }
             }
         });
-        
-        if (!response || !response.text) throw new Error("Empty response");
-        res.setHeader('Content-Type', 'application/json');
         return res.status(200).send(response.text);
     }
 
-    // --- Default Action: Chat & Extract ---
-
+    // --- Default Chat ---
     const CORE_PERSONA = `
 **IDENTITY:** You are "Cupid," a charming, intelligent, and slightly cheeky Polish language coach designed specifically for couples.
 **TONE:** Warm, encouraging, specific, and culturally astute.
 `;
 
+    const VISUAL_PROTOCOL = `
+**STRICT FORMATTING RULES:**
+1.  **MARKDOWN ONLY:** You must ONLY use Markdown.
+2.  **FORBIDDEN:** Do NOT write HTML, CSS, <span> tags, hex codes (like #FF4761), or class names.
+3.  **HIGHLIGHTING:** To highlight a Polish word, wrap it in double asterisks: **słowo**. The app will style it automatically.
+    *   *Correct:* **Cześć**
+    *   *Incorrect:* #FF4761 Cześć
+
+**UI BLOCKS:**
+Use these blocks to structure your response. Content inside must be Markdown.
+
+1.  **Cultural/Slang Cards:**
+    ::: culture [Title]
+    [Content]
+    :::
+
+2.  **Grammar Tables:** (Use standard markdown table syntax)
+    ::: table
+    | Person | Polish | English |
+    | :--- | :--- | :--- |
+    | I | **Ja** | I am |
+    :::
+
+3.  **Drills:**
+    ::: drill
+    [Content]
+    :::
+`;
+
     const POLISH_PEDAGOGY = `
-1.  **Contrastive Analysis:** Explain *why* Polish is different from English (cases vs order).
-2.  **Root Word Mandate:** Always identify the Lemma (dictionary form) in the \`newWords\` array.
-3.  **Visual Scaffolding:** Use Markdown tables to show declensions. Highlight changes in bold.
-4.  **Gender Clarity:** Always denote gender (m/f/n).
+1.  **Contrastive Analysis:** Explain *why* Polish is different.
+2.  **The "Root Word" Mandate:** ALWAYS extract the Lemma.
 `;
 
     const MODE_DEFINITIONS = {
         listen: `
-### MODE: LISTENER (The Cultural Wingman)
-**Goal:** Listen to the background conversation and identify vocabulary.
-1. Be passive unless asked a direct question.
-2. If summarizing, keep it brief (1-2 sentences).
-3. Focus on populating the \`newWords\` JSON array with the Lemma forms of words heard.
+### MODE: LISTENER
+**Goal:** Listen to the environment.
+**Behavior:**
+1.  **Passive:** If input is short, give a SHORT definition.
+2.  **Active:** Only give full lessons if explicitly asked.
 `,
         chat: `
-### MODE: CHAT (The Socratic Wingman)
-**Goal:** Help the user build sentences for their partner.
-1. **Analyze:** Check for grammar mistakes (especially Case endings).
-2. **Correct:** If they used the wrong ending, show a table comparing their ending vs the correct one.
-3. **Encourage:** Keep the romance alive.
+### MODE: CHAT
+**Goal:** Help the user build sentences.
+**Behavior:** Correct grammar, explain slang, and ALWAYS end with a ::: drill.
 `,
         tutor: `
-### MODE: TUTOR (The Curriculum Architect)
-**Goal:** Teach ONE specific grammar concept.
-1. **Isolate:** Pick ONE rule (e.g. "Accusative for food/drink").
-2. **Drill:** Ask the user to translate simple phrases.
-3. **Correct:** Be strict but kind.
+### MODE: TUTOR
+**Goal:** Teach ONE concept.
+**Behavior:** Explain rule, show ::: table, end with ::: drill.
 `
     };
 
     const activeSystemInstruction = `
 ${CORE_PERSONA}
+${VISUAL_PROTOCOL}
 ${MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.chat}
 ${POLISH_PEDAGOGY}
+User Knowledge: [${userLog?.slice(0, 20).join(', ')}...]
 
-**Context:** User knows [${userLog?.slice(0, 20).join(', ')}...].
+**CRITICAL:** Return JSON. No HTML/CSS.
 `;
 
     const parts: any[] = [];
@@ -180,18 +171,10 @@ ${POLISH_PEDAGOGY}
       }
     });
 
-    if (!response || !response.text) {
-      throw new Error("Empty response from Gemini");
-    }
-
-    res.setHeader('Content-Type', 'application/json');
     return res.status(200).send(response.text);
 
   } catch (error: any) {
-    console.error("API Handler Error:", error);
-    return res.status(500).json({ 
-      error: "Internal Server Error", 
-      details: error.message 
-    });
+    console.error("API Error:", error);
+    return res.status(500).json({ error: error.message });
   }
 }
