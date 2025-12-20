@@ -8,6 +8,8 @@ export interface Profile {
   linked_user_id: string | null;
   full_name: string;
   avatar_url?: string;
+  xp?: number;
+  level?: number;
 }
 
 export type WordType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
@@ -21,7 +23,6 @@ export interface DictionaryEntry {
   importance: number;
   context: string;
   unlocked_at: string;
-  root_word?: string; // Optional to prevent crashes if column is missing
 }
 
 export type ChatMode = 'listen' | 'chat' | 'tutor';
@@ -40,13 +41,4 @@ export interface Message {
   role: 'user' | 'model';
   content: string;
   created_at: string;
-}
-
-export interface FlashcardScore {
-  id: string;
-  user_id: string;
-  word_id: string;
-  level: number;
-  last_practiced: string;
-  next_review: string;
 }
