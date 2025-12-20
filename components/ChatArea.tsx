@@ -219,7 +219,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             }
         });
         
-        await liveSessionRef.current.connect();
+        await liveSessionRef.current.connect(mode);
 
     } catch (e) {
         console.error("Failed to start live session", e);
@@ -239,24 +239,32 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         setLocalStream(null);
     }
     if (videoRef.current) videoRef.current.srcObject = null;
-    setIsLiveActive(false);
-
-    // PROCESS TRANSCRIPT (Save to Chat & Extract Words)
+    
+    // SAVE INDIVIDUAL MESSAGES
     if (transcripts.length > 0 && activeChat) {
         setLoading(true);
-        const fullTranscript = transcripts.map(t => `${t.role.toUpperCase()}: ${t.text}`).join('\n\n');
         
-        // 1. Save Transcript to Message History
-        const { data: savedMsg } = await supabase.from('messages').insert({
+        // 1. Insert messages one by one to preserve history
+        const messagesToInsert = transcripts.map(t => ({
             chat_id: activeChat.id,
-            role: 'model',
-            content: `**🎙️ Live Session Transcript**\n\n${fullTranscript}`
-        }).select().single();
+            role: t.role,
+            content: t.text
+        }));
 
-        if (savedMsg) setMessages(prev => [...prev, savedMsg]);
+        const { data: savedMessages } = await supabase
+            .from('messages')
+            .insert(messagesToInsert)
+            .select();
+
+        if (savedMessages) {
+             // Add unique check or just concat. Supabase return includes IDs.
+             setMessages(prev => [...prev, ...savedMessages]);
+        }
 
         // 2. Extract Vocabulary (Async)
+        const fullTranscript = transcripts.map(t => `${t.role.toUpperCase()}: ${t.text}`).join('\n\n');
         const newWords = await geminiService.extractFromTranscript(fullTranscript);
+        
         if (newWords.length > 0) {
             for (const w of newWords) {
                 await supabase.from('dictionary').upsert({
@@ -274,12 +282,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             const { data: confirmMsg } = await supabase.from('messages').insert({
                 chat_id: activeChat.id,
                 role: 'model',
-                content: `✅ I've processed our voice session and added **${newWords.length}** new words to your Love Log!`
+                content: `✅ I've processed our session and added **${newWords.length}** new words to your Love Log!`
             }).select().single();
             if (confirmMsg) setMessages(prev => [...prev, confirmMsg]);
         }
         setLoading(false);
     }
+    
+    setTranscripts([]);
+    setIsLiveActive(false);
   };
 
   // --- Formatting Helpers ---
@@ -375,8 +386,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           <span className="text-[10px] font-black text-rose-400 uppercase tracking-widest px-3">{profile.role}</span>
         </div>
 
-        {/* Messages List & Inline Live Deck */}
+        {/* Messages List & Real-time Transcripts */}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fcf9f9] relative pb-32">
+          {/* History Messages */}
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-1 duration-200`}>
               <div className={`max-w-[95%] sm:max-w-[85%] rounded-2xl px-5 py-3 shadow-sm ${
@@ -390,74 +402,52 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
           ))}
           
-          {loading && <div className="flex justify-start"><div className="bg-white border border-rose-100 px-3 py-1.5 rounded-xl flex gap-1 animate-pulse"><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div></div></div>}
-
-          {/* INLINE LIVE SESSION CARD */}
-          {isLiveActive && (
-            <div className="mt-6 mx-auto w-full max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <div className="bg-white border border-rose-100 rounded-[1.5rem] shadow-sm overflow-hidden">
-                    {/* Status Header */}
-                    <div className="bg-rose-50 px-4 py-2 flex items-center justify-between">
-                         <div className="flex items-center gap-2">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
-                            </span>
-                            <span className="text-[10px] font-black uppercase tracking-widest text-rose-400">
-                                {liveMode === 'audio' ? 'Live Voice' : 'Live Video'} Active
-                            </span>
-                         </div>
-                         <button onClick={endLiveSession} className="text-rose-300 hover:text-red-500 transition-colors">
-                            <ICONS.X className="w-4 h-4" />
-                         </button>
+          {/* Live Streaming Messages (Bubbles) */}
+          {isLiveActive && transcripts.map((t, i) => (
+             <div key={`live-${i}`} className={`flex ${t.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-200`}>
+                <div className={`max-w-[95%] sm:max-w-[85%] rounded-2xl px-5 py-3 shadow-sm transition-all ${
+                    t.role === 'user' 
+                    ? 'bg-[#FF4761]/90 text-white rounded-tr-none' 
+                    : 'bg-white/90 border border-rose-100 text-gray-700 rounded-tl-none'
+                }`}>
+                    <div className="flex items-center gap-2 mb-1">
+                        <span className={`w-1.5 h-1.5 rounded-full ${t.role === 'user' ? 'bg-white' : 'bg-rose-400'} animate-pulse`}></span>
+                        <span className="text-[8px] font-black uppercase tracking-widest opacity-70">Live</span>
                     </div>
-
-                    {/* Video Area (Only if Video Mode) */}
-                    <div className={liveMode === 'video' ? 'block' : 'hidden'}>
-                        <video 
-                            ref={videoRef} 
-                            className="w-full h-64 object-cover bg-black" 
-                            autoPlay 
-                            muted 
-                            playsInline 
-                        />
-                    </div>
-
-                    {/* Transcripts / Content */}
-                    <div className="p-4 space-y-3 min-h-[100px] max-h-[300px] overflow-y-auto">
-                        {transcripts.length === 0 ? (
-                            <div className="flex flex-col items-center justify-center py-6 text-gray-300">
-                                <ICONS.Mic className="w-8 h-8 mb-2 opacity-50" />
-                                <p className="text-xs font-bold uppercase tracking-wide">Listening...</p>
-                            </div>
-                        ) : (
-                            transcripts.map((t, i) => (
-                                <div key={i} className={`flex ${t.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                    <div className={`px-4 py-2 rounded-2xl text-sm font-medium leading-snug max-w-[85%] ${
-                                        t.role === 'user' 
-                                        ? 'bg-rose-500 text-white rounded-tr-none' 
-                                        : 'bg-gray-100 text-gray-700 rounded-tl-none'
-                                    }`}>
-                                    {t.text}
-                                    </div>
-                                </div>
-                            ))
-                        )}
-                    </div>
-
-                    {/* Footer Actions */}
-                    <div className="p-3 bg-gray-50 flex justify-center border-t border-gray-100">
-                        <button 
-                            onClick={endLiveSession} 
-                            className="text-gray-400 hover:text-rose-500 text-[10px] font-black uppercase tracking-widest transition-colors flex items-center gap-1"
-                        >
-                            End Session & Save to Log
-                        </button>
-                    </div>
+                    <div className="leading-snug font-medium">{t.text}</div>
                 </div>
-            </div>
-          )}
+             </div>
+          ))}
+          
+          {loading && <div className="flex justify-start"><div className="bg-white border border-rose-100 px-3 py-1.5 rounded-xl flex gap-1 animate-pulse"><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div></div></div>}
         </div>
+
+        {/* Live Active Status Bar (Floating) */}
+        {isLiveActive && (
+             <div className="absolute top-16 left-0 right-0 z-30 flex justify-center pointer-events-none">
+                <div className="bg-white/90 backdrop-blur-xl border border-rose-100 shadow-xl rounded-full pl-4 pr-1 py-1 flex items-center gap-4 pointer-events-auto mt-2">
+                    <div className="flex items-center gap-2">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                        </span>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-rose-500">Live Voice</span>
+                    </div>
+                    
+                    {/* Tiny Video Preview */}
+                    <div className={`w-16 h-10 bg-black rounded-lg overflow-hidden border border-gray-200 transition-all ${liveMode === 'video' ? 'block' : 'hidden'}`}>
+                         <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+                    </div>
+
+                    <button 
+                        onClick={endLiveSession} 
+                        className="bg-rose-500 hover:bg-rose-600 text-white p-2 rounded-full transition-colors"
+                    >
+                        <ICONS.X className="w-4 h-4" />
+                    </button>
+                </div>
+             </div>
+        )}
 
         {/* Attachment Previews */}
         {attachments.length > 0 && (

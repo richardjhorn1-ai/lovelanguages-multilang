@@ -4,7 +4,7 @@ import { RefObject } from 'react';
 
 export interface LiveSessionConfig {
   videoRef?: RefObject<HTMLVideoElement | null>;
-  userLog?: string[]; // Add context awareness
+  userLog?: string[]; 
   onTranscript?: (role: 'user' | 'model', text: string) => void;
   onClose?: () => void;
 }
@@ -28,7 +28,7 @@ export class LiveSession {
     this.config = config;
   }
 
-  async connect() {
+  async connect(mode: 'listen' | 'chat' | 'tutor') {
     this.inputAudioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
     this.outputAudioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
     
@@ -40,11 +40,39 @@ export class LiveSession {
       ? `User knows these Polish words: ${this.config.userLog.slice(0, 50).join(', ')}.`
       : "User is a complete beginner.";
 
+    // --- DYNAMIC SYSTEM INSTRUCTIONS ---
+    
+    const INSTRUCTIONS = {
+        listen: `
+ROLE: THE SILENT SCRIBE (Passive Interpreter)
+You are a background process listening to a couple's conversation.
+1. **BE SILENT:** Do not output audio for general conversation.
+2. **TRANSLATE ON DEMAND:** Only speak if the user specifically asks "What did she say?" or "How do I say X?".
+3. **CAPTURE:** Your primary goal is to listen and transcribe the words so they can be saved to the log later.
+4. **INTERVENTION:** If you MUST speak, act as a pure translator. Translate English -> Polish or Polish -> English immediately, then go silent.
+`,
+        chat: `
+ROLE: THE WINGMAN (Active Coach)
+You are a charming friend helping an English speaker on a date with a Polish speaker.
+1. **BE BRIEF:** Responses under 2 sentences.
+2. **ENCOURAGE:** If they try to speak Polish, cheer them on.
+3. **SCAFFOLD:** If they struggle, give them the English sounds for the Polish word (e.g. "Rhymes with...").
+4. **CONTEXT:** ${knownWords}
+`,
+        tutor: `
+ROLE: THE DRILL SERGEANT (Kind but Strict)
+You are running a structured oral lesson.
+1. **FOCUS:** Teach one specific concept based on their level.
+2. **DRILL:** Ask them to repeat phrases. Correct pronunciation explicitly.
+3. **CONTEXT:** ${knownWords}
+`
+    };
+
     const sessionPromise = this.client.live.connect({
       model: 'gemini-2.5-flash-native-audio-preview-09-2025',
       callbacks: {
         onopen: async () => {
-          console.log('Live Session Connected');
+          console.log(`Live Session Connected (${mode})`);
           await this.startAudioInput(sessionPromise);
           if (this.config.videoRef) {
             this.startVideoInput(sessionPromise);
@@ -65,24 +93,7 @@ export class LiveSession {
         },
         inputAudioTranscription: {},
         outputAudioTranscription: {},
-        systemInstruction: `
-CONTEXT:
-${knownWords}
-
-IDENTITY:
-You are a charming, bilingual "Wingman" and Polish Language Coach.
-You are speaking to an ENGLISH speaker who is a BEGINNER in Polish.
-
-CRITICAL RULES:
-1. **SPEAK ENGLISH 90% OF THE TIME.** Only use Polish for the specific word/phrase you are teaching.
-2. **NEVER** start a sentence in Polish unless asked.
-3. **EXPLAIN FIRST:** Before asking the user to say a Polish word, tell them what it means and how to pronounce it (using English sounds, e.g. "Rhymes with...").
-4. **SCAFFOLDING:** If the user struggles, switch immediately to pure English to reassure them.
-5. **LENGTH:** Keep responses under 2 sentences. This is a voice conversation, not a lecture.
-
-GOAL:
-Teach them ONE new romantic or useful phrase per turn. Make them feel confident.
-`,
+        systemInstruction: INSTRUCTIONS[mode],
       },
     });
     
