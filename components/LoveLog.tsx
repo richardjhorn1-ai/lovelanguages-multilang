@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
+import { geminiService } from '../services/gemini';
 import { Profile, DictionaryEntry, WordType } from '../types';
 import { ICONS } from '../constants';
 
@@ -13,15 +14,14 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [filter, setFilter] = useState<WordType | 'all'>('all');
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [syncResult, setSyncResult] = useState<{count: number} | null>(null);
 
   useEffect(() => {
     fetchEntries();
   }, [profile]);
 
   const fetchEntries = async () => {
-    // If tutor, view linked partner's data. 
-    // FALLBACK: If no partner linked, or if student, view own data.
-    // This allows students to see their own tutor dashboard for testing.
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) 
       ? profile.linked_user_id 
       : profile.id;
@@ -36,6 +36,56 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     setLoading(false);
   };
 
+  const handleHarvest = async () => {
+    setIsSyncing(true);
+    setSyncResult(null);
+    try {
+        // 1. Fetch recent messages
+        const { data: messages } = await supabase
+            .from('messages')
+            .select('role, content')
+            .order('created_at', { ascending: false })
+            .limit(100);
+
+        if (!messages || messages.length === 0) {
+            alert("No chat history found to review!");
+            setIsSyncing(false);
+            return;
+        }
+
+        // 2. Call Gemini for analysis
+        const knownWords = entries.map(e => e.word);
+        const newWords = await geminiService.analyzeHistory(messages.reverse(), knownWords);
+
+        if (newWords.length > 0) {
+            const wordsToSave = newWords.map(w => ({
+                user_id: profile.id,
+                word: w.word,
+                translation: w.translation,
+                word_type: w.type,
+                importance: w.importance,
+                context: w.context,
+                root_word: w.rootWord || w.word,
+                unlocked_at: new Date().toISOString()
+            }));
+
+            const { error } = await supabase.from('dictionary').insert(wordsToSave);
+            if (error) throw error;
+
+            setSyncResult({ count: wordsToSave.length });
+            await fetchEntries();
+        } else {
+            setSyncResult({ count: 0 });
+        }
+    } catch (e) {
+        console.error(e);
+        alert("Harvest failed. Please check your connection.");
+    } finally {
+        setIsSyncing(false);
+        setTimeout(() => setSyncResult(null), 5000);
+    }
+  };
+
   const filtered = entries.filter(e => {
     const matchesFilter = filter === 'all' || e.word_type === filter;
     const matchesSearch = e.word.toLowerCase().includes(search.toLowerCase()) || 
@@ -44,7 +94,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     return matchesFilter && matchesSearch;
   });
 
-  // Grouping logic for verbs
   const groupedData: { [key: string]: DictionaryEntry[] } = {};
   const individuals: DictionaryEntry[] = [];
 
@@ -61,7 +110,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
   return (
     <div className="h-full flex flex-col bg-[#fdfcfd]">
-      <div className="p-4 bg-white border-b border-gray-100 sticky top-0 z-20">
+      <div className="p-4 bg-white border-b border-gray-100 sticky top-0 z-20 shadow-sm">
         <div className="max-w-6xl mx-auto flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -76,30 +125,47 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               </div>
             </div>
             
-            <div className="relative w-48 sm:w-64">
-              <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3.5 h-3.5" />
-              <input 
-                type="text" 
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search..."
-                className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-100 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-rose-200 font-medium"
-              />
+            <div className="flex items-center gap-3">
+                {syncResult && (
+                    <div className="text-[10px] font-black text-teal-500 animate-bounce">
+                        {syncResult.count > 0 ? `+${syncResult.count} Words Harvested!` : "Already up to date!"}
+                    </div>
+                )}
+                <button 
+                    onClick={handleHarvest}
+                    disabled={isSyncing}
+                    className="flex items-center gap-2 bg-[#FF4761] hover:bg-rose-600 text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg disabled:opacity-50"
+                >
+                    <ICONS.Sparkles className={`w-3 h-3 ${isSyncing ? 'animate-spin' : ''}`} />
+                    {isSyncing ? 'Reviewing Chats...' : 'Review Chats'}
+                </button>
             </div>
           </div>
 
-          <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
-            {wordTypes.map(t => (
-              <button
-                key={t}
-                onClick={() => setFilter(t)}
-                className={`px-3 py-1 rounded-full text-[10px] font-black whitespace-nowrap transition-all uppercase tracking-tighter ${
-                  filter === t ? 'bg-[#FF4761] text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-                }`}
-              >
-                {t}s
-              </button>
-            ))}
+          <div className="flex items-center justify-between gap-4">
+              <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar flex-1">
+                {wordTypes.map(t => (
+                  <button
+                    key={t}
+                    onClick={() => setFilter(t)}
+                    className={`px-3 py-1 rounded-full text-[10px] font-black whitespace-nowrap transition-all uppercase tracking-tighter ${
+                      filter === t ? 'bg-rose-100 text-rose-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                    }`}
+                  >
+                    {t}s
+                  </button>
+                ))}
+              </div>
+              <div className="relative w-48 shrink-0">
+                <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-3.5 h-3.5" />
+                <input 
+                    type="text" 
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Quick search..."
+                    className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-100 rounded-lg text-[10px] focus:outline-none focus:ring-1 focus:ring-rose-200 font-bold"
+                />
+              </div>
           </div>
         </div>
       </div>
@@ -111,7 +177,11 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               {Array(8).fill(0).map((_, i) => <div key={i} className="h-20 bg-gray-100 rounded-xl animate-pulse"></div>)}
             </div>
           ) : filtered.length === 0 ? (
-            <div className="py-20 text-center text-gray-400 text-sm font-bold">No results found.</div>
+            <div className="py-20 flex flex-col items-center justify-center text-gray-400">
+                <ICONS.Search className="w-10 h-10 mb-4 opacity-20" />
+                <p className="text-sm font-bold">No results found.</p>
+                <p className="text-[10px] uppercase mt-1">Try reviewing your chats to harvest new words!</p>
+            </div>
           ) : (
             <>
               {Object.keys(groupedData).length > 0 && (
