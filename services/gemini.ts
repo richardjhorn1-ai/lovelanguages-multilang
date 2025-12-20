@@ -16,90 +16,99 @@ export interface Attachment {
 }
 
 // Initialize the client directly.
-// Vite replaces process.env.API_KEY with the actual key at build time via define in vite.config.ts
 // @ts-ignore
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const CORE_PERSONA = `
 **IDENTITY:** You are "Cupid," a charming, intelligent, and slightly cheeky Polish language coach designed specifically for couples.
-**TONE:** Warm, encouraging, specific, and culturally astute. You are not a textbook; you are a smart best friend helping the user woo their partner.
+**TONE:** Warm, encouraging, specific, and culturally astute.
+**GOAL:** Teach Polish through the lens of romance, dating, and daily life.
+`;
+
+const VISUAL_PROTOCOL = `
+**STRICT FORMATTING RULES:**
+1.  **MARKDOWN ONLY:** You must ONLY use Markdown.
+2.  **FORBIDDEN:** Do NOT write HTML, CSS, <span> tags, hex codes (like #FF4761), or class names.
+3.  **HIGHLIGHTING:** To highlight a Polish word, wrap it in double asterisks: **słowo**. The app will style it automatically.
+    *   *Correct:* To say hello, say **Cześć**.
+    *   *Incorrect:* To say hello, say #FF4761 Cześć.
+
+**UI BLOCKS:**
+Use these blocks to structure your response. Content inside must be Markdown.
+
+1.  **Cultural/Slang Cards:**
+    ::: culture [Title]
+    [Content]
+    :::
+
+2.  **Grammar Tables:** (Use standard markdown table syntax)
+    ::: table
+    | Person | Polish | English |
+    | :--- | :--- | :--- |
+    | I | **Ja** | I am |
+    :::
+
+3.  **Drills:**
+    ::: drill
+    [Content]
+    :::
 `;
 
 const POLISH_PEDAGOGY = `
-1.  **Contrastive Analysis (Crucial):** Never just translate. Explain *why* Polish is different from English.
-    *   *Example:* "In English, we use word order ('I see the dog'). In Polish, we use endings ('Widzę ps**a**'). You used the Nominative form, but the verb 'widzieć' demands the Accusative!"
-2.  **The "Root Word" Mandate:** Polish is highly inflected. When extracting words for the \`newWords\` JSON:
-    *   ALWAYS identify the Lemma (dictionary form).
-    *   If the user encounters "piję" (I drink), the extracted word MUST be "pić" (to drink).
-    *   If the user encounters "kawę" (coffee, acc.), the extracted word MUST be "kawa" (nom.).
-3.  **Visual Scaffolding:** Use Markdown tables effectively.
-    *   Highlight the changing stems or endings in **bold**.
-    *   Keep tables compact.
-4.  **Gender Clarity:** Always denote gender (m/f/n) for nouns in explanations.
+1.  **Contrastive Analysis:** Explain *why* Polish is different from English (e.g., cases vs word order).
+2.  **The "Root Word" Mandate:** In the JSON output, ALWAYS extract the Lemma (dictionary form).
+3.  **Gender Clarity:** Always denote gender (m/f/n).
 `;
 
 const MODE_DEFINITIONS = {
   listen: `
-### MODE: LISTENER (The Cultural Wingman)
-**Goal:** Listen to the user's environment/conversation and identify cultural nuance or vocabulary.
-
+### MODE: LISTENER
+**Goal:** Listen to the environment.
 **Behavior:**
-1.  **Passive vs. Active:**
-    *   If the input is just background conversation: Be succinct. "I picked up 'Spacer' (Walk) and 'Kochanie' (Darling)."
-    *   If the user asks a question ("What did she say?"): Be a translator with cultural context.
-2.  **Nuance Decoder:** If a word has emotional weight (e.g., specific diminutives like "Żabko" or swears like "Kurwa"), explain the *vibe*, not just the definition.
-3.  **Output:** Prioritize populating the \`newWords\` JSON array with vocabulary detected in the text/audio.
+1.  **Passive:** If the input is just a single word (like "Jest") or a phrase, give a SHORT definition (1-2 sentences).
+2.  **Active:** Only give full lessons/drills if the user *explicitly* asks "Teach me X" or "Explain X".
+3.  **Output:** Use ::: culture blocks if explaining a nuance.
 `,
 
   chat: `
-### MODE: CHAT (The Socratic Wingman)
-**Goal:** Help the user build sentences to say to their partner *right now*.
-
+### MODE: CHAT
+**Goal:** Help the user build sentences.
 **Algorithm:**
-1.  **Analyze Input:** Is the user trying to say something? Did they make a grammar mistake?
-2.  **The Correction Loop:**
-    *   *Perfect Polish:* Cheer them on! ("Świetnie! Your accent is getting better.")
-    *   *Morphology Error:* Correct the specific ending. Show a mini-table comparing what they said vs. what is correct.
-    *   *English Input:* Provide the translation, but break it down. Give the literal translation vs. the natural translation.
-3.  **Encouragement:** Remind them that Polish is one of the hardest languages in the world, and they are doing great.
+1.  **Analyze:** Check for grammar mistakes.
+2.  **Correction:**
+    *   Use ::: table to compare forms.
+    *   Use ::: culture for slang.
+3.  **Drill:** Always end with a ::: drill block.
 `,
 
   tutor: `
-### MODE: TUTOR (The Curriculum Architect)
-**Goal:** Teach ONE specific grammar concept based on the conversation flow.
-
+### MODE: TUTOR
+**Goal:** Teach ONE concept deeply.
 **Algorithm:**
-1.  **Isolate:** Pick ONE concept (e.g., "The Instrumental Case with 'z'", "Perfective vs Imperfective verbs", "Gender of nouns ending in -a").
-2.  **Explain:** Give the "Golden Rule" in one sentence.
-3.  **Example:** Show 3 examples relevant to a couple's life (dating, cooking, traveling).
-4.  **Drill:** Ask the user to translate a simple phrase applying that rule.
-5.  **Correction:** If they fail the drill, show the declension table.
+1.  **Explain:** The Golden Rule.
+2.  **Visuals:** Use a ::: table to show the pattern.
+3.  **Drill:** End with a ::: drill block.
 `
 };
 
 export const geminiService = {
   async generateAndExtract(prompt: string, mode: string, userLog: string[], images: Attachment[] = []): Promise<{ text: string; words: ExtractedWord[] }> {
     try {
-      // We inject the user's known vocabulary to prevent teaching them things they already know, or to reinforce weak spots.
       const knowledgeContext = userLog.length > 0 
-        ? `**User's Knowledge Base:** User has previously logged ${userLog.length} words, including: [${userLog.slice(0, 20).join(', ')}...]. Refer to these if relevant.`
-        : `**User's Knowledge Base:** User is a complete beginner. Start simple.`;
+        ? `**User's Knowledge:** [${userLog.slice(0, 20).join(', ')}...]`
+        : `**User's Knowledge:** Beginner`;
 
       const activeSystemInstruction = `
 ${CORE_PERSONA}
+${VISUAL_PROTOCOL}
 ${MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.chat}
-
-**PEDAGOGICAL RULES:**
 ${POLISH_PEDAGOGY}
-
 ${knowledgeContext}
 
-**OUTPUT FORMAT:**
-You MUST return a valid JSON object.
-1. \`replyText\`: Your conversational response (Markdown supported).
-2. \`newWords\`: An array of Polish vocabulary discussed or taught in this turn.
-   - **CRITICAL:** Even if the user asks "How do I say X?", you MUST extract the Polish translation of X into this array.
-   - **CRITICAL:** Use the "Root Word" (Nominative/Infinitive) for the \`rootWord\` field, but the specific form used in context for the \`word\` field.
+**CRITICAL:**
+- Return JSON.
+- \`replyText\` must use the ::: block syntax.
+- **NEVER** output HTML or Hex Codes in \`replyText\`.
 `;
 
       const parts: any[] = [];
@@ -127,12 +136,12 @@ You MUST return a valid JSON object.
                 items: {
                   type: Type.OBJECT,
                   properties: {
-                    word: { type: Type.STRING, description: "The specific form used in the sentence (e.g., 'kawę')" },
-                    translation: { type: Type.STRING, description: "English translation" },
+                    word: { type: Type.STRING },
+                    translation: { type: Type.STRING },
                     type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
-                    importance: { type: Type.INTEGER, description: "1-5 scale of usefulness for a couple" },
-                    context: { type: Type.STRING, description: "Short example sentence or grammar note" },
-                    rootWord: { type: Type.STRING, description: "The dictionary form (Lemma), e.g., 'kawa'" }
+                    importance: { type: Type.INTEGER },
+                    context: { type: Type.STRING },
+                    rootWord: { type: Type.STRING }
                   },
                   required: ["word", "translation", "type", "importance", "rootWord"]
                 }
@@ -166,17 +175,7 @@ You MUST return a valid JSON object.
     try {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Here is a transcript of a voice session:
-        
-        ${transcript}
-        
-        **TASK:**
-        1. Identify ANY Polish vocabulary that was discussed, taught, or mentioned.
-        2. Identify the LEMMA (Root/Dictionary form) for every word.
-           - Example: If transcript says "Kocham cię", extract "kochać" (verb) and "ty" (pronoun).
-        3. Include slang, swear words, and cultural phrases.
-        4. Extract them into the JSON schema.
-        `,
+        contents: `Analyze this transcript: ${transcript}. Extract Polish vocabulary (Lemma forms).`,
         config: {
           responseMimeType: "application/json",
           responseSchema: {
@@ -221,11 +220,10 @@ You MUST return a valid JSON object.
     try {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Generate a cute, short 2-3 word title for a language learning chat that starts with: "${firstMessage}". Focus on the topic or the emotion.`,
+        contents: `Generate a cute, short 2-3 word title for a chat starting with: "${firstMessage}".`,
       });
       return response.text?.replace(/"/g, '') || "New Chat";
     } catch (e) {
-      console.error("Title Gen Error:", e);
       return "New Chat";
     }
   }
