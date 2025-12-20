@@ -28,6 +28,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   // Menu & Live State
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLiveActive, setIsLiveActive] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const [liveMode, setLiveMode] = useState<'audio' | 'video'>('audio');
   const [transcripts, setTranscripts] = useState<TranscriptItem[]>([]);
   const [localStream, setLocalStream] = useState<MediaStream | null>(null);
@@ -53,7 +54,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages, loading, attachments, transcripts, isLiveActive]);
+  }, [messages, loading, attachments, transcripts, isLiveActive, isSaving]);
 
   useEffect(() => {
     if (isLiveActive && liveMode === 'video' && videoRef.current && localStream) {
@@ -188,6 +189,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   // --- Live Session Logic ---
 
   const startLiveSession = async (type: 'audio' | 'video') => {
+    if (isSaving) return;
     setIsMenuOpen(false);
     setLiveMode(type);
     setIsLiveActive(true);
@@ -206,7 +208,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         liveSessionRef.current = new LiveSession({
             videoRef: videoRef,
             userLog: userLog, // Pass known words
-            onClose: endLiveSession,
+            onClose: () => {
+                // Handle unexpected closure (e.g. error) by triggering save
+                if (!isSaving) endLiveSession();
+            },
             onTranscript: (role, text) => {
                 setTranscripts(prev => {
                     const last = prev[prev.length - 1];
@@ -229,8 +234,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const endLiveSession = async () => {
-    // Stop AV Hardware
+    if (isSaving) return; // Prevent double taps
+    setIsSaving(true);
+
+    // 1. Stop AV Hardware immediately (Visual Feedback: UI stays open but 'Listening' stops)
     if (liveSessionRef.current) {
+        // Remove callback to prevent recursion loop if we called it from onClose
+        liveSessionRef.current['config'].onClose = undefined; 
         liveSessionRef.current.disconnect();
         liveSessionRef.current = null;
     }
@@ -240,11 +250,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     }
     if (videoRef.current) videoRef.current.srcObject = null;
     
-    // SAVE INDIVIDUAL MESSAGES
+    // 2. Process Data if transcripts exist
     if (transcripts.length > 0 && activeChat) {
-        setLoading(true);
         
-        // 1. Insert messages one by one to preserve history
+        // Save history
         const messagesToInsert = transcripts.map(t => ({
             chat_id: activeChat.id,
             role: t.role,
@@ -257,11 +266,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             .select();
 
         if (savedMessages) {
-             // Add unique check or just concat. Supabase return includes IDs.
              setMessages(prev => [...prev, ...savedMessages]);
         }
 
-        // 2. Extract Vocabulary (Async)
+        // Extract Vocabulary
         const fullTranscript = transcripts.map(t => `${t.role.toUpperCase()}: ${t.text}`).join('\n\n');
         const newWords = await geminiService.extractFromTranscript(fullTranscript);
         
@@ -278,19 +286,25 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     unlocked_at: new Date().toISOString()
                 }, { onConflict: 'user_id,word' });
             }
-            // Add a confirmation message
-            const { data: confirmMsg } = await supabase.from('messages').insert({
-                chat_id: activeChat.id,
-                role: 'model',
-                content: `✅ I've processed our session and added **${newWords.length}** new words to your Love Log!`
-            }).select().single();
-            if (confirmMsg) setMessages(prev => [...prev, confirmMsg]);
         }
-        setLoading(false);
+        
+        // Explicit feedback message
+        const feedbackText = newWords.length > 0 
+            ? `✅ Session complete! I found **${newWords.length}** new words for your Love Log.` 
+            : `📝 Session saved to transcript. No new vocabulary detected this time.`;
+
+        const { data: confirmMsg } = await supabase.from('messages').insert({
+            chat_id: activeChat.id,
+            role: 'model',
+            content: feedbackText
+        }).select().single();
+        if (confirmMsg) setMessages(prev => [...prev, confirmMsg]);
     }
     
+    // 3. Reset State & Close UI
     setTranscripts([]);
     setIsLiveActive(false);
+    setIsSaving(false);
   };
 
   // --- Formatting Helpers ---
@@ -419,29 +433,40 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
              </div>
           ))}
           
-          {loading && <div className="flex justify-start"><div className="bg-white border border-rose-100 px-3 py-1.5 rounded-xl flex gap-1 animate-pulse"><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div></div></div>}
+          {loading && !isSaving && <div className="flex justify-start"><div className="bg-white border border-rose-100 px-3 py-1.5 rounded-xl flex gap-1 animate-pulse"><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div><div className="w-1 h-1 bg-rose-300 rounded-full"></div></div></div>}
         </div>
 
         {/* Live Active Status Bar (Floating) */}
         {isLiveActive && (
              <div className="absolute top-16 left-0 right-0 z-30 flex justify-center pointer-events-none">
-                <div className="bg-white/90 backdrop-blur-xl border border-rose-100 shadow-xl rounded-full pl-4 pr-1 py-1 flex items-center gap-4 pointer-events-auto mt-2">
+                <div className="bg-white/95 backdrop-blur-xl border border-rose-100 shadow-xl rounded-full pl-4 pr-1.5 py-1.5 flex items-center gap-4 pointer-events-auto mt-2 transition-all duration-300">
                     <div className="flex items-center gap-2">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                        {isSaving ? (
+                            <span className="animate-spin h-3 w-3 border-2 border-rose-500 border-t-transparent rounded-full"></span>
+                        ) : (
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                            </span>
+                        )}
+                        <span className="text-[10px] font-black uppercase tracking-widest text-rose-500">
+                            {isSaving ? "Saving & Analyzing..." : "Live Voice"}
                         </span>
-                        <span className="text-[10px] font-black uppercase tracking-widest text-rose-500">Live Voice</span>
                     </div>
                     
                     {/* Tiny Video Preview */}
-                    <div className={`w-16 h-10 bg-black rounded-lg overflow-hidden border border-gray-200 transition-all ${liveMode === 'video' ? 'block' : 'hidden'}`}>
+                    <div className={`w-16 h-10 bg-black rounded-lg overflow-hidden border border-gray-200 transition-all ${liveMode === 'video' && !isSaving ? 'block' : 'hidden'}`}>
                          <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
                     </div>
 
                     <button 
-                        onClick={endLiveSession} 
-                        className="bg-rose-500 hover:bg-rose-600 text-white p-2 rounded-full transition-colors"
+                        onClick={endLiveSession}
+                        disabled={isSaving}
+                        className={`p-2 rounded-full transition-all flex items-center justify-center ${
+                            isSaving 
+                            ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+                            : 'bg-rose-500 hover:bg-rose-600 text-white shadow-md hover:shadow-lg'
+                        }`}
                     >
                         <ICONS.X className="w-4 h-4" />
                     </button>
@@ -500,7 +525,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 {/* Main Toggle Button */}
                 <button 
                     onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-md z-20 ${isMenuOpen ? 'bg-gray-100 text-gray-500 rotate-45' : 'bg-[#FF4761] text-white hover:scale-105'}`}
+                    disabled={isLiveActive}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-md z-20 ${isMenuOpen ? 'bg-gray-100 text-gray-500 rotate-45' : 'bg-[#FF4761] text-white hover:scale-105'} ${isLiveActive ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                     <ICONS.Plus className="w-6 h-6" />
                 </button>
