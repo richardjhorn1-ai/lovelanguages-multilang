@@ -45,7 +45,9 @@ const App: React.FC = () => {
         .single();
 
       if (error) {
-        if (error.code === 'PGRST116' || error.status === 404 || error.status === 405) {
+        // Fix: PostgrestError does not have a status property. 
+        // PGRST116 is the code for "no rows returned" when using .single()
+        if (error.code === 'PGRST116') {
           const { data: userData } = await supabase.auth.getUser();
           if (userData.user) {
             const { data: newProfile, error: createError } = await supabase

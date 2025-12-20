@@ -9,6 +9,7 @@ export interface ExtractedWord {
   context: string;
   rootWord?: string;
   examples?: string[]; 
+  proTip?: string;
 }
 
 export interface Attachment {
@@ -19,24 +20,11 @@ export interface Attachment {
 // @ts-ignore
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-const CORE_PERSONA = `
-**IDENTITY:** You are "Cupid," a charming and intelligent Polish language coach for couples.
-**TONE:** Warm, slightly cheeky, and culturally astute.
-**GOAL:** Teach Polish through the lens of romance and daily life.
-`;
-
-const VISUAL_PROTOCOL = `
-**STRICT FORMATTING RULES:**
-1. **MARKDOWN ONLY.** No HTML.
-2. **HIGHLIGHTING:** Wrap Polish words in double asterisks: **słowo**. 
-3. **UI BLOCKS:** Use ::: culture [Title], ::: table, and ::: drill for structured content.
-`;
-
 export const geminiService = {
   async analyzeHistory(messages: {role: string, content: string}[], currentWords: string[]): Promise<ExtractedWord[]> {
     try {
       const historyText = messages
-        .filter(m => m.content && !m.content.includes('[Attachment]'))
+        .filter(m => m.content && !m.content.includes('[Media Attached]'))
         .map(m => `${m.role.toUpperCase()}: ${m.content}`)
         .join('\n---\n');
       
@@ -51,6 +39,7 @@ export const geminiService = {
 2. For each word, generate exactly 5 diverse, high-quality example sentences in Polish with English translations in brackets.
 3. Identify the Root Word (Lemma).
 4. Importance 1-5.
+5. Provide a "proTip" (max 60 chars) which is a cheeky or helpful tip on how a lover should use this word or a cultural quirk.
 
 ${knownContext}
 
@@ -72,13 +61,14 @@ ${historyText}`,
                     importance: { type: Type.INTEGER },
                     context: { type: Type.STRING },
                     rootWord: { type: Type.STRING },
+                    proTip: { type: Type.STRING },
                     examples: { 
                       type: Type.ARRAY, 
                       items: { type: Type.STRING },
                       description: "5 Polish sentences using the word with English translations in brackets"
                     }
                   },
-                  required: ["word", "translation", "type", "importance", "examples"]
+                  required: ["word", "translation", "type", "importance", "examples", "proTip"]
                 }
               }
             },
@@ -99,29 +89,15 @@ ${historyText}`,
     }
   },
 
-  async generateReply(prompt: string, mode: string, images: Attachment[] = []): Promise<string> {
+  async generateReply(prompt: string, mode: string, images: Attachment[] = [], userWords: string[] = []): Promise<string> {
     try {
-      const systemInstruction = `
-${CORE_PERSONA}
-${VISUAL_PROTOCOL}
-**MODE:** ${mode.toUpperCase()}
-Respond to the user naturally. Focus on being an engaging coach. 
-Explain grammar or culture using the ::: blocks provided.
-`;
-
-      const parts: any[] = [];
-      if (images && images.length > 0) {
-        images.forEach(img => parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } }));
-      }
-      parts.push({ text: prompt || " " });
-
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: { parts },
-        config: { systemInstruction }
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, mode, images, userLog: userWords })
       });
-
-      return response.text || "I'm sorry, I lost my train of thought. What were we saying?";
+      const data = await response.json();
+      return data.replyText || "I'm having a bit of trouble finding the words.";
     } catch (e) {
       console.error("Gemini Chat Error:", e);
       return "I'm having a little trouble connecting right now.";
@@ -130,11 +106,13 @@ Explain grammar or culture using the ::: blocks provided.
 
   async generateTitle(firstMessage: string): Promise<string> {
     try {
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: `Generate a cute, short 2-3 word title for a chat starting with: "${firstMessage}".`,
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: firstMessage, action: 'generateTitle' })
       });
-      return response.text?.replace(/"/g, '') || "New Chat";
+      const data = await response.json();
+      return data.title || "New Chat";
     } catch (e) {
       return "New Chat";
     }
