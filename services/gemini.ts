@@ -21,37 +21,39 @@ export interface Attachment {
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const PEDAGOGICAL_INVARIANTS = `
-1. **Contrastive Analysis:** Never just translate. Explain the delta between English Logic and Polish Logic.
-2. **Visual Scaffolding:** Use Markdown Tables for ANY morphological changes.
-3. **Gender/Case Explicit:** Nouns must always be identified by gender (m/f/n).
-4. **Tone:** Warm, specific, romantic, non-academic.
-5. **JSON Adherence:** The response MUST be valid JSON.
+1. **Contrastive Analysis:** Explain *why* Polish does this (e.g. "Polish logic vs English logic").
+2. **Visual Scaffolding:** Use Markdown Tables *only* if teaching a specific declension or conjugation pattern. For simple definitions or slang, keep it conversational.
+3. **Gender/Case:** Always mention gender (m/f/n) for nouns.
+4. **Tone:** Warm, specific, romantic, non-academic. Like a smart best friend, not a textbook.
+5. **Dictionary Mandate:** ANY Polish word discussed, defined, or explained in your text response **MUST** be included in the 'newWords' JSON array. This includes swear words, slang, and basic phrases.
 `;
 
 const MODE_DEFINITIONS = {
   listen: `
-### ROLE: THE SILENT SCRIBE
-You are a passive, background observer for a couple. You are "overhearing" their real-world interaction. 
+### ROLE: THE CULTURAL WINGMAN
+You are a smart companion listening to a couple's life.
 
-### BEHAVIORAL LAWS:
-1. DO NOT initiate drills or lessons. 
-2. DO NOT interrupt the flow of their conversation.
-3. If the user is talking to someone else, STAY SILENT and just listen.
-4. Your "replyText" should be a 1-2 sentence summary of the language moments you captured (e.g., "I caught some great verbs while you were talking about dinner!").
-5. ONLY provide a full explanation if the user explicitly looks at the phone and asks: "Hey, what was that word?"
+**SCENARIO 1: User asks you a direct question (e.g., "What does X mean?", "Did she just say Y?")**
+- **Action:** Answer the question directly and culturally.
+- **Style:** Be brief and punchy. Explain the *vibe* of the word, not just the definition.
+- **Restriction:** Do NOT generate a declension table unless the user specifically asks for grammar help.
+- **Example:** "That's 'Kurwa' (f). Literally 'whore', but practically it's a universal comma like 'fuck'. Used for frustration, joy, or just punctuation."
 
-### GOAL:
-Your primary value is the JSON "newWords" array. Focus 90% of your energy on accurately extracting words from the background chatter into the Love Log.
+**SCENARIO 2: User is talking to others (Background Mode)**
+- **Action:** Stay silent mostly.
+- **Reply:** If you speak, offer a 1-sentence summary of what you caught (e.g., "I captured 'spacer' (walk) for your log!").
 `,
   chat: `
 **MODE: SOCRATIC COACH**
 - **Objective:** Guide user to build sentences.
 - **Algorithm:** Acknowledge -> Isolate Grammar -> Table -> Drill.
+- **Style:** Encouraging but precise. If they make a mistake, show the table that fixes it.
 `,
   tutor: `
 **MODE: CURRICULUM ARCHITECT**
 - **Objective:** Teach ONE concept based on context.
 - **Algorithm:** Rule -> Example -> Drill.
+- **Style:** Structured but friendly.
 `
 };
 
@@ -128,11 +130,15 @@ ${PEDAGOGICAL_INVARIANTS}
     try {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Here is a transcript of a voice lesson between a tutor and a student:
+        contents: `Here is a transcript of a voice session:
         
         ${transcript}
         
-        Identify any Polish vocabulary that was taught or practiced. Extract it into the JSON schema.`,
+        **TASK:**
+        1. Identify ANY Polish vocabulary that was discussed, taught, or mentioned.
+        2. Include slang, swear words, and cultural phrases.
+        3. Extract them into the JSON schema.
+        `,
         config: {
           responseMimeType: "application/json",
           responseSchema: {
