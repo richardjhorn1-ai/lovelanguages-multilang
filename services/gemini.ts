@@ -8,6 +8,7 @@ export interface ExtractedWord {
   importance: number;
   context: string;
   rootWord?: string;
+  examples?: string[]; 
 }
 
 export interface Attachment {
@@ -15,7 +16,6 @@ export interface Attachment {
   mimeType: string;
 }
 
-// Initialize the client directly.
 // @ts-ignore
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
@@ -33,24 +33,29 @@ const VISUAL_PROTOCOL = `
 `;
 
 export const geminiService = {
-  // NEW: Dedicated Batch Analysis
   async analyzeHistory(messages: {role: string, content: string}[], currentWords: string[]): Promise<ExtractedWord[]> {
     try {
-      const historyText = messages.map(m => `${m.role.toUpperCase()}: ${m.content}`).join('\n---\n');
-      const knownContext = currentWords.length > 0 ? `User already knows: [${currentWords.join(', ')}]` : "User is a beginner.";
+      const historyText = messages
+        .filter(m => m.content && !m.content.includes('[Attachment]'))
+        .map(m => `${m.role.toUpperCase()}: ${m.content}`)
+        .join('\n---\n');
+      
+      const knownContext = currentWords.length > 0 
+        ? `User already knows: [${currentWords.slice(0, 50).join(', ')}]` 
+        : "User is a beginner.";
 
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `EXTRACTOR TASK: Review this Polish-English chat history. 
-        1. Identify any NEW Polish vocabulary or useful phrases used.
-        2. DO NOT extract words already in the 'Known' list.
-        3. For verbs, extract the Lemma (base form).
-        4. Return as JSON.
-        
-        ${knownContext}
-        
-        CHAT HISTORY:
-        ${historyText}`,
+        contents: `TASK: Language Data Parser.
+1. Extract NEW Polish vocabulary from history.
+2. For each word, generate exactly 5 diverse, high-quality example sentences in Polish with English translations in brackets.
+3. Identify the Root Word (Lemma).
+4. Importance 1-5.
+
+${knownContext}
+
+CHAT HISTORY:
+${historyText}`,
         config: {
           responseMimeType: "application/json",
           responseSchema: {
@@ -66,9 +71,14 @@ export const geminiService = {
                     type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
                     importance: { type: Type.INTEGER },
                     context: { type: Type.STRING },
-                    rootWord: { type: Type.STRING }
+                    rootWord: { type: Type.STRING },
+                    examples: { 
+                      type: Type.ARRAY, 
+                      items: { type: Type.STRING },
+                      description: "5 Polish sentences using the word with English translations in brackets"
+                    }
                   },
-                  required: ["word", "translation", "type", "importance", "rootWord"]
+                  required: ["word", "translation", "type", "importance", "examples"]
                 }
               }
             },
@@ -81,7 +91,7 @@ export const geminiService = {
       return (parsed.newWords || []).map((w: any) => ({
         ...w,
         word: w.word.toLowerCase().trim(),
-        rootWord: w.rootWord?.toLowerCase().trim() || w.word.toLowerCase().trim()
+        rootWord: (w.rootWord || w.word).toLowerCase().trim()
       }));
     } catch (e) {
       console.error("Batch Extraction Error:", e);
@@ -89,43 +99,33 @@ export const geminiService = {
     }
   },
 
-  // Simplified Chat function focusing only on the reply (Persona preservation)
   async generateReply(prompt: string, mode: string, images: Attachment[] = []): Promise<string> {
     try {
-      const activeSystemInstruction = `
+      const systemInstruction = `
 ${CORE_PERSONA}
 ${VISUAL_PROTOCOL}
 **MODE:** ${mode.toUpperCase()}
-Respond to the user naturally. Use the specified UI blocks if explaining grammar or culture.
+Respond to the user naturally. Focus on being an engaging coach. 
+Explain grammar or culture using the ::: blocks provided.
 `;
 
       const parts: any[] = [];
-      if (images && Array.isArray(images)) {
-        images.forEach((img) => {
-          if (img.data && img.mimeType) {
-            parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } });
-          }
-        });
+      if (images && images.length > 0) {
+        images.forEach(img => parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } }));
       }
       parts.push({ text: prompt || " " });
 
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: { parts },
-        config: {
-          systemInstruction: activeSystemInstruction,
-        }
+        config: { systemInstruction }
       });
 
-      return response.text || '';
+      return response.text || "I'm sorry, I lost my train of thought. What were we saying?";
     } catch (e) {
       console.error("Gemini Chat Error:", e);
-      return "I'm sorry, I had a little hiccup! Please try again.";
+      return "I'm having a little trouble connecting right now.";
     }
-  },
-
-  async extractFromTranscript(transcript: string): Promise<ExtractedWord[]> {
-    return this.analyzeHistory([{role: 'history', content: transcript}], []);
   },
 
   async generateTitle(firstMessage: string): Promise<string> {
