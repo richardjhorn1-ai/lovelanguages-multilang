@@ -45,5 +45,5 @@ The API must return a structured JSON object:
 ```
 
 ## 🛠 Setup & Configuration
-- **API Key:** The app uses `GEMINI_API_KEY` or `API_KEY` from environment variables.
+- **API Key:** The app uses `GEMINI_API_KEY` (or `API_KEY`) server-side only. Secrets are never injected into the client bundle.
 - **Database:** Supabase handles Auth, Profiles, Link Requests, and the Dictionary (Love Log).
