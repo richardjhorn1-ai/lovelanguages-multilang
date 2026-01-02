@@ -225,7 +225,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         },
         onClose: () => setIsLive(false)
     });
-    await liveSessionRef.current.connect(mode);
+    try {
+        await liveSessionRef.current.connect(mode);
+    } catch (err) {
+        console.warn('Live mode disabled:', err);
+        alert('Live coaching requires a secured server proxy and is currently disabled.');
+        setIsLive(false);
+    }
   };
 
   const stopLive = () => {
