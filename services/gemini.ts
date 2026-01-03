@@ -1,3 +1,5 @@
+import { supabase } from './supabase';
+
 export interface ExtractedWord {
   word: string;
   translation: string;
@@ -14,14 +16,34 @@ export interface Attachment {
   mimeType: string;
 }
 
+// Helper to get auth headers
+async function getAuthHeaders(): Promise<HeadersInit> {
+  const { data: { session } } = await supabase.auth.getSession();
+  const headers: HeadersInit = {
+    'Content-Type': 'application/json',
+  };
+
+  if (session?.access_token) {
+    headers['Authorization'] = `Bearer ${session.access_token}`;
+  }
+
+  return headers;
+}
+
 export const geminiService = {
   async analyzeHistory(messages: {role: string, content: string}[], currentWords: string[]): Promise<ExtractedWord[]> {
     try {
+      const headers = await getAuthHeaders();
       const response = await fetch('/api/analyze-history', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ messages, currentWords })
       });
+
+      if (response.status === 401) {
+        console.error("Authentication required for API access");
+        return [];
+      }
 
       const data = await response.json();
       return (data.newWords || []).map((w: any) => ({
@@ -37,11 +59,17 @@ export const geminiService = {
 
   async generateReply(prompt: string, mode: string, images: Attachment[] = [], userWords: string[] = []): Promise<string> {
     try {
+      const headers = await getAuthHeaders();
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ prompt, mode, images, userLog: userWords })
       });
+
+      if (response.status === 401) {
+        return "Please log in to continue chatting.";
+      }
+
       const data = await response.json();
       return data.replyText || "I'm having a bit of trouble finding the words.";
     } catch (e) {
@@ -52,11 +80,17 @@ export const geminiService = {
 
   async generateTitle(firstMessage: string): Promise<string> {
     try {
+      const headers = await getAuthHeaders();
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ prompt: firstMessage, action: 'generateTitle' })
       });
+
+      if (response.status === 401) {
+        return "New Chat";
+      }
+
       const data = await response.json();
       return data.title || "New Chat";
     } catch (e) {
