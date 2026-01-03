@@ -96,12 +96,22 @@ export default async function handler(req: any, res: any) {
 
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: `TASK: Language Data Parser.
-1. Extract NEW Polish vocabulary from history.
-2. For each word, generate exactly 5 diverse, high-quality example sentences in Polish with English translations in brackets.
-3. Identify the Root Word (Lemma).
-4. Importance 1-5.
-5. Provide a "proTip" (max 60 chars) which is a cheeky or helpful tip on how a lover should use this word or a cultural quirk.
+      contents: `TASK: Language Data Parser for Polish vocabulary.
+
+1. Extract NEW Polish vocabulary from the chat history.
+2. For each word, generate exactly 5 diverse example sentences in Polish with English translations in brackets.
+3. Identify the Root Word (Lemma/Infinitive for verbs).
+4. Rate Importance 1-5 (5 = essential survival Polish, 1 = rare/niche).
+5. Provide a "proTip" (max 60 chars) - a cheeky or helpful usage tip for lovers.
+
+6. FOR VERBS: Include full conjugations for Present, Past, and Future tenses:
+   - Present: ja (I), ty (you), on/ona (he/she), my (we), wy (you pl.), oni/one (they)
+   - Past: same persons, masculine and feminine where applicable
+   - Future: same persons
+
+7. FOR NOUNS: Include gender (masculine/feminine/neuter) and plural form.
+
+8. FOR ADJECTIVES: Include masculine, feminine, neuter, and plural forms.
 
 ${knownContext}
 
@@ -128,6 +138,67 @@ ${historyText}`,
                     type: Type.ARRAY,
                     items: { type: Type.STRING },
                     description: "5 Polish sentences using the word with English translations in brackets"
+                  },
+                  // Verb conjugations
+                  conjugations: {
+                    type: Type.OBJECT,
+                    description: "For verbs only: conjugation tables",
+                    properties: {
+                      present: {
+                        type: Type.OBJECT,
+                        properties: {
+                          ja: { type: Type.STRING },
+                          ty: { type: Type.STRING },
+                          onOna: { type: Type.STRING },
+                          my: { type: Type.STRING },
+                          wy: { type: Type.STRING },
+                          oni: { type: Type.STRING }
+                        }
+                      },
+                      past: {
+                        type: Type.OBJECT,
+                        properties: {
+                          ja: { type: Type.STRING },
+                          ty: { type: Type.STRING },
+                          onOna: { type: Type.STRING },
+                          my: { type: Type.STRING },
+                          wy: { type: Type.STRING },
+                          oni: { type: Type.STRING }
+                        }
+                      },
+                      future: {
+                        type: Type.OBJECT,
+                        properties: {
+                          ja: { type: Type.STRING },
+                          ty: { type: Type.STRING },
+                          onOna: { type: Type.STRING },
+                          my: { type: Type.STRING },
+                          wy: { type: Type.STRING },
+                          oni: { type: Type.STRING }
+                        }
+                      }
+                    }
+                  },
+                  // Noun properties
+                  gender: {
+                    type: Type.STRING,
+                    enum: ["masculine", "feminine", "neuter"],
+                    description: "For nouns only: grammatical gender"
+                  },
+                  plural: {
+                    type: Type.STRING,
+                    description: "For nouns only: plural form"
+                  },
+                  // Adjective forms
+                  adjectiveForms: {
+                    type: Type.OBJECT,
+                    description: "For adjectives only: gender forms",
+                    properties: {
+                      masculine: { type: Type.STRING },
+                      feminine: { type: Type.STRING },
+                      neuter: { type: Type.STRING },
+                      plural: { type: Type.STRING }
+                    }
                   }
                 },
                 required: ["word", "translation", "type", "importance", "examples", "proTip"]
@@ -139,7 +210,27 @@ ${historyText}`,
       }
     });
 
-    const parsed = JSON.parse(response.text || '{}');
+    // Validate response before parsing
+    const responseText = response.text || '';
+    if (!responseText || !responseText.trim().startsWith('{')) {
+      console.error("Invalid Gemini response (not JSON):", responseText.substring(0, 200));
+      return res.status(502).json({
+        error: 'Received invalid response from AI service. Please try again.',
+        retryable: true
+      });
+    }
+
+    let parsed;
+    try {
+      parsed = JSON.parse(responseText);
+    } catch (parseError: any) {
+      console.error("JSON parse error:", parseError.message, "Response:", responseText.substring(0, 200));
+      return res.status(502).json({
+        error: 'Failed to parse AI response. Please try again.',
+        retryable: true
+      });
+    }
+
     const sanitizedWords = (parsed.newWords || []).map((w: any) => ({
       ...w,
       word: (w.word || '').toLowerCase().trim(),
@@ -149,6 +240,6 @@ ${historyText}`,
     return res.status(200).json({ newWords: sanitizedWords });
   } catch (e: any) {
     console.error("Analyze History Error:", e);
-    return res.status(500).json({ error: e.message || 'Internal Server Error' });
+    return res.status(500).json({ error: e.message || 'Internal Server Error', retryable: true });
   }
 }

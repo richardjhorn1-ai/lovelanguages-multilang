@@ -9,8 +9,10 @@ import { ICONS } from '../constants';
 const parseMarkdown = (text: string) => {
   if (!text) return '';
   return text
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\[(.*?)\]/g, '<span class="px-1.5 py-0.5 bg-gray-100 rounded text-gray-500 font-mono text-xs">$1</span>')
+    // Polish words: rose/pink semi-bold highlight
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#FF4761] font-semibold">$1</strong>')
+    // Pronunciation: subtle italic gray
+    .replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-sm">($1)</span>')
     .replace(/\n/g, '<br />');
 };
 
@@ -239,7 +241,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             else setLiveModelText(text);
             if (isFinal && text.trim() && activeChat) {
                 if (role === 'user') {
-                    await saveMessage('user', `🎤 ${text}`);
+                    await saveMessage('user', text);
                     setLiveUserText("");
                 } else {
                     await saveMessage('model', text);
