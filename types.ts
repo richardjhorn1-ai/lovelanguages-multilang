@@ -25,7 +25,7 @@ export interface DictionaryEntry {
   unlocked_at: string;
 }
 
-export type ChatMode = 'listen' | 'chat' | 'tutor';
+export type ChatMode = 'ask' | 'learn';
 
 export interface Chat {
   id: string;
