@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from '../services/supabase';
 import { geminiService, Attachment } from '../services/gemini';
-import { LiveSession } from '../services/live-session';
+import { LiveSession, LiveSessionState } from '../services/live-session';
 import { Profile, Chat, Message, ChatMode } from '../types';
 import { ICONS } from '../constants';
 
@@ -110,19 +110,24 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [loading, setLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [attachments, setAttachments] = useState<Attachment[]>([]);
-  const [isLive, setIsLive] = useState(false);
-  const [liveUserText, setLiveUserText] = useState("");
-  const [liveModelText, setLiveModelText] = useState("");
+  const [streamingText, setStreamingText] = useState("");
   const [editingChatId, setEditingChatId] = useState<string | null>(null);
   const [newTitle, setNewTitle] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const imgInputRef = useRef<HTMLInputElement>(null);
+
+  // Live mode state (Voice Mode)
+  const [isLive, setIsLive] = useState(false);
+  const [liveState, setLiveState] = useState<LiveSessionState>('disconnected');
+  const [liveUserText, setLiveUserText] = useState("");
+  const [liveModelText, setLiveModelText] = useState("");
+  const [liveError, setLiveError] = useState<string | null>(null);
   const liveSessionRef = useRef<LiveSession | null>(null);
 
   useEffect(() => { fetchChats(); }, [profile]);
   useEffect(() => { if (activeChat) { fetchMessages(activeChat.id); setMode(activeChat.mode); } }, [activeChat]);
-  useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, liveUserText, liveModelText]);
+  useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText]);
 
   const fetchChats = async () => {
     const { data } = await supabase.from('chats').select('*').eq('user_id', profile.id).order('created_at', { ascending: false });
@@ -184,38 +189,57 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setInput('');
     setAttachments([]);
     setLoading(true);
+    setStreamingText('');
 
-    // ACT 1: SAVE USER MESSAGE (Wait for confirmation)
+    // ACT 1: SAVE USER MESSAGE
     await saveMessage('user', currentAttachments.length > 0 ? `${userMessage} [Media Attached]`.trim() : userMessage);
-    
-    // ACT 2: FETCH AI REPLY
+
+    // ACT 2: FETCH AI REPLY WITH STREAMING
     const userWords = messages.map(m => m.content);
-    const reply = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords);
-    
+
+    // Use streaming if no attachments, otherwise fall back to regular
+    let reply: string;
+    if (currentAttachments.length === 0) {
+      reply = await geminiService.generateReplyStream(
+        userMessage,
+        mode,
+        userWords,
+        (chunk) => {
+          setStreamingText(prev => prev + chunk);
+        }
+      );
+    } else {
+      reply = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords);
+    }
+
     // ACT 3: SAVE MODEL REPLY
+    setStreamingText('');
     await saveMessage('model', reply);
 
     if (activeChat.title === 'New Session') {
-        const title = await geminiService.generateTitle(userMessage);
-        await supabase.from('chats').update({ title }).eq('id', activeChat.id);
-        setChats(prev => prev.map(c => c.id === activeChat.id ? { ...c, title } : c));
+      const title = await geminiService.generateTitle(userMessage);
+      await supabase.from('chats').update({ title }).eq('id', activeChat.id);
+      setChats(prev => prev.map(c => c.id === activeChat.id ? { ...c, title } : c));
     }
 
     setLoading(false);
   };
 
   const startLive = async () => {
-    if (isLive) return;
+    if (isLive || !activeChat) return;
     setIsLive(true);
     setIsMenuOpen(false);
+    setLiveError(null);
+
     liveSessionRef.current = new LiveSession({
+        mode: mode,
         userLog: messages.map(m => m.content),
         onTranscript: async (role, text, isFinal) => {
             if (role === 'user') setLiveUserText(text);
             else setLiveModelText(text);
             if (isFinal && text.trim() && activeChat) {
                 if (role === 'user') {
-                    await saveMessage('user', text);
+                    await saveMessage('user', `🎤 ${text}`);
                     setLiveUserText("");
                 } else {
                     await saveMessage('model', text);
@@ -223,14 +247,26 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 }
             }
         },
-        onClose: () => setIsLive(false)
+        onStateChange: (state) => {
+            setLiveState(state);
+        },
+        onError: (error) => {
+            console.error('Voice mode error:', error);
+            setLiveError(error.message);
+        },
+        onClose: () => {
+            setIsLive(false);
+            setLiveState('disconnected');
+        }
     });
+
     try {
-        await liveSessionRef.current.connect(mode);
-    } catch (err) {
-        console.warn('Live mode disabled:', err);
-        alert('Live coaching requires a secured server proxy and is currently disabled.');
+        await liveSessionRef.current.connect();
+    } catch (err: any) {
+        console.error('Voice mode failed:', err);
+        setLiveError(err.message || 'Failed to start voice mode');
         setIsLive(false);
+        setLiveState('disconnected');
     }
   };
 
@@ -324,8 +360,95 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
           ))}
           
-          {loading && <div className="flex gap-1.5 px-6"><div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce"></div><div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce delay-75"></div><div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce delay-150"></div></div>}
+          {/* Streaming response */}
+          {streamingText && (
+            <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+              <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm bg-white border border-rose-50 text-gray-800 rounded-tl-none">
+                <RichMessageRenderer content={streamingText} />
+                <span className="inline-block w-2 h-4 ml-1 bg-rose-400 animate-pulse rounded-sm"></span>
+              </div>
+            </div>
+          )}
+
+          {/* Loading indicator (only show if not streaming) */}
+          {loading && !streamingText && (
+            <div className="flex gap-1.5 px-6">
+              <div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce"></div>
+              <div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce delay-75"></div>
+              <div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce delay-150"></div>
+            </div>
+          )}
         </div>
+
+        {/* Voice Status Indicator */}
+        {isLive && (
+          <div className="px-4 pb-2 bg-white">
+            <div className="max-w-4xl mx-auto">
+              {/* Status Badge */}
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <div className={`flex items-center gap-2 px-4 py-2 rounded-full shadow-sm border ${
+                  liveState === 'listening'
+                    ? 'bg-rose-50 border-rose-200'
+                    : liveState === 'speaking'
+                    ? 'bg-teal-50 border-teal-200'
+                    : liveState === 'connecting'
+                    ? 'bg-amber-50 border-amber-200'
+                    : 'bg-gray-50 border-gray-200'
+                }`}>
+                  {liveState === 'listening' && (
+                    <>
+                      <div className="flex gap-1">
+                        <span className="w-2 h-2 bg-rose-400 rounded-full animate-bounce"></span>
+                        <span className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></span>
+                        <span className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></span>
+                      </div>
+                      <span className="text-xs font-bold text-rose-500">Listening...</span>
+                    </>
+                  )}
+                  {liveState === 'speaking' && (
+                    <>
+                      <ICONS.Sparkles className="w-4 h-4 text-teal-500 animate-pulse" />
+                      <span className="text-xs font-bold text-teal-600">Cupid is speaking...</span>
+                    </>
+                  )}
+                  {liveState === 'connecting' && (
+                    <>
+                      <div className="w-4 h-4 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+                      <span className="text-xs font-bold text-amber-600">Connecting...</span>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {/* Live Transcripts */}
+              {(liveUserText || liveModelText) && (
+                <div className="bg-gradient-to-r from-rose-50 to-white rounded-2xl p-4 border border-rose-100 space-y-2">
+                  {liveUserText && (
+                    <p className="text-sm text-gray-500 italic">
+                      <span className="font-bold text-gray-600">You:</span> {liveUserText}
+                    </p>
+                  )}
+                  {liveModelText && (
+                    <p className="text-sm text-rose-600 font-medium">
+                      <span className="font-bold">Cupid:</span> {liveModelText}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* Error Display */}
+              {liveError && (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-3 flex items-center gap-2">
+                  <ICONS.X className="w-4 h-4 text-red-500" />
+                  <span className="text-xs text-red-600">{liveError}</span>
+                  <button onClick={() => setLiveError(null)} className="ml-auto text-red-400 hover:text-red-600">
+                    <ICONS.X className="w-3 h-3" />
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Input */}
         <div className="p-4 bg-white border-t border-gray-100 relative">
@@ -341,9 +464,22 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           <div className="max-w-4xl mx-auto flex items-end gap-3">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${isMenuOpen ? 'bg-gray-100 border-gray-200 text-gray-400 rotate-90' : 'bg-white border-rose-100 text-rose-400 hover:bg-rose-50'}`}
+              disabled={isLive}
+              className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${isMenuOpen ? 'bg-gray-100 border-gray-200 text-gray-400 rotate-90' : 'bg-white border-rose-100 text-rose-400 hover:bg-rose-50'} disabled:opacity-50`}
             >
                 {isMenuOpen ? <ICONS.X className="w-6 h-6" /> : <ICONS.Plus className="w-6 h-6" />}
+            </button>
+
+            {/* Microphone Button */}
+            <button
+              onClick={isLive ? stopLive : startLive}
+              className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${
+                isLive
+                  ? 'bg-[#FF4761] border-[#FF4761] text-white'
+                  : 'bg-white border-rose-100 text-rose-400 hover:bg-rose-50'
+              } ${liveState === 'listening' ? 'animate-pulse' : ''}`}
+            >
+                <ICONS.Mic className="w-6 h-6" />
             </button>
 
             <div className="flex-1 flex flex-col gap-2">
@@ -363,14 +499,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         ))}
                     </div>
                 )}
-                <div className="w-full flex items-center bg-gray-50 border-none rounded-[2rem] px-6 py-4 transition-all">
+                <div className={`w-full flex items-center bg-gray-50 rounded-[2rem] px-6 py-4 transition-all duration-300 ${isLive ? 'shadow-[inset_0_0_20px_rgba(255,71,97,0.25)] border-2 border-rose-200' : 'border-none'}`}>
                     <input
                       type="text"
                       value={input}
                       onChange={e => setInput(e.target.value)}
                       onKeyDown={e => e.key === 'Enter' && handleSend()}
-                      placeholder={mode === 'ask' ? "Ask Cupid anything..." : "Ready for your next lesson?"}
-                      className="w-full bg-transparent border-none text-sm font-bold text-gray-700 focus:outline-none placeholder:text-gray-400"
+                      placeholder={isLive ? (liveState === 'listening' ? "Listening..." : liveState === 'speaking' ? "Cupid is speaking..." : "Connecting...") : (mode === 'ask' ? "Ask Cupid anything..." : "Ready for your next lesson?")}
+                      disabled={isLive}
+                      className="w-full bg-transparent border-none text-sm font-bold text-gray-700 focus:outline-none placeholder:text-gray-400 disabled:cursor-not-allowed"
                     />
                 </div>
             </div>

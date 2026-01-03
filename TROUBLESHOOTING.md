@@ -334,8 +334,377 @@ The frontend renders these custom blocks:
 
 ---
 
-## Future Features (Planned)
+## Completed Features
 
-1. **Streaming responses** - See text appear as it generates
-2. **Voice mode** - Always-listening audio with live transcription
-3. **Different voice personalities** - ASK vs LEARN have different TTS voices
+1. ✅ **Streaming responses** - Text appears word-by-word as Gemini generates
+2. 🚧 **Voice mode** - In progress (see Issue 11 below)
+
+---
+
+## Issue 11: Voice Mode - Gemini Live API Integration (FIXED)
+
+**Goal:** Add voice input/output using Gemini Live API with ephemeral tokens
+
+### Attempt 1: Direct API Key in WebSocket
+
+**Error:**
+```
+WebSocket closed: 1008 Method doesn't allow unregistered callers
+```
+
+**Cause:** Gemini Live WebSocket doesn't accept raw API keys - requires ephemeral tokens
+
+**Lesson:** Never expose API keys to the client. Use ephemeral tokens.
+
+---
+
+### Attempt 2: Wrong REST Endpoint for Ephemeral Tokens
+
+**Error:**
+```
+POST /api/live-token 500 (Internal Server Error)
+```
+
+**Attempted endpoint:**
+```
+POST https://generativelanguage.googleapis.com/v1alpha/models/{model}:generateEphemeralToken
+```
+
+**Cause:** This endpoint doesn't exist. The SDK has `authTokens.create()` method.
+
+---
+
+### Attempt 3: Wrong WebSocket Endpoint
+
+**Error:**
+```
+WebSocket closed: 1008 Method doesn't allow unregistered callers
+```
+
+**Wrong endpoint:**
+```
+wss://...GenerativeService.BidiGenerateContent?key=TOKEN
+```
+
+**Solution:** For ephemeral tokens, use:
+```
+wss://...GenerativeService.BidiGenerateContentConstrained?access_token=TOKEN
+```
+
+Key differences:
+- Use `BidiGenerateContentConstrained` (not `BidiGenerateContent`)
+- Use `access_token` parameter (not `key`)
+
+---
+
+### Attempt 4: Wrong SDK Parameters
+
+**Error:**
+```
+TypeScript errors: 'lockedConfig' does not exist
+```
+
+**Cause:** SDK uses `liveConnectConstraints` not `lockedConfig`
+
+**Fix:**
+```typescript
+// Wrong:
+await ai.authTokens.create({ lockedConfig: {...} })
+
+// Correct:
+await ai.authTokens.create({
+  config: {
+    uses: 1,
+    liveConnectConstraints: {
+      model: 'models/gemini-2.0-flash-live-001',
+      config: { responseModalities: ['AUDIO', 'TEXT'] }
+    }
+  }
+})
+```
+
+---
+
+### Attempt 5: Wrong Model Name
+
+**Error:**
+```
+WebSocket closed: 1008 models/gemini-2.0-flash-live-001 is not found for API version v1main
+```
+
+**Fix:** Changed model to `gemini-2.5-flash-native-audio-preview-12-2025` (from official docs)
+
+---
+
+### Attempt 6: Sending Setup Message with Constrained Endpoint
+
+**Error:**
+```
+WebSocket closed: 1007 Request contains an invalid argument.
+```
+
+**Cause:** With `BidiGenerateContentConstrained` + ephemeral tokens, the config is LOCKED in the token. Sending a setup message conflicts with the locked config.
+
+**Fix:** Removed the setup message entirely. With constrained endpoint, connection is ready immediately after WebSocket opens.
+
+---
+
+### Attempt 7: Setup Message Causes Loop
+
+**Error:**
+```
+WebSocket closed: 1007 setup must be the first message and only the first
+```
+
+**Cause:** Sending setup message with Constrained endpoint + locked token caused infinite reconnect loop.
+
+**Fix:** The error message is misleading. We were sending setup, but it conflicts with locked config. Disabled auto-reconnect on 1007/1008 codes.
+
+---
+
+### Attempt 8: No Setup + Immediate Audio (FAILED)
+
+**Error:**
+```
+WebSocket closed: 1007 setup must be the first message and only the first
+```
+
+**What happened:**
+- Audio was being sent immediately upon WebSocket connection
+- Server expects setup message FIRST, even with Constrained endpoint
+- Reconnect loop continued (code wasn't deployed or cached version running)
+- Loop only stopped when microphone permission was denied
+
+**Console output showed:**
+```
+Connected to Gemini Live
+[Deprecation] ScriptProcessorNode... (audio started!)
+WebSocket closed: 1007 setup must be the first message
+```
+
+**Root cause identified:**
+The audio recorder starts and sends PCM data BEFORE anything else. The server rejects this because it expects a setup message first.
+
+---
+
+### Key Insight: The Contradiction
+
+We have conflicting requirements:
+
+1. **Attempt 6**: Sending setup message with Constrained endpoint → "Request contains an invalid argument"
+2. **Attempt 7-8**: NOT sending setup → "setup must be the first message"
+
+**Possible solutions to try:**
+
+A. **Use non-Constrained endpoint** (`BidiGenerateContent` instead of `BidiGenerateContentConstrained`)
+   - May require different auth method (API key vs access_token)
+   - Check Google docs for correct endpoint with ephemeral tokens
+
+B. **Send setup with EMPTY config** (since config is locked in token):
+   ```typescript
+   this.sendMessage({ setup: {} });
+   ```
+
+C. **Send setup with MATCHING config** (same as what's in the token):
+   ```typescript
+   this.sendMessage({
+     setup: {
+       model: 'models/gemini-2.5-flash-native-audio-preview-12-2025'
+       // No other config - it's locked in token
+     }
+   });
+   ```
+
+D. **Wait for setupComplete BEFORE starting audio**:
+   The critical fix is to NOT start audio recording until setupComplete is received:
+   ```typescript
+   ws.onopen = () => {
+     // Send setup, but DON'T start audio yet
+     this.sendMessage({ setup: { model: `models/${model}` } });
+   };
+
+   // In handleMessage:
+   if (message.setupComplete) {
+     this.setState('listening');
+     this.startListening(); // Only NOW start audio
+   }
+   ```
+
+E. **Check if endpoint URL is wrong** - maybe should be:
+   - `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent`
+   - With `?key=EPHEMERAL_TOKEN` or `?access_token=EPHEMERAL_TOKEN`
+
+---
+
+### Attempt 9: Send Minimal Setup + Wait for setupComplete (FAILED)
+
+**Tried:** Send setup message with model name or empty setup before audio.
+
+**Result:** `Request contains an invalid argument` - ANY setup message conflicts with the locked config in the ephemeral token.
+
+---
+
+### Attempt 10: Use SDK Instead of Raw WebSockets (TESTING)
+
+**Approach:** Instead of manually handling WebSocket protocol, use the official `@google/genai` SDK which handles the protocol internally.
+
+**Implementation:**
+```typescript
+import { GoogleGenAI, Modality } from '@google/genai';
+
+// Create client with ephemeral token
+const ai = new GoogleGenAI({
+  apiKey: token,  // ephemeral token from backend
+  httpOptions: { apiVersion: 'v1alpha' }
+});
+
+// SDK handles WebSocket connection and setup internally
+const session = await ai.live.connect({
+  model: `models/${model}`,
+  config: { responseModalities: [Modality.AUDIO, Modality.TEXT] },
+  callbacks: { onmessage, onerror, onclose }
+});
+
+// Send audio via SDK method
+session.sendRealtimeInput({
+  audio: { data: base64Audio, mimeType: 'audio/pcm;rate=16000' }
+});
+```
+
+**Status:** Session connects but closes immediately with "invalid argument".
+
+---
+
+### Attempt 11: FINAL FIX - Native Audio Model Doesn't Support TEXT Modality
+
+**Root Cause Discovered:** The `gemini-2.5-flash-native-audio-preview-12-2025` model does NOT support `TEXT` in `responseModalities`. This causes an immediate 1007 "invalid argument" error.
+
+**Key GitHub Issue:** https://github.com/googleapis/js-genai/issues/1212
+
+**The Complete Fix:**
+
+1. **Model:** Use `gemini-2.5-flash-native-audio-preview-12-2025` (the ONLY model that supports Live API)
+
+2. **responseModalities:** Use `['AUDIO']` only - NOT `['AUDIO', 'TEXT']`
+
+3. **Transcription:** Use `outputAudioTranscription: {}` and `inputAudioTranscription: {}` instead
+
+4. **API Version:** Use `apiVersion: 'v1alpha'` on BOTH backend and frontend
+
+**Working Implementation:**
+
+```typescript
+// Backend: Create token with correct config
+const tokenResponse = await ai.authTokens.create({
+  config: {
+    uses: 1,
+    httpOptions: { apiVersion: 'v1alpha' },
+    liveConnectConstraints: {
+      model: 'models/gemini-2.5-flash-native-audio-preview-12-2025',
+      config: {
+        responseModalities: ['AUDIO'],  // NOT ['AUDIO', 'TEXT']!
+        outputAudioTranscription: {},   // For model's speech-to-text
+        inputAudioTranscription: {},    // For user's speech-to-text
+        speechConfig: {
+          voiceConfig: {
+            prebuiltVoiceConfig: { voiceName: 'Puck' }
+          }
+        },
+        systemInstruction: { parts: [{ text: '...' }] }
+      }
+    }
+  }
+});
+
+// Frontend: Use token with v1alpha
+const ai = new GoogleGenAI({
+  apiKey: token,
+  apiVersion: 'v1alpha',
+  httpOptions: { apiVersion: 'v1alpha' }
+});
+
+// Connect WITHOUT config (it's locked in token)
+const session = await ai.live.connect({
+  model: `models/${model}`,
+  callbacks: { onopen, onmessage, onerror, onclose }
+});
+```
+
+**Handling Transcriptions (Frontend):**
+
+```typescript
+// Transcriptions come via inputTranscription/outputTranscription, NOT userTurn.parts
+if (content.inputTranscription?.text) {
+  // What user said
+}
+if (content.outputTranscription?.text) {
+  // What model said
+}
+```
+
+**Key Lessons:**
+1. Native audio model ONLY supports `responseModalities: ['AUDIO']`
+2. Use `outputAudioTranscription` and `inputAudioTranscription` for text transcripts
+3. Ephemeral tokens require `v1alpha` on both backend AND frontend
+4. The SDK handles WebSocket protocol - no manual setup messages needed
+
+---
+
+### Key References
+
+- [Gemini Live API Docs](https://ai.google.dev/gemini-api/docs/live)
+- [Ephemeral Tokens](https://ai.google.dev/gemini-api/docs/ephemeral-tokens)
+- [js-genai SDK](https://github.com/googleapis/js-genai)
+- [GitHub Issue #821](https://github.com/google-gemini/cookbook/issues/821) - Ephemeral token working example
+
+---
+
+### Useful Documentation Links
+
+- Gemini Live API: https://ai.google.dev/gemini-api/docs/live
+- Ephemeral Tokens: https://ai.google.dev/gemini-api/docs/ephemeral-tokens
+- WebSocket reference: Check for `BidiGenerateContent` vs `BidiGenerateContentConstrained`
+
+---
+
+## Voice Mode Architecture (Current)
+
+```
+┌──────────────┐       ┌──────────────────┐       ┌─────────────────┐
+│   Browser    │──1──▶│  /api/live-token  │──2──▶│ Google authTokens│
+│              │       │  (Vercel)         │       │   .create()     │
+│              │◀──3───│                   │◀──────│                 │
+│              │       └──────────────────┘       └─────────────────┘
+│              │           token: auth_tokens/xxx
+│              │
+│              │──4──▶ wss://...BidiGenerateContentConstrained
+│              │       ?access_token=auth_tokens/xxx
+│              │
+│  WebSocket   │◀─────▶ Bidirectional Audio
+└──────────────┘
+```
+
+**Security:**
+- API key stays on server only
+- Ephemeral token: single-use, expires in 30 min
+- Config locked to specific voice settings
+
+---
+
+## Voice Mode Files
+
+| File | Purpose |
+|------|---------|
+| `/api/live-token.ts` | Generates ephemeral tokens server-side |
+| `/services/audio-utils.ts` | AudioRecorder (16kHz) + AudioPlayer (24kHz) |
+| `/services/live-session.ts` | WebSocket connection & state management |
+| `/components/ChatArea.tsx` | Voice UI (mic button, glow, indicators) |
+
+---
+
+## Voice Personalities
+
+| Mode | Voice | Personality |
+|------|-------|-------------|
+| ASK | Puck | Casual, friendly |
+| LEARN | Kore | Clear, teacher-like |
