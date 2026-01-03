@@ -708,3 +708,165 @@ if (content.outputTranscription?.text) {
 |------|-------|-------------|
 | ASK | Puck | Casual, friendly |
 | LEARN | Kore | Clear, teacher-like |
+
+---
+
+## Issue 12: Voice Mode Speaks Polish First (Should be English-First)
+
+**Date:** January 2025
+
+**Problem:**
+Voice mode defaults to speaking Polish first and then translating to English. For beginners, this is confusing - conversations should be primarily in English with Polish words introduced gradually.
+
+**Transcript Example:**
+```
+User: "I want to say I'm going to fall asleep with you tonight to my girlfriend"
+Cupid: "That is so romantic! In Polish, you can say, 'Zasnę z tobą dziś w nocy.'"
+```
+
+**Expected Behavior:**
+- Primarily English conversation
+- Polish words introduced one at a time
+- English translation/explanation first, then Polish
+
+**Root Cause:**
+The system instruction in `/api/live-token.ts` may not be explicit enough about English-first approach for beginners.
+
+**Fix Applied (Jan 2025):**
+- Updated `COMMON` prompt to emphasize "ENGLISH FIRST" approach
+- Pattern: English explanation → Polish word → pronunciation tip
+- Both `ask` and `learn` modes now instruct to speak primarily in English with Polish sprinkled in
+
+**Status:** FIXED - Prompt updated in `/api/live-token.ts`. Test to verify behavior.
+
+---
+
+## Issue 13: Transcription Shows Wrong Script (Arabic/Russian Characters)
+
+**Date:** January 2025
+
+**Problem:**
+User's English speech is being transcribed as Arabic (ز توبه زی ناچی) or Cyrillic (дівняція) characters instead of English.
+
+**Transcript Example:**
+```
+User said: "Zasnę z tobą dziś w nocy" (attempting Polish)
+Transcribed as: "ز توبه زی ناچی" (Arabic script)
+
+User said: "dziś w nocy"
+Transcribed as: "дівняція" (Cyrillic)
+
+User said: "Jesus"
+Transcribed as: "Jesus" (correct)
+```
+
+**Observations:**
+- When user speaks Polish words, transcription picks wrong language
+- When user speaks clear English, transcription is correct
+- Gemini Live's `inputTranscription` may be auto-detecting language incorrectly
+
+**Possible Causes:**
+1. User's Polish pronunciation is being interpreted as similar-sounding Arabic/Russian
+2. No language hint in audio transcription config
+3. Gemini's speech recognition defaults to multi-language detection
+
+**Potential Fixes:**
+1. ~~Add `languageCode: 'en-US'` or `'pl-PL'` to inputAudioTranscription config~~ - NOT SUPPORTED
+2. Accept that phonetic Polish attempts may transcribe oddly
+3. Only save user messages in English (model should respond to audio, transcription is for display only)
+
+**Investigation (Jan 2025):**
+- Tried `languageCodes: ['en-US', 'pl-PL']` - API error: "Unknown name 'languageCodes'"
+- Tried `languageCode: 'en-US'` - API error: "Unknown name 'languageCode'"
+- Gemini Live API's `inputAudioTranscription` does NOT support language hints as of Jan 2025
+- The API auto-detects language with no way to constrain it
+
+**Status:** BLOCKED - Gemini Live API does not support language configuration for input transcription. Must accept that Polish pronunciation attempts may transcribe as wrong scripts.
+
+---
+
+## Issue 14: Harvest API Transient 500 Error
+
+**Date:** January 2025
+
+**Error:**
+```
+POST /api/analyze-history 500 (Internal Server Error)
+Batch Extraction Error: SyntaxError: Unexpected token 'H', "HeadersTim"... is not valid JSON
+```
+
+**Behavior:**
+- Failed on first attempt
+- Succeeded on second attempt
+- Intermittent issue
+
+**Possible Causes:**
+1. Race condition in API response parsing
+2. Gemini API returned non-JSON response (error message starting with "Headers...")
+3. Response timeout causing partial response
+4. Gemini API rate limiting returning HTML error page
+
+**Fix Applied (Jan 2025):**
+- Added validation to check if response is valid JSON before parsing
+- Added separate try-catch for JSON.parse with descriptive error messages
+- Returns `retryable: true` flag so client knows to retry
+- Returns 502 status for upstream errors vs 500 for internal errors
+
+**Status:** FIXED - Better error handling in `/api/analyze-history.ts`
+
+---
+
+## Issue 15: Voice Mode - Agent Messages Not Saved on Interrupt
+
+**Date:** January 2025
+
+**Problem:**
+When user interrupts the AI during voice mode, the agent's partial message is lost and not saved to chat history. Only user messages are being saved.
+
+**Root Cause:**
+In `/services/live-session.ts`, the `handleServerContent()` function was clearing `currentTranscript` on interruption without first saving it:
+```javascript
+if (content.interrupted) {
+  this.currentTranscript = '';  // Lost without saving!
+  return;
+}
+```
+
+**Fix Applied (Jan 2025):**
+- Before clearing, check if there's a partial transcript and save it as final
+- Added: `this.config.onTranscript?.('model', this.currentTranscript, true)` before clearing
+
+**Status:** FIXED - `/services/live-session.ts` now saves partial model transcripts on interrupt
+
+---
+
+## Issue 16: Harvest Not Extracting All Words
+
+**Date:** January 2025
+
+**Problem:**
+The "Update" button in Love Log (word harvest) does not extract all Polish words from the chat history. Many words that were discussed/learned are missing from the Love Log.
+
+**Current Behavior:**
+- Harvest analyzes last 100 messages
+- Only extracts a subset of the Polish words discussed
+- Some obvious vocabulary is being missed
+
+**Possible Causes:**
+1. **100 message limit** - older conversations not being analyzed (`/api/analyze-history.ts` line 40: `.limit(100)`)
+2. **Prompt limitations** - Gemini may not be extracting all vocabulary due to prompt constraints
+3. **Duplicate filtering** - words that look similar to known words may be skipped
+4. **Context window** - large chat histories may exceed model's effective extraction ability
+
+**Files to Investigate:**
+- `/api/analyze-history.ts` - extraction prompt and logic
+- `/components/LoveLog.tsx` - `handleHarvest()` function, line 40: `knownWords` filtering
+
+**Potential Fixes:**
+1. Increase message limit or paginate through all messages
+2. Improve extraction prompt to be more thorough
+3. Run multiple extraction passes
+4. Add "force re-extract" option that ignores known words list
+5. Batch messages into smaller chunks for better extraction
+
+**Status:** OPEN - Needs investigation into extraction completeness

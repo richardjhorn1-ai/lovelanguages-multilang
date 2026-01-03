@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
+import { speakPolish } from '../services/audio';
 import { Profile, DictionaryEntry, WordType } from '../types';
 import { ICONS } from '../constants';
 
@@ -17,6 +18,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [isHarvesting, setIsHarvesting] = useState(false);
   const [flippedId, setFlippedId] = useState<string | null>(null);
   const [carouselIdx, setCarouselIdx] = useState<{ [key: string]: number }>({});
+  const [formsModalId, setFormsModalId] = useState<string | null>(null);
 
   useEffect(() => { fetchEntries(); }, [profile]);
 
@@ -48,11 +50,18 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
           translation: String(w.translation),
           word_type: w.type as WordType,
           importance: Number(w.importance) || 1,
-          context: JSON.stringify({ 
-            original: w.context, 
+          context: JSON.stringify({
+            original: w.context,
             examples: w.examples || [],
             root: w.rootWord || w.word,
-            proTip: w.proTip || ""
+            proTip: w.proTip || "",
+            // Verb conjugations
+            conjugations: w.conjugations || null,
+            // Noun properties
+            gender: w.gender || null,
+            plural: w.plural || null,
+            // Adjective forms
+            adjectiveForms: w.adjectiveForms || null
           }),
           unlocked_at: new Date().toISOString()
         }));
@@ -83,7 +92,16 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   });
 
   const parseContext = (ctxStr: any) => {
-    const fallback = { original: '', examples: [] as string[], root: '', proTip: '' };
+    const fallback = {
+      original: '',
+      examples: [] as string[],
+      root: '',
+      proTip: '',
+      conjugations: null as any,
+      gender: null as string | null,
+      plural: null as string | null,
+      adjectiveForms: null as any
+    };
     if (!ctxStr) return fallback;
     try {
       const parsed = typeof ctxStr === 'string' ? JSON.parse(ctxStr) : ctxStr;
@@ -91,19 +109,15 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         original: parsed?.original || '',
         examples: Array.isArray(parsed?.examples) ? parsed.examples : [],
         root: parsed?.root || '',
-        proTip: parsed?.proTip || ''
+        proTip: parsed?.proTip || '',
+        conjugations: parsed?.conjugations || null,
+        gender: parsed?.gender || null,
+        plural: parsed?.plural || null,
+        adjectiveForms: parsed?.adjectiveForms || null
       };
     } catch {
       return { ...fallback, original: String(ctxStr) };
     }
-  };
-
-  const getVerbFormsFound = (root: string) => {
-    if (!root) return [];
-    return entries.filter(e => {
-      const ctx = parseContext(e.context);
-      return (ctx.root?.toLowerCase() === root.toLowerCase() || e.word.toLowerCase() === root.toLowerCase()) && e.word_type === 'verb';
-    });
   };
 
   return (
@@ -143,86 +157,110 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
             const ctx = parseContext(e.context);
             const examples = [ctx.original, ...(ctx.examples || [])].filter(Boolean);
             const currentIdx = carouselIdx[e.id] || 0;
-            const formsFound = e.word_type === 'verb' ? getVerbFormsFound(ctx.root || e.word) : [];
+            const hasFormsData = e.word_type === 'verb' ? ctx.conjugations :
+                                 e.word_type === 'noun' ? (ctx.gender || ctx.plural) :
+                                 e.word_type === 'adjective' ? ctx.adjectiveForms : false;
 
             return (
               <div key={e.id} className="relative h-[280px] w-full perspective-2000" onClick={() => !isFlipped && setFlippedId(e.id)}>
                 <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d cursor-pointer ${isFlipped ? 'rotate-y-180' : ''}`}>
-                  
-                  {/* --- FRONT: PERFECTLY CENTERED --- */}
-                  <div className="absolute inset-0 bg-white border border-rose-50 rounded-[2rem] p-5 flex flex-col shadow-sm hover:shadow-lg transition-all backface-hidden overflow-hidden">
-                    <span className="text-[8px] font-black uppercase tracking-[0.4em] text-rose-200 mt-1 text-center w-full">{e.word_type}</span>
-                    
-                    <div className="flex-1 flex flex-col items-center justify-center w-full px-4 text-center">
-                      <h3 className="text-2xl font-black text-[#FF4761] font-header leading-tight mb-2 break-words w-full">{e.word}</h3>
-                      <p className="text-sm text-gray-400 italic font-medium">{e.translation}</p>
+
+                  {/* === FRONT === */}
+                  <div className="absolute inset-0 bg-white border border-rose-100 rounded-[1.5rem] p-5 flex flex-col shadow-sm hover:shadow-md transition-all backface-hidden overflow-hidden">
+                    {/* Word type pill */}
+                    <div className="flex justify-center">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-rose-400 bg-rose-50 px-3 py-1 rounded-full">{e.word_type}</span>
                     </div>
 
-                    <div className="flex items-center justify-center gap-1.5 mb-1 w-full">
-                       <ICONS.Heart className="w-2 h-2 fill-rose-100" />
-                       <div className="text-[8px] font-black uppercase tracking-[0.2em] text-gray-200">Love Languages</div>
-                       <ICONS.Heart className="w-2 h-2 fill-rose-100" />
+                    {/* Main content */}
+                    <div className="flex-1 flex flex-col items-center justify-center w-full text-center gap-2">
+                      <h3 className="text-2xl font-black text-[#FF4761] font-header leading-tight break-words">{e.word}</h3>
+
+                      {/* Audio button */}
+                      <button
+                        onClick={(ev) => { ev.stopPropagation(); speakPolish(e.word); }}
+                        className="w-10 h-10 rounded-full bg-rose-50 hover:bg-rose-100 flex items-center justify-center transition-all group"
+                      >
+                        <ICONS.Play className="w-4 h-4 text-rose-400 group-hover:text-rose-500 translate-x-0.5" />
+                      </button>
+
+                      <p className="text-sm text-gray-500 font-medium">{e.translation}</p>
                     </div>
+
+                    {/* Flip hint */}
+                    <p className="text-[10px] text-gray-300 text-center">tap for details</p>
                   </div>
 
-                  {/* --- BACK: DYNAMIC INTEL --- */}
-                  <div className="absolute inset-0 bg-[#FF4761] text-white rounded-[2rem] p-5 flex flex-col shadow-xl backface-hidden rotate-y-180 overflow-hidden" onClick={(ev) => { ev.stopPropagation(); setFlippedId(null); }}>
-                    <div className="flex justify-between items-center mb-3 border-b border-white/20 pb-1.5">
-                        <span className="text-[7px] font-black uppercase tracking-[0.1em] text-white/60">Module Intel</span>
-                        <span className="text-[7px] font-bold opacity-80">{new Date(e.unlocked_at).toLocaleDateString()}</span>
+                  {/* === BACK === */}
+                  <div className="absolute inset-0 bg-[#FF4761] text-white rounded-[1.5rem] p-4 flex flex-col shadow-xl backface-hidden rotate-y-180 overflow-hidden" onClick={(ev) => { ev.stopPropagation(); setFlippedId(null); }}>
+                    {/* Header with word and audio */}
+                    <div className="flex items-center justify-between mb-3 pb-2 border-b border-white/20">
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-sm">{e.word}</span>
+                        <button
+                          onClick={(ev) => { ev.stopPropagation(); speakPolish(e.word); }}
+                          className="w-6 h-6 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
+                        >
+                          <ICONS.Play className="w-3 h-3 translate-x-0.5" />
+                        </button>
+                      </div>
+                      <span className="text-[10px] opacity-70">{e.translation}</span>
                     </div>
 
-                    <div className="flex-1 flex flex-col gap-3 min-h-0 overflow-hidden">
-                        <div className="flex flex-col gap-1.5 flex-1 min-h-0">
-                          <div className="flex items-center justify-between">
-                              <h4 className="text-[7px] font-black uppercase tracking-widest text-white/50">Context</h4>
-                              <button 
-                                onClick={(ev) => { 
-                                  ev.stopPropagation(); 
-                                  setCarouselIdx(prev => ({ ...prev, [e.id]: (currentIdx + 1) % examples.length })) 
-                                }} 
-                                className="bg-white/10 p-1 rounded-lg hover:bg-white/20 transition-all"
-                              >
-                                  <ICONS.Play className="w-2.5 h-2.5 rotate-180" />
-                              </button>
+                    {/* Example sentence */}
+                    <div className="flex-1 flex flex-col gap-2 min-h-0">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[9px] font-bold uppercase tracking-wider opacity-60">Example</span>
+                        {examples.length > 1 && (
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={(ev) => {
+                                ev.stopPropagation();
+                                setCarouselIdx(prev => ({ ...prev, [e.id]: (currentIdx - 1 + examples.length) % examples.length }))
+                              }}
+                              className="opacity-60 hover:opacity-100 transition-all p-0.5"
+                            >
+                              <ICONS.ChevronLeft className="w-3 h-3" />
+                            </button>
+                            <span className="text-[9px] opacity-60 min-w-[24px] text-center">
+                              {currentIdx + 1}/{examples.length}
+                            </span>
+                            <button
+                              onClick={(ev) => {
+                                ev.stopPropagation();
+                                setCarouselIdx(prev => ({ ...prev, [e.id]: (currentIdx + 1) % examples.length }))
+                              }}
+                              className="opacity-60 hover:opacity-100 transition-all p-0.5"
+                            >
+                              <ICONS.ChevronRight className="w-3 h-3" />
+                            </button>
                           </div>
-                          <div className="flex-1 bg-black/10 rounded-xl p-3 flex items-center justify-center border border-white/5 overflow-y-auto no-scrollbar">
-                              <p className="text-[10px] leading-relaxed font-bold italic text-center">
-                                  "{examples[currentIdx] || "Captured in dialogue."}"
-                              </p>
-                          </div>
-                        </div>
-
-                        <div className="pt-2 border-t border-white/10">
-                          {e.word_type === 'verb' ? (
-                            <div className="grid grid-cols-2 gap-1">
-                               {['Present', 'Past', 'Future', 'Cmd'].map(tense => {
-                                  const isUnlocked = formsFound.some(f => f.word.toLowerCase().includes(tense.toLowerCase())) || tense === 'Present';
-                                  return (
-                                    <div key={tense} className={`flex items-center justify-between px-2 py-1 rounded-lg border transition-all ${isUnlocked ? 'bg-white/15 border-white/40 shadow-sm' : 'bg-black/20 border-transparent opacity-30'}`}>
-                                      <span className="text-[6px] font-black uppercase">{tense}</span>
-                                      {isUnlocked ? <ICONS.Check className="w-2 h-2" /> : <ICONS.Plus className="w-2 h-2 opacity-50" />}
-                                    </div>
-                                  )
-                               })}
-                            </div>
-                          ) : (
-                            <div className="space-y-2">
-                              {ctx.proTip && (
-                                <div className="bg-white/10 p-2.5 rounded-xl border border-white/10">
-                                    <p className="text-[6px] font-black uppercase text-white/40 mb-0.5">Cupid's Pro-Tip</p>
-                                    <p className="text-[9px] font-bold leading-tight">{ctx.proTip}</p>
-                                </div>
-                              )}
-                              <div className="w-full h-0.5 bg-white/10 rounded-full overflow-hidden">
-                                  <div className="h-full bg-white w-2/3" />
-                              </div>
-                            </div>
-                          )}
-                        </div>
+                        )}
+                      </div>
+                      <div className="bg-white/10 rounded-xl p-3 border border-white/10">
+                        <p className="text-[11px] leading-relaxed italic">
+                          "{examples[currentIdx] || "No example available."}"
+                        </p>
+                      </div>
                     </div>
-                    
-                    <button className="mt-3 py-1 text-[7px] font-black uppercase tracking-[0.3em] text-white/40 hover:text-white transition-colors w-full">Collapse</button>
+
+                    {/* Pro-tip - subtle, above forms button */}
+                    {ctx.proTip && (
+                      <p className="text-[9px] opacity-60 italic text-center px-2 leading-tight">
+                        💡 {ctx.proTip}
+                      </p>
+                    )}
+
+                    {/* Show Forms button */}
+                    {hasFormsData && (
+                      <button
+                        onClick={(ev) => { ev.stopPropagation(); setFormsModalId(e.id); }}
+                        className="mt-2 py-2 bg-white/20 hover:bg-white/30 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                      >
+                        <ICONS.Book className="w-3 h-3" />
+                        {e.word_type === 'verb' ? 'Conjugations' : e.word_type === 'noun' ? 'Forms' : 'Forms'}
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -230,6 +268,137 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
           })}
         </div>
       </div>
+      {/* === FORMS OVERLAY MODAL === */}
+      {formsModalId && (() => {
+        const entry = entries.find(e => e.id === formsModalId);
+        if (!entry) return null;
+        const ctx = parseContext(entry.context);
+
+        return (
+          <div
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            onClick={() => setFormsModalId(null)}
+          >
+            <div
+              className="bg-white rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+              onClick={(ev) => ev.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="bg-[#FF4761] text-white px-5 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="font-bold text-lg">{entry.word}</span>
+                  <button
+                    onClick={() => speakPolish(entry.word)}
+                    className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
+                  >
+                    <ICONS.Play className="w-4 h-4 translate-x-0.5" />
+                  </button>
+                </div>
+                <button
+                  onClick={() => setFormsModalId(null)}
+                  className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
+                >
+                  <ICONS.X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-5 overflow-y-auto max-h-[60vh]">
+                {/* VERB: Conjugation Tables */}
+                {entry.word_type === 'verb' && ctx.conjugations && (
+                  <div className="space-y-4">
+                    {(['present', 'past', 'future'] as const).map(tense => {
+                      const tenseData = ctx.conjugations?.[tense];
+                      if (!tenseData) return null;
+                      return (
+                        <div key={tense}>
+                          <h4 className="text-xs font-bold uppercase tracking-wider text-rose-400 mb-2">
+                            {tense === 'present' ? 'Present Tense' : tense === 'past' ? 'Past Tense' : 'Future Tense'}
+                          </h4>
+                          <div className="bg-gray-50 rounded-xl overflow-hidden">
+                            <table className="w-full text-sm">
+                              <tbody className="divide-y divide-gray-100">
+                                {[
+                                  { label: 'ja (I)', value: tenseData.ja },
+                                  { label: 'ty (you)', value: tenseData.ty },
+                                  { label: 'on/ona (he/she)', value: tenseData.onOna },
+                                  { label: 'my (we)', value: tenseData.my },
+                                  { label: 'wy (you pl.)', value: tenseData.wy },
+                                  { label: 'oni/one (they)', value: tenseData.oni }
+                                ].map(row => (
+                                  <tr key={row.label} className="hover:bg-gray-100/50">
+                                    <td className="px-4 py-2 text-gray-500 text-xs">{row.label}</td>
+                                    <td className="px-4 py-2 font-bold text-[#FF4761]">{row.value || '—'}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* NOUN: Gender + Plural */}
+                {entry.word_type === 'noun' && (ctx.gender || ctx.plural) && (
+                  <div className="space-y-4">
+                    <div className="bg-gray-50 rounded-xl p-4">
+                      <table className="w-full text-sm">
+                        <tbody className="divide-y divide-gray-100">
+                          {ctx.gender && (
+                            <tr>
+                              <td className="py-2 text-gray-500 text-xs">Gender</td>
+                              <td className="py-2 font-bold text-[#FF4761] capitalize">{ctx.gender}</td>
+                            </tr>
+                          )}
+                          <tr>
+                            <td className="py-2 text-gray-500 text-xs">Singular</td>
+                            <td className="py-2 font-bold text-[#FF4761]">{entry.word}</td>
+                          </tr>
+                          {ctx.plural && (
+                            <tr>
+                              <td className="py-2 text-gray-500 text-xs">Plural</td>
+                              <td className="py-2 font-bold text-[#FF4761]">{ctx.plural}</td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
+                {/* ADJECTIVE: Gender Forms */}
+                {entry.word_type === 'adjective' && ctx.adjectiveForms && (
+                  <div className="space-y-4">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-rose-400 mb-2">
+                      Gender Forms
+                    </h4>
+                    <div className="bg-gray-50 rounded-xl overflow-hidden">
+                      <table className="w-full text-sm">
+                        <tbody className="divide-y divide-gray-100">
+                          {[
+                            { label: 'Masculine', value: ctx.adjectiveForms.masculine },
+                            { label: 'Feminine', value: ctx.adjectiveForms.feminine },
+                            { label: 'Neuter', value: ctx.adjectiveForms.neuter },
+                            { label: 'Plural', value: ctx.adjectiveForms.plural }
+                          ].map(row => (
+                            <tr key={row.label} className="hover:bg-gray-100/50">
+                              <td className="px-4 py-2 text-gray-500 text-xs">{row.label}</td>
+                              <td className="px-4 py-2 font-bold text-[#FF4761]">{row.value || '—'}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       <style>{`
         .perspective-2000 { perspective: 2000px; }
         .transform-style-3d { transform-style: preserve-3d; }

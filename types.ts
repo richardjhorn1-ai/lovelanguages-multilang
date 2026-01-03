@@ -13,6 +13,47 @@ export interface Profile {
 }
 
 export type WordType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
+export type Gender = 'masculine' | 'feminine' | 'neuter';
+
+// Conjugation table for a single tense
+export interface TenseConjugation {
+  ja: string;      // I
+  ty: string;      // you (singular)
+  onOna: string;   // he/she
+  my: string;      // we
+  wy: string;      // you (plural)
+  oni: string;     // they
+}
+
+// Full verb conjugations
+export interface VerbConjugations {
+  present: TenseConjugation;
+  past: TenseConjugation;
+  future: TenseConjugation;
+}
+
+// Adjective forms by gender
+export interface AdjectiveForms {
+  masculine: string;
+  feminine: string;
+  neuter: string;
+  plural: string;
+}
+
+// Parsed context structure stored in dictionary.context JSON field
+export interface WordContext {
+  original: string;           // Original sentence from chat
+  examples: string[];         // Example sentences
+  root: string;               // Root word / lemma
+  proTip: string;             // Usage tip
+  // Verb-specific
+  conjugations?: VerbConjugations;
+  // Noun-specific
+  gender?: Gender;
+  plural?: string;
+  // Adjective-specific
+  adjectiveForms?: AdjectiveForms;
+}
 
 export interface DictionaryEntry {
   id: string;
@@ -21,7 +62,7 @@ export interface DictionaryEntry {
   translation: string;
   word_type: WordType;
   importance: number;
-  context: string;
+  context: string;  // JSON stringified WordContext
   unlocked_at: string;
 }
 

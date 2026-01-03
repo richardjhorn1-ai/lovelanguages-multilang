@@ -30,6 +30,8 @@ export class LiveSession {
   private audioPlayer: AudioPlayer | null = null;
   private state: LiveSessionState = 'disconnected';
   private currentTranscript = '';
+  private userTranscript = '';
+  private userTranscriptTimer: ReturnType<typeof setTimeout> | null = null;
   private audioChunkCount = 0;
 
   constructor(config: LiveSessionConfig) {
@@ -173,6 +175,12 @@ export class LiveSession {
   private cleanup(): void {
     log('Cleaning up...');
 
+    // Clear any pending transcript timer
+    if (this.userTranscriptTimer) {
+      clearTimeout(this.userTranscriptTimer);
+      this.userTranscriptTimer = null;
+    }
+
     this.audioRecorder?.stop();
     this.audioRecorder = null;
 
@@ -189,6 +197,8 @@ export class LiveSession {
     }
 
     this.audioChunkCount = 0;
+    this.userTranscript = '';
+    this.currentTranscript = '';
   }
 
   private setState(state: LiveSessionState): void {
@@ -239,23 +249,57 @@ export class LiveSession {
   }
 
   private handleServerContent(content: any): void {
-    // Handle interruption
+    // Handle interruption - save partial transcripts before clearing
     if (content.interrupted) {
       log('Turn interrupted');
       this.audioPlayer?.stop();
+
+      // Save partial model transcript if any (so interrupted messages are preserved)
+      if (this.currentTranscript.trim()) {
+        log('Saving interrupted model transcript:', this.currentTranscript);
+        this.config.onTranscript?.('model', this.currentTranscript, true);
+      }
       this.currentTranscript = '';
       return;
     }
 
-    // Input transcription (what user said) - new format for audio-only mode
+    // Input transcription (what user said) - accumulate chunks and debounce
     if (content.inputTranscription?.text) {
-      log('User transcript:', content.inputTranscription.text);
-      this.config.onTranscript?.('user', content.inputTranscription.text, true);
+      // Clear any pending finalization timer
+      if (this.userTranscriptTimer) {
+        clearTimeout(this.userTranscriptTimer);
+        this.userTranscriptTimer = null;
+      }
+
+      // Accumulate user transcript
+      this.userTranscript += content.inputTranscription.text;
+      log('User transcript (accumulated):', this.userTranscript);
+      this.config.onTranscript?.('user', this.userTranscript, false);
+
+      // Set timer to finalize after 10s of silence (long for thinking time)
+      this.userTranscriptTimer = setTimeout(() => {
+        if (this.userTranscript) {
+          log('User transcript finalized (timeout):', this.userTranscript);
+          this.config.onTranscript?.('user', this.userTranscript, true);
+          this.userTranscript = '';
+        }
+      }, 10000);
     }
 
     // Output transcription (what model said) - new format for audio-only mode
     // These come in chunks, so we accumulate them
     if (content.outputTranscription?.text) {
+      // Finalize user transcript when model starts responding
+      if (this.userTranscript) {
+        if (this.userTranscriptTimer) {
+          clearTimeout(this.userTranscriptTimer);
+          this.userTranscriptTimer = null;
+        }
+        log('User transcript finalized (model responding):', this.userTranscript);
+        this.config.onTranscript?.('user', this.userTranscript, true);
+        this.userTranscript = '';
+      }
+
       this.currentTranscript += content.outputTranscription.text;
       log('Model transcript (accumulated):', this.currentTranscript);
       this.config.onTranscript?.('model', this.currentTranscript, false);
