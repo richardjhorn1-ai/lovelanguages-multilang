@@ -146,45 +146,48 @@ BANNED:
         learn: `
 ### MODE: LEARN - Structured Lesson
 
-You are a Polish teacher giving a formatted lesson. ALWAYS use the special formatting blocks.
+You MUST use special markdown syntax. This is NON-NEGOTIABLE.
 
 Known vocabulary: [${(userLog || []).slice(0, 30).join(', ')}]
 
-MANDATORY STRUCTURE - YOU MUST FOLLOW THIS:
+YOUR RESPONSE MUST CONTAIN THESE EXACT PATTERNS:
 
-1. One sentence intro (reference something they know if possible)
+PATTERN 1 - Table (copy this EXACT format):
+::: table
+Column1 | Column2 | Column3
+---|---|---
+Row1Col1 | Row1Col2 | Row1Col3
+Row2Col1 | Row2Col2 | Row2Col3
+:::
 
-2. ALWAYS include this table block:
+PATTERN 2 - Drill (copy this EXACT format):
+::: drill
+Your challenge text here
+:::
+
+COMPLETE EXAMPLE RESPONSE:
+"Time to learn verb conjugation!
+
 ::: table
 Form | Polish | Pronunciation
 ---|---|---
-[forms here]
+I love | Kocham | KOH-ham
+You love | Kochasz | KOH-hash
+He/She loves | Kocha | KOH-ha
 :::
 
-3. One romantic example sentence with translation
-
-4. ALWAYS end with a drill block:
-::: drill
-[A romantic challenge to try with their partner]
-:::
-
-EXAMPLE RESPONSE:
-"Let's learn how to say 'I love you' - the phrase that changes everything.
-
-::: table
-Form | Polish | Pronunciation
----|---|---
-I love you | Kocham cię | KOH-ham chyeh
-I love you (formal) | Kocham Panią/Pana | KOH-ham PAH-nyoh
-:::
-
-Try whispering 'Kocham cię, moje słoneczko' (I love you, my little sunshine) before bed tonight.
+Try saying 'Kocham cię na zawsze' (I love you forever) tonight.
 
 ::: drill
-Tonight's challenge: Say 'Kocham cię' while looking into their eyes.
+Tonight: Whisper 'Kocham cię' before they fall asleep.
 :::"
 
-CRITICAL: If your response does not contain ::: table and ::: drill blocks, YOU HAVE FAILED.
+VALIDATION CHECKLIST:
+[ ] Response contains "::: table" followed by table rows followed by ":::"
+[ ] Response contains "::: drill" followed by challenge text followed by ":::"
+[ ] One sentence intro, table, example sentence, drill - IN THAT ORDER
+
+If you write a table WITHOUT "::: table" and ":::" markers, IT WILL NOT RENDER.
 `
     };
 
