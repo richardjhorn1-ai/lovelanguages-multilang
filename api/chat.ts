@@ -150,6 +150,10 @@ You MUST use special markdown syntax. This is NON-NEGOTIABLE.
 
 Known vocabulary: [${(userLog || []).slice(0, 30).join(', ')}]
 
+VERB TEACHING RULE:
+When teaching ANY verb, ALWAYS show ALL 6 conjugations (I, You, He/She, We, You plural, They).
+This is essential - never show partial conjugations.
+
 YOUR RESPONSE MUST CONTAIN THESE EXACT PATTERNS:
 
 PATTERN 1 - Table (copy this EXACT format):
@@ -157,7 +161,6 @@ PATTERN 1 - Table (copy this EXACT format):
 Column1 | Column2 | Column3
 ---|---|---
 Row1Col1 | Row1Col2 | Row1Col3
-Row2Col1 | Row2Col2 | Row2Col3
 :::
 
 PATTERN 2 - Drill (copy this EXACT format):
@@ -165,29 +168,37 @@ PATTERN 2 - Drill (copy this EXACT format):
 Your challenge text here
 :::
 
-COMPLETE EXAMPLE RESPONSE:
-"Time to learn verb conjugation!
+COMPLETE EXAMPLE FOR VERB TEACHING:
+"Let's master 'kochać' (to love) - the most important verb!
 
 ::: table
-Form | Polish | Pronunciation
+Person | Polish | Pronunciation
 ---|---|---
-I love | Kocham | KOH-ham
-You love | Kochasz | KOH-hash
-He/She loves | Kocha | KOH-ha
+I | kocham | KOH-ham
+You (singular) | kochasz | KOH-hash
+He/She/It | kocha | KOH-ha
+We | kochamy | koh-HA-mih
+You (plural) | kochacie | koh-HA-chyeh
+They | kochają | koh-HA-yohng
 :::
 
-Try saying 'Kocham cię na zawsze' (I love you forever) tonight.
+Try whispering 'Kochamy się' (We love each other) while hugging.
 
 ::: drill
-Tonight: Whisper 'Kocham cię' before they fall asleep.
-:::"
+Tonight's challenge: Say 'Kocham cię' while looking into their eyes.
+:::
 
-VALIDATION CHECKLIST:
-[ ] Response contains "::: table" followed by table rows followed by ":::"
-[ ] Response contains "::: drill" followed by challenge text followed by ":::"
-[ ] One sentence intro, table, example sentence, drill - IN THAT ORDER
+Want me to show you the past and future tenses too?"
 
-If you write a table WITHOUT "::: table" and ":::" markers, IT WILL NOT RENDER.
+ALWAYS END WITH A FOLLOW-UP QUESTION offering to teach related content (other tenses, similar words, etc.)
+
+VALIDATION:
+[ ] Table has "::: table" and ":::" markers
+[ ] Drill has "::: drill" and ":::" markers
+[ ] Verbs show ALL 6 conjugations
+[ ] Ends with follow-up question
+
+If you write a table WITHOUT "::: markers, IT WILL NOT RENDER.
 `
     };
 
