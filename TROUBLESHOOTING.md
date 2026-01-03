@@ -200,3 +200,142 @@ Required policies:
 - `messages`: SELECT, INSERT for messages in own chats
 - `dictionary`: ALL for own vocabulary
 - `scores`: ALL for own scores
+
+---
+
+## Issue 7: Gemini API Key Typo in Vercel
+
+**Error:**
+```
+POST https://www.lovelanguages.xyz/api/chat 500 (Internal Server Error)
+```
+
+**Cause:**
+Environment variable was named `GEMINI_API_KE` instead of `GEMINI_API_KEY` (missing the 'Y')
+
+**Solution:**
+```bash
+vercel env rm GEMINI_API_KE
+vercel env add GEMINI_API_KEY
+vercel --prod  # Redeploy
+```
+
+**Lesson:** Always double-check env var names with `vercel env ls`
+
+---
+
+## Issue 8: Mode Names Migration (chat/tutor → ask/learn)
+
+**Context:**
+Renamed modes from CHAT/TUTOR/LISTEN to ASK/LEARN (removed LISTEN entirely)
+
+**Database Migration:**
+```sql
+-- Update constraint to accept new values
+ALTER TABLE chats DROP CONSTRAINT IF EXISTS chats_mode_check;
+ALTER TABLE chats ADD CONSTRAINT chats_mode_check CHECK (mode IN ('ask', 'learn', 'chat', 'tutor', 'listen'));
+
+-- Migrate existing data
+UPDATE chats SET mode = 'ask' WHERE mode = 'chat';
+UPDATE chats SET mode = 'learn' WHERE mode = 'tutor';
+DELETE FROM chats WHERE mode = 'listen';
+```
+
+**Code Changes:**
+- `types.ts`: Changed `ChatMode = 'ask' | 'learn'`
+- `api/chat.ts`: Added mode mapping for backwards compatibility
+- `ChatArea.tsx`: Updated mode buttons and default mode
+
+---
+
+## Issue 9: AI Not Following Formatting Instructions
+
+**Problem:**
+LEARN mode responses showed plain text tables instead of using `::: table` markdown syntax
+
+**Example of bad output:**
+```
+Form    Polish    Pronunciation
+I love  Kocham    KOH-ham
+```
+
+**Expected output:**
+```
+::: table
+Form | Polish | Pronunciation
+---|---|---
+I love | Kocham | KOH-ham
+:::
+```
+
+**Solution:**
+Made prompts extremely explicit with:
+1. Exact copy-paste patterns
+2. Complete example responses
+3. Validation checklist
+4. Warning: "If you write a table WITHOUT ::: markers, IT WILL NOT RENDER"
+
+**Key lesson:** LLMs need explicit, repetitive instructions for formatting. Show the exact pattern multiple times and explain consequences of not following it.
+
+---
+
+## Issue 10: Responses Too Verbose/Repetitive
+
+**Problem (ASK mode):**
+```
+"You can say 'Good morning' by saying Dzień dobry (Good morning)..."
+```
+Too repetitive - says "good morning" three times.
+
+**Solution:**
+Added explicit "BANNED" section in prompt:
+```
+BANNED:
+- Repeating the English translation multiple times
+- Saying "you can say X by saying X"
+```
+
+Added good/bad examples:
+```
+Good: "Dzień dobry (jen DOH-bri)! Whisper it to them before they open their eyes."
+Bad: "You can say good morning by saying Dzień dobry (Good morning)..." ← TOO REPETITIVE
+```
+
+---
+
+## AI Prompt Design Lessons Learned
+
+1. **Be explicit about format** - Show exact patterns, not just descriptions
+2. **Provide complete examples** - Full response examples work better than rules
+3. **Show bad examples** - "Don't do this" is as important as "Do this"
+4. **Add consequences** - "IT WILL NOT RENDER" creates urgency
+5. **Use checklists** - Validation checklists help model self-check
+6. **Repetition helps** - State important rules multiple times
+7. **Mode differentiation** - Each mode needs drastically different instructions
+8. **Test iteratively** - Prompts need multiple rounds of refinement
+
+---
+
+## Current Architecture
+
+### Modes (as of latest update)
+
+| Mode | Purpose | Style |
+|------|---------|-------|
+| **ASK** | Quick Q&A | 2-3 sentences, conversational, no formatting |
+| **LEARN** | Structured lessons | Tables, drills, formatted blocks |
+
+### Special Markdown Blocks
+
+The frontend renders these custom blocks:
+- `::: table` - Grammar/conjugation tables
+- `::: drill` - Practice challenges
+- `::: culture [Title]` - Cultural notes
+
+---
+
+## Future Features (Planned)
+
+1. **Streaming responses** - See text appear as it generates
+2. **Voice mode** - Always-listening audio with live transcription
+3. **Different voice personalities** - ASK vs LEARN have different TTS voices
