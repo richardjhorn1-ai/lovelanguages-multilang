@@ -106,7 +106,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [activeChat, setActiveChat] = useState<Chat | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
-  const [mode, setMode] = useState<ChatMode>('chat');
+  const [mode, setMode] = useState<ChatMode>('ask');
   const [loading, setLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [attachments, setAttachments] = useState<Attachment[]>([]);
@@ -130,7 +130,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         setChats(data); 
         if (data.length > 0 && !activeChat) setActiveChat(data[0]); 
     }
-    if (!data || data.length === 0) createNewChat('chat');
+    if (!data || data.length === 0) createNewChat('ask');
   };
 
   const fetchMessages = async (chatId: string) => {
@@ -308,16 +308,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         {/* Mode Navigation */}
         <div className="p-3 border-b border-gray-100 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-10">
           <div className="flex bg-gray-100 p-1 rounded-xl">
-            {(['chat', 'tutor', 'listen'] as ChatMode[]).map(m => (
+            {(['ask', 'learn'] as ChatMode[]).map(m => (
               <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white text-rose-500 shadow-sm' : 'text-gray-400'}`}>{m}</button>
             ))}
           </div>
-          {isLive && (
-            <div className="flex items-center gap-2 bg-rose-50 border border-rose-100 px-3 py-1.5 rounded-full">
-                <div className="w-2 h-2 bg-rose-500 rounded-full animate-ping"></div>
-                <span className="text-[10px] font-black uppercase text-rose-500 tracking-tighter">Cupid Live</span>
-            </div>
-          )}
         </div>
 
         {/* Messages */}
@@ -330,23 +324,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
           ))}
           
-          {liveUserText && (
-            <div className="flex justify-end animate-in fade-in slide-in-from-bottom-2">
-                <div className="max-w-[85%] bg-[#FF4761]/60 text-white italic rounded-[1.5rem] rounded-tr-none px-5 py-3.5 text-sm font-medium border border-white/20">
-                    {liveUserText}
-                    <span className="inline-block w-1.5 h-4 ml-1 bg-white animate-pulse"></span>
-                </div>
-            </div>
-          )}
-          {liveModelText && (
-            <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2">
-                <div className="max-w-[85%] bg-white/60 border border-rose-100 text-gray-400 italic rounded-[1.5rem] rounded-tl-none px-5 py-3.5 text-sm">
-                    {liveModelText}
-                    <span className="inline-block w-1.5 h-4 ml-1 bg-rose-400 animate-pulse"></span>
-                </div>
-            </div>
-          )}
-
           {loading && <div className="flex gap-1.5 px-6"><div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce"></div><div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce delay-75"></div><div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce delay-150"></div></div>}
         </div>
 
@@ -362,20 +339,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           </div>
 
           <div className="max-w-4xl mx-auto flex items-end gap-3">
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${isMenuOpen ? 'bg-gray-100 border-gray-200 text-gray-400 rotate-90' : 'bg-white border-rose-100 text-rose-400 hover:bg-rose-50'}`}
             >
                 {isMenuOpen ? <ICONS.X className="w-6 h-6" /> : <ICONS.Plus className="w-6 h-6" />}
-            </button>
-
-            <button 
-              onClick={isLive ? stopLive : startLive}
-              className={`w-14 h-14 rounded-full flex flex-col items-center justify-center shadow-lg transition-all border-2 shrink-0 ml-1 ${isLive ? 'bg-rose-500 border-rose-500 text-white animate-pulse' : 'bg-white border-rose-100 text-rose-500 hover:bg-rose-50'}`}
-              title="Speak to Cupid"
-            >
-                {isLive ? <ICONS.X className="w-5 h-5" /> : <ICONS.Mic className="w-6 h-6" />}
-                {!isLive && <span className="text-[6px] font-black uppercase tracking-tighter mt-0.5">Tutor</span>}
             </button>
 
             <div className="flex-1 flex flex-col gap-2">
@@ -395,22 +363,21 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         ))}
                     </div>
                 )}
-                <div className={`w-full flex items-center bg-gray-50 border-none rounded-[2rem] px-6 py-4 transition-all ${isLive ? 'bg-rose-50 ring-2 ring-rose-100 opacity-50' : ''}`}>
-                    <input 
-                      type="text" 
-                      value={input} 
-                      onChange={e => setInput(e.target.value)} 
-                      onKeyDown={e => e.key === 'Enter' && handleSend()} 
-                      placeholder={isLive ? "Listening to your Polish speech..." : `Message Cupid (${mode})...`} 
-                      className="w-full bg-transparent border-none text-sm font-bold text-gray-700 focus:outline-none placeholder:text-gray-400" 
-                      disabled={isLive}
+                <div className="w-full flex items-center bg-gray-50 border-none rounded-[2rem] px-6 py-4 transition-all">
+                    <input
+                      type="text"
+                      value={input}
+                      onChange={e => setInput(e.target.value)}
+                      onKeyDown={e => e.key === 'Enter' && handleSend()}
+                      placeholder={mode === 'ask' ? "Ask Cupid anything..." : "Ready for your next lesson?"}
+                      className="w-full bg-transparent border-none text-sm font-bold text-gray-700 focus:outline-none placeholder:text-gray-400"
                     />
                 </div>
             </div>
-            
-            <button 
-              onClick={handleSend} 
-              disabled={loading || isLive || (!input.trim() && attachments.length === 0)} 
+
+            <button
+              onClick={handleSend}
+              disabled={loading || (!input.trim() && attachments.length === 0)}
               className="w-14 h-14 bg-[#FF4761] text-white rounded-full flex items-center justify-center shadow-xl hover:bg-rose-600 active:scale-95 disabled:opacity-50 transition-all shrink-0"
             >
                 <ICONS.Play className="w-6 h-6 fill-white translate-x-0.5" />
