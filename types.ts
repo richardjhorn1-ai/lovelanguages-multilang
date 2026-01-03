@@ -27,6 +27,8 @@ export interface DictionaryEntry {
 
 export type ChatMode = 'ask' | 'learn';
 
+export type LiveSessionState = 'disconnected' | 'connecting' | 'listening' | 'speaking' | 'error';
+
 export interface Chat {
   id: string;
   user_id: string;
