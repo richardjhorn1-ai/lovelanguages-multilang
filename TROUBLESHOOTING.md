@@ -1151,3 +1151,80 @@ Instead of inline dropdown on test results, implemented a comprehensive system:
 **Key Lesson:** Sometimes a feature belongs in a different location than initially planned. Moving test results review to the Progress page (where users already go to see their learning journey) made more sense than an inline dropdown.
 
 **Status:** ✅ FIXED - Test results viewable via modal on Progress page
+
+---
+
+## Issue 22: AI Challenge Mode Implementation
+
+**Date:** January 2025
+
+**Feature Request:**
+Add an AI Challenge mode to the Play section that:
+1. Tracks word mastery based on consecutive correct answers
+2. Generates personalized challenges targeting weak words
+3. Shows mastery progress badges in Love Log
+
+**Key Implementation Decisions:**
+
+1. **AI Challenge as 4th Play Tab** (not separate route)
+   - Initially implemented as standalone `/challenge` route
+   - User feedback: "should be a subtab in play just like flashcards, multiple choice, and type it"
+   - Refactored to integrate into `FlashcardGame.tsx` as 4th mode
+
+2. **Streak-Based Mastery**
+   - Word is "LEARNED" after 5 consecutive correct answers
+   - Wrong answer resets streak to 0 (full reset, not partial)
+   - No decay - once learned, always learned
+   - Database columns: `correct_streak INTEGER`, `learned_at TIMESTAMP`
+
+3. **5 Challenge Modes:**
+   - **Weakest Words** - Words with lowest success rate
+   - **Mixed Gauntlet** - Random mix of all types
+   - **Romantic Phrases** - 40 curated Polish romantic expressions
+   - **Least Practiced** - Words not seen recently
+   - **Review Mastered** - Practice learned words (disabled until words are mastered)
+
+4. **Session Length Options:** 10, 20, or All questions
+
+**Files Created/Modified:**
+
+| File | Changes |
+|------|---------|
+| `components/FlashcardGame.tsx` | Major refactor - added AI Challenge as 4th mode, streak tracking, mastery logic |
+| `components/LoveLog.tsx` | Added mastery badges (green checkmark for learned, amber for in-progress) |
+| `types.ts` | Added `WordScore`, `AIChallengeMode`, `RomanticPhrase` interfaces |
+| `constants.tsx` | Added Target, Zap, Trophy, Award, Shuffle, Clock icons |
+| `constants/romantic-phrases.ts` | New file with 40 curated Polish romantic phrases |
+
+**Database Schema (run in Supabase):**
+```sql
+ALTER TABLE scores
+ADD COLUMN IF NOT EXISTS correct_streak INTEGER DEFAULT 0,
+ADD COLUMN IF NOT EXISTS learned_at TIMESTAMP WITH TIME ZONE DEFAULT NULL;
+```
+
+**Key Technical Details:**
+
+1. **Score Update Logic:**
+```typescript
+const updateWordScore = async (wordId: string, isCorrect: boolean) => {
+  const currentStreak = existingScore?.correct_streak || 0;
+  const newStreak = isCorrect ? currentStreak + 1 : 0;  // Reset to 0 on wrong
+  const wasLearned = existingScore?.learned_at != null;
+  const justLearned = !wasLearned && newStreak >= 5;    // 5 = mastered
+
+  // Upsert with onConflict to handle new/existing records
+};
+```
+
+2. **Mode Count Calculation:**
+```typescript
+const modeCounts = useMemo(() => ({
+  weakest: allScores.filter(s => s.fail_count > 0 && !s.learned_at)
+    .sort((a,b) => (b.fail_count - b.success_count) - (a.fail_count - a.success_count))
+    .length,
+  // ... other modes
+}), [allScores, romanticPhrases]);
+```
+
+**Status:** ✅ COMPLETE - AI Challenge working as Play section tab with full mastery tracking

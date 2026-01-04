@@ -169,6 +169,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   // Track voice session messages for post-session extraction
   const voiceSessionStartIdx = useRef<number>(0);
 
+  // Sidebar collapsed state
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
   useEffect(() => { fetchChats(); }, [profile]);
   useEffect(() => { if (activeChat) { fetchMessages(activeChat.id); setMode(activeChat.mode); } }, [activeChat]);
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText]);
@@ -458,51 +461,88 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   return (
     <div className="flex h-full bg-[#fdfcfd] relative overflow-hidden font-header">
-      {/* Sidebar with Actions */}
-      <div className="w-64 border-r border-gray-100 hidden lg:flex flex-col bg-white">
-        <div className="p-4 border-b border-gray-100">
-          <button onClick={() => createNewChat(mode)} className="w-full bg-[#FF4761] text-white rounded-xl py-2.5 font-bold text-sm shadow-sm flex items-center justify-center gap-2 hover:bg-rose-600 transition-all">
-            <ICONS.Plus className="w-4 h-4" /> New Session
-          </button>
+      {/* Sidebar with Actions - Collapsible */}
+      <div className={`border-r border-gray-100 hidden lg:flex flex-col bg-white transition-all duration-300 ${isSidebarCollapsed ? 'w-14' : 'w-64'}`}>
+        {/* Header */}
+        <div className={`p-2 border-b border-gray-100 flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-2'}`}>
+          {/* Collapsed: Just the new chat button at top */}
+          {isSidebarCollapsed ? (
+            <button
+              onClick={() => createNewChat(mode)}
+              className="w-10 h-10 bg-[#FF4761] text-white rounded-xl font-bold shadow-sm flex items-center justify-center hover:bg-rose-600 transition-all"
+              title="New Session"
+            >
+              <ICONS.Plus className="w-5 h-5" />
+            </button>
+          ) : (
+            <>
+              <button onClick={() => createNewChat(mode)} className="flex-1 bg-[#FF4761] text-white rounded-xl py-2.5 font-bold text-sm shadow-sm flex items-center justify-center gap-2 hover:bg-rose-600 transition-all">
+                <ICONS.Plus className="w-4 h-4" /> New Session
+              </button>
+              <button
+                onClick={() => setIsSidebarCollapsed(true)}
+                className="p-2 rounded-xl hover:bg-gray-100 transition-all text-gray-400 hover:text-gray-600"
+                title="Collapse sidebar"
+              >
+                <ICONS.ChevronLeft className="w-5 h-5" />
+              </button>
+            </>
+          )}
         </div>
-        <div className="flex-1 overflow-y-auto p-2 space-y-1 no-scrollbar">
-          {chats.map(c => (
-            <div key={c.id} className={`group w-full text-left p-3 rounded-xl cursor-pointer transition-all flex flex-col gap-0.5 relative ${activeChat?.id === c.id ? 'bg-rose-50 text-rose-600 font-bold' : 'text-gray-400 hover:bg-gray-50'}`} onClick={() => setActiveChat(c)}>
-              {editingChatId === c.id ? (
-                <input 
-                  autoFocus
-                  className="bg-white border border-rose-200 rounded px-1 text-xs w-full outline-none" 
-                  value={newTitle} 
-                  onChange={e => setNewTitle(e.target.value)}
-                  onBlur={() => renameChat(c.id)}
-                  onKeyDown={e => e.key === 'Enter' && renameChat(c.id)}
-                />
-              ) : (
-                <>
-                  <span className="truncate text-xs pr-12">{c.title}</span>
-                  <span className="text-[8px] uppercase tracking-widest opacity-60 font-black">{c.mode}</span>
-                  <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button onClick={(e) => { e.stopPropagation(); setEditingChatId(c.id); setNewTitle(c.title); }} className="p-1 hover:text-rose-400 transition-colors">
-                        <ICONS.Pencil className="w-3 h-3" />
-                    </button>
-                    <button onClick={(e) => { e.stopPropagation(); deleteChat(c.id); }} className="p-1 hover:text-red-500 transition-colors">
-                        <ICONS.Trash className="w-3 h-3" />
-                    </button>
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
-        </div>
+
+        {/* Expanded: Full chat list */}
+        {!isSidebarCollapsed && (
+          <div className="flex-1 overflow-y-auto p-2 space-y-1 no-scrollbar">
+            {chats.map(c => (
+              <div key={c.id} className={`group w-full text-left p-3 rounded-xl cursor-pointer transition-all flex flex-col gap-0.5 relative ${activeChat?.id === c.id ? 'bg-rose-50 text-rose-600 font-bold' : 'text-gray-400 hover:bg-gray-50'}`} onClick={() => setActiveChat(c)}>
+                {editingChatId === c.id ? (
+                  <input
+                    autoFocus
+                    className="bg-white border border-rose-200 rounded px-1 text-xs w-full outline-none"
+                    value={newTitle}
+                    onChange={e => setNewTitle(e.target.value)}
+                    onBlur={() => renameChat(c.id)}
+                    onKeyDown={e => e.key === 'Enter' && renameChat(c.id)}
+                  />
+                ) : (
+                  <>
+                    <span className="truncate text-xs pr-12">{c.title}</span>
+                    <span className="text-[8px] uppercase tracking-widest opacity-60 font-black">{c.mode}</span>
+                    <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button onClick={(e) => { e.stopPropagation(); setEditingChatId(c.id); setNewTitle(c.title); }} className="p-1 hover:text-rose-400 transition-colors">
+                          <ICONS.Pencil className="w-3 h-3" />
+                      </button>
+                      <button onClick={(e) => { e.stopPropagation(); deleteChat(c.id); }} className="p-1 hover:text-red-500 transition-colors">
+                          <ICONS.Trash className="w-3 h-3" />
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="flex-1 flex flex-col min-w-0 h-full relative">
         {/* Mode Navigation */}
         <div className="p-3 border-b border-gray-100 flex justify-between items-center bg-white/80 backdrop-blur-md sticky top-0 z-10">
-          <div className="flex bg-gray-100 p-1 rounded-xl">
-            {(['ask', 'learn'] as ChatMode[]).map(m => (
-              <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white text-rose-500 shadow-sm' : 'text-gray-400'}`}>{m}</button>
-            ))}
+          <div className="flex items-center gap-2">
+            {/* Expand sidebar button - only shown when collapsed */}
+            {isSidebarCollapsed && (
+              <button
+                onClick={() => setIsSidebarCollapsed(false)}
+                className="hidden lg:flex p-2 rounded-xl hover:bg-gray-100 transition-all text-gray-400 hover:text-gray-600"
+                title="Expand sidebar"
+              >
+                <ICONS.ChevronRight className="w-5 h-5" />
+              </button>
+            )}
+            <div className="flex bg-gray-100 p-1 rounded-xl">
+              {(['ask', 'learn'] as ChatMode[]).map(m => (
+                <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white text-rose-500 shadow-sm' : 'text-gray-400'}`}>{m}</button>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -1,19 +1,43 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { supabase } from '../services/supabase';
-import { Profile, DictionaryEntry } from '../types';
+import { Profile, DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase } from '../types';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
+import { ROMANTIC_PHRASES, getRandomPhrases } from '../constants/romantic-phrases';
 
 interface FlashcardGameProps { profile: Profile; }
 
-type PracticeMode = 'flashcards' | 'multiple_choice' | 'type_it';
+type PracticeMode = 'flashcards' | 'multiple_choice' | 'type_it' | 'ai_challenge';
 type TypeItDirection = 'polish_to_english' | 'english_to_polish';
 
 interface TypeItQuestion {
   word: DictionaryEntry;
   direction: TypeItDirection;
 }
+
+type SessionLength = 10 | 20 | 'all';
+type ChallengeQuestionType = 'flashcard' | 'multiple_choice' | 'type_it';
+
+interface ChallengeQuestion {
+  id: string;
+  type: ChallengeQuestionType;
+  polish: string;
+  english: string;
+  wordId?: string;
+  phraseId?: string;
+  options?: string[];
+}
+
+const CHALLENGE_MODES: { id: AIChallengeMode; name: string; description: string; icon: keyof typeof ICONS }[] = [
+  { id: 'weakest', name: 'Weakest Words', description: 'Focus on words you struggle with', icon: 'Target' },
+  { id: 'gauntlet', name: 'Mixed Gauntlet', description: 'Random mix of all types', icon: 'Shuffle' },
+  { id: 'romantic', name: 'Romantic Phrases', description: 'Sweet Polish expressions', icon: 'Heart' },
+  { id: 'least_practiced', name: 'Least Practiced', description: 'Words you haven\'t seen lately', icon: 'Clock' },
+  { id: 'review_mastered', name: 'Review Mastered', description: 'Practice learned words', icon: 'Trophy' }
+];
+
+const STREAK_TO_LEARN = 5; // Number of consecutive correct answers to mark as learned
 
 // Lenient answer matching
 function isCorrectAnswer(userAnswer: string, correctAnswer: string): boolean {
@@ -38,7 +62,8 @@ function shuffleArray<T>(array: T[]): T[] {
 
 const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [deck, setDeck] = useState<DictionaryEntry[]>([]);
-  const [scores, setScores] = useState<any[]>([]);
+  const [scores, setScores] = useState<WordScore[]>([]);
+  const [scoresMap, setScoresMap] = useState<Map<string, WordScore>>(new Map());
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
@@ -62,9 +87,22 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [typeItCorrect, setTypeItCorrect] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
+  // AI Challenge state
+  const [selectedChallengeMode, setSelectedChallengeMode] = useState<AIChallengeMode | null>(null);
+  const [sessionLength, setSessionLength] = useState<SessionLength | null>(null);
+  const [challengeQuestions, setChallengeQuestions] = useState<ChallengeQuestion[]>([]);
+  const [challengeStarted, setChallengeStarted] = useState(false);
+  const [challengeIndex, setChallengeIndex] = useState(0);
+  const [challengeFlipped, setChallengeFlipped] = useState(false);
+  const [challengeMcSelected, setChallengeMcSelected] = useState<string | null>(null);
+  const [challengeMcFeedback, setChallengeMcFeedback] = useState(false);
+  const [challengeTypeAnswer, setChallengeTypeAnswer] = useState('');
+  const [challengeTypeSubmitted, setChallengeTypeSubmitted] = useState(false);
+  const [challengeTypeCorrect, setChallengeTypeCorrect] = useState(false);
+
   // Level styling
-  const levelInfo = getLevelFromXP(profile.xp || 0);
-  const tierColor = getTierColor(levelInfo.tier);
+  const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
+  const tierColor = useMemo(() => getTierColor(levelInfo.tier), [levelInfo.tier]);
 
   useEffect(() => {
     fetchData();
@@ -102,8 +140,200 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       .select('*, dictionary:word_id(word, translation)')
       .eq('user_id', targetUserId);
 
-    if (scoreData) setScores(scoreData);
+    if (scoreData) {
+      setScores(scoreData as WordScore[]);
+      // Create a map for quick lookup
+      const map = new Map<string, WordScore>();
+      scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
+      setScoresMap(map);
+    }
     setLoading(false);
+  };
+
+  // Helper to update score with proper streak tracking
+  const updateWordScore = async (wordId: string, isCorrect: boolean) => {
+    const existingScore = scoresMap.get(wordId);
+
+    // Calculate new values
+    const newSuccessCount = (existingScore?.success_count || 0) + (isCorrect ? 1 : 0);
+    const newFailCount = (existingScore?.fail_count || 0) + (isCorrect ? 0 : 1);
+
+    // Streak logic: increment if correct, reset to 0 if incorrect
+    const currentStreak = existingScore?.correct_streak || 0;
+    const newStreak = isCorrect ? currentStreak + 1 : 0;
+
+    // Check if word just became learned (hit streak threshold)
+    const wasLearned = existingScore?.learned_at != null;
+    const justLearned = !wasLearned && newStreak >= STREAK_TO_LEARN;
+    const learnedAt = wasLearned
+      ? existingScore.learned_at
+      : (justLearned ? new Date().toISOString() : null);
+
+    const scoreUpdate = {
+      user_id: profile.id,
+      word_id: wordId,
+      success_count: newSuccessCount,
+      fail_count: newFailCount,
+      correct_streak: newStreak,
+      learned_at: learnedAt,
+      last_practiced: new Date().toISOString()
+    };
+
+    // Update in database
+    await supabase.from('scores').upsert(scoreUpdate, {
+      onConflict: 'user_id,word_id'
+    });
+
+    // Update local state
+    setScoresMap(prev => {
+      const newMap = new Map(prev);
+      newMap.set(wordId, scoreUpdate as WordScore);
+      return newMap;
+    });
+
+    return { justLearned, newStreak };
+  };
+
+  // Calculate available word counts for AI Challenge modes
+  const modeCounts = useMemo(() => {
+    const unlearnedWords = deck.filter(w => !scoresMap.get(w.id)?.learned_at);
+    const learnedWords = deck.filter(w => scoresMap.get(w.id)?.learned_at != null);
+    const weakestWords = unlearnedWords.filter(w => {
+      const score = scoresMap.get(w.id);
+      return score && (score.fail_count > 0 || (score.correct_streak || 0) < 3);
+    });
+    return {
+      weakest: weakestWords.length,
+      gauntlet: unlearnedWords.length,
+      romantic: ROMANTIC_PHRASES.length,
+      least_practiced: unlearnedWords.length,
+      review_mastered: learnedWords.length
+    };
+  }, [deck, scoresMap]);
+
+  // Generate AI Challenge questions
+  const generateChallengeQuestions = (challengeMode: AIChallengeMode, length: SessionLength) => {
+    let wordPool: DictionaryEntry[] = [];
+    let phrasePool: RomanticPhrase[] = [];
+    const unlearnedWords = deck.filter(w => !scoresMap.get(w.id)?.learned_at);
+    const learnedWords = deck.filter(w => scoresMap.get(w.id)?.learned_at != null);
+
+    switch (challengeMode) {
+      case 'weakest':
+        wordPool = [...unlearnedWords].sort((a, b) => {
+          const scoreA = scoresMap.get(a.id);
+          const scoreB = scoresMap.get(b.id);
+          return ((scoreB?.fail_count || 0) - (scoreB?.success_count || 0)) - ((scoreA?.fail_count || 0) - (scoreA?.success_count || 0));
+        });
+        break;
+      case 'gauntlet':
+        wordPool = shuffleArray(unlearnedWords);
+        break;
+      case 'romantic':
+        const difficulty = levelInfo.tier === 'Beginner' ? 'beginner' : levelInfo.tier === 'Elementary' || levelInfo.tier === 'Conversational' ? 'intermediate' : 'advanced';
+        phrasePool = getRandomPhrases(length === 'all' ? ROMANTIC_PHRASES.length : length as number, difficulty);
+        break;
+      case 'least_practiced':
+        wordPool = [...unlearnedWords].sort((a, b) => {
+          const scoreA = scoresMap.get(a.id);
+          const scoreB = scoresMap.get(b.id);
+          if (!scoreA?.last_practiced) return -1;
+          if (!scoreB?.last_practiced) return 1;
+          return new Date(scoreA.last_practiced).getTime() - new Date(scoreB.last_practiced).getTime();
+        });
+        break;
+      case 'review_mastered':
+        wordPool = shuffleArray(learnedWords);
+        break;
+    }
+
+    const maxCount = challengeMode === 'romantic' ? phrasePool.length : wordPool.length;
+    const count = length === 'all' ? maxCount : Math.min(length as number, maxCount);
+    const generated: ChallengeQuestion[] = [];
+
+    if (challengeMode === 'romantic') {
+      phrasePool.slice(0, count).forEach((phrase, idx) => {
+        generated.push({ id: `q-${idx}`, type: 'type_it', polish: phrase.polish, english: phrase.english, phraseId: phrase.id });
+      });
+    } else {
+      wordPool.slice(0, count).forEach((word, idx) => {
+        let qType: ChallengeQuestionType = challengeMode === 'gauntlet'
+          ? (['flashcard', 'multiple_choice', 'type_it'] as ChallengeQuestionType[])[Math.floor(Math.random() * 3)]
+          : Math.random() > 0.6 ? 'type_it' : 'multiple_choice';
+        const q: ChallengeQuestion = { id: `q-${idx}`, type: qType, polish: word.word, english: word.translation, wordId: word.id };
+        if (qType === 'multiple_choice' && deck.length >= 4) {
+          q.options = shuffleArray([word.translation, ...shuffleArray(deck.filter(w => w.id !== word.id).map(w => w.translation)).slice(0, 3)]);
+        } else if (qType === 'multiple_choice') {
+          q.type = 'type_it';
+        }
+        generated.push(q);
+      });
+    }
+    setChallengeQuestions(shuffleArray(generated));
+  };
+
+  const startChallenge = () => {
+    if (!selectedChallengeMode || !sessionLength) return;
+    generateChallengeQuestions(selectedChallengeMode, sessionLength);
+    setChallengeStarted(true);
+    setChallengeIndex(0);
+    setSessionScore({ correct: 0, incorrect: 0 });
+    setFinished(false);
+  };
+
+  const resetChallenge = () => {
+    setSelectedChallengeMode(null);
+    setSessionLength(null);
+    setChallengeQuestions([]);
+    setChallengeStarted(false);
+    setChallengeIndex(0);
+    resetChallengeQuestionState();
+  };
+
+  const resetChallengeQuestionState = () => {
+    setChallengeFlipped(false);
+    setChallengeMcSelected(null);
+    setChallengeMcFeedback(false);
+    setChallengeTypeAnswer('');
+    setChallengeTypeSubmitted(false);
+    setChallengeTypeCorrect(false);
+  };
+
+  const handleChallengeFlashcardResponse = async (isCorrect: boolean) => {
+    const q = challengeQuestions[challengeIndex];
+    setSessionScore(prev => ({ correct: prev.correct + (isCorrect ? 1 : 0), incorrect: prev.incorrect + (isCorrect ? 0 : 1) }));
+    if (q.wordId) await updateWordScore(q.wordId, isCorrect);
+    advanceChallengeQuestion();
+  };
+
+  const handleChallengeMcSelect = async (option: string) => {
+    if (challengeMcFeedback) return;
+    setChallengeMcSelected(option);
+    setChallengeMcFeedback(true);
+    const q = challengeQuestions[challengeIndex];
+    const correct = option === q.english;
+    setSessionScore(prev => ({ correct: prev.correct + (correct ? 1 : 0), incorrect: prev.incorrect + (correct ? 0 : 1) }));
+    if (q.wordId) await updateWordScore(q.wordId, correct);
+    setTimeout(() => advanceChallengeQuestion(), correct ? 800 : 1500);
+  };
+
+  const handleChallengeTypeSubmit = async () => {
+    if (challengeTypeSubmitted) { advanceChallengeQuestion(); return; }
+    const q = challengeQuestions[challengeIndex];
+    const correct = isCorrectAnswer(challengeTypeAnswer, q.english);
+    setChallengeTypeSubmitted(true);
+    setChallengeTypeCorrect(correct);
+    setSessionScore(prev => ({ correct: prev.correct + (correct ? 1 : 0), incorrect: prev.incorrect + (correct ? 0 : 1) }));
+    if (q.wordId) await updateWordScore(q.wordId, correct);
+  };
+
+  const advanceChallengeQuestion = () => {
+    if (challengeIndex < challengeQuestions.length - 1) {
+      resetChallengeQuestionState();
+      setChallengeIndex(c => c + 1);
+    } else {
+      setFinished(true);
+    }
   };
 
   const generateMcOptions = () => {
@@ -145,6 +375,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setMcSelected(null);
     setMcShowFeedback(false);
     resetTypeItState();
+    // Reset AI Challenge state when switching modes
+    resetChallenge();
 
     // Reshuffle deck
     setDeck(shuffleArray([...deck]));
@@ -158,13 +390,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       incorrect: prev.incorrect + (isCorrect ? 0 : 1)
     }));
 
-    await supabase.from('scores').upsert({
-      user_id: profile.id,
-      word_id: wordId,
-      success_count: isCorrect ? 1 : 0,
-      fail_count: isCorrect ? 0 : 1,
-      last_practiced: new Date().toISOString()
-    }, { onConflict: 'user_id,word_id' });
+    // Update score with proper streak tracking
+    await updateWordScore(wordId, isCorrect);
 
     if (currentIndex < deck.length - 1) {
       setIsFlipped(false);
@@ -188,13 +415,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       incorrect: prev.incorrect + (isCorrect ? 0 : 1)
     }));
 
-    await supabase.from('scores').upsert({
-      user_id: profile.id,
-      word_id: currentWord.id,
-      success_count: isCorrect ? 1 : 0,
-      fail_count: isCorrect ? 0 : 1,
-      last_practiced: new Date().toISOString()
-    }, { onConflict: 'user_id,word_id' });
+    // Update score with proper streak tracking
+    await updateWordScore(currentWord.id, isCorrect);
 
     // Auto-advance after delay
     setTimeout(() => {
@@ -233,13 +455,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       incorrect: prev.incorrect + (isCorrect ? 0 : 1)
     }));
 
-    await supabase.from('scores').upsert({
-      user_id: profile.id,
-      word_id: question.word.id,
-      success_count: isCorrect ? 1 : 0,
-      fail_count: isCorrect ? 0 : 1,
-      last_practiced: new Date().toISOString()
-    }, { onConflict: 'user_id,word_id' });
+    // Update score with proper streak tracking
+    await updateWordScore(question.word.id, isCorrect);
   };
 
   const getHint = () => {
@@ -395,61 +612,65 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const progress = ((currentIndex + 1) / currentDeckLength) * 100;
 
   return (
-    <div className="h-full flex flex-col p-6 bg-[#fcf9f9]">
-      {/* Header: Tabs + Stats */}
-      <div className="w-full max-w-md mx-auto mb-6">
-        {/* Mode Tabs */}
-        <div className="flex gap-2 p-1 bg-gray-100 rounded-2xl mb-4">
-          {[
-            { id: 'flashcards' as PracticeMode, label: 'Flashcards', icon: ICONS.Book },
-            { id: 'multiple_choice' as PracticeMode, label: 'Multiple Choice', icon: ICONS.Check },
-            { id: 'type_it' as PracticeMode, label: 'Type It', icon: ICONS.Pencil },
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => handleModeChange(tab.id)}
-              className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-                mode === tab.id
-                  ? 'text-white shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-              style={mode === tab.id ? { backgroundColor: tierColor } : {}}
-            >
-              <tab.icon className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{tab.label}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Session Stats */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex gap-4">
-            <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full bg-green-500" />
-              <span className="text-xs font-bold text-gray-600">{sessionScore.correct}</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <div className="w-2 h-2 rounded-full bg-red-400" />
-              <span className="text-xs font-bold text-gray-600">{sessionScore.incorrect}</span>
-            </div>
+    <div className="h-full flex flex-col overflow-hidden bg-[#fcf9f9]">
+      {/* Header: Tabs + Stats - Fixed at top */}
+      <div className="shrink-0 p-4 pb-2">
+        <div className="w-full max-w-lg mx-auto">
+          {/* Mode Tabs */}
+          <div className="flex gap-1 p-1 bg-gray-100 rounded-2xl mb-3">
+            {[
+              { id: 'flashcards' as PracticeMode, label: 'Flashcards', icon: ICONS.Book },
+              { id: 'multiple_choice' as PracticeMode, label: 'Multiple Choice', icon: ICONS.Check },
+              { id: 'type_it' as PracticeMode, label: 'Type It', icon: ICONS.Pencil },
+              { id: 'ai_challenge' as PracticeMode, label: 'AI Challenge', icon: ICONS.Zap },
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => handleModeChange(tab.id)}
+                className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 ${
+                  mode === tab.id
+                    ? 'text-white shadow-sm'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+                style={mode === tab.id ? { backgroundColor: tierColor } : {}}
+              >
+                <tab.icon className="w-3.5 h-3.5 shrink-0" />
+                <span className="hidden sm:inline truncate">{tab.label}</span>
+              </button>
+            ))}
           </div>
-          <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
-            {currentIndex + 1} / {currentDeckLength}
-          </span>
-        </div>
 
-        {/* Progress Bar */}
-        <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-          <div
-            className="h-full transition-all duration-500 rounded-full"
-            style={{ width: `${progress}%`, backgroundColor: tierColor }}
-          />
+          {/* Session Stats */}
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex gap-4">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-green-500" />
+                <span className="text-xs font-bold text-gray-600">{sessionScore.correct}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-red-400" />
+                <span className="text-xs font-bold text-gray-600">{sessionScore.incorrect}</span>
+              </div>
+            </div>
+            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+              {currentIndex + 1} / {currentDeckLength}
+            </span>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full transition-all duration-500 rounded-full"
+              style={{ width: `${progress}%`, backgroundColor: tierColor }}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Content Area */}
-      <div className="flex-1 flex items-center justify-center">
-        <div className="w-full max-w-md">
+      {/* Content Area - Scrollable */}
+      <div className="flex-1 overflow-y-auto p-4 pt-2">
+        <div className="w-full max-w-lg mx-auto flex items-start justify-center min-h-full">
+          <div className="w-full">
 
           {/* Flashcards Mode */}
           {mode === 'flashcards' && (
@@ -637,6 +858,157 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             </div>
           )}
 
+          {/* AI Challenge Mode */}
+          {mode === 'ai_challenge' && !challengeStarted && (
+            <div className="w-full">
+              <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 text-center mb-4">Choose Challenge Mode</h2>
+
+              {/* Side-by-side layout: Modes on left, Session Length on right */}
+              <div className="flex gap-4">
+                {/* Mode Selection */}
+                <div className="flex-1 space-y-2">
+                  {CHALLENGE_MODES.map(cm => {
+                    const count = modeCounts[cm.id];
+                    const isDisabled = count === 0;
+                    const isSelected = selectedChallengeMode === cm.id;
+                    const IconComp = ICONS[cm.icon];
+                    return (
+                      <button
+                        key={cm.id}
+                        onClick={() => !isDisabled && setSelectedChallengeMode(cm.id)}
+                        disabled={isDisabled}
+                        className={`w-full p-3 rounded-2xl text-left transition-all border-2 flex items-center gap-3 ${
+                          isSelected ? 'border-rose-400 bg-rose-50' : isDisabled ? 'border-gray-100 bg-gray-50 opacity-50 cursor-not-allowed' : 'border-gray-100 bg-white hover:border-gray-200'
+                        }`}
+                      >
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isSelected ? 'bg-rose-100' : 'bg-gray-100'}`}>
+                          <IconComp className={`w-5 h-5 ${isSelected ? 'text-rose-500' : 'text-gray-400'}`} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className={`font-bold text-sm truncate ${isSelected ? 'text-rose-600' : 'text-gray-800'}`}>{cm.name}</span>
+                            <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${isSelected ? 'bg-rose-200 text-rose-700' : 'bg-gray-200 text-gray-500'}`}>{count}</span>
+                          </div>
+                          <p className="text-xs text-gray-500 truncate">{cm.description}</p>
+                        </div>
+                        {isSelected && <ICONS.Check className="w-4 h-4 text-rose-500 shrink-0" />}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Session Length - appears to the right when mode selected */}
+                {selectedChallengeMode && (
+                  <div className="w-32 shrink-0 flex flex-col">
+                    <h3 className="text-[9px] font-black uppercase tracking-widest text-gray-400 text-center mb-2">Length</h3>
+                    <div className="flex-1 flex flex-col gap-2">
+                      {([10, 20, 'all'] as SessionLength[]).map(len => {
+                        const maxAvailable = modeCounts[selectedChallengeMode];
+                        const actualCount = len === 'all' ? maxAvailable : Math.min(len as number, maxAvailable);
+                        return (
+                          <button
+                            key={len}
+                            onClick={() => setSessionLength(len)}
+                            className={`flex-1 p-2 rounded-xl text-center transition-all border-2 ${sessionLength === len ? 'border-rose-400 bg-rose-50' : 'border-gray-100 bg-white hover:border-gray-200'}`}
+                          >
+                            <div className={`text-lg font-black ${sessionLength === len ? 'text-rose-600' : 'text-gray-800'}`}>{actualCount}</div>
+                            <div className="text-[8px] font-bold uppercase tracking-wider text-gray-400">{len === 'all' ? 'All' : 'Qs'}</div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {selectedChallengeMode && sessionLength && (
+                <button onClick={startChallenge} className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-sm mt-4" style={{ backgroundColor: tierColor }}>
+                  Start Challenge
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* AI Challenge - Active */}
+          {mode === 'ai_challenge' && challengeStarted && challengeQuestions.length > 0 && (
+            <>
+              {(() => {
+                const q = challengeQuestions[challengeIndex];
+                return (
+                  <div className="w-full">
+                    {/* Flashcard question */}
+                    {q.type === 'flashcard' && (
+                      <div onClick={() => setChallengeFlipped(!challengeFlipped)} className="relative w-full aspect-[4/5] cursor-pointer perspective-1000">
+                        <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${challengeFlipped ? 'rotate-y-180' : ''}`}>
+                          <div className="absolute inset-0 bg-white border border-gray-100 rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
+                            <span className="text-[10px] uppercase tracking-widest text-gray-300 font-black mb-8">POLISH</span>
+                            <h3 className="text-4xl font-black text-gray-800">{q.polish}</h3>
+                            <p className="mt-12 text-gray-400 text-[10px] uppercase font-black tracking-widest animate-pulse">Tap to reveal</p>
+                          </div>
+                          <div className="absolute inset-0 text-white rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180" style={{ backgroundColor: tierColor }}>
+                            <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">ENGLISH</span>
+                            <h3 className="text-4xl font-black">{q.english}</h3>
+                            <div className="mt-12 grid grid-cols-2 gap-3 w-full">
+                              <button onClick={(e) => { e.stopPropagation(); handleChallengeFlashcardResponse(false); }} className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-xs font-black uppercase tracking-widest"><ICONS.X className="w-4 h-4" /> Hard</button>
+                              <button onClick={(e) => { e.stopPropagation(); handleChallengeFlashcardResponse(true); }} className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-xs" style={{ color: tierColor }}><ICONS.Check className="w-4 h-4" /> Got it!</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Multiple Choice question */}
+                    {q.type === 'multiple_choice' && q.options && (
+                      <div className="bg-white rounded-[2.5rem] p-8 shadow-lg border border-gray-100">
+                        <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6" style={{ backgroundColor: `${tierColor}15`, color: tierColor }}>Polish → English</span>
+                        <h3 className="text-3xl font-black text-gray-800 mb-8 text-center">{q.polish}</h3>
+                        <div className="space-y-3">
+                          {q.options.map((opt, idx) => {
+                            const isCorrect = opt === q.english;
+                            const isSelected = challengeMcSelected === opt;
+                            let style = 'border-gray-100 hover:border-gray-200 text-gray-700';
+                            if (challengeMcFeedback) {
+                              if (isCorrect) style = 'border-green-400 bg-green-50 text-green-700';
+                              else if (isSelected) style = 'border-red-400 bg-red-50 text-red-700';
+                              else style = 'border-gray-100 text-gray-400';
+                            }
+                            return (
+                              <button key={idx} onClick={() => handleChallengeMcSelect(opt)} disabled={challengeMcFeedback} className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${style}`}>
+                                <span className="text-xs font-bold text-gray-400 mr-3">{String.fromCharCode(65 + idx)}</span>{opt}
+                                {challengeMcFeedback && isCorrect && <ICONS.Check className="w-5 h-5 float-right text-green-500" />}
+                                {challengeMcFeedback && isSelected && !isCorrect && <ICONS.X className="w-5 h-5 float-right text-red-500" />}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Type It question */}
+                    {q.type === 'type_it' && (
+                      <div className="bg-white rounded-[2.5rem] p-8 shadow-lg border border-gray-100">
+                        <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6" style={{ backgroundColor: `${tierColor}15`, color: tierColor }}>Polish → English</span>
+                        <h3 className="text-3xl font-black text-gray-800 mb-2 text-center">{q.polish}</h3>
+                        {challengeTypeSubmitted && (
+                          <div className={`text-center mb-4 p-3 rounded-xl ${challengeTypeCorrect ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+                            {challengeTypeCorrect ? (
+                              <div className="flex items-center justify-center gap-2"><ICONS.Check className="w-5 h-5" /><span className="font-bold">Correct!</span></div>
+                            ) : (
+                              <div><div className="flex items-center justify-center gap-2 mb-1"><ICONS.X className="w-5 h-5" /><span className="font-bold">Not quite</span></div><p className="text-sm">Correct: <span className="font-black">{q.english}</span></p></div>
+                            )}
+                          </div>
+                        )}
+                        <input type="text" value={challengeTypeAnswer} onChange={(e) => setChallengeTypeAnswer(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleChallengeTypeSubmit()} placeholder="Type in English..." disabled={challengeTypeSubmitted} className="w-full p-4 rounded-2xl border-2 border-gray-100 focus:border-gray-300 focus:outline-none text-lg font-medium text-center mt-4" autoFocus />
+                        <button onClick={handleChallengeTypeSubmit} disabled={!challengeTypeAnswer.trim() && !challengeTypeSubmitted} className="w-full mt-4 py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50" style={{ backgroundColor: tierColor }}>{challengeTypeSubmitted ? 'Next' : 'Check'}</button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
+            </>
+          )}
+
+          </div>
         </div>
       </div>
 

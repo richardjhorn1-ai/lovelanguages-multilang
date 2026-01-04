@@ -264,9 +264,39 @@ priority = (importance × 2) + (days_overdue × 1.5) - (success_rate × 0.5)
 
 ---
 
-## Phase 5.5: AI Challenge Mode 🆕 PLANNED
+## Phase 5.5: AI Challenge Mode ✅ COMPLETE
 
 **Goal:** Capture performance data from Play tests to generate personalized, AI-driven challenges that target weak areas.
+
+### Implemented Features
+- **AI Challenge as 4th Play mode tab** - Alongside Flashcards, Multiple Choice, and Type It
+- **5 Challenge Modes:**
+  - Weakest Words - Focus on words with lowest success rate
+  - Mixed Gauntlet - Random mix of all vocabulary types
+  - Romantic Phrases - 40 curated Polish romantic expressions
+  - Least Practiced - Words not seen recently
+  - Review Mastered - Practice learned words (unlocks after mastering words)
+- **Session Length Selection** - Choose 10, 20, or All questions
+- **Streak-Based Mastery System:**
+  - Track `correct_streak` per word
+  - Word marked as "LEARNED" after 5 consecutive correct answers
+  - Wrong answer resets streak to 0 (full reset)
+  - No decay - once learned, always learned
+- **Mastery Badges in Love Log:**
+  - Green checkmark for fully learned words
+  - Amber progress indicator showing streak (e.g., "3/5")
+- **Score Tracking:**
+  - Real-time correct/incorrect counters
+  - Immediate feedback for answers
+
+### Database Schema Added
+```sql
+ALTER TABLE scores
+ADD COLUMN IF NOT EXISTS correct_streak INTEGER DEFAULT 0,
+ADD COLUMN IF NOT EXISTS learned_at TIMESTAMP WITH TIME ZONE DEFAULT NULL;
+```
+
+### Original Planning (below)
 
 ### The Problem
 Users practice vocabulary through Flashcards, Multiple Choice, and Type It modes, but this data isn't being captured to improve their learning experience. We're missing opportunities to:
@@ -564,7 +594,7 @@ CREATE TABLE flashcard_progress (
 6. ✅ Play section (Flashcards, Multiple Choice, Type It modes)
 7. ✅ Progress page with Learning Journey diary
 8. 🔄 Tense Mastery System (track tense learning per verb)
-9. ⬜ AI Challenge Mode (personalized practice from play data)
+9. ✅ AI Challenge Mode (personalized practice from play data)
 10. ⬜ Role-play scenarios
 11. ⬜ Partner dashboard
 12. ⬜ Mobile PWA
