@@ -21,6 +21,8 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [activeTenseTab, setActiveTenseTab] = useState<'present' | 'past' | 'future'>('present');
   const [unlockDialogTense, setUnlockDialogTense] = useState<'past' | 'future' | null>(null);
   const [unlocking, setUnlocking] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [syncMessage, setSyncMessage] = useState<string | null>(null);
 
   useEffect(() => { fetchEntries(); }, [profile]);
 
@@ -34,6 +36,115 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
     if (data) setEntries(data as DictionaryEntry[]);
     setLoading(false);
+  };
+
+  const handleSync = async () => {
+    setIsSyncing(true);
+    setSyncMessage(null);
+
+    try {
+      // Fetch unharvested messages
+      const { data: messages, error: msgError } = await supabase
+        .from('messages')
+        .select('id, role, content, vocabulary_harvested_at')
+        .order('created_at', { ascending: true });
+
+      if (msgError) {
+        setSyncMessage('Error fetching messages');
+        setIsSyncing(false);
+        return;
+      }
+
+      const unharvested = messages?.filter(m => !m.vocabulary_harvested_at) || [];
+
+      if (unharvested.length === 0) {
+        setSyncMessage('All synced!');
+        setTimeout(() => setSyncMessage(null), 3000);
+        setIsSyncing(false);
+        return;
+      }
+
+      const knownWords = entries.map(e => e.word.toLowerCase());
+      let totalNewWords = 0;
+
+      // Process in batches of 50
+      const batchSize = 50;
+      for (let i = 0; i < unharvested.length; i += batchSize) {
+        const batch = unharvested.slice(i, i + batchSize);
+        const messageIds = batch.map(m => m.id);
+
+        const harvested = await geminiService.analyzeHistory(
+          batch.map(m => ({ role: m.role, content: m.content })),
+          knownWords
+        );
+
+        if (harvested.length > 0) {
+          // Check which words are truly new
+          const harvestedWords = harvested.map(w => w.word.toLowerCase().trim());
+          const { data: existingWords } = await supabase
+            .from('dictionary')
+            .select('word')
+            .eq('user_id', profile.id)
+            .in('word', harvestedWords);
+
+          const existingSet = new Set((existingWords || []).map(w => w.word.toLowerCase()));
+          const newWordCount = harvestedWords.filter(w => !existingSet.has(w)).length;
+
+          const wordsToSave = harvested.map(w => ({
+            user_id: profile.id,
+            word: String(w.word).toLowerCase().trim(),
+            translation: String(w.translation),
+            word_type: w.type as WordType,
+            importance: Number(w.importance) || 1,
+            context: JSON.stringify({
+              original: w.context,
+              examples: w.examples || [],
+              root: w.rootWord || w.word,
+              proTip: w.proTip || '',
+              conjugations: (w as any).conjugations || null,
+              gender: (w as any).gender || null,
+              plural: (w as any).plural || null,
+              adjectiveForms: (w as any).adjectiveForms || null
+            }),
+            unlocked_at: new Date().toISOString()
+          }));
+
+          await supabase
+            .from('dictionary')
+            .upsert(wordsToSave, {
+              onConflict: 'user_id,word',
+              ignoreDuplicates: false
+            });
+
+          // Increment XP for new words
+          if (newWordCount > 0) {
+            await geminiService.incrementXP(newWordCount);
+            totalNewWords += newWordCount;
+          }
+
+          harvested.forEach(w => knownWords.push(w.word.toLowerCase()));
+        }
+
+        // Mark messages as harvested
+        await supabase
+          .from('messages')
+          .update({ vocabulary_harvested_at: new Date().toISOString() })
+          .in('id', messageIds);
+      }
+
+      setSyncMessage(totalNewWords > 0
+        ? `+${totalNewWords} new word${totalNewWords > 1 ? 's' : ''}!`
+        : 'No new words found'
+      );
+      setTimeout(() => setSyncMessage(null), 3000);
+      await fetchEntries();
+
+    } catch (e: any) {
+      console.error('Sync failed:', e);
+      setSyncMessage('Sync error');
+    } finally {
+      setIsSyncing(false);
+    }
   };
 
   const filtered = entries.filter(e => {
@@ -108,6 +219,19 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300 w-3.5 h-3.5" />
               <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." className="w-full pl-9 pr-4 py-2 bg-gray-50 rounded-xl text-xs font-bold border-none focus:ring-2 focus:ring-rose-100" />
             </div>
+            <button
+              onClick={handleSync}
+              disabled={isSyncing}
+              className="flex items-center gap-2 px-3 py-2 bg-rose-50 hover:bg-rose-100 rounded-xl transition-all disabled:opacity-50"
+              title="Sync vocabulary from conversations"
+            >
+              <ICONS.RefreshCw className={`w-4 h-4 text-rose-500 ${isSyncing ? 'animate-spin' : ''}`} />
+              {syncMessage && (
+                <span className={`text-[10px] font-bold ${syncMessage.includes('error') ? 'text-red-500' : 'text-green-500'}`}>
+                  {syncMessage}
+                </span>
+              )}
+            </button>
             <span className="text-[10px] font-bold text-gray-400">{entries.length} words</span>
           </div>
         </div>

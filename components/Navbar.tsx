@@ -1,9 +1,10 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ICONS } from '../constants';
 import { Profile } from '../types';
 import { supabase } from '../services/supabase';
+import { getLevelFromXP, getLevelProgress, getTierColor } from '../services/level-utils';
 
 interface NavbarProps {
   profile: Profile;
@@ -14,6 +15,11 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  // Calculate level info from XP
+  const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
+  const levelProgress = useMemo(() => getLevelProgress(profile.xp || 0), [profile.xp]);
+  const tierColor = useMemo(() => getTierColor(levelInfo.tier), [levelInfo.tier]);
 
   useEffect(() => {
     const fetchRequestCount = async () => {
@@ -67,9 +73,16 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
   return (
     <>
-      {/* XP PROGRESS BAR */}
+      {/* XP PROGRESS BAR - shows progress within current level */}
       <div className="w-full h-1 bg-gray-50 flex">
-        <div className="h-full bg-[#FF4761] shadow-[0_0_8px_rgba(255,71,97,0.5)] transition-all duration-1000" style={{ width: `${(profile.xp || 0) % 100}%` }}></div>
+        <div
+          className="h-full transition-all duration-1000"
+          style={{
+            width: `${levelProgress}%`,
+            backgroundColor: tierColor,
+            boxShadow: `0 0 8px ${tierColor}50`
+          }}
+        />
       </div>
       
       <nav className="bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between z-10 sticky top-1">
@@ -103,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           >
             <div className="hidden sm:flex flex-col items-end">
               <span className="text-xs font-black truncate max-w-[120px]">{profile.full_name}</span>
-              <span className="text-[8px] uppercase tracking-[0.2em] text-[#FF4761] font-black">Level {profile.level || 1} {profile.role}</span>
+              <span className="text-[8px] uppercase tracking-[0.2em] font-black" style={{ color: tierColor }}>{levelInfo.displayName} {profile.role}</span>
             </div>
             <div className="relative">
               <div className="w-9 h-9 rounded-full bg-rose-50 flex items-center justify-center text-[#FF4761] font-black border border-rose-100 shadow-sm shrink-0 text-sm">

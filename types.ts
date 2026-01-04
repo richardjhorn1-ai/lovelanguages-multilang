@@ -118,3 +118,80 @@ export interface Message {
   vocabulary_harvested_at?: string | null;
   source?: 'text' | 'voice';
 }
+
+// ===========================================
+// Level Test System Types
+// ===========================================
+
+export type QuestionType = 'multiple_choice' | 'fill_blank' | 'translation';
+
+// A single question in a level test
+export interface TestQuestion {
+  id: string;
+  type: QuestionType;
+  question: string;           // The question text
+  context?: string;           // Additional context (e.g., for fill-in-blank)
+  options?: string[];         // For multiple choice questions
+  correctAnswer: string;      // The correct answer
+  theme: string;              // Which concept this tests
+  isCore: boolean;            // true = standardized, false = from Love Log
+  wordId?: string;            // Reference to dictionary entry if from Love Log
+}
+
+// User's answer to a question
+export interface TestAnswer {
+  questionId: string;
+  userAnswer: string;
+  isCorrect: boolean;
+  timeSpent?: number;         // Seconds spent on this question
+}
+
+// A complete level test record
+export interface LevelTest {
+  id: string;
+  user_id: string;
+  from_level: string;         // e.g., "Beginner 1"
+  to_level: string;           // e.g., "Beginner 2"
+  passed: boolean;
+  score: number;              // Percentage 0-100
+  total_questions: number;
+  correct_answers: number;
+  started_at: string;
+  completed_at?: string;
+  questions: TestQuestion[];  // Stored as JSONB
+  answers?: TestAnswer[];     // User's answers
+  created_at: string;
+}
+
+// Level information calculated from XP
+export interface LevelInfo {
+  tier: string;               // e.g., "Beginner"
+  level: number;              // 1, 2, or 3
+  displayName: string;        // e.g., "Beginner 2"
+  xpInTier: number;           // XP accumulated within current tier
+  xpForCurrentLevel: number;  // XP accumulated within current sub-level
+  xpToNextLevel: number;      // XP needed to reach next sub-level
+  totalXp: number;            // Total XP
+  canTakeTest: boolean;       // Has enough XP for level-up test
+  nextLevel: string | null;   // Next level name, null if maxed
+}
+
+// Progress summary from AI
+export interface ProgressSummary {
+  summary: string;            // Main narrative paragraph
+  wordsLearned: number;       // Total words in Love Log
+  newWordsSinceLastVisit: number;
+  topicsExplored: string[];   // Topics/themes covered
+  grammarHighlights: string[]; // Grammar concepts learned
+  canNowSay: string[];        // Practical phrases unlocked
+  suggestions: string[];      // What to learn next
+  generatedAt: string;        // ISO timestamp
+}
+
+// Saved progress summary (stored in database)
+export interface SavedProgressSummary extends ProgressSummary {
+  id: string;
+  xpAtTime: number;
+  levelAtTime: string;
+  createdAt: string;
+}
