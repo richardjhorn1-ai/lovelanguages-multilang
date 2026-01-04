@@ -3,15 +3,18 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
 import { speakPolish } from '../services/audio';
 import { geminiService } from '../services/gemini';
-import { Profile, DictionaryEntry, WordType } from '../types';
+import { Profile, DictionaryEntry, WordType, WordScore } from '../types';
 import { ICONS } from '../constants';
 
 interface LoveLogProps {
   profile: Profile;
 }
 
+const STREAK_TO_LEARN = 5;
+
 const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [entries, setEntries] = useState<DictionaryEntry[]>([]);
+  const [scoresMap, setScoresMap] = useState<Map<string, WordScore>>(new Map());
   const [filter, setFilter] = useState<WordType | 'all'>('all');
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
@@ -28,6 +31,8 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
   const fetchEntries = async () => {
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
+
+    // Fetch dictionary entries
     const { data } = await supabase
       .from('dictionary')
       .select('id, user_id, word, translation, word_type, importance, context, unlocked_at')
@@ -35,6 +40,19 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       .order('unlocked_at', { ascending: false });
 
     if (data) setEntries(data as DictionaryEntry[]);
+
+    // Fetch scores for mastery badges
+    const { data: scoreData } = await supabase
+      .from('scores')
+      .select('*')
+      .eq('user_id', targetUserId);
+
+    if (scoreData) {
+      const map = new Map<string, WordScore>();
+      scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
+      setScoresMap(map);
+    }
+
     setLoading(false);
   };
 
@@ -254,12 +272,30 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                  e.word_type === 'noun' ? (ctx.gender || ctx.plural) :
                                  e.word_type === 'adjective' ? ctx.adjectiveForms : false;
 
+            // Get mastery status for this word
+            const score = scoresMap.get(e.id);
+            const isLearned = score?.learned_at != null;
+            const currentStreak = score?.correct_streak || 0;
+
             return (
               <div key={e.id} className="relative h-[280px] w-full perspective-2000" onClick={() => !isFlipped && setFlippedId(e.id)}>
                 <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d cursor-pointer ${isFlipped ? 'rotate-y-180' : ''}`}>
 
                   {/* === FRONT === */}
                   <div className="absolute inset-0 bg-white border border-rose-100 rounded-[1.5rem] p-5 flex flex-col shadow-sm hover:shadow-md transition-all backface-hidden overflow-hidden">
+                    {/* Mastery Badge - top right corner */}
+                    {isLearned && (
+                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center" title="Mastered!">
+                        <ICONS.Check className="w-4 h-4 text-green-600" />
+                      </div>
+                    )}
+                    {!isLearned && currentStreak > 0 && (
+                      <div className="absolute top-3 right-3 flex items-center gap-1 bg-amber-50 px-2 py-1 rounded-full" title={`${currentStreak}/${STREAK_TO_LEARN} correct in a row`}>
+                        <span className="text-[10px] font-black text-amber-600">{currentStreak}/{STREAK_TO_LEARN}</span>
+                        <ICONS.Zap className="w-3 h-3 text-amber-500" />
+                      </div>
+                    )}
+
                     {/* Word type pill */}
                     <div className="flex justify-center">
                       <span className="text-[9px] font-bold uppercase tracking-wider text-rose-400 bg-rose-50 px-3 py-1 rounded-full">{e.word_type}</span>

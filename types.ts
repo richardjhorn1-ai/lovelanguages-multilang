@@ -195,3 +195,42 @@ export interface SavedProgressSummary extends ProgressSummary {
   levelAtTime: string;
   createdAt: string;
 }
+
+// ===========================================
+// Word Mastery & Practice Tracking Types
+// ===========================================
+
+export interface WordScore {
+  id?: string;
+  user_id: string;
+  word_id: string;
+  success_count: number;
+  fail_count: number;
+  correct_streak: number;        // Current consecutive correct answers
+  learned_at: string | null;     // Timestamp when word reached 5-streak, null if not learned
+  last_practiced: string;
+  // Joined dictionary data (optional)
+  dictionary?: {
+    word: string;
+    translation: string;
+    word_type?: WordType;
+  };
+}
+
+// AI Challenge mode types
+export type AIChallengeMode = 'weakest' | 'gauntlet' | 'romantic' | 'least_practiced' | 'review_mastered';
+
+export interface AIChallengeModeInfo {
+  id: AIChallengeMode;
+  name: string;
+  description: string;
+  icon: string;
+}
+
+export interface RomanticPhrase {
+  id: string;
+  polish: string;
+  english: string;
+  context?: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+}
