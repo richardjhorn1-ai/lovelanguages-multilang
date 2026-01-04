@@ -229,6 +229,19 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const saveExtractedWords = async (words: ExtractedWord[]) => {
     if (words.length === 0) return;
 
+    // Get list of words we're trying to save
+    const wordStrings = words.map(w => w.word.toLowerCase().trim());
+
+    // Check which words already exist in the dictionary
+    const { data: existingWords } = await supabase
+      .from('dictionary')
+      .select('word')
+      .eq('user_id', profile.id)
+      .in('word', wordStrings);
+
+    const existingWordSet = new Set((existingWords || []).map(w => w.word.toLowerCase()));
+    const newWordCount = wordStrings.filter(w => !existingWordSet.has(w)).length;
+
     const wordsToSave = words.map(w => ({
       user_id: profile.id,
       word: w.word.toLowerCase().trim(),
@@ -258,6 +271,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     if (error) {
       console.error('Failed to save words:', error);
+      return;
+    }
+
+    // Increment XP only for NEW words (1 XP per new word)
+    if (newWordCount > 0) {
+      const result = await geminiService.incrementXP(newWordCount);
+      if (result.success) {
+        console.log(`+${newWordCount} XP! Total: ${result.newXp}`);
+      }
     }
   };
 

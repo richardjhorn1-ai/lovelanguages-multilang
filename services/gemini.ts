@@ -202,5 +202,161 @@ export const geminiService = {
       console.error("Unlock Tense Error:", e);
       return { success: false, error: "Failed to connect to server" };
     }
+  },
+
+  async incrementXP(amount: number): Promise<{ success: boolean; newXp?: number; error?: string }> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/increment-xp', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ amount })
+      });
+
+      if (response.status === 401) {
+        return { success: false, error: "Please log in." };
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { success: false, error: data.error || "Failed to increment XP" };
+      }
+
+      return { success: true, newXp: data.newXp };
+    } catch (e) {
+      console.error("Increment XP Error:", e);
+      return { success: false, error: "Failed to connect to server" };
+    }
+  },
+
+  async generateLevelTest(fromLevel: string, toLevel: string): Promise<{ success: boolean; data?: any; error?: string }> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/generate-level-test', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ fromLevel, toLevel })
+      });
+
+      if (response.status === 401) {
+        return { success: false, error: "Please log in." };
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { success: false, error: data.error || "Failed to generate test" };
+      }
+
+      return { success: true, data };
+    } catch (e) {
+      console.error("Generate Level Test Error:", e);
+      return { success: false, error: "Failed to connect to server" };
+    }
+  },
+
+  async submitLevelTest(testId: string, answers: { questionId: string; userAnswer: string }[]): Promise<{ success: boolean; data?: any; error?: string }> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/submit-level-test', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ testId, answers })
+      });
+
+      if (response.status === 401) {
+        return { success: false, error: "Please log in." };
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { success: false, error: data.error || "Failed to submit test" };
+      }
+
+      return { success: true, data };
+    } catch (e) {
+      console.error("Submit Level Test Error:", e);
+      return { success: false, error: "Failed to connect to server" };
+    }
+  },
+
+  async getProgressSummary(): Promise<{ success: boolean; data?: any; error?: string }> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/progress-summary', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ action: 'generate' })
+      });
+
+      if (response.status === 401) {
+        return { success: false, error: "Please log in." };
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { success: false, error: data.error || "Failed to get progress summary" };
+      }
+
+      return { success: true, data };
+    } catch (e) {
+      console.error("Progress Summary Error:", e);
+      return { success: false, error: "Failed to connect to server" };
+    }
+  },
+
+  async listProgressSummaries(): Promise<{ success: boolean; data?: any[]; error?: string }> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/progress-summary', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ action: 'list' })
+      });
+
+      if (response.status === 401) {
+        return { success: false, error: "Please log in." };
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { success: false, error: data.error || "Failed to list summaries" };
+      }
+
+      return { success: true, data: data.summaries };
+    } catch (e) {
+      console.error("List Summaries Error:", e);
+      return { success: false, error: "Failed to connect to server" };
+    }
+  },
+
+  async getProgressSummaryById(summaryId: string): Promise<{ success: boolean; data?: any; error?: string }> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/progress-summary', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ action: 'get', summaryId })
+      });
+
+      if (response.status === 401) {
+        return { success: false, error: "Please log in." };
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { success: false, error: data.error || "Failed to get summary" };
+      }
+
+      return { success: true, data: data.summary };
+    } catch (e) {
+      console.error("Get Summary Error:", e);
+      return { success: false, error: "Failed to connect to server" };
+    }
   }
 };

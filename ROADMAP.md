@@ -264,6 +264,211 @@ priority = (importance × 2) + (days_overdue × 1.5) - (success_rate × 0.5)
 
 ---
 
+## Phase 5.5: AI Challenge Mode 🆕 PLANNED
+
+**Goal:** Capture performance data from Play tests to generate personalized, AI-driven challenges that target weak areas.
+
+### The Problem
+Users practice vocabulary through Flashcards, Multiple Choice, and Type It modes, but this data isn't being captured to improve their learning experience. We're missing opportunities to:
+1. Identify words they consistently struggle with
+2. Track which question types they find difficult
+3. Generate targeted practice that addresses specific weaknesses
+4. Adapt difficulty based on performance patterns
+
+### Data Capture Strategy
+
+**1. Play Session Tracking**
+
+Capture every interaction in the Play section:
+
+```typescript
+interface PlaySessionResult {
+  user_id: string;
+  word_id: string;
+  mode: 'flashcard' | 'multiple_choice' | 'type_it';
+  direction: 'polish_to_english' | 'english_to_polish';
+  correct: boolean;
+  response_time_ms: number;  // How long to answer
+  user_answer?: string;      // For type_it mode
+  timestamp: string;
+}
+```
+
+**2. Aggregate Performance Metrics**
+
+Calculate per-word and per-user statistics:
+
+```typescript
+interface WordPerformance {
+  word_id: string;
+  total_attempts: number;
+  correct_count: number;
+  accuracy: number;           // 0.0 - 1.0
+  avg_response_time_ms: number;
+  last_practiced: string;
+  struggle_score: number;     // Higher = needs more practice
+  best_mode: string;          // Mode with highest accuracy
+  worst_mode: string;         // Mode with lowest accuracy
+  direction_preference: 'polish_to_english' | 'english_to_polish' | 'balanced';
+}
+```
+
+**3. Weakness Detection Algorithm**
+
+```typescript
+function calculateStruggleScore(performance: WordPerformance): number {
+  const accuracyWeight = (1 - performance.accuracy) * 40;
+  const recencyWeight = daysSince(performance.last_practiced) * 2;
+  const volumeBonus = Math.min(performance.total_attempts, 10) * -1; // More practice = lower score
+  const slowResponsePenalty = performance.avg_response_time_ms > 3000 ? 10 : 0;
+
+  return accuracyWeight + recencyWeight + volumeBonus + slowResponsePenalty;
+}
+```
+
+### AI Challenge Generation
+
+**1. Challenge Types**
+
+| Challenge | Description | Triggers When |
+|-----------|-------------|---------------|
+| **Word Blitz** | Rapid-fire on 5 weakest words | Struggle score > 50 on 5+ words |
+| **Reverse Practice** | Flip direction (EN→PL if usually PL→EN) | Direction imbalance detected |
+| **Conjugation Drill** | Focus on verb forms | Verb accuracy < 70% |
+| **Context Builder** | Use words in sentences | Single-word answers too slow |
+| **Listening Challenge** | Audio-based questions | Strong visual, weak audio performance |
+| **Speed Round** | Timed responses | Response times improving |
+| **Recovery Session** | Gentle practice on failed words | After poor session |
+
+**2. AI Prompt Template**
+
+```typescript
+const challengePrompt = `
+Generate a personalized Polish practice challenge for this learner:
+
+**Their Weak Words:**
+${weakWords.map(w => `- ${w.word} (${w.translation}): ${w.accuracy}% accuracy`).join('\n')}
+
+**Challenge Requirements:**
+- Focus on the 5 words with lowest accuracy
+- Create ${questionCount} questions mixing Multiple Choice and Type-It
+- Include context sentences that use the words naturally
+- Add encouraging feedback for correct answers
+- Explain the correct answer if they get it wrong
+- Track if they're improving during the challenge
+
+**Tone:** Warm, romantic (this is a couples' language app)
+`;
+```
+
+### Database Schema
+
+```sql
+-- Track individual practice attempts
+CREATE TABLE play_attempts (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  word_id UUID REFERENCES dictionary(id) ON DELETE CASCADE,
+  mode VARCHAR(20) NOT NULL,  -- 'flashcard', 'multiple_choice', 'type_it'
+  direction VARCHAR(20),       -- 'polish_to_english', 'english_to_polish'
+  correct BOOLEAN NOT NULL,
+  response_time_ms INT,
+  user_answer TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_play_attempts_user ON play_attempts(user_id, created_at DESC);
+CREATE INDEX idx_play_attempts_word ON play_attempts(word_id);
+
+-- Aggregated word performance (updated after each session)
+CREATE TABLE word_performance (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  word_id UUID REFERENCES dictionary(id) ON DELETE CASCADE,
+  total_attempts INT DEFAULT 0,
+  correct_count INT DEFAULT 0,
+  accuracy FLOAT DEFAULT 0,
+  avg_response_time_ms INT,
+  last_practiced TIMESTAMPTZ,
+  struggle_score FLOAT DEFAULT 0,
+  UNIQUE(user_id, word_id)
+);
+
+-- AI Challenge sessions
+CREATE TABLE ai_challenges (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  challenge_type VARCHAR(50) NOT NULL,
+  target_words UUID[] NOT NULL,  -- Array of word_ids being targeted
+  questions JSONB NOT NULL,       -- AI-generated questions
+  results JSONB,                  -- User's answers and scores
+  started_at TIMESTAMPTZ DEFAULT NOW(),
+  completed_at TIMESTAMPTZ,
+  improvement_score FLOAT        -- Did accuracy improve?
+);
+```
+
+### UI Components
+
+**1. Challenge Launcher (in Progress page)**
+- "AI Challenge" button that appears when weak words detected
+- Shows brief preview: "Work on 5 struggling words"
+- Themed design matching tier color
+
+**2. Challenge Interface**
+- Full-screen focused mode (no distractions)
+- Progress bar showing questions remaining
+- Immediate feedback with explanations
+- Encouraging messages throughout
+- Summary at end showing improvement
+
+**3. Performance Dashboard (optional future enhancement)**
+- Visual graph of accuracy over time
+- Heatmap of strong/weak words
+- Streak tracking for consistent practice
+
+### Implementation Steps
+
+1. **Add Data Capture to FlashcardGame.tsx**
+   - Log each flashcard flip result
+   - Log Multiple Choice selections
+   - Log Type It submissions with timing
+
+2. **Create Performance Aggregation API**
+   - `/api/update-word-performance.ts`
+   - Recalculate metrics after each session
+
+3. **Build Weakness Detection Service**
+   - Calculate struggle scores
+   - Identify challenge opportunities
+   - Trigger challenge suggestions
+
+4. **Create AI Challenge Generator**
+   - `/api/generate-challenge.ts`
+   - Use Gemini to create personalized questions
+   - Store challenge in database
+
+5. **Build Challenge UI Component**
+   - `components/AIChallenge.tsx`
+   - Interactive challenge flow
+   - Results tracking and display
+
+### Success Metrics
+
+- Users complete 70%+ of suggested challenges
+- Accuracy on weak words improves by 15%+ after challenge
+- Response time decreases on previously slow words
+- Users return for practice more frequently
+
+### XP Integration
+
+- Complete AI Challenge: +15 XP
+- Perfect score on challenge: +25 XP
+- 3-day challenge streak: +10 XP bonus
+- Improve weak word accuracy by 20%+: +5 XP per word
+
+---
+
 ## Phase 6: Partner Dashboard
 
 **Goal:** Help the proficient partner support the learner
@@ -355,10 +560,14 @@ CREATE TABLE flashcard_progress (
 2. ✅ Streaming responses
 3. ✅ Voice mode (Gemini Live API)
 4. ✅ Love Log vocabulary extraction (real-time + voice mode)
-5. 🔄 Tense Mastery System (track tense learning per verb)
-6. ⬜ Playground (flashcards + role-play)
-7. ⬜ Partner dashboard
-8. ⬜ Mobile PWA
+5. ✅ XP/Level system with level tests
+6. ✅ Play section (Flashcards, Multiple Choice, Type It modes)
+7. ✅ Progress page with Learning Journey diary
+8. 🔄 Tense Mastery System (track tense learning per verb)
+9. ⬜ AI Challenge Mode (personalized practice from play data)
+10. ⬜ Role-play scenarios
+11. ⬜ Partner dashboard
+12. ⬜ Mobile PWA
 
 ---
 

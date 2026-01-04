@@ -952,3 +952,107 @@ return clean
 When debugging AI output issues, ALWAYS check the rendering pipeline first. The AI was correct all along - it was our own code transforming clean text into garbage.
 
 **Status:** ✅ RESOLVED - Formatting now works correctly. See `docs/FORMATTING.md` for full documentation
+
+---
+
+## Issue 18: Voice Mode Not Extracting Vocabulary to Love Log
+
+**Date:** January 2025
+
+**Problem:**
+After a voice conversation containing Polish words, no words were being added to the Love Log. Text chat extracted words correctly, but voice mode did not.
+
+**Root Cause:**
+The `stopLive()` function in `ChatArea.tsx` had a **stale closure** problem. When the voice session ended, it referenced the `messages` state from when the function was created, not the current state with all the voice transcripts.
+
+```typescript
+// OLD CODE (broken)
+const stopLive = async () => {
+  // ...
+  const voiceMessages = messages.slice(voiceSessionStartIdx.current);
+  // ^^^ This `messages` was stale - didn't include voice transcripts!
+};
+```
+
+**The Fix:**
+Fetch fresh messages directly from the database after the voice session ends:
+
+```typescript
+// NEW CODE (fixed)
+const stopLive = async () => {
+  const chatId = activeChat?.id;
+  const startIdx = voiceSessionStartIdx.current;
+
+  liveSessionRef.current?.disconnect();
+  setIsLive(false);
+
+  if (!chatId) return;
+
+  // Wait for final messages to be saved
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
+  // Fetch FRESH messages from database
+  const { data: allMessages } = await supabase
+    .from('messages')
+    .select('*')
+    .eq('chat_id', chatId)
+    .order('created_at', { ascending: true });
+
+  if (!allMessages) return;
+
+  // Now we have the actual voice transcripts
+  const voiceMessages = allMessages.slice(startIdx);
+
+  // Analyze and extract vocabulary
+  const harvested = await geminiService.analyzeHistory(
+    voiceMessages.map(m => ({ role: m.role, content: m.content })),
+    knownWords
+  );
+
+  // Save and show notification
+  if (harvested.length > 0) {
+    await saveExtractedWords(harvested);
+    setNewWordsNotification(harvested);
+  }
+};
+```
+
+**Key Lesson:** React state in async closures can be stale. For critical operations that need current data, fetch directly from the database.
+
+**Status:** ✅ FIXED - Voice mode now extracts vocabulary when session ends
+
+---
+
+## Issue 19: Incomplete Verb Conjugation Data (Partial Past Tense)
+
+**Date:** January 2025
+
+**Problem:**
+Verbs were being extracted with incomplete past tense conjugations - only 3 of 6 persons were filled:
+
+```json
+{
+  "word": "zaprosić",
+  "conjugations": {
+    "present": { "ja": "zaproszę", "ty": "zaprosisz", ... },  // All 6 ✅
+    "past": { "ja": "zaprosiłem", "ty": "zaprosiłeś", "onOna": "zaprosił" }  // Only 3! ❌
+  }
+}
+```
+
+**Root Cause:**
+The API prompts said past/future tenses were "optional but recommended" - so Gemini returned partial data when unsure.
+
+**The Fix:**
+Updated prompts in both `api/chat.ts` and `api/analyze-history.ts` to enforce all-or-nothing:
+
+```
+=== FOR VERBS ===
+- MUST include "conjugations" with ALL 6 persons for present tense
+- Past/future tenses: ONLY include if you can fill ALL 6 persons completely.
+  Do NOT include partial data - OMIT the entire tense rather than leaving blanks.
+```
+
+**Key Lesson:** Be explicit about data completeness requirements. "Optional" encourages incomplete data.
+
+**Status:** ✅ FIXED - API now returns either complete tense data or omits the tense entirely

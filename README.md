@@ -44,6 +44,49 @@ The API must return a structured JSON object:
 }
 ```
 
+## Features
+
+### Chat Modes
+| Mode | Purpose | Style |
+|------|---------|-------|
+| **ASK** | Quick Q&A | 2-3 sentences, conversational |
+| **LEARN** | Structured lessons | Tables, drills, formatted blocks |
+
+### Voice Mode
+Real-time bidirectional voice conversations with Gemini Live API:
+- Always-listening voice input with live transcription
+- Voice output (Gemini speaks responses)
+- Different voice personalities per mode (Puck for ASK, Kore for LEARN)
+- Vocabulary extraction when voice session ends
+
+### Love Log (Vocabulary System)
+Automatic vocabulary extraction from conversations:
+- **Real-time extraction** - Words added instantly from chat responses
+- **Voice mode extraction** - Words harvested when voice session ends
+- **Complete word data:**
+  - Verbs: All 6 conjugations (ja, ty, onOna, my, wy, oni)
+  - Nouns: Gender + plural form
+  - Adjectives: All 4 forms (masculine, feminine, neuter, plural)
+  - All words: 5 example sentences + pro-tip
+
+### Custom Markdown Blocks
+The frontend renders special blocks for language learning:
+- `::: table` - Grammar/conjugation tables
+- `::: drill` - Practice challenges
+- `::: culture [Title]` - Cultural notes
+
+---
+
 ## 🛠 Setup & Configuration
 - **API Key:** The app uses `GEMINI_API_KEY` (or `API_KEY`) server-side only. Secrets are never injected into the client bundle.
 - **Database:** Supabase handles Auth, Profiles, Link Requests, and the Dictionary (Love Log).
+
+---
+
+## Documentation
+
+- `ROADMAP.md` - Product roadmap and future plans
+- `TROUBLESHOOTING.md` - All issues encountered and solutions
+- `NEXT_STEPS.md` - Current session notes and priorities
+- `docs/AI_INTEGRATION_GUIDE.md` - Voice mode implementation details
+- `docs/FORMATTING.md` - Markdown rendering pipeline

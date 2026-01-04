@@ -10,6 +10,7 @@ import LoveLog from './components/LoveLog';
 import FlashcardGame from './components/FlashcardGame';
 import ProfileView from './components/ProfileView';
 import Progress from './components/Progress';
+import LevelTest from './components/LevelTest';
 
 const App: React.FC = () => {
   const [session, setSession] = useState<any>(null);
@@ -125,6 +126,7 @@ const App: React.FC = () => {
                 <Route path="/log" element={<LoveLog profile={profile} />} />
                 <Route path="/play" element={<FlashcardGame profile={profile} />} />
                 <Route path="/progress" element={<Progress profile={profile} />} />
+                <Route path="/test" element={<LevelTest profile={profile} />} />
                 <Route path="/profile" element={<ProfileView profile={profile} onRefresh={() => fetchProfile(profile.id)} />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
