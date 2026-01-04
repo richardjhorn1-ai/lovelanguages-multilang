@@ -1,6 +1,33 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
 
+// Sanitize output to remove any CSS/HTML artifacts the AI might generate
+function sanitizeOutput(text: string): string {
+  if (!text) return '';
+  return text
+    // Remove patterns like: (#FF4761) font-semibold"> or variations with any hex color
+    .replace(/\(?#[A-Fa-f0-9]{3,6}\)?\s*font-semibold[^a-z>]*>/gi, '')
+    // Remove hex color in parentheses: (#FF4761)
+    .replace(/\(#[A-Fa-f0-9]{3,6}\)/g, '')
+    // Remove font-semibold with any trailing punctuation
+    .replace(/font-semibold["'>:\s]*/gi, '')
+    // Remove Tailwind-style classes: text-[#FF4761]
+    .replace(/text-\[#[A-Fa-f0-9]{3,6}\]/g, '')
+    // Remove any HTML tags
+    .replace(/<\/?(?:span|strong|div|em|b|i)[^>]*>/gi, '')
+    // Remove orphaned style/class fragments
+    .replace(/style=["'][^"']*["']/gi, '')
+    .replace(/class=["'][^"']*["']/gi, '')
+    // Remove any stray hex colors
+    .replace(/#[A-Fa-f0-9]{6}(?![A-Fa-f0-9])/g, '')
+    // Clean up orphaned quotes, brackets, angle brackets
+    .replace(/["']\s*>/g, '')
+    .replace(/<\s*["']/g, '')
+    // Clean up double spaces
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
 // CORS configuration
 function setCorsHeaders(req: any, res: any): boolean {
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
@@ -109,6 +136,12 @@ LANGUAGE RULES:
 - Polish text ALWAYS followed by (English translation)
 - Never dump multiple concepts - one thing at a time
 - Include pronunciation hints for tricky words
+
+FORMATTING - YOU MUST FOLLOW THIS EXACTLY:
+- Polish words go inside **double asterisks**: **kocham**, **Dzień dobry**
+- Pronunciation goes in [square brackets]: [KOH-ham], [jen DOH-bri]
+- Complete example: **Dzień dobry** [jen DOH-bri] means "good morning"
+- Output ONLY plain text with markdown - nothing else
 
 VOCABULARY EXTRACTION - CRITICAL:
 - Extract EVERY Polish word you mention into the newWords array
@@ -254,9 +287,12 @@ ${MODE_DEFINITIONS[activeMode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITI
 
     const output = result.text;
     try {
-      return res.status(200).json(JSON.parse(output));
+      const parsed = JSON.parse(output);
+      // Sanitize the reply text to remove any CSS/HTML artifacts
+      parsed.replyText = sanitizeOutput(parsed.replyText || '');
+      return res.status(200).json(parsed);
     } catch (parseError) {
-      return res.status(200).json({ replyText: output, newWords: [] });
+      return res.status(200).json({ replyText: sanitizeOutput(output), newWords: [] });
     }
 
   } catch (error: any) {

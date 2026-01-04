@@ -57,6 +57,13 @@ VOICE INTERACTION RULES - ENGLISH FIRST:
 - Pattern: English explanation → Polish word → pronunciation tip
 - Keep responses concise for voice (2-4 sentences max)
 - Be encouraging and supportive
+
+IMPORTANT - SPOKEN AUDIO OUTPUT:
+- You are speaking out loud - do NOT include any text formatting, markdown, HTML, or styling
+- NEVER output asterisks, brackets, CSS codes, or HTML tags
+- Just speak naturally - say the Polish word, then the pronunciation, then the meaning
+- Example of what to SAY: "The word is kocham, pronounced KOH-ham, meaning I love"
+- Keep it conversational and natural for spoken audio
 `;
 
   const MODES: Record<string, string> = {

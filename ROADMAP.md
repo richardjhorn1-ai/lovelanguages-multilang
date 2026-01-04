@@ -275,5 +275,6 @@ CREATE TABLE flashcard_progress (
 ## Documentation
 
 - `docs/AI_INTEGRATION_GUIDE.md` - How to work with AI models
+- `docs/FORMATTING.md` - Text formatting system (markdown to HTML pipeline)
 - `TROUBLESHOOTING.md` - All issues encountered and solutions
 - `NEXT_STEPS.md` - Immediate next actions

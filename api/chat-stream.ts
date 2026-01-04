@@ -1,6 +1,43 @@
 import { GoogleGenAI } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
 
+// Sanitize output to remove any CSS/HTML artifacts the AI might generate
+function sanitizeOutput(text: string): string {
+  if (!text) return '';
+
+  // LITERAL string replacements first (most reliable)
+  let result = text
+    .split('(#FF4761) font-semibold">').join('')
+    .split('(#FF4761)font-semibold">').join('')
+    .split('#FF4761) font-semibold">').join('')
+    .split('font-semibold">').join('')
+    .split('font-semibold>').join('');
+
+  // Then regex patterns for variations
+  return result
+    // Remove patterns like: (#HEX) font-semibold"> with any hex color
+    .replace(/\(?#[A-Fa-f0-9]{3,6}\)?\s*font-semibold[^a-z>]*>/gi, '')
+    // Remove hex color in parentheses: (#FF4761)
+    .replace(/\(#[A-Fa-f0-9]{3,6}\)/g, '')
+    // Remove font-semibold with any trailing punctuation
+    .replace(/font-semibold["'>:\s]*/gi, '')
+    // Remove Tailwind-style classes: text-[#FF4761]
+    .replace(/text-\[#[A-Fa-f0-9]{3,6}\]/g, '')
+    // Remove any HTML tags
+    .replace(/<\/?(?:span|strong|div|em|b|i)[^>]*>/gi, '')
+    // Remove orphaned style/class fragments
+    .replace(/style=["'][^"']*["']/gi, '')
+    .replace(/class=["'][^"']*["']/gi, '')
+    // Remove any stray hex colors
+    .replace(/#[A-Fa-f0-9]{6}(?![A-Fa-f0-9])/g, '')
+    // Clean up orphaned quotes, brackets, angle brackets
+    .replace(/["']\s*>/g, '')
+    .replace(/<\s*["']/g, '')
+    // Clean up double spaces
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
 // Verify user authentication
 async function verifyAuth(req: any): Promise<{ userId: string } | null> {
   const authHeader = req.headers.authorization;
@@ -35,6 +72,12 @@ CORE RULES:
 - Polish text ALWAYS followed by (English translation)
 - Never dump multiple concepts - one thing at a time
 - Include pronunciation hints for tricky words
+
+FORMATTING - YOU MUST FOLLOW THIS EXACTLY:
+- Polish words go inside **double asterisks**: **kocham**, **Dzień dobry**
+- Pronunciation goes in [square brackets]: [KOH-ham], [jen DOH-bri]
+- Complete example: **Dzień dobry** [jen DOH-bri] means "good morning"
+- Output ONLY plain text with markdown - nothing else
 `;
 
   const MODES: Record<string, string> = {
@@ -117,7 +160,7 @@ export default async function handler(req: any, res: any) {
 
     // Use streaming
     const result = await ai.models.generateContentStream({
-      model: "gemini-2.0-flash",
+      model: "gemini-3-flash-preview",
       contents: prompt,
       config: {
         systemInstruction
@@ -125,19 +168,39 @@ export default async function handler(req: any, res: any) {
     });
 
     let fullText = '';
+    let buffer = ''; // Buffer to handle patterns spanning chunks
 
     // Stream chunks to client
     for await (const chunk of result) {
       const text = chunk.text || '';
       if (text) {
+        // Accumulate raw text
         fullText += text;
-        // Send text chunk
-        res.write(`data: ${JSON.stringify({ type: 'chunk', text })}\n\n`);
+        buffer += text;
+
+        // Only send when we have enough text to safely sanitize
+        // Keep last 50 chars in buffer to catch cross-chunk patterns
+        if (buffer.length > 50) {
+          const toSend = buffer.slice(0, -50);
+          const cleanText = sanitizeOutput(toSend);
+          buffer = buffer.slice(-50);
+          if (cleanText) {
+            res.write(`data: ${JSON.stringify({ type: 'chunk', text: cleanText })}\n\n`);
+          }
+        }
       }
     }
 
-    // Send completion event with full text
-    res.write(`data: ${JSON.stringify({ type: 'done', fullText })}\n\n`);
+    // Send remaining buffer
+    if (buffer) {
+      const cleanText = sanitizeOutput(buffer);
+      if (cleanText) {
+        res.write(`data: ${JSON.stringify({ type: 'chunk', text: cleanText })}\n\n`);
+      }
+    }
+
+    // Send completion event with full sanitized text
+    res.write(`data: ${JSON.stringify({ type: 'done', fullText: sanitizeOutput(fullText) })}\n\n`);
     res.end();
 
   } catch (error: any) {

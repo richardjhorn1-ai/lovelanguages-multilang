@@ -870,3 +870,85 @@ The "Update" button in Love Log (word harvest) does not extract all Polish words
 5. Batch messages into smaller chunks for better extraction
 
 **Status:** OPEN - Needs investigation into extraction completeness
+
+---
+
+## Issue 17: CSS Styling Leaking Into Chat Output (RESOLVED)
+
+**Date:** January 2025
+
+**Problem:**
+AI responses contain raw CSS/styling artifacts instead of clean text. Polish words appear with literal CSS code visible to users.
+
+**Example of bad output:**
+```
+The verb "to be" is "(#FF4761) font-semibold">być". Here's the conjugation:
+I    (#FF4761) font-semibold">jestem    (YES-tem)
+```
+
+**Expected output:**
+```
+The verb "to be" is **być**. Here's the conjugation:
+I    **jestem**    (YES-tem)
+```
+
+---
+
+### ROOT CAUSE FOUND
+
+The issue was NOT with the AI model outputting CSS - the AI was correctly outputting clean markdown like `**Cześć** [cheshch]`. The problem was in the `parseMarkdown()` function in `components/ChatArea.tsx`.
+
+**The Bug:**
+The regex replacements were applied in the WRONG ORDER:
+
+```javascript
+// OLD CODE (buggy)
+return clean
+  .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#FF4761] font-semibold">$1</strong>')  // Step 1
+  .replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-sm">($1)</span>')       // Step 2
+```
+
+**What Happened:**
+1. `**Cześć**` was converted to `<strong class="text-[#FF4761] font-semibold">Cześć</strong>`
+2. Then the `[brackets]` regex matched `[#FF4761]` INSIDE the Tailwind class attribute!
+3. Result: `<strong class="text-<span...>(#FF4761)</span> font-semibold">Cześć</strong>`
+4. This broken HTML displayed the class name as visible text
+
+---
+
+### THE FIX
+
+**File:** `components/ChatArea.tsx` (lines 44-51)
+
+```javascript
+// NEW CODE (fixed)
+return clean
+  // Pronunciation MUST run FIRST to avoid matching brackets in HTML attributes
+  .replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-sm">($1)</span>')
+  // Polish words use inline style to avoid bracket conflicts entirely
+  .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #FF4761; font-weight: 600;">$1</strong>')
+```
+
+**Two Changes:**
+1. **Reversed the order** - Process `[brackets]` FIRST, before any HTML is created
+2. **Switched to inline styles** - Changed from `class="text-[#FF4761]"` to `style="color: #FF4761"` to avoid bracket syntax entirely
+
+---
+
+### Also Updated
+
+1. **Simplified system prompts** (`api/chat.ts`, `api/chat-stream.ts`)
+   - Removed negative "FORBIDDEN" examples (which may have confused the model)
+   - Kept only positive instructions: "Use **asterisks** and [brackets]"
+
+2. **Switched to gemini-3-flash-preview model**
+   - Better instruction following
+   - Consistent markdown output
+
+---
+
+### Key Lesson
+
+When debugging AI output issues, ALWAYS check the rendering pipeline first. The AI was correct all along - it was our own code transforming clean text into garbage.
+
+**Status:** ✅ RESOLVED - Formatting now works correctly. See `docs/FORMATTING.md` for full documentation
