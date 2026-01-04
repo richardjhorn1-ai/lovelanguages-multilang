@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from '../services/supabase';
-import { geminiService, Attachment } from '../services/gemini';
+import { geminiService, Attachment, ExtractedWord } from '../services/gemini';
 import { LiveSession, LiveSessionState } from '../services/live-session';
-import { Profile, Chat, Message, ChatMode } from '../types';
+import { Profile, Chat, Message, ChatMode, WordType } from '../types';
 import { ICONS } from '../constants';
+import NewWordsNotification from './NewWordsNotification';
 
 const parseMarkdown = (text: string) => {
   if (!text) return '';
@@ -162,6 +163,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [liveError, setLiveError] = useState<string | null>(null);
   const liveSessionRef = useRef<LiveSession | null>(null);
 
+  // New words notification state
+  const [newWordsNotification, setNewWordsNotification] = useState<ExtractedWord[]>([]);
+
+  // Track voice session messages for post-session extraction
+  const voiceSessionStartIdx = useRef<number>(0);
+
   useEffect(() => { fetchChats(); }, [profile]);
   useEffect(() => { if (activeChat) { fetchMessages(activeChat.id); setMode(activeChat.mode); } }, [activeChat]);
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText]);
@@ -219,6 +226,41 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     return null;
   };
 
+  const saveExtractedWords = async (words: ExtractedWord[]) => {
+    if (words.length === 0) return;
+
+    const wordsToSave = words.map(w => ({
+      user_id: profile.id,
+      word: w.word.toLowerCase().trim(),
+      translation: w.translation,
+      word_type: w.type as WordType,
+      importance: Math.max(1, Math.min(5, w.importance || 1)), // Clamp to 1-5
+      context: JSON.stringify({
+        original: w.context || '',
+        root: w.rootWord || w.word,
+        examples: w.examples || [],
+        proTip: w.proTip || '',
+        // Structured data for Love Log card display
+        conjugations: w.conjugations || null,
+        adjectiveForms: w.adjectiveForms || null,
+        gender: w.gender || null,
+        plural: w.plural || null
+      }),
+      unlocked_at: new Date().toISOString()
+    }));
+
+    const { error } = await supabase
+      .from('dictionary')
+      .upsert(wordsToSave, {
+        onConflict: 'user_id,word',
+        ignoreDuplicates: false
+      });
+
+    if (error) {
+      console.error('Failed to save words:', error);
+    }
+  };
+
   const handleSend = async () => {
     if ((!input.trim() && attachments.length === 0) || !activeChat || loading) return;
     const userMessage = input;
@@ -235,11 +277,19 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     const userWords = messages.map(m => m.content);
 
     // Always use generateReply (non-streaming) as it produces clean markdown
-    const reply = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords);
+    const { replyText, newWords } = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords);
 
     // ACT 3: SAVE MODEL REPLY
     setStreamingText('');
-    await saveMessage('model', reply);
+    await saveMessage('model', replyText);
+
+    // ACT 4: SAVE EXTRACTED WORDS & SHOW NOTIFICATION
+    if (newWords.length > 0) {
+      saveExtractedWords(newWords).catch(console.error);
+      setNewWordsNotification(newWords);
+      // Auto-hide notification after 5 seconds
+      setTimeout(() => setNewWordsNotification([]), 5000);
+    }
 
     if (activeChat.title === 'New Session') {
       const title = await geminiService.generateTitle(userMessage);
@@ -255,6 +305,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setIsLive(true);
     setIsMenuOpen(false);
     setLiveError(null);
+
+    // Mark the current message count so we can extract vocabulary later
+    voiceSessionStartIdx.current = messages.length;
 
     liveSessionRef.current = new LiveSession({
         mode: mode,
@@ -295,11 +348,67 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     }
   };
 
-  const stopLive = () => {
+  const stopLive = async () => {
+    const chatId = activeChat?.id;
+    const startIdx = voiceSessionStartIdx.current;
+
     liveSessionRef.current?.disconnect();
     setIsLive(false);
     setLiveUserText("");
     setLiveModelText("");
+
+    if (!chatId) return;
+
+    // Wait for any final messages to be saved
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    try {
+      // Fetch fresh messages from DB to ensure we have all voice transcripts
+      const { data: allMessages } = await supabase
+        .from('messages')
+        .select('*')
+        .eq('chat_id', chatId)
+        .order('created_at', { ascending: true });
+
+      if (!allMessages) return;
+
+      // Update local state with fresh messages
+      setMessages(allMessages);
+
+      // Get voice session messages (messages added after session started)
+      const voiceMessages = allMessages.slice(startIdx);
+
+      console.log(`Voice session ended. Extracting vocabulary from ${voiceMessages.length} messages...`);
+
+      if (voiceMessages.length > 0) {
+        // Get known words to avoid duplicates
+        const { data: existingWords } = await supabase
+          .from('dictionary')
+          .select('word')
+          .eq('user_id', profile.id);
+
+        const knownWords = existingWords?.map(w => w.word.toLowerCase()) || [];
+
+        // Analyze the voice transcripts
+        const harvested = await geminiService.analyzeHistory(
+          voiceMessages.map(m => ({ role: m.role, content: m.content })),
+          knownWords
+        );
+
+        console.log(`Extracted ${harvested.length} words from voice session`);
+
+        if (harvested.length > 0) {
+          // Save extracted words
+          await saveExtractedWords(harvested);
+
+          // Show notification
+          setNewWordsNotification(harvested);
+          setTimeout(() => setNewWordsNotification([]), 5000);
+        }
+      }
+    } catch (e) {
+      console.error('Voice vocabulary extraction failed:', e);
+    }
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -552,6 +661,14 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       <input type="file" ref={imgInputRef} accept="image/*" className="hidden" onChange={handleFileUpload} />
       <input type="file" ref={fileInputRef} accept=".pdf,.txt,.doc,.docx" className="hidden" onChange={handleFileUpload} />
+
+      {/* New Words Notification */}
+      {newWordsNotification.length > 0 && (
+        <NewWordsNotification
+          words={newWordsNotification}
+          onClose={() => setNewWordsNotification([])}
+        />
+      )}
     </div>
   );
 };

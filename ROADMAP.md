@@ -47,19 +47,25 @@ See `docs/AI_INTEGRATION_GUIDE.md` and `TROUBLESHOOTING.md` for details.
 
 ---
 
-## Phase 4: Love Log Redesign 🔄 NEXT UP
+## Phase 4: Love Log & Vocabulary System ✅ MOSTLY COMPLETE
 
-**Current Problem:**
-AI-based word extraction is overly complicated and unpredictable.
+### Completed
+- **Real-time vocabulary extraction** - Words extracted from chat responses instantly
+- **Voice mode vocabulary extraction** - Words harvested when voice session ends
+- **Complete word data** - Verbs get all 6 conjugations, nouns get gender/plural, adjectives get all 4 forms
+- **NewWordsNotification component** - Shows sparkly toast when words are added
+- **Love Log cards** - Full conjugation tables, example navigation, pro-tips
 
-### Review Needed
-1. **Love Log Logic** - How words are currently stored/retrieved
-2. **Card Info** - What data is shown on vocabulary cards
-3. **Extraction Logic** - How AI extracts words from conversations
+### Data Quality Rules (Enforced in API)
+- Verbs: ALL 6 persons required for present tense (ja, ty, onOna, my, wy, oni)
+- Verbs: Past/future tenses only included if ALL 6 persons can be filled (no partial data)
+- Nouns: Gender + plural form required
+- Adjectives: All 4 forms required (masculine, feminine, neuter, plural)
+- All words: 5 example sentences + pro-tip required
 
-### New Approach: Button-Based Harvesting
-
-Instead of automatic extraction, users click "Update Love Log" to harvest words from their chat history.
+### Remaining Work
+- Manual "Sync All Words" button on Progress tab for catching missed words
+- Mark messages as harvested to prevent re-processing
 
 ### Gamification Ideas
 
@@ -82,6 +88,102 @@ Instead of automatic extraction, users click "Update Love Log" to harvest words 
    - Work toward being able to say meaningful phrases
    - "I love you" → "I love you with all my heart" → Full love letter
    - Unlock "achievements" for completing phrase milestones
+
+---
+
+## Phase 4.5: Tense Mastery System 🆕 PLANNED
+
+**Goal:** Track and teach verb tenses systematically so learners can express themselves in past, present, future, and imperfective/perfective aspects.
+
+### The Problem
+Polish verbs have complex tense systems:
+- **Present tense** - 6 conjugations (ja, ty, on/ona, my, wy, oni)
+- **Past tense** - 6 conjugations + gender variations (byłem/byłam, byłeś/byłaś, etc.)
+- **Future tense** - compound future (będę + infinitive) vs simple future (perfective verbs)
+- **Aspect pairs** - Imperfective (ongoing) vs Perfective (completed) actions
+
+**Current limitations:**
+1. We only extract tenses that are discussed in that specific conversation
+2. No mechanism to ADD new tenses to existing words later
+3. Past tense schema lacks gender support (only stores one variant per person)
+4. No tracking of which tenses the user has actually practiced/mastered
+
+### Proposed Features
+
+1. **Tense Progress per Verb**
+   - Track which tenses user has practiced for each verb
+   - Visual indicator: "Present ✅ | Past ⬜ | Future ⬜"
+   - Unlock tenses progressively (master present → learn past → learn future)
+
+2. **Aspect Awareness**
+   - Link verb pairs: robić (impf) ↔ zrobić (pf)
+   - Teach when to use each aspect
+   - "You learned 'jeść' - now learn the perfective 'zjeść' for completed eating"
+
+3. **Tense-Specific Drills**
+   - Practice only past tense conjugations
+   - Practice only future tense expressions
+   - Mixed tense challenges ("Say 'I ate' then 'I will eat'")
+
+4. **Contextual Tense Teaching**
+   - "Yesterday I..." → triggers past tense vocabulary
+   - "Tomorrow I will..." → triggers future tense
+   - Natural conversation flow introduces appropriate tenses
+
+### Database Schema Changes Needed
+
+**1. Fix past tense conjugation storage (dictionary table JSONB):**
+```typescript
+// CURRENT (incomplete - no gender)
+conjugations: {
+  past: { ja: "byłem", ty: "byłeś", onOna: "był", ... }
+}
+
+// PROPOSED (with gender support)
+conjugations: {
+  past: {
+    ja: { masculine: "byłem", feminine: "byłam" },
+    ty: { masculine: "byłeś", feminine: "byłaś" },
+    onOna: { masculine: "był", feminine: "była", neuter: "było" },
+    my: { masculine: "byliśmy", feminine: "byłyśmy" },
+    wy: { masculine: "byliście", feminine: "byłyście" },
+    oni: { masculine: "byli", feminine: "były" }
+  }
+}
+```
+
+**2. New tables for tense tracking:**
+```sql
+-- Track tense mastery per verb per user
+CREATE TABLE verb_tense_progress (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES profiles(id),
+  word_id UUID REFERENCES dictionary(id),  -- the verb entry
+  tense VARCHAR(20),  -- 'present', 'past', 'future'
+  mastery_level INT DEFAULT 0,  -- 0-5 scale
+  last_practiced TIMESTAMP,
+  correct_count INT DEFAULT 0,
+  incorrect_count INT DEFAULT 0
+);
+
+-- Link aspect pairs
+CREATE TABLE aspect_pairs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  imperfective_word_id UUID REFERENCES dictionary(id),
+  perfective_word_id UUID REFERENCES dictionary(id),
+  UNIQUE(imperfective_word_id, perfective_word_id)
+);
+```
+
+**3. Mechanism to update existing words:**
+- When a known verb is discussed in a new tense context
+- MERGE new tense data into existing entry (don't skip or overwrite)
+
+### Success Criteria
+- User can see which tenses they've mastered for each verb
+- System suggests "learn past tense of kochać" when ready
+- Aspect pairs are linked and taught together
+- Progress feels like unlocking abilities, not memorizing tables
 
 ---
 
@@ -252,10 +354,11 @@ CREATE TABLE flashcard_progress (
 1. ✅ Prompt refinement (ASK + LEARN modes)
 2. ✅ Streaming responses
 3. ✅ Voice mode (Gemini Live API)
-4. 🔄 Love Log redesign (review + gamification)
-5. ⬜ Playground (flashcards + role-play)
-6. ⬜ Partner dashboard
-7. ⬜ Mobile PWA
+4. ✅ Love Log vocabulary extraction (real-time + voice mode)
+5. 🔄 Tense Mastery System (track tense learning per verb)
+6. ⬜ Playground (flashcards + role-play)
+7. ⬜ Partner dashboard
+8. ⬜ Mobile PWA
 
 ---
 

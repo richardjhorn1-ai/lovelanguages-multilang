@@ -96,24 +96,52 @@ export default async function handler(req: any, res: any) {
 
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: `TASK: Language Data Parser for Polish vocabulary.
+      contents: `TASK: Polish Vocabulary Extractor - COMPLETE DATA REQUIRED
 
-1. Extract NEW Polish vocabulary from the chat history.
-2. For each word, generate exactly 5 diverse example sentences in Polish with English translations in brackets.
-3. Identify the Root Word (Lemma/Infinitive for verbs).
-4. Rate Importance 1-5 (5 = essential survival Polish, 1 = rare/niche).
-5. Provide a "proTip" (max 60 chars) - a cheeky or helpful usage tip for lovers.
-
-6. FOR VERBS: Include full conjugations for Present, Past, and Future tenses:
-   - Present: ja (I), ty (you), on/ona (he/she), my (we), wy (you pl.), oni/one (they)
-   - Past: same persons, masculine and feminine where applicable
-   - Future: same persons
-
-7. FOR NOUNS: Include gender (masculine/feminine/neuter) and plural form.
-
-8. FOR ADJECTIVES: Include masculine, feminine, neuter, and plural forms.
+Extract Polish vocabulary from the chat history. EVERY entry MUST be complete with all required fields.
 
 ${knownContext}
+
+=== EXTRACTION RULES ===
+
+FOR VERBS:
+- "word": Use INFINITIVE form (e.g., "jeść" not "jem")
+- "type": "verb"
+- "conjugations": REQUIRED - ONLY present tense with ALL 6 persons filled:
+  { present: { ja: "jem", ty: "jesz", onOna: "je", my: "jemy", wy: "jecie", oni: "jedzą" } }
+- DO NOT include past or future tenses - users unlock those separately when ready
+- NEVER return separate entries for individual conjugated forms
+
+FOR NOUNS:
+- "word": Singular nominative form
+- "type": "noun"
+- "gender": REQUIRED - must be "masculine", "feminine", or "neuter"
+- "plural": REQUIRED - the plural form (e.g., "koty" for "kot")
+
+FOR ADJECTIVES:
+- "word": Masculine form
+- "type": "adjective"
+- "adjectiveForms": REQUIRED - must include all 4 forms:
+  { masculine: "dobry", feminine: "dobra", neuter: "dobre", plural: "dobrzy" }
+- NEVER return separate entries for individual gender forms
+
+FOR PHRASES:
+- "word": The full phrase
+- "type": "phrase"
+
+FOR ALL WORDS:
+- "examples": REQUIRED - exactly 5 example sentences, each in format: "Polish sentence. (English translation.)"
+- "proTip": REQUIRED - max 60 chars, romantic/practical usage tip
+- "importance": 1-5 (5 = essential, 1 = rare)
+- "rootWord": The base/dictionary form
+
+=== VALIDATION ===
+Before returning, verify:
+[ ] Every verb has conjugations.present with ALL 6 persons (NO past/future - those are unlocked later)
+[ ] Every noun has gender AND plural
+[ ] Every adjective has adjectiveForms with ALL 4 forms (masculine, feminine, neuter, plural)
+[ ] Every word has exactly 5 examples
+[ ] Every word has a proTip
 
 CHAT HISTORY:
 ${historyText}`,
@@ -133,75 +161,54 @@ ${historyText}`,
                   importance: { type: Type.INTEGER },
                   context: { type: Type.STRING },
                   rootWord: { type: Type.STRING },
-                  proTip: { type: Type.STRING },
+                  proTip: { type: Type.STRING, description: "REQUIRED: Max 60 char romantic/practical tip" },
                   examples: {
                     type: Type.ARRAY,
                     items: { type: Type.STRING },
-                    description: "5 Polish sentences using the word with English translations in brackets"
+                    description: "REQUIRED: Exactly 5 sentences in format 'Polish. (English.)'"
                   },
-                  // Verb conjugations
                   conjugations: {
                     type: Type.OBJECT,
-                    description: "For verbs only: conjugation tables",
+                    description: "REQUIRED for verbs. Only present tense - past/future unlocked separately.",
                     properties: {
                       present: {
                         type: Type.OBJECT,
+                        description: "Present tense - ALL 6 persons required",
                         properties: {
-                          ja: { type: Type.STRING },
-                          ty: { type: Type.STRING },
-                          onOna: { type: Type.STRING },
-                          my: { type: Type.STRING },
-                          wy: { type: Type.STRING },
-                          oni: { type: Type.STRING }
-                        }
-                      },
-                      past: {
-                        type: Type.OBJECT,
-                        properties: {
-                          ja: { type: Type.STRING },
-                          ty: { type: Type.STRING },
-                          onOna: { type: Type.STRING },
-                          my: { type: Type.STRING },
-                          wy: { type: Type.STRING },
-                          oni: { type: Type.STRING }
-                        }
-                      },
-                      future: {
-                        type: Type.OBJECT,
-                        properties: {
-                          ja: { type: Type.STRING },
-                          ty: { type: Type.STRING },
-                          onOna: { type: Type.STRING },
-                          my: { type: Type.STRING },
-                          wy: { type: Type.STRING },
-                          oni: { type: Type.STRING }
-                        }
+                          ja: { type: Type.STRING, description: "I form - REQUIRED" },
+                          ty: { type: Type.STRING, description: "You (singular) - REQUIRED" },
+                          onOna: { type: Type.STRING, description: "He/She/It - REQUIRED" },
+                          my: { type: Type.STRING, description: "We - REQUIRED" },
+                          wy: { type: Type.STRING, description: "You (plural) - REQUIRED" },
+                          oni: { type: Type.STRING, description: "They - REQUIRED" }
+                        },
+                        required: ["ja", "ty", "onOna", "my", "wy", "oni"]
                       }
-                    }
+                    },
+                    required: ["present"]
                   },
-                  // Noun properties
                   gender: {
                     type: Type.STRING,
                     enum: ["masculine", "feminine", "neuter"],
-                    description: "For nouns only: grammatical gender"
+                    description: "REQUIRED for nouns: grammatical gender"
                   },
                   plural: {
                     type: Type.STRING,
-                    description: "For nouns only: plural form"
+                    description: "REQUIRED for nouns: plural form"
                   },
-                  // Adjective forms
                   adjectiveForms: {
                     type: Type.OBJECT,
-                    description: "For adjectives only: gender forms",
+                    description: "REQUIRED for adjectives. All 4 forms must be provided.",
                     properties: {
-                      masculine: { type: Type.STRING },
-                      feminine: { type: Type.STRING },
-                      neuter: { type: Type.STRING },
-                      plural: { type: Type.STRING }
-                    }
+                      masculine: { type: Type.STRING, description: "REQUIRED" },
+                      feminine: { type: Type.STRING, description: "REQUIRED" },
+                      neuter: { type: Type.STRING, description: "REQUIRED" },
+                      plural: { type: Type.STRING, description: "REQUIRED" }
+                    },
+                    required: ["masculine", "feminine", "neuter", "plural"]
                   }
                 },
-                required: ["word", "translation", "type", "importance", "examples", "proTip"]
+                required: ["word", "translation", "type", "importance", "examples", "proTip", "rootWord"]
               }
             }
           },

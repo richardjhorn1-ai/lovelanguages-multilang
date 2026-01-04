@@ -15,8 +15,8 @@ export interface Profile {
 export type WordType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
 export type Gender = 'masculine' | 'feminine' | 'neuter';
 
-// Conjugation table for a single tense
-export interface TenseConjugation {
+// Conjugation table for present tense (no gender)
+export interface PresentTenseConjugation {
   ja: string;      // I
   ty: string;      // you (singular)
   onOna: string;   // he/she
@@ -25,12 +25,43 @@ export interface TenseConjugation {
   oni: string;     // they
 }
 
-// Full verb conjugations
-export interface VerbConjugations {
-  present: TenseConjugation;
-  past: TenseConjugation;
-  future: TenseConjugation;
+// Conjugation with gender variants (for past tense)
+export interface GenderedConjugation {
+  masculine: string;
+  feminine: string;
 }
+
+// Past tense with gender support
+export interface PastTenseConjugation {
+  unlockedAt: string;  // ISO timestamp when unlocked
+  ja: GenderedConjugation;      // byłem/byłam
+  ty: GenderedConjugation;      // byłeś/byłaś
+  onOna: { masculine: string; feminine: string; neuter: string };  // był/była/było
+  my: GenderedConjugation;      // byliśmy/byłyśmy
+  wy: GenderedConjugation;      // byliście/byłyście
+  oni: GenderedConjugation;     // byli/były
+}
+
+// Future tense (can be simple or compound depending on aspect)
+export interface FutureTenseConjugation {
+  unlockedAt: string;  // ISO timestamp when unlocked
+  ja: string;
+  ty: string;
+  onOna: string;
+  my: string;
+  wy: string;
+  oni: string;
+}
+
+// Full verb conjugations with unlock tracking
+export interface VerbConjugations {
+  present: PresentTenseConjugation;           // Always extracted
+  past?: PastTenseConjugation | null;         // null = locked, object = unlocked
+  future?: FutureTenseConjugation | null;     // null = locked, object = unlocked
+}
+
+// Legacy type for backwards compatibility
+export type TenseConjugation = PresentTenseConjugation;
 
 // Adjective forms by gender
 export interface AdjectiveForms {
@@ -84,4 +115,6 @@ export interface Message {
   role: 'user' | 'model';
   content: string;
   created_at: string;
+  vocabulary_harvested_at?: string | null;
+  source?: 'text' | 'voice';
 }
