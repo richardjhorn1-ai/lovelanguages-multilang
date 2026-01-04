@@ -8,11 +8,46 @@ import { ICONS } from '../constants';
 
 const parseMarkdown = (text: string) => {
   if (!text) return '';
-  return text
-    // Polish words: rose/pink semi-bold highlight
-    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#FF4761] font-semibold">$1</strong>')
+
+  // Sanitize any legacy CSS artifacts that might exist in stored messages
+  let clean = text
+    .split('(#FF4761) font-semibold">').join('')
+    .split('(#FF4761)font-semibold">').join('')
+    .split('#FF4761) font-semibold">').join('')
+    .split('font-semibold">').join('')
+    .split('font-semibold>').join('');
+
+  // Then regex patterns for remaining variations
+  clean = clean
+    // Remove patterns like: (#HEX) font-semibold"> with any hex color
+    .replace(/\(?#[A-Fa-f0-9]{3,6}\)?\s*font-semibold[^a-z>]*>/gi, '')
+    // Remove hex colors in parentheses: (#FF4761)
+    .replace(/\(#[A-Fa-f0-9]{3,6}\)/g, '')
+    // Remove font-semibold with trailing punctuation
+    .replace(/font-semibold["'>:\s]*/gi, '')
+    // Remove Tailwind classes: text-[#FF4761]
+    .replace(/text-\[#[A-Fa-f0-9]{3,6}\]/g, '')
+    // Remove HTML tags
+    .replace(/<\/?(?:span|strong|div|em|b|i)[^>]*>/gi, '')
+    // Remove style/class attributes
+    .replace(/style=["'][^"']*["']/gi, '')
+    .replace(/class=["'][^"']*["']/gi, '')
+    // Remove stray hex colors (6 digits only to preserve 3-digit numbers)
+    .replace(/#[A-Fa-f0-9]{6}(?![A-Fa-f0-9])/g, '')
+    // Clean orphaned quotes/brackets/angles
+    .replace(/["']\s*>/g, '')
+    .replace(/<\s*["']/g, '')
+    // Clean up multiple spaces
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+
+  // Then apply markdown formatting
+  // IMPORTANT: Pronunciation replacement MUST run first to avoid matching brackets in HTML attributes
+  return clean
     // Pronunciation: subtle italic gray
     .replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-sm">($1)</span>')
+    // Polish words: rose/pink semi-bold highlight
+    .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #FF4761; font-weight: 600;">$1</strong>')
     .replace(/\n/g, '<br />');
 };
 
@@ -196,23 +231,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     // ACT 1: SAVE USER MESSAGE
     await saveMessage('user', currentAttachments.length > 0 ? `${userMessage} [Media Attached]`.trim() : userMessage);
 
-    // ACT 2: FETCH AI REPLY WITH STREAMING
+    // ACT 2: FETCH AI REPLY (using non-streaming API for clean formatting)
     const userWords = messages.map(m => m.content);
 
-    // Use streaming if no attachments, otherwise fall back to regular
-    let reply: string;
-    if (currentAttachments.length === 0) {
-      reply = await geminiService.generateReplyStream(
-        userMessage,
-        mode,
-        userWords,
-        (chunk) => {
-          setStreamingText(prev => prev + chunk);
-        }
-      );
-    } else {
-      reply = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords);
-    }
+    // Always use generateReply (non-streaming) as it produces clean markdown
+    const reply = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords);
 
     // ACT 3: SAVE MODEL REPLY
     setStreamingText('');
@@ -380,71 +403,73 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               <div className="w-1.5 h-1.5 bg-rose-300 rounded-full animate-bounce delay-150"></div>
             </div>
           )}
+
+          {/* Live Voice - User transcript bubble */}
+          {liveUserText && (
+            <div className="flex justify-end animate-in fade-in slide-in-from-bottom-2 duration-300">
+              <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm bg-[#FF4761]/80 text-white rounded-tr-none font-medium border-2 border-dashed border-[#FF4761]">
+                <p className="text-sm leading-relaxed italic">{liveUserText}</p>
+                <span className="inline-block w-2 h-4 ml-1 bg-white/50 animate-pulse rounded-sm"></span>
+              </div>
+            </div>
+          )}
+
+          {/* Live Voice - Model transcript bubble */}
+          {liveModelText && (
+            <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+              <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm bg-white border-2 border-dashed border-teal-200 text-gray-800 rounded-tl-none">
+                <p className="text-sm leading-relaxed">{liveModelText}</p>
+                <span className="inline-block w-2 h-4 ml-1 bg-teal-400 animate-pulse rounded-sm"></span>
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Voice Status Indicator */}
+        {/* Voice Status & Error */}
         {isLive && (
           <div className="px-4 pb-2 bg-white">
-            <div className="max-w-4xl mx-auto">
-              {/* Status Badge */}
-              <div className="flex items-center justify-center gap-2 mb-3">
-                <div className={`flex items-center gap-2 px-4 py-2 rounded-full shadow-sm border ${
-                  liveState === 'listening'
-                    ? 'bg-rose-50 border-rose-200'
-                    : liveState === 'speaking'
-                    ? 'bg-teal-50 border-teal-200'
-                    : liveState === 'connecting'
-                    ? 'bg-amber-50 border-amber-200'
-                    : 'bg-gray-50 border-gray-200'
-                }`}>
-                  {liveState === 'listening' && (
-                    <>
-                      <div className="flex gap-1">
-                        <span className="w-2 h-2 bg-rose-400 rounded-full animate-bounce"></span>
-                        <span className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></span>
-                        <span className="w-2 h-2 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></span>
-                      </div>
-                      <span className="text-xs font-bold text-rose-500">Listening...</span>
-                    </>
-                  )}
-                  {liveState === 'speaking' && (
-                    <>
-                      <ICONS.Sparkles className="w-4 h-4 text-teal-500 animate-pulse" />
-                      <span className="text-xs font-bold text-teal-600">Cupid is speaking...</span>
-                    </>
-                  )}
-                  {liveState === 'connecting' && (
-                    <>
-                      <div className="w-4 h-4 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
-                      <span className="text-xs font-bold text-amber-600">Connecting...</span>
-                    </>
-                  )}
-                </div>
+            <div className="max-w-4xl mx-auto flex items-center justify-center gap-3">
+              {/* Compact Status Badge */}
+              <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full shadow-sm border ${
+                liveState === 'listening'
+                  ? 'bg-rose-50 border-rose-200'
+                  : liveState === 'speaking'
+                  ? 'bg-teal-50 border-teal-200'
+                  : liveState === 'connecting'
+                  ? 'bg-amber-50 border-amber-200'
+                  : 'bg-gray-50 border-gray-200'
+              }`}>
+                {liveState === 'listening' && (
+                  <>
+                    <div className="flex gap-0.5">
+                      <span className="w-1.5 h-1.5 bg-rose-400 rounded-full animate-bounce"></span>
+                      <span className="w-1.5 h-1.5 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></span>
+                      <span className="w-1.5 h-1.5 bg-rose-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></span>
+                    </div>
+                    <span className="text-[10px] font-bold text-rose-500">Listening</span>
+                  </>
+                )}
+                {liveState === 'speaking' && (
+                  <>
+                    <ICONS.Sparkles className="w-3 h-3 text-teal-500 animate-pulse" />
+                    <span className="text-[10px] font-bold text-teal-600">Speaking</span>
+                  </>
+                )}
+                {liveState === 'connecting' && (
+                  <>
+                    <div className="w-3 h-3 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+                    <span className="text-[10px] font-bold text-amber-600">Connecting</span>
+                  </>
+                )}
               </div>
-
-              {/* Live Transcripts */}
-              {(liveUserText || liveModelText) && (
-                <div className="bg-gradient-to-r from-rose-50 to-white rounded-2xl p-4 border border-rose-100 space-y-2">
-                  {liveUserText && (
-                    <p className="text-sm text-gray-500 italic">
-                      <span className="font-bold text-gray-600">You:</span> {liveUserText}
-                    </p>
-                  )}
-                  {liveModelText && (
-                    <p className="text-sm text-rose-600 font-medium">
-                      <span className="font-bold">Cupid:</span> {liveModelText}
-                    </p>
-                  )}
-                </div>
-              )}
 
               {/* Error Display */}
               {liveError && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-3 flex items-center gap-2">
-                  <ICONS.X className="w-4 h-4 text-red-500" />
-                  <span className="text-xs text-red-600">{liveError}</span>
-                  <button onClick={() => setLiveError(null)} className="ml-auto text-red-400 hover:text-red-600">
-                    <ICONS.X className="w-3 h-3" />
+                <div className="bg-red-50 border border-red-200 rounded-lg px-3 py-1.5 flex items-center gap-2">
+                  <ICONS.X className="w-3 h-3 text-red-500" />
+                  <span className="text-[10px] text-red-600">{liveError}</span>
+                  <button onClick={() => setLiveError(null)} className="text-red-400 hover:text-red-600">
+                    <ICONS.X className="w-2.5 h-2.5" />
                   </button>
                 </div>
               )}
