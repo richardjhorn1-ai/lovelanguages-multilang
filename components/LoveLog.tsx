@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
-import { geminiService } from '../services/gemini';
 import { speakPolish } from '../services/audio';
+import { geminiService } from '../services/gemini';
 import { Profile, DictionaryEntry, WordType } from '../types';
 import { ICONS } from '../constants';
 
@@ -15,10 +15,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [filter, setFilter] = useState<WordType | 'all'>('all');
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
-  const [isHarvesting, setIsHarvesting] = useState(false);
   const [flippedId, setFlippedId] = useState<string | null>(null);
   const [carouselIdx, setCarouselIdx] = useState<{ [key: string]: number }>({});
   const [formsModalId, setFormsModalId] = useState<string | null>(null);
+  const [activeTenseTab, setActiveTenseTab] = useState<'present' | 'past' | 'future'>('present');
+  const [unlockDialogTense, setUnlockDialogTense] = useState<'past' | 'future' | null>(null);
+  const [unlocking, setUnlocking] = useState(false);
 
   useEffect(() => { fetchEntries(); }, [profile]);
 
@@ -29,59 +31,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       .select('id, user_id, word, translation, word_type, importance, context, unlocked_at')
       .eq('user_id', targetUserId)
       .order('unlocked_at', { ascending: false });
-    
+
     if (data) setEntries(data as DictionaryEntry[]);
     setLoading(false);
-  };
-
-  const handleHarvest = async () => {
-    setIsHarvesting(true);
-    try {
-      const { data: messages } = await supabase.from('messages').select('role, content').order('created_at', { ascending: false }).limit(100);
-      if (!messages || messages.length === 0) return;
-
-      const knownWords = entries.map(e => e.word.toLowerCase());
-      const harvested = await geminiService.analyzeHistory(messages.reverse(), knownWords);
-
-      if (harvested.length > 0) {
-        const wordsToSave = harvested.map(w => ({
-          user_id: profile.id,
-          word: String(w.word).toLowerCase().trim(),
-          translation: String(w.translation),
-          word_type: w.type as WordType,
-          importance: Number(w.importance) || 1,
-          context: JSON.stringify({
-            original: w.context,
-            examples: w.examples || [],
-            root: w.rootWord || w.word,
-            proTip: w.proTip || "",
-            // Verb conjugations
-            conjugations: w.conjugations || null,
-            // Noun properties
-            gender: w.gender || null,
-            plural: w.plural || null,
-            // Adjective forms
-            adjectiveForms: w.adjectiveForms || null
-          }),
-          unlocked_at: new Date().toISOString()
-        }));
-
-        const { error } = await supabase
-          .from('dictionary')
-          .upsert(wordsToSave, { 
-            onConflict: 'user_id,word',
-            ignoreDuplicates: false 
-          });
-
-        if (error) throw error;
-        await fetchEntries();
-      }
-    } catch (e: any) {
-      console.error("Harvesting failed:", e);
-      if (e.code !== '23505') alert(`Harvest error: ${e.message}`);
-    } finally {
-      setIsHarvesting(false);
-    }
   };
 
   const filtered = entries.filter(e => {
@@ -120,6 +72,26 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     }
   };
 
+  const handleUnlockTense = async (entry: DictionaryEntry, tense: 'past' | 'future') => {
+    setUnlocking(true);
+    try {
+      const result = await geminiService.unlockTense(entry.id, entry.word, tense);
+      if (result.success) {
+        // Refresh entries to get updated data
+        await fetchEntries();
+        setUnlockDialogTense(null);
+        setActiveTenseTab(tense);
+      } else {
+        alert(result.error || 'Failed to unlock tense');
+      }
+    } catch (e) {
+      console.error('Unlock error:', e);
+      alert('Failed to unlock tense. Please try again.');
+    } finally {
+      setUnlocking(false);
+    }
+  };
+
   return (
     <div className="h-full flex flex-col bg-[#fdfcfd]">
       <div className="px-6 py-4 bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm">
@@ -136,10 +108,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300 w-3.5 h-3.5" />
               <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." className="w-full pl-9 pr-4 py-2 bg-gray-50 rounded-xl text-xs font-bold border-none focus:ring-2 focus:ring-rose-100" />
             </div>
-            <button onClick={handleHarvest} disabled={isHarvesting} className="bg-[#FF4761] hover:bg-rose-600 text-white px-5 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest shadow-lg shadow-rose-100 disabled:opacity-50 transition-all flex items-center gap-2">
-              <ICONS.Sparkles className={`w-3.5 h-3.5 ${isHarvesting ? 'animate-spin' : ''}`} />
-              {isHarvesting ? 'Updating...' : 'Update'}
-            </button>
+            <span className="text-[10px] font-bold text-gray-400">{entries.length} words</span>
           </div>
         </div>
 
@@ -304,17 +273,69 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
               {/* Modal Content */}
               <div className="p-5 overflow-y-auto max-h-[60vh]">
-                {/* VERB: Conjugation Tables */}
+                {/* VERB: Tabbed Conjugation Tables */}
                 {entry.word_type === 'verb' && ctx.conjugations && (
                   <div className="space-y-4">
-                    {(['present', 'past', 'future'] as const).map(tense => {
-                      const tenseData = ctx.conjugations?.[tense];
-                      if (!tenseData) return null;
-                      return (
-                        <div key={tense}>
-                          <h4 className="text-xs font-bold uppercase tracking-wider text-rose-400 mb-2">
-                            {tense === 'present' ? 'Present Tense' : tense === 'past' ? 'Past Tense' : 'Future Tense'}
-                          </h4>
+                    {/* Tense Tabs */}
+                    <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
+                      {(['present', 'past', 'future'] as const).map(tense => {
+                        const isPresent = tense === 'present';
+                        const tenseData = ctx.conjugations?.[tense];
+                        const isUnlocked = isPresent || (tenseData && tenseData.unlockedAt);
+                        const isActive = activeTenseTab === tense;
+
+                        return (
+                          <button
+                            key={tense}
+                            onClick={() => {
+                              if (isUnlocked) {
+                                setActiveTenseTab(tense);
+                              } else {
+                                setUnlockDialogTense(tense as 'past' | 'future');
+                              }
+                            }}
+                            className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
+                              isActive
+                                ? 'bg-white text-[#FF4761] shadow-sm'
+                                : isUnlocked
+                                  ? 'text-gray-500 hover:bg-white/50'
+                                  : 'text-gray-400 hover:bg-white/30'
+                            }`}
+                          >
+                            {!isUnlocked && <ICONS.Lock className="w-3 h-3" />}
+                            {tense}
+                            {isUnlocked && !isPresent && <span className="text-green-500 text-[8px]">✓</span>}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Active Tense Content */}
+                    {(() => {
+                      const tenseData = ctx.conjugations?.[activeTenseTab];
+                      const isPresent = activeTenseTab === 'present';
+                      const isUnlocked = isPresent || (tenseData && tenseData.unlockedAt);
+
+                      if (!isUnlocked) {
+                        return (
+                          <div className="text-center py-8">
+                            <ICONS.Lock className="w-8 h-8 text-gray-300 mx-auto mb-3" />
+                            <p className="text-gray-500 text-sm mb-4">
+                              {activeTenseTab === 'past' ? 'Past' : 'Future'} tense is locked
+                            </p>
+                            <button
+                              onClick={() => setUnlockDialogTense(activeTenseTab as 'past' | 'future')}
+                              className="px-4 py-2 bg-[#FF4761] text-white rounded-xl text-sm font-bold hover:bg-rose-600 transition-all"
+                            >
+                              Unlock {activeTenseTab === 'past' ? 'Past' : 'Future'} Tense
+                            </button>
+                          </div>
+                        );
+                      }
+
+                      // Present tense - simple format
+                      if (isPresent && tenseData) {
+                        return (
                           <div className="bg-gray-50 rounded-xl overflow-hidden">
                             <table className="w-full text-sm">
                               <tbody className="divide-y divide-gray-100">
@@ -334,9 +355,126 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               </tbody>
                             </table>
                           </div>
+                        );
+                      }
+
+                      // Past tense - with gender
+                      if (activeTenseTab === 'past' && tenseData) {
+                        return (
+                          <div className="bg-gray-50 rounded-xl overflow-hidden">
+                            <table className="w-full text-sm">
+                              <thead>
+                                <tr className="bg-gray-100">
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Person</th>
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Masc.</th>
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Fem.</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-gray-100">
+                                {[
+                                  { label: 'ja (I)', data: tenseData.ja },
+                                  { label: 'ty (you)', data: tenseData.ty },
+                                  { label: 'on/ona', data: tenseData.onOna },
+                                  { label: 'my (we)', data: tenseData.my },
+                                  { label: 'wy (you pl.)', data: tenseData.wy },
+                                  { label: 'oni/one', data: tenseData.oni }
+                                ].map(row => (
+                                  <tr key={row.label} className="hover:bg-gray-100/50">
+                                    <td className="px-3 py-2 text-gray-500 text-xs">{row.label}</td>
+                                    <td className="px-3 py-2 font-bold text-[#FF4761] text-sm">
+                                      {typeof row.data === 'object' ? row.data?.masculine : row.data || '—'}
+                                    </td>
+                                    <td className="px-3 py-2 font-bold text-rose-400 text-sm">
+                                      {typeof row.data === 'object' ? row.data?.feminine : '—'}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                            {tenseData.unlockedAt && (
+                              <p className="text-[9px] text-gray-400 text-center py-2">
+                                Unlocked {new Date(tenseData.unlockedAt).toLocaleDateString()}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      }
+
+                      // Future tense - simple format
+                      if (activeTenseTab === 'future' && tenseData) {
+                        return (
+                          <div className="bg-gray-50 rounded-xl overflow-hidden">
+                            <table className="w-full text-sm">
+                              <tbody className="divide-y divide-gray-100">
+                                {[
+                                  { label: 'ja (I)', value: tenseData.ja },
+                                  { label: 'ty (you)', value: tenseData.ty },
+                                  { label: 'on/ona (he/she)', value: tenseData.onOna },
+                                  { label: 'my (we)', value: tenseData.my },
+                                  { label: 'wy (you pl.)', value: tenseData.wy },
+                                  { label: 'oni/one (they)', value: tenseData.oni }
+                                ].map(row => (
+                                  <tr key={row.label} className="hover:bg-gray-100/50">
+                                    <td className="px-4 py-2 text-gray-500 text-xs">{row.label}</td>
+                                    <td className="px-4 py-2 font-bold text-[#FF4761]">{row.value || '—'}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                            {tenseData.unlockedAt && (
+                              <p className="text-[9px] text-gray-400 text-center py-2">
+                                Unlocked {new Date(tenseData.unlockedAt).toLocaleDateString()}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      }
+
+                      return null;
+                    })()}
+
+                    {/* Unlock Dialog */}
+                    {unlockDialogTense && (
+                      <div className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4" onClick={() => !unlocking && setUnlockDialogTense(null)}>
+                        <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl" onClick={e => e.stopPropagation()}>
+                          <div className="text-center">
+                            <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                              <ICONS.Lock className="w-8 h-8 text-[#FF4761]" />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-800 mb-2">
+                              Unlock {unlockDialogTense === 'past' ? 'Past' : 'Future'} Tense?
+                            </h3>
+                            <p className="text-gray-500 text-sm mb-6">
+                              Ready to learn how to say <strong className="text-[#FF4761]">{entry.word}</strong> in the {unlockDialogTense} tense?
+                              {unlockDialogTense === 'past' && " You'll see both masculine and feminine forms."}
+                            </p>
+                            <div className="flex gap-3">
+                              <button
+                                onClick={() => setUnlockDialogTense(null)}
+                                disabled={unlocking}
+                                className="flex-1 py-3 px-4 border-2 border-gray-200 text-gray-600 rounded-xl font-bold hover:bg-gray-50 transition-all disabled:opacity-50"
+                              >
+                                Not Yet
+                              </button>
+                              <button
+                                onClick={() => handleUnlockTense(entry, unlockDialogTense)}
+                                disabled={unlocking}
+                                className="flex-1 py-3 px-4 bg-[#FF4761] text-white rounded-xl font-bold hover:bg-rose-600 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                              >
+                                {unlocking ? (
+                                  <>
+                                    <span className="animate-spin">⏳</span>
+                                    Unlocking...
+                                  </>
+                                ) : (
+                                  'Unlock Now'
+                                )}
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                      );
-                    })}
+                      </div>
+                    )}
                   </div>
                 )}
 

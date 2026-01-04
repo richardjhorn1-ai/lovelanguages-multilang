@@ -143,11 +143,55 @@ FORMATTING - YOU MUST FOLLOW THIS EXACTLY:
 - Complete example: **Dzień dobry** [jen DOH-bri] means "good morning"
 - Output ONLY plain text with markdown - nothing else
 
-VOCABULARY EXTRACTION - CRITICAL:
-- Extract EVERY Polish word you mention into the newWords array
-- Include common words, greetings, connectors - not just "important" ones
-- If you write "Cześć, kochanie!" extract BOTH words
-- More extraction is better - the Love Log should grow substantially
+VOCABULARY EXTRACTION - THIS IS MANDATORY FOR EVERY RESPONSE:
+
+You MUST populate the newWords array with COMPLETE data. Incomplete entries are NOT acceptable.
+
+=== FOR VERBS ===
+- Use INFINITIVE form as "word" (e.g., "jeść" not "jem")
+- type: "verb"
+- ONLY extract PRESENT TENSE conjugations with ALL 6 persons:
+  { present: { ja: "jem", ty: "jesz", onOna: "je", my: "jemy", wy: "jecie", oni: "jedzą" } }
+- EVERY field (ja, ty, onOna, my, wy, oni) MUST be filled - no nulls or empty strings
+- DO NOT include past or future tenses - users unlock those separately when ready
+- Include 5 example sentences in Polish with English translations in parentheses
+- proTip: romantic/practical usage tip (max 60 chars)
+
+=== FOR NOUNS ===
+- Use singular nominative as "word"
+- type: "noun"
+- MUST include "gender": "masculine" | "feminine" | "neuter"
+- MUST include "plural": the plural form (e.g., word: "kot", plural: "koty")
+- Include 5 example sentences
+- proTip: usage tip
+
+=== FOR ADJECTIVES ===
+- Use masculine form as "word"
+- type: "adjective"
+- MUST include "adjectiveForms" with ALL 4 forms:
+  { masculine: "dobry", feminine: "dobra", neuter: "dobre", plural: "dobrzy" }
+- EVERY field MUST be filled - no nulls or empty strings
+- Include 5 example sentences
+- proTip: usage tip
+
+=== FOR PHRASES ===
+- type: "phrase"
+- Include 5 example sentences showing different contexts
+- proTip: when/how to use it
+
+=== EXAMPLES FIELD ===
+EVERY word MUST have exactly 5 examples. Format each as:
+"Kocham cię bardzo. (I love you very much.)"
+
+=== VALIDATION CHECKLIST ===
+Before returning, verify:
+[ ] Every verb has conjugations.present with ALL 6 persons filled (NO past/future - those are unlocked later)
+[ ] Every noun has gender AND plural
+[ ] Every adjective has adjectiveForms with ALL 4 forms filled
+[ ] Every word has exactly 5 examples
+[ ] Every word has a proTip
+
+DO NOT return incomplete data. If unsure of a conjugation, look it up - Polish grammar is consistent.
 `;
 
     const MODE_DEFINITIONS = {
@@ -274,9 +318,55 @@ ${MODE_DEFINITIONS[activeMode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITI
                   type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
                   importance: { type: Type.INTEGER },
                   context: { type: Type.STRING },
-                  rootWord: { type: Type.STRING }
+                  rootWord: { type: Type.STRING },
+                  examples: {
+                    type: Type.ARRAY,
+                    items: { type: Type.STRING },
+                    description: "REQUIRED: Exactly 5 example sentences. Format: 'Polish sentence. (English translation.)'"
+                  },
+                  proTip: { type: Type.STRING },
+                  conjugations: {
+                    type: Type.OBJECT,
+                    description: "REQUIRED for verbs. Only present tense - past/future unlocked separately.",
+                    properties: {
+                      present: {
+                        type: Type.OBJECT,
+                        description: "Present tense conjugations - ALL 6 fields required",
+                        properties: {
+                          ja: { type: Type.STRING, description: "I form - REQUIRED" },
+                          ty: { type: Type.STRING, description: "You (singular) form - REQUIRED" },
+                          onOna: { type: Type.STRING, description: "He/She/It form - REQUIRED" },
+                          my: { type: Type.STRING, description: "We form - REQUIRED" },
+                          wy: { type: Type.STRING, description: "You (plural) form - REQUIRED" },
+                          oni: { type: Type.STRING, description: "They form - REQUIRED" }
+                        },
+                        required: ["ja", "ty", "onOna", "my", "wy", "oni"]
+                      }
+                    },
+                    required: ["present"]
+                  },
+                  adjectiveForms: {
+                    type: Type.OBJECT,
+                    description: "REQUIRED for adjectives. All 4 gender forms must be provided.",
+                    properties: {
+                      masculine: { type: Type.STRING, description: "Masculine form - REQUIRED" },
+                      feminine: { type: Type.STRING, description: "Feminine form - REQUIRED" },
+                      neuter: { type: Type.STRING, description: "Neuter form - REQUIRED" },
+                      plural: { type: Type.STRING, description: "Plural form - REQUIRED" }
+                    },
+                    required: ["masculine", "feminine", "neuter", "plural"]
+                  },
+                  gender: {
+                    type: Type.STRING,
+                    enum: ["masculine", "feminine", "neuter"],
+                    description: "REQUIRED for nouns. Grammatical gender."
+                  },
+                  plural: {
+                    type: Type.STRING,
+                    description: "REQUIRED for nouns. The plural form of the word."
+                  }
                 },
-                required: ["word", "translation", "type", "importance", "rootWord"]
+                required: ["word", "translation", "type", "importance", "rootWord", "examples", "proTip"]
               }
             }
           },

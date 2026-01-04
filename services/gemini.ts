@@ -9,6 +9,14 @@ export interface ExtractedWord {
   rootWord?: string;
   examples?: string[];
   proTip?: string;
+  conjugations?: {
+    present?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
+    past?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
+    future?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
+  };
+  adjectiveForms?: { masculine?: string; feminine?: string; neuter?: string; plural?: string };
+  gender?: string;
+  plural?: string;
 }
 
 export interface Attachment {
@@ -120,7 +128,7 @@ export const geminiService = {
     }
   },
 
-  async generateReply(prompt: string, mode: string, images: Attachment[] = [], userWords: string[] = []): Promise<string> {
+  async generateReply(prompt: string, mode: string, images: Attachment[] = [], userWords: string[] = []): Promise<{ replyText: string; newWords: ExtractedWord[] }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/chat', {
@@ -130,14 +138,23 @@ export const geminiService = {
       });
 
       if (response.status === 401) {
-        return "Please log in to continue chatting.";
+        return { replyText: "Please log in to continue chatting.", newWords: [] };
       }
 
       const data = await response.json();
-      return data.replyText || "I'm having a bit of trouble finding the words.";
+      const newWords = (data.newWords || []).map((w: any) => ({
+        ...w,
+        word: (w.word || '').toLowerCase().trim(),
+        rootWord: ((w.rootWord || w.word || '') as string).toLowerCase().trim()
+      }));
+
+      return {
+        replyText: data.replyText || "I'm having a bit of trouble finding the words.",
+        newWords
+      };
     } catch (e) {
       console.error("Gemini Chat Error:", e);
-      return "I'm having a little trouble connecting right now.";
+      return { replyText: "I'm having a little trouble connecting right now.", newWords: [] };
     }
   },
 
@@ -158,6 +175,32 @@ export const geminiService = {
       return data.title || "New Chat";
     } catch (e) {
       return "New Chat";
+    }
+  },
+
+  async unlockTense(wordId: string, word: string, tense: 'past' | 'future'): Promise<{ success: boolean; data?: any; error?: string }> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/unlock-tense', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ wordId, word, tense })
+      });
+
+      if (response.status === 401) {
+        return { success: false, error: "Please log in to unlock tenses." };
+      }
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { success: false, error: data.error || "Failed to unlock tense" };
+      }
+
+      return { success: true, data: data.data };
+    } catch (e) {
+      console.error("Unlock Tense Error:", e);
+      return { success: false, error: "Failed to connect to server" };
     }
   }
 };
