@@ -1,44 +1,40 @@
 # Next Steps - Love Languages
 
 **Date:** January 4, 2026
-**Last Session:** Progress System Phase 5 + AI Challenge Mode planning
+**Last Session:** Test Results Modal + Brand Color Consistency
 
 ---
 
 ## What We Just Completed
 
-### Progress Page Enhancements
-- **Previous Level Tests** - Users can practice any level test they've passed
-  - Dropdown shows all completed levels with theme names
-  - "Checking In", "First Words of Love", etc.
-- **Learning Journey Diary** - Book/diary format with saved AI analyses
-  - Left panel: Index of all journal entries
-  - Right panel: Full content with topics, grammar, suggestions
-  - Entries show summarized titles instead of truncated text
-- **Reordered Layout** - Love Log Stats now appears above Learning Journey
-- **Fixed Module Resolution** - Inlined constants in API files to fix Vercel serverless issues
+### Test Results & Previous Attempts Feature
+- **Previous Attempts** - Each level test now shows historical attempts
+  - List icon appears next to levels with past attempts
+  - Expandable section shows date, score, and pass/fail status
+- **Test Results Modal** - Click any attempt to see full results in a popup
+  - Shows score, correct answers, and all questions
+  - Displays user answers vs correct answers
+  - "Try Again" button to retake the test
+- **User Answers Stored** - API now saves user answers in database for review
 
-### Play Section Enhancements (Phase 5)
-- **Three Practice Modes**: Flashcards, Multiple Choice, Type It
-- **Bidirectional Type It**: Polish→English AND English→Polish
-- **Tab navigation** with session stats
+### Brand Color Consistency
+- **Unified Theming** - Changed from tier-based colors (green/blue/purple) to brand rose (#FF4761)
+- **Progress Page** - All stat cards now use brand color
+- **Updated `getTierColor()`** - Now returns brand color for all tiers
 
-### AI Challenge Mode Outline (Added to ROADMAP.md)
-- Data capture strategy for play sessions
-- Weakness detection algorithm
-- Challenge types (Word Blitz, Reverse Practice, Conjugation Drill, etc.)
-- Database schema for tracking
-- XP integration plan
+### Practice Level Tests Fix
+- **Fixed Key Format Mismatch** - API was creating keys like "Beginner 2->Beginner 3" but theme map used "Beginner 2->3"
+- **Updated `getThemeForTransition()`** - Now handles both intra-tier and cross-tier transitions correctly
 
 ### Files Modified
 | File | Changes |
 |------|---------|
-| `components/Progress.tsx` | Previous levels, reordering, journal titles |
-| `components/FlashcardGame.tsx` | 3 practice modes, bidirectional typing |
-| `api/generate-level-test.ts` | Inlined level constants |
-| `api/submit-level-test.ts` | Inlined pass threshold |
-| `ROADMAP.md` | Added Phase 5.5 AI Challenge Mode |
-| `NEXT_STEPS.md` | This file |
+| `components/Progress.tsx` | Test attempts fetching, results modal, expanded dropdown |
+| `components/LevelTest.tsx` | Simplified results screen, removed inline review |
+| `api/submit-level-test.ts` | Store user answers in questions array |
+| `api/generate-level-test.ts` | Fixed key format in `getThemeForTransition()` |
+| `services/level-utils.ts` | Brand color for all tiers |
+| `constants.tsx` | Added List icon |
 
 ---
 
@@ -55,6 +51,11 @@
 | Adjective forms | ✅ All 4 required |
 | Example sentences | ✅ 5 per word |
 | Pro-tips | ✅ Required |
+| XP/Level System | ✅ 18 levels, 6 tiers |
+| Level Tests | ✅ AI-generated themed questions |
+| Test Results Modal | ✅ View past attempts |
+| Play Section | ✅ 3 practice modes |
+| Learning Journey | ✅ AI-generated diary entries |
 
 ### Data Quality Rules (Enforced)
 - Verbs: ALL 6 conjugations for present tense (ja, ty, onOna, my, wy, oni)
@@ -108,19 +109,6 @@ Now that real-time extraction works, the manual "Update" button is less critical
 
 ---
 
-## Files Modified This Session
-
-| File | Changes |
-|------|---------|
-| `/components/ChatArea.tsx` | Fixed `stopLive()` stale closure |
-| `/api/chat.ts` | Updated prompts for complete tense data |
-| `/api/analyze-history.ts` | Updated prompts for complete tense data |
-| `ROADMAP.md` | Added Phase 4.5 Tense Mastery System |
-| `TROUBLESHOOTING.md` | Added Issues 18-19 |
-| `NEXT_STEPS.md` | This file |
-
----
-
 ## Quick Start Next Session
 
 ```bash
@@ -129,19 +117,19 @@ cd "/Users/richardhorn/Trying Claude Code/L.L.3.0"
 # Start dev server
 vercel dev
 
-# Priority: Implement Tense Mastery System
-# See ROADMAP.md Phase 4.5 for details
+# Priority: Implement AI Challenge Mode
+# See ROADMAP.md Phase 5.5 for details
 ```
 
 ---
 
 ## Documentation Reference
 
-- `ROADMAP.md` - Product roadmap with Phase 4.5 details
-- `TROUBLESHOOTING.md` - All issues 1-19 with solutions
+- `ROADMAP.md` - Product roadmap with Phase 4.5 & 5.5 details
+- `TROUBLESHOOTING.md` - All issues 1-20 with solutions
 - `docs/AI_INTEGRATION_GUIDE.md` - Voice mode implementation
 - `docs/FORMATTING.md` - Markdown rendering pipeline
 
 ---
 
-*Voice mode and text chat both extract vocabulary correctly. Data quality is enforced. Next: track tense learning progress.*
+*XP/Level system complete. Test results viewable on Progress page. Brand colors consistent throughout.*

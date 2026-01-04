@@ -1056,3 +1056,98 @@ Updated prompts in both `api/chat.ts` and `api/analyze-history.ts` to enforce al
 **Key Lesson:** Be explicit about data completeness requirements. "Optional" encourages incomplete data.
 
 **Status:** ✅ FIXED - API now returns either complete tense data or omits the tense entirely
+
+---
+
+## Issue 20: Practice Level Tests - "No Theme Found" Error
+
+**Date:** January 2025
+
+**Problem:**
+Practice level tests were failing with "No theme found for transition Beginner 2 -> Beginner 3" error. Users couldn't take practice tests from the Progress page.
+
+**Root Cause:**
+Key format mismatch between what `getThemeForTransition()` was creating vs what `LEVEL_THEMES` expected:
+
+```typescript
+// API was creating:
+"Beginner 2->Beginner 3"  // WRONG - full format for intra-tier
+
+// But LEVEL_THEMES used:
+"Beginner 2->3"           // CORRECT - short format for intra-tier
+"Beginner 3->Elementary 1" // Full format only for cross-tier
+```
+
+**The Fix:**
+
+Updated `getThemeForTransition()` in `/api/generate-level-test.ts` to parse level names and create the correct key format:
+
+```typescript
+function getThemeForTransition(fromLevel: string, toLevel: string): LevelTheme | null {
+  const fromParts = fromLevel.match(/^(.+)\s+(\d)$/);
+  const toParts = toLevel.match(/^(.+)\s+(\d)$/);
+
+  if (!fromParts || !toParts) {
+    // Unparseable - try direct lookup
+    const key = `${fromLevel}->${toLevel}`;
+    return LEVEL_THEMES[key] || null;
+  }
+
+  const fromTier = fromParts[1];
+  const fromNum = fromParts[2];
+  const toTier = toParts[1];
+  const toNum = toParts[2];
+
+  let key: string;
+  if (fromTier === toTier) {
+    // Same tier: use short format "Beginner 2->3"
+    key = `${fromTier} ${fromNum}->${toNum}`;
+  } else {
+    // Cross tier: use full format "Beginner 3->Elementary 1"
+    key = `${fromLevel}->${toLevel}`;
+  }
+
+  return LEVEL_THEMES[key] || null;
+}
+```
+
+**Key Lesson:** When debugging lookup failures, always verify the exact key format being used matches the expected format in the map/object.
+
+**Status:** ✅ FIXED - Practice level tests now load themes correctly
+
+---
+
+## Issue 21: Test Results Review - Initial Dropdown Implementation Failed
+
+**Date:** January 2025
+
+**Problem:**
+After completing a level test, users wanted to review their answers and see what they got wrong. Initial implementation added a "Review Answers" dropdown to the test results screen, but it didn't display any content when clicked.
+
+**Initial Approach (Failed):**
+Added an expandable dropdown directly on the `LevelTest.tsx` results screen with question-by-question review.
+
+**User Feedback:**
+> "the code for the dropdown was created but i clicked review answers and nothing appeared afterwards. perhaps we can add a test results section to the progress section, maybe as another dropdown within the previous tests section"
+
+**The Better Solution:**
+
+Instead of inline dropdown on test results, implemented a comprehensive system:
+
+1. **Previous Attempts Section** - List icon appears next to levels that have past test attempts
+2. **Expandable Attempts List** - Click to see all attempts for that level with date, score, pass/fail
+3. **Test Results Modal** - Click any attempt to see full results in a popup:
+   - Score and correct answer count
+   - List of all questions with user's answer vs correct answer
+   - Color-coded: green for correct, red for incorrect
+   - "Try Again" button to retake the test
+
+**Files Modified:**
+- `components/Progress.tsx` - Added attempts fetching, modal, expandable sections
+- `components/LevelTest.tsx` - Simplified results, added "View detailed results on Progress" link
+- `api/submit-level-test.ts` - Store user answers in questions array for later review
+- `constants.tsx` - Added List icon
+
+**Key Lesson:** Sometimes a feature belongs in a different location than initially planned. Moving test results review to the Progress page (where users already go to see their learning journey) made more sense than an inline dropdown.
+
+**Status:** ✅ FIXED - Test results viewable via modal on Progress page
