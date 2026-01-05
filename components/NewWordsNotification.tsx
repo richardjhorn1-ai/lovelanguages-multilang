@@ -25,9 +25,9 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onCl
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >
-      <div className={`bg-white rounded-2xl shadow-xl border border-rose-100 overflow-hidden transition-all duration-300 ${isExpanded ? 'w-64' : 'w-auto'}`}>
+      <div className={`bg-white rounded-2xl shadow-xl border border-[var(--accent-border)] overflow-hidden transition-all duration-300 ${isExpanded ? 'w-64' : 'w-auto'}`}>
         {/* Header - always visible */}
-        <div className="px-4 py-3 bg-gradient-to-r from-rose-50 to-amber-50 flex items-center gap-2 cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
+        <div className="px-4 py-3 bg-gradient-to-r from-[var(--accent-light)] to-amber-50 flex items-center gap-2 cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
           <div className="relative">
             <ICONS.Sparkles className="w-5 h-5 text-amber-400 animate-pulse" />
             <div className="absolute inset-0 animate-ping">
@@ -49,13 +49,13 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onCl
               <button
                 key={idx}
                 onClick={() => handleWordClick(word.word)}
-                className="w-full text-left px-3 py-2 rounded-xl bg-gradient-to-r from-rose-50 to-transparent hover:from-rose-100 transition-all group"
+                className="w-full text-left px-3 py-2 rounded-xl bg-gradient-to-r from-[var(--accent-light)] to-transparent hover:from-[var(--accent-light)] transition-all group"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-[#FF4761] sparkle-text">
+                  <span className="text-sm font-bold text-[var(--accent-color)] sparkle-text">
                     {word.translation}
                   </span>
-                  <ICONS.ChevronRight className="w-3 h-3 text-gray-300 group-hover:text-rose-400 transition-colors" />
+                  <ICONS.ChevronRight className="w-3 h-3 text-gray-300 group-hover:text-[var(--accent-color)] transition-colors" />
                 </div>
                 <span className="text-[10px] text-gray-400 uppercase tracking-wider">
                   {word.type}
@@ -66,7 +66,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onCl
           <div className="px-3 pb-3">
             <button
               onClick={() => { navigate('/log'); onClose(); }}
-              className="w-full py-2 text-[10px] font-bold uppercase tracking-wider text-rose-400 hover:text-rose-600 transition-colors"
+              className="w-full py-2 text-[10px] font-bold uppercase tracking-wider text-[var(--accent-color)] hover:text-[var(--accent-hover)] transition-colors"
             >
               View all in Love Log →
             </button>

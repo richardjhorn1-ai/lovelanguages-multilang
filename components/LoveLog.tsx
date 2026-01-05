@@ -5,6 +5,7 @@ import { speakPolish } from '../services/audio';
 import { geminiService } from '../services/gemini';
 import { Profile, DictionaryEntry, WordType, WordScore, GiftWord } from '../types';
 import { ICONS } from '../constants';
+import { useTheme } from '../context/ThemeContext';
 
 interface LoveLogProps {
   profile: Profile;
@@ -28,6 +29,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncMessage, setSyncMessage] = useState<string | null>(null);
   const [partnerName, setPartnerName] = useState<string>('');
+
+  // Theme
+  const { accentHex } = useTheme();
 
   useEffect(() => { fetchEntries(); }, [profile]);
 
@@ -253,49 +257,49 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#fdfcfd]">
-      <div className="px-6 py-4 bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm">
+    <div className="h-full flex flex-col bg-[var(--bg-primary)]">
+      <div className="px-6 py-4 bg-[var(--bg-card)] border-b border-[var(--border-color)] sticky top-0 z-30 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="bg-[#FF4761] p-2 rounded-xl shadow-lg shadow-rose-100">
+            <div className="bg-[var(--accent-color)] p-2 rounded-xl shadow-lg shadow-[var(--accent-shadow)] dark:shadow-[var(--accent-shadow)]">
               <ICONS.Book className="text-white w-5 h-5" />
             </div>
-            <h2 className="text-xl font-black text-gray-800 font-header">The Love Log</h2>
+            <h2 className="text-xl font-black text-[var(--text-primary)] font-header">The Love Log</h2>
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <div className="relative flex-1 sm:w-64">
-              <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300 w-3.5 h-3.5" />
-              <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." className="w-full pl-9 pr-4 py-2 bg-gray-50 rounded-xl text-xs font-bold border-none focus:ring-2 focus:ring-rose-100" />
+              <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] w-3.5 h-3.5" />
+              <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." className="w-full pl-9 pr-4 py-2 bg-[var(--bg-primary)] rounded-xl text-xs font-bold border-none focus:ring-2 focus:ring-[var(--accent-border)] dark:focus:ring-[var(--accent-border)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" />
             </div>
             <button
               onClick={handleSync}
               disabled={isSyncing}
-              className="flex items-center gap-2 px-3 py-2 bg-rose-50 hover:bg-rose-100 rounded-xl transition-all disabled:opacity-50"
+              className="flex items-center gap-2 px-3 py-2 bg-[var(--accent-light)] dark:bg-[var(--accent-light)] hover:bg-[var(--accent-light)] dark:hover:bg-[var(--accent-light-hover)] rounded-xl transition-all disabled:opacity-50"
               title="Sync vocabulary from conversations"
             >
-              <ICONS.RefreshCw className={`w-4 h-4 text-rose-500 ${isSyncing ? 'animate-spin' : ''}`} />
+              <ICONS.RefreshCw className={`w-4 h-4 text-[var(--accent-color)] ${isSyncing ? 'animate-spin' : ''}`} />
               {syncMessage && (
                 <span className={`text-[10px] font-bold ${syncMessage.includes('error') ? 'text-red-500' : 'text-green-500'}`}>
                   {syncMessage}
                 </span>
               )}
             </button>
-            <span className="text-[10px] font-bold text-gray-400">{entries.length} words</span>
+            <span className="text-[10px] font-bold text-[var(--text-secondary)]">{entries.length} words</span>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto mt-3 flex gap-2 overflow-x-auto no-scrollbar pb-1">
           {(['all', 'noun', 'verb', 'adjective', 'phrase'] as (WordType | 'all')[]).map(t => (
-            <button key={t} onClick={() => setFilter(t)} className={`px-4 py-1.5 rounded-full text-[8px] font-black uppercase tracking-[0.1em] border-2 transition-all whitespace-nowrap ${filter === t ? 'bg-rose-500 border-rose-500 text-white shadow-md' : 'bg-white border-gray-100 text-gray-400 hover:border-rose-100'}`}>{t}s</button>
+            <button key={t} onClick={() => setFilter(t)} className={`px-4 py-1.5 rounded-full text-[8px] font-black uppercase tracking-[0.1em] border-2 transition-all whitespace-nowrap ${filter === t ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md' : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)] dark:hover:border-[var(--accent-border)]'}`}>{t}s</button>
           ))}
           {giftedWordsMap.size > 0 && (
             <button
               onClick={() => setFilter('gifts')}
               className={`px-4 py-1.5 rounded-full text-[8px] font-black uppercase tracking-[0.1em] border-2 transition-all whitespace-nowrap flex items-center gap-1 ${
                 filter === 'gifts'
-                  ? 'bg-gradient-to-r from-rose-500 to-amber-500 border-rose-500 text-white shadow-md'
-                  : 'bg-white border-gray-100 text-gray-400 hover:border-rose-100'
+                  ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md'
+                  : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)] dark:hover:border-[var(--accent-border)]'
               }`}
             >
               <ICONS.Heart className="w-3 h-3" /> Gifts
@@ -304,7 +308,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 lg:p-6 bg-[#fcf9f9]">
+      <div className="flex-1 overflow-y-auto p-4 lg:p-6 bg-[var(--bg-primary)]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
           {filtered.map(e => {
             const isFlipped = flippedId === e.id;
@@ -329,59 +333,59 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d cursor-pointer ${isFlipped ? 'rotate-y-180' : ''}`}>
 
                   {/* === FRONT === */}
-                  <div className={`absolute inset-0 bg-white border rounded-[1.5rem] p-5 flex flex-col shadow-sm hover:shadow-md transition-all backface-hidden overflow-hidden ${
-                    isGifted ? 'border-rose-200 ring-2 ring-rose-100' : 'border-rose-100'
+                  <div className={`absolute inset-0 bg-[var(--bg-card)] border rounded-[1.5rem] p-5 flex flex-col shadow-sm hover:shadow-md transition-all backface-hidden overflow-hidden ${
+                    isGifted ? 'border-[var(--accent-border)] dark:border-[var(--accent-border)] ring-2 ring-[var(--accent-border)] dark:ring-[var(--accent-border)]' : 'border-[var(--border-color)]'
                   }`}>
                     {/* Gift Badge - top left corner */}
                     {isGifted && (
                       <div
-                        className="absolute top-3 left-3 flex items-center gap-1 bg-gradient-to-r from-rose-100 to-amber-100 px-2 py-1 rounded-full"
+                        className="absolute top-3 left-3 flex items-center gap-1 bg-[var(--accent-light)] px-2 py-1 rounded-full"
                         title={`Gift from ${partnerName || 'your partner'}`}
                       >
-                        <ICONS.Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
-                        <span className="text-[9px] font-bold text-rose-600">Gift</span>
+                        <ICONS.Heart className="w-3 h-3 text-[var(--accent-color)] fill-[var(--accent-color)]" />
+                        <span className="text-[9px] font-bold text-[var(--accent-color)] dark:text-[var(--accent-color)]">Gift</span>
                       </div>
                     )}
 
                     {/* Mastery Badge - top right corner */}
                     {isLearned && (
-                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center" title="Mastered!">
-                        <ICONS.Check className="w-4 h-4 text-green-600" />
+                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center" title="Mastered!">
+                        <ICONS.Check className="w-4 h-4 text-green-600 dark:text-green-400" />
                       </div>
                     )}
                     {!isLearned && currentStreak > 0 && (
-                      <div className="absolute top-3 right-3 flex items-center gap-1 bg-amber-50 px-2 py-1 rounded-full" title={`${currentStreak}/${STREAK_TO_LEARN} correct in a row`}>
-                        <span className="text-[10px] font-black text-amber-600">{currentStreak}/{STREAK_TO_LEARN}</span>
+                      <div className="absolute top-3 right-3 flex items-center gap-1 bg-amber-50 dark:bg-amber-900/30 px-2 py-1 rounded-full" title={`${currentStreak}/${STREAK_TO_LEARN} correct in a row`}>
+                        <span className="text-[10px] font-black text-amber-600 dark:text-amber-400">{currentStreak}/{STREAK_TO_LEARN}</span>
                         <ICONS.Zap className="w-3 h-3 text-amber-500" />
                       </div>
                     )}
 
                     {/* Word type pill */}
                     <div className="flex justify-center">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-rose-400 bg-rose-50 px-3 py-1 rounded-full">{e.word_type}</span>
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] dark:bg-[var(--accent-light)] px-3 py-1 rounded-full">{e.word_type}</span>
                     </div>
 
                     {/* Main content */}
                     <div className="flex-1 flex flex-col items-center justify-center w-full text-center gap-2">
-                      <h3 className="text-2xl font-black text-[#FF4761] font-header leading-tight break-words">{e.word}</h3>
+                      <h3 className="text-2xl font-black text-[var(--accent-color)] font-header leading-tight break-words">{e.word}</h3>
 
                       {/* Audio button */}
                       <button
                         onClick={(ev) => { ev.stopPropagation(); speakPolish(e.word); }}
-                        className="w-10 h-10 rounded-full bg-rose-50 hover:bg-rose-100 flex items-center justify-center transition-all group"
+                        className="w-10 h-10 rounded-full bg-[var(--accent-light)] dark:bg-[var(--accent-light)] hover:bg-[var(--accent-light)] dark:hover:bg-[var(--accent-light-hover)] flex items-center justify-center transition-all group"
                       >
-                        <ICONS.Play className="w-4 h-4 text-rose-400 group-hover:text-rose-500 translate-x-0.5" />
+                        <ICONS.Play className="w-4 h-4 text-[var(--accent-color)] group-hover:text-[var(--accent-color)] translate-x-0.5" />
                       </button>
 
-                      <p className="text-sm text-gray-500 font-medium">{e.translation}</p>
+                      <p className="text-sm text-[var(--text-secondary)] font-medium">{e.translation}</p>
                     </div>
 
                     {/* Flip hint */}
-                    <p className="text-[10px] text-gray-300 text-center">tap for details</p>
+                    <p className="text-[10px] text-[var(--text-secondary)] opacity-50 text-center">tap for details</p>
                   </div>
 
                   {/* === BACK === */}
-                  <div className="absolute inset-0 bg-[#FF4761] text-white rounded-[1.5rem] p-4 flex flex-col shadow-xl backface-hidden rotate-y-180 overflow-hidden" onClick={(ev) => { ev.stopPropagation(); setFlippedId(null); }}>
+                  <div className="absolute inset-0 bg-[var(--accent-color)] text-white rounded-[1.5rem] p-4 flex flex-col shadow-xl backface-hidden rotate-y-180 overflow-hidden" onClick={(ev) => { ev.stopPropagation(); setFlippedId(null); }}>
                     {/* Header with word and audio */}
                     <div className="flex items-center justify-between mb-3 pb-2 border-b border-white/20">
                       <div className="flex items-center gap-2">
@@ -469,11 +473,11 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
             onClick={() => setFormsModalId(null)}
           >
             <div
-              className="bg-white rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+              className="bg-[var(--bg-card)] rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
               onClick={(ev) => ev.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="bg-[#FF4761] text-white px-5 py-4 flex items-center justify-between">
+              <div className="bg-[var(--accent-color)] text-white px-5 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <span className="font-bold text-lg">{entry.word}</span>
                   <button
@@ -497,7 +501,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {entry.word_type === 'verb' && ctx.conjugations && (
                   <div className="space-y-4">
                     {/* Tense Tabs */}
-                    <div className="flex gap-1 bg-gray-100 rounded-xl p-1">
+                    <div className="flex gap-1 bg-[var(--bg-primary)] rounded-xl p-1">
                       {(['present', 'past', 'future'] as const).map(tense => {
                         const isPresent = tense === 'present';
                         const tenseData = ctx.conjugations?.[tense];
@@ -516,10 +520,10 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                             }}
                             className={`flex-1 py-2 px-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
                               isActive
-                                ? 'bg-white text-[#FF4761] shadow-sm'
+                                ? 'bg-[var(--bg-card)] text-[var(--accent-color)] shadow-sm'
                                 : isUnlocked
-                                  ? 'text-gray-500 hover:bg-white/50'
-                                  : 'text-gray-400 hover:bg-white/30'
+                                  ? 'text-[var(--text-secondary)] hover:bg-[var(--bg-card)]/50'
+                                  : 'text-[var(--text-secondary)] opacity-60 hover:bg-[var(--bg-card)]/30'
                             }`}
                           >
                             {!isUnlocked && <ICONS.Lock className="w-3 h-3" />}
@@ -539,13 +543,13 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       if (!isUnlocked) {
                         return (
                           <div className="text-center py-8">
-                            <ICONS.Lock className="w-8 h-8 text-gray-300 mx-auto mb-3" />
-                            <p className="text-gray-500 text-sm mb-4">
+                            <ICONS.Lock className="w-8 h-8 text-[var(--text-secondary)] mx-auto mb-3" />
+                            <p className="text-[var(--text-secondary)] text-sm mb-4">
                               {activeTenseTab === 'past' ? 'Past' : 'Future'} tense is locked
                             </p>
                             <button
                               onClick={() => setUnlockDialogTense(activeTenseTab as 'past' | 'future')}
-                              className="px-4 py-2 bg-[#FF4761] text-white rounded-xl text-sm font-bold hover:bg-rose-600 transition-all"
+                              className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-xl text-sm font-bold hover:bg-[var(--accent-hover)] transition-all"
                             >
                               Unlock {activeTenseTab === 'past' ? 'Past' : 'Future'} Tense
                             </button>
@@ -556,9 +560,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Present tense - simple format
                       if (isPresent && tenseData) {
                         return (
-                          <div className="bg-gray-50 rounded-xl overflow-hidden">
+                          <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                             <table className="w-full text-sm">
-                              <tbody className="divide-y divide-gray-100">
+                              <tbody className="divide-y divide-[var(--border-color)]">
                                 {[
                                   { label: 'ja (I)', value: tenseData.ja },
                                   { label: 'ty (you)', value: tenseData.ty },
@@ -567,9 +571,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                   { label: 'wy (you pl.)', value: tenseData.wy },
                                   { label: 'oni/one (they)', value: tenseData.oni }
                                 ].map(row => (
-                                  <tr key={row.label} className="hover:bg-gray-100/50">
-                                    <td className="px-4 py-2 text-gray-500 text-xs">{row.label}</td>
-                                    <td className="px-4 py-2 font-bold text-[#FF4761]">{row.value || '—'}</td>
+                                  <tr key={row.label} className="hover:bg-[var(--border-color)]/30">
+                                    <td className="px-4 py-2 text-[var(--text-secondary)] text-xs">{row.label}</td>
+                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{row.value || '—'}</td>
                                   </tr>
                                 ))}
                               </tbody>
@@ -581,16 +585,16 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Past tense - with gender
                       if (activeTenseTab === 'past' && tenseData) {
                         return (
-                          <div className="bg-gray-50 rounded-xl overflow-hidden">
+                          <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                             <table className="w-full text-sm">
                               <thead>
-                                <tr className="bg-gray-100">
-                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Person</th>
-                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Masc.</th>
-                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-gray-500 uppercase">Fem.</th>
+                                <tr className="bg-[var(--border-color)]/30">
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">Person</th>
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">Masc.</th>
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">Fem.</th>
                                 </tr>
                               </thead>
-                              <tbody className="divide-y divide-gray-100">
+                              <tbody className="divide-y divide-[var(--border-color)]">
                                 {[
                                   { label: 'ja (I)', data: tenseData.ja },
                                   { label: 'ty (you)', data: tenseData.ty },
@@ -599,12 +603,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                   { label: 'wy (you pl.)', data: tenseData.wy },
                                   { label: 'oni/one', data: tenseData.oni }
                                 ].map(row => (
-                                  <tr key={row.label} className="hover:bg-gray-100/50">
-                                    <td className="px-3 py-2 text-gray-500 text-xs">{row.label}</td>
-                                    <td className="px-3 py-2 font-bold text-[#FF4761] text-sm">
+                                  <tr key={row.label} className="hover:bg-[var(--border-color)]/30">
+                                    <td className="px-3 py-2 text-[var(--text-secondary)] text-xs">{row.label}</td>
+                                    <td className="px-3 py-2 font-bold text-[var(--accent-color)] text-sm">
                                       {typeof row.data === 'object' ? row.data?.masculine : row.data || '—'}
                                     </td>
-                                    <td className="px-3 py-2 font-bold text-rose-400 text-sm">
+                                    <td className="px-3 py-2 font-bold text-[var(--accent-color)] text-sm">
                                       {typeof row.data === 'object' ? row.data?.feminine : '—'}
                                     </td>
                                   </tr>
@@ -612,7 +616,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               </tbody>
                             </table>
                             {tenseData.unlockedAt && (
-                              <p className="text-[9px] text-gray-400 text-center py-2">
+                              <p className="text-[9px] text-[var(--text-secondary)] text-center py-2">
                                 Unlocked {new Date(tenseData.unlockedAt).toLocaleDateString()}
                               </p>
                             )}
@@ -623,9 +627,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Future tense - simple format
                       if (activeTenseTab === 'future' && tenseData) {
                         return (
-                          <div className="bg-gray-50 rounded-xl overflow-hidden">
+                          <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                             <table className="w-full text-sm">
-                              <tbody className="divide-y divide-gray-100">
+                              <tbody className="divide-y divide-[var(--border-color)]">
                                 {[
                                   { label: 'ja (I)', value: tenseData.ja },
                                   { label: 'ty (you)', value: tenseData.ty },
@@ -634,15 +638,15 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                   { label: 'wy (you pl.)', value: tenseData.wy },
                                   { label: 'oni/one (they)', value: tenseData.oni }
                                 ].map(row => (
-                                  <tr key={row.label} className="hover:bg-gray-100/50">
-                                    <td className="px-4 py-2 text-gray-500 text-xs">{row.label}</td>
-                                    <td className="px-4 py-2 font-bold text-[#FF4761]">{row.value || '—'}</td>
+                                  <tr key={row.label} className="hover:bg-[var(--border-color)]/30">
+                                    <td className="px-4 py-2 text-[var(--text-secondary)] text-xs">{row.label}</td>
+                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{row.value || '—'}</td>
                                   </tr>
                                 ))}
                               </tbody>
                             </table>
                             {tenseData.unlockedAt && (
-                              <p className="text-[9px] text-gray-400 text-center py-2">
+                              <p className="text-[9px] text-[var(--text-secondary)] text-center py-2">
                                 Unlocked {new Date(tenseData.unlockedAt).toLocaleDateString()}
                               </p>
                             )}
@@ -656,30 +660,30 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     {/* Unlock Dialog */}
                     {unlockDialogTense && (
                       <div className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4" onClick={() => !unlocking && setUnlockDialogTense(null)}>
-                        <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl" onClick={e => e.stopPropagation()}>
+                        <div className="bg-[var(--bg-card)] rounded-2xl p-6 max-w-sm w-full shadow-2xl" onClick={e => e.stopPropagation()}>
                           <div className="text-center">
-                            <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                              <ICONS.Lock className="w-8 h-8 text-[#FF4761]" />
+                            <div className="w-16 h-16 bg-[var(--accent-light)] dark:bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-4">
+                              <ICONS.Lock className="w-8 h-8 text-[var(--accent-color)]" />
                             </div>
-                            <h3 className="text-lg font-bold text-gray-800 mb-2">
+                            <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                               Unlock {unlockDialogTense === 'past' ? 'Past' : 'Future'} Tense?
                             </h3>
-                            <p className="text-gray-500 text-sm mb-6">
-                              Ready to learn how to say <strong className="text-[#FF4761]">{entry.word}</strong> in the {unlockDialogTense} tense?
+                            <p className="text-[var(--text-secondary)] text-sm mb-6">
+                              Ready to learn how to say <strong className="text-[var(--accent-color)]">{entry.word}</strong> in the {unlockDialogTense} tense?
                               {unlockDialogTense === 'past' && " You'll see both masculine and feminine forms."}
                             </p>
                             <div className="flex gap-3">
                               <button
                                 onClick={() => setUnlockDialogTense(null)}
                                 disabled={unlocking}
-                                className="flex-1 py-3 px-4 border-2 border-gray-200 text-gray-600 rounded-xl font-bold hover:bg-gray-50 transition-all disabled:opacity-50"
+                                className="flex-1 py-3 px-4 border-2 border-[var(--border-color)] text-[var(--text-secondary)] rounded-xl font-bold hover:bg-[var(--bg-primary)] transition-all disabled:opacity-50"
                               >
                                 Not Yet
                               </button>
                               <button
                                 onClick={() => handleUnlockTense(entry, unlockDialogTense)}
                                 disabled={unlocking}
-                                className="flex-1 py-3 px-4 bg-[#FF4761] text-white rounded-xl font-bold hover:bg-rose-600 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                                className="flex-1 py-3 px-4 bg-[var(--accent-color)] text-white rounded-xl font-bold hover:bg-[var(--accent-hover)] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                               >
                                 {unlocking ? (
                                   <>
@@ -701,23 +705,23 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {/* NOUN: Gender + Plural */}
                 {entry.word_type === 'noun' && (ctx.gender || ctx.plural) && (
                   <div className="space-y-4">
-                    <div className="bg-gray-50 rounded-xl p-4">
+                    <div className="bg-[var(--bg-primary)] rounded-xl p-4">
                       <table className="w-full text-sm">
-                        <tbody className="divide-y divide-gray-100">
+                        <tbody className="divide-y divide-[var(--border-color)]">
                           {ctx.gender && (
                             <tr>
-                              <td className="py-2 text-gray-500 text-xs">Gender</td>
-                              <td className="py-2 font-bold text-[#FF4761] capitalize">{ctx.gender}</td>
+                              <td className="py-2 text-[var(--text-secondary)] text-xs">Gender</td>
+                              <td className="py-2 font-bold text-[var(--accent-color)] capitalize">{ctx.gender}</td>
                             </tr>
                           )}
                           <tr>
-                            <td className="py-2 text-gray-500 text-xs">Singular</td>
-                            <td className="py-2 font-bold text-[#FF4761]">{entry.word}</td>
+                            <td className="py-2 text-[var(--text-secondary)] text-xs">Singular</td>
+                            <td className="py-2 font-bold text-[var(--accent-color)]">{entry.word}</td>
                           </tr>
                           {ctx.plural && (
                             <tr>
-                              <td className="py-2 text-gray-500 text-xs">Plural</td>
-                              <td className="py-2 font-bold text-[#FF4761]">{ctx.plural}</td>
+                              <td className="py-2 text-[var(--text-secondary)] text-xs">Plural</td>
+                              <td className="py-2 font-bold text-[var(--accent-color)]">{ctx.plural}</td>
                             </tr>
                           )}
                         </tbody>
@@ -729,21 +733,21 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {/* ADJECTIVE: Gender Forms */}
                 {entry.word_type === 'adjective' && ctx.adjectiveForms && (
                   <div className="space-y-4">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-rose-400 mb-2">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--accent-color)] mb-2">
                       Gender Forms
                     </h4>
-                    <div className="bg-gray-50 rounded-xl overflow-hidden">
+                    <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                       <table className="w-full text-sm">
-                        <tbody className="divide-y divide-gray-100">
+                        <tbody className="divide-y divide-[var(--border-color)]">
                           {[
                             { label: 'Masculine', value: ctx.adjectiveForms.masculine },
                             { label: 'Feminine', value: ctx.adjectiveForms.feminine },
                             { label: 'Neuter', value: ctx.adjectiveForms.neuter },
                             { label: 'Plural', value: ctx.adjectiveForms.plural }
                           ].map(row => (
-                            <tr key={row.label} className="hover:bg-gray-100/50">
-                              <td className="px-4 py-2 text-gray-500 text-xs">{row.label}</td>
-                              <td className="px-4 py-2 font-bold text-[#FF4761]">{row.value || '—'}</td>
+                            <tr key={row.label} className="hover:bg-[var(--border-color)]/30">
+                              <td className="px-4 py-2 text-[var(--text-secondary)] text-xs">{row.label}</td>
+                              <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{row.value || '—'}</td>
                             </tr>
                           ))}
                         </tbody>

@@ -126,8 +126,8 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
     return (
       <div className="h-full flex flex-col items-center justify-center p-8 bg-[#fdfcfd]">
         <div className="bg-white p-12 rounded-[3rem] shadow-lg text-center max-w-md w-full border border-gray-100">
-          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-rose-50 flex items-center justify-center">
-            <ICONS.Sparkles className="w-8 h-8 text-rose-400 animate-pulse" />
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
+            <ICONS.Sparkles className="w-8 h-8 text-[var(--accent-color)] animate-pulse" />
           </div>
           <h2 className="text-xl font-black text-gray-800 mb-2">Preparing Your Test</h2>
           <p className="text-gray-500 text-sm">Generating questions based on your level...</p>
@@ -333,7 +333,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
                     onClick={() => handleAnswer(option)}
                     className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${
                       currentAnswer === option
-                        ? 'border-rose-400 bg-rose-50 text-rose-700'
+                        ? 'border-[var(--accent-color)] bg-[var(--accent-light)] text-[var(--accent-text)]'
                         : 'border-gray-100 hover:border-gray-200 text-gray-700'
                     }`}
                   >
@@ -360,7 +360,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
                       ? 'Type the missing word...'
                       : 'Type your translation...'
                   }
-                  className="w-full p-4 rounded-2xl border-2 border-gray-100 focus:border-rose-300 focus:outline-none text-lg font-medium"
+                  className="w-full p-4 rounded-2xl border-2 border-gray-100 focus:border-[var(--accent-border)] focus:outline-none text-lg font-medium"
                   autoFocus
                 />
               </div>

@@ -124,7 +124,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
               value={title}
               onChange={e => setTitle(e.target.value)}
               placeholder={`Quiz for ${partnerName}`}
-              className="w-full p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-rose-300"
+              className="w-full p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)]"
             />
           </div>
 
@@ -160,7 +160,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                   onClick={() => toggleQuestionType(type.id)}
                   className={`px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all ${
                     questionTypes.has(type.id)
-                      ? 'bg-rose-100 text-rose-600 border-2 border-rose-300'
+                      ? 'bg-[var(--accent-light)] text-[var(--accent-color)] border-2 border-[var(--accent-border)]'
                       : 'bg-gray-100 text-gray-600 border-2 border-transparent hover:bg-gray-200'
                   }`}
                 >
@@ -181,7 +181,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                 <div className="flex gap-2">
                   <button
                     onClick={selectAll}
-                    className="text-xs text-rose-500 font-bold hover:underline"
+                    className="text-xs text-[var(--accent-color)] font-bold hover:underline"
                   >
                     Select All
                   </button>
@@ -202,7 +202,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Search words..."
-                  className="w-full p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-rose-300"
+                  className="w-full p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)]"
                 />
               </div>
 
@@ -214,7 +214,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                     onClick={() => toggleWord(word.id)}
                     className={`p-3 rounded-xl text-left transition-all ${
                       selectedWords.has(word.id)
-                        ? 'bg-rose-100 border-2 border-rose-300'
+                        ? 'bg-[var(--accent-light)] border-2 border-[var(--accent-border)]'
                         : 'bg-gray-50 border-2 border-transparent hover:bg-gray-100'
                     }`}
                   >
@@ -245,7 +245,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           <button
             onClick={handleCreate}
             disabled={creating || (selectedWords.size === 0 && !useWeakWords)}
-            className="px-8 py-3 bg-rose-500 text-white font-bold text-sm rounded-xl hover:bg-rose-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            className="px-8 py-3 bg-[var(--accent-color)] text-white font-bold text-sm rounded-xl hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
           >
             {creating ? (
               <>

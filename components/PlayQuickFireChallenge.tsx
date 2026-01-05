@@ -232,7 +232,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
             {result.correct_answers}/{result.total_questions} correct in {result.timeSpent}s
           </p>
 
-          <div className="bg-gradient-to-r from-amber-50 to-rose-50 p-4 rounded-2xl mb-6">
+          <div className="bg-gradient-to-r from-amber-50 to-[var(--accent-light)] p-4 rounded-2xl mb-6">
             <p className="text-sm font-bold text-gray-800">
               +{result.xp_earned} XP earned!
               {wasQuick && <span className="text-amber-500"> (Time Bonus!)</span>}

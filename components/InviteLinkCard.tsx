@@ -115,10 +115,10 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-rose-50 to-white p-6 rounded-[2rem] border border-rose-100 shadow-sm">
+    <div className="bg-gradient-to-br from-[var(--accent-light)] to-white p-6 rounded-[2rem] border border-[var(--accent-border)] shadow-sm">
       <div className="flex items-center gap-2 mb-4">
-        <div className="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center">
-          <ICONS.Link className="w-5 h-5 text-rose-500" />
+        <div className="w-10 h-10 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
+          <ICONS.Link className="w-5 h-5 text-[var(--accent-color)]" />
         </div>
         <div>
           <h3 className="text-sm font-black text-gray-800">Magic Invite Link</h3>
@@ -136,7 +136,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         <button
           onClick={generateInviteLink}
           disabled={loading}
-          className="w-full bg-[#FF4761] text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-rose-100 hover:bg-rose-600 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+          className="w-full bg-[var(--accent-color)] text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-[var(--accent-shadow)] hover:bg-[var(--accent-hover)] disabled:opacity-50 transition-all flex items-center justify-center gap-2"
         >
           {loading ? (
             <>
@@ -166,7 +166,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
             className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg transition-all flex items-center justify-center gap-2 ${
               copied
                 ? 'bg-green-500 text-white shadow-green-100'
-                : 'bg-[#FF4761] text-white shadow-rose-100 hover:bg-rose-600'
+                : 'bg-[var(--accent-color)] text-white shadow-[var(--accent-shadow)] hover:bg-[var(--accent-hover)]'
             }`}
           >
             {copied ? (
@@ -190,7 +190,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
             <button
               onClick={regenerateLink}
               disabled={loading}
-              className="text-rose-400 font-bold hover:text-rose-600 transition-colors flex items-center gap-1"
+              className="text-[var(--accent-color)] font-bold hover:text-[var(--accent-hover)] transition-colors flex items-center gap-1"
             >
               <ICONS.RefreshCw className="w-3 h-3" />
               New Link

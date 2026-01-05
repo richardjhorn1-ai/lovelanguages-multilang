@@ -6,6 +6,7 @@ import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { shuffleArray } from '../utils/array';
 import { ROMANTIC_PHRASES, getRandomPhrases } from '../constants/romantic-phrases';
+import { useTheme } from '../context/ThemeContext';
 import TutorGames from './TutorGames';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
@@ -107,6 +108,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
   const tierColor = useMemo(() => getTierColor(levelInfo.tier), [levelInfo.tier]);
 
+  // Theme
+  const { accentHex } = useTheme();
+
   // Tutor dashboard data (computed unconditionally to follow Rules of Hooks)
   const masteredWords = useMemo(() =>
     deck.filter(w => scoresMap.get(w.id)?.learned_at != null),
@@ -162,7 +166,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       prompts.push({ icon: '💪', message: `Just ${weakCount} words need work - you can quiz them tonight!`, color: 'text-teal-600' });
     }
     if (deck.length >= 5 && deck.length % 5 === 0) {
-      prompts.push({ icon: '🎉', message: `${deck.length} words in their vocabulary - celebrate this milestone!`, color: 'text-rose-600' });
+      prompts.push({ icon: '🎉', message: `${deck.length} words in their vocabulary - celebrate this milestone!`, color: 'text-[var(--accent-color)]' });
     }
     if (recentWords.length > 0) {
       prompts.push({ icon: '✨', message: `They just learned "${recentWords[0].word}" - use it in conversation today!`, color: 'text-purple-600' });
@@ -619,7 +623,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   // Loading state
   if (loading) return (
-    <div className="h-full flex items-center justify-center font-bold text-rose-400 animate-pulse">
+    <div className="h-full flex items-center justify-center font-bold text-[var(--accent-color)] animate-pulse">
       Loading practice module...
     </div>
   );
@@ -631,24 +635,24 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   // Empty state
   if (deck.length === 0) return (
-    <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto">
-      <div className="w-20 h-20 bg-rose-50 rounded-full flex items-center justify-center text-rose-300 mb-6">
+    <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto bg-[var(--bg-primary)]">
+      <div className="w-20 h-20 bg-[var(--accent-light)] dark:bg-[var(--accent-light)] rounded-full flex items-center justify-center text-[var(--accent-color)] opacity-60 mb-6">
         <ICONS.Book className="w-10 h-10" />
       </div>
-      <h2 className="text-2xl font-black text-gray-800 mb-4">No Words Yet</h2>
-      <p className="text-gray-500 font-medium">Learn some words in Chat first, then come back to practice!</p>
+      <h2 className="text-2xl font-black text-[var(--text-primary)] mb-4">No Words Yet</h2>
+      <p className="text-[var(--text-secondary)] font-medium">Learn some words in Chat first, then come back to practice!</p>
     </div>
   );
 
   // Not enough words for multiple choice
   if (mode === 'multiple_choice' && deck.length < 4) {
     return (
-      <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto">
-        <div className="w-20 h-20 bg-amber-50 rounded-full flex items-center justify-center text-amber-400 mb-6">
+      <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto bg-[var(--bg-primary)]">
+        <div className="w-20 h-20 bg-amber-50 dark:bg-amber-900/30 rounded-full flex items-center justify-center text-amber-400 mb-6">
           <ICONS.Star className="w-10 h-10" />
         </div>
-        <h2 className="text-2xl font-black text-gray-800 mb-4">Need More Words</h2>
-        <p className="text-gray-500 font-medium mb-6">Multiple choice requires at least 4 words. You have {deck.length}.</p>
+        <h2 className="text-2xl font-black text-[var(--text-primary)] mb-4">Need More Words</h2>
+        <p className="text-[var(--text-secondary)] font-medium mb-6">Multiple choice requires at least 4 words. You have {deck.length}.</p>
         <button
           onClick={() => handleModeChange('flashcards')}
           className="px-6 py-3 rounded-xl font-bold text-white text-sm"
@@ -676,12 +680,12 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const pendingCount = pendingChallenges.length + pendingWordRequests.length;
 
   return (
-    <div className="h-full flex flex-col overflow-hidden bg-[#fcf9f9]">
+    <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-primary)]">
       {/* Header: Tabs + Stats - Fixed at top */}
       <div className="shrink-0 p-4 pb-2">
         <div className="w-full max-w-lg mx-auto">
           {/* Mode Tabs */}
-          <div className="flex gap-1 p-1 bg-gray-100 rounded-2xl mb-3">
+          <div className="flex gap-1 p-1 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl mb-3">
             {[
               { id: 'love_notes' as PracticeMode, label: 'Love Notes', icon: ICONS.Heart, hasBadge: true },
               { id: 'flashcards' as PracticeMode, label: 'Flashcards', icon: ICONS.Book, hasBadge: false },
@@ -696,15 +700,15 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                   mode === tab.id
                     ? 'text-white shadow-sm'
                     : tab.id === 'love_notes' && pendingCount > 0
-                      ? 'text-rose-500 hover:text-rose-600'
-                      : 'text-gray-500 hover:text-gray-700'
+                      ? 'text-[var(--accent-color)] hover:text-[var(--accent-color)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 } ${tab.id === 'love_notes' && pendingCount > 0 && mode !== 'love_notes' ? 'animate-pulse-border' : ''}`}
                 style={mode === tab.id ? { backgroundColor: tab.id === 'love_notes' ? '#FF4761' : tierColor } : {}}
               >
-                <tab.icon className={`w-3.5 h-3.5 shrink-0 ${tab.id === 'love_notes' && mode === tab.id ? 'fill-white' : tab.id === 'love_notes' && pendingCount > 0 ? 'fill-rose-500' : ''}`} />
+                <tab.icon className={`w-3.5 h-3.5 shrink-0 ${tab.id === 'love_notes' && mode === tab.id ? 'fill-white' : tab.id === 'love_notes' && pendingCount > 0 ? 'fill-[var(--accent-color)]' : ''}`} />
                 <span className="hidden sm:inline truncate">{tab.label}</span>
                 {tab.hasBadge && pendingCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 text-white text-[9px] flex items-center justify-center rounded-full font-bold animate-bounce">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--accent-color)] text-white text-[9px] flex items-center justify-center rounded-full font-bold animate-bounce">
                     {pendingCount > 9 ? '9+' : pendingCount}
                   </span>
                 )}
@@ -719,20 +723,20 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-green-500" />
-                    <span className="text-xs font-bold text-gray-600">{sessionScore.correct}</span>
+                    <span className="text-xs font-bold text-[var(--text-secondary)]">{sessionScore.correct}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-red-400" />
-                    <span className="text-xs font-bold text-gray-600">{sessionScore.incorrect}</span>
+                    <span className="text-xs font-bold text-[var(--text-secondary)]">{sessionScore.incorrect}</span>
                   </div>
                 </div>
-                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                <span className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest">
                   {currentIndex + 1} / {currentDeckLength}
                 </span>
               </div>
 
               {/* Progress Bar */}
-              <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-1.5 bg-[var(--border-color)] rounded-full overflow-hidden">
                 <div
                   className="h-full transition-all duration-500 rounded-full"
                   style={{ width: `${progress}%`, backgroundColor: tierColor }}
@@ -756,10 +760,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             >
               <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                 {/* Front */}
-                <div className="absolute inset-0 bg-white border border-gray-100 rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
-                  <span className="text-[10px] uppercase tracking-widest text-gray-300 font-black mb-8">POLISH WORD</span>
-                  <h3 className="text-4xl font-black text-gray-800">{deck[currentIndex].word}</h3>
-                  <p className="mt-12 text-gray-400 text-[10px] uppercase font-black tracking-widest animate-pulse">Tap to reveal</p>
+                <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
+                  <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">POLISH WORD</span>
+                  <h3 className="text-4xl font-black text-[var(--text-primary)]">{deck[currentIndex].word}</h3>
+                  <p className="mt-12 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">Tap to reveal</p>
                 </div>
 
                 {/* Back */}
@@ -791,7 +795,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
           {/* Multiple Choice Mode */}
           {mode === 'multiple_choice' && (
-            <div className="bg-white rounded-[2.5rem] p-8 shadow-lg border border-gray-100">
+            <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
               <span
                 className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
                 style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
@@ -799,7 +803,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 Polish → English
               </span>
 
-              <h3 className="text-3xl font-black text-gray-800 mb-8 text-center">
+              <h3 className="text-3xl font-black text-[var(--text-primary)] mb-8 text-center">
                 {deck[currentIndex].word}
               </h3>
 
@@ -808,17 +812,17 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                   const isCorrect = option === deck[currentIndex].translation;
                   const isSelected = mcSelected === option;
 
-                  let buttonStyle = 'border-gray-100 hover:border-gray-200 text-gray-700';
+                  let buttonStyle = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
                   if (mcShowFeedback) {
                     if (isCorrect) {
-                      buttonStyle = 'border-green-400 bg-green-50 text-green-700';
+                      buttonStyle = 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400';
                     } else if (isSelected && !isCorrect) {
-                      buttonStyle = 'border-red-400 bg-red-50 text-red-700';
+                      buttonStyle = 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400';
                     } else {
-                      buttonStyle = 'border-gray-100 text-gray-400';
+                      buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)]';
                     }
                   } else if (isSelected) {
-                    buttonStyle = 'border-gray-300 bg-gray-50 text-gray-700';
+                    buttonStyle = 'border-[var(--text-secondary)] bg-[var(--bg-primary)] text-[var(--text-primary)]';
                   }
 
                   return (
@@ -828,7 +832,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                       disabled={mcShowFeedback}
                       className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${buttonStyle}`}
                     >
-                      <span className="text-xs font-bold text-gray-400 mr-3">
+                      <span className="text-xs font-bold text-[var(--text-secondary)] mr-3">
                         {String.fromCharCode(65 + idx)}
                       </span>
                       {option}
@@ -847,7 +851,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
           {/* Type It Mode */}
           {mode === 'type_it' && typeItQuestions.length > 0 && (
-            <div className="bg-white rounded-[2.5rem] p-8 shadow-lg border border-gray-100">
+            <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
               {(() => {
                 const question = typeItQuestions[currentIndex];
                 const isPolishToEnglish = question.direction === 'polish_to_english';
@@ -863,19 +867,19 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                       {isPolishToEnglish ? 'Polish → English' : 'English → Polish'}
                     </span>
 
-                    <h3 className="text-3xl font-black text-gray-800 mb-2 text-center">
+                    <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">
                       {prompt}
                     </h3>
 
                     {showHint && !typeItSubmitted && (
-                      <p className="text-center text-gray-400 text-sm mb-4">
+                      <p className="text-center text-[var(--text-secondary)] text-sm mb-4">
                         Hint: {getHint()}
                       </p>
                     )}
 
                     {typeItSubmitted && (
                       <div className={`text-center mb-4 p-3 rounded-xl ${
-                        typeItCorrect ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
+                        typeItCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
                       }`}>
                         {typeItCorrect ? (
                           <div className="flex items-center justify-center gap-2">
@@ -904,7 +908,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                         onKeyDown={(e) => e.key === 'Enter' && handleTypeItSubmit()}
                         placeholder={isPolishToEnglish ? 'Type in English...' : 'Type in Polish...'}
                         disabled={typeItSubmitted}
-                        className="w-full p-4 rounded-2xl border-2 border-gray-100 focus:border-gray-300 focus:outline-none text-lg font-medium text-center"
+                        className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-lg font-medium text-center bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                         autoFocus
                       />
                     </div>
@@ -913,7 +917,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                       {!typeItSubmitted && (
                         <button
                           onClick={() => setShowHint(true)}
-                          className="px-4 py-3 rounded-xl font-bold text-gray-500 bg-gray-100 text-sm"
+                          className="px-4 py-3 rounded-xl font-bold text-[var(--text-secondary)] bg-[var(--bg-primary)] text-sm"
                           disabled={showHint}
                         >
                           {showHint ? 'Hint shown' : 'Show hint'}
@@ -937,7 +941,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           {/* AI Challenge Mode */}
           {mode === 'ai_challenge' && !challengeStarted && (
             <div className="w-full">
-              <h2 className="text-xs font-black uppercase tracking-widest text-gray-400 text-center mb-4">Choose Challenge Mode</h2>
+              <h2 className="text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">Choose Challenge Mode</h2>
 
               {/* Side-by-side layout: Modes on left, Session Length on right */}
               <div className="flex gap-4">
@@ -954,20 +958,20 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                         onClick={() => !isDisabled && setSelectedChallengeMode(cm.id)}
                         disabled={isDisabled}
                         className={`w-full p-3 rounded-2xl text-left transition-all border-2 flex items-center gap-3 ${
-                          isSelected ? 'border-rose-400 bg-rose-50' : isDisabled ? 'border-gray-100 bg-gray-50 opacity-50 cursor-not-allowed' : 'border-gray-100 bg-white hover:border-gray-200'
+                          isSelected ? 'border-[var(--accent-color)] bg-[var(--accent-light)] dark:bg-[var(--accent-light)]' : isDisabled ? 'border-[var(--border-color)] bg-[var(--bg-primary)] opacity-50 cursor-not-allowed' : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-secondary)]'
                         }`}
                       >
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isSelected ? 'bg-rose-100' : 'bg-gray-100'}`}>
-                          <IconComp className={`w-5 h-5 ${isSelected ? 'text-rose-500' : 'text-gray-400'}`} />
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isSelected ? 'bg-[var(--accent-light)] dark:bg-[var(--accent-light)]' : 'bg-[var(--bg-primary)]'}`}>
+                          <IconComp className={`w-5 h-5 ${isSelected ? 'text-[var(--accent-color)]' : 'text-[var(--text-secondary)]'}`} />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className={`font-bold text-sm truncate ${isSelected ? 'text-rose-600' : 'text-gray-800'}`}>{cm.name}</span>
-                            <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${isSelected ? 'bg-rose-200 text-rose-700' : 'bg-gray-200 text-gray-500'}`}>{count}</span>
+                            <span className={`font-bold text-sm truncate ${isSelected ? 'text-[var(--accent-color)] dark:text-[var(--accent-color)]' : 'text-[var(--text-primary)]'}`}>{cm.name}</span>
+                            <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${isSelected ? 'bg-[var(--accent-light)] dark:bg-[var(--accent-light)] text-[var(--accent-text)] dark:text-[var(--accent-color)] opacity-60' : 'bg-[var(--bg-primary)] text-[var(--text-secondary)]'}`}>{count}</span>
                           </div>
-                          <p className="text-xs text-gray-500 truncate">{cm.description}</p>
+                          <p className="text-xs text-[var(--text-secondary)] truncate">{cm.description}</p>
                         </div>
-                        {isSelected && <ICONS.Check className="w-4 h-4 text-rose-500 shrink-0" />}
+                        {isSelected && <ICONS.Check className="w-4 h-4 text-[var(--accent-color)] shrink-0" />}
                       </button>
                     );
                   })}
@@ -976,7 +980,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 {/* Session Length - appears to the right when mode selected */}
                 {selectedChallengeMode && (
                   <div className="w-32 shrink-0 flex flex-col">
-                    <h3 className="text-[9px] font-black uppercase tracking-widest text-gray-400 text-center mb-2">Length</h3>
+                    <h3 className="text-[9px] font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-2">Length</h3>
                     <div className="flex-1 flex flex-col gap-2">
                       {([10, 20, 'all'] as SessionLength[]).map(len => {
                         const maxAvailable = modeCounts[selectedChallengeMode];
@@ -985,10 +989,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                           <button
                             key={len}
                             onClick={() => setSessionLength(len)}
-                            className={`flex-1 p-2 rounded-xl text-center transition-all border-2 ${sessionLength === len ? 'border-rose-400 bg-rose-50' : 'border-gray-100 bg-white hover:border-gray-200'}`}
+                            className={`flex-1 p-2 rounded-xl text-center transition-all border-2 ${sessionLength === len ? 'border-[var(--accent-color)] bg-[var(--accent-light)] dark:bg-[var(--accent-light)]' : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-secondary)]'}`}
                           >
-                            <div className={`text-lg font-black ${sessionLength === len ? 'text-rose-600' : 'text-gray-800'}`}>{actualCount}</div>
-                            <div className="text-[8px] font-bold uppercase tracking-wider text-gray-400">{len === 'all' ? 'All' : 'Qs'}</div>
+                            <div className={`text-lg font-black ${sessionLength === len ? 'text-[var(--accent-color)] dark:text-[var(--accent-color)]' : 'text-[var(--text-primary)]'}`}>{actualCount}</div>
+                            <div className="text-[8px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">{len === 'all' ? 'All' : 'Qs'}</div>
                           </button>
                         );
                       })}
@@ -1010,52 +1014,52 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             <div className="w-full space-y-4">
               {/* Header */}
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-rose-100 to-amber-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 animate-pulse">
+                <div className="w-16 h-16 bg-[var(--accent-light)] rounded-full flex items-center justify-center text-3xl mx-auto mb-3 animate-pulse">
                   💌
                 </div>
-                <h2 className="text-xl font-black text-gray-800">Love Notes from {partnerName}</h2>
-                <p className="text-sm text-gray-500">Challenges and gifts just for you</p>
+                <h2 className="text-xl font-black text-[var(--text-primary)]">Love Notes from {partnerName}</h2>
+                <p className="text-sm text-[var(--text-secondary)]">Challenges and gifts just for you</p>
               </div>
 
               {/* Empty State */}
               {pendingChallenges.length === 0 && pendingWordRequests.length === 0 && (
-                <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 text-center">
+                <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-sm border border-[var(--border-color)] text-center">
                   <div className="text-4xl mb-4">✨</div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">No Love Notes Yet</h3>
-                  <p className="text-sm text-gray-500">When {partnerName} sends you challenges or word gifts, they'll appear here!</p>
+                  <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">No Love Notes Yet</h3>
+                  <p className="text-sm text-[var(--text-secondary)]">When {partnerName} sends you challenges or word gifts, they'll appear here!</p>
                 </div>
               )}
 
               {/* Pending Challenges */}
               {pendingChallenges.length > 0 && (
                 <div className="space-y-3">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 flex items-center gap-2">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                     <ICONS.Zap className="w-3.5 h-3.5" /> Challenges
                   </h3>
                   {pendingChallenges.map(challenge => (
                     <button
                       key={challenge.id}
                       onClick={() => setActiveChallenge(challenge)}
-                      className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:border-rose-200 hover:shadow-md transition-all text-left group"
+                      className="w-full bg-[var(--bg-card)] rounded-2xl p-4 shadow-sm border border-[var(--border-color)] hover:border-[var(--accent-border)] dark:hover:border-[var(--accent-border)] hover:shadow-md transition-all text-left group"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-rose-100 to-amber-100 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 bg-[var(--accent-light)] rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
                           {challenge.challenge_type === 'quiz' ? '🎯' : '⚡'}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-gray-800 truncate">
+                            <span className="font-bold text-[var(--text-primary)] truncate">
                               {challenge.title || (challenge.challenge_type === 'quiz' ? 'Quiz Challenge' : 'Quick Fire')}
                             </span>
-                            <span className="text-[9px] font-bold px-2 py-0.5 bg-rose-100 text-rose-600 rounded-full shrink-0">
+                            <span className="text-[9px] font-bold px-2 py-0.5 bg-[var(--accent-light)] dark:bg-[var(--accent-light)] text-[var(--accent-color)] dark:text-[var(--accent-color)] rounded-full shrink-0">
                               {challenge.words_data?.length || 0} words
                             </span>
                           </div>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-[var(--text-secondary)]">
                             From {partnerName} · {new Date(challenge.created_at).toLocaleDateString()}
                           </p>
                         </div>
-                        <ICONS.ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-rose-400 group-hover:translate-x-1 transition-all" />
+                        <ICONS.ChevronRight className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--accent-color)] group-hover:translate-x-1 transition-all" />
                       </div>
                     </button>
                   ))}
@@ -1065,36 +1069,36 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {/* Pending Word Gifts */}
               {pendingWordRequests.length > 0 && (
                 <div className="space-y-3">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 flex items-center gap-2">
-                    <ICONS.Heart className="w-3.5 h-3.5 fill-gray-400" /> Word Gifts
+                  <h3 className="text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                    <ICONS.Heart className="w-3.5 h-3.5 fill-[var(--text-secondary)]" /> Word Gifts
                   </h3>
                   {pendingWordRequests.map(request => (
                     <button
                       key={request.id}
                       onClick={() => setActiveWordRequest(request)}
-                      className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:border-amber-200 hover:shadow-md transition-all text-left group"
+                      className="w-full bg-[var(--bg-card)] rounded-2xl p-4 shadow-sm border border-[var(--border-color)] hover:border-amber-200 dark:hover:border-amber-700 hover:shadow-md transition-all text-left group"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-rose-100 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 bg-[var(--accent-light)] rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
                           🎁
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="font-bold text-gray-800 truncate">
+                            <span className="font-bold text-[var(--text-primary)] truncate">
                               {request.request_type === 'ai_topic' ? request.input_text : 'Word Gift'}
                             </span>
-                            <span className="text-[9px] font-bold px-2 py-0.5 bg-amber-100 text-amber-600 rounded-full shrink-0">
+                            <span className="text-[9px] font-bold px-2 py-0.5 bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 rounded-full shrink-0">
                               {request.selected_words?.length || 0} words
                             </span>
-                            <span className="text-[9px] font-bold px-2 py-0.5 bg-gradient-to-r from-rose-100 to-amber-100 text-rose-600 rounded-full shrink-0">
+                            <span className="text-[9px] font-bold px-2 py-0.5 bg-[var(--accent-light)] text-[var(--accent-color)] dark:text-[var(--accent-color)] rounded-full shrink-0">
                               {request.xp_multiplier}x XP
                             </span>
                           </div>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-[var(--text-secondary)]">
                             From {partnerName} · {new Date(request.created_at).toLocaleDateString()}
                           </p>
                         </div>
-                        <ICONS.ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
+                        <ICONS.ChevronRight className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                       </div>
                     </button>
                   ))}
@@ -1106,7 +1110,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 <div className="flex gap-2 mt-6">
                   <button
                     onClick={() => handleModeChange('flashcards')}
-                    className="flex-1 py-3 rounded-xl font-bold text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors"
+                    className="flex-1 py-3 rounded-xl font-bold text-sm text-[var(--text-secondary)] bg-[var(--bg-primary)] hover:bg-[var(--border-color)] transition-colors"
                   >
                     Practice Flashcards
                   </button>
@@ -1133,10 +1137,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     {q.type === 'flashcard' && (
                       <div onClick={() => setChallengeFlipped(!challengeFlipped)} className="relative w-full aspect-[4/5] cursor-pointer perspective-1000">
                         <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${challengeFlipped ? 'rotate-y-180' : ''}`}>
-                          <div className="absolute inset-0 bg-white border border-gray-100 rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
-                            <span className="text-[10px] uppercase tracking-widest text-gray-300 font-black mb-8">POLISH</span>
-                            <h3 className="text-4xl font-black text-gray-800">{q.polish}</h3>
-                            <p className="mt-12 text-gray-400 text-[10px] uppercase font-black tracking-widest animate-pulse">Tap to reveal</p>
+                          <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
+                            <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">POLISH</span>
+                            <h3 className="text-4xl font-black text-[var(--text-primary)]">{q.polish}</h3>
+                            <p className="mt-12 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">Tap to reveal</p>
                           </div>
                           <div className="absolute inset-0 text-white rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180" style={{ backgroundColor: tierColor }}>
                             <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">ENGLISH</span>
@@ -1152,22 +1156,22 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
                     {/* Multiple Choice question */}
                     {q.type === 'multiple_choice' && q.options && (
-                      <div className="bg-white rounded-[2.5rem] p-8 shadow-lg border border-gray-100">
+                      <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
                         <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6" style={{ backgroundColor: `${tierColor}15`, color: tierColor }}>Polish → English</span>
-                        <h3 className="text-3xl font-black text-gray-800 mb-8 text-center">{q.polish}</h3>
+                        <h3 className="text-3xl font-black text-[var(--text-primary)] mb-8 text-center">{q.polish}</h3>
                         <div className="space-y-3">
                           {q.options.map((opt, idx) => {
                             const isCorrect = opt === q.english;
                             const isSelected = challengeMcSelected === opt;
-                            let style = 'border-gray-100 hover:border-gray-200 text-gray-700';
+                            let style = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
                             if (challengeMcFeedback) {
-                              if (isCorrect) style = 'border-green-400 bg-green-50 text-green-700';
-                              else if (isSelected) style = 'border-red-400 bg-red-50 text-red-700';
-                              else style = 'border-gray-100 text-gray-400';
+                              if (isCorrect) style = 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400';
+                              else if (isSelected) style = 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400';
+                              else style = 'border-[var(--border-color)] text-[var(--text-secondary)]';
                             }
                             return (
                               <button key={idx} onClick={() => handleChallengeMcSelect(opt)} disabled={challengeMcFeedback} className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${style}`}>
-                                <span className="text-xs font-bold text-gray-400 mr-3">{String.fromCharCode(65 + idx)}</span>{opt}
+                                <span className="text-xs font-bold text-[var(--text-secondary)] mr-3">{String.fromCharCode(65 + idx)}</span>{opt}
                                 {challengeMcFeedback && isCorrect && <ICONS.Check className="w-5 h-5 float-right text-green-500" />}
                                 {challengeMcFeedback && isSelected && !isCorrect && <ICONS.X className="w-5 h-5 float-right text-red-500" />}
                               </button>
@@ -1179,11 +1183,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
                     {/* Type It question */}
                     {q.type === 'type_it' && (
-                      <div className="bg-white rounded-[2.5rem] p-8 shadow-lg border border-gray-100">
+                      <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
                         <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6" style={{ backgroundColor: `${tierColor}15`, color: tierColor }}>Polish → English</span>
-                        <h3 className="text-3xl font-black text-gray-800 mb-2 text-center">{q.polish}</h3>
+                        <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">{q.polish}</h3>
                         {challengeTypeSubmitted && (
-                          <div className={`text-center mb-4 p-3 rounded-xl ${challengeTypeCorrect ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+                          <div className={`text-center mb-4 p-3 rounded-xl ${challengeTypeCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'}`}>
                             {challengeTypeCorrect ? (
                               <div className="flex items-center justify-center gap-2"><ICONS.Check className="w-5 h-5" /><span className="font-bold">Correct!</span></div>
                             ) : (
@@ -1191,7 +1195,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                             )}
                           </div>
                         )}
-                        <input type="text" value={challengeTypeAnswer} onChange={(e) => setChallengeTypeAnswer(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleChallengeTypeSubmit()} placeholder="Type in English..." disabled={challengeTypeSubmitted} className="w-full p-4 rounded-2xl border-2 border-gray-100 focus:border-gray-300 focus:outline-none text-lg font-medium text-center mt-4" autoFocus />
+                        <input type="text" value={challengeTypeAnswer} onChange={(e) => setChallengeTypeAnswer(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleChallengeTypeSubmit()} placeholder="Type in English..." disabled={challengeTypeSubmitted} className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-lg font-medium text-center mt-4 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" autoFocus />
                         <button onClick={handleChallengeTypeSubmit} disabled={!challengeTypeAnswer.trim() && !challengeTypeSubmitted} className="w-full mt-4 py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50" style={{ backgroundColor: tierColor }}>{challengeTypeSubmitted ? 'Next' : 'Check'}</button>
                       </div>
                     )}
