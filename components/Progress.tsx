@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
-import { Profile, DictionaryEntry, WordType, ProgressSummary, SavedProgressSummary } from '../types';
+import { Profile, DictionaryEntry, WordType, ProgressSummary, SavedProgressSummary, WordScore } from '../types';
 import { getLevelFromXP, getLevelProgress, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
 
@@ -112,16 +112,89 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
     other: 0
   });
 
-  // Calculate level info
-  const levelInfo = getLevelFromXP(profile.xp || 0);
-  const levelProgress = getLevelProgress(profile.xp || 0);
+  // Tutor dashboard state
+  const [scores, setScores] = useState<WordScore[]>([]);
+  const [scoresMap, setScoresMap] = useState<Map<string, WordScore>>(new Map());
+  const [partnerProfile, setPartnerProfile] = useState<Profile | null>(null);
+
+  // Calculate level info - use partner's XP for tutors
+  const targetXp = (profile.role === 'tutor' && partnerProfile) ? (partnerProfile.xp || 0) : (profile.xp || 0);
+  const levelInfo = getLevelFromXP(targetXp);
+  const levelProgress = getLevelProgress(targetXp);
   const tierColor = getTierColor(levelInfo.tier);
   const previousTests = getPreviousLevelTests(levelInfo.displayName);
+
+  // Tutor dashboard computed values
+  const masteredWords = useMemo(() =>
+    entries.filter(w => scoresMap.get(w.id)?.learned_at != null),
+    [entries, scoresMap]
+  );
+
+  const quickPhrases = useMemo(() => {
+    const phrases: Array<{ polish: string; english: string; tip: string }> = [];
+    const verbs = masteredWords.filter(w => w.word_type === 'verb').slice(0, 3);
+    const adjectives = masteredWords.filter(w => w.word_type === 'adjective').slice(0, 3);
+    const nouns = masteredWords.filter(w => w.word_type === 'noun').slice(0, 3);
+
+    if (verbs.length > 0) {
+      phrases.push({
+        polish: `${verbs[0].word} - use it tonight!`,
+        english: verbs[0].translation,
+        tip: 'Try using this in conversation'
+      });
+    }
+    if (adjectives.length > 0 && nouns.length > 0) {
+      phrases.push({
+        polish: `${adjectives[0].word} ${nouns[0].word}`,
+        english: `${adjectives[0].translation} ${nouns[0].translation}`,
+        tip: 'Compliment them with this!'
+      });
+    }
+    const hasLove = entries.some(w => w.word.includes('koch') || w.translation.toLowerCase().includes('love'));
+    if (hasLove) {
+      phrases.push({
+        polish: 'Kocham cię bardzo',
+        english: 'I love you very much',
+        tip: 'Whisper this before bed'
+      });
+    }
+    return phrases.slice(0, 3);
+  }, [masteredWords, entries]);
+
+  const recentWords = useMemo(() => {
+    return [...entries]
+      .sort((a, b) => new Date(b.unlocked_at).getTime() - new Date(a.unlocked_at).getTime())
+      .slice(0, 5);
+  }, [entries]);
+
+  const encouragementPrompts = useMemo(() => {
+    const prompts: Array<{ icon: string; message: string; color: string }> = [];
+    const masteredCount = masteredWords.length;
+    const weakCount = scores.filter(s => s.fail_count > 0).length;
+
+    if (masteredCount >= 10) {
+      prompts.push({ icon: '🏆', message: `${masteredCount} words mastered! Time for a celebration date!`, color: 'text-amber-600' });
+    }
+    if (weakCount > 0 && weakCount <= 3) {
+      prompts.push({ icon: '💪', message: `Just ${weakCount} words need work - you can quiz them tonight!`, color: 'text-teal-600' });
+    }
+    if (entries.length >= 5 && entries.length % 5 === 0) {
+      prompts.push({ icon: '🎉', message: `${entries.length} words in their vocabulary - celebrate this milestone!`, color: 'text-rose-600' });
+    }
+    if (recentWords.length > 0) {
+      prompts.push({ icon: '✨', message: `They just learned "${recentWords[0].word}" - use it in conversation today!`, color: 'text-purple-600' });
+    }
+    return prompts.slice(0, 2);
+  }, [masteredWords, scores, entries, recentWords]);
 
   useEffect(() => {
     fetchEntries();
     fetchSummaryIndex();
     fetchTestAttempts();
+    if (profile.role === 'tutor') {
+      fetchScores();
+      fetchPartnerProfile();
+    }
   }, [profile]);
 
   const fetchTestAttempts = async () => {
@@ -135,6 +208,34 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
     if (data) {
       setTestAttempts(data);
     }
+  };
+
+  const fetchScores = async () => {
+    const targetUserId = (profile.role === 'tutor' && profile.linked_user_id)
+      ? profile.linked_user_id
+      : profile.id;
+
+    const { data: scoreData } = await supabase
+      .from('scores')
+      .select('*, dictionary:word_id(word, translation)')
+      .eq('user_id', targetUserId);
+
+    if (scoreData) {
+      setScores(scoreData as WordScore[]);
+      const map = new Map<string, WordScore>();
+      scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
+      setScoresMap(map);
+    }
+  };
+
+  const fetchPartnerProfile = async () => {
+    if (!profile.linked_user_id) return;
+    const { data } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', profile.linked_user_id)
+      .single();
+    if (data) setPartnerProfile(data);
   };
 
   // Get attempts for a specific level transition
@@ -265,6 +366,173 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
   // Always allow taking tests
   const canTakeTest = levelInfo.nextLevel !== null;
+
+  // Tutor Dashboard View
+  if (profile.role === 'tutor') {
+    return (
+      <div className="h-full overflow-y-auto p-4 sm:p-8 bg-[#fdfcfd]">
+        <div className="max-w-4xl mx-auto space-y-6">
+          {/* Partner's Level Card - Compact */}
+          <div
+            className="p-6 rounded-[2rem] shadow-lg text-white relative overflow-hidden"
+            style={{
+              background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`
+            }}
+          >
+            <div className="absolute top-0 right-0 opacity-10">
+              <ICONS.Heart className="w-24 h-24" />
+            </div>
+            <div className="flex items-center justify-between relative z-10">
+              <div>
+                <p className="text-white/60 text-[9px] font-black uppercase tracking-widest mb-1">
+                  {partnerProfile?.full_name || 'Your Partner'}'s Level
+                </p>
+                <h2 className="text-2xl font-black">{levelInfo.displayName}</h2>
+              </div>
+              <div className="text-right">
+                <p className="text-3xl font-black">{targetXp}</p>
+                <p className="text-white/60 text-[9px] font-black uppercase tracking-widest">XP</p>
+              </div>
+            </div>
+            <div className="mt-4 relative z-10">
+              <div className="flex justify-between text-[9px] font-bold text-white/60 mb-1">
+                <span>Progress to {levelInfo.nextLevel || 'Max'}</span>
+                <span>{levelProgress}%</span>
+              </div>
+              <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-white rounded-full transition-all duration-1000"
+                  style={{ width: `${levelProgress}%` }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Overview - Compact Grid */}
+          <div className="grid grid-cols-3 gap-3">
+            <div className="bg-rose-50 p-4 rounded-2xl border border-rose-100 text-center">
+              <div className="text-2xl font-black text-rose-600">{stats.totalWords}</div>
+              <div className="text-[9px] uppercase font-bold text-rose-400 tracking-wider">Total Words</div>
+            </div>
+            <div className="bg-teal-50 p-4 rounded-2xl border border-teal-100 text-center">
+              <div className="text-2xl font-black text-teal-600">{masteredWords.length}</div>
+              <div className="text-[9px] uppercase font-bold text-teal-400 tracking-wider">Mastered</div>
+            </div>
+            <div className="bg-amber-50 p-4 rounded-2xl border border-amber-100 text-center">
+              <div className="text-2xl font-black text-amber-600">
+                {scores.filter(s => s.fail_count > 0).length}
+              </div>
+              <div className="text-[9px] uppercase font-bold text-amber-400 tracking-wider">Needs Review</div>
+            </div>
+          </div>
+
+          {/* Encouragement Prompts */}
+          {encouragementPrompts.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {encouragementPrompts.map((prompt, i) => (
+                <div key={i} className="bg-gradient-to-br from-white to-rose-50 p-4 rounded-2xl border border-rose-100 shadow-sm flex items-center gap-3">
+                  <span className="text-2xl">{prompt.icon}</span>
+                  <p className={`font-bold text-sm ${prompt.color}`}>{prompt.message}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Two Column Layout: Phrases + Recent */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Quick Phrases */}
+            {quickPhrases.length > 0 && (
+              <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100">
+                <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 flex items-center gap-2">
+                  <ICONS.Heart className="w-3.5 h-3.5 text-rose-400" />
+                  Phrases for Tonight
+                </h3>
+                <div className="space-y-3">
+                  {quickPhrases.map((phrase, i) => (
+                    <div key={i} className="p-3 bg-gradient-to-r from-rose-50 to-white rounded-xl border border-rose-100">
+                      <p className="font-black text-rose-600">{phrase.polish}</p>
+                      <p className="text-xs text-gray-500 italic">{phrase.english}</p>
+                      <p className="text-[9px] uppercase font-bold text-rose-400 mt-1">{phrase.tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Recent Words */}
+            {recentWords.length > 0 && (
+              <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100">
+                <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 flex items-center gap-2">
+                  <ICONS.Clock className="w-3.5 h-3.5 text-teal-400" />
+                  Recently Learned
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {recentWords.map((word, i) => (
+                    <div key={i} className="px-3 py-1.5 bg-teal-50 rounded-full border border-teal-100">
+                      <span className="font-bold text-teal-700 text-sm">{word.word}</span>
+                      <span className="text-teal-400 mx-1.5">·</span>
+                      <span className="text-xs text-teal-600">{word.translation}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Words to Practice Together */}
+          <div className="bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100">
+            <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-4 flex items-center gap-2">
+              <ICONS.Target className="w-3.5 h-3.5 text-amber-400" />
+              Words to Practice Together
+            </h3>
+            <div className="space-y-2">
+              {scores.filter(s => s.fail_count > 0).length === 0 ? (
+                <p className="text-gray-400 text-center py-6 italic text-sm">No weak spots - they're doing great!</p>
+              ) : (
+                scores.filter(s => s.fail_count > 0).sort((a,b) => b.fail_count - a.fail_count).slice(0, 5).map(s => (
+                  <div key={s.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
+                    <div>
+                      <p className="font-bold text-gray-800">{s.dictionary?.word}</p>
+                      <p className="text-xs text-gray-400 italic">{s.dictionary?.translation}</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-red-500 font-bold text-sm">{s.fail_count} misses</div>
+                      <button
+                        onClick={() => navigate('/play')}
+                        className="text-[9px] uppercase font-bold text-rose-400 hover:text-rose-600 transition-colors"
+                      >
+                        Quiz them →
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+
+          {/* Quick Actions */}
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              onClick={() => navigate('/play')}
+              className="bg-white p-5 rounded-[1.5rem] border border-gray-100 shadow-sm text-center hover:shadow-md transition-all"
+            >
+              <ICONS.Play className="w-6 h-6 mx-auto mb-1.5 text-rose-400" />
+              <p className="text-sm font-bold text-gray-700">Play Together</p>
+              <p className="text-[9px] text-gray-400">Quiz games & activities</p>
+            </button>
+            <button
+              onClick={() => navigate('/log')}
+              className="bg-white p-5 rounded-[1.5rem] border border-gray-100 shadow-sm text-center hover:shadow-md transition-all"
+            >
+              <ICONS.Book className="w-6 h-6 mx-auto mb-1.5 text-rose-400" />
+              <p className="text-sm font-bold text-gray-700">Their Vocabulary</p>
+              <p className="text-[9px] text-gray-400">Browse Love Log</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-full overflow-y-auto p-4 sm:p-8 bg-[#fdfcfd]">

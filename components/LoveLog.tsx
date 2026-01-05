@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
 import { speakPolish } from '../services/audio';
 import { geminiService } from '../services/gemini';
-import { Profile, DictionaryEntry, WordType, WordScore } from '../types';
+import { Profile, DictionaryEntry, WordType, WordScore, GiftWord } from '../types';
 import { ICONS } from '../constants';
 
 interface LoveLogProps {
@@ -15,7 +15,8 @@ const STREAK_TO_LEARN = 5;
 const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [entries, setEntries] = useState<DictionaryEntry[]>([]);
   const [scoresMap, setScoresMap] = useState<Map<string, WordScore>>(new Map());
-  const [filter, setFilter] = useState<WordType | 'all'>('all');
+  const [giftedWordsMap, setGiftedWordsMap] = useState<Map<string, GiftWord>>(new Map());
+  const [filter, setFilter] = useState<WordType | 'all' | 'gifts'>('all');
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
   const [flippedId, setFlippedId] = useState<string | null>(null);
@@ -26,6 +27,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [unlocking, setUnlocking] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncMessage, setSyncMessage] = useState<string | null>(null);
+  const [partnerName, setPartnerName] = useState<string>('');
 
   useEffect(() => { fetchEntries(); }, [profile]);
 
@@ -51,6 +53,28 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       const map = new Map<string, WordScore>();
       scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
       setScoresMap(map);
+    }
+
+    // Fetch gift words to show "Gift from Partner" badge
+    const { data: giftData } = await supabase
+      .from('gift_words')
+      .select('*')
+      .eq('student_id', targetUserId);
+
+    if (giftData) {
+      const giftMap = new Map<string, GiftWord>();
+      giftData.forEach((g: any) => giftMap.set(g.word_id, g as GiftWord));
+      setGiftedWordsMap(giftMap);
+    }
+
+    // Get partner name for gift badges
+    if (profile.linked_user_id) {
+      const { data: partner } = await supabase
+        .from('profiles')
+        .select('full_name')
+        .eq('id', profile.linked_user_id)
+        .single();
+      if (partner) setPartnerName(partner.full_name);
     }
 
     setLoading(false);
@@ -166,8 +190,15 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   };
 
   const filtered = entries.filter(e => {
-    const matchesFilter = filter === 'all' || e.word_type === filter;
-    const matchesSearch = e.word.toLowerCase().includes(search.toLowerCase()) || 
+    let matchesFilter = false;
+    if (filter === 'all') {
+      matchesFilter = true;
+    } else if (filter === 'gifts') {
+      matchesFilter = giftedWordsMap.has(e.id);
+    } else {
+      matchesFilter = e.word_type === filter;
+    }
+    const matchesSearch = e.word.toLowerCase().includes(search.toLowerCase()) ||
                           e.translation.toLowerCase().includes(search.toLowerCase());
     return matchesFilter && matchesSearch;
   });
@@ -258,6 +289,18 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
           {(['all', 'noun', 'verb', 'adjective', 'phrase'] as (WordType | 'all')[]).map(t => (
             <button key={t} onClick={() => setFilter(t)} className={`px-4 py-1.5 rounded-full text-[8px] font-black uppercase tracking-[0.1em] border-2 transition-all whitespace-nowrap ${filter === t ? 'bg-rose-500 border-rose-500 text-white shadow-md' : 'bg-white border-gray-100 text-gray-400 hover:border-rose-100'}`}>{t}s</button>
           ))}
+          {giftedWordsMap.size > 0 && (
+            <button
+              onClick={() => setFilter('gifts')}
+              className={`px-4 py-1.5 rounded-full text-[8px] font-black uppercase tracking-[0.1em] border-2 transition-all whitespace-nowrap flex items-center gap-1 ${
+                filter === 'gifts'
+                  ? 'bg-gradient-to-r from-rose-500 to-amber-500 border-rose-500 text-white shadow-md'
+                  : 'bg-white border-gray-100 text-gray-400 hover:border-rose-100'
+              }`}
+            >
+              <ICONS.Heart className="w-3 h-3" /> Gifts
+            </button>
+          )}
         </div>
       </div>
 
@@ -277,12 +320,29 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
             const isLearned = score?.learned_at != null;
             const currentStreak = score?.correct_streak || 0;
 
+            // Check if this is a gifted word
+            const giftData = giftedWordsMap.get(e.id);
+            const isGifted = !!giftData;
+
             return (
               <div key={e.id} className="relative h-[280px] w-full perspective-2000" onClick={() => !isFlipped && setFlippedId(e.id)}>
                 <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d cursor-pointer ${isFlipped ? 'rotate-y-180' : ''}`}>
 
                   {/* === FRONT === */}
-                  <div className="absolute inset-0 bg-white border border-rose-100 rounded-[1.5rem] p-5 flex flex-col shadow-sm hover:shadow-md transition-all backface-hidden overflow-hidden">
+                  <div className={`absolute inset-0 bg-white border rounded-[1.5rem] p-5 flex flex-col shadow-sm hover:shadow-md transition-all backface-hidden overflow-hidden ${
+                    isGifted ? 'border-rose-200 ring-2 ring-rose-100' : 'border-rose-100'
+                  }`}>
+                    {/* Gift Badge - top left corner */}
+                    {isGifted && (
+                      <div
+                        className="absolute top-3 left-3 flex items-center gap-1 bg-gradient-to-r from-rose-100 to-amber-100 px-2 py-1 rounded-full"
+                        title={`Gift from ${partnerName || 'your partner'}`}
+                      >
+                        <ICONS.Heart className="w-3 h-3 text-rose-500 fill-rose-500" />
+                        <span className="text-[9px] font-bold text-rose-600">Gift</span>
+                      </div>
+                    )}
+
                     {/* Mastery Badge - top right corner */}
                     {isLearned && (
                       <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center" title="Mastered!">
