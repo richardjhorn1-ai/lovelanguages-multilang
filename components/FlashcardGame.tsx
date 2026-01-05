@@ -1,14 +1,18 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { supabase } from '../services/supabase';
-import { Profile, DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase } from '../types';
+import { Profile, DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase, TutorChallenge, WordRequest } from '../types';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { ROMANTIC_PHRASES, getRandomPhrases } from '../constants/romantic-phrases';
+import TutorGames from './TutorGames';
+import PlayQuizChallenge from './PlayQuizChallenge';
+import PlayQuickFireChallenge from './PlayQuickFireChallenge';
+import WordGiftLearning from './WordGiftLearning';
 
 interface FlashcardGameProps { profile: Profile; }
 
-type PracticeMode = 'flashcards' | 'multiple_choice' | 'type_it' | 'ai_challenge';
+type PracticeMode = 'love_notes' | 'flashcards' | 'multiple_choice' | 'type_it' | 'ai_challenge';
 type TypeItDirection = 'polish_to_english' | 'english_to_polish';
 
 interface TypeItQuestion {
@@ -67,7 +71,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // Practice mode
+  // Love Notes (partner challenges) state
+  const [pendingChallenges, setPendingChallenges] = useState<TutorChallenge[]>([]);
+  const [pendingWordRequests, setPendingWordRequests] = useState<WordRequest[]>([]);
+  const [partnerName, setPartnerName] = useState('Your Partner');
+  const [activeChallenge, setActiveChallenge] = useState<TutorChallenge | null>(null);
+  const [activeWordRequest, setActiveWordRequest] = useState<WordRequest | null>(null);
+
+  // Practice mode - default to love_notes if there are pending items
   const [mode, setMode] = useState<PracticeMode>('flashcards');
   const [finished, setFinished] = useState(false);
   const [sessionScore, setSessionScore] = useState({ correct: 0, incorrect: 0 });
@@ -103,6 +114,69 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Level styling
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
   const tierColor = useMemo(() => getTierColor(levelInfo.tier), [levelInfo.tier]);
+
+  // Tutor dashboard data (computed unconditionally to follow Rules of Hooks)
+  const masteredWords = useMemo(() =>
+    deck.filter(w => scoresMap.get(w.id)?.learned_at != null),
+    [deck, scoresMap]
+  );
+
+  const quickPhrases = useMemo(() => {
+    const phrases: Array<{ polish: string; english: string; tip: string }> = [];
+    const verbs = masteredWords.filter(w => w.word_type === 'verb').slice(0, 3);
+    const adjectives = masteredWords.filter(w => w.word_type === 'adjective').slice(0, 3);
+    const nouns = masteredWords.filter(w => w.word_type === 'noun').slice(0, 3);
+
+    if (verbs.length > 0) {
+      phrases.push({
+        polish: `${verbs[0].word} - use it tonight!`,
+        english: verbs[0].translation,
+        tip: 'Try using this in conversation'
+      });
+    }
+    if (adjectives.length > 0 && nouns.length > 0) {
+      phrases.push({
+        polish: `${adjectives[0].word} ${nouns[0].word}`,
+        english: `${adjectives[0].translation} ${nouns[0].translation}`,
+        tip: 'Compliment them with this!'
+      });
+    }
+    const hasLove = deck.some(w => w.word.includes('koch') || w.translation.toLowerCase().includes('love'));
+    if (hasLove) {
+      phrases.push({
+        polish: 'Kocham cię bardzo',
+        english: 'I love you very much',
+        tip: 'Whisper this before bed'
+      });
+    }
+    return phrases.slice(0, 3);
+  }, [masteredWords, deck]);
+
+  const recentWords = useMemo(() => {
+    return [...deck]
+      .sort((a, b) => new Date(b.unlocked_at).getTime() - new Date(a.unlocked_at).getTime())
+      .slice(0, 5);
+  }, [deck]);
+
+  const encouragementPrompts = useMemo(() => {
+    const prompts: Array<{ icon: string; message: string; color: string }> = [];
+    const masteredCount = masteredWords.length;
+    const weakCount = scores.filter(s => s.fail_count > 0).length;
+
+    if (masteredCount >= 10) {
+      prompts.push({ icon: '🏆', message: `${masteredCount} words mastered! Time for a celebration date!`, color: 'text-amber-600' });
+    }
+    if (weakCount > 0 && weakCount <= 3) {
+      prompts.push({ icon: '💪', message: `Just ${weakCount} words need work - you can quiz them tonight!`, color: 'text-teal-600' });
+    }
+    if (deck.length >= 5 && deck.length % 5 === 0) {
+      prompts.push({ icon: '🎉', message: `${deck.length} words in their vocabulary - celebrate this milestone!`, color: 'text-rose-600' });
+    }
+    if (recentWords.length > 0) {
+      prompts.push({ icon: '✨', message: `They just learned "${recentWords[0].word}" - use it in conversation today!`, color: 'text-purple-600' });
+    }
+    return prompts.slice(0, 2);
+  }, [masteredWords, scores, deck, recentWords]);
 
   useEffect(() => {
     fetchData();
@@ -147,7 +221,79 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
       setScoresMap(map);
     }
+
+    // Fetch pending challenges and word requests for students
+    if (profile.role === 'student') {
+      await fetchPendingItems();
+    }
+
     setLoading(false);
+  };
+
+  const fetchPendingItems = async () => {
+    try {
+      const token = (await supabase.auth.getSession()).data.session?.access_token;
+
+      // Get partner name
+      if (profile.linked_user_id) {
+        const { data: partner } = await supabase
+          .from('profiles')
+          .select('full_name')
+          .eq('id', profile.linked_user_id)
+          .single();
+        if (partner) setPartnerName(partner.full_name);
+      }
+
+      // Fetch pending challenges
+      const challengeRes = await fetch('/api/get-challenges', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ status: 'pending', role: 'student' })
+      });
+      const challengeData = await challengeRes.json();
+      if (challengeData.challenges) {
+        setPendingChallenges(challengeData.challenges);
+        // Auto-switch to Love Notes tab if there are pending items
+        if (challengeData.challenges.length > 0) {
+          setMode('love_notes');
+        }
+      }
+
+      // Fetch pending word requests
+      const requestRes = await fetch('/api/get-word-requests', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ status: 'pending', role: 'student' })
+      });
+      const requestData = await requestRes.json();
+      if (requestData.wordRequests) {
+        setPendingWordRequests(requestData.wordRequests);
+        // Auto-switch to Love Notes tab if there are pending items
+        if (requestData.wordRequests.length > 0 && pendingChallenges.length === 0) {
+          setMode('love_notes');
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching pending items:', error);
+    }
+  };
+
+  const handleChallengeComplete = () => {
+    setActiveChallenge(null);
+    fetchPendingItems();
+    fetchData();
+  };
+
+  const handleWordRequestComplete = () => {
+    setActiveWordRequest(null);
+    fetchPendingItems();
+    fetchData();
   };
 
   // Helper to update score with proper streak tracking
@@ -486,61 +632,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     </div>
   );
 
-  // Tutor dashboard view
+  // Tutor games view - Use TutorGames component
   if (profile.role === 'tutor') {
-    return (
-      <div className="h-full overflow-y-auto p-6 bg-[#fdfcfd]">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100">
-            <h2 className="text-3xl font-bold font-header mb-2 text-gray-800">Learning Dashboard</h2>
-            <p className="text-gray-500 font-medium">
-              {profile.linked_user_id ? "Monitoring your partner's Polish mastery." : "Testing tutor view with your own collection."}
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
-              <div className="bg-rose-50 p-6 rounded-3xl border border-rose-100 text-center">
-                <div className="text-3xl font-black text-rose-600 mb-1">{deck.length}</div>
-                <div className="text-[10px] uppercase font-bold text-rose-400 tracking-widest">Total Vocabulary</div>
-              </div>
-              <div className="bg-teal-50 p-6 rounded-3xl border border-teal-100 text-center">
-                <div className="text-3xl font-black text-teal-600 mb-1">
-                  {scores.filter(s => s.success_count > s.fail_count).length}
-                </div>
-                <div className="text-[10px] uppercase font-bold text-teal-400 tracking-widest">Mastered</div>
-              </div>
-              <div className="bg-amber-50 p-6 rounded-3xl border border-amber-100 text-center">
-                <div className="text-3xl font-black text-amber-600 mb-1">
-                  {scores.filter(s => s.fail_count > 0).length}
-                </div>
-                <div className="text-[10px] uppercase font-bold text-amber-400 tracking-widest">Needs Review</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100">
-            <h3 className="text-sm font-black uppercase text-gray-400 tracking-widest mb-6">Critical Weak Spots</h3>
-            <div className="space-y-4">
-              {scores.filter(s => s.fail_count > 0).length === 0 ? (
-                <p className="text-gray-400 text-center py-10 italic font-medium">Acing everything!</p>
-              ) : (
-                scores.filter(s => s.fail_count > 0).sort((a,b) => b.fail_count - a.fail_count).slice(0, 5).map(s => (
-                  <div key={s.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                    <div>
-                      <p className="font-black text-gray-800">{s.dictionary.word}</p>
-                      <p className="text-xs text-gray-400 italic font-medium">{s.dictionary.translation}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-red-500 font-black text-sm">{s.fail_count} Misses</div>
-                      <div className="text-[9px] uppercase font-bold text-gray-300">Action required</div>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <TutorGames profile={profile} />;
   }
 
   // Empty state
@@ -610,6 +704,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Current items based on mode
   const currentDeckLength = mode === 'type_it' ? typeItQuestions.length : deck.length;
   const progress = ((currentIndex + 1) / currentDeckLength) * 100;
+  const pendingCount = pendingChallenges.length + pendingWordRequests.length;
 
   return (
     <div className="h-full flex flex-col overflow-hidden bg-[#fcf9f9]">
@@ -619,51 +714,63 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           {/* Mode Tabs */}
           <div className="flex gap-1 p-1 bg-gray-100 rounded-2xl mb-3">
             {[
-              { id: 'flashcards' as PracticeMode, label: 'Flashcards', icon: ICONS.Book },
-              { id: 'multiple_choice' as PracticeMode, label: 'Multiple Choice', icon: ICONS.Check },
-              { id: 'type_it' as PracticeMode, label: 'Type It', icon: ICONS.Pencil },
-              { id: 'ai_challenge' as PracticeMode, label: 'AI Challenge', icon: ICONS.Zap },
+              { id: 'love_notes' as PracticeMode, label: 'Love Notes', icon: ICONS.Heart, hasBadge: true },
+              { id: 'flashcards' as PracticeMode, label: 'Flashcards', icon: ICONS.Book, hasBadge: false },
+              { id: 'multiple_choice' as PracticeMode, label: 'Multiple Choice', icon: ICONS.Check, hasBadge: false },
+              { id: 'type_it' as PracticeMode, label: 'Type It', icon: ICONS.Pencil, hasBadge: false },
+              { id: 'ai_challenge' as PracticeMode, label: 'AI Challenge', icon: ICONS.Zap, hasBadge: false },
             ].map(tab => (
               <button
                 key={tab.id}
                 onClick={() => handleModeChange(tab.id)}
-                className={`flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 ${
+                className={`relative flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 ${
                   mode === tab.id
                     ? 'text-white shadow-sm'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
-                style={mode === tab.id ? { backgroundColor: tierColor } : {}}
+                    : tab.id === 'love_notes' && pendingCount > 0
+                      ? 'text-rose-500 hover:text-rose-600'
+                      : 'text-gray-500 hover:text-gray-700'
+                } ${tab.id === 'love_notes' && pendingCount > 0 && mode !== 'love_notes' ? 'animate-pulse-border' : ''}`}
+                style={mode === tab.id ? { backgroundColor: tab.id === 'love_notes' ? '#FF4761' : tierColor } : {}}
               >
-                <tab.icon className="w-3.5 h-3.5 shrink-0" />
+                <tab.icon className={`w-3.5 h-3.5 shrink-0 ${tab.id === 'love_notes' && mode === tab.id ? 'fill-white' : tab.id === 'love_notes' && pendingCount > 0 ? 'fill-rose-500' : ''}`} />
                 <span className="hidden sm:inline truncate">{tab.label}</span>
+                {tab.hasBadge && pendingCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-rose-500 text-white text-[9px] flex items-center justify-center rounded-full font-bold animate-bounce">
+                    {pendingCount > 9 ? '9+' : pendingCount}
+                  </span>
+                )}
               </button>
             ))}
           </div>
 
-          {/* Session Stats */}
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex gap-4">
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-green-500" />
-                <span className="text-xs font-bold text-gray-600">{sessionScore.correct}</span>
+          {/* Session Stats - Hide for Love Notes mode */}
+          {mode !== 'love_notes' && (
+            <>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex gap-4">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span className="text-xs font-bold text-gray-600">{sessionScore.correct}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-red-400" />
+                    <span className="text-xs font-bold text-gray-600">{sessionScore.incorrect}</span>
+                  </div>
+                </div>
+                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                  {currentIndex + 1} / {currentDeckLength}
+                </span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-red-400" />
-                <span className="text-xs font-bold text-gray-600">{sessionScore.incorrect}</span>
-              </div>
-            </div>
-            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
-              {currentIndex + 1} / {currentDeckLength}
-            </span>
-          </div>
 
-          {/* Progress Bar */}
-          <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="h-full transition-all duration-500 rounded-full"
-              style={{ width: `${progress}%`, backgroundColor: tierColor }}
-            />
-          </div>
+              {/* Progress Bar */}
+              <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="h-full transition-all duration-500 rounded-full"
+                  style={{ width: `${progress}%`, backgroundColor: tierColor }}
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -929,6 +1036,123 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             </div>
           )}
 
+          {/* Love Notes Mode - Partner Challenges & Word Gifts */}
+          {mode === 'love_notes' && (
+            <div className="w-full space-y-4">
+              {/* Header */}
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-rose-100 to-amber-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 animate-pulse">
+                  💌
+                </div>
+                <h2 className="text-xl font-black text-gray-800">Love Notes from {partnerName}</h2>
+                <p className="text-sm text-gray-500">Challenges and gifts just for you</p>
+              </div>
+
+              {/* Empty State */}
+              {pendingChallenges.length === 0 && pendingWordRequests.length === 0 && (
+                <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 text-center">
+                  <div className="text-4xl mb-4">✨</div>
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">No Love Notes Yet</h3>
+                  <p className="text-sm text-gray-500">When {partnerName} sends you challenges or word gifts, they'll appear here!</p>
+                </div>
+              )}
+
+              {/* Pending Challenges */}
+              {pendingChallenges.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 flex items-center gap-2">
+                    <ICONS.Zap className="w-3.5 h-3.5" /> Challenges
+                  </h3>
+                  {pendingChallenges.map(challenge => (
+                    <button
+                      key={challenge.id}
+                      onClick={() => setActiveChallenge(challenge)}
+                      className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:border-rose-200 hover:shadow-md transition-all text-left group"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-rose-100 to-amber-100 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                          {challenge.challenge_type === 'quiz' ? '🎯' : '⚡'}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-gray-800 truncate">
+                              {challenge.title || (challenge.challenge_type === 'quiz' ? 'Quiz Challenge' : 'Quick Fire')}
+                            </span>
+                            <span className="text-[9px] font-bold px-2 py-0.5 bg-rose-100 text-rose-600 rounded-full shrink-0">
+                              {challenge.words_data?.length || 0} words
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500">
+                            From {partnerName} · {new Date(challenge.created_at).toLocaleDateString()}
+                          </p>
+                        </div>
+                        <ICONS.ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-rose-400 group-hover:translate-x-1 transition-all" />
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Pending Word Gifts */}
+              {pendingWordRequests.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 flex items-center gap-2">
+                    <ICONS.Heart className="w-3.5 h-3.5 fill-gray-400" /> Word Gifts
+                  </h3>
+                  {pendingWordRequests.map(request => (
+                    <button
+                      key={request.id}
+                      onClick={() => setActiveWordRequest(request)}
+                      className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:border-amber-200 hover:shadow-md transition-all text-left group"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-amber-100 to-rose-100 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                          🎁
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-gray-800 truncate">
+                              {request.request_type === 'ai_topic' ? request.input_text : 'Word Gift'}
+                            </span>
+                            <span className="text-[9px] font-bold px-2 py-0.5 bg-amber-100 text-amber-600 rounded-full shrink-0">
+                              {request.selected_words?.length || 0} words
+                            </span>
+                            <span className="text-[9px] font-bold px-2 py-0.5 bg-gradient-to-r from-rose-100 to-amber-100 text-rose-600 rounded-full shrink-0">
+                              {request.xp_multiplier}x XP
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500">
+                            From {partnerName} · {new Date(request.created_at).toLocaleDateString()}
+                          </p>
+                        </div>
+                        <ICONS.ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Practice Other Modes Prompt */}
+              {pendingChallenges.length === 0 && pendingWordRequests.length === 0 && (
+                <div className="flex gap-2 mt-6">
+                  <button
+                    onClick={() => handleModeChange('flashcards')}
+                    className="flex-1 py-3 rounded-xl font-bold text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors"
+                  >
+                    Practice Flashcards
+                  </button>
+                  <button
+                    onClick={() => handleModeChange('ai_challenge')}
+                    className="flex-1 py-3 rounded-xl font-bold text-sm text-white transition-colors"
+                    style={{ backgroundColor: tierColor }}
+                  >
+                    AI Challenge
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* AI Challenge - Active */}
           {mode === 'ai_challenge' && challengeStarted && challengeQuestions.length > 0 && (
             <>
@@ -1012,11 +1236,45 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         </div>
       </div>
 
+      {/* Challenge Modal */}
+      {activeChallenge && (
+        activeChallenge.challenge_type === 'quiz' ? (
+          <PlayQuizChallenge
+            challenge={activeChallenge}
+            partnerName={partnerName}
+            onComplete={handleChallengeComplete}
+            onClose={() => setActiveChallenge(null)}
+          />
+        ) : (
+          <PlayQuickFireChallenge
+            challenge={activeChallenge}
+            partnerName={partnerName}
+            onComplete={handleChallengeComplete}
+            onClose={() => setActiveChallenge(null)}
+          />
+        )
+      )}
+
+      {/* Word Gift Modal */}
+      {activeWordRequest && (
+        <WordGiftLearning
+          wordRequest={activeWordRequest}
+          partnerName={partnerName}
+          onComplete={handleWordRequestComplete}
+          onClose={() => setActiveWordRequest(null)}
+        />
+      )}
+
       <style>{`
         .perspective-1000 { perspective: 1000px; }
         .transform-style-3d { transform-style: preserve-3d; }
         .backface-hidden { backface-visibility: hidden; }
         .rotate-y-180 { transform: rotateY(180deg); }
+        @keyframes pulse-border {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(255, 71, 97, 0.4); }
+          50% { box-shadow: 0 0 0 3px rgba(255, 71, 97, 0.2); }
+        }
+        .animate-pulse-border { animation: pulse-border 2s ease-in-out infinite; }
       `}</style>
     </div>
   );

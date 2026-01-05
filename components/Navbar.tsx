@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ICONS } from '../constants';
-import { Profile } from '../types';
+import { Profile, Notification } from '../types';
 import { supabase } from '../services/supabase';
 import { getLevelFromXP, getLevelProgress, getTierColor } from '../services/level-utils';
 
@@ -13,7 +13,11 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   const [requestCount, setRequestCount] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [unreadCount, setUnreadCount] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const notificationsRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   // Calculate level info from XP
@@ -53,16 +57,89 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
     };
   }, [profile.email]);
 
-  // Close dropdown when clicking outside
+  // Fetch notifications
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      const { data, error } = await supabase
+        .from('notifications')
+        .select('*')
+        .eq('user_id', profile.id)
+        .is('dismissed_at', null)
+        .order('created_at', { ascending: false })
+        .limit(10);
+
+      if (!error && data) {
+        setNotifications(data as Notification[]);
+        setUnreadCount(data.filter(n => !n.read_at).length);
+      }
+    };
+
+    fetchNotifications();
+
+    // Subscribe to new notifications
+    const channel = supabase
+      .channel('notifications-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'notifications',
+          filter: `user_id=eq.${profile.id}`
+        },
+        () => fetchNotifications()
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [profile.id]);
+
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsProfileDropdownOpen(false);
       }
+      if (notificationsRef.current && !notificationsRef.current.contains(event.target as Node)) {
+        setIsNotificationsOpen(false);
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const markAsRead = async (notificationId: string) => {
+    await supabase
+      .from('notifications')
+      .update({ read_at: new Date().toISOString() })
+      .eq('id', notificationId);
+
+    setNotifications(prev =>
+      prev.map(n => n.id === notificationId ? { ...n, read_at: new Date().toISOString() } : n)
+    );
+    setUnreadCount(prev => Math.max(0, prev - 1));
+  };
+
+  const dismissNotification = async (notificationId: string) => {
+    await supabase
+      .from('notifications')
+      .update({ dismissed_at: new Date().toISOString() })
+      .eq('id', notificationId);
+
+    setNotifications(prev => prev.filter(n => n.id !== notificationId));
+  };
+
+  const getNotificationIcon = (type: string) => {
+    switch (type) {
+      case 'challenge_received': return '🎮';
+      case 'challenge_completed': return '🏆';
+      case 'word_gift_received': return '🎁';
+      case 'word_gift_completed': return '✨';
+      default: return '💌';
+    }
+  };
 
   const navItems = [
     { path: '/', label: 'Chat', icon: ICONS.MessageCircle },
@@ -85,7 +162,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         />
       </div>
       
-      <nav className="bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between z-10 sticky top-1">
+      <nav className="bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between z-50 sticky top-1">
         <div className="flex items-center gap-2">
           <ICONS.Heart className="text-[#FF4761] fill-[#FF4761] w-6 h-6" />
           <span className="font-header font-bold text-lg hidden sm:inline">Love Languages</span>
@@ -108,8 +185,91 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           ))}
         </div>
 
-        {/* Profile Dropdown */}
-        <div className="relative" ref={dropdownRef}>
+        <div className="flex items-center gap-2">
+          {/* Notifications Bell */}
+          <div className="relative" ref={notificationsRef}>
+            <button
+              onClick={() => {
+                setIsNotificationsOpen(!isNotificationsOpen);
+                setIsProfileDropdownOpen(false);
+              }}
+              className="relative p-2 hover:bg-gray-50 rounded-xl transition-all"
+            >
+              <ICONS.Bell className="w-5 h-5 text-gray-500" />
+              {unreadCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-rose-500 text-white text-[9px] flex items-center justify-center rounded-full border-2 border-white font-bold">
+                  {unreadCount > 9 ? '9+' : unreadCount}
+                </span>
+              )}
+            </button>
+
+            {/* Notifications Dropdown */}
+            {isNotificationsOpen && (
+              <div className="absolute right-0 mt-2 w-80 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="px-4 py-3 border-b border-gray-50 flex items-center justify-between">
+                  <span className="text-sm font-bold text-gray-800">Notifications</span>
+                  {unreadCount > 0 && (
+                    <span className="text-[10px] font-bold text-rose-500 bg-rose-50 px-2 py-0.5 rounded-full">
+                      {unreadCount} new
+                    </span>
+                  )}
+                </div>
+
+                <div className="max-h-80 overflow-y-auto">
+                  {notifications.length === 0 ? (
+                    <div className="py-8 text-center">
+                      <span className="text-2xl mb-2 block">🔔</span>
+                      <p className="text-sm text-gray-400">No notifications yet</p>
+                    </div>
+                  ) : (
+                    notifications.map(notification => (
+                      <div
+                        key={notification.id}
+                        className={`px-4 py-3 border-b border-gray-50 hover:bg-gray-50 transition-colors cursor-pointer ${
+                          !notification.read_at ? 'bg-rose-50/30' : ''
+                        }`}
+                        onClick={() => {
+                          if (!notification.read_at) markAsRead(notification.id);
+                          // Navigate based on notification type
+                          if (notification.type.includes('challenge')) {
+                            navigate('/play');
+                          } else if (notification.type.includes('word_gift')) {
+                            navigate('/play');
+                          }
+                          setIsNotificationsOpen(false);
+                        }}
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="text-lg shrink-0">{getNotificationIcon(notification.type)}</span>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-800 truncate">{notification.title}</p>
+                            {notification.message && (
+                              <p className="text-xs text-gray-500 line-clamp-2">{notification.message}</p>
+                            )}
+                            <p className="text-[10px] text-gray-400 mt-1">
+                              {new Date(notification.created_at).toLocaleDateString()}
+                            </p>
+                          </div>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              dismissNotification(notification.id);
+                            }}
+                            className="p-1 hover:bg-gray-200 rounded transition-colors shrink-0"
+                          >
+                            <ICONS.X className="w-3 h-3 text-gray-400" />
+                          </button>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Profile Dropdown */}
+          <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
             className="flex items-center gap-3 hover:bg-gray-50 rounded-xl px-2 py-1.5 transition-all"
@@ -133,7 +293,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
           {/* Dropdown Menu */}
           {isProfileDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
               <div className="px-4 py-3 border-b border-gray-50">
                 <p className="text-sm font-bold text-gray-800">{profile.full_name}</p>
                 <p className="text-[10px] text-gray-400">{profile.email}</p>
@@ -179,6 +339,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               </div>
             </div>
           )}
+        </div>
         </div>
       </nav>
     </>

@@ -97,7 +97,7 @@ export interface DictionaryEntry {
   unlocked_at: string;
 }
 
-export type ChatMode = 'ask' | 'learn';
+export type ChatMode = 'ask' | 'learn' | 'coach';
 
 export type LiveSessionState = 'disconnected' | 'connecting' | 'listening' | 'speaking' | 'error';
 
@@ -233,4 +233,166 @@ export interface RomanticPhrase {
   english: string;
   context?: string;
   difficulty: 'beginner' | 'intermediate' | 'advanced';
+}
+
+// ===========================================
+// Partner Invite System Types
+// ===========================================
+
+export interface InviteToken {
+  id: string;
+  token: string;
+  inviter_id: string;
+  inviter_name: string;
+  inviter_email: string;
+  expires_at: string;
+  used_at: string | null;
+  used_by: string | null;
+  created_at: string;
+}
+
+// Context about the learner for the tutor's AI coach
+export interface PartnerContext {
+  learnerName: string;
+  vocabulary: Array<{
+    word: string;
+    translation: string;
+    wordType: WordType;
+    mastered: boolean;
+  }>;
+  weakSpots: Array<{
+    word: string;
+    translation: string;
+    failCount: number;
+  }>;
+  recentWords: Array<{
+    word: string;
+    translation: string;
+    learnedAt: string;
+  }>;
+  stats: {
+    totalWords: number;
+    masteredCount: number;
+    needsReviewCount: number;
+    xp: number;
+    level: string;
+  };
+}
+
+// ===========================================
+// Tutor Challenge System Types
+// ===========================================
+
+export type ChallengeType = 'quiz' | 'whisper' | 'quickfire';
+export type ChallengeStatus = 'pending' | 'in_progress' | 'completed' | 'expired';
+
+export interface QuizConfig {
+  wordCount: number;
+  questionTypes: ('multiple_choice' | 'type_it' | 'flashcard')[];
+  aiSuggestedWeakWords: boolean;
+}
+
+export interface WhisperConfig {
+  recordings: Array<{
+    audioUrl: string;
+    word: string;
+    translation: string;
+  }>;
+}
+
+export interface QuickFireConfig {
+  wordCount: number;
+  timeLimitSeconds: number;
+  difficulty: 'easy' | 'medium' | 'hard';
+}
+
+export type ChallengeConfig = QuizConfig | WhisperConfig | QuickFireConfig;
+
+export interface TutorChallenge {
+  id: string;
+  tutor_id: string;
+  student_id: string;
+  challenge_type: ChallengeType;
+  title: string | null;
+  config: ChallengeConfig;
+  word_ids: string[];
+  words_data: Array<{ id?: string; word: string; translation: string; word_type: WordType }>;
+  status: ChallengeStatus;
+  expires_at: string | null;
+  created_at: string;
+  started_at: string | null;
+  completed_at: string | null;
+}
+
+export interface ChallengeResult {
+  id: string;
+  challenge_id: string;
+  student_id: string;
+  score: number;
+  total_questions: number;
+  correct_answers: number;
+  time_spent_seconds: number | null;
+  answers: any[];
+  xp_earned: number;
+  completed_at: string;
+}
+
+// ===========================================
+// Word Request System Types
+// ===========================================
+
+export type WordRequestType = 'free_text' | 'ai_topic';
+export type WordRequestStatus = 'pending' | 'learning' | 'completed';
+
+export interface WordSuggestion {
+  word: string;
+  translation: string;
+  word_type: WordType;
+  context?: string;
+  pronunciation?: string;
+  selected?: boolean;
+}
+
+export interface WordRequest {
+  id: string;
+  tutor_id: string;
+  student_id: string;
+  request_type: WordRequestType;
+  input_text: string;
+  ai_suggestions: WordSuggestion[] | null;
+  selected_words: WordSuggestion[];
+  status: WordRequestStatus;
+  learning_content: any | null;
+  xp_multiplier: number;
+  created_at: string;
+  viewed_at: string | null;
+  completed_at: string | null;
+}
+
+export interface GiftWord {
+  id: string;
+  word_id: string;
+  word_request_id: string | null;
+  tutor_id: string;
+  student_id: string;
+  xp_earned: number;
+  gifted_at: string;
+}
+
+// ===========================================
+// Notification System Types
+// ===========================================
+
+export type NotificationType = 'challenge' | 'word_request' | 'love_note' | 'challenge_complete' | 'gift_complete';
+
+export interface Notification {
+  id: string;
+  user_id: string;
+  type: NotificationType;
+  title: string;
+  message: string | null;
+  data: any;
+  read_at: string | null;
+  dismissed_at: string | null;
+  created_at: string;
 }
