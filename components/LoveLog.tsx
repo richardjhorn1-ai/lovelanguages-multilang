@@ -125,35 +125,63 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         );
 
         if (harvested.length > 0) {
-          // Check which words are truly new
+          // Check which words already exist to handle tense merging
           const harvestedWords = harvested.map(w => w.word.toLowerCase().trim());
-          const { data: existingWords } = await supabase
+          const { data: existingEntries } = await supabase
             .from('dictionary')
-            .select('word')
+            .select('word, context')
             .eq('user_id', profile.id)
             .in('word', harvestedWords);
 
-          const existingSet = new Set((existingWords || []).map(w => w.word.toLowerCase()));
-          const newWordCount = harvestedWords.filter(w => !existingSet.has(w)).length;
+          // Create a map of existing words with their parsed context
+          const existingMap = new Map<string, any>();
+          (existingEntries || []).forEach(e => {
+            try {
+              const ctx = typeof e.context === 'string' ? JSON.parse(e.context) : e.context;
+              existingMap.set(e.word.toLowerCase(), ctx);
+            } catch {
+              existingMap.set(e.word.toLowerCase(), null);
+            }
+          });
 
-          const wordsToSave = harvested.map(w => ({
-            user_id: profile.id,
-            word: String(w.word).toLowerCase().trim(),
-            translation: String(w.translation),
-            word_type: w.type as WordType,
-            importance: Number(w.importance) || 1,
-            context: JSON.stringify({
-              original: w.context,
-              examples: w.examples || [],
-              root: w.rootWord || w.word,
-              proTip: w.proTip || '',
-              conjugations: (w as any).conjugations || null,
-              gender: (w as any).gender || null,
-              plural: (w as any).plural || null,
-              adjectiveForms: (w as any).adjectiveForms || null
-            }),
-            unlocked_at: new Date().toISOString()
-          }));
+          const newWordCount = harvestedWords.filter(w => !existingMap.has(w)).length;
+
+          const wordsToSave = harvested.map(w => {
+            const wordKey = String(w.word).toLowerCase().trim();
+            const existingCtx = existingMap.get(wordKey);
+            const newConjugations = (w as any).conjugations || null;
+
+            // Merge conjugations if word exists and both have conjugation data
+            let mergedConjugations = newConjugations;
+            if (existingCtx?.conjugations && newConjugations) {
+              mergedConjugations = {
+                present: newConjugations.present || existingCtx.conjugations.present,
+                // Keep existing past if it was unlocked, otherwise use new (if provided)
+                past: existingCtx.conjugations.past || newConjugations.past || null,
+                // Keep existing future if it was unlocked, otherwise use new (if provided)
+                future: existingCtx.conjugations.future || newConjugations.future || null,
+              };
+            }
+
+            return {
+              user_id: profile.id,
+              word: wordKey,
+              translation: String(w.translation),
+              word_type: w.type as WordType,
+              importance: Number(w.importance) || 1,
+              context: JSON.stringify({
+                original: w.context,
+                examples: w.examples || [],
+                root: w.rootWord || w.word,
+                proTip: w.proTip || '',
+                conjugations: mergedConjugations,
+                gender: (w as any).gender || existingCtx?.gender || null,
+                plural: (w as any).plural || existingCtx?.plural || null,
+                adjectiveForms: (w as any).adjectiveForms || existingCtx?.adjectiveForms || null
+              }),
+              unlocked_at: new Date().toISOString()
+            };
+          });
 
           await supabase
             .from('dictionary')
