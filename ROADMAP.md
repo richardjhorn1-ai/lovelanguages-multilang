@@ -499,6 +499,38 @@ CREATE TABLE ai_challenges (
 
 ---
 
+## Phase 5.6: Codebase Refactoring ✅ COMPLETE
+
+**Date:** January 5, 2026
+
+**Goal:** Clean up codebase, reduce complexity, improve maintainability.
+
+### Completed Changes
+
+| Phase | Changes | Status |
+|-------|---------|--------|
+| Phase 1 | shuffleArray utility, dead code cleanup | ✅ |
+| Phase 2 | Type consolidation (ExtractedWord to types.ts) | ✅ |
+| Phase 3 | Constants reorganized into constants/ folder | ✅ |
+| Phase 4 | API shared utilities | ❌ Failed |
+| Phase 5 | GameResults component extracted | ✅ |
+
+### Files Created
+
+- `utils/array.ts` - Shared Fisher-Yates shuffle algorithm
+- `constants/colors.ts` - Color constants
+- `constants/icons.tsx` - SVG icon components
+- `constants/index.ts` - Barrel export
+- `components/games/GameResults.tsx` - Reusable results screen
+
+### Phase 4 Failure (Documented)
+
+Attempted to extract shared utilities (CORS, auth, sanitize) into `api/lib/`. Failed due to Vercel serverless architecture - functions bundle independently and can't import from sibling directories.
+
+See `TROUBLESHOOTING.md` Issue 23 for details.
+
+---
+
 ## Phase 6: Partner Dashboard
 
 **Goal:** Help the proficient partner support the learner
