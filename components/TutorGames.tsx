@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
 import { Profile, TutorChallenge, WordRequest, DictionaryEntry, WordScore } from '../types';
 import { ICONS } from '../constants';
+import { shuffleArray } from '../utils/array';
 import CreateQuizChallenge from './CreateQuizChallenge';
 import CreateQuickFireChallenge from './CreateQuickFireChallenge';
 import WordRequestCreator from './WordRequestCreator';
@@ -114,16 +115,6 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const handleWordRequestCreated = () => {
     fetchData();
     setShowWordRequestModal(false);
-  };
-
-  // Local game helpers
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
   };
 
   const startLocalQuiz = () => {
