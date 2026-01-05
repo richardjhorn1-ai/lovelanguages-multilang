@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { supabase } from './services/supabase';
 import { Profile } from './types';
+import { ThemeProvider } from './context/ThemeContext';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import ChatArea from './components/ChatArea';
@@ -12,6 +13,7 @@ import ProfileView from './components/ProfileView';
 import Progress from './components/Progress';
 import LevelTest from './components/LevelTest';
 import JoinInvite from './components/JoinInvite';
+import { Onboarding } from './components/onboarding/Onboarding';
 
 const App: React.FC = () => {
   const [session, setSession] = useState<any>(null);
@@ -92,8 +94,8 @@ const App: React.FC = () => {
       <div className="h-screen w-full flex flex-col items-center justify-center bg-[#FFF0F3]">
         <div className="animate-bounce text-6xl">❤️</div>
         <div className="mt-4 flex flex-col items-center gap-2">
-          <p className="text-rose-400 font-bold font-header text-xl">Love Languages</p>
-          <p className="text-rose-300 text-sm animate-pulse">Syncing your progress...</p>
+          <p className="text-[var(--accent-color)] font-bold font-header text-xl">Love Languages</p>
+          <p className="text-[var(--accent-border)] text-sm animate-pulse">Syncing your progress...</p>
         </div>
       </div>
     );
@@ -116,36 +118,47 @@ const App: React.FC = () => {
   }
 
   return (
-    <HashRouter>
-      <div className="min-h-screen bg-[#fdfcfd] text-[#292F36]">
-        <Routes>
-          {/* Partner invite route - accessible without auth */}
-          <Route path="/join/:token" element={<JoinInvite />} />
+    <ThemeProvider userId={profile?.id}>
+      <HashRouter>
+        <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+          <Routes>
+            {/* Partner invite route - accessible without auth */}
+            <Route path="/join/:token" element={<JoinInvite />} />
 
-          {/* All other routes */}
-          <Route path="*" element={
-            session && profile ? (
-              <div className="flex flex-col h-screen">
-                <Navbar profile={profile} />
-                <main className="flex-1 overflow-hidden">
-                  <Routes>
-                    <Route path="/" element={<ChatArea profile={profile} />} />
-                    <Route path="/log" element={<LoveLog profile={profile} />} />
-                    <Route path="/play" element={<FlashcardGame profile={profile} />} />
-                    <Route path="/progress" element={<Progress profile={profile} />} />
-                    <Route path="/test" element={<LevelTest profile={profile} />} />
-                    <Route path="/profile" element={<ProfileView profile={profile} onRefresh={() => fetchProfile(profile.id)} />} />
-                    <Route path="*" element={<Navigate to="/" />} />
-                  </Routes>
-                </main>
-              </div>
-            ) : (
-              <Hero />
-            )
-          } />
-        </Routes>
-      </div>
-    </HashRouter>
+            {/* All other routes */}
+            <Route path="*" element={
+              session && profile ? (
+                // Check if onboarding is completed
+                !profile.onboarding_completed_at ? (
+                  <Onboarding
+                    role={profile.role}
+                    userId={profile.id}
+                    onComplete={() => fetchProfile(profile.id)}
+                  />
+                ) : (
+                  <div className="flex flex-col h-screen">
+                    <Navbar profile={profile} />
+                    <main className="flex-1 overflow-hidden">
+                      <Routes>
+                        <Route path="/" element={<ChatArea profile={profile} />} />
+                        <Route path="/log" element={<LoveLog profile={profile} />} />
+                        <Route path="/play" element={<FlashcardGame profile={profile} />} />
+                        <Route path="/progress" element={<Progress profile={profile} />} />
+                        <Route path="/test" element={<LevelTest profile={profile} />} />
+                        <Route path="/profile" element={<ProfileView profile={profile} onRefresh={() => fetchProfile(profile.id)} />} />
+                        <Route path="*" element={<Navigate to="/" />} />
+                      </Routes>
+                    </main>
+                  </div>
+                )
+              ) : (
+                <Hero />
+              )
+            } />
+          </Routes>
+        </div>
+      </HashRouter>
+    </ThemeProvider>
   );
 };
 
