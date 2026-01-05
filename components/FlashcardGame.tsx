@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { Profile, DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase, TutorChallenge, WordRequest } from '../types';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
+import { shuffleArray } from '../utils/array';
 import { ROMANTIC_PHRASES, getRandomPhrases } from '../constants/romantic-phrases';
 import TutorGames from './TutorGames';
 import PlayQuizChallenge from './PlayQuizChallenge';
@@ -52,16 +53,6 @@ function isCorrectAnswer(userAnswer: string, correctAnswer: string): boolean {
     .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
 
   return normalize(userAnswer) === normalize(correctAnswer);
-}
-
-// Shuffle array helper
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
 }
 
 const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
