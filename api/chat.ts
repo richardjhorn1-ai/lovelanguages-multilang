@@ -72,7 +72,8 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
   return { userId: user.id };
 }
 
-// Partner context for coach mode
+// Simplified PartnerContext for prompt generation (see types.ts for full version)
+// Uses string[] for vocabulary instead of full objects - only word strings needed for prompts
 interface PartnerContext {
   learnerName: string;
   vocabulary: string[];
