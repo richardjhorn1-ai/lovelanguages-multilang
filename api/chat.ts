@@ -82,21 +82,31 @@ interface PartnerContext {
   stats: { totalWords: number; masteredCount: number; xp: number; level: string };
 }
 
-// Get user's role from profile
-async function getUserRole(userId: string): Promise<'student' | 'tutor'> {
+// Get user's profile data for personalization
+interface UserProfile {
+  role: 'student' | 'tutor';
+  partnerName: string | null;
+}
+
+async function getUserProfile(userId: string): Promise<UserProfile> {
   const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
-  if (!supabaseUrl || !supabaseServiceKey) return 'student';
+  if (!supabaseUrl || !supabaseServiceKey) {
+    return { role: 'student', partnerName: null };
+  }
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role')
+    .select('role, partner_name')
     .eq('id', userId)
     .single();
 
-  return profile?.role === 'tutor' ? 'tutor' : 'student';
+  return {
+    role: profile?.role === 'tutor' ? 'tutor' : 'student',
+    partnerName: profile?.partner_name || null
+  };
 }
 
 // Fetch partner's learning context for coach mode
@@ -510,8 +520,9 @@ Good: "Looking at their weak spots, **jeść** (to eat) has been challenging. Wh
     const modeMap: Record<string, string> = { chat: 'ask', tutor: 'learn' };
     const activeMode = modeMap[mode] || mode;
 
-    // Get user's role for mode-specific prompts
-    const userRole = await getUserRole(auth.userId);
+    // Get user's profile for mode-specific prompts and personalization
+    const userProfile = await getUserProfile(auth.userId);
+    const userRole = userProfile.role;
 
     // For coach mode, fetch partner context and generate specialized prompt
     // For ask mode, use tutor-specific prompt if user is a tutor
@@ -525,6 +536,11 @@ Good: "Looking at their weak spots, **jeść** (to eat) has been challenging. Wh
       modePrompt = MODE_DEFINITIONS[activeMode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.ask;
     }
 
+    // Generate personalized context for students (minimal - just partner name)
+    const personalizedContext = userProfile.partnerName && userRole === 'student'
+      ? `\nPERSONALIZATION:\nThe user is learning Polish for someone named ${userProfile.partnerName}. Reference this person naturally in examples and encouragement (e.g., "Try saying this to ${userProfile.partnerName} tonight!" or "Imagine ${userProfile.partnerName}'s reaction when you say this!").\n`
+      : '';
+
     // Coach mode and Tutor Ask mode use different instructions (no vocabulary extraction needed)
     const isTutorMode = activeMode === 'coach' || (activeMode === 'ask' && userRole === 'tutor');
     const activeSystemInstruction = isTutorMode
@@ -536,7 +552,7 @@ FORMATTING:
 - Keep responses warm, conversational, and focused on helping the couple connect through language
 
 ${modePrompt}`
-      : `${COMMON_INSTRUCTIONS}
+      : `${COMMON_INSTRUCTIONS}${personalizedContext}
 ${modePrompt}`;
 
     const parts: any[] = [];

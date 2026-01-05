@@ -10,9 +10,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Theme CSS Variables */
+        :root {
+            --accent-color: #FF4761;
+            --bg-primary: #fdfcfd;
+            --bg-card: #ffffff;
+            --text-primary: #292F36;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --font-size-base: 16px;
+        }
+
+        html {
+            font-size: var(--font-size-base);
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
-            background: #fdfcfd;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .font-header {
             font-family: 'Quicksand', sans-serif;
@@ -24,17 +41,31 @@
             background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: #fecdd3;
+            background: color-mix(in srgb, var(--accent-color) 30%, transparent);
             border-radius: 20px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #fb7185;
+            background: var(--accent-color);
         }
 
         /* Rich Content Styles - Polish word highlighting */
         strong {
             font-weight: 600;
-            color: #FF4761;
+            color: var(--accent-color);
+        }
+
+        /* Dark mode specific overrides */
+        .dark input,
+        .dark select,
+        .dark textarea {
+            background-color: var(--bg-card);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .dark input::placeholder,
+        .dark textarea::placeholder {
+            color: var(--text-secondary);
         }
     </style>
 <script type="importmap">

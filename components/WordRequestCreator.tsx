@@ -310,7 +310,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           )}
 
           {/* XP Multiplier */}
-          <div className="bg-gradient-to-r from-amber-50 to-rose-50 p-4 rounded-2xl border border-amber-100">
+          <div className="bg-gradient-to-r from-amber-50 to-[var(--accent-light)] p-4 rounded-2xl border border-amber-100">
             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
               XP Bonus Multiplier: {xpMultiplier}x
             </label>
@@ -321,7 +321,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
               step={0.5}
               value={xpMultiplier}
               onChange={e => setXpMultiplier(parseFloat(e.target.value))}
-              className="w-full h-2 bg-gradient-to-r from-amber-200 to-rose-200 rounded-lg appearance-none cursor-pointer accent-rose-500"
+              className="w-full h-2 bg-gradient-to-r from-amber-200 to-[var(--accent-border)] rounded-lg appearance-none cursor-pointer accent-[var(--accent-color)]"
             />
             <div className="flex justify-between text-xs text-gray-500 mt-1">
               <span>1x (Normal)</span>
@@ -329,7 +329,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
               <span>3x (Maximum)</span>
             </div>
             <p className="text-xs text-gray-600 mt-3">
-              {partnerName} will earn <span className="font-bold text-rose-500">{xpMultiplier}x XP</span> for learning these words + a completion bonus!
+              {partnerName} will earn <span className="font-bold text-[var(--accent-color)]">{xpMultiplier}x XP</span> for learning these words + a completion bonus!
             </p>
           </div>
         </div>

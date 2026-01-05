@@ -170,7 +170,7 @@ const JoinInvite: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]">
         <div className="text-center">
           <div className="animate-bounce text-6xl mb-4">💕</div>
-          <p className="text-rose-400 font-bold animate-pulse">Validating invite...</p>
+          <p className="text-[var(--accent-color)] font-bold animate-pulse">Validating invite...</p>
         </div>
       </div>
     );
@@ -188,7 +188,7 @@ const JoinInvite: React.FC = () => {
           <p className="text-gray-500 mb-8">{error}</p>
           <button
             onClick={() => navigate('/')}
-            className="bg-[#FF4761] text-white px-8 py-4 rounded-2xl font-bold shadow-lg"
+            className="bg-[var(--accent-color)] text-white px-8 py-4 rounded-2xl font-bold shadow-lg"
           >
             Go to Homepage
           </button>
@@ -203,7 +203,7 @@ const JoinInvite: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]">
         <div className="text-center">
           <div className="animate-pulse text-6xl mb-4">🔗</div>
-          <p className="text-rose-400 font-bold animate-pulse">Linking your accounts...</p>
+          <p className="text-[var(--accent-color)] font-bold animate-pulse">Linking your accounts...</p>
         </div>
       </div>
     );
@@ -216,10 +216,10 @@ const JoinInvite: React.FC = () => {
       <div className="flex-1 flex flex-col justify-center px-8 py-12 md:px-24">
         <div className="max-w-xl">
           <div className="flex items-center gap-4 mb-8">
-            <div className="bg-rose-500 p-3 rounded-2xl shadow-lg shadow-rose-200 animate-pulse">
+            <div className="bg-[var(--accent-color)] p-3 rounded-2xl shadow-lg shadow-[var(--accent-shadow)] animate-pulse">
               <ICONS.Heart className="text-white fill-white w-8 h-8" />
             </div>
-            <h1 className="text-2xl font-bold font-header text-rose-600">Love Languages</h1>
+            <h1 className="text-2xl font-bold font-header text-[var(--accent-color)]">Love Languages</h1>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6 text-[#292F36]">
@@ -232,8 +232,8 @@ const JoinInvite: React.FC = () => {
 
           <div className="space-y-4 mb-8">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0">
-                <ICONS.TrendingUp className="w-5 h-5 text-rose-500" />
+              <div className="w-10 h-10 rounded-full bg-[var(--accent-light)] flex items-center justify-center flex-shrink-0">
+                <ICONS.TrendingUp className="w-5 h-5 text-[var(--accent-color)]" />
               </div>
               <div>
                 <p className="font-bold text-gray-800">Track Their Progress</p>
@@ -266,11 +266,11 @@ const JoinInvite: React.FC = () => {
 
       {/* Right: Auth Form */}
       <div className="flex-1 flex flex-col items-center justify-center p-8 bg-white md:rounded-l-[5rem] shadow-2xl relative overflow-hidden">
-        <ICONS.Heart className="absolute -bottom-20 -right-20 w-80 h-80 text-rose-50 opacity-[0.03] pointer-events-none" />
+        <ICONS.Heart className="absolute -bottom-20 -right-20 w-80 h-80 text-[var(--accent-light)] opacity-[0.03] pointer-events-none" />
 
         <div className="w-full max-w-sm relative z-10">
           <div className="text-center mb-10">
-            <div className="w-20 h-20 bg-rose-50 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-black text-rose-500">
+            <div className="w-20 h-20 bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-black text-[var(--accent-color)]">
               {inviter?.name?.[0]?.toUpperCase() || '?'}
             </div>
             <h3 className="text-2xl font-black text-[#292F36] mb-2">
@@ -291,7 +291,7 @@ const JoinInvite: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-6 py-4 rounded-2xl bg-gray-50 text-gray-800 border-2 border-transparent focus:bg-white focus:border-rose-100 focus:outline-none transition-all font-bold text-sm"
+                className="w-full px-6 py-4 rounded-2xl bg-gray-50 text-gray-800 border-2 border-transparent focus:bg-white focus:border-[var(--accent-border)] focus:outline-none transition-all font-bold text-sm"
                 placeholder="you@love.com"
               />
             </div>
@@ -305,7 +305,7 @@ const JoinInvite: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-6 py-4 rounded-2xl bg-gray-50 text-gray-800 border-2 border-transparent focus:bg-white focus:border-rose-100 focus:outline-none transition-all font-bold text-sm"
+                className="w-full px-6 py-4 rounded-2xl bg-gray-50 text-gray-800 border-2 border-transparent focus:bg-white focus:border-[var(--accent-border)] focus:outline-none transition-all font-bold text-sm"
                 placeholder="••••••••"
               />
             </div>
@@ -313,7 +313,7 @@ const JoinInvite: React.FC = () => {
             <button
               type="submit"
               disabled={authLoading}
-              className="w-full bg-[#FF4761] hover:bg-[#E63E56] text-white font-black py-5 rounded-[2rem] shadow-xl shadow-rose-100 transition-all active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.2em] mt-4"
+              className="w-full bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white font-black py-5 rounded-[2rem] shadow-xl shadow-[var(--accent-shadow)] transition-all active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.2em] mt-4"
             >
               {authLoading ? 'Connecting...' : (isSignUp ? 'Join as Coach' : 'Sign In & Connect')}
             </button>
@@ -332,7 +332,7 @@ const JoinInvite: React.FC = () => {
           <div className="mt-8 text-center">
             <button
               onClick={() => setIsSignUp(!isSignUp)}
-              className="text-rose-400 text-xs font-black uppercase tracking-widest hover:text-rose-600 transition-all"
+              className="text-[var(--accent-color)] text-xs font-black uppercase tracking-widest hover:text-[var(--accent-color)] transition-all"
             >
               {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
             </button>

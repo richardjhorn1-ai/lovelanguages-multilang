@@ -64,7 +64,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-white rounded-[2rem] w-full max-w-md overflow-hidden text-center p-8">
-          <div className="w-20 h-20 bg-gradient-to-br from-rose-100 to-amber-100 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 animate-bounce">
+          <div className="w-20 h-20 bg-gradient-to-br from-[var(--accent-light)] to-amber-100 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 animate-bounce">
             🎁
           </div>
           <h2 className="text-2xl font-black text-gray-800 mb-2">Gift from {partnerName}!</h2>
@@ -73,18 +73,18 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
           </p>
 
           {wordRequest.request_type === 'ai_topic' && (
-            <div className="bg-rose-50 p-4 rounded-2xl mb-4">
+            <div className="bg-[var(--accent-light)] p-4 rounded-2xl mb-4">
               <p className="text-sm text-gray-600">
                 <span className="font-bold">Topic:</span> {wordRequest.input_text}
               </p>
             </div>
           )}
 
-          <div className="bg-gradient-to-r from-amber-50 to-rose-50 p-4 rounded-2xl mb-6 border border-amber-100">
+          <div className="bg-gradient-to-r from-amber-50 to-[var(--accent-light)] p-4 rounded-2xl mb-6 border border-amber-100">
             <div className="flex items-center justify-center gap-2">
               <span className="text-2xl">✨</span>
               <p className="text-sm font-bold text-gray-800">
-                Earn <span className="text-rose-500">{wordRequest.xp_multiplier}x XP</span> for these words!
+                Earn <span className="text-[var(--accent-color)]">{wordRequest.xp_multiplier}x XP</span> for these words!
               </p>
               <span className="text-2xl">✨</span>
             </div>
@@ -99,7 +99,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             </button>
             <button
               onClick={() => setShowIntro(false)}
-              className="flex-1 px-6 py-4 bg-gradient-to-r from-rose-500 to-amber-500 text-white font-bold rounded-xl hover:from-rose-600 hover:to-amber-600 transition-colors"
+              className="flex-1 px-6 py-4 bg-gradient-to-r from-[var(--accent-color)] to-amber-500 text-white font-bold rounded-xl hover:from-[var(--accent-hover)] hover:to-amber-600 transition-colors"
             >
               Open Gift
             </button>
@@ -115,10 +115,10 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-white rounded-[2rem] w-full max-w-md overflow-hidden text-center p-8">
           <div className="relative">
-            <div className="w-24 h-24 bg-gradient-to-br from-rose-100 to-amber-100 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">
+            <div className="w-24 h-24 bg-gradient-to-br from-[var(--accent-light)] to-amber-100 rounded-full flex items-center justify-center text-5xl mx-auto mb-4">
               🎉
             </div>
-            <div className="absolute -top-2 -right-2 w-10 h-10 bg-rose-500 rounded-full flex items-center justify-center text-white animate-pulse">
+            <div className="absolute -top-2 -right-2 w-10 h-10 bg-[var(--accent-light)]0 rounded-full flex items-center justify-center text-white animate-pulse">
               <ICONS.Heart className="w-6 h-6 fill-white" />
             </div>
           </div>
@@ -128,8 +128,8 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             {result.wordsAdded} new word{result.wordsAdded > 1 ? 's' : ''} added to your Love Log
           </p>
 
-          <div className="bg-gradient-to-r from-amber-50 to-rose-50 p-6 rounded-2xl mb-6 border border-amber-100">
-            <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-amber-500 mb-2">
+          <div className="bg-gradient-to-r from-amber-50 to-[var(--accent-light)] p-6 rounded-2xl mb-6 border border-amber-100">
+            <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-color)] to-amber-500 mb-2">
               +{result.xpEarned} XP
             </p>
             <div className="text-xs text-gray-500 space-y-1">
@@ -139,13 +139,13 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
           </div>
 
           <p className="text-sm text-gray-500 mb-6 flex items-center justify-center gap-2">
-            <ICONS.Heart className="w-4 h-4 text-rose-400 fill-rose-400" />
+            <ICONS.Heart className="w-4 h-4 text-[var(--accent-color)] fill-[var(--accent-color)]" />
             Gift from {result.giftedBy || partnerName}
           </p>
 
           <button
             onClick={() => { onComplete(); }}
-            className="w-full px-6 py-4 bg-gradient-to-r from-rose-500 to-amber-500 text-white font-bold rounded-xl hover:from-rose-600 hover:to-amber-600 transition-colors"
+            className="w-full px-6 py-4 bg-gradient-to-r from-[var(--accent-color)] to-amber-500 text-white font-bold rounded-xl hover:from-[var(--accent-hover)] hover:to-amber-600 transition-colors"
           >
             Done
           </button>
@@ -160,9 +160,9 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-white rounded-[2rem] w-full max-w-md p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
-            <div className="w-3 h-3 bg-rose-400 rounded-full animate-bounce"></div>
+            <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-            <div className="w-3 h-3 bg-rose-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
           <p className="text-gray-500">Adding words to your Love Log...</p>
         </div>
@@ -189,7 +189,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
           </div>
           <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-rose-500 to-amber-500 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-[var(--accent-color)] to-amber-500 transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -205,10 +205,10 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
               flipped ? 'rotate-y-180' : ''
             }`}>
               {/* Front - Polish Word */}
-              <div className={`bg-gradient-to-br from-rose-50 to-amber-50 p-8 rounded-2xl border border-rose-100 text-center min-h-[200px] flex flex-col items-center justify-center ${
+              <div className={`bg-gradient-to-br from-[var(--accent-light)] to-amber-50 p-8 rounded-2xl border border-[var(--accent-border)] text-center min-h-[200px] flex flex-col items-center justify-center ${
                 flipped ? 'hidden' : ''
               }`}>
-                <p className="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">Polish</p>
+                <p className="text-xs font-bold text-[var(--accent-color)] uppercase tracking-wider mb-2">Polish</p>
                 <p className="text-3xl font-black text-gray-800 mb-2">{currentWord?.word}</p>
                 {currentWord?.pronunciation && (
                   <p className="text-sm text-gray-400 italic">[{currentWord.pronunciation}]</p>
@@ -251,7 +251,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             )}
             <button
               onClick={handleNext}
-              className="flex-1 px-6 py-4 bg-gradient-to-r from-rose-500 to-amber-500 text-white font-bold rounded-xl hover:from-rose-600 hover:to-amber-600 transition-colors flex items-center justify-center gap-2"
+              className="flex-1 px-6 py-4 bg-gradient-to-r from-[var(--accent-color)] to-amber-500 text-white font-bold rounded-xl hover:from-[var(--accent-hover)] hover:to-amber-600 transition-colors flex items-center justify-center gap-2"
             >
               {currentIndex < words.length - 1 ? (
                 <>Next <ICONS.ChevronRight className="w-4 h-4" /></>

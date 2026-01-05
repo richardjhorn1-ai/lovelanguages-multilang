@@ -155,7 +155,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             {partnerName} wants to quiz you on {challenge.words_data?.length || 0} words!
           </p>
 
-          <div className="bg-rose-50 p-4 rounded-2xl mb-6">
+          <div className="bg-[var(--accent-light)] p-4 rounded-2xl mb-6">
             <p className="text-sm text-gray-600">
               Answer questions about Polish words you've learned.
               Get them right to build your streak!
@@ -171,7 +171,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             </button>
             <button
               onClick={handleStart}
-              className="flex-1 px-6 py-4 bg-rose-500 text-white font-bold rounded-xl hover:bg-rose-600 transition-colors"
+              className="flex-1 px-6 py-4 bg-[var(--accent-light)]0 text-white font-bold rounded-xl hover:bg-[var(--accent-hover)] transition-colors"
             >
               Start Quiz
             </button>
@@ -195,9 +195,9 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             You got {result.correct_answers} out of {result.total_questions} correct
           </p>
 
-          <div className="text-5xl font-black text-rose-500 mb-2">{result.score}%</div>
+          <div className="text-5xl font-black text-[var(--accent-color)] mb-2">{result.score}%</div>
 
-          <div className="bg-gradient-to-r from-amber-50 to-rose-50 p-4 rounded-2xl mb-6">
+          <div className="bg-gradient-to-r from-amber-50 to-[var(--accent-light)] p-4 rounded-2xl mb-6">
             <p className="text-sm font-bold text-gray-800">
               +{result.xp_earned} XP earned!
             </p>
@@ -205,7 +205,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
 
           <button
             onClick={() => { onComplete(); }}
-            className="w-full px-6 py-4 bg-rose-500 text-white font-bold rounded-xl hover:bg-rose-600 transition-colors"
+            className="w-full px-6 py-4 bg-[var(--accent-light)]0 text-white font-bold rounded-xl hover:bg-[var(--accent-hover)] transition-colors"
           >
             Done
           </button>
@@ -220,9 +220,9 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-white rounded-[2rem] w-full max-w-md p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
-            <div className="w-3 h-3 bg-rose-400 rounded-full animate-bounce"></div>
-            <div className="w-3 h-3 bg-rose-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-            <div className="w-3 h-3 bg-rose-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
+            <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+            <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
           <p className="text-gray-500">Calculating your score...</p>
         </div>
@@ -246,7 +246,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           </div>
           <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-rose-500 transition-all duration-300"
+              className="h-full bg-[var(--accent-light)]0 transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -258,8 +258,8 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             // Flashcard Mode
             <div className="text-center">
               <p className="text-sm text-gray-500 mb-4">What does this mean?</p>
-              <div className="bg-rose-50 p-8 rounded-2xl mb-6">
-                <p className="text-3xl font-black text-rose-600">{currentQuestion.word}</p>
+              <div className="bg-[var(--accent-light)] p-8 rounded-2xl mb-6">
+                <p className="text-3xl font-black text-[var(--accent-color)]">{currentQuestion.word}</p>
               </div>
 
               {!showAnswer ? (
@@ -296,8 +296,8 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             // Multiple Choice Mode
             <div>
               <p className="text-sm text-gray-500 mb-4 text-center">Translate this word:</p>
-              <div className="bg-rose-50 p-6 rounded-2xl mb-6 text-center">
-                <p className="text-3xl font-black text-rose-600">{currentQuestion.word}</p>
+              <div className="bg-[var(--accent-light)] p-6 rounded-2xl mb-6 text-center">
+                <p className="text-3xl font-black text-[var(--accent-color)]">{currentQuestion.word}</p>
               </div>
 
               <div className="space-y-2">
@@ -326,8 +326,8 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             // Type It Mode
             <div>
               <p className="text-sm text-gray-500 mb-4 text-center">Type the translation:</p>
-              <div className="bg-rose-50 p-6 rounded-2xl mb-6 text-center">
-                <p className="text-3xl font-black text-rose-600">{currentQuestion?.word}</p>
+              <div className="bg-[var(--accent-light)] p-6 rounded-2xl mb-6 text-center">
+                <p className="text-3xl font-black text-[var(--accent-color)]">{currentQuestion?.word}</p>
               </div>
 
               <input
@@ -341,13 +341,13 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
                 }}
                 placeholder="Type your answer..."
                 autoFocus
-                className="w-full p-4 border-2 border-gray-200 rounded-xl text-center text-lg font-bold focus:outline-none focus:border-rose-300 mb-4"
+                className="w-full p-4 border-2 border-gray-200 rounded-xl text-center text-lg font-bold focus:outline-none focus:border-[var(--accent-border)] mb-4"
               />
 
               <button
                 onClick={() => handleAnswer(userInput)}
                 disabled={!userInput.trim()}
-                className="w-full py-4 bg-rose-500 text-white font-bold rounded-xl hover:bg-rose-600 disabled:opacity-50 transition-colors"
+                className="w-full py-4 bg-[var(--accent-light)]0 text-white font-bold rounded-xl hover:bg-[var(--accent-hover)] disabled:opacity-50 transition-colors"
               >
                 Submit
               </button>
