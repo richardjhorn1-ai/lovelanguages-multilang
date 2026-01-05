@@ -107,9 +107,12 @@ ${knownContext}
 FOR VERBS:
 - "word": Use INFINITIVE form (e.g., "jeść" not "jem")
 - "type": "verb"
-- "conjugations": REQUIRED - ONLY present tense with ALL 6 persons filled:
+- "conjugations": REQUIRED - present tense with ALL 6 persons:
   { present: { ja: "jem", ty: "jesz", onOna: "je", my: "jemy", wy: "jecie", oni: "jedzą" } }
-- DO NOT include past or future tenses - users unlock those separately when ready
+- If the conversation EXPLICITLY TEACHES past or future tense forms (with explanations/examples), include them:
+  - past: Include unlockedAt timestamp and gendered forms
+  - future: Include unlockedAt timestamp and all persons
+- Only include past/future if the AI is actively teaching that tense, not just using it in passing
 - NEVER return separate entries for individual conjugated forms
 
 FOR NOUNS:
@@ -137,7 +140,8 @@ FOR ALL WORDS:
 
 === VALIDATION ===
 Before returning, verify:
-[ ] Every verb has conjugations.present with ALL 6 persons (NO past/future - those are unlocked later)
+[ ] Every verb has conjugations.present with ALL 6 persons
+[ ] If past/future tense was explicitly taught, include it with unlockedAt timestamp
 [ ] Every noun has gender AND plural
 [ ] Every adjective has adjectiveForms with ALL 4 forms (masculine, feminine, neuter, plural)
 [ ] Every word has exactly 5 examples
@@ -169,7 +173,7 @@ ${historyText}`,
                   },
                   conjugations: {
                     type: Type.OBJECT,
-                    description: "REQUIRED for verbs. Only present tense - past/future unlocked separately.",
+                    description: "REQUIRED for verbs. Present always required. Past/future only if explicitly taught.",
                     properties: {
                       present: {
                         type: Type.OBJECT,
@@ -183,6 +187,69 @@ ${historyText}`,
                           oni: { type: Type.STRING, description: "They - REQUIRED" }
                         },
                         required: ["ja", "ty", "onOna", "my", "wy", "oni"]
+                      },
+                      past: {
+                        type: Type.OBJECT,
+                        description: "Past tense - only include if explicitly taught in conversation",
+                        properties: {
+                          unlockedAt: { type: Type.STRING, description: "ISO timestamp - set to current time" },
+                          ja: {
+                            type: Type.OBJECT,
+                            properties: {
+                              masculine: { type: Type.STRING },
+                              feminine: { type: Type.STRING }
+                            }
+                          },
+                          ty: {
+                            type: Type.OBJECT,
+                            properties: {
+                              masculine: { type: Type.STRING },
+                              feminine: { type: Type.STRING }
+                            }
+                          },
+                          onOna: {
+                            type: Type.OBJECT,
+                            properties: {
+                              masculine: { type: Type.STRING },
+                              feminine: { type: Type.STRING },
+                              neuter: { type: Type.STRING }
+                            }
+                          },
+                          my: {
+                            type: Type.OBJECT,
+                            properties: {
+                              masculine: { type: Type.STRING },
+                              feminine: { type: Type.STRING }
+                            }
+                          },
+                          wy: {
+                            type: Type.OBJECT,
+                            properties: {
+                              masculine: { type: Type.STRING },
+                              feminine: { type: Type.STRING }
+                            }
+                          },
+                          oni: {
+                            type: Type.OBJECT,
+                            properties: {
+                              masculine: { type: Type.STRING },
+                              feminine: { type: Type.STRING }
+                            }
+                          }
+                        }
+                      },
+                      future: {
+                        type: Type.OBJECT,
+                        description: "Future tense - only include if explicitly taught in conversation",
+                        properties: {
+                          unlockedAt: { type: Type.STRING, description: "ISO timestamp - set to current time" },
+                          ja: { type: Type.STRING },
+                          ty: { type: Type.STRING },
+                          onOna: { type: Type.STRING },
+                          my: { type: Type.STRING },
+                          wy: { type: Type.STRING },
+                          oni: { type: Type.STRING }
+                        }
                       }
                     },
                     required: ["present"]
@@ -238,11 +305,26 @@ ${historyText}`,
       });
     }
 
-    const sanitizedWords = (parsed.newWords || []).map((w: any) => ({
-      ...w,
-      word: (w.word || '').toLowerCase().trim(),
-      rootWord: ((w.rootWord || w.word || '') as string).toLowerCase().trim()
-    }));
+    const now = new Date().toISOString();
+    const sanitizedWords = (parsed.newWords || []).map((w: any) => {
+      const sanitized = {
+        ...w,
+        word: (w.word || '').toLowerCase().trim(),
+        rootWord: ((w.rootWord || w.word || '') as string).toLowerCase().trim()
+      };
+
+      // Ensure unlockedAt is set for any past/future tenses included
+      if (sanitized.conjugations) {
+        if (sanitized.conjugations.past && !sanitized.conjugations.past.unlockedAt) {
+          sanitized.conjugations.past.unlockedAt = now;
+        }
+        if (sanitized.conjugations.future && !sanitized.conjugations.future.unlockedAt) {
+          sanitized.conjugations.future.unlockedAt = now;
+        }
+      }
+
+      return sanitized;
+    });
 
     return res.status(200).json({ newWords: sanitizedWords });
   } catch (e: any) {
