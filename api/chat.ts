@@ -504,6 +504,8 @@ Good: "Looking at their weak spots, **jeść** (to eat) has been challenging. Wh
     };
 
     // Map old mode names to new ones for backwards compatibility
+    // TODO: Remove after confirming no 'chat'/'tutor' entries exist in database
+    // Frontend now only uses: 'ask' | 'learn' | 'coach' (ChatMode type)
     const modeMap: Record<string, string> = { chat: 'ask', tutor: 'learn' };
     const activeMode = modeMap[mode] || mode;
 
