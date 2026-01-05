@@ -393,3 +393,31 @@ export interface Notification {
   dismissed_at: string | null;
   created_at: string;
 }
+
+// ===========================================
+// Gemini Service Types
+// ===========================================
+
+export interface ExtractedWord {
+  word: string;
+  translation: string;
+  type: 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
+  importance: number;
+  context: string;
+  rootWord?: string;
+  examples?: string[];
+  proTip?: string;
+  conjugations?: {
+    present?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
+    past?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
+    future?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
+  };
+  adjectiveForms?: { masculine?: string; feminine?: string; neuter?: string; plural?: string };
+  gender?: string;
+  plural?: string;
+}
+
+export interface Attachment {
+  data: string;
+  mimeType: string;
+}
