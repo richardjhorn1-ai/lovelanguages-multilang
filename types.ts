@@ -10,6 +10,41 @@ export interface Profile {
   avatar_url?: string;
   xp?: number;
   level?: number;
+  partner_name?: string;
+  onboarding_completed_at?: string;
+  onboarding_data?: OnboardingData;
+  // Theme settings
+  accent_color?: 'rose' | 'blush' | 'lavender' | 'wine' | 'teal' | 'honey';
+  dark_mode?: 'off' | 'midnight' | 'charcoal' | 'black';
+  font_size?: 'small' | 'medium' | 'large';
+}
+
+// Onboarding data collected during signup flow
+export interface OnboardingData {
+  // Student fields
+  userName?: string;
+  partnerName?: string;
+  relationshipVibe?: string;
+  couplePhotoUrl?: string;
+  learningReason?: string;       // "Why do you want to learn Polish?"
+  dailyTime?: string;            // "A quick kiss", "A coffee date", etc.
+  preferredTime?: string;        // Morning, Evening, etc.
+  biggestFear?: string;          // Pronunciation, Grammar, etc.
+  priorExperience?: string;
+  firstGoal?: string;
+
+  // Tutor fields
+  learnerName?: string;
+  relationshipType?: string;     // Partner, Spouse, Friend, Family
+  polishConnection?: string;     // Native, Heritage, Fluent, Bilingual
+  polishOrigin?: string;
+  traditionsToShare?: string[];
+  familyPolishFrequency?: string;
+  dreamPhrase?: string;          // What they want learner to say first
+  dreamHear?: string;            // What they want learner to say (legacy)
+  teachingPriority?: string;
+  teachingStyle?: string;
+  grammarComfort?: number;       // 1-5 slider
 }
 
 export type WordType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
