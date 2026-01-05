@@ -60,9 +60,6 @@ export interface VerbConjugations {
   future?: FutureTenseConjugation | null;     // null = locked, object = unlocked
 }
 
-// Legacy type for backwards compatibility
-export type TenseConjugation = PresentTenseConjugation;
-
 // Adjective forms by gender
 export interface AdjectiveForms {
   masculine: string;
