@@ -11,6 +11,7 @@ import FlashcardGame from './components/FlashcardGame';
 import ProfileView from './components/ProfileView';
 import Progress from './components/Progress';
 import LevelTest from './components/LevelTest';
+import JoinInvite from './components/JoinInvite';
 
 const App: React.FC = () => {
   const [session, setSession] = useState<any>(null);
@@ -117,24 +118,32 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <div className="min-h-screen bg-[#fdfcfd] text-[#292F36]">
-        {session && profile ? (
-          <div className="flex flex-col h-screen">
-            <Navbar profile={profile} />
-            <main className="flex-1 overflow-hidden">
-              <Routes>
-                <Route path="/" element={<ChatArea profile={profile} />} />
-                <Route path="/log" element={<LoveLog profile={profile} />} />
-                <Route path="/play" element={<FlashcardGame profile={profile} />} />
-                <Route path="/progress" element={<Progress profile={profile} />} />
-                <Route path="/test" element={<LevelTest profile={profile} />} />
-                <Route path="/profile" element={<ProfileView profile={profile} onRefresh={() => fetchProfile(profile.id)} />} />
-                <Route path="*" element={<Navigate to="/" />} />
-              </Routes>
-            </main>
-          </div>
-        ) : (
-          <Hero />
-        )}
+        <Routes>
+          {/* Partner invite route - accessible without auth */}
+          <Route path="/join/:token" element={<JoinInvite />} />
+
+          {/* All other routes */}
+          <Route path="*" element={
+            session && profile ? (
+              <div className="flex flex-col h-screen">
+                <Navbar profile={profile} />
+                <main className="flex-1 overflow-hidden">
+                  <Routes>
+                    <Route path="/" element={<ChatArea profile={profile} />} />
+                    <Route path="/log" element={<LoveLog profile={profile} />} />
+                    <Route path="/play" element={<FlashcardGame profile={profile} />} />
+                    <Route path="/progress" element={<Progress profile={profile} />} />
+                    <Route path="/test" element={<LevelTest profile={profile} />} />
+                    <Route path="/profile" element={<ProfileView profile={profile} onRefresh={() => fetchProfile(profile.id)} />} />
+                    <Route path="*" element={<Navigate to="/" />} />
+                  </Routes>
+                </main>
+              </div>
+            ) : (
+              <Hero />
+            )
+          } />
+        </Routes>
       </div>
     </HashRouter>
   );

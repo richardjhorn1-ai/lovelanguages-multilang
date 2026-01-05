@@ -144,6 +144,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [activeChat, setActiveChat] = useState<Chat | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
+  // Default mode based on role: everyone starts in ask mode
   const [mode, setMode] = useState<ChatMode>('ask');
   const [loading, setLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -178,10 +179,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   const fetchChats = async () => {
     const { data } = await supabase.from('chats').select('*').eq('user_id', profile.id).order('created_at', { ascending: false });
-    if (data) { 
-        setChats(data); 
-        if (data.length > 0 && !activeChat) setActiveChat(data[0]); 
+    if (data) {
+        setChats(data);
+        if (data.length > 0 && !activeChat) setActiveChat(data[0]);
     }
+    // Create initial chat - everyone starts in Ask mode
     if (!data || data.length === 0) createNewChat('ask');
   };
 
@@ -539,9 +541,17 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               </button>
             )}
             <div className="flex bg-gray-100 p-1 rounded-xl">
-              {(['ask', 'learn'] as ChatMode[]).map(m => (
-                <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white text-rose-500 shadow-sm' : 'text-gray-400'}`}>{m}</button>
-              ))}
+              {profile.role === 'tutor' ? (
+                // Tutors see Ask/Coach modes
+                (['ask', 'coach'] as ChatMode[]).map(m => (
+                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white text-teal-500 shadow-sm' : 'text-gray-400'}`}>{m}</button>
+                ))
+              ) : (
+                // Students see Ask/Learn modes
+                (['ask', 'learn'] as ChatMode[]).map(m => (
+                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white text-rose-500 shadow-sm' : 'text-gray-400'}`}>{m}</button>
+                ))
+              )}
             </div>
           </div>
         </div>
@@ -703,7 +713,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                       value={input}
                       onChange={e => setInput(e.target.value)}
                       onKeyDown={e => e.key === 'Enter' && handleSend()}
-                      placeholder={isLive ? (liveState === 'listening' ? "Listening..." : liveState === 'speaking' ? "Cupid is speaking..." : "Connecting...") : (mode === 'ask' ? "Ask Cupid anything..." : "Ready for your next lesson?")}
+                      placeholder={isLive ? (liveState === 'listening' ? "Listening..." : liveState === 'speaking' ? "Cupid is speaking..." : "Connecting...") : (mode === 'coach' ? "How can you help your partner today?" : mode === 'ask' ? (profile.role === 'tutor' ? "Ask anything about helping your partner learn..." : "Ask Cupid anything...") : "Ready for your next lesson?")}
                       disabled={isLive}
                       className="w-full bg-transparent border-none text-sm font-bold text-gray-700 focus:outline-none placeholder:text-gray-400 disabled:cursor-not-allowed"
                     />

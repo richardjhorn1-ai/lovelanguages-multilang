@@ -72,6 +72,120 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
   return { userId: user.id };
 }
 
+// Partner context for coach mode
+interface PartnerContext {
+  learnerName: string;
+  vocabulary: string[];
+  weakSpots: Array<{ word: string; translation: string; failCount: number }>;
+  recentWords: Array<{ word: string; translation: string }>;
+  stats: { totalWords: number; masteredCount: number; xp: number; level: string };
+}
+
+// Get user's role from profile
+async function getUserRole(userId: string): Promise<'student' | 'tutor'> {
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+  if (!supabaseUrl || !supabaseServiceKey) return 'student';
+
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', userId)
+    .single();
+
+  return profile?.role === 'tutor' ? 'tutor' : 'student';
+}
+
+// Fetch partner's learning context for coach mode
+async function getPartnerContext(userId: string): Promise<PartnerContext | null> {
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+  if (!supabaseUrl || !supabaseServiceKey) return null;
+
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+  // Get the tutor's profile to find linked learner
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role, linked_user_id')
+    .eq('id', userId)
+    .single();
+
+  if (!profile || profile.role !== 'tutor' || !profile.linked_user_id) {
+    return null;
+  }
+
+  const learnerId = profile.linked_user_id;
+
+  // Get learner's profile
+  const { data: learnerProfile } = await supabase
+    .from('profiles')
+    .select('full_name, xp, level')
+    .eq('id', learnerId)
+    .single();
+
+  // Get learner's vocabulary
+  const { data: vocabulary } = await supabase
+    .from('dictionary')
+    .select('id, word, translation, unlocked_at')
+    .eq('user_id', learnerId)
+    .order('unlocked_at', { ascending: false });
+
+  // Get learner's scores for weak spots
+  const { data: scores } = await supabase
+    .from('scores')
+    .select('word_id, success_count, fail_count, learned_at, dictionary:word_id(word, translation)')
+    .eq('user_id', learnerId);
+
+  // Calculate weak spots (words with failures)
+  const weakSpots = (scores || [])
+    .filter((s: any) => s.fail_count > 0)
+    .sort((a: any, b: any) => b.fail_count - a.fail_count)
+    .slice(0, 10)
+    .map((s: any) => ({
+      word: s.dictionary?.word || 'unknown',
+      translation: s.dictionary?.translation || '',
+      failCount: s.fail_count
+    }));
+
+  // Calculate mastered count
+  const masteredCount = (scores || []).filter((s: any) => s.learned_at != null).length;
+
+  // Get recent words (last 10)
+  const recentWords = (vocabulary || []).slice(0, 10).map((v: any) => ({
+    word: v.word,
+    translation: v.translation
+  }));
+
+  // Level name lookup
+  const levelNames = [
+    'Beginner 1', 'Beginner 2', 'Beginner 3',
+    'Elementary 1', 'Elementary 2', 'Elementary 3',
+    'Conversational 1', 'Conversational 2', 'Conversational 3',
+    'Proficient 1', 'Proficient 2', 'Proficient 3',
+    'Fluent 1', 'Fluent 2', 'Fluent 3',
+    'Master 1', 'Master 2', 'Master 3'
+  ];
+  const levelIndex = Math.min((learnerProfile?.level || 1) - 1, 17);
+  const levelName = levelNames[levelIndex] || 'Beginner 1';
+
+  return {
+    learnerName: learnerProfile?.full_name || 'your partner',
+    vocabulary: (vocabulary || []).map((v: any) => `${v.word} (${v.translation})`),
+    weakSpots,
+    recentWords,
+    stats: {
+      totalWords: vocabulary?.length || 0,
+      masteredCount,
+      xp: learnerProfile?.xp || 0,
+      level: levelName
+    }
+  };
+}
+
 export default async function handler(req: any, res: any) {
   // CORS Headers
   if (setCorsHeaders(req, res)) {
@@ -220,6 +334,40 @@ BANNED:
 - Long explanations
 - Saying "you can say X by saying X"
 `,
+        tutorAsk: `
+### MODE: ASK (Tutor) - Helpful Partner Assistant
+
+You are helping a Polish speaker support their English-speaking partner who is learning Polish. The user (tutor) is the native Polish speaker.
+
+YOUR ROLE:
+- Help them explain Polish concepts to their partner
+- Provide tips for teaching Polish to their loved one
+- Answer questions about Polish grammar, pronunciation, or culture
+- Help them communicate and bond through the language learning journey
+- Suggest romantic phrases, activities, or ways to practice together
+
+CONTEXT:
+- The tutor may be sitting WITH their partner right now, helping them
+- Or they may be asking how to help their partner later
+- Focus on connection, bonding, and making learning fun together
+
+RESPONSE STYLE:
+- Warm, supportive, practical
+- Keep responses concise (2-4 sentences)
+- When teaching grammar, explain it simply so the tutor can relay it
+- Polish words in **bold** with [pronunciation] hints
+- End with a helpful follow-up or suggestion
+
+EXAMPLES:
+User: "How do I explain cases to my partner?"
+Good: "Start simple! Cases change word endings based on their job in a sentence. Tell them: 'When you DO something to the cat, kot becomes kota.' Practice with objects around the room - point and conjugate together. Want a fun drill you can do tonight?"
+
+User: "My partner keeps confusing ć and cz"
+Good: "Classic struggle! Tell them: **ć** [ch] is soft like 'cheese', **cz** [tch] is hard like 'church'. Try this game - you say words and they guess which sound. **Cześć** (hello) vs **być** (to be) - makes it fun!"
+
+User: "We're having dinner, what Polish can we practice?"
+Good: "Perfect timing! Point at food and teach: **Smaczne!** [SMACH-neh] means 'delicious' - have them say it after every bite. Or ask '**Co jesz?**' [tso yesh] (what are you eating?) and they answer. Dinner = date + lesson!"
+`,
         learn: `
 ### MODE: LEARN - Structured Lesson
 
@@ -276,17 +424,117 @@ VALIDATION:
 [ ] Ends with follow-up question
 
 If you write a table WITHOUT "::: markers, IT WILL NOT RENDER.
-`
+`,
+        coach: '' // Placeholder - will be dynamically generated with partner context
+    };
+
+    // Generate coach mode prompt with partner context
+    const generateCoachPrompt = (context: PartnerContext | null): string => {
+      if (!context) {
+        return `
+### MODE: COACH - Relationship Language Guide
+
+You are a warm, supportive relationship coach, but your partner hasn't connected their account yet.
+
+Encourage the user to:
+1. Ask their partner to accept the connection request
+2. Come back once they're linked to get personalized suggestions
+
+Keep responses warm and encouraging!
+`;
+      }
+
+      const vocabList = context.vocabulary.slice(0, 30).join(', ') || 'No words learned yet';
+      const weakSpotList = context.weakSpots.map(w => `${w.word} (${w.translation}) - ${w.failCount} mistakes`).join(', ') || 'None yet';
+      const recentList = context.recentWords.map(w => `${w.word} (${w.translation})`).join(', ') || 'None yet';
+
+      return `
+### MODE: COACH - Relationship Language Guide
+
+You are a warm, insightful relationship coach helping a partner support their loved one's Polish language journey. Your role is to help this person (the tutor/coach) connect more deeply with ${context.learnerName} through the language they're learning.
+
+=== ${context.learnerName.toUpperCase()}'S LEARNING PROGRESS ===
+- Total words learned: ${context.stats.totalWords}
+- Words mastered: ${context.stats.masteredCount}
+- Current level: ${context.stats.level}
+- XP earned: ${context.stats.xp}
+
+=== VOCABULARY ${context.learnerName.toUpperCase()} KNOWS ===
+${vocabList}
+
+=== WORDS THEY'RE STRUGGLING WITH ===
+${weakSpotList}
+
+=== RECENTLY LEARNED ===
+${recentList}
+
+=== YOUR ROLE ===
+You help the tutor:
+1. **Use Polish Together** - Suggest phrases ${context.learnerName} already knows for real conversations
+2. **Encourage Learning** - Provide tips for celebrating milestones and keeping motivation high
+3. **Help With Struggles** - Suggest fun ways to practice difficult words together
+4. **Bond Through Language** - Create intimate moments using their shared Polish vocabulary
+5. **Compliments & Love** - Teach Polish phrases the tutor can say TO ${context.learnerName}
+
+=== RESPONSE STYLE ===
+- Warm, encouraging, and romantic (you're helping a couple!)
+- Practical suggestions they can use TONIGHT
+- Focus on connection and intimacy through language
+- Keep responses conversational, not lecture-like
+- Always suggest specific Polish phrases when relevant
+
+=== EXAMPLE RESPONSES ===
+
+User: "What can I say to them tonight?"
+Good: "Since ${context.learnerName} just learned **piękny** (beautiful), try telling them '**Jesteś piękna**' (You are beautiful) while looking into their eyes. They'll melt! You could also use **kocham** which they mastered - whisper 'Kocham cię' before bed. Want more romantic phrases?"
+
+User: "They seem frustrated with learning"
+Good: "I see ${context.learnerName} is struggling with **mówić** (to speak) - that's a tricky verb! Here's a fun idea: play a game where you both conjugate it together. Say 'Ja mówię po polsku' (I speak Polish) and have them repeat. Celebrate every small win with a hug. Want me to create a mini practice session you can do together?"
+
+User: "How can I help them study?"
+Good: "Looking at their weak spots, **jeść** (to eat) has been challenging. Why not cook a Polish meal together and practice food vocabulary? You could ask '**Co jesz?**' (What are you eating?) - a phrase they know! Making learning part of date night keeps it fun."
+
+=== IMPORTANT ===
+- Always reference ${context.learnerName}'s ACTUAL vocabulary when suggesting phrases
+- If suggesting new phrases, keep them simple and related to what they already know
+- Focus on CONNECTION over perfection
+- You're helping create intimate moments, not running a classroom
+- DO NOT extract vocabulary - this mode is for the tutor, not the learner
+`;
     };
 
     // Map old mode names to new ones for backwards compatibility
     const modeMap: Record<string, string> = { chat: 'ask', tutor: 'learn' };
     const activeMode = modeMap[mode] || mode;
 
-    const activeSystemInstruction = `
-${COMMON_INSTRUCTIONS}
-${MODE_DEFINITIONS[activeMode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.ask}
-`;
+    // Get user's role for mode-specific prompts
+    const userRole = await getUserRole(auth.userId);
+
+    // For coach mode, fetch partner context and generate specialized prompt
+    // For ask mode, use tutor-specific prompt if user is a tutor
+    let modePrompt = '';
+    if (activeMode === 'coach') {
+      const partnerContext = await getPartnerContext(auth.userId);
+      modePrompt = generateCoachPrompt(partnerContext);
+    } else if (activeMode === 'ask' && userRole === 'tutor') {
+      modePrompt = MODE_DEFINITIONS.tutorAsk;
+    } else {
+      modePrompt = MODE_DEFINITIONS[activeMode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.ask;
+    }
+
+    // Coach mode and Tutor Ask mode use different instructions (no vocabulary extraction needed)
+    const isTutorMode = activeMode === 'coach' || (activeMode === 'ask' && userRole === 'tutor');
+    const activeSystemInstruction = isTutorMode
+      ? `You are a warm, helpful assistant for a Polish speaker helping their partner learn Polish. Your responses should be encouraging and practical.
+
+FORMATTING:
+- Polish words go inside **double asterisks**: **kocham**, **Dzień dobry**
+- Pronunciation goes in [square brackets]: [KOH-ham]
+- Keep responses warm, conversational, and focused on helping the couple connect through language
+
+${modePrompt}`
+      : `${COMMON_INSTRUCTIONS}
+${modePrompt}`;
 
     const parts: any[] = [];
     if (images && Array.isArray(images)) {
