@@ -1,115 +1,91 @@
 # Next Steps - Love Languages
 
-**Date:** January 4, 2026
-**Last Session:** Test Results Modal + Brand Color Consistency
+**Date:** January 5, 2026
+**Last Session:** Codebase Refactoring Complete
 
 ---
 
 ## What We Just Completed
 
-### Test Results & Previous Attempts Feature
-- **Previous Attempts** - Each level test now shows historical attempts
-  - List icon appears next to levels with past attempts
-  - Expandable section shows date, score, and pass/fail status
-- **Test Results Modal** - Click any attempt to see full results in a popup
-  - Shows score, correct answers, and all questions
-  - Displays user answers vs correct answers
-  - "Try Again" button to retake the test
-- **User Answers Stored** - API now saves user answers in database for review
+### Codebase Refactoring (January 5, 2026)
 
-### Brand Color Consistency
-- **Unified Theming** - Changed from tier-based colors (green/blue/purple) to brand rose (#FF4761)
-- **Progress Page** - All stat cards now use brand color
-- **Updated `getTierColor()`** - Now returns brand color for all tiers
+Successfully cleaned up the codebase with these changes:
 
-### Practice Level Tests Fix
-- **Fixed Key Format Mismatch** - API was creating keys like "Beginner 2->Beginner 3" but theme map used "Beginner 2->3"
-- **Updated `getThemeForTransition()`** - Now handles both intra-tier and cross-tier transitions correctly
+| Phase | Changes | Result |
+|-------|---------|--------|
+| **Phase 1** | shuffleArray utility, dead code removal | 4 commits |
+| **Phase 2** | Type consolidation (ExtractedWord to types.ts) | 2 commits |
+| **Phase 3** | Constants reorganized into constants/ folder | 1 commit |
+| **Phase 4** | API shared utilities | **Failed** - Vercel limitation |
+| **Phase 5** | GameResults component extracted | 1 commit |
 
-### Files Modified
-| File | Changes |
-|------|---------|
-| `components/Progress.tsx` | Test attempts fetching, results modal, expanded dropdown |
-| `components/LevelTest.tsx` | Simplified results screen, removed inline review |
-| `api/submit-level-test.ts` | Store user answers in questions array |
-| `api/generate-level-test.ts` | Fixed key format in `getThemeForTransition()` |
-| `services/level-utils.ts` | Brand color for all tiers |
-| `constants.tsx` | Added List icon |
+**Key Lesson:** Vercel serverless functions can't import from sibling directories within `api/`. See `TROUBLESHOOTING.md` Issue 23 for details.
+
+**Files Created/Modified:**
+- `utils/array.ts` - Shared shuffleArray utility
+- `constants/colors.ts`, `constants/icons.tsx`, `constants/index.ts` - Modular constants
+- `types.ts` - Added ExtractedWord, Attachment interfaces
+- `components/games/GameResults.tsx` - Extracted game results component
 
 ---
 
 ## Current System Status
 
 ### Working Features
+
 | Feature | Status |
 |---------|--------|
-| Text chat vocabulary extraction | ✅ Real-time |
-| Voice mode vocabulary extraction | ✅ Post-session |
-| Verb conjugations (present) | ✅ All 6 persons |
-| Verb conjugations (past/future) | ✅ Complete or omitted |
-| Noun gender + plural | ✅ Required |
-| Adjective forms | ✅ All 4 required |
-| Example sentences | ✅ 5 per word |
-| Pro-tips | ✅ Required |
-| XP/Level System | ✅ 18 levels, 6 tiers |
-| Level Tests | ✅ AI-generated themed questions |
-| Test Results Modal | ✅ View past attempts |
-| Play Section | ✅ 3 practice modes |
-| Learning Journey | ✅ AI-generated diary entries |
+| Text chat with vocabulary extraction | Real-time |
+| Voice mode with transcription | Working |
+| Love Log (vocabulary system) | Complete |
+| XP/Level System | 18 levels, 6 tiers |
+| Level Tests | AI-generated themed questions |
+| Test Results Modal | View past attempts |
+| Play Section | 4 modes (Flashcards, MC, Type It, AI Challenge) |
+| AI Challenge Mode | 5 challenge types with mastery tracking |
+| Tutor Games | Quiz, Quick Fire for partners |
+| Partner Invites | Invite link system |
 
-### Data Quality Rules (Enforced)
-- Verbs: ALL 6 conjugations for present tense (ja, ty, onOna, my, wy, oni)
-- Verbs: Past/future only if ALL 6 can be filled (no partial data)
-- Nouns: Gender (masculine/feminine/neuter) + plural form
-- Adjectives: All 4 forms (masculine, feminine, neuter, plural)
-- All words: 5 examples + pro-tip
+### Architecture
 
----
-
-## Next Priority: Phase 5.5 - AI Challenge Mode
-
-**Goal:** Capture play session data to generate personalized AI challenges.
-
-### Core Concept
-The Play section now has 3 modes (Flashcards, Multiple Choice, Type It), but we're not capturing the data. This is a missed opportunity to identify weak words and create targeted practice.
-
-### Key Features to Build
-1. **Data Capture** - Log every play attempt with word_id, mode, correct/incorrect, response time
-2. **Struggle Score** - Calculate which words need the most practice
-3. **AI Challenge Generator** - Use Gemini to create personalized challenges
-4. **XP Rewards** - +15 XP for completing a challenge, +25 XP for perfect score
-
-### Implementation Steps
-1. Add `play_attempts` table to database
-2. Update `FlashcardGame.tsx` to log attempts
-3. Create `/api/generate-challenge.ts`
-4. Build `components/AIChallenge.tsx` UI
-
-See `ROADMAP.md` Phase 5.5 for full details.
+| Layer | Technology |
+|-------|------------|
+| Frontend | React 18 + TypeScript + Vite |
+| Styling | Tailwind CSS |
+| Backend | Vercel Serverless Functions |
+| Database | Supabase (PostgreSQL + Auth) |
+| AI | Google Gemini 2.5 Flash |
+| Voice | Gemini Live API with ephemeral tokens |
 
 ---
 
-## Also Planned: Tense Mastery System
+## Next Priorities
 
-**Goal:** Track which tenses the user has LEARNED for each verb.
+### 1. Tense Mastery System (ROADMAP Phase 4.5)
 
-A user might know "kocham" (I love - present) but not "kochałem" (I loved - past). We should track this progression.
+Track which tenses the user has learned for each verb:
+- Present tense ✅ | Past tense ⬜ | Future tense ⬜
+- Progressive unlock system
+- Tense-specific practice drills
 
-See `ROADMAP.md` Phase 4.5 for details.
+### 2. Tutor UX Improvements (docs/TUTOR_UI_REVIEW.md)
+
+Quick wins for the tutor experience:
+- Move Learning Dashboard from Play to Progress
+- Show partner's level/XP (not tutor's own)
+- Add tutor-specific games
+
+### 3. Partner Invite Testing
+
+New invite system needs production testing:
+- `api/generate-invite.ts` - Create invite tokens
+- `api/validate-invite.ts` - Validate tokens
+- `api/complete-invite.ts` - Complete signup
+- `components/InviteLinkCard.tsx` - UI
 
 ---
 
-## Open Issues
-
-### Issue 16: Harvest Not Extracting All Words (LOW PRIORITY)
-Now that real-time extraction works, the manual "Update" button is less critical. But if needed:
-- `/api/analyze-history.ts` - extraction prompt
-- `/components/LoveLog.tsx` - `handleHarvest()` function
-- Consider paginating through all messages
-
----
-
-## Quick Start Next Session
+## Quick Start
 
 ```bash
 cd "/Users/richardhorn/Trying Claude Code/L.L.3.0"
@@ -117,19 +93,26 @@ cd "/Users/richardhorn/Trying Claude Code/L.L.3.0"
 # Start dev server
 vercel dev
 
-# Priority: Implement AI Challenge Mode
-# See ROADMAP.md Phase 5.5 for details
+# TypeScript check
+npx tsc --noEmit
+
+# Build
+npm run build
 ```
 
 ---
 
-## Documentation Reference
+## Documentation
 
-- `ROADMAP.md` - Product roadmap with Phase 4.5 & 5.5 details
-- `TROUBLESHOOTING.md` - All issues 1-20 with solutions
-- `docs/AI_INTEGRATION_GUIDE.md` - Voice mode implementation
-- `docs/FORMATTING.md` - Markdown rendering pipeline
+| File | Purpose |
+|------|---------|
+| `README.md` | Project overview, AI prompt blueprint |
+| `ROADMAP.md` | Product roadmap with phases |
+| `TROUBLESHOOTING.md` | 23 issues documented with solutions |
+| `docs/AI_INTEGRATION_GUIDE.md` | Voice/AI implementation |
+| `docs/FORMATTING.md` | Markdown rendering pipeline |
+| `docs/TUTOR_UI_REVIEW.md` | Tutor UX analysis |
 
 ---
 
-*XP/Level system complete. Test results viewable on Progress page. Brand colors consistent throughout.*
+*Codebase refactoring complete. Next: Tense mastery or tutor UX improvements.*

@@ -1228,3 +1228,96 @@ const modeCounts = useMemo(() => ({
 ```
 
 **Status:** ✅ COMPLETE - AI Challenge working as Play section tab with full mastery tracking
+
+---
+
+## Issue 23: Phase 4 API Refactoring Failed (Vercel Limitation)
+
+**Date:** January 5, 2026
+
+**Goal:**
+Extract shared utilities (CORS, sanitize, auth) from API files into `api/lib/` to reduce code duplication across 19 API endpoints.
+
+**Attempted Solution:**
+```
+api/
+├── lib/
+│   ├── cors.ts      # setCorsHeaders()
+│   ├── sanitize.ts  # sanitizeOutput()
+│   ├── auth.ts      # verifyAuth(), getUserRole()
+│   └── index.ts     # barrel export
+├── chat.ts          # import { setCorsHeaders } from './lib/cors'
+├── analyze-history.ts
+└── ... (17 more files)
+```
+
+**Error:**
+```
+POST /api/chat 500 (Internal Server Error)
+FUNCTION_INVOCATION_FAILED
+```
+
+TypeScript compiled fine. Build passed. But runtime failed.
+
+**Root Cause:**
+Vercel serverless functions bundle **each file independently**. When `chat.ts` imports from `./lib/cors.ts`, Vercel doesn't include `lib/cors.ts` in the `chat.ts` bundle.
+
+**Attempted Workarounds:**
+
+1. **Rename to `_lib/`** - Vercel excludes underscore-prefixed folders from routes, but still didn't bundle the imports
+2. **Try different import paths** - `../api/lib/cors`, `@/api/lib/cors` - all failed
+
+**Why It Doesn't Work:**
+- Vercel's serverless model: Each API file = one isolated function
+- Functions can import from `node_modules` (bundled) but NOT from sibling directories
+- This is a fundamental architecture constraint, not a configuration issue
+
+**Solution Options (for future):**
+
+1. **Move utilities outside `api/`** - Put shared code in `lib/` or `utils/` at project root
+2. **Use a build step** - Bundle API files before deployment (esbuild, rollup)
+3. **Accept duplication** - Keep utilities inline in each API file (current state)
+4. **Use middleware** - Vercel middleware can handle CORS, but not all utilities
+
+**Decision:**
+Reverted Phase 4 with `git reset --hard`. Accepted code duplication in API files. The 19 files have ~40 lines of duplicated CORS/auth code each, but they work reliably.
+
+**Key Lesson:**
+Vercel serverless functions have architectural constraints that differ from traditional Node.js apps. Always test serverless code in the actual environment, not just with `npx tsc` and local dev.
+
+**Status:** DEFERRED - Documented for future reference. May revisit with build step approach.
+
+---
+
+## Codebase Refactoring Summary (January 5, 2026)
+
+**What Was Completed:**
+
+| Phase | Changes | Status |
+|-------|---------|--------|
+| Phase 1 | shuffleArray utility, dead code cleanup | ✅ Complete |
+| Phase 2 | ExtractedWord/Attachment moved to types.ts | ✅ Complete |
+| Phase 3 | Constants reorganized into constants/ folder | ✅ Complete |
+| Phase 4 | API shared utilities | ❌ Failed (Vercel) |
+| Phase 5 | GameResults component extracted | ✅ Partial |
+
+**Files Changed:**
+- `utils/array.ts` - New shuffleArray utility
+- `constants/colors.ts`, `constants/icons.tsx`, `constants/index.ts` - Reorganized constants
+- `types.ts` - Added ExtractedWord, Attachment interfaces
+- `components/games/GameResults.tsx` - Extracted from FlashcardGame
+- `services/gemini.ts` - Now imports types from types.ts
+
+**Testing Strategy Used:**
+```bash
+# After every change:
+npx tsc --noEmit  # TypeScript check
+npm run build     # Build check
+vercel dev        # Manual testing
+```
+
+**Git Safety Protocol:**
+- One change at a time
+- Verify before commit
+- Branch for each phase (merged to main when complete)
+- Reset to last known good state on failure

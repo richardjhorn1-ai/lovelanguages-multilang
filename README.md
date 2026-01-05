@@ -85,8 +85,11 @@ The frontend renders special blocks for language learning:
 
 ## Documentation
 
-- `ROADMAP.md` - Product roadmap and future plans
-- `TROUBLESHOOTING.md` - All issues encountered and solutions
-- `NEXT_STEPS.md` - Current session notes and priorities
-- `docs/AI_INTEGRATION_GUIDE.md` - Voice mode implementation details
-- `docs/FORMATTING.md` - Markdown rendering pipeline
+| File | Purpose |
+|------|---------|
+| `ROADMAP.md` | Product roadmap with completed/planned phases |
+| `TROUBLESHOOTING.md` | 23+ issues documented with solutions |
+| `NEXT_STEPS.md` | Current project status and priorities |
+| `docs/AI_INTEGRATION_GUIDE.md` | Voice mode and Gemini API implementation |
+| `docs/FORMATTING.md` | Markdown rendering pipeline |
+| `docs/TUTOR_UI_REVIEW.md` | Tutor UX analysis and improvements |
