@@ -22,6 +22,14 @@ const BRAND = {
 
 // CSS Keyframe animations (injected once)
 const ANIMATION_STYLES = `
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   @keyframes reveal-up {
     from {
       opacity: 0;
@@ -417,46 +425,47 @@ interface SectionContent {
 // Section content for both arcs
 const STUDENT_SECTIONS: SectionContent[] = [
   {
-    headline: "Learn the words that matter—not the ones in textbooks.",
-    headlineHighlights: ["words that matter"],
+    headline: "Skip the boring stuff. Learn the words that matter—the ones that make them smile.",
+    headlineHighlights: ["words that matter", "make them smile"],
     subhead: "The ones they only use with people they love.",
-    copy: "The songs they grew up with. The phrases their grandmother used. The way they say goodnight when it's just you two. This is the Polish that matters—and it's waiting for you.",
-    copyHighlights: ["grandmother", "just you two", "waiting for you"],
-    underlinedPhrase: "This is the Polish that matters",
+    copy: "Their inside jokes. Their family phrases. The way they say 'I love you' when nobody's listening.",
+    copyHighlights: ["inside jokes", "family phrases", "I love you"],
+    underlinedPhrase: "The way they say 'I love you' when nobody's listening",
   },
   {
     headline: "There's a conversation you're not part of. Yet.",
     headlineHighlights: ["Yet"],
-    copy: "The laughter that doesn't translate. The phone calls you can't follow. The part of their life that's still just theirs. That 'yet' is what we're here for.",
-    copyHighlights: ["their life", "we're here for"],
-    underlinedPhrase: "That 'yet' is what we're here for",
+    copy: "The jokes you smile through without getting. The family stories that lose something in translation. Time to actually get it.",
+    copyHighlights: ["family stories", "actually get it"],
+    underlinedPhrase: "Time to actually get it",
   },
   {
     headline: "You're not learning Polish. You're learning them.",
     headlineHighlights: ["learning them"],
-    copy: "Their words. Their world. Their way of saying 'I love you.' This isn't about passing a test—it's about passing the dinner table. Built for people who are learning for love.",
-    copyHighlights: ["Their words", "Their world", "learning for love"],
-    underlinedPhrase: "it's about passing the dinner table",
+    copy: "Their words. Their jokes. Their way of roasting you lovingly. Built for people who are in it for love, not grades.",
+    copyHighlights: ["Their words", "Their jokes", "love"],
+    underlinedPhrase: "Built for people who are in it for love",
   },
   {
-    headline: "Every word you learn is a little act of love.",
-    headlineHighlights: ["love"],
-    copy: "This isn't homework. It's not about grammar tests or streaks. Every word you learn is a step deeper into their world. A way of saying: I love you enough to meet you where you are.",
-    copyHighlights: ["their world", "I love you"],
-    underlinedPhrase: "I love you enough to meet you where you are",
+    headline: "Learning Polish = flirting with extra steps.",
+    headlineHighlights: ["flirting"],
+    copy: "This isn't school. There's no test. Just you, showing up for them in a whole new way. Pretty romantic, honestly.",
+    copyHighlights: ["showing up for them", "romantic"],
+    underlinedPhrase: "Pretty romantic, honestly",
   },
   {
-    headline: "Imagine the look on their face.",
-    headlineHighlights: ["their face"],
-    copy: "The first time you get the joke without asking. The first 'kocham cię' that actually lands. The moment their mom realizes she can talk to you directly. These moments are coming. Every word brings them closer.",
-    copyHighlights: ["kocham cię", "mom", "closer"],
+    headline: "The moment you make their family laugh? Chef's kiss.",
+    headlineHighlights: ["their family laugh", "Chef's kiss"],
+    copy: "The first time you actually get the joke. The first 'kocham cię' that doesn't sound like a sneeze. The moment their mom starts speaking Polish directly to you. It's coming.",
+    copyHighlights: ["kocham cię", "mom", "It's coming"],
+    underlinedPhrase: "It's coming",
   },
   {
     headline: "Learn together. Love together. Laugh together.",
     headlineHighlights: ["together", "Love", "Laugh"],
-    copy: "They'll send you words that matter. Challenge you to little games. Celebrate when you nail it. This isn't you studying alone—it's the two of you, building something only you share.",
-    copyHighlights: ["words that matter", "two of you"],
-    underlinedPhrase: "building something only you share",
+    copy: "They'll send you words that matter. Challenge you to games. Roast your pronunciation (lovingly). This isn't studying alone—it's building your own little world together.",
+    copyHighlights: ["words that matter", "your own little world"],
+    underlinedPhrase: "building your own little world together",
   },
 ];
 
@@ -464,59 +473,63 @@ const TUTOR_SECTIONS: SectionContent[] = [
   {
     headline: "They love you. Now help them love your language too.",
     headlineHighlights: ["love", "your language"],
-    copy: "Your words. Your songs. Your grandmother's phrases that don't quite translate. There's so much of you wrapped up in Polish—and someone who loves you wants in.",
-    copyHighlights: ["Your words", "Your songs", "grandmother's", "wants in"],
+    copy: "Your words. Your jokes. The way you curse when you stub your toe. There's a whole you they haven't met yet—the Polish you. Let them in.",
+    copyHighlights: ["Your words", "Your jokes", "the Polish you", "Let them in"],
+    underlinedPhrase: "Let them in",
   },
   {
-    headline: "Some things just don't translate. Yet.",
-    headlineHighlights: ["translate", "Yet"],
-    copy: "The joke that kills at family dinner but falls flat in English. The lullaby you grew up with. The way Polish says 'I love you' differently depending on who's saying it. You've tried to explain. Now let them actually learn.",
-    copyHighlights: ["family dinner", "lullaby", "I love you"],
+    headline: "You've tried explaining. They've tried nodding. Let's fix this.",
+    headlineHighlights: ["explaining", "nodding", "fix this"],
+    copy: "The things you say when you're really happy. Or really annoyed. The words that feel like home. They want to understand all of you—not just the translated version.",
+    copyHighlights: ["really happy", "really annoyed", "all of you"],
+    underlinedPhrase: "not just the translated version",
   },
   {
-    headline: "Teaching them is how you bring them into your world.",
-    headlineHighlights: ["your world"],
-    copy: "Not lesson plans. Not grammar drills. Just sharing the words that matter to you—and watching them light up when they get it. Every word you teach is an invitation deeper into your life.",
-    copyHighlights: ["light up", "invitation"],
-    underlinedPhrase: "words that matter to you",
+    headline: "Every word you share is a bridge.",
+    headlineHighlights: ["bridge"],
+    copy: "Share words. Create challenges. Celebrate wins together. The app handles the boring stuff—you just get to be the fun one.",
+    copyHighlights: ["Share words", "Create challenges", "Celebrate wins", "the fun one"],
+    underlinedPhrase: "you just get to be the fun one",
   },
   {
     headline: "Send a word. Start a game. Watch them grow.",
     headlineHighlights: ["game", "grow"],
-    copy: "Challenge them to learn your mom's favorite phrase. Send them words for your next family dinner. Celebrate when they nail the pronunciation. This is couples time disguised as learning.",
-    copyHighlights: ["mom's favorite phrase", "family dinner"],
-    underlinedPhrase: "couples time disguised as learning",
+    copy: "Challenge them to your mom's favorite phrase. Quiz them before dinner. Celebrate when they nail it. This is couples time disguised as learning—and it's actually fun.",
+    copyHighlights: ["mom's favorite phrase", "couples time", "actually fun"],
+    underlinedPhrase: "This is couples time disguised as learning",
   },
   {
-    headline: "The first time they make your family laugh? That's the moment.",
-    headlineHighlights: ["family laugh", "the moment"],
-    copy: "When they finally get the joke. When your mom starts talking to them directly. When they surprise you with a phrase you never taught them. You gave them that. You opened the door.",
-    copyHighlights: ["mom", "opened the door"],
+    headline: "The moment they surprise you with a phrase you never taught them? Magic.",
+    headlineHighlights: ["surprise you", "Magic"],
+    copy: "When they crack a joke and your family actually laughs. When your mom starts speaking Polish to them directly. When they drop a phrase that makes your jaw drop. You made that happen.",
+    copyHighlights: ["family actually laughs", "mom", "You made that happen"],
   },
   {
     headline: "Teach together. Play together. Fall deeper in love.",
     headlineHighlights: ["together", "love"],
-    copy: "Every word you share brings them closer to your world—and closer to you. This isn't about being their teacher. It's about being their guide into everything that makes you, you.",
-    copyHighlights: ["closer to your world", "closer to you"],
-    underlinedPhrase: "everything that makes you, you",
+    copy: "This is how you share who you really are. Word by word. Game by game. Laugh by laugh. And they get to fall in love with all of it.",
+    copyHighlights: ["who you really are", "fall in love"],
+    underlinedPhrase: "And they get to fall in love with all of it",
   },
 ];
 
-// Context-aware login form content
+// Context-aware login form content (7 items: sections 0-2, GameShowcase, sections 3-5)
 const STUDENT_CONTEXTS = [
-  { header: "Ready to meet them?", cta: "Start learning", subtext: "Free forever. 2 minutes to start." },
+  { header: "Ready to meet them?", cta: "Start learning", subtext: "2 minutes to your first word." },
   { header: "We've got you", cta: "Start learning", subtext: "No more fake laughing." },
-  { header: "Built for lovers", cta: "Try it free", subtext: "Not tourists. Family." },
+  { header: "Built for lovers", cta: "Begin your journey", subtext: "Not tourists. Family." },
+  { header: "Play your way", cta: "Explore games", subtext: "Flashcards, challenges, and more." },
   { header: "Make it count", cta: "Begin your journey", subtext: "Every word matters." },
   { header: "Make it happen", cta: "Start now", subtext: "That moment is coming." },
   { header: "Start together", cta: "Create your world", subtext: "They're waiting for you." },
 ];
 
 const TUTOR_CONTEXTS = [
-  { header: "Share your world", cta: "Start guiding", subtext: "Free forever. 2 minutes to start." },
+  { header: "Share your world", cta: "Start guiding", subtext: "Become their Polish connection." },
   { header: "Let them in", cta: "Start guiding", subtext: "Some things translate better when learned." },
   { header: "Teach with love", cta: "Begin", subtext: "Not lessons. Love letters." },
-  { header: "Make it fun", cta: "Start playing", subtext: "Games, challenges, surprises." },
+  { header: "Challenge them", cta: "Send a challenge", subtext: "Games, challenges, surprises." },
+  { header: "Watch them bloom", cta: "Start sending", subtext: "One word at a time." },
   { header: "Open the door", cta: "Start now", subtext: "That moment is coming." },
   { header: "Grow together", cta: "Become their guide", subtext: "They're ready for you." },
 ];
@@ -626,9 +639,10 @@ const LoginForm: React.FC<{
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-6 py-5 rounded-2xl bg-[#1a1a2e] text-white border-2 border-transparent focus:outline-none transition-all placeholder:text-gray-500 font-bold text-base"
+            className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-base"
+            style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
             onFocus={(e) => e.target.style.borderColor = accentColor}
-            onBlur={(e) => e.target.style.borderColor = 'transparent'}
+            onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
             placeholder="you@love.com"
           />
         </div>
@@ -641,9 +655,10 @@ const LoginForm: React.FC<{
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-6 py-5 rounded-2xl bg-[#1a1a2e] text-white border-2 border-transparent focus:outline-none transition-all placeholder:text-gray-500 font-bold text-base"
+            className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-base"
+            style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
             onFocus={(e) => e.target.style.borderColor = accentColor}
-            onBlur={(e) => e.target.style.borderColor = 'transparent'}
+            onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
             placeholder="••••••••"
           />
         </div>
@@ -768,10 +783,11 @@ const Hero: React.FC = () => {
     <div
       className="min-h-screen flex flex-col"
       style={{
-        backgroundColor: '#FFF0F3',
+        backgroundColor: isStudent ? '#FFF0F3' : '#ccfbf1',
         color: '#1a1a2e',
         // Prevent inherited CSS variables from affecting this component
-        isolation: 'isolate'
+        isolation: 'isolate',
+        transition: 'background-color 0.3s ease'
       }}
     >
       {/* Mobile: Login form first */}
@@ -826,7 +842,7 @@ const Hero: React.FC = () => {
 
       {/* Mobile: Scrollable sections below */}
       <div className="md:hidden relative">
-        {/* First 3 sections */}
+        {/* First 3 sections (indices 0, 1, 2) */}
         {sections.slice(0, 3).map((section, i) => (
           <Section
             key={`mobile-${selectedRole}-${i}`}
@@ -837,15 +853,15 @@ const Hero: React.FC = () => {
           />
         ))}
 
-        {/* Game Showcase - after section 3 */}
-        <GameShowcase isStudent={isStudent} accentColor={accentColor} />
+        {/* Game Showcase - section index 3 */}
+        <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} />
 
-        {/* Remaining sections */}
+        {/* Remaining sections (indices 4, 5, 6) */}
         {sections.slice(3).map((section, i) => (
           <Section
-            key={`mobile-${selectedRole}-${i + 3}`}
+            key={`mobile-${selectedRole}-${i + 4}`}
             {...section}
-            index={i + 3}
+            index={i + 4}
             isStudent={isStudent}
             isVisible={true}
           />
@@ -857,7 +873,7 @@ const Hero: React.FC = () => {
         {/* Left: Scrollable sections with background effects */}
         <div
           ref={scrollRef}
-          className="flex-1 overflow-y-auto snap-y snap-mandatory h-screen relative"
+          className="flex-1 overflow-y-auto snap-y snap-mandatory h-screen relative hide-scrollbar"
           style={{ scrollBehavior: 'smooth' }}
         >
           {/* Sticky hearts container - stays visible while scrolling */}
@@ -870,7 +886,7 @@ const Hero: React.FC = () => {
             />
           </div>
 
-          {/* First 3 sections */}
+          {/* First 3 sections (indices 0, 1, 2) */}
           {sections.slice(0, 3).map((section, i) => (
             <Section
               key={`desktop-${selectedRole}-${i}`}
@@ -881,17 +897,17 @@ const Hero: React.FC = () => {
             />
           ))}
 
-          {/* Game Showcase - after section 3 */}
-          <GameShowcase isStudent={isStudent} accentColor={accentColor} />
+          {/* Game Showcase - section index 3 */}
+          <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} />
 
-          {/* Remaining sections */}
+          {/* Remaining sections (indices 4, 5, 6) */}
           {sections.slice(3).map((section, i) => (
             <Section
-              key={`desktop-${selectedRole}-${i + 3}`}
+              key={`desktop-${selectedRole}-${i + 4}`}
               {...section}
-              index={i + 3}
+              index={i + 4}
               isStudent={isStudent}
-              isVisible={visibleSections.has(i + 3)}
+              isVisible={visibleSections.has(i + 4)}
             />
           ))}
         </div>
@@ -906,9 +922,9 @@ const Hero: React.FC = () => {
             style={{ color: accentColor }}
           />
 
-          {/* Section indicator dots */}
+          {/* Section indicator dots (7 total: 3 sections + GameShowcase + 3 sections) */}
           <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2">
-            {sections.map((_, i) => (
+            {Array.from({ length: 7 }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => {
