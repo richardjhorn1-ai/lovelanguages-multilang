@@ -6,6 +6,7 @@ import { Profile, Notification } from '../types';
 import { supabase } from '../services/supabase';
 import { getLevelFromXP, getLevelProgress, getTierColor } from '../services/level-utils';
 import { useTheme } from '../context/ThemeContext';
+import { HelpGuide } from './HelpGuide';
 
 interface NavbarProps {
   profile: Profile;
@@ -15,6 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   const [requestCount, setRequestCount] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -192,6 +194,19 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Help Guide Button */}
+          <button
+            onClick={() => {
+              setIsHelpOpen(true);
+              setIsNotificationsOpen(false);
+              setIsProfileDropdownOpen(false);
+            }}
+            className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-all"
+            title="Help & Guide"
+          >
+            <ICONS.HelpCircle className="w-5 h-5 text-[var(--text-secondary)]" />
+          </button>
+
           {/* Notifications Bell */}
           <div className="relative" ref={notificationsRef}>
             <button
@@ -365,6 +380,13 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         </div>
         </div>
       </nav>
+
+      {/* Help Guide Panel */}
+      <HelpGuide
+        isOpen={isHelpOpen}
+        onClose={() => setIsHelpOpen(false)}
+        role={profile.role}
+      />
     </>
   );
 };

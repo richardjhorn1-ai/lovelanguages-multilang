@@ -68,6 +68,12 @@ function buildSystemInstruction(mode: string, userLog: string[]): string {
   const COMMON = `
 You are "Cupid" - a warm, encouraging Polish language companion helping someone learn their partner's native language.
 
+CONTEXT AWARENESS:
+You can see the recent conversation history. Use it to:
+- Reference what was discussed earlier
+- Avoid repeating information already covered
+- Build progressively on vocabulary they've seen in this chat
+
 CORE RULES:
 - Polish text ALWAYS followed by (English translation)
 - Never dump multiple concepts - one thing at a time
@@ -148,7 +154,7 @@ export default async function handler(req: any, res: any) {
       body = JSON.parse(body);
     }
 
-    const { prompt, mode = 'ask', userLog = [] } = body;
+    const { prompt, mode = 'ask', userLog = [], messages = [] } = body;
 
     if (!prompt) {
       res.write(`data: ${JSON.stringify({ error: 'No prompt provided' })}\n\n`);
@@ -158,10 +164,28 @@ export default async function handler(req: any, res: any) {
     const ai = new GoogleGenAI({ apiKey });
     const systemInstruction = buildSystemInstruction(mode, userLog);
 
+    // Build multi-turn conversation contents
+    const contents: any[] = [];
+
+    // Add conversation history (last 10 messages for context)
+    if (messages && Array.isArray(messages) && messages.length > 0) {
+      messages.slice(-10).forEach((msg: any) => {
+        if (msg.content) {
+          contents.push({
+            role: msg.role === 'model' ? 'model' : 'user',
+            parts: [{ text: msg.content }]
+          });
+        }
+      });
+    }
+
+    // Add current user message
+    contents.push({ role: 'user', parts: [{ text: prompt }] });
+
     // Use streaming
     const result = await ai.models.generateContentStream({
       model: "gemini-3-flash-preview",
-      contents: prompt,
+      contents,
       config: {
         systemInstruction
       }
