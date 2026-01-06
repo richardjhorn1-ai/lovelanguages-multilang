@@ -50,7 +50,7 @@ User: "How do I say good morning?"
 AI: "Dzień dobry (jen DOH-bri)! Whisper it to them before they open their eyes. Want the casual evening version?"
 ```
 
-### Ask Mode (Tutors)
+### Ask Mode (Tutors) - UI Label: "Coach"
 
 **Purpose:** Help tutors support their partner's learning
 
@@ -88,7 +88,7 @@ Tonight's challenge: Say "Kocham cię" while looking into their eyes.
 
 **When users should use it:** Formal lessons, verb conjugation practice, grammar deep-dives
 
-### Coach Mode (Tutors Only)
+### Coach Mode (Tutors Only) - UI Label: "Context"
 
 **Purpose:** Relationship-focused guidance with partner context
 
