@@ -8,6 +8,15 @@ import CreateQuickFireChallenge from './CreateQuickFireChallenge';
 import WordRequestCreator from './WordRequestCreator';
 import { useTheme } from '../context/ThemeContext';
 
+// Normalize answer for local matching (handles diacritics)
+function normalizeAnswer(s: string): string {
+  return s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+}
+
 // Smart validation API call
 async function validateAnswerSmart(
   userAnswer: string,
@@ -455,7 +464,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
-      isCorrect = typeItAnswer.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+      // Use diacritics-normalized comparison for consistency
+      isCorrect = normalizeAnswer(typeItAnswer) === normalizeAnswer(currentWord.translation);
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
@@ -512,7 +522,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
-      isCorrect = localQuickFireInput.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+      // Use diacritics-normalized comparison for consistency
+      isCorrect = normalizeAnswer(localQuickFireInput) === normalizeAnswer(currentWord.translation);
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
 

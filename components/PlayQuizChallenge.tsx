@@ -11,6 +11,15 @@ interface PlayQuizChallengeProps {
   smartValidation?: boolean;
 }
 
+// Normalize answer for local matching (handles diacritics)
+function normalizeAnswer(s: string): string {
+  return s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+}
+
 // Smart validation API call
 async function validateAnswerSmart(
   userAnswer: string,
@@ -138,7 +147,8 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
       explanation = result.explanation;
     } else {
       // Local matching for multiple choice or when smart validation is off
-      correct = answer.toLowerCase().trim() === question.translation.toLowerCase().trim();
+      // Use diacritics-normalized comparison for consistency
+      correct = normalizeAnswer(answer) === normalizeAnswer(question.translation);
       explanation = correct ? 'Exact match' : 'No match';
     }
 

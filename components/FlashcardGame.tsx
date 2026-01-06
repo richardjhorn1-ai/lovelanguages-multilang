@@ -805,7 +805,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
-      isCorrect = quickFireInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+      // Use diacritics-normalized comparison for consistency
+      isCorrect = isCorrectAnswer(quickFireInput, word.translation);
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
 

@@ -11,6 +11,15 @@ interface PlayQuickFireChallengeProps {
   smartValidation?: boolean;
 }
 
+// Normalize answer for local matching (handles diacritics)
+function normalizeAnswer(s: string): string {
+  return s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+}
+
 // Smart validation API call
 async function validateAnswerSmart(
   userAnswer: string,
@@ -130,7 +139,8 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
-      isCorrect = userInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+      // Use diacritics-normalized comparison for consistency
+      isCorrect = normalizeAnswer(userInput) === normalizeAnswer(word.translation);
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
