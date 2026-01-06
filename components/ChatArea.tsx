@@ -7,6 +7,7 @@ import { Profile, Chat, Message, ChatMode, WordType } from '../types';
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 import NewWordsNotification from './NewWordsNotification';
+import { ChatEmptySuggestions } from './ChatEmptySuggestions';
 
 const parseMarkdown = (text: string) => {
   if (!text) return '';
@@ -292,9 +293,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     }
   };
 
-  const handleSend = async () => {
-    if ((!input.trim() && attachments.length === 0) || !activeChat || loading) return;
-    const userMessage = input;
+  const handleSend = async (directMessage?: string) => {
+    const messageToSend = directMessage || input;
+    if ((!messageToSend.trim() && attachments.length === 0) || !activeChat || loading) return;
+    const userMessage = messageToSend;
     const currentAttachments = [...attachments];
     setInput('');
     setAttachments([]);
@@ -306,9 +308,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     // ACT 2: FETCH AI REPLY (using non-streaming API for clean formatting)
     const userWords = messages.map(m => m.content);
+    // Build message history with roles for context awareness
+    const messageHistory = messages.map(m => ({ role: m.role, content: m.content }));
 
     // Always use generateReply (non-streaming) as it produces clean markdown
-    const { replyText, newWords } = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords);
+    const { replyText, newWords } = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords, messageHistory);
 
     // ACT 3: SAVE MODEL REPLY
     setStreamingText('');
@@ -547,9 +551,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             )}
             <div className="flex bg-[var(--bg-primary)] p-1 rounded-xl">
               {profile.role === 'tutor' ? (
-                // Tutors see Ask/Coach modes
-                (['ask', 'coach'] as ChatMode[]).map(m => (
-                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-[var(--bg-card)] text-teal-500 shadow-sm' : 'text-[var(--text-secondary)]'}`}>{m}</button>
+                // Tutors see Coach/Context modes
+                ([{ mode: 'ask' as ChatMode, label: 'Coach' }, { mode: 'coach' as ChatMode, label: 'Context' }]).map(({ mode: m, label }) => (
+                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-[var(--bg-card)] text-teal-500 shadow-sm' : 'text-[var(--text-secondary)]'}`}>{label}</button>
                 ))
               ) : (
                 // Students see Ask/Learn modes
@@ -563,6 +567,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
         {/* Messages */}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-6 bg-[var(--bg-primary)] no-scrollbar">
+          {/* Empty state with suggestions */}
+          {messages.length === 0 && !loading && !streamingText && (
+            <ChatEmptySuggestions
+              mode={mode}
+              role={profile.role}
+              onSuggestionClick={(text) => handleSend(text)}
+            />
+          )}
+
           {messages.map((m, i) => (
             <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
               <div className={`max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm ${m.role === 'user' ? 'text-white rounded-tr-none font-medium' : 'bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
@@ -728,7 +741,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
 
             <button
-              onClick={handleSend}
+              onClick={() => handleSend()}
               disabled={loading || (!input.trim() && attachments.length === 0)}
               className="w-14 h-14 text-white rounded-full flex items-center justify-center shadow-xl active:scale-95 disabled:opacity-50 transition-all shrink-0"
               style={{ backgroundColor: accentHex }}

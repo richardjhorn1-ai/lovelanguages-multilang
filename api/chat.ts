@@ -236,7 +236,7 @@ export default async function handler(req: any, res: any) {
        });
     }
 
-    const { prompt, mode = 'ask', userLog = [], action, images } = body;
+    const { prompt, mode = 'ask', userLog = [], action, images, messages = [] } = body;
     const ai = new GoogleGenAI({ apiKey });
 
     // Handle Title Generation
@@ -250,6 +250,13 @@ export default async function handler(req: any, res: any) {
 
     const COMMON_INSTRUCTIONS = `
 You are "Cupid" - a warm, encouraging Polish language companion helping someone learn their partner's native language. Every word they learn is a gift of love.
+
+CONTEXT AWARENESS:
+You can see the recent conversation history. Use it to:
+- Reference what was discussed earlier ("Earlier you learned X, now let's build on that...")
+- Avoid repeating information already covered
+- Build progressively on vocabulary they've seen in this chat
+- Notice patterns in what they're asking about
 
 CORE PRINCIPLES:
 - You are NOT flirty with the user - you ENCOURAGE them to be romantic with their partner
@@ -555,19 +562,38 @@ ${modePrompt}`
       : `${COMMON_INSTRUCTIONS}${personalizedContext}
 ${modePrompt}`;
 
-    const parts: any[] = [];
-    if (images && Array.isArray(images)) {
-      images.forEach((img: any) => {
-        if (img.data && img.mimeType) {
-          parts.push({ inlineData: { data: img.data, mimeType: img.mimeType } });
+    // Build multi-turn conversation contents
+    const contents: any[] = [];
+
+    // Add conversation history (last 10 messages for context)
+    if (messages && Array.isArray(messages) && messages.length > 0) {
+      messages.slice(-10).forEach((msg: any) => {
+        if (msg.content) {
+          contents.push({
+            role: msg.role === 'model' ? 'model' : 'user',
+            parts: [{ text: msg.content }]
+          });
         }
       });
     }
-    parts.push({ text: prompt || " " });
+
+    // Build current message parts (with optional images)
+    const currentParts: any[] = [];
+    if (images && Array.isArray(images)) {
+      images.forEach((img: any) => {
+        if (img.data && img.mimeType) {
+          currentParts.push({ inlineData: { data: img.data, mimeType: img.mimeType } });
+        }
+      });
+    }
+    currentParts.push({ text: prompt || " " });
+
+    // Add current user message
+    contents.push({ role: 'user', parts: currentParts });
 
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: { parts },
+      contents,
       config: {
         systemInstruction: activeSystemInstruction,
         responseMimeType: "application/json",

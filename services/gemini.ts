@@ -23,14 +23,15 @@ export const geminiService = {
     prompt: string,
     mode: string,
     userWords: string[] = [],
-    onChunk: (text: string) => void
+    onChunk: (text: string) => void,
+    messageHistory: { role: string; content: string }[] = []
   ): Promise<string> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/chat-stream', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ prompt, mode, userLog: userWords })
+        body: JSON.stringify({ prompt, mode, userLog: userWords, messages: messageHistory.slice(-10) })
       });
 
       if (response.status === 401) {
@@ -107,13 +108,19 @@ export const geminiService = {
     }
   },
 
-  async generateReply(prompt: string, mode: string, images: Attachment[] = [], userWords: string[] = []): Promise<{ replyText: string; newWords: ExtractedWord[] }> {
+  async generateReply(
+    prompt: string,
+    mode: string,
+    images: Attachment[] = [],
+    userWords: string[] = [],
+    messageHistory: { role: string; content: string }[] = []
+  ): Promise<{ replyText: string; newWords: ExtractedWord[] }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ prompt, mode, images, userLog: userWords })
+        body: JSON.stringify({ prompt, mode, images, userLog: userWords, messages: messageHistory.slice(-10) })
       });
 
       if (response.status === 401) {
