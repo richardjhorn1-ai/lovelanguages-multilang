@@ -225,12 +225,23 @@ export interface ProgressSummary {
   generatedAt: string;        // ISO timestamp
 }
 
+// Validation patterns from smart answer validation
+export interface ValidationPatterns {
+  totalAnswers: number;
+  exactMatches: number;
+  diacriticIssues: number;
+  synonymsAccepted: number;
+  typosAccepted: number;
+  wrongAnswers: number;
+}
+
 // Saved progress summary (stored in database)
 export interface SavedProgressSummary extends ProgressSummary {
   id: string;
   xpAtTime: number;
   levelAtTime: string;
   createdAt: string;
+  validationPatterns?: ValidationPatterns | null;
 }
 
 // ===========================================
