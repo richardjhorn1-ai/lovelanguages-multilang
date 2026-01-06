@@ -105,6 +105,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   const [testAttempts, setTestAttempts] = useState<TestAttempt[]>([]);
   const [selectedTestResult, setSelectedTestResult] = useState<TestAttempt | null>(null);
   const [expandedLevel, setExpandedLevel] = useState<string | null>(null);
+  const [showJourneyMenu, setShowJourneyMenu] = useState(false);
   const [stats, setStats] = useState({
     totalWords: 0,
     nouns: 0,
@@ -375,36 +376,36 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   // Tutor Dashboard View
   if (profile.role === 'tutor') {
     return (
-      <div className="h-full overflow-y-auto p-4 sm:p-8 bg-[var(--bg-primary)]">
-        <div className="max-w-4xl mx-auto space-y-6">
+      <div className="h-full overflow-y-auto p-3 md:p-8 bg-[var(--bg-primary)]">
+        <div className="max-w-4xl mx-auto space-y-3 md:space-y-6">
           {/* Partner's Level Card - Compact */}
           <div
-            className="p-6 rounded-[2rem] shadow-lg text-white relative overflow-hidden"
+            className="p-4 md:p-6 rounded-xl md:rounded-[2rem] shadow-lg text-white relative overflow-hidden"
             style={{
               background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`
             }}
           >
             <div className="absolute top-0 right-0 opacity-10">
-              <ICONS.Heart className="w-24 h-24" />
+              <ICONS.Heart className="w-16 h-16 md:w-24 md:h-24" />
             </div>
             <div className="flex items-center justify-between relative z-10">
               <div>
-                <p className="text-white/60 text-[9px] font-black uppercase tracking-widest mb-1">
+                <p className="text-white/60 text-[8px] md:text-[9px] font-black uppercase tracking-widest mb-0.5 md:mb-1">
                   {partnerProfile?.full_name || 'Your Partner'}'s Level
                 </p>
-                <h2 className="text-2xl font-black">{levelInfo.displayName}</h2>
+                <h2 className="text-lg md:text-2xl font-black">{levelInfo.displayName}</h2>
               </div>
               <div className="text-right">
-                <p className="text-3xl font-black">{targetXp}</p>
-                <p className="text-white/60 text-[9px] font-black uppercase tracking-widest">XP</p>
+                <p className="text-2xl md:text-3xl font-black">{targetXp}</p>
+                <p className="text-white/60 text-[8px] md:text-[9px] font-black uppercase tracking-widest">XP</p>
               </div>
             </div>
-            <div className="mt-4 relative z-10">
-              <div className="flex justify-between text-[9px] font-bold text-white/60 mb-1">
+            <div className="mt-3 md:mt-4 relative z-10">
+              <div className="flex justify-between text-[8px] md:text-[9px] font-bold text-white/60 mb-1">
                 <span>Progress to {levelInfo.nextLevel || 'Max'}</span>
                 <span>{levelProgress}%</span>
               </div>
-              <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+              <div className="h-1.5 md:h-2 bg-white/20 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-white rounded-full transition-all duration-1000"
                   style={{ width: `${levelProgress}%` }}
@@ -414,50 +415,50 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           </div>
 
           {/* Stats Overview - Compact Grid */}
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)] text-center">
-              <div className="text-2xl font-black text-[var(--accent-color)]">{stats.totalWords}</div>
-              <div className="text-[9px] uppercase font-bold text-[var(--accent-color)] opacity-70 tracking-wider">Total Words</div>
+          <div className="grid grid-cols-3 gap-2 md:gap-3">
+            <div className="bg-[var(--accent-light)] p-2.5 md:p-4 rounded-xl md:rounded-2xl border border-[var(--accent-border)] text-center">
+              <div className="text-lg md:text-2xl font-black text-[var(--accent-color)]">{stats.totalWords}</div>
+              <div className="text-[8px] md:text-[9px] uppercase font-bold text-[var(--accent-color)] opacity-70 tracking-wider">Total</div>
             </div>
-            <div className="p-4 rounded-2xl border text-center" style={{ backgroundColor: `${accentHex}15`, borderColor: `${accentHex}30` }}>
-              <div className="text-2xl font-black" style={{ color: accentHex }}>{masteredWords.length}</div>
-              <div className="text-[9px] uppercase font-bold tracking-wider" style={{ color: accentHex, opacity: 0.7 }}>Mastered</div>
+            <div className="p-2.5 md:p-4 rounded-xl md:rounded-2xl border text-center" style={{ backgroundColor: `${accentHex}15`, borderColor: `${accentHex}30` }}>
+              <div className="text-lg md:text-2xl font-black" style={{ color: accentHex }}>{masteredWords.length}</div>
+              <div className="text-[8px] md:text-[9px] uppercase font-bold tracking-wider" style={{ color: accentHex, opacity: 0.7 }}>Mastered</div>
             </div>
-            <div className="bg-[var(--bg-card)] p-4 rounded-2xl border border-[var(--border-color)] text-center">
-              <div className="text-2xl font-black text-[var(--text-primary)]">
+            <div className="bg-[var(--bg-card)] p-2.5 md:p-4 rounded-xl md:rounded-2xl border border-[var(--border-color)] text-center">
+              <div className="text-lg md:text-2xl font-black text-[var(--text-primary)]">
                 {scores.filter(s => s.fail_count > 0).length}
               </div>
-              <div className="text-[9px] uppercase font-bold text-[var(--text-secondary)] tracking-wider">Needs Review</div>
+              <div className="text-[8px] md:text-[9px] uppercase font-bold text-[var(--text-secondary)] tracking-wider">Review</div>
             </div>
           </div>
 
           {/* Encouragement Prompts */}
           {encouragementPrompts.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-2 md:gap-3">
               {encouragementPrompts.map((prompt, i) => (
-                <div key={i} className="bg-gradient-to-br from-[var(--bg-card)] to-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)] shadow-sm flex items-center gap-3">
-                  <span className="text-2xl">{prompt.icon}</span>
-                  <p className="font-bold text-sm text-[var(--text-primary)]">{prompt.message}</p>
+                <div key={i} className="bg-gradient-to-br from-[var(--bg-card)] to-[var(--accent-light)] p-3 md:p-4 rounded-xl md:rounded-2xl border border-[var(--accent-border)] shadow-sm flex items-center gap-2 md:gap-3">
+                  <span className="text-xl md:text-2xl">{prompt.icon}</span>
+                  <p className="font-bold text-xs md:text-sm text-[var(--text-primary)]">{prompt.message}</p>
                 </div>
               ))}
             </div>
           )}
 
           {/* Two Column Layout: Phrases + Recent */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             {/* Quick Phrases */}
             {quickPhrases.length > 0 && (
-              <div className="bg-[var(--bg-card)] p-6 rounded-[2rem] shadow-sm border border-[var(--border-color)]">
-                <h3 className="text-[10px] font-black uppercase text-[var(--text-secondary)] tracking-widest mb-4 flex items-center gap-2">
-                  <ICONS.Heart className="w-3.5 h-3.5 text-[var(--accent-color)]" />
+              <div className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] shadow-sm border border-[var(--border-color)]">
+                <h3 className="text-[9px] md:text-[10px] font-black uppercase text-[var(--text-secondary)] tracking-widest mb-2 md:mb-4 flex items-center gap-1.5 md:gap-2">
+                  <ICONS.Heart className="w-3 h-3 md:w-3.5 md:h-3.5 text-[var(--accent-color)]" />
                   Phrases for Tonight
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                   {quickPhrases.map((phrase, i) => (
-                    <div key={i} className="p-3 bg-gradient-to-r from-[var(--accent-light)] to-transparent dark:from-[var(--accent-light)] dark:to-transparent rounded-xl border border-[var(--accent-border)] dark:border-[var(--accent-border)]">
-                      <p className="font-black text-[var(--accent-color)] dark:text-[var(--accent-color)]">{phrase.polish}</p>
-                      <p className="text-xs text-[var(--text-secondary)] italic">{phrase.english}</p>
-                      <p className="text-[9px] uppercase font-bold text-[var(--accent-color)] mt-1">{phrase.tip}</p>
+                    <div key={i} className="p-2 md:p-3 bg-gradient-to-r from-[var(--accent-light)] to-transparent rounded-lg md:rounded-xl border border-[var(--accent-border)]">
+                      <p className="font-black text-xs md:text-sm text-[var(--accent-color)]">{phrase.polish}</p>
+                      <p className="text-[10px] md:text-xs text-[var(--text-secondary)] italic">{phrase.english}</p>
+                      <p className="text-[8px] md:text-[9px] uppercase font-bold text-[var(--accent-color)] mt-0.5 md:mt-1">{phrase.tip}</p>
                     </div>
                   ))}
                 </div>
@@ -466,17 +467,17 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
             {/* Recent Words */}
             {recentWords.length > 0 && (
-              <div className="bg-[var(--bg-card)] p-6 rounded-[2rem] shadow-sm border border-[var(--border-color)]">
-                <h3 className="text-[10px] font-black uppercase text-[var(--text-secondary)] tracking-widest mb-4 flex items-center gap-2">
-                  <ICONS.Clock className="w-3.5 h-3.5" style={{ color: accentHex }} />
+              <div className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] shadow-sm border border-[var(--border-color)]">
+                <h3 className="text-[9px] md:text-[10px] font-black uppercase text-[var(--text-secondary)] tracking-widest mb-2 md:mb-4 flex items-center gap-1.5 md:gap-2">
+                  <ICONS.Clock className="w-3 h-3 md:w-3.5 md:h-3.5" style={{ color: accentHex }} />
                   Recently Learned
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 md:gap-2">
                   {recentWords.map((word, i) => (
-                    <div key={i} className="px-3 py-1.5 rounded-full border" style={{ backgroundColor: `${accentHex}10`, borderColor: `${accentHex}25` }}>
-                      <span className="font-bold text-sm" style={{ color: accentHex }}>{word.word}</span>
-                      <span className="mx-1.5" style={{ color: `${accentHex}60` }}>·</span>
-                      <span className="text-xs text-[var(--text-secondary)]">{word.translation}</span>
+                    <div key={i} className="px-2 md:px-3 py-1 md:py-1.5 rounded-full border" style={{ backgroundColor: `${accentHex}10`, borderColor: `${accentHex}25` }}>
+                      <span className="font-bold text-[10px] md:text-sm" style={{ color: accentHex }}>{word.word}</span>
+                      <span className="mx-1 md:mx-1.5" style={{ color: `${accentHex}60` }}>·</span>
+                      <span className="text-[10px] md:text-xs text-[var(--text-secondary)]">{word.translation}</span>
                     </div>
                   ))}
                 </div>
@@ -485,26 +486,26 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           </div>
 
           {/* Words to Practice Together */}
-          <div className="bg-[var(--bg-card)] p-6 rounded-[2rem] shadow-sm border border-[var(--border-color)]">
-            <h3 className="text-[10px] font-black uppercase text-[var(--text-secondary)] tracking-widest mb-4 flex items-center gap-2">
-              <ICONS.Target className="w-3.5 h-3.5" style={{ color: accentHex }} />
+          <div className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] shadow-sm border border-[var(--border-color)]">
+            <h3 className="text-[9px] md:text-[10px] font-black uppercase text-[var(--text-secondary)] tracking-widest mb-2 md:mb-4 flex items-center gap-1.5 md:gap-2">
+              <ICONS.Target className="w-3 h-3 md:w-3.5 md:h-3.5" style={{ color: accentHex }} />
               Words to Practice Together
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-1.5 md:space-y-2">
               {scores.filter(s => s.fail_count > 0).length === 0 ? (
-                <p className="text-[var(--text-secondary)] text-center py-6 italic text-sm">No weak spots - they're doing great!</p>
+                <p className="text-[var(--text-secondary)] text-center py-4 md:py-6 italic text-xs md:text-sm">No weak spots - they're doing great!</p>
               ) : (
                 scores.filter(s => s.fail_count > 0).sort((a,b) => b.fail_count - a.fail_count).slice(0, 5).map(s => (
-                  <div key={s.id} className="flex items-center justify-between p-3 bg-[var(--bg-primary)] rounded-xl border border-[var(--border-color)]">
+                  <div key={s.id} className="flex items-center justify-between p-2 md:p-3 bg-[var(--bg-primary)] rounded-lg md:rounded-xl border border-[var(--border-color)]">
                     <div>
-                      <p className="font-bold text-[var(--text-primary)]">{s.dictionary?.word}</p>
-                      <p className="text-xs text-[var(--text-secondary)] italic">{s.dictionary?.translation}</p>
+                      <p className="font-bold text-xs md:text-sm text-[var(--text-primary)]">{s.dictionary?.word}</p>
+                      <p className="text-[10px] md:text-xs text-[var(--text-secondary)] italic">{s.dictionary?.translation}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-red-500 font-bold text-sm">{s.fail_count} misses</div>
+                      <div className="text-red-500 font-bold text-xs md:text-sm">{s.fail_count} misses</div>
                       <button
                         onClick={() => navigate('/play')}
-                        className="text-[9px] uppercase font-bold text-[var(--accent-color)] hover:text-[var(--accent-color)] transition-colors"
+                        className="text-[8px] md:text-[9px] uppercase font-bold text-[var(--accent-color)] hover:text-[var(--accent-color)] transition-colors"
                       >
                         Quiz them →
                       </button>
@@ -516,22 +517,22 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           </div>
 
           {/* Quick Actions */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2 md:gap-3">
             <button
               onClick={() => navigate('/play')}
-              className="bg-[var(--bg-card)] p-5 rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+              className="bg-[var(--bg-card)] p-3 md:p-5 rounded-xl md:rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
             >
-              <ICONS.Play className="w-6 h-6 mx-auto mb-1.5 text-[var(--accent-color)]" />
-              <p className="text-sm font-bold text-[var(--text-primary)]">Play Together</p>
-              <p className="text-[9px] text-[var(--text-secondary)]">Quiz games & activities</p>
+              <ICONS.Play className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5 text-[var(--accent-color)]" />
+              <p className="text-xs md:text-sm font-bold text-[var(--text-primary)]">Play Together</p>
+              <p className="text-[8px] md:text-[9px] text-[var(--text-secondary)] hidden md:block">Quiz games & activities</p>
             </button>
             <button
               onClick={() => navigate('/log')}
-              className="bg-[var(--bg-card)] p-5 rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+              className="bg-[var(--bg-card)] p-3 md:p-5 rounded-xl md:rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
             >
-              <ICONS.Book className="w-6 h-6 mx-auto mb-1.5 text-[var(--accent-color)]" />
-              <p className="text-sm font-bold text-[var(--text-primary)]">Their Vocabulary</p>
-              <p className="text-[9px] text-[var(--text-secondary)]">Browse Love Log</p>
+              <ICONS.Book className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5 text-[var(--accent-color)]" />
+              <p className="text-xs md:text-sm font-bold text-[var(--text-primary)]">Their Vocabulary</p>
+              <p className="text-[8px] md:text-[9px] text-[var(--text-secondary)] hidden md:block">Browse Love Log</p>
             </button>
           </div>
         </div>
@@ -540,44 +541,44 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   }
 
   return (
-    <div className="h-full overflow-y-auto p-4 sm:p-8 bg-[var(--bg-primary)]">
-      <div className="max-w-4xl mx-auto space-y-6">
+    <div className="h-full overflow-y-auto p-3 md:p-8 bg-[var(--bg-primary)]">
+      <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
 
         {/* Level & XP Card */}
         <div
-          className="p-8 rounded-[2.5rem] shadow-xl text-white relative overflow-hidden"
+          className="p-4 md:p-8 rounded-2xl md:rounded-[2.5rem] shadow-xl text-white relative overflow-hidden"
           style={{
             background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`
           }}
         >
           <div className="absolute top-0 right-0 opacity-10">
-            <ICONS.Sparkles className="w-32 h-32" />
+            <ICONS.Sparkles className="w-20 h-20 md:w-32 md:h-32" />
           </div>
 
-          <div className="flex items-center justify-between mb-6 relative z-10">
+          <div className="flex items-center justify-between mb-4 md:mb-6 relative z-10">
             <div>
-              <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mb-1">Current Level</p>
-              <h2 className="text-3xl font-black">{levelInfo.displayName}</h2>
+              <p className="text-white/60 text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-0.5 md:mb-1">Current Level</p>
+              <h2 className="text-xl md:text-3xl font-black">{levelInfo.displayName}</h2>
             </div>
             <div className="text-right">
-              <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mb-1">Total XP</p>
-              <p className="text-2xl font-black">{profile.xp || 0}</p>
+              <p className="text-white/60 text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-0.5 md:mb-1">Total XP</p>
+              <p className="text-xl md:text-2xl font-black">{profile.xp || 0}</p>
             </div>
           </div>
 
-          <div className="relative z-10 mb-6">
-            <div className="flex justify-between text-[10px] font-bold text-white/60 mb-2">
+          <div className="relative z-10 mb-4 md:mb-6">
+            <div className="flex justify-between text-[9px] md:text-[10px] font-bold text-white/60 mb-1.5 md:mb-2">
               <span>Progress to {levelInfo.nextLevel || 'Max Level'}</span>
               <span>{levelProgress}%</span>
             </div>
-            <div className="h-3 bg-white/20 rounded-full overflow-hidden">
+            <div className="h-2 md:h-3 bg-white/20 rounded-full overflow-hidden">
               <div
                 className="h-full bg-white rounded-full transition-all duration-1000 shadow-lg"
                 style={{ width: `${levelProgress}%` }}
               />
             </div>
             {levelInfo.nextLevel && (
-              <p className="text-[10px] text-white/60 mt-2 text-center">
+              <p className="text-[9px] md:text-[10px] text-white/60 mt-1.5 md:mt-2 text-center">
                 {levelInfo.xpToNextLevel} XP to {levelInfo.nextLevel}
               </p>
             )}
@@ -587,9 +588,9 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           {canTakeTest && (
             <button
               onClick={() => navigate(`/test?from=${encodeURIComponent(levelInfo.displayName)}&to=${encodeURIComponent(levelInfo.nextLevel!)}`)}
-              className="w-full bg-white text-gray-800 py-4 rounded-2xl text-sm font-black uppercase tracking-widest shadow-lg transition-all active:scale-95 flex items-center justify-center gap-3"
+              className="w-full bg-white text-gray-800 py-3 md:py-4 rounded-xl md:rounded-2xl text-xs md:text-sm font-black uppercase tracking-widest shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 md:gap-3"
             >
-              <ICONS.Star className="w-5 h-5" style={{ color: tierColor }} />
+              <ICONS.Star className="w-4 h-4 md:w-5 md:h-5" style={{ color: tierColor }} />
               {levelInfo.canTakeTest ? 'Take Level Test' : 'Practice Level Test'}
             </button>
           )}
@@ -690,31 +691,31 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
         {/* Motivation Card - Why they're learning */}
         {profile.onboarding_data?.learningReason && (
-          <div className="relative overflow-hidden bg-gradient-to-br from-[var(--accent-light)] via-[var(--bg-card)] to-[var(--accent-light)] p-6 rounded-[2rem] border border-[var(--accent-border)]">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[var(--accent-light)] via-[var(--bg-card)] to-[var(--accent-light)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--accent-border)]">
             {/* Decorative heart pattern */}
-            <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.07]" style={{ color: accentHex }}>
+            <div className="absolute top-0 right-0 w-20 h-20 md:w-32 md:h-32 opacity-[0.07]" style={{ color: accentHex }}>
               <ICONS.Heart className="w-full h-full fill-current" />
             </div>
 
             <div className="relative z-10">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${accentHex}20` }}>
-                  <ICONS.Heart className="w-4 h-4" style={{ color: accentHex, fill: accentHex }} />
+              <div className="flex items-center gap-2 mb-2 md:mb-3">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg md:rounded-xl flex items-center justify-center" style={{ backgroundColor: `${accentHex}20` }}>
+                  <ICONS.Heart className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: accentHex, fill: accentHex }} />
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-widest" style={{ color: accentHex }}>
+                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest" style={{ color: accentHex }}>
                   My Motivation
                 </span>
               </div>
 
-              <p className="text-[var(--text-primary)] text-lg font-semibold leading-relaxed mb-3">
+              <p className="text-[var(--text-primary)] text-sm md:text-lg font-semibold leading-relaxed mb-2 md:mb-3">
                 "{profile.onboarding_data.learningReason}"
               </p>
 
               {profile.partner_name && (
                 <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-color)]">
-                  <span className="text-sm text-[var(--text-secondary)]">Learning for</span>
-                  <span className="font-bold" style={{ color: accentHex }}>{profile.partner_name}</span>
-                  <span className="text-sm">💕</span>
+                  <span className="text-xs md:text-sm text-[var(--text-secondary)]">Learning for</span>
+                  <span className="text-xs md:text-sm font-bold" style={{ color: accentHex }}>{profile.partner_name}</span>
+                  <span className="text-xs md:text-sm">💕</span>
                 </div>
               )}
             </div>
@@ -722,73 +723,93 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         )}
 
         {/* Love Log Stats Card - Moved above Learning Journey */}
-        <div className="bg-[var(--bg-card)] p-8 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-[11px] font-black flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
-              <ICONS.Book className="w-4 h-4" style={{ color: tierColor }} />
+        <div className="bg-[var(--bg-card)] p-4 md:p-8 rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
+          <div className="flex items-center justify-between mb-3 md:mb-6">
+            <h3 className="text-[10px] md:text-[11px] font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+              <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
               Love Log Stats
             </h3>
-            <span className="text-3xl font-black" style={{ color: tierColor }}>{stats.totalWords}</span>
+            <span className="text-2xl md:text-3xl font-black" style={{ color: tierColor }}>{stats.totalWords}</span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 gap-2 md:gap-3">
             {[
               { label: 'Nouns', count: stats.nouns },
               { label: 'Verbs', count: stats.verbs },
               { label: 'Adjectives', count: stats.adjectives },
               { label: 'Phrases', count: stats.phrases }
             ].map(stat => (
-              <div key={stat.label} className="p-4 rounded-2xl border text-center" style={{ backgroundColor: `${accentHex}10`, borderColor: `${accentHex}30`, color: accentHex }}>
-                <p className="text-2xl font-black">{stat.count}</p>
-                <p className="text-[9px] font-bold uppercase tracking-wider opacity-70">{stat.label}</p>
+              <div key={stat.label} className="p-2 md:p-4 rounded-lg md:rounded-2xl border text-center" style={{ backgroundColor: `${accentHex}10`, borderColor: `${accentHex}30`, color: accentHex }}>
+                <p className="text-lg md:text-2xl font-black">{stat.count}</p>
+                <p className="text-[8px] md:text-[9px] font-bold uppercase tracking-wider opacity-70">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Game History Section */}
-        <div className="bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-[var(--border-color)]">
-            <h3 className="text-[11px] font-black flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
-              <ICONS.Clock className="w-4 h-4" style={{ color: tierColor }} />
+        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+          <div className="p-3 md:p-6 border-b border-[var(--border-color)]">
+            <h3 className="text-[10px] md:text-[11px] font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+              <ICONS.Clock className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
               Game History
             </h3>
           </div>
-          <div className="p-6">
+          <div className="p-3 md:p-6">
             <GameHistory xp={profile.xp || 0} />
           </div>
         </div>
 
         {/* Learning Journey Book/Diary */}
-        <div className="bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
-            <h3 className="text-[11px] font-black flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
-              <ICONS.Book className="w-4 h-4" style={{ color: tierColor }} />
-              Learning Journey
-            </h3>
+        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden relative">
+          <div className="p-3 md:p-6 border-b border-[var(--border-color)] flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {/* Mobile hamburger menu button with entry count */}
+              <button
+                onClick={() => setShowJourneyMenu(true)}
+                className="md:hidden p-1.5 -ml-1 rounded-lg hover:bg-[var(--bg-primary)] transition-colors relative"
+                aria-label="View journal entries"
+              >
+                <ICONS.Menu className="w-4 h-4 text-[var(--text-secondary)]" />
+                {summaryIndex.length > 0 && (
+                  <span
+                    className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[8px] font-bold text-white flex items-center justify-center"
+                    style={{ backgroundColor: tierColor }}
+                  >
+                    {summaryIndex.length}
+                  </span>
+                )}
+              </button>
+              <h3 className="text-[10px] md:text-[11px] font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+                <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
+                Learning Journey
+              </h3>
+            </div>
             <button
               onClick={generateNewSummary}
               disabled={generating}
-              className="px-4 py-2 rounded-xl text-xs font-bold text-white flex items-center gap-2 transition-all active:scale-95 disabled:opacity-50"
+              className="px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-[10px] md:text-xs font-bold text-white flex items-center gap-1.5 md:gap-2 transition-all active:scale-95 disabled:opacity-50"
               style={{ backgroundColor: tierColor }}
             >
               {generating ? (
                 <>
-                  <ICONS.RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                  Analyzing...
+                  <ICONS.RefreshCw className="w-3 h-3 md:w-3.5 md:h-3.5 animate-spin" />
+                  <span className="hidden md:inline">Analyzing...</span>
+                  <span className="md:hidden">...</span>
                 </>
               ) : (
                 <>
-                  <ICONS.Sparkles className="w-3.5 h-3.5" />
-                  New Entry
+                  <ICONS.Sparkles className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                  <span className="hidden md:inline">New Entry</span>
+                  <span className="md:hidden">New</span>
                 </>
               )}
             </button>
           </div>
 
-          <div className="flex min-h-[400px]">
-            {/* Left Page: Index */}
-            <div className="w-1/3 border-r border-[var(--border-color)] bg-[var(--bg-primary)] p-4">
+          <div className="flex flex-col md:flex-row min-h-[250px] md:min-h-[400px]">
+            {/* Left Page: Index - hidden on mobile (use hamburger menu), sidebar on desktop */}
+            <div className="hidden md:block md:w-1/3 border-r border-[var(--border-color)] bg-[var(--bg-primary)] p-4">
               <p className="text-[9px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-3">
                 Journal Entries
               </p>
@@ -802,7 +823,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                   No entries yet.<br/>Click "New Entry" to start!
                 </p>
               ) : (
-                <div className="space-y-2 max-h-[340px] overflow-y-auto">
+                <div className="flex flex-col gap-2 overflow-y-auto max-h-[340px]">
                   {summaryIndex.map((entry, idx) => (
                     <button
                       key={entry.id}
@@ -838,60 +859,59 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             </div>
 
             {/* Right Page: Selected Entry */}
-            <div className="flex-1 p-6">
+            <div className="flex-1 p-3 md:p-6">
               {!selectedSummary ? (
-                <div className="h-full flex flex-col items-center justify-center text-center">
-                  <ICONS.Book className="w-12 h-12 text-[var(--text-secondary)] opacity-50 mb-4" />
-                  <p className="text-[var(--text-secondary)] text-sm">
+                <div className="h-full flex flex-col items-center justify-center text-center py-6 md:py-0">
+                  <ICONS.Book className="w-8 h-8 md:w-12 md:h-12 text-[var(--text-secondary)] opacity-50 mb-2 md:mb-4" />
+                  <p className="text-[var(--text-secondary)] text-xs md:text-sm">
                     {summaryIndex.length === 0
                       ? "Start your learning journey by clicking 'New Entry'"
                       : "Select an entry to view"}
                   </p>
                 </div>
               ) : (
-                <div className="space-y-5">
+                <div className="space-y-3 md:space-y-5">
                   {/* Entry Header */}
-                  <div className="flex items-center justify-between pb-4 border-b border-[var(--border-color)]">
+                  <div className="flex items-center justify-between pb-2 md:pb-4 border-b border-[var(--border-color)]">
                     <div>
-                      <p className="text-[10px] text-[var(--text-secondary)] font-bold">
+                      <p className="text-[9px] md:text-[10px] text-[var(--text-secondary)] font-bold">
                         {new Date(selectedSummary.createdAt).toLocaleDateString('en-US', {
-                          weekday: 'long',
-                          year: 'numeric',
-                          month: 'long',
+                          weekday: 'short',
+                          month: 'short',
                           day: 'numeric'
                         })}
                       </p>
                       <p
-                        className="text-sm font-bold"
+                        className="text-xs md:text-sm font-bold"
                         style={{ color: tierColor }}
                       >
                         {selectedSummary.levelAtTime} • {selectedSummary.xpAtTime} XP
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-black" style={{ color: tierColor }}>
+                      <p className="text-xl md:text-2xl font-black" style={{ color: tierColor }}>
                         {selectedSummary.wordsLearned}
                       </p>
-                      <p className="text-[9px] text-[var(--text-secondary)] font-bold uppercase">Words</p>
+                      <p className="text-[8px] md:text-[9px] text-[var(--text-secondary)] font-bold uppercase">Words</p>
                     </div>
                   </div>
 
                   {/* Main Summary */}
-                  <p className="text-[var(--text-primary)] leading-relaxed text-sm">
+                  <p className="text-[var(--text-primary)] leading-relaxed text-xs md:text-sm">
                     {selectedSummary.summary}
                   </p>
 
                   {/* What You Can Say */}
                   {selectedSummary.canNowSay && selectedSummary.canNowSay.length > 0 && (
                     <div>
-                      <p className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+                      <p className="text-[9px] md:text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-1.5 md:mb-2">
                         You Can Now Say
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 md:gap-2">
                         {selectedSummary.canNowSay.map((phrase, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1.5 rounded-full text-xs font-medium"
+                            className="px-2 md:px-3 py-1 md:py-1.5 rounded-full text-[10px] md:text-xs font-medium"
                             style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
                           >
                             "{phrase}"
@@ -902,17 +922,17 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                   )}
 
                   {/* Topics & Grammar */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2 md:gap-4">
                     {selectedSummary.topicsExplored && selectedSummary.topicsExplored.length > 0 && (
                       <div>
-                        <p className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+                        <p className="text-[9px] md:text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-1 md:mb-2">
                           Topics
                         </p>
-                        <ul className="text-xs text-[var(--text-secondary)] space-y-1">
+                        <ul className="text-[10px] md:text-xs text-[var(--text-secondary)] space-y-0.5 md:space-y-1">
                           {selectedSummary.topicsExplored.slice(0, 4).map((topic, idx) => (
-                            <li key={idx} className="flex items-center gap-2">
-                              <span className="w-1 h-1 rounded-full" style={{ backgroundColor: tierColor }} />
-                              {topic}
+                            <li key={idx} className="flex items-center gap-1.5 md:gap-2">
+                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: tierColor }} />
+                              <span className="truncate">{topic}</span>
                             </li>
                           ))}
                         </ul>
@@ -921,14 +941,14 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
                     {selectedSummary.grammarHighlights && selectedSummary.grammarHighlights.length > 0 && (
                       <div>
-                        <p className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+                        <p className="text-[9px] md:text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-1 md:mb-2">
                           Grammar
                         </p>
-                        <ul className="text-xs text-[var(--text-secondary)] space-y-1">
+                        <ul className="text-[10px] md:text-xs text-[var(--text-secondary)] space-y-0.5 md:space-y-1">
                           {selectedSummary.grammarHighlights.slice(0, 4).map((grammar, idx) => (
-                            <li key={idx} className="flex items-center gap-2">
-                              <span className="w-1 h-1 rounded-full" style={{ backgroundColor: tierColor }} />
-                              {grammar}
+                            <li key={idx} className="flex items-center gap-1.5 md:gap-2">
+                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: tierColor }} />
+                              <span className="truncate">{grammar}</span>
                             </li>
                           ))}
                         </ul>
@@ -938,11 +958,11 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
                   {/* Suggestions */}
                   {selectedSummary.suggestions && selectedSummary.suggestions.length > 0 && (
-                    <div className="bg-[var(--bg-primary)] rounded-xl p-4">
-                      <p className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+                    <div className="bg-[var(--bg-primary)] rounded-lg md:rounded-xl p-2.5 md:p-4">
+                      <p className="text-[9px] md:text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-1 md:mb-2">
                         Up Next
                       </p>
-                      <ul className="text-xs text-[var(--text-secondary)] space-y-1">
+                      <ul className="text-[10px] md:text-xs text-[var(--text-secondary)] space-y-0.5 md:space-y-1">
                         {selectedSummary.suggestions.map((suggestion, idx) => (
                           <li key={idx}>→ {suggestion}</li>
                         ))}
@@ -953,26 +973,106 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               )}
             </div>
           </div>
+
+          {/* Mobile Learning Journey Menu - contained within component */}
+          {showJourneyMenu && (
+            <div className="md:hidden absolute inset-0 z-10 rounded-xl overflow-hidden">
+              {/* Backdrop */}
+              <div
+                className="absolute inset-0 bg-black/40"
+                onClick={() => setShowJourneyMenu(false)}
+              />
+
+              {/* Slide-out panel */}
+              <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-[260px] bg-[var(--bg-card)] shadow-xl animate-in slide-in-from-left duration-200 flex flex-col">
+                {/* Header */}
+                <div className="p-3 border-b border-[var(--border-color)] flex items-center justify-between flex-shrink-0">
+                  <h3 className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
+                    <ICONS.Book className="w-3.5 h-3.5" style={{ color: tierColor }} />
+                    Journal Entries
+                  </h3>
+                  <button
+                    onClick={() => setShowJourneyMenu(false)}
+                    className="p-1 rounded-lg hover:bg-[var(--bg-primary)] transition-colors"
+                  >
+                    <ICONS.X className="w-4 h-4 text-[var(--text-secondary)]" />
+                  </button>
+                </div>
+
+                {/* Entries list */}
+                <div className="p-2 overflow-y-auto flex-1">
+                  {loadingSummaries ? (
+                    <div className="text-center py-6">
+                      <ICONS.RefreshCw className="w-4 h-4 mx-auto text-[var(--text-secondary)] animate-spin" />
+                    </div>
+                  ) : summaryIndex.length === 0 ? (
+                    <div className="text-center py-6">
+                      <ICONS.Book className="w-6 h-6 mx-auto text-[var(--text-secondary)] opacity-50 mb-2" />
+                      <p className="text-[var(--text-secondary)] text-[10px] italic">
+                        No entries yet.<br/>Click "New" to start!
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="space-y-1.5">
+                      {summaryIndex.map((entry) => (
+                        <button
+                          key={entry.id}
+                          onClick={() => {
+                            loadSummary(entry.id);
+                            setShowJourneyMenu(false);
+                          }}
+                          className={`w-full text-left p-2.5 rounded-lg transition-all ${
+                            selectedSummary?.id === entry.id
+                              ? 'bg-[var(--bg-primary)] shadow-sm border-l-3'
+                              : 'hover:bg-[var(--bg-primary)]/70'
+                          }`}
+                          style={selectedSummary?.id === entry.id ? { borderLeftWidth: '3px', borderLeftColor: tierColor } : {}}
+                        >
+                          <div className="flex items-center justify-between mb-0.5">
+                            <span className="text-[9px] font-bold text-[var(--text-secondary)]">
+                              {formatDate(entry.created_at)}
+                            </span>
+                            <span
+                              className="text-[8px] font-bold px-1.5 py-0.5 rounded-full"
+                              style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
+                            >
+                              {entry.level_at_time}
+                            </span>
+                          </div>
+                          <p className="text-[10px] font-semibold text-[var(--text-primary)] line-clamp-2">
+                            {entry.title || generateTitle(entry.summary)}
+                          </p>
+                          <p className="text-[8px] text-[var(--text-secondary)] mt-0.5">
+                            {entry.words_learned} words • {entry.xp_at_time} XP
+                          </p>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-2 md:gap-4">
           <button
             onClick={() => navigate('/play')}
-            className="bg-[var(--bg-card)] p-6 rounded-[2rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+            className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
           >
-            <ICONS.Play className="w-8 h-8 mx-auto mb-2 text-[var(--accent-color)]" />
-            <p className="text-sm font-bold text-[var(--text-primary)]">Practice</p>
-            <p className="text-[10px] text-[var(--text-secondary)]">Flashcards & quizzes</p>
+            <ICONS.Play className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
+            <p className="text-xs md:text-sm font-bold text-[var(--text-primary)]">Practice</p>
+            <p className="text-[9px] md:text-[10px] text-[var(--text-secondary)] hidden md:block">Flashcards & quizzes</p>
           </button>
 
           <button
             onClick={() => navigate('/log')}
-            className="bg-[var(--bg-card)] p-6 rounded-[2rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+            className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
           >
-            <ICONS.Book className="w-8 h-8 mx-auto mb-2 text-[var(--accent-color)]" />
-            <p className="text-sm font-bold text-[var(--text-primary)]">Love Log</p>
-            <p className="text-[10px] text-[var(--text-secondary)]">Your vocabulary</p>
+            <ICONS.Book className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
+            <p className="text-xs md:text-sm font-bold text-[var(--text-primary)]">Love Log</p>
+            <p className="text-[9px] md:text-[10px] text-[var(--text-secondary)] hidden md:block">Your vocabulary</p>
           </button>
         </div>
 

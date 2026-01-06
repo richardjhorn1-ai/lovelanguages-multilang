@@ -170,7 +170,8 @@ const InteractiveHearts: React.FC<{
   accentColor: string;
   activeSection: number;
   containerRef: React.RefObject<HTMLDivElement>;
-}> = ({ accentColor, activeSection, containerRef }) => {
+  isMobile?: boolean;
+}> = ({ accentColor, activeSection, containerRef, isMobile = false }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const heartsRef = useRef<Heart[]>([]);
   const mouseRef = useRef({ x: -1000, y: -1000, active: false });
@@ -178,7 +179,9 @@ const InteractiveHearts: React.FC<{
   const animationRef = useRef<number>();
 
   // Calculate heart count based on section (starts with 20, increases by 10 each section)
-  const heartCount = 20 + activeSection * 10;
+  // Mobile: reduce by 60% for better performance
+  const baseCount = 20 + activeSection * 10;
+  const heartCount = isMobile ? Math.round(baseCount * 0.4) : baseCount;
 
   // Initialize or update hearts when count changes
   useEffect(() => {
@@ -694,6 +697,69 @@ const LoginForm: React.FC<{
   );
 };
 
+// Mobile Section component for horizontal carousel cards
+const MobileSection: React.FC<{
+  headline: string;
+  headlineHighlights: string[];
+  subhead?: string;
+  copy: string;
+  copyHighlights?: string[];
+  underlinedPhrase?: string;
+  index: number;
+  isStudent: boolean;
+  showLogo?: boolean;
+}> = ({ headline, headlineHighlights, subhead, copy, copyHighlights, underlinedPhrase, index, isStudent, showLogo }) => {
+  const accentColor = isStudent ? BRAND.primary : BRAND.teal;
+
+  return (
+    <div
+      data-section={index}
+      className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center px-6 py-4 relative overflow-hidden"
+      style={{ scrollSnapAlign: 'start' }}
+    >
+      <div className="section-content visible overflow-hidden">
+        {/* Show logo only on first section */}
+        {showLogo && (
+          <div className="flex items-center gap-2 mb-4">
+            <div
+              className="p-2 rounded-xl shadow-lg"
+              style={{ backgroundColor: accentColor, boxShadow: `0 8px 16px -4px ${isStudent ? BRAND.shadow : BRAND.tealShadow}` }}
+            >
+              <ICONS.Heart className="text-white fill-white w-5 h-5" />
+            </div>
+            <h1 className="text-xl font-black font-header tracking-tight" style={{ color: accentColor }}>
+              Love Languages
+            </h1>
+          </div>
+        )}
+
+        <h2
+          className="text-2xl font-black leading-[1.15] mb-3 tracking-tight"
+          style={{ color: '#1a1a2e' }}
+        >
+          {renderWithHighlights(headline, headlineHighlights, isStudent)}
+        </h2>
+
+        {subhead && (
+          <p className="text-base mb-3 font-semibold italic" style={{ color: accentColor }}>
+            {subhead}
+          </p>
+        )}
+
+        <p className="text-sm leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+          {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase)}
+        </p>
+
+        {/* Visual accent bar */}
+        <div
+          className="mt-4 h-1 w-16 rounded-full"
+          style={{ backgroundColor: accentColor, opacity: 0.3 }}
+        />
+      </div>
+    </div>
+  );
+};
+
 // Main Hero component
 const Hero: React.FC = () => {
   // Inject animation styles once
@@ -717,6 +783,7 @@ const Hero: React.FC = () => {
   const [activeSection, setActiveSection] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set([0]));
   const scrollRef = useRef<HTMLDivElement>(null);
+  const mobileCarouselRef = useRef<HTMLDivElement>(null);
 
   // Intersection Observer to track visible section
   useEffect(() => {
@@ -749,6 +816,39 @@ const Hero: React.FC = () => {
   // Reset visible sections when role changes
   useEffect(() => {
     setVisibleSections(new Set([0]));
+  }, [selectedRole]);
+
+  // Mobile carousel scroll handler - track active section
+  const handleMobileCarouselScroll = () => {
+    const carousel = mobileCarouselRef.current;
+    if (!carousel) return;
+
+    const scrollLeft = carousel.scrollLeft;
+    const cardWidth = carousel.clientWidth;
+    const newActiveSection = Math.round(scrollLeft / cardWidth);
+
+    if (newActiveSection !== activeSection && newActiveSection >= 0 && newActiveSection < 7) {
+      setActiveSection(newActiveSection);
+    }
+  };
+
+  // Scroll to specific section in mobile carousel
+  const scrollToMobileSection = (index: number) => {
+    const carousel = mobileCarouselRef.current;
+    if (!carousel) return;
+
+    const cardWidth = carousel.clientWidth;
+    carousel.scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth'
+    });
+  };
+
+  // Reset mobile carousel position when role changes
+  useEffect(() => {
+    if (mobileCarouselRef.current) {
+      mobileCarouselRef.current.scrollTo({ left: 0, behavior: 'instant' });
+    }
   }, [selectedRole]);
 
   const handleAuth = async (e: React.FormEvent) => {
@@ -790,19 +890,14 @@ const Hero: React.FC = () => {
         transition: 'background-color 0.3s ease'
       }}
     >
-      {/* Mobile: Login form first */}
-      <div
-        className="md:hidden flex flex-col items-center justify-center p-6 pt-8 rounded-b-[3rem] shadow-xl relative overflow-hidden"
-        style={{ backgroundColor: '#ffffff', color: '#1a1a2e' }}
-      >
-        <ICONS.Heart className="absolute -bottom-16 -right-16 w-48 h-48 opacity-[0.03] pointer-events-none" style={{ color: '#1a1a2e' }} />
-
-        {/* Mobile Toggle */}
-        <div className="w-full mb-6 flex justify-center">
+      {/* Mobile: Full-screen layout with horizontal swipe carousel */}
+      <div className="md:hidden flex flex-col h-screen overflow-hidden">
+        {/* Top: Learn/Teach Toggle */}
+        <div className="flex-shrink-0 p-4 flex justify-center">
           <div className="flex gap-2">
             <button
               onClick={() => { setSelectedRole('student'); setActiveSection(0); }}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-bold transition-all"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-bold transition-all"
               style={isStudent
                 ? { backgroundColor: BRAND.primary, boxShadow: `0 8px 12px -3px ${BRAND.shadow}`, color: '#ffffff' }
                 : { backgroundColor: '#f3f4f6', color: '#4b5563' }
@@ -813,7 +908,7 @@ const Hero: React.FC = () => {
             </button>
             <button
               onClick={() => { setSelectedRole('tutor'); setActiveSection(0); }}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-bold transition-all"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-bold transition-all"
               style={!isStudent
                 ? { backgroundColor: BRAND.teal, boxShadow: `0 8px 12px -3px ${BRAND.tealShadow}`, color: '#ffffff' }
                 : { backgroundColor: '#f3f4f6', color: '#4b5563' }
@@ -825,47 +920,141 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <LoginForm
-          context={currentContext}
-          isStudent={isStudent}
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          loading={loading}
-          isSignUp={isSignUp}
-          setIsSignUp={setIsSignUp}
-          message={message}
-          onSubmit={handleAuth}
-        />
-      </div>
-
-      {/* Mobile: Scrollable sections below */}
-      <div className="md:hidden relative">
-        {/* First 3 sections (indices 0, 1, 2) */}
-        {sections.slice(0, 3).map((section, i) => (
-          <Section
-            key={`mobile-${selectedRole}-${i}`}
-            {...section}
-            index={i}
-            isStudent={isStudent}
-            isVisible={true}
+        {/* Middle: Horizontal Swipe Carousel (~55% of remaining space) */}
+        <div className="flex-1 relative overflow-hidden min-h-0">
+          {/* Floating hearts background - 60% fewer on mobile */}
+          <InteractiveHearts
+            accentColor={accentColor}
+            activeSection={activeSection}
+            containerRef={mobileCarouselRef as React.RefObject<HTMLDivElement>}
+            isMobile={true}
           />
-        ))}
 
-        {/* Game Showcase - section index 3 */}
-        <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} />
+          {/* Swipeable sections - horizontal only, no vertical scroll */}
+          <div
+            ref={mobileCarouselRef}
+            className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory h-full hide-scrollbar"
+            onScroll={handleMobileCarouselScroll}
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {/* Sections 0-2 */}
+            {sections.slice(0, 3).map((section, i) => (
+              <MobileSection
+                key={`mobile-${selectedRole}-${i}`}
+                {...section}
+                index={i}
+                isStudent={isStudent}
+                showLogo={i === 0}
+              />
+            ))}
 
-        {/* Remaining sections (indices 4, 5, 6) */}
-        {sections.slice(3).map((section, i) => (
-          <Section
-            key={`mobile-${selectedRole}-${i + 4}`}
-            {...section}
-            index={i + 4}
-            isStudent={isStudent}
-            isVisible={true}
-          />
-        ))}
+            {/* Section 3: GameShowcase */}
+            <div
+              data-section={3}
+              className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center items-center px-4"
+            >
+              <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} isMobile={true} />
+            </div>
+
+            {/* Sections 4-6 */}
+            {sections.slice(3).map((section, i) => (
+              <MobileSection
+                key={`mobile-${selectedRole}-${i + 4}`}
+                {...section}
+                index={i + 4}
+                isStudent={isStudent}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom: Fixed Login Form (~45%) */}
+        <div
+          className="flex-shrink-0 rounded-t-3xl shadow-2xl px-6 pt-4 pb-6 relative overflow-hidden"
+          style={{ backgroundColor: '#ffffff', maxHeight: '45vh', minHeight: '320px' }}
+        >
+          <ICONS.Heart className="absolute -bottom-16 -right-16 w-48 h-48 opacity-[0.03] pointer-events-none" style={{ color: accentColor }} />
+
+          {/* Progress dots at TOP of login section */}
+          <div className="flex justify-center gap-2 mb-4">
+            {Array.from({ length: 7 }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToMobileSection(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === activeSection ? 'scale-150' : 'opacity-40'
+                }`}
+                style={{ backgroundColor: accentColor }}
+                aria-label={`Go to section ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Compact Login Form */}
+          <div className="w-full max-w-sm mx-auto relative z-10">
+            <div className="text-center mb-4">
+              <h3
+                className="text-2xl font-black mb-1 font-header transition-all duration-300"
+                style={{ color: '#1a1a2e' }}
+              >
+                {currentContext.header}
+              </h3>
+              <p className="font-semibold text-sm transition-all duration-300" style={{ color: '#9ca3af' }}>
+                {currentContext.subtext}
+              </p>
+            </div>
+
+            <form onSubmit={handleAuth} className="space-y-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-sm"
+                style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
+                onFocus={(e) => e.target.style.borderColor = accentColor}
+                onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                placeholder="you@love.com"
+              />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-sm"
+                style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
+                onFocus={(e) => e.target.style.borderColor = accentColor}
+                onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                placeholder="••••••••"
+              />
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full text-white font-black py-3 rounded-2xl shadow-xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.15em]"
+                style={{ backgroundColor: accentColor, boxShadow: `0 15px 30px -8px ${accentShadow}` }}
+              >
+                {loading ? 'Entering...' : currentContext.cta}
+              </button>
+            </form>
+
+            {message && (
+              <div className={`mt-3 p-3 rounded-xl text-xs font-bold text-center ${message.includes('Check') || message.includes('check') ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+                {message}
+              </div>
+            )}
+
+            <div className="mt-3 text-center">
+              <button
+                onClick={() => setIsSignUp(!isSignUp)}
+                className="text-xs font-bold transition-all hover:opacity-70"
+                style={{ color: accentColor }}
+              >
+                {isSignUp ? 'Already have an account? Sign in' : "New here? Create an account"}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Desktop: Split screen layout */}

@@ -109,6 +109,139 @@ import { ICONS } from './constants';
 
 Mobile-first design. Main app is optimized for phone-sized viewport within a larger container. Test at 375px width minimum.
 
+---
+
+## Mobile Design System
+
+The mobile interface prioritizes **density and efficiency** while maintaining the warm, approachable aesthetic. Every pixel matters on small screens.
+
+### Core Mobile Principles
+
+1. **Compact but not cramped** - Reduce padding/margins by ~30-40% from desktop, not eliminate them
+2. **Touch-friendly targets** - Minimum 32px tap targets, but visual elements can be smaller
+3. **Hidden chrome** - Remove scrollbars, chevrons, and decorative elements that waste space
+4. **Inline over stacked** - Combine elements horizontally where possible (e.g., title + icons on same row)
+5. **Progressive disclosure** - Use slide-in panels instead of always-visible sidebars
+
+### Mobile Breakpoint
+
+Uses Tailwind's `md:` breakpoint (768px). Pattern: `mobile-value md:desktop-value`
+
+```tsx
+// Example: Responsive padding
+className="px-3 md:px-4 py-2 md:py-3"
+
+// Example: Responsive text
+className="text-xs md:text-sm"
+
+// Example: Hide on mobile
+className="hidden md:flex"
+
+// Example: Show only on mobile
+className="md:hidden"
+```
+
+### Mobile Size Scale
+
+| Element | Mobile | Desktop |
+|---------|--------|---------|
+| Container padding | `p-2`, `p-3` | `p-4`, `p-6` |
+| Card padding | `p-2.5`, `p-3` | `p-4`, `p-5` |
+| Button padding | `px-2 py-1.5` | `px-3 py-2` |
+| Icon size | `w-3.5 h-3.5`, `w-4 h-4` | `w-4 h-4`, `w-5 h-5` |
+| Avatar size | `w-8 h-8` | `w-9 h-9`, `w-10 h-10` |
+| Text body | `text-xs` | `text-sm` |
+| Text label | `text-[9px]`, `text-[10px]` | `text-[10px]`, `text-xs` |
+| Gaps | `gap-1.5`, `gap-2` | `gap-3`, `gap-4` |
+| Border radius | `rounded-lg`, `rounded-xl` | `rounded-xl`, `rounded-2xl` |
+
+### Mobile Navigation
+
+**Navbar pattern:**
+- 3 centered nav buttons (Chat, Love Log, Play) - evenly spaced
+- Logo on left (icon only, no text)
+- Profile avatar on right (no chevron, compact)
+- Progress button hidden (accessible via profile dropdown)
+- Help/Notifications hidden (accessible via profile dropdown)
+
+**Profile dropdown (mobile):**
+- Narrower width: `w-48` vs `w-56`
+- Smaller text: `text-xs` vs `text-sm`
+- Reduced padding: `px-3 py-2` vs `px-4 py-2.5`
+- Smaller icons: `w-3.5 h-3.5` vs `w-4 h-4`
+- Tighter gaps: `gap-2` vs `gap-3`
+
+### Mobile Panels & Overlays
+
+Use slide-in panels for secondary content instead of sidebars:
+
+```tsx
+// Slide-in from left (conversation index)
+className={`fixed inset-0 z-[200] ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+// Panel: transform translate-x-0 / -translate-x-full
+
+// Slide-in from right (notifications)
+// Panel: transform translate-x-0 / translate-x-full
+```
+
+**Panel anatomy:**
+- Semi-transparent backdrop (`bg-black/30`) that closes on tap
+- Panel width: `w-72 max-w-[85vw]`
+- Header with title + close button
+- Scrollable content area
+
+### Mobile Scrollbar
+
+Scrollbars are **completely hidden** on mobile (< 768px) via CSS:
+
+```css
+@media (max-width: 767px) {
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+```
+
+Scrolling still works - only the visual scrollbar is hidden.
+
+### Mobile Grid Layouts
+
+**Love Log cards:** `grid-cols-2` (2 columns on mobile vs 3-5 on desktop)
+**Play game cards:** `grid-cols-2` with centered content, hidden descriptions
+**Card heights:** Reduced (e.g., `h-[200px]` vs `h-[280px]`)
+
+### Mobile-Specific Components
+
+**Chat:**
+- Hamburger menu (☰) opens conversation sidebar
+- Reduced message padding: `px-3 py-2` vs `px-5 py-3.5`
+- Smaller input buttons: `w-10 h-10` vs `w-14 h-14`
+- Compact empty state suggestions
+
+**Love Log:**
+- Single-row header with inline search/sync icons
+- Expandable search field (toggle visibility)
+- 2-column card grid with smaller cards
+
+**Play:**
+- 2-column game selection grid
+- Centered icons with hidden descriptions on mobile
+- Compact game cards
+
+### Mobile UX Patterns
+
+1. **Remove decorative chevrons** - They waste space and aren't needed for touch
+2. **Truncate long text** - Use `truncate` class liberally
+3. **Badges over text** - Show counts as small badges, not "X requests"
+4. **Tap to expand** - Hide secondary info behind taps (search fields, sidebars)
+5. **Full-width touch targets** - Buttons should span full width in lists
+
+---
+
 ## When Adding New UI
 
 1. **Match the existing aesthetic** - Warm tones, rounded shapes, playful but not childish

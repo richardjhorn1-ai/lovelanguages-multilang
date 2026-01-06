@@ -1115,27 +1115,27 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   return (
     <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-primary)]">
       {/* Header: Two Tabs - Fixed at top */}
-      <div className="shrink-0 p-4 pb-2">
+      <div className="shrink-0 p-2 md:p-4 pb-1 md:pb-2">
         <div className="w-full max-w-lg mx-auto">
           {/* Two-Tab Layout: Local Games | Love Notes */}
           {!localGameType && (
             <>
-              <h1 className="text-2xl font-black text-[var(--text-primary)] mb-3 text-center">Practice</h1>
-              <div className="inline-flex w-full bg-[var(--bg-card)] border border-[var(--border-color)] p-1 rounded-xl mb-3">
+              <h1 className="text-lg md:text-2xl font-black text-[var(--text-primary)] mb-2 md:mb-3 text-center">Practice</h1>
+              <div className="inline-flex w-full bg-[var(--bg-card)] border border-[var(--border-color)] p-0.5 md:p-1 rounded-lg md:rounded-xl mb-2 md:mb-3">
                 <button
                   onClick={() => setMainTab('local_games')}
-                  className={`flex-1 px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${
+                  className={`flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
                     mainTab === 'local_games'
                       ? 'bg-[var(--bg-primary)] text-[var(--accent-color)] shadow-sm'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
-                  <ICONS.Play className="w-4 h-4" />
-                  Local Games
+                  <ICONS.Play className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  Games
                 </button>
                 <button
                   onClick={() => setMainTab('love_notes')}
-                  className={`relative flex-1 px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${
+                  className={`relative flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
                     mainTab === 'love_notes'
                       ? 'bg-[var(--accent-color)] text-white shadow-sm'
                       : pendingCount > 0
@@ -1143,16 +1143,16 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                         : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
-                  <ICONS.Heart className={`w-4 h-4 ${mainTab === 'love_notes' ? 'fill-white' : pendingCount > 0 ? 'fill-[var(--accent-color)]' : ''}`} />
+                  <ICONS.Heart className={`w-3.5 h-3.5 md:w-4 md:h-4 ${mainTab === 'love_notes' ? 'fill-white' : pendingCount > 0 ? 'fill-[var(--accent-color)]' : ''}`} />
                   Love Notes
                   {pendingCount > 0 && mainTab !== 'love_notes' && (
-                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-[var(--accent-color)] text-white text-[10px] flex items-center justify-center rounded-full font-bold animate-bounce">
+                    <span className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 bg-[var(--accent-color)] text-white text-[8px] md:text-[10px] flex items-center justify-center rounded-full font-bold animate-bounce">
                       {pendingCount > 9 ? '9+' : pendingCount}
                     </span>
                   )}
                 </button>
               </div>
-              <p className="text-[var(--text-secondary)] text-xs text-center">
+              <p className="text-[var(--text-secondary)] text-[10px] md:text-xs text-center hidden md:block">
                 {mainTab === 'local_games'
                   ? 'Practice your vocabulary with different game modes'
                   : `Challenges and gifts from ${partnerName}`}
@@ -1204,24 +1204,20 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
           {/* Game Card Grid - Show when in local_games tab and no game active */}
           {mainTab === 'local_games' && !localGameType && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-4 mt-3 md:mt-4">
               {/* Flashcards */}
               <button
                 onClick={() => startLocalGame('flashcards')}
-                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
+                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--accent-light)] rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
                     🎴
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-[var(--text-primary)] mb-1">Flashcards</h3>
-                    <p className="text-sm text-[var(--text-secondary)]">Flip cards to reveal translations</p>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">Flashcards</h3>
+                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">Flip cards to reveal translations</p>
                   </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-xs font-bold">
-                  <ICONS.Play className="w-3 h-3" />
-                  <span>Start Now</span>
                 </div>
               </button>
 
@@ -1229,40 +1225,32 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               <button
                 onClick={() => startLocalGame('multiple_choice')}
                 disabled={deck.length < 4}
-                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-purple-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
                     🔘
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-[var(--text-primary)] mb-1">Multiple Choice</h3>
-                    <p className="text-sm text-[var(--text-secondary)]">Pick the correct translation</p>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">Multi Choice</h3>
+                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">Pick the correct translation</p>
                   </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-purple-500 text-xs font-bold">
-                  <ICONS.Play className="w-3 h-3" />
-                  <span>Start Now</span>
                 </div>
               </button>
 
               {/* Type It */}
               <button
                 onClick={() => startLocalGame('type_it')}
-                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all text-left"
+                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all text-left"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-blue-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
                     ⌨️
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-[var(--text-primary)] mb-1">Type It</h3>
-                    <p className="text-sm text-[var(--text-secondary)]">Type the translation yourself</p>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">Type It</h3>
+                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">Type the translation yourself</p>
                   </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-blue-500 text-xs font-bold">
-                  <ICONS.Play className="w-3 h-3" />
-                  <span>Start Now</span>
                 </div>
               </button>
 
@@ -1270,63 +1258,51 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               <button
                 onClick={() => startLocalGame('quick_fire')}
                 disabled={deck.length < 5}
-                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-amber-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
                     ⚡
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-[var(--text-primary)] mb-1">Quick Fire</h3>
-                    <p className="text-sm text-[var(--text-secondary)]">60 second timed challenge</p>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">Quick Fire</h3>
+                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">60 second challenge</p>
                   </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-amber-500 text-xs font-bold">
-                  <ICONS.Play className="w-3 h-3" />
-                  <span>Start Now</span>
                 </div>
               </button>
 
               {/* AI Challenge */}
               <button
                 onClick={() => startLocalGame('ai_challenge')}
-                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-green-500/30 transition-all text-left"
+                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-green-500/30 transition-all text-left"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-green-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
                     🤖
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-[var(--text-primary)] mb-1">AI Challenge</h3>
-                    <p className="text-sm text-[var(--text-secondary)]">Mixed question types with smart word selection</p>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">AI Challenge</h3>
+                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">Smart word selection</p>
                   </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-green-500 text-xs font-bold">
-                  <ICONS.Play className="w-3 h-3" />
-                  <span>Start Challenge</span>
                 </div>
               </button>
 
               {/* Conversation Practice */}
               <button
                 onClick={() => setShowConversationPractice(true)}
-                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left relative"
+                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left relative"
               >
-                <div className="absolute top-3 right-3 px-2 py-0.5 bg-purple-500/20 text-purple-600 dark:text-purple-400 text-[9px] font-black uppercase tracking-wider rounded-full">
+                <div className="absolute top-1.5 right-1.5 md:top-3 md:right-3 px-1.5 md:px-2 py-0.5 bg-purple-500/20 text-purple-600 dark:text-purple-400 text-[7px] md:text-[9px] font-black uppercase tracking-wider rounded-full">
                   Beta
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-purple-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
                     🎙️
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-[var(--text-primary)] mb-1">Conversation Practice</h3>
-                    <p className="text-sm text-[var(--text-secondary)]">Talk to AI personas in Polish scenarios</p>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">Conversation</h3>
+                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">Talk to AI in Polish</p>
                   </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-purple-500 text-xs font-bold">
-                  <ICONS.Mic className="w-3 h-3" />
-                  <span>Start Conversation</span>
                 </div>
               </button>
 
@@ -1334,24 +1310,20 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               <button
                 onClick={() => startLocalGame('verb_mastery')}
                 disabled={verbsWithConjugations.length === 0}
-                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-orange-500/30 transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-orange-500/30 transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-orange-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-orange-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
                     🔄
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-black text-[var(--text-primary)] mb-1">Verb Mastery</h3>
-                    <p className="text-sm text-[var(--text-secondary)]">
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">Verb Mastery</h3>
+                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">
                       {verbsWithConjugations.length > 0
-                        ? `Practice conjugations for ${verbsWithConjugations.length} verbs`
-                        : 'Learn verbs first to unlock'}
+                        ? `${verbsWithConjugations.length} verbs`
+                        : 'Learn verbs first'}
                     </p>
                   </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-orange-500 text-xs font-bold">
-                  <ICONS.Target className="w-3 h-3" />
-                  <span>{verbsWithConjugations.length > 0 ? 'Start Practice' : 'Locked'}</span>
                 </div>
               </button>
             </div>

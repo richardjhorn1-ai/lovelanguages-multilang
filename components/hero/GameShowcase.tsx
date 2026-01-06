@@ -9,6 +9,7 @@ interface GameShowcaseProps {
   isStudent: boolean;
   accentColor: string;
   sectionIndex?: number;
+  isMobile?: boolean;
 }
 
 const MODES = ['Flashcard', 'Multiple Choice', 'Type It', 'Quick Fire'] as const;
@@ -18,6 +19,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
   isStudent,
   accentColor,
   sectionIndex,
+  isMobile = false,
 }) => {
   const [currentMode, setCurrentMode] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -82,6 +84,104 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
     ? "We do that amazingly."
     : "Spoiler: you'll want to play too.";
 
+  // Mobile compact layout - fits within carousel card without vertical scroll
+  if (isMobile) {
+    return (
+      <div className="w-full h-full flex flex-col justify-center items-center overflow-hidden px-2">
+        {/* Compact headline */}
+        <p
+          className="text-xs font-semibold mb-2 text-center"
+          style={{ color: accentColor }}
+        >
+          {subtext}
+        </p>
+
+        {/* Compact mode navigation */}
+        <div className="flex items-center gap-1 mb-2">
+          <button
+            onClick={goToPrevMode}
+            className="w-6 h-6 rounded-full flex items-center justify-center font-bold transition-all text-sm"
+            style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
+          >
+            ‹
+          </button>
+
+          <div className="flex items-center gap-1">
+            {MODES.map((mode, i) => (
+              <button
+                key={mode}
+                onClick={() => { setCurrentMode(i); setQuestionIndex(0); }}
+                className={`px-1.5 py-0.5 rounded-full text-[9px] font-bold transition-all ${
+                  i === currentMode
+                    ? 'text-white shadow-lg'
+                    : 'text-gray-500'
+                }`}
+                style={i === currentMode ? { backgroundColor: accentColor } : {}}
+              >
+                {mode === 'Multiple Choice' ? 'Multi' : mode === 'Quick Fire' ? 'Quick' : mode}
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={goToNextMode}
+            className="w-6 h-6 rounded-full flex items-center justify-center font-bold transition-all text-sm"
+            style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
+          >
+            ›
+          </button>
+        </div>
+
+        {/* Progress dots - hide for Quick Fire */}
+        {currentMode !== 3 && (
+          <div className="flex gap-1 mb-2">
+            {[0, 1].map((i) => (
+              <div
+                key={i}
+                className="w-1.5 h-1.5 rounded-full transition-all"
+                style={{
+                  backgroundColor: i <= questionIndex ? accentColor : '#e5e7eb',
+                }}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Demo component - scaled down significantly to fit */}
+        <div className="transition-all duration-300 transform scale-[0.75] origin-top">
+          {currentMode === 0 && (
+            <DemoFlashcard
+              word={currentWord}
+              accentColor={accentColor}
+              onComplete={handleComplete}
+            />
+          )}
+          {currentMode === 1 && (
+            <DemoMultipleChoice
+              word={currentWord}
+              accentColor={accentColor}
+              onComplete={handleComplete}
+            />
+          )}
+          {currentMode === 2 && (
+            <DemoTypeIt
+              word={currentWord}
+              accentColor={accentColor}
+              onComplete={handleComplete}
+            />
+          )}
+          {currentMode === 3 && (
+            <DemoQuickFire
+              accentColor={accentColor}
+              onComplete={handleComplete}
+            />
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop layout
   return (
     <section
       data-section={sectionIndex}
