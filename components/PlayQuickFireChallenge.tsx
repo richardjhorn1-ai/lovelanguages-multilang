@@ -155,39 +155,39 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   if (!started) {
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden text-center p-8">
-          <div className="text-6xl mb-4">⚡</div>
-          <h2 className="text-2xl font-black text-gray-800 mb-2">Quick Fire!</h2>
-          <p className="text-gray-500 mb-6">
+        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="text-5xl md:text-6xl mb-3 md:mb-4">⚡</div>
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">Quick Fire!</h2>
+          <p className="text-[var(--text-secondary)] text-sm md:text-base mb-4 md:mb-6">
             {partnerName} challenges you to translate {words.length} words in {config.timeLimitSeconds} seconds!
           </p>
 
-          <div className={`p-4 rounded-2xl mb-6 ${
-            config.difficulty === 'easy' ? 'bg-green-50' :
-            config.difficulty === 'hard' ? 'bg-red-50' : 'bg-amber-50'
+          <div className={`p-3 md:p-4 rounded-xl md:rounded-2xl mb-4 md:mb-6 ${
+            config.difficulty === 'easy' ? 'bg-green-100 dark:bg-green-900/30' :
+            config.difficulty === 'hard' ? 'bg-red-100 dark:bg-red-900/30' : 'bg-amber-100 dark:bg-amber-900/30'
           }`}>
-            <p className={`text-lg font-bold ${
-              config.difficulty === 'easy' ? 'text-green-600' :
-              config.difficulty === 'hard' ? 'text-red-600' : 'text-amber-600'
+            <p className={`text-base md:text-lg font-bold ${
+              config.difficulty === 'easy' ? 'text-green-600 dark:text-green-400' :
+              config.difficulty === 'hard' ? 'text-red-600 dark:text-red-400' : 'text-amber-600 dark:text-amber-400'
             }`}>
               {config.difficulty === 'easy' ? '🌿 Easy Mode' :
                config.difficulty === 'hard' ? '💥 Hard Mode' : '🔥 Medium Mode'}
             </p>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">
               {(config.timeLimitSeconds / words.length).toFixed(1)}s per word
             </p>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex gap-2 md:gap-3">
             <button
               onClick={onClose}
-              className="flex-1 px-6 py-4 text-gray-500 font-bold rounded-xl hover:bg-gray-100 transition-colors"
+              className="flex-1 px-4 md:px-6 py-3 md:py-4 text-[var(--text-secondary)] font-bold rounded-xl hover:bg-[var(--bg-primary)] transition-colors text-sm md:text-base"
             >
               Later
             </button>
             <button
               onClick={handleStart}
-              className="flex-1 px-6 py-4 bg-amber-500 text-white font-bold rounded-xl hover:bg-amber-600 transition-colors"
+              className="flex-1 px-4 md:px-6 py-3 md:py-4 bg-amber-500 text-white font-bold rounded-xl hover:bg-amber-600 transition-colors text-sm md:text-base"
             >
               Start!
             </button>
@@ -201,9 +201,9 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   if (countdown > 0) {
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md p-8 text-center">
-          <p className="text-gray-500 mb-4">Get Ready!</p>
-          <div className="text-8xl font-black text-amber-500 animate-pulse">{countdown}</div>
+        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md p-6 md:p-8 text-center">
+          <p className="text-[var(--text-secondary)] mb-3 md:mb-4">Get Ready!</p>
+          <div className="text-7xl md:text-8xl font-black text-amber-500 animate-pulse">{countdown}</div>
         </div>
       </div>
     );
@@ -216,24 +216,24 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden text-center p-8">
-          <div className="text-6xl mb-4">
+        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="text-5xl md:text-6xl mb-3 md:mb-4">
             {isPerfect && wasQuick ? '🏆' : isPerfect ? '🎉' : result.score >= 70 ? '⚡' : '💪'}
           </div>
-          <h2 className="text-2xl font-black text-gray-800 mb-2">
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">
             {isPerfect && wasQuick ? 'Lightning Fast!' :
              isPerfect ? 'Perfect Score!' :
              result.score >= 70 ? 'Great Job!' : 'Keep Practicing!'}
           </h2>
 
-          <div className="text-5xl font-black text-amber-500 mb-2">{result.score}%</div>
+          <div className="text-4xl md:text-5xl font-black text-amber-500 mb-2">{result.score}%</div>
 
-          <p className="text-gray-500 mb-4">
+          <p className="text-[var(--text-secondary)] text-sm md:text-base mb-3 md:mb-4">
             {result.correct_answers}/{result.total_questions} correct in {result.timeSpent}s
           </p>
 
-          <div className="bg-gradient-to-r from-amber-50 to-[var(--accent-light)] p-4 rounded-2xl mb-6">
-            <p className="text-sm font-bold text-gray-800">
+          <div className="bg-amber-100 dark:bg-amber-900/30 p-3 md:p-4 rounded-xl md:rounded-2xl mb-4 md:mb-6 border border-amber-200 dark:border-amber-800">
+            <p className="text-xs md:text-sm font-bold text-[var(--text-primary)]">
               +{result.xp_earned} XP earned!
               {wasQuick && <span className="text-amber-500"> (Time Bonus!)</span>}
             </p>
@@ -241,7 +241,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
           <button
             onClick={() => { onComplete(); }}
-            className="w-full px-6 py-4 bg-amber-500 text-white font-bold rounded-xl hover:bg-amber-600 transition-colors"
+            className="w-full px-4 md:px-6 py-3 md:py-4 bg-amber-500 text-white font-bold rounded-xl hover:bg-amber-600 transition-colors text-sm md:text-base"
           >
             Done
           </button>
@@ -274,9 +274,9 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
       showFeedback === 'correct' ? 'bg-green-500/50' :
       showFeedback === 'wrong' ? 'bg-red-500/50' : 'bg-black/50'
     }`}>
-      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden">
+      <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden">
         {/* Timer Bar */}
-        <div className="h-3 bg-gray-100">
+        <div className="h-2 md:h-3 bg-[var(--bg-primary)]">
           <div
             className={`h-full transition-all duration-1000 ${
               timeProgress > 50 ? 'bg-amber-500' :
@@ -287,11 +287,11 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
         </div>
 
         {/* Header */}
-        <div className="p-4 flex items-center justify-between">
-          <span className="text-sm font-bold text-gray-500">
+        <div className="p-3 md:p-4 flex items-center justify-between">
+          <span className="text-xs md:text-sm font-bold text-[var(--text-secondary)]">
             {currentIndex + 1} / {words.length}
           </span>
-          <span className={`text-2xl font-black ${
+          <span className={`text-xl md:text-2xl font-black ${
             timeLeft > 10 ? 'text-amber-500' : 'text-red-500 animate-pulse'
           }`}>
             {timeLeft}s
@@ -299,9 +299,9 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
         </div>
 
         {/* Word */}
-        <div className="p-6">
-          <div className="bg-amber-50 p-8 rounded-2xl mb-6 text-center">
-            <p className="text-4xl font-black text-amber-600">{currentWord?.word}</p>
+        <div className="p-4 md:p-6">
+          <div className="bg-amber-100 dark:bg-amber-900/30 p-6 md:p-8 rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center">
+            <p className="text-3xl md:text-4xl font-black text-amber-600 dark:text-amber-400">{currentWord?.word}</p>
           </div>
 
           <input
@@ -316,11 +316,11 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
             }}
             placeholder="Type translation..."
             autoFocus
-            className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-xl font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+            className="w-full p-3 md:p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-lg md:text-xl font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
           />
 
           {/* Progress */}
-          <div className="mt-4 h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div className="mt-3 md:mt-4 h-1.5 md:h-2 bg-[var(--bg-primary)] rounded-full overflow-hidden">
             <div
               className="h-full bg-amber-500 transition-all duration-300"
               style={{ width: `${progress}%` }}

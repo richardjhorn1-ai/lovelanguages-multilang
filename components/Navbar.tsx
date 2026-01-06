@@ -147,10 +147,10 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   };
 
   const navItems = [
-    { path: '/', label: 'Chat', icon: ICONS.MessageCircle },
-    { path: '/log', label: 'Love Log', icon: ICONS.Book },
-    { path: '/play', label: 'Play', icon: ICONS.Play },
-    { path: '/progress', label: 'Progress', icon: ICONS.TrendingUp },
+    { path: '/', label: 'Chat', icon: ICONS.MessageCircle, hideOnMobile: false },
+    { path: '/log', label: 'Love Log', icon: ICONS.Book, hideOnMobile: false },
+    { path: '/play', label: 'Play', icon: ICONS.Play, hideOnMobile: false },
+    { path: '/progress', label: 'Progress', icon: ICONS.TrendingUp, hideOnMobile: true },
   ];
 
   return (
@@ -167,19 +167,21 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         />
       </div>
 
-      <nav className="bg-[var(--bg-card)] border-b border-[var(--border-color)] px-6 py-3 flex items-center justify-between z-50 sticky top-1">
-        <div className="flex items-center gap-2">
-          <ICONS.Heart style={{ color: accentHex, fill: accentHex }} className="w-6 h-6" />
+      <nav className="bg-[var(--bg-card)] border-b border-[var(--border-color)] px-4 md:px-6 py-2 md:py-3 flex items-center justify-between z-50 sticky top-1">
+        {/* Left: Logo - fixed width on mobile for centering */}
+        <div className="flex items-center gap-2 w-10 md:w-auto">
+          <ICONS.Heart style={{ color: accentHex, fill: accentHex }} className="w-5 h-5 md:w-6 md:h-6" />
           <span className="font-header font-bold text-lg hidden sm:inline text-[var(--text-primary)]">Love Languages</span>
         </div>
 
-        <div className="flex gap-2 sm:gap-6">
+        {/* Center: Nav items - centered on mobile */}
+        <div className="flex-1 flex justify-center md:justify-center gap-1 md:gap-6">
           {navItems.map((item) => (
             <NavLink
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `flex items-center gap-2 px-3 py-2 rounded-xl transition-all relative ${
+                `${item.hideOnMobile ? 'hidden md:flex' : 'flex'} items-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded-xl transition-all relative ${
                   isActive
                     ? 'font-bold'
                     : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
@@ -194,21 +196,21 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Help Guide Button */}
+          {/* Help Guide Button - Hidden on mobile, shown in profile dropdown instead */}
           <button
             onClick={() => {
               setIsHelpOpen(true);
               setIsNotificationsOpen(false);
               setIsProfileDropdownOpen(false);
             }}
-            className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-all"
+            className="hidden md:block p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-all"
             title="Help & Guide"
           >
             <ICONS.HelpCircle className="w-5 h-5 text-[var(--text-secondary)]" />
           </button>
 
-          {/* Notifications Bell */}
-          <div className="relative" ref={notificationsRef}>
+          {/* Notifications Bell - Hidden on mobile, shown in profile dropdown instead */}
+          <div className="relative hidden md:block" ref={notificationsRef}>
             <button
               onClick={() => {
                 setIsNotificationsOpen(!isNotificationsOpen);
@@ -298,7 +300,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
-            className="flex items-center gap-3 hover:bg-[var(--bg-primary)] rounded-xl px-2 py-1.5 transition-all"
+            className="flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] rounded-xl px-1 md:px-2 py-1 md:py-1.5 transition-all"
           >
             <div className="hidden sm:flex flex-col items-end">
               <span className="text-xs font-black truncate max-w-[120px] text-[var(--text-primary)]">{profile.full_name}</span>
@@ -306,73 +308,116 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
             </div>
             <div className="relative">
               <div
-                className="w-9 h-9 rounded-full flex items-center justify-center font-black shadow-sm shrink-0 text-sm"
+                className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center font-black shadow-sm shrink-0 text-xs md:text-sm"
                 style={{ backgroundColor: `${accentHex}20`, color: accentHex, border: `1px solid ${accentHex}30` }}
               >
                 {profile.full_name[0].toUpperCase()}
               </div>
-              {requestCount > 0 && (
+              {/* Mobile badge: combined requests + notifications */}
+              {(requestCount + unreadCount > 0) && (
                 <span
-                  className="absolute -top-1 -right-1 w-4 h-4 text-white text-[8px] flex items-center justify-center rounded-full border-2 border-[var(--bg-card)] animate-pulse"
+                  className="md:hidden absolute -top-1 -right-1 w-4 h-4 text-white text-[8px] flex items-center justify-center rounded-full border-2 border-[var(--bg-card)] animate-pulse"
                   style={{ backgroundColor: accentHex }}
                 >
-                  {requestCount}
+                  {requestCount + unreadCount > 9 ? '9+' : requestCount + unreadCount}
+                </span>
+              )}
+              {/* Desktop badge: just requests (notifications have their own bell) */}
+              {requestCount > 0 && (
+                <span
+                  className="hidden md:flex absolute -top-1 -right-1 w-4 h-4 text-white text-[8px] items-center justify-center rounded-full border-2 border-[var(--bg-card)] animate-pulse"
+                  style={{ backgroundColor: accentHex }}
+                >
+                  {requestCount > 9 ? '9+' : requestCount}
                 </span>
               )}
             </div>
-            <ICONS.ChevronDown className={`w-4 h-4 text-[var(--text-secondary)] transition-transform ${isProfileDropdownOpen ? 'rotate-180' : ''}`} />
+            <ICONS.ChevronDown className={`hidden md:block w-4 h-4 text-[var(--text-secondary)] transition-transform ${isProfileDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
 
           {/* Dropdown Menu */}
           {isProfileDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-56 bg-[var(--bg-card)] rounded-2xl shadow-xl border border-[var(--border-color)] py-2 z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
-              <div className="px-4 py-3 border-b border-[var(--border-color)]">
-                <p className="text-sm font-bold text-[var(--text-primary)]">{profile.full_name}</p>
-                <p className="text-[10px] text-[var(--text-secondary)]">{profile.email}</p>
+            <div className="absolute right-0 mt-1.5 md:mt-2 w-48 md:w-56 bg-[var(--bg-card)] rounded-xl md:rounded-2xl shadow-xl border border-[var(--border-color)] py-1.5 md:py-2 z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="px-3 md:px-4 py-2 md:py-3 border-b border-[var(--border-color)]">
+                <p className="text-xs md:text-sm font-bold text-[var(--text-primary)] truncate">{profile.full_name}</p>
+                <p className="text-[9px] md:text-[10px] text-[var(--text-secondary)] truncate">{profile.email}</p>
               </div>
 
               <button
                 onClick={() => { navigate('/profile'); setIsProfileDropdownOpen(false); }}
-                className="w-full px-4 py-2.5 text-left flex items-center gap-3 hover:bg-[var(--bg-primary)] transition-colors"
+                className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
-                <ICONS.User className="w-4 h-4 text-[var(--text-secondary)]" />
-                <span className="text-sm font-medium text-[var(--text-primary)]">View Profile</span>
+                <ICONS.User className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
+                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">View Profile</span>
                 {requestCount > 0 && (
                   <span
-                    className="ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full"
+                    className="ml-auto text-[8px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded-full"
                     style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
                   >
-                    {requestCount} request{requestCount > 1 ? 's' : ''}
+                    {requestCount}
                   </span>
                 )}
               </button>
 
               <button
                 onClick={() => { navigate('/progress'); setIsProfileDropdownOpen(false); }}
-                className="w-full px-4 py-2.5 text-left flex items-center gap-3 hover:bg-[var(--bg-primary)] transition-colors"
+                className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
-                <ICONS.TrendingUp className="w-4 h-4 text-[var(--text-secondary)]" />
-                <span className="text-sm font-medium text-[var(--text-primary)]">My Progress</span>
+                <ICONS.TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
+                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">My Progress</span>
               </button>
 
               <button
                 onClick={() => { navigate('/log'); setIsProfileDropdownOpen(false); }}
-                className="w-full px-4 py-2.5 text-left flex items-center gap-3 hover:bg-[var(--bg-primary)] transition-colors"
+                className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
-                <ICONS.Book className="w-4 h-4 text-[var(--text-secondary)]" />
-                <span className="text-sm font-medium text-[var(--text-primary)]">Love Log</span>
+                <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
+                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">Love Log</span>
               </button>
 
-              <div className="border-t border-[var(--border-color)] mt-2 pt-2">
+              {/* Mobile-only: Help & Notifications (hidden on desktop where they have dedicated buttons) */}
+              <div className="md:hidden border-t border-[var(--border-color)] mt-1.5 pt-1.5">
+                <button
+                  onClick={() => {
+                    setIsHelpOpen(true);
+                    setIsProfileDropdownOpen(false);
+                  }}
+                  className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
+                >
+                  <ICONS.HelpCircle className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
+                  <span className="text-xs font-medium text-[var(--text-primary)]">Help & Guide</span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setIsNotificationsOpen(true);
+                    setIsProfileDropdownOpen(false);
+                  }}
+                  className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
+                >
+                  <ICONS.Bell className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
+                  <span className="text-xs font-medium text-[var(--text-primary)]">Notifications</span>
+                  {unreadCount > 0 && (
+                    <span
+                      className="ml-auto text-[8px] font-bold px-1.5 py-0.5 rounded-full"
+                      style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
+                    >
+                      {unreadCount}
+                    </span>
+                  )}
+                </button>
+              </div>
+
+              <div className="border-t border-[var(--border-color)] mt-1.5 md:mt-2 pt-1.5 md:pt-2">
                 <button
                   onClick={async () => {
                     setIsProfileDropdownOpen(false);
                     await supabase.auth.signOut({ scope: 'local' });
                   }}
-                  className="w-full px-4 py-2.5 text-left flex items-center gap-3 hover:bg-red-500/10 transition-colors text-red-500"
+                  className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-red-500/10 transition-colors text-red-500"
                 >
-                  <ICONS.LogOut className="w-4 h-4" />
-                  <span className="text-sm font-medium">Sign Out</span>
+                  <ICONS.LogOut className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  <span className="text-xs md:text-sm font-medium">Sign Out</span>
                 </button>
               </div>
             </div>
@@ -380,6 +425,94 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         </div>
         </div>
       </nav>
+
+      {/* Mobile Notifications Panel - slide-in from right */}
+      <div
+        className={`md:hidden fixed inset-0 z-[200] transition-all duration-300 ${
+          isNotificationsOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/30"
+          onClick={() => setIsNotificationsOpen(false)}
+        />
+
+        {/* Panel */}
+        <div
+          className={`absolute right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-[var(--bg-card)] shadow-2xl transform transition-transform duration-300 ${
+            isNotificationsOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="flex items-center justify-between px-4 py-4 border-b border-[var(--border-color)]">
+            <div className="flex items-center gap-2">
+              <ICONS.Bell className="w-5 h-5" style={{ color: accentHex }} />
+              <span className="text-base font-bold text-[var(--text-primary)]">Notifications</span>
+              {unreadCount > 0 && (
+                <span
+                  className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                  style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
+                >
+                  {unreadCount} new
+                </span>
+              )}
+            </div>
+            <button
+              onClick={() => setIsNotificationsOpen(false)}
+              className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors"
+            >
+              <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
+            </button>
+          </div>
+
+          <div className="overflow-y-auto h-[calc(100%-60px)]">
+            {notifications.length === 0 ? (
+              <div className="py-12 text-center">
+                <span className="text-3xl mb-3 block">🔔</span>
+                <p className="text-sm text-[var(--text-secondary)]">No notifications yet</p>
+                <p className="text-xs text-[var(--text-secondary)] mt-1">You're all caught up!</p>
+              </div>
+            ) : (
+              notifications.map(notification => (
+                <div
+                  key={notification.id}
+                  className={`px-4 py-4 border-b border-[var(--border-color)] hover:bg-[var(--bg-primary)] transition-colors cursor-pointer`}
+                  style={!notification.read_at ? { backgroundColor: `${accentHex}10` } : {}}
+                  onClick={() => {
+                    if (!notification.read_at) markAsRead(notification.id);
+                    if (notification.type.includes('challenge') || notification.type.includes('word_gift')) {
+                      navigate('/play');
+                    }
+                    setIsNotificationsOpen(false);
+                  }}
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl shrink-0">{getNotificationIcon(notification.type)}</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-[var(--text-primary)]">{notification.title}</p>
+                      {notification.message && (
+                        <p className="text-xs text-[var(--text-secondary)] mt-1 line-clamp-2">{notification.message}</p>
+                      )}
+                      <p className="text-[10px] text-[var(--text-secondary)] mt-2">
+                        {new Date(notification.created_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        dismissNotification(notification.id);
+                      }}
+                      className="p-1.5 hover:bg-[var(--bg-primary)] rounded-lg transition-colors shrink-0"
+                    >
+                      <ICONS.X className="w-4 h-4 text-[var(--text-secondary)]" />
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* Help Guide Panel */}
       <HelpGuide

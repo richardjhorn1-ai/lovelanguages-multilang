@@ -39,18 +39,32 @@
         .font-header {
             font-family: 'Quicksand', sans-serif;
         }
-        ::-webkit-scrollbar {
-            width: 6px;
+        /* Desktop scrollbar styling */
+        @media (min-width: 768px) {
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+            ::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: color-mix(in srgb, var(--accent-color) 30%, transparent);
+                border-radius: 20px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--accent-color);
+            }
         }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: color-mix(in srgb, var(--accent-color) 30%, transparent);
-            border-radius: 20px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-color);
+
+        /* Mobile: hide scrollbar completely */
+        @media (max-width: 767px) {
+            * {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            *::-webkit-scrollbar {
+                display: none;
+            }
         }
 
         /* Rich Content Styles - Polish word highlighting */

@@ -40,18 +40,18 @@ export const ChatEmptySuggestions: React.FC<Props> = ({ mode, role, onSuggestion
   const suggestions = SUGGESTIONS[role]?.[mode] || SUGGESTIONS.student.ask;
 
   return (
-    <div className="flex flex-col items-center justify-center h-full px-6 py-12">
-      <div className="text-center mb-8">
-        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
-          <ICONS.MessageCircle className="w-8 h-8 text-[var(--accent-color)]" />
+    <div className="flex flex-col items-center justify-center h-full px-3 py-4 md:px-6 md:py-12">
+      <div className="text-center mb-4 md:mb-8">
+        <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
+          <ICONS.MessageCircle className="w-6 h-6 md:w-8 md:h-8 text-[var(--accent-color)]" />
         </div>
-        <h3 className="text-xl font-bold font-header text-[var(--text-primary)] mb-2">
+        <h3 className="text-base md:text-xl font-bold font-header text-[var(--text-primary)] mb-1 md:mb-2">
           {role === 'student'
             ? (mode === 'ask' ? 'Ask Cupid anything' : 'Ready for a lesson?')
             : 'Coach your partner'
           }
         </h3>
-        <p className="text-sm text-[var(--text-secondary)] max-w-xs mx-auto">
+        <p className="text-xs md:text-sm text-[var(--text-secondary)] max-w-xs mx-auto">
           {role === 'student'
             ? 'Every word you learn brings you closer together'
             : 'Teaching tips and personalized suggestions'
@@ -59,8 +59,8 @@ export const ChatEmptySuggestions: React.FC<Props> = ({ mode, role, onSuggestion
         </p>
       </div>
 
-      <div className="w-full max-w-md space-y-3">
-        <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] text-center mb-4">
+      <div className="w-full max-w-md space-y-2 md:space-y-3">
+        <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] text-center mb-2 md:mb-4">
           Try asking...
         </p>
         {suggestions.map((suggestion, index) => {
@@ -69,15 +69,15 @@ export const ChatEmptySuggestions: React.FC<Props> = ({ mode, role, onSuggestion
             <button
               key={index}
               onClick={() => onSuggestionClick(suggestion.text)}
-              className="w-full flex items-center gap-4 p-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-color)] hover:shadow-md transition-all group text-left"
+              className="w-full flex items-center gap-2.5 md:gap-4 p-2.5 md:p-4 rounded-xl md:rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-color)] hover:shadow-md transition-all group text-left"
             >
-              <div className="w-10 h-10 rounded-xl bg-[var(--accent-light)] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                <Icon className="w-5 h-5 text-[var(--accent-color)]" />
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[var(--accent-light)] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <Icon className="w-4 h-4 md:w-5 md:h-5 text-[var(--accent-color)]" />
               </div>
-              <span className="text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">
+              <span className="text-xs md:text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">
                 {suggestion.text}
               </span>
-              <ICONS.ChevronRight className="w-4 h-4 text-[var(--text-secondary)] ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ICONS.ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)] ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>
           );
         })}
