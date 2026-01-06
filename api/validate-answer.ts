@@ -28,9 +28,7 @@ interface ValidateAnswerRequest {
 
 interface ValidateAnswerResponse {
   accepted: boolean;
-  confidence: number;         // 0.0 to 1.0
-  reason: 'exact_match' | 'synonym' | 'typo' | 'article' | 'partial' | 'alternate_translation' | 'wrong';
-  suggestion?: string;        // If wrong, suggest what they might have meant
+  explanation: string;
 }
 
 // Fast local matching (no API call needed)
@@ -64,8 +62,7 @@ export default async function handler(req: any, res: any) {
     if (fastMatch(userAnswer, correctAnswer)) {
       return res.status(200).json({
         accepted: true,
-        confidence: 1.0,
-        reason: 'exact_match'
+        explanation: 'Exact match'
       } as ValidateAnswerResponse);
     }
 
@@ -75,8 +72,7 @@ export default async function handler(req: any, res: any) {
       // Fallback to strict matching if no API key
       return res.status(200).json({
         accepted: false,
-        confidence: 1.0,
-        reason: 'wrong'
+        explanation: 'No match (strict mode)'
       } as ValidateAnswerResponse);
     }
 
@@ -89,27 +85,25 @@ export default async function handler(req: any, res: any) {
       ? `\nDirection: ${direction === 'polish_to_english' ? 'Polish → English' : 'English → Polish'}`
       : '';
 
-    const prompt = `You are a language learning answer validator for a Polish learning app. Be encouraging but accurate.
+    const prompt = `You are validating answers for a Polish language learning app.
 
-Expected answer: "${correctAnswer}"
-User's answer: "${userAnswer}"${contextInfo}${directionInfo}
+Expected: "${correctAnswer}"
+User typed: "${userAnswer}"${contextInfo}${directionInfo}
 
-ACCEPT the answer if ANY of these apply:
-- Valid synonym (e.g., "pretty" for "beautiful", "hi" for "hello")
-- Article variation ("the dog" vs "dog", "a cat" vs "cat")
-- Minor typo (1-2 characters off, like "turtl" for "turtle")
-- Punctuation difference ("goodnight" vs "good night", "I'm" vs "Im")
-- Pronoun inclusion ("I love" vs "love" for "kocham")
-- Alternate valid translation (e.g., "przepraszam" = both "sorry" AND "excuse me")
-- Capitalization doesn't matter
+ACCEPT if ANY apply:
+- Exact match (ignoring case)
+- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię, zolty=żółty)
+- Valid synonym (pretty=beautiful, hi=hello)
+- Article variation (the dog=dog, a cat=cat)
+- Minor typo (1-2 chars off)
+- Alternate valid translation (przepraszam=sorry OR excuse me)
 
 REJECT if:
-- Completely different word/meaning
+- Completely different meaning
 - Wrong language
-- Major spelling error (3+ characters wrong)
-- Different tense or conjugation that changes meaning
+- Major spelling error (3+ chars wrong)
 
-Respond with JSON only.`;
+Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
 
     const result = await ai.models.generateContent({
       model: "gemini-2.0-flash",
@@ -119,16 +113,10 @@ Respond with JSON only.`;
         responseSchema: {
           type: Type.OBJECT,
           properties: {
-            accepted: { type: Type.BOOLEAN, description: "Whether the answer should be accepted" },
-            confidence: { type: Type.NUMBER, description: "Confidence level 0.0-1.0" },
-            reason: {
-              type: Type.STRING,
-              description: "Why accepted/rejected",
-              enum: ["exact_match", "synonym", "typo", "article", "partial", "alternate_translation", "wrong"]
-            },
-            suggestion: { type: Type.STRING, description: "If rejected, what they might have meant (optional)" }
+            accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
+            explanation: { type: Type.STRING, description: "Brief explanation of why accepted/rejected" }
           },
-          required: ["accepted", "confidence", "reason"]
+          required: ["accepted", "explanation"]
         }
       }
     });
@@ -140,27 +128,23 @@ Respond with JSON only.`;
 
       return res.status(200).json({
         accepted: validation.accepted,
-        confidence: Math.min(1, Math.max(0, validation.confidence || 0.8)),
-        reason: validation.reason || (validation.accepted ? 'synonym' : 'wrong'),
-        suggestion: validation.suggestion
+        explanation: validation.explanation
       });
     } catch (parseError) {
-      // If JSON parsing fails, be lenient and reject
+      // If JSON parsing fails, reject
       console.error('Failed to parse AI response:', responseText);
       return res.status(200).json({
         accepted: false,
-        confidence: 0.5,
-        reason: 'wrong'
+        explanation: 'Validation error'
       } as ValidateAnswerResponse);
     }
 
   } catch (error) {
     console.error('Validate answer error:', error);
-    // On error, fall back to strict matching (already failed fast match)
+    // On error, fall back to rejection
     return res.status(200).json({
       accepted: false,
-      confidence: 0.5,
-      reason: 'wrong'
+      explanation: 'Validation error'
     } as ValidateAnswerResponse);
   }
 }
