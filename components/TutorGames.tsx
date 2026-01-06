@@ -438,6 +438,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         setTypeItSubmitted(false);
         setTypeItCorrect(false);
         setTypeItExplanation('');
+      } else {
+        // Last question - clear submitted state to trigger re-render
+        // isGameOver will be true and game over screen will show
+        setTypeItSubmitted(false);
       }
       return;
     }
