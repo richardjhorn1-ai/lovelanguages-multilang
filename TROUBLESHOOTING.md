@@ -1589,3 +1589,182 @@ Added AI validation for manually entered words in Love Package. When tutors type
 - Shows word type badge and "+data" indicator for grammatical context
 
 **Status:** ✅ IMPLEMENTED
+
+---
+
+## Issue 31: submit-challenge.ts Server/Client Validation Mismatch
+
+**Date:** January 6, 2026
+
+**Problem:**
+Tutor challenges (Quiz, Quick Fire) were being graded inconsistently. The client-side showed smart validation feedback ("Accepted: valid synonym"), but the server re-graded answers with basic string matching, causing mismatched scores.
+
+**Root Cause:**
+`/api/submit-challenge.ts` used a simple `fastMatch()` function that only normalized case and whitespace, while client components used smart validation via `/api/validate-answer` (Gemini-powered).
+
+**Example Mismatch:**
+- User types "lunch" for "obiad"
+- Client shows: ✅ "Accepted: valid synonym" (smart validation)
+- Server grades: ❌ Incorrect (basic matching)
+- Final score lower than expected!
+
+**The Fix:**
+Added the same Gemini-powered `smartValidate()` function to `submit-challenge.ts`:
+
+```typescript
+// Fast local match first (no API call needed)
+function fastMatch(userAnswer: string, correctAnswer: string): boolean {
+  const normalize = (s: string) => s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+  return normalize(userAnswer) === normalize(correctAnswer);
+}
+
+// Smart validation using Gemini API
+async function smartValidate(
+  userAnswer: string,
+  correctAnswer: string,
+  polishWord?: string
+): Promise<{ accepted: boolean; explanation: string }> {
+  if (fastMatch(userAnswer, correctAnswer)) {
+    return { accepted: true, explanation: 'Exact match' };
+  }
+
+  // Call Gemini for synonym/typo validation...
+}
+```
+
+**Key Lesson:** When implementing validation, ensure ALL grading paths use the same logic. Client-side feedback should never be more lenient than server-side grading.
+
+**Status:** ✅ FIXED - Server now uses same Gemini validation as client
+
+---
+
+## Issue 32: TutorGames Type It Stuck on Last Question (10/10)
+
+**Date:** January 6, 2026
+
+**Problem:**
+In TutorGames "Type It" mode, after submitting the answer to the last question (10/10), clicking "Next" did nothing. The game appeared frozen and never showed the results screen.
+
+**Root Cause:**
+The `handleTypeItSubmit()` function had an early return without state change on the last question:
+
+```typescript
+const handleTypeItSubmit = async () => {
+  if (typeItSubmitted) {
+    if (localGameIndex < localGameWords.length - 1) {
+      setLocalGameIndex(prev => prev + 1);
+      // ... reset state for next question
+    }
+    // BUG: No else clause! On last question, just returns with no state change
+    return;
+  }
+  // ... grading logic
+};
+```
+
+When on question 10/10:
+1. User clicks "Check" → Answer is graded, `typeItSubmitted = true`
+2. User clicks "Next" → `if (9 < 9)` is FALSE
+3. Function returns early → No state change → No re-render
+4. `isGameOver` check never re-runs → Game stuck!
+
+**The Fix:**
+Added an else clause to clear `typeItSubmitted`, triggering a re-render where `isGameOver` evaluates to true:
+
+```typescript
+if (localGameIndex < localGameWords.length - 1) {
+  setLocalGameIndex(prev => prev + 1);
+  // ... reset state
+} else {
+  // Last question - clear submitted state to trigger re-render
+  // isGameOver will be true and game over screen will show
+  setTypeItSubmitted(false);
+}
+```
+
+**Key Lesson:** When using "Next" buttons that conditionally advance, always handle the final item case. State changes are required to trigger re-renders and game-over checks.
+
+**Status:** ✅ FIXED
+
+---
+
+## Issue 33: Validation Fallback Inconsistency (Diacritics)
+
+**Date:** January 6, 2026
+
+**Problem:**
+When smart validation was disabled (or failed), fallback validation used basic `toLowerCase().trim()` comparison. This meant Polish diacritics weren't normalized - "zolw" would NOT match "żółw".
+
+**Affected Files:**
+- `PlayQuizChallenge.tsx` (line 141)
+- `PlayQuickFireChallenge.tsx` (line 133)
+- `FlashcardGame.tsx` (line 808)
+- `TutorGames.tsx` (lines 458, 515)
+
+**Example of the Bug:**
+```typescript
+// Old code - doesn't handle diacritics
+isCorrect = userInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+// "zolw" !== "żółw" → marked wrong!
+```
+
+**The Fix:**
+Added `normalizeAnswer()` helper to all affected components:
+
+```typescript
+function normalizeAnswer(s: string): string {
+  return s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+}
+
+// Now both "zolw" and "żółw" normalize to "zolw" → matches!
+isCorrect = normalizeAnswer(userInput) === normalizeAnswer(word.translation);
+```
+
+**Key Lesson:** Validation consistency matters! Users shouldn't get different results in different game modes. Always normalize diacritics when comparing Polish text.
+
+**Status:** ✅ FIXED - All local validation now normalizes diacritics
+
+---
+
+## Issue 34: Migration 011 Prerequisite Failure
+
+**Date:** January 6, 2026
+
+**Error:**
+```
+Error: Failed to run sql query: relation "game_session_answers" does not exist
+```
+
+**Problem:**
+Migration 011 (add explanation column) assumed `game_session_answers` table existed. If migration 008 hadn't been run, the ALTER TABLE failed.
+
+**The Fix:**
+Added prerequisite check using DO block:
+
+```sql
+-- Migration 011: Add explanation column for smart validation
+-- PREREQUISITE: Run migration 008_game_sessions.sql first
+
+DO $$
+BEGIN
+  IF EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'game_session_answers') THEN
+    ALTER TABLE game_session_answers ADD COLUMN IF NOT EXISTS explanation TEXT;
+    COMMENT ON COLUMN game_session_answers.explanation IS
+      'AI explanation for why the answer was accepted or rejected during smart validation';
+  ELSE
+    RAISE NOTICE 'Table game_session_answers does not exist. Run migration 008_game_sessions.sql first.';
+  END IF;
+END $$;
+```
+
+**Key Lesson:** Migrations should be defensive. Check prerequisites and fail gracefully with helpful messages.
+
+**Status:** ✅ FIXED - Migration now checks for table existence
