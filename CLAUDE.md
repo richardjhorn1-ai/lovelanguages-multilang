@@ -19,28 +19,33 @@ vercel dev        # Full local dev with serverless functions
 ## Architecture
 
 ### Frontend (React + TypeScript + Tailwind)
-- **Entry**: `src/App.tsx` - Route handling and auth state
-- **Main Components**: `src/components/`
+- **Entry**: `App.tsx` - Route handling, auth state, PersistentTabs component
+- **Main Components**: `components/`
   - `ChatArea.tsx` - Text & voice chat with custom markdown rendering
   - `LoveLog.tsx` - Vocabulary browser with mastery tracking
   - `FlashcardGame.tsx` - 5 game modes (Flashcard, Multiple Choice, Type It, AI Challenge, Conversation Practice)
   - `ConversationPractice.tsx` - Voice conversation with AI personas in Polish scenarios (BETA)
-  - `ScenarioSelector.tsx` - Scenario picker modal for conversation practice
   - `Progress.tsx` - XP/level system, test history, motivation card
   - `LevelTest.tsx` - AI-generated proficiency tests
 
 ### Backend (Vercel Serverless Functions)
-- **Location**: `/api/` - Each file is an isolated serverless function
+- **Location**: `/api/` - 23 isolated serverless functions
 - **Key Endpoints**:
   - `chat.ts`, `chat-stream.ts` - Main conversation with Gemini
   - `live-token.ts` - Ephemeral tokens for voice mode
   - `analyze-history.ts` - Batch vocabulary extraction
   - `generate-level-test.ts`, `submit-level-test.ts` - Test system
+  - `validate-word.ts` - AI spelling/grammar validation for manual entries
 
 ### Services
 - `services/gemini.ts` - Gemini API wrapper (streaming, structured output)
 - `services/live-session.ts` - WebSocket voice mode with Gemini Live API
 - `services/supabase.ts` - Database client
+
+### User Roles
+The app distinguishes between two roles (`UserRole` in `types.ts`):
+- **Students**: Learn Polish, have Ask/Learn chat modes, play games, track vocabulary
+- **Tutors**: Help their partner learn, have Coach mode only, can create challenges and word gifts
 
 ## Critical Patterns
 
@@ -78,10 +83,15 @@ ALLOWED_ORIGINS=
 
 ## Key Types (types.ts)
 
+- `UserRole` - 'student' | 'tutor' (determines UI, available modes, game access)
 - `ChatMode` - 'ask' | 'learn' | 'coach' (tutors always use 'coach' with partner context)
 - `DictionaryEntry` - Full vocabulary with conjugations/examples
 - `WordScore` - Mastery tracking (correct_streak, learned_at)
 - `LevelInfo` - 18 levels across 6 tiers
+
+## Tab Persistence Pattern
+
+Main tabs (Chat, Log, Play, Progress) stay mounted for session lifetime via `PersistentTabs` in `App.tsx`. This preserves state like in-progress games and scroll position. Components are shown/hidden via CSS `hidden` class, not unmount/remount. Non-persistent routes (Test, Profile) still mount/unmount normally.
 
 ## AI Persona: "Cupid"
 
@@ -129,10 +139,8 @@ Use CSS variables for colors that need to work in both light/dark modes:
 - `var(--accent-color)`, `var(--accent-light)`, `var(--accent-border)` - Accent theming
 - `accentHex` from `useTheme()` hook - Dynamic accent color for inline styles
 
-## Chat UI Components
+## Chat Modes by Role
 
-- `ChatArea.tsx` - Main chat with mode tabs (Students: Ask/Learn, Tutors: Coach only)
-- `ChatEmptySuggestions.tsx` - Empty state with role/mode-specific suggestion cards
-- `HelpGuide.tsx` - Slide-out help panel with sections and FAQs
+- **Students**: Ask mode (quick Q&A) and Learn mode (structured lessons with tables/drills)
+- **Tutors**: Coach mode only (teaching tips + partner's vocabulary context)
 - Conversation history: Last 10 messages sent to AI for context awareness
-- Tutor Coach mode always has partner's vocabulary/progress for personalized suggestions

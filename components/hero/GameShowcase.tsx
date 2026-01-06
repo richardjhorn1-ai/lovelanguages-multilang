@@ -8,6 +8,7 @@ import { DemoQuickFire } from './DemoQuickFire';
 interface GameShowcaseProps {
   isStudent: boolean;
   accentColor: string;
+  sectionIndex?: number;
 }
 
 const MODES = ['Flashcard', 'Multiple Choice', 'Type It', 'Quick Fire'] as const;
@@ -16,6 +17,7 @@ type GameMode = typeof MODES[number];
 export const GameShowcase: React.FC<GameShowcaseProps> = ({
   isStudent,
   accentColor,
+  sectionIndex,
 }) => {
   const [currentMode, setCurrentMode] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -47,16 +49,42 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
   // Get current word based on mode and question index
   const currentWord = deck[(currentMode * 2 + questionIndex) % deck.length];
 
-  // Copy based on student/tutor
-  const headline = isStudent
-    ? "Oh, and if you want to learn the traditional way too..."
-    : "Play together, or send them challenges to tackle solo...";
+  // Copy based on student/tutor with highlights
+  const studentHeadline = (
+    <>
+      Oh, and if you want to learn{' '}
+      <span className="relative inline">
+        <span style={{ color: accentColor }}>the traditional way too</span>
+        <span
+          className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
+          style={{ backgroundColor: accentColor, opacity: 0.5 }}
+        />
+      </span>
+      ...
+    </>
+  );
+
+  const tutorHeadline = (
+    <>
+      <span style={{ color: accentColor }}>Play together</span>, or send them{' '}
+      <span className="relative inline">
+        <span style={{ color: accentColor }}>challenges</span>
+        <span
+          className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
+          style={{ backgroundColor: accentColor, opacity: 0.5 }}
+        />
+      </span>{' '}
+      to tackle solo...
+    </>
+  );
+
   const subtext = isStudent
     ? "We do that amazingly."
-    : "You can play too—it's not just for teaching.";
+    : "Spoiler: you'll want to play too.";
 
   return (
     <section
+      data-section={sectionIndex}
       className="min-h-screen snap-start flex flex-col md:flex-row items-center justify-center px-6 md:px-12 py-16 relative z-10"
     >
       {/* Left side - Text */}
@@ -65,7 +93,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
           className="text-2xl md:text-3xl font-black leading-tight mb-4"
           style={{ color: '#1a1a2e' }}
         >
-          {headline}
+          {isStudent ? studentHeadline : tutorHeadline}
         </h3>
         <p
           className="text-lg md:text-xl font-semibold"
@@ -73,6 +101,12 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
         >
           {subtext}
         </p>
+
+        {/* Visual accent bar - matching other sections */}
+        <div
+          className="mt-6 h-1.5 w-24 rounded-full"
+          style={{ backgroundColor: accentColor, opacity: 0.3 }}
+        />
       </div>
 
       {/* Right side - Game Demo */}
@@ -159,10 +193,6 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
           )}
         </div>
 
-        {/* Hint text */}
-        <p className="mt-6 text-xs text-gray-400 text-center">
-          Try it out! No sign-up needed.
-        </p>
       </div>
     </section>
   );
