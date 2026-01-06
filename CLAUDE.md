@@ -76,7 +76,7 @@ ALLOWED_ORIGINS=
 
 ## Key Types (types.ts)
 
-- `ChatMode` - 'ask' | 'learn'
+- `ChatMode` - 'ask' | 'learn' | 'coach' (coach is tutor-only, context-aware)
 - `DictionaryEntry` - Full vocabulary with conjugations/examples
 - `WordScore` - Mastery tracking (correct_streak, learned_at)
 - `LevelInfo` - 18 levels across 6 tiers
@@ -109,3 +109,12 @@ Manual testing via `vercel dev`. Single test file exists: `tests/vocabulary-extr
 - `TROUBLESHOOTING.md` - 23+ solved issues with detailed solutions
 - `docs/AI_INTEGRATION_GUIDE.md` - Gemini API implementation
 - `docs/FORMATTING.md` - Markdown rendering pipeline
+- `docs/SYSTEM_PROMPTS.md` - AI prompt documentation and modification guide
+- `DESIGN.md` - Adjusted anthropic design guide
+
+## Chat UI Components
+
+- `ChatArea.tsx` - Main chat with mode tabs (Students: Ask/Learn, Tutors: Coach/Context)
+- `ChatEmptySuggestions.tsx` - Empty state with role/mode-specific suggestion cards
+- `HelpGuide.tsx` - Slide-out help panel with sections and FAQs
+- Conversation history: Last 10 messages sent to AI for context awareness

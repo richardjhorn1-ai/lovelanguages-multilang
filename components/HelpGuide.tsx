@@ -49,7 +49,7 @@ const SECTIONS: GuideSection[] = [
     content: (
       <div className="space-y-4">
         <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-          <h4 className="font-bold text-[var(--accent-color)] mb-2">Ask Mode</h4>
+          <h4 className="font-bold text-[var(--accent-color)] mb-2">Ask Mode <span className="text-xs text-[var(--text-secondary)] font-normal">(Students)</span></h4>
           <p className="text-sm text-[var(--text-secondary)] mb-2">Quick questions, casual learning. Perfect for:</p>
           <ul className="text-sm text-[var(--text-secondary)] ml-4 space-y-1">
             <li>"How do I say 'I love you'?"</li>
@@ -58,7 +58,7 @@ const SECTIONS: GuideSection[] = [
           </ul>
         </div>
         <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-          <h4 className="font-bold text-teal-500 mb-2">Learn Mode</h4>
+          <h4 className="font-bold text-teal-500 mb-2">Learn Mode <span className="text-xs text-[var(--text-secondary)] font-normal">(Students)</span></h4>
           <p className="text-sm text-[var(--text-secondary)] mb-2">Structured lessons with tables and drills. Use for:</p>
           <ul className="text-sm text-[var(--text-secondary)] ml-4 space-y-1">
             <li>Verb conjugation practice</li>
@@ -67,7 +67,13 @@ const SECTIONS: GuideSection[] = [
           </ul>
         </div>
         <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-          <h4 className="font-bold text-purple-500 mb-2">Coach Mode (Tutors)</h4>
+          <h4 className="font-bold text-teal-500 mb-2">Coach Tab <span className="text-xs text-[var(--text-secondary)] font-normal">(Tutors)</span></h4>
+          <p className="text-sm text-[var(--text-secondary)]">
+            Quick teaching tips and help explaining Polish concepts to your partner.
+          </p>
+        </div>
+        <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
+          <h4 className="font-bold text-purple-500 mb-2">Context Tab <span className="text-xs text-[var(--text-secondary)] font-normal">(Tutors)</span></h4>
           <p className="text-sm text-[var(--text-secondary)]">
             Uses your partner's actual progress to suggest personalized phrases and activities.
           </p>
