@@ -13,10 +13,10 @@ async function validateAnswerSmart(
   userAnswer: string,
   correctAnswer: string,
   polishWord?: string
-): Promise<boolean> {
+): Promise<{ accepted: boolean; explanation: string }> {
   // Fast local match first
   if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
-    return true;
+    return { accepted: true, explanation: 'Exact match' };
   }
 
   try {
@@ -31,11 +31,11 @@ async function validateAnswerSmart(
       })
     });
 
-    if (!response.ok) return false;
+    if (!response.ok) return { accepted: false, explanation: 'Validation error' };
     const result = await response.json();
-    return result.accepted;
+    return { accepted: result.accepted, explanation: result.explanation || 'Validated' };
   } catch {
-    return false;
+    return { accepted: false, explanation: 'Validation error' };
   }
 }
 
@@ -135,6 +135,7 @@ interface GameSessionAnswer {
   userAnswer?: string;
   questionType: 'flashcard' | 'multiple_choice' | 'type_it';
   isCorrect: boolean;
+  explanation?: string;
 }
 
 type PlayMode = 'send' | 'local';
@@ -176,6 +177,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const [typeItAnswer, setTypeItAnswer] = useState('');
   const [typeItSubmitted, setTypeItSubmitted] = useState(false);
   const [typeItCorrect, setTypeItCorrect] = useState(false);
+  const [typeItExplanation, setTypeItExplanation] = useState('');
 
   // Session tracking for save to student progress
   const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
@@ -380,6 +382,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setTypeItAnswer('');
     setTypeItSubmitted(false);
     setTypeItCorrect(false);
+    setTypeItExplanation('');
     setSessionAnswers([]);
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
@@ -434,6 +437,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         setTypeItAnswer('');
         setTypeItSubmitted(false);
         setTypeItCorrect(false);
+        setTypeItExplanation('');
       }
       return;
     }
@@ -441,14 +445,19 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
     // Use smart validation if enabled, otherwise local matching
     let isCorrect: boolean;
+    let explanation = '';
     if (profile.smart_validation) {
-      isCorrect = await validateAnswerSmart(typeItAnswer, currentWord.translation, currentWord.word);
+      const result = await validateAnswerSmart(typeItAnswer, currentWord.translation, currentWord.word);
+      isCorrect = result.accepted;
+      explanation = result.explanation;
     } else {
       isCorrect = typeItAnswer.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+      explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
     setTypeItSubmitted(true);
     setTypeItCorrect(isCorrect);
+    setTypeItExplanation(explanation);
     setLocalGameScore(prev => ({
       correct: prev.correct + (isCorrect ? 1 : 0),
       incorrect: prev.incorrect + (isCorrect ? 0 : 1)
@@ -460,7 +469,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       correctAnswer: currentWord.translation,
       userAnswer: typeItAnswer,
       questionType: 'type_it',
-      isCorrect
+      isCorrect,
+      explanation
     }]);
   };
 
@@ -492,10 +502,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
     // Use smart validation if enabled, otherwise local matching
     let isCorrect: boolean;
+    let explanation = '';
     if (profile.smart_validation) {
-      isCorrect = await validateAnswerSmart(localQuickFireInput, currentWord.translation, currentWord.word);
+      const result = await validateAnswerSmart(localQuickFireInput, currentWord.translation, currentWord.word);
+      isCorrect = result.accepted;
+      explanation = result.explanation;
     } else {
       isCorrect = localQuickFireInput.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+      explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
     setLocalGameScore(prev => ({
@@ -509,7 +523,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       correctAnswer: currentWord.translation,
       userAnswer: localQuickFireInput,
       questionType: 'type_it',
-      isCorrect
+      isCorrect,
+      explanation
     }]);
     setLocalQuickFireInput('');
 
@@ -531,6 +546,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setTypeItAnswer('');
     setTypeItSubmitted(false);
     setTypeItCorrect(false);
+    setTypeItExplanation('');
   };
 
   const restartCurrentGame = () => {
@@ -967,9 +983,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                   typeItCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
                 }`}>
                   {typeItCorrect ? (
-                    <div className="flex items-center justify-center gap-2">
-                      <ICONS.Check className="w-5 h-5" />
-                      <span className="font-bold">Correct!</span>
+                    <div>
+                      <div className="flex items-center justify-center gap-2">
+                        <ICONS.Check className="w-5 h-5" />
+                        <span className="font-bold">Correct!</span>
+                      </div>
+                      {typeItExplanation && typeItExplanation !== 'Exact match' && (
+                        <p className="text-sm mt-1 opacity-80">{typeItExplanation}</p>
+                      )}
                     </div>
                   ) : (
                     <div>
@@ -980,6 +1001,9 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                       <p className="text-sm">
                         Correct answer: <span className="font-black">{currentWord?.translation}</span>
                       </p>
+                      {typeItExplanation && typeItExplanation !== 'No match' && (
+                        <p className="text-sm mt-1 opacity-80">{typeItExplanation}</p>
+                      )}
                     </div>
                   )}
                 </div>

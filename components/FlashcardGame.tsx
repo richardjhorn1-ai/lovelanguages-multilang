@@ -56,6 +56,7 @@ interface GameSessionAnswer {
   userAnswer?: string;
   questionType: 'flashcard' | 'multiple_choice' | 'type_it';
   isCorrect: boolean;
+  explanation?: string;
 }
 
 interface ChallengeQuestion {
@@ -98,7 +99,7 @@ async function validateAnswerSmart(
     wordType?: string;
     direction?: 'polish_to_english' | 'english_to_polish';
   }
-): Promise<{ accepted: boolean; reason?: string }> {
+): Promise<{ accepted: boolean; explanation: string }> {
   try {
     const response = await fetch('/api/validate-answer', {
       method: 'POST',
@@ -114,14 +115,16 @@ async function validateAnswerSmart(
 
     if (!response.ok) {
       // Fallback to local matching on error
-      return { accepted: isCorrectAnswer(userAnswer, correctAnswer) };
+      const accepted = isCorrectAnswer(userAnswer, correctAnswer);
+      return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
     }
 
     const result = await response.json();
-    return { accepted: result.accepted, reason: result.reason };
+    return { accepted: result.accepted, explanation: result.explanation || 'Validated' };
   } catch {
     // Fallback to local matching on error
-    return { accepted: isCorrectAnswer(userAnswer, correctAnswer) };
+    const accepted = isCorrectAnswer(userAnswer, correctAnswer);
+    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
   }
 }
 
@@ -166,6 +169,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [typeItAnswer, setTypeItAnswer] = useState('');
   const [typeItSubmitted, setTypeItSubmitted] = useState(false);
   const [typeItCorrect, setTypeItCorrect] = useState(false);
+  const [typeItExplanation, setTypeItExplanation] = useState('');
   const [showHint, setShowHint] = useState(false);
 
   // AI Challenge state
@@ -180,6 +184,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [challengeTypeAnswer, setChallengeTypeAnswer] = useState('');
   const [challengeTypeSubmitted, setChallengeTypeSubmitted] = useState(false);
   const [challengeTypeCorrect, setChallengeTypeCorrect] = useState(false);
+  const [challengeTypeExplanation, setChallengeTypeExplanation] = useState('');
 
   // Quick Fire state
   const [quickFireWords, setQuickFireWords] = useState<DictionaryEntry[]>([]);
@@ -564,6 +569,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setChallengeTypeAnswer('');
     setChallengeTypeSubmitted(false);
     setChallengeTypeCorrect(false);
+    setChallengeTypeExplanation('');
   };
 
   const handleChallengeFlashcardResponse = async (isCorrect: boolean) => {
@@ -628,14 +634,17 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     // Use smart validation if enabled, otherwise use local matching
     let correct: boolean;
+    let explanation = '';
     if (profile.smart_validation) {
       const result = await validateAnswerSmart(challengeTypeAnswer, q.english, {
         polishWord: q.polish,
         direction: 'polish_to_english'
       });
       correct = result.accepted;
+      explanation = result.explanation;
     } else {
       correct = isCorrectAnswer(challengeTypeAnswer, q.english);
+      explanation = correct ? 'Exact match' : 'No match';
     }
 
     // Record answer
@@ -645,12 +654,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       correctAnswer: q.english,
       userAnswer: challengeTypeAnswer,
       questionType: 'type_it',
-      isCorrect: correct
+      isCorrect: correct,
+      explanation
     };
     setSessionAnswers(prev => [...prev, answer]);
 
     setChallengeTypeSubmitted(true);
     setChallengeTypeCorrect(correct);
+    setChallengeTypeExplanation(explanation);
     setSessionScore(prev => ({ correct: prev.correct + (correct ? 1 : 0), incorrect: prev.incorrect + (correct ? 0 : 1) }));
     if (q.wordId) await updateWordScore(q.wordId, correct);
   };
@@ -693,6 +704,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setTypeItAnswer('');
     setTypeItSubmitted(false);
     setTypeItCorrect(false);
+    setTypeItExplanation('');
     setShowHint(false);
   };
 
@@ -783,6 +795,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     // Use smart validation if enabled, otherwise local matching
     let isCorrect: boolean;
+    let explanation = '';
     if (profile.smart_validation) {
       const result = await validateAnswerSmart(quickFireInput, word.translation, {
         polishWord: word.word,
@@ -790,18 +803,21 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         direction: 'polish_to_english'
       });
       isCorrect = result.accepted;
+      explanation = result.explanation;
     } else {
       isCorrect = quickFireInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+      explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
-    // Record answer
-    const answer: GameSessionAnswer = {
+    // Record answer with explanation
+    const answer: GameSessionAnswer & { explanation?: string } = {
       wordId: word.id,
       wordText: word.word,
       correctAnswer: word.translation,
       userAnswer: quickFireInput,
       questionType: 'type_it',
-      isCorrect
+      isCorrect,
+      explanation
     };
     const newAnswers = [...sessionAnswers, answer];
     setSessionAnswers(newAnswers);
@@ -1081,6 +1097,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     // Use smart validation if enabled, otherwise use local matching
     let isCorrect: boolean;
+    let explanation = '';
     if (profile.smart_validation) {
       const result = await validateAnswerSmart(typeItAnswer, correctAnswer, {
         polishWord: question.word.word,
@@ -1088,8 +1105,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         direction: question.direction
       });
       isCorrect = result.accepted;
+      explanation = result.explanation;
     } else {
       isCorrect = isCorrectAnswer(typeItAnswer, correctAnswer);
+      explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
     // Record answer
@@ -1099,12 +1118,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       correctAnswer,
       userAnswer: typeItAnswer,
       questionType: 'type_it',
-      isCorrect
+      isCorrect,
+      explanation
     };
     setSessionAnswers(prev => [...prev, answer]);
 
     setTypeItSubmitted(true);
     setTypeItCorrect(isCorrect);
+    setTypeItExplanation(explanation);
 
     setSessionScore(prev => ({
       correct: prev.correct + (isCorrect ? 1 : 0),
@@ -1186,6 +1207,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       tierColor={tierColor}
       onPlayAgain={restartSession}
       onExit={exitLocalGame}
+      answers={sessionAnswers}
     />
   );
 
@@ -1541,9 +1563,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                         typeItCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
                       }`}>
                         {typeItCorrect ? (
-                          <div className="flex items-center justify-center gap-2">
-                            <ICONS.Check className="w-5 h-5" />
-                            <span className="font-bold">Correct!</span>
+                          <div>
+                            <div className="flex items-center justify-center gap-2">
+                              <ICONS.Check className="w-5 h-5" />
+                              <span className="font-bold">Correct!</span>
+                            </div>
+                            {typeItExplanation && typeItExplanation !== 'Exact match' && (
+                              <p className="text-sm mt-1 opacity-80">{typeItExplanation}</p>
+                            )}
                           </div>
                         ) : (
                           <div>
@@ -1554,6 +1581,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                             <p className="text-sm">
                               Correct answer: <span className="font-black">{correctAnswer}</span>
                             </p>
+                            {typeItExplanation && typeItExplanation !== 'No match' && (
+                              <p className="text-sm mt-1 opacity-80">{typeItExplanation}</p>
+                            )}
                           </div>
                         )}
                       </div>
@@ -2089,9 +2119,20 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                         {challengeTypeSubmitted && (
                           <div className={`text-center mb-4 p-3 rounded-xl ${challengeTypeCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'}`}>
                             {challengeTypeCorrect ? (
-                              <div className="flex items-center justify-center gap-2"><ICONS.Check className="w-5 h-5" /><span className="font-bold">Correct!</span></div>
+                              <div>
+                                <div className="flex items-center justify-center gap-2"><ICONS.Check className="w-5 h-5" /><span className="font-bold">Correct!</span></div>
+                                {challengeTypeExplanation && challengeTypeExplanation !== 'Exact match' && (
+                                  <p className="text-sm mt-1 opacity-80">{challengeTypeExplanation}</p>
+                                )}
+                              </div>
                             ) : (
-                              <div><div className="flex items-center justify-center gap-2 mb-1"><ICONS.X className="w-5 h-5" /><span className="font-bold">Not quite</span></div><p className="text-sm">Correct: <span className="font-black">{q.english}</span></p></div>
+                              <div>
+                                <div className="flex items-center justify-center gap-2 mb-1"><ICONS.X className="w-5 h-5" /><span className="font-bold">Not quite</span></div>
+                                <p className="text-sm">Correct: <span className="font-black">{q.english}</span></p>
+                                {challengeTypeExplanation && challengeTypeExplanation !== 'No match' && (
+                                  <p className="text-sm mt-1 opacity-80">{challengeTypeExplanation}</p>
+                                )}
+                              </div>
                             )}
                           </div>
                         )}
