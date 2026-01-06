@@ -8,6 +8,38 @@ interface PlayQuizChallengeProps {
   partnerName: string;
   onClose: () => void;
   onComplete: () => void;
+  smartValidation?: boolean;
+}
+
+// Smart validation API call
+async function validateAnswerSmart(
+  userAnswer: string,
+  correctAnswer: string,
+  polishWord?: string
+): Promise<boolean> {
+  // Fast local match first
+  if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
+    return true;
+  }
+
+  try {
+    const response = await fetch('/api/validate-answer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userAnswer,
+        correctAnswer,
+        polishWord,
+        direction: 'polish_to_english'
+      })
+    });
+
+    if (!response.ok) return false;
+    const result = await response.json();
+    return result.accepted;
+  } catch {
+    return false;
+  }
 }
 
 interface Question {
@@ -22,7 +54,8 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   challenge,
   partnerName,
   onClose,
-  onComplete
+  onComplete,
+  smartValidation = true
 }) => {
   const [started, setStarted] = useState(false);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -88,11 +121,21 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
     setStarted(true);
   };
 
-  const handleAnswer = (answer: string, isCorrect?: boolean) => {
+  const handleAnswer = async (answer: string, isCorrect?: boolean) => {
     const question = questions[currentIndex];
-    const correct = isCorrect ?? (
-      answer.toLowerCase().trim() === question.translation.toLowerCase().trim()
-    );
+
+    // Determine if correct: use provided value, or validate the answer
+    let correct: boolean;
+    if (isCorrect !== undefined) {
+      // Flashcard self-assessment
+      correct = isCorrect;
+    } else if (smartValidation && question.type === 'type_it') {
+      // Smart validation for type_it questions
+      correct = await validateAnswerSmart(answer, question.translation, question.word);
+    } else {
+      // Local matching for multiple choice or when smart validation is off
+      correct = answer.toLowerCase().trim() === question.translation.toLowerCase().trim();
+    }
 
     setAnswers(prev => [...prev, {
       wordId: question.wordId,

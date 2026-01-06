@@ -5,6 +5,7 @@ import type { OnboardingData } from '../../types';
 // Shared steps
 import { NameStep } from './steps/shared/NameStep';
 import { PartnerNameStep } from './steps/shared/PartnerNameStep';
+import { ValidationModeStep } from './steps/shared/ValidationModeStep';
 
 // Student steps
 import { VibeStep } from './steps/student/VibeStep';
@@ -36,8 +37,8 @@ interface OnboardingProps {
   onComplete: () => void;
 }
 
-const STUDENT_TOTAL_STEPS = 15;
-const TUTOR_TOTAL_STEPS = 9;
+const STUDENT_TOTAL_STEPS = 16;
+const TUTOR_TOTAL_STEPS = 10;
 
 const STORAGE_KEY = 'onboarding_progress';
 
@@ -100,7 +101,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           partner_name: partnerNameValue || null,
           onboarding_data: data,
           onboarding_completed_at: new Date().toISOString(),
-          role: role
+          role: role,
+          smart_validation: data.smartValidation ?? true // Default to smart mode
         })
         .eq('id', userId);
 
@@ -235,18 +237,18 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         );
       case 10:
         return (
-          <LearnHelloStep
+          <ValidationModeStep
             currentStep={10}
             totalSteps={totalSteps}
-            partnerName={data.partnerName || 'them'}
-            onNext={goNext}
+            initialValue={data.smartValidation}
+            onNext={(mode) => { updateData('smartValidation', mode); goNext(); }}
             onBack={goBack}
             accentColor={accentColor}
           />
         );
       case 11:
         return (
-          <LearnLoveStep
+          <LearnHelloStep
             currentStep={11}
             totalSteps={totalSteps}
             partnerName={data.partnerName || 'them'}
@@ -257,9 +259,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         );
       case 12:
         return (
-          <TryItStep
+          <LearnLoveStep
             currentStep={12}
             totalSteps={totalSteps}
+            partnerName={data.partnerName || 'them'}
             onNext={goNext}
             onBack={goBack}
             accentColor={accentColor}
@@ -267,18 +270,28 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         );
       case 13:
         return (
-          <CelebrationStep
+          <TryItStep
             currentStep={13}
+            totalSteps={totalSteps}
+            onNext={goNext}
+            onBack={goBack}
+            accentColor={accentColor}
+          />
+        );
+      case 14:
+        return (
+          <CelebrationStep
+            currentStep={14}
             totalSteps={totalSteps}
             partnerName={data.partnerName || 'them'}
             onNext={goNext}
             accentColor={accentColor}
           />
         );
-      case 14:
+      case 15:
         return (
           <GoalStep
-            currentStep={14}
+            currentStep={15}
             totalSteps={totalSteps}
             partnerName={data.partnerName || 'them'}
             initialValue={data.firstGoal}
@@ -287,10 +300,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 15:
+      case 16:
         return (
           <StartStep
-            currentStep={15}
+            currentStep={16}
             totalSteps={totalSteps}
             userName={data.userName || 'Friend'}
             partnerName={data.partnerName || 'them'}
@@ -387,8 +400,19 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       );
     case 8:
       return (
-        <TutorPreviewStep
+        <ValidationModeStep
           currentStep={8}
+          totalSteps={totalSteps}
+          initialValue={data.smartValidation}
+          onNext={(mode) => { updateData('smartValidation', mode); goNext(); }}
+          onBack={goBack}
+          accentColor={accentColor}
+        />
+      );
+    case 9:
+      return (
+        <TutorPreviewStep
+          currentStep={9}
           totalSteps={totalSteps}
           learnerName={data.learnerName || 'them'}
           onNext={goNext}
@@ -396,10 +420,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           accentColor={accentColor}
         />
       );
-    case 9:
+    case 10:
       return (
         <TutorStartStep
-          currentStep={9}
+          currentStep={10}
           totalSteps={totalSteps}
           userName={data.userName || 'Friend'}
           learnerName={data.learnerName || 'them'}

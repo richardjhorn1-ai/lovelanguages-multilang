@@ -17,6 +17,8 @@ export interface Profile {
   accent_color?: 'rose' | 'blush' | 'lavender' | 'wine' | 'teal' | 'honey';
   dark_mode?: 'off' | 'midnight' | 'charcoal' | 'black';
   font_size?: 'small' | 'medium' | 'large';
+  // Answer validation mode
+  smart_validation?: boolean; // true = AI-powered (accepts synonyms, typos), false = strict matching
 }
 
 // Onboarding data collected during signup flow
@@ -45,6 +47,9 @@ export interface OnboardingData {
   teachingPriority?: string;
   teachingStyle?: string;
   grammarComfort?: number;       // 1-5 slider
+
+  // Shared fields
+  smartValidation?: boolean;     // true = AI-powered validation, false = strict matching
 }
 
 export type WordType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
