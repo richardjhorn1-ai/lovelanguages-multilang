@@ -16,10 +16,10 @@ async function validateAnswerSmart(
   userAnswer: string,
   correctAnswer: string,
   polishWord?: string
-): Promise<boolean> {
+): Promise<{ accepted: boolean; explanation: string }> {
   // Fast local match first
   if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
-    return true;
+    return { accepted: true, explanation: 'Exact match' };
   }
 
   try {
@@ -34,11 +34,11 @@ async function validateAnswerSmart(
       })
     });
 
-    if (!response.ok) return false;
+    if (!response.ok) return { accepted: false, explanation: 'Validation error' };
     const result = await response.json();
-    return result.accepted;
+    return { accepted: result.accepted, explanation: result.explanation || 'Validated' };
   } catch {
-    return false;
+    return { accepted: false, explanation: 'Validation error' };
   }
 }
 
@@ -124,10 +124,14 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
     // Use smart validation if enabled, otherwise local matching
     let isCorrect: boolean;
+    let explanation = '';
     if (smartValidation) {
-      isCorrect = await validateAnswerSmart(userInput, word.translation, word.word);
+      const result = await validateAnswerSmart(userInput, word.translation, word.word);
+      isCorrect = result.accepted;
+      explanation = result.explanation;
     } else {
       isCorrect = userInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+      explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
     setShowFeedback(isCorrect ? 'correct' : 'wrong');
@@ -137,7 +141,9 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
       wordId: word.id || (challenge.word_ids?.[currentIndex] as string) || '',
       word: word.word,
       userAnswer: userInput,
-      isCorrect
+      correctAnswer: word.translation,
+      isCorrect,
+      explanation
     };
 
     const newAnswers = [...answers, newAnswer];
@@ -254,6 +260,11 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
     const isPerfect = result.correct_answers === result.total_questions;
     const wasQuick = result.timeSpent < config.timeLimitSeconds * 0.5;
 
+    // Filter to answers with interesting explanations
+    const answersWithExplanations = answers.filter(a =>
+      a.explanation && a.explanation !== 'Exact match' && a.explanation !== 'No match'
+    );
+
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
@@ -278,6 +289,38 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
               {wasQuick && <span className="text-amber-500"> (Time Bonus!)</span>}
             </p>
           </div>
+
+          {/* Answer Details */}
+          {answersWithExplanations.length > 0 && (
+            <div className="mb-4 md:mb-6">
+              <details className="text-left">
+                <summary className="cursor-pointer text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-center">
+                  Show details ({answersWithExplanations.length})
+                </summary>
+                <div className="mt-3 space-y-2 max-h-48 overflow-y-auto">
+                  {answersWithExplanations.map((answer, idx) => (
+                    <div
+                      key={idx}
+                      className={`p-2 rounded-lg text-xs ${
+                        answer.isCorrect
+                          ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400'
+                          : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+                      }`}
+                    >
+                      <div className="flex items-center gap-1 font-bold">
+                        {answer.isCorrect ? <ICONS.Check className="w-3 h-3" /> : <ICONS.X className="w-3 h-3" />}
+                        <span>{answer.word}</span>
+                      </div>
+                      <div className="mt-0.5 opacity-80">
+                        {answer.userAnswer} → {answer.correctAnswer}
+                      </div>
+                      <div className="mt-0.5 italic opacity-70">{answer.explanation}</div>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            </div>
+          )}
 
           <button
             onClick={() => { onComplete(); }}
