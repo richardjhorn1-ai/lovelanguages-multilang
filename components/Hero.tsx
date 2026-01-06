@@ -85,14 +85,14 @@ const Hero: React.FC = () => {
             </button>
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-[#292F36] tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-[#292F36] tracking-tight min-h-[7rem] md:min-h-[11rem]">
             {selectedRole === 'student' ? (
               <>Speak the language of <span className="italic underline underline-offset-8" style={{ color: BRAND.primary, textDecorationColor: BRAND.border }}>their heart.</span></>
             ) : (
               <>Help them fall in love with <span className="text-teal-500 italic underline decoration-teal-200 underline-offset-8">your language.</span></>
             )}
           </h2>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed font-medium">
+          <p className="text-xl text-gray-600 mb-10 leading-relaxed font-medium min-h-[5rem]">
             {selectedRole === 'student'
               ? "This isn't just about verbs and cases—it's about building a bridge to the person you love. Create a secret world where every new word is a shared promise and every sentence is a deeper act of intimacy."
               : "Share the beauty of Polish with someone you love. Guide them word by word into your world—your culture, your family, your heart."}
