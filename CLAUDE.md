@@ -76,7 +76,7 @@ ALLOWED_ORIGINS=
 
 ## Key Types (types.ts)
 
-- `ChatMode` - 'ask' | 'learn' | 'coach' (coach is tutor-only, context-aware)
+- `ChatMode` - 'ask' | 'learn' | 'coach' (tutors always use 'coach' with partner context)
 - `DictionaryEntry` - Full vocabulary with conjugations/examples
 - `WordScore` - Mastery tracking (correct_streak, learned_at)
 - `LevelInfo` - 18 levels across 6 tiers
@@ -114,7 +114,8 @@ Manual testing via `vercel dev`. Single test file exists: `tests/vocabulary-extr
 
 ## Chat UI Components
 
-- `ChatArea.tsx` - Main chat with mode tabs (Students: Ask/Learn, Tutors: Coach/Context)
+- `ChatArea.tsx` - Main chat with mode tabs (Students: Ask/Learn, Tutors: Coach only)
 - `ChatEmptySuggestions.tsx` - Empty state with role/mode-specific suggestion cards
 - `HelpGuide.tsx` - Slide-out help panel with sections and FAQs
 - Conversation history: Last 10 messages sent to AI for context awareness
+- Tutor Coach mode always has partner's vocabulary/progress for personalized suggestions
