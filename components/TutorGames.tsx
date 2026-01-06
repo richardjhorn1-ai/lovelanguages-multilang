@@ -8,6 +8,37 @@ import CreateQuickFireChallenge from './CreateQuickFireChallenge';
 import WordRequestCreator from './WordRequestCreator';
 import { useTheme } from '../context/ThemeContext';
 
+// Smart validation API call
+async function validateAnswerSmart(
+  userAnswer: string,
+  correctAnswer: string,
+  polishWord?: string
+): Promise<boolean> {
+  // Fast local match first
+  if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
+    return true;
+  }
+
+  try {
+    const response = await fetch('/api/validate-answer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userAnswer,
+        correctAnswer,
+        polishWord,
+        direction: 'polish_to_english'
+      })
+    });
+
+    if (!response.ok) return false;
+    const result = await response.json();
+    return result.accepted;
+  } catch {
+    return false;
+  }
+}
+
 // Save Progress Dialog Component
 interface SaveProgressDialogProps {
   partnerName: string;
@@ -395,7 +426,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     }, isCorrect ? 800 : 1500);
   };
 
-  const handleTypeItSubmit = () => {
+  const handleTypeItSubmit = async () => {
     if (typeItSubmitted) {
       // Move to next question
       if (localGameIndex < localGameWords.length - 1) {
@@ -407,7 +438,15 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       return;
     }
     const currentWord = localGameWords[localGameIndex];
-    const isCorrect = typeItAnswer.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+
+    // Use smart validation if enabled, otherwise local matching
+    let isCorrect: boolean;
+    if (profile.smart_validation) {
+      isCorrect = await validateAnswerSmart(typeItAnswer, currentWord.translation, currentWord.word);
+    } else {
+      isCorrect = typeItAnswer.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+    }
+
     setTypeItSubmitted(true);
     setTypeItCorrect(isCorrect);
     setLocalGameScore(prev => ({
@@ -447,10 +486,17 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     }
   };
 
-  const handleLocalQuickFireAnswer = () => {
+  const handleLocalQuickFireAnswer = async () => {
     if (!localQuickFireInput.trim()) return;
     const currentWord = localGameWords[localGameIndex];
-    const isCorrect = localQuickFireInput.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+
+    // Use smart validation if enabled, otherwise local matching
+    let isCorrect: boolean;
+    if (profile.smart_validation) {
+      isCorrect = await validateAnswerSmart(localQuickFireInput, currentWord.translation, currentWord.word);
+    } else {
+      isCorrect = localQuickFireInput.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+    }
 
     setLocalGameScore(prev => ({
       correct: prev.correct + (isCorrect ? 1 : 0),

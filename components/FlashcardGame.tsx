@@ -780,7 +780,19 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     if (!quickFireInput.trim()) return;
 
     const word = quickFireWords[quickFireIndex];
-    const isCorrect = quickFireInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+
+    // Use smart validation if enabled, otherwise local matching
+    let isCorrect: boolean;
+    if (profile.smart_validation) {
+      const result = await validateAnswerSmart(quickFireInput, word.translation, {
+        polishWord: word.word,
+        wordType: word.word_type,
+        direction: 'polish_to_english'
+      });
+      isCorrect = result.accepted;
+    } else {
+      isCorrect = quickFireInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+    }
 
     // Record answer
     const answer: GameSessionAnswer = {
