@@ -23,8 +23,10 @@ vercel dev        # Full local dev with serverless functions
 - **Main Components**: `src/components/`
   - `ChatArea.tsx` - Text & voice chat with custom markdown rendering
   - `LoveLog.tsx` - Vocabulary browser with mastery tracking
-  - `FlashcardGame.tsx` - 4 game modes (Flashcard, Multiple Choice, Type It, AI Challenge)
-  - `Progress.tsx` - XP/level system, test history
+  - `FlashcardGame.tsx` - 5 game modes (Flashcard, Multiple Choice, Type It, AI Challenge, Conversation Practice)
+  - `ConversationPractice.tsx` - Voice conversation with AI personas in Polish scenarios (BETA)
+  - `ScenarioSelector.tsx` - Scenario picker modal for conversation practice
+  - `Progress.tsx` - XP/level system, test history, motivation card
   - `LevelTest.tsx` - AI-generated proficiency tests
 
 ### Backend (Vercel Serverless Functions)
@@ -105,12 +107,27 @@ Manual testing via `vercel dev`. Single test file exists: `tests/vocabulary-extr
 ## Documentation
 
 - `README.md` - AI persona and feature overview
-- `ROADMAP.md` - Product phases
-- `TROUBLESHOOTING.md` - 23+ solved issues with detailed solutions
+- `ROADMAP.md` - Product phases (up to Phase 5.7)
+- `TROUBLESHOOTING.md` - 30+ solved issues with detailed solutions
 - `docs/AI_INTEGRATION_GUIDE.md` - Gemini API implementation
 - `docs/FORMATTING.md` - Markdown rendering pipeline
 - `docs/SYSTEM_PROMPTS.md` - AI prompt documentation and modification guide
 - `DESIGN.md` - Adjusted anthropic design guide
+
+## Conversation Practice (BETA)
+
+8 curated scenarios in `constants/conversation-scenarios.ts`:
+- ☕ Café, 🍽️ Restaurant, 🍎 Market, 🚕 Taxi, 💊 Pharmacy, 🏨 Hotel, 👨‍👩‍👧 Family Dinner, 🚂 Train Station
+
+System prompts are scenario-specific, defined in `api/live-token.ts` via `buildConversationSystemInstruction()`.
+
+## Theming Pattern
+
+Use CSS variables for colors that need to work in both light/dark modes:
+- `var(--bg-primary)`, `var(--bg-card)` - Backgrounds
+- `var(--text-primary)`, `var(--text-secondary)` - Text colors
+- `var(--accent-color)`, `var(--accent-light)`, `var(--accent-border)` - Accent theming
+- `accentHex` from `useTheme()` hook - Dynamic accent color for inline styles
 
 ## Chat UI Components
 

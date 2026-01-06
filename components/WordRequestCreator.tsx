@@ -1,45 +1,201 @@
 import React, { useState } from 'react';
 import { supabase } from '../services/supabase';
-import { Profile, WordSuggestion } from '../types';
+import { Profile, WordSuggestion, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
 
 interface WordRequestCreatorProps {
   profile: Profile;
   partnerName: string;
+  partnerVocab: DictionaryEntry[];
   onClose: () => void;
   onCreated: () => void;
 }
 
+type InputMode = 'topic' | 'custom';
+
 const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
   profile,
   partnerName,
+  partnerVocab,
   onClose,
   onCreated
 }) => {
-  const [mode, setMode] = useState<'free_text' | 'ai_topic'>('ai_topic');
+  const [inputMode, setInputMode] = useState<InputMode>('topic');
   const [inputText, setInputText] = useState('');
   const [suggestions, setSuggestions] = useState<WordSuggestion[]>([]);
-  const [selectedWords, setSelectedWords] = useState<Set<number>>(new Set());
-  const [xpMultiplier, setXpMultiplier] = useState(2);
+  const [selectedWords, setSelectedWords] = useState<WordSuggestion[]>([]);
   const [loading, setLoading] = useState(false);
-  const [creating, setCreating] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [hasGenerated, setHasGenerated] = useState(false);
+  const [validating, setValidating] = useState(false);
+  const [lastCorrection, setLastCorrection] = useState<string | null>(null);
 
-  const popularTopics = [
-    { label: 'Romantic phrases', icon: '💕' },
-    { label: 'Kitchen & food', icon: '🍳' },
-    { label: 'Family words', icon: '👨‍👩‍👧' },
-    { label: 'Daily routines', icon: '☀️' },
-    { label: 'Emotions', icon: '😊' },
-    { label: 'Travel', icon: '✈️' }
+  // Custom word entry
+  const [customPolish, setCustomPolish] = useState('');
+  const [customEnglish, setCustomEnglish] = useState('');
+
+  const quickTopics = [
+    { label: 'Love words', emoji: '💕' },
+    { label: 'Kitchen', emoji: '🍳' },
+    { label: 'Family', emoji: '👨‍👩‍👧' },
+    { label: 'Emotions', emoji: '😊' },
+    { label: 'Travel', emoji: '✈️' },
+    { label: 'Home', emoji: '🏠' }
   ];
 
-  const handleGetSuggestions = async () => {
-    if (!inputText.trim()) return;
+  // Get words to exclude (Love Log + already selected)
+  const getExcludeWords = (): string[] => {
+    const loveLogWords = partnerVocab.map(w => w.word.toLowerCase());
+    const selectedWordsLower = selectedWords.map(w => w.word.toLowerCase());
+    return [...new Set([...loveLogWords, ...selectedWordsLower])];
+  };
+
+  // Generate words on button click
+  const generateWords = async () => {
+    if (!inputText.trim() || inputText.length < 2) return;
 
     setLoading(true);
-    setSuggestions([]);
-    setSelectedWords(new Set());
+    setHasGenerated(true);
 
+    try {
+      const token = (await supabase.auth.getSession()).data.session?.access_token;
+      const excludeWords = getExcludeWords();
+
+      const response = await fetch('/api/create-word-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          requestType: 'ai_topic',
+          inputText: inputText,
+          dryRun: true,
+          excludeWords: excludeWords,
+          count: 10
+        })
+      });
+
+      const data = await response.json();
+      if (data.suggestions) {
+        // Filter out any words that somehow match excluded words
+        const filtered = data.suggestions.filter(
+          (s: WordSuggestion) => !excludeWords.includes(s.word.toLowerCase())
+        );
+        setSuggestions(filtered);
+      }
+    } catch (error) {
+      console.error('Error generating suggestions:', error);
+    }
+    setLoading(false);
+  };
+
+  // Handle quick topic selection
+  const handleQuickTopic = (topic: string) => {
+    setInputText(topic);
+  };
+
+  const addWord = (word: WordSuggestion) => {
+    setSelectedWords(prev => [...prev, word]);
+    setSuggestions(prev => prev.filter(s => s.word !== word.word));
+  };
+
+  const addCustomWord = async () => {
+    if (!customPolish.trim() || !customEnglish.trim()) return;
+
+    // Check if already added or in Love Log first
+    const lowerWord = customPolish.trim().toLowerCase();
+    if (selectedWords.some(w => w.word.toLowerCase() === lowerWord)) {
+      return;
+    }
+    if (partnerVocab.some(w => w.word.toLowerCase() === lowerWord)) {
+      alert(`"${customPolish}" is already in ${partnerName}'s Love Log!`);
+      return;
+    }
+
+    setValidating(true);
+    setLastCorrection(null);
+
+    try {
+      const token = (await supabase.auth.getSession()).data.session?.access_token;
+
+      const response = await fetch('/api/validate-word', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          polish: customPolish.trim(),
+          english: customEnglish.trim()
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success && data.validated) {
+        const validated = data.validated;
+
+        // Check if the corrected word is already in Love Log
+        if (partnerVocab.some(w => w.word.toLowerCase() === validated.word.toLowerCase())) {
+          alert(`"${validated.word}" is already in ${partnerName}'s Love Log!`);
+          setValidating(false);
+          return;
+        }
+
+        const newWord: WordSuggestion = {
+          word: validated.word,
+          translation: validated.translation,
+          word_type: validated.word_type || 'phrase',
+          pronunciation: validated.pronunciation,
+          context: validated.context
+        };
+
+        // Show correction note if word was corrected
+        if (validated.was_corrected && validated.correction_note) {
+          setLastCorrection(validated.correction_note);
+          // Auto-clear after 4 seconds
+          setTimeout(() => setLastCorrection(null), 4000);
+        }
+
+        setSelectedWords(prev => [...prev, newWord]);
+        setCustomPolish('');
+        setCustomEnglish('');
+      } else {
+        // Fallback: add without validation
+        const newWord: WordSuggestion = {
+          word: customPolish.trim(),
+          translation: customEnglish.trim(),
+          word_type: 'phrase'
+        };
+        setSelectedWords(prev => [...prev, newWord]);
+        setCustomPolish('');
+        setCustomEnglish('');
+      }
+    } catch (error) {
+      console.error('Error validating word:', error);
+      // Fallback: add without validation
+      const newWord: WordSuggestion = {
+        word: customPolish.trim(),
+        translation: customEnglish.trim(),
+        word_type: 'phrase'
+      };
+      setSelectedWords(prev => [...prev, newWord]);
+      setCustomPolish('');
+      setCustomEnglish('');
+    }
+
+    setValidating(false);
+  };
+
+  const removeWord = (word: WordSuggestion) => {
+    setSelectedWords(prev => prev.filter(w => w.word !== word.word));
+  };
+
+  const handleSend = async () => {
+    if (selectedWords.length === 0) return;
+
+    setSending(true);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
 
@@ -51,76 +207,9 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
         },
         body: JSON.stringify({
           requestType: 'ai_topic',
-          inputText,
-          // Don't create the request yet, just get suggestions
-          dryRun: true
-        })
-      });
-
-      const data = await response.json();
-      if (data.suggestions) {
-        setSuggestions(data.suggestions);
-        // Pre-select first 5
-        setSelectedWords(new Set([0, 1, 2, 3, 4].filter(i => i < data.suggestions.length)));
-      }
-    } catch (error) {
-      console.error('Error getting suggestions:', error);
-    }
-    setLoading(false);
-  };
-
-  const toggleWord = (index: number) => {
-    const newSet = new Set(selectedWords);
-    if (newSet.has(index)) {
-      newSet.delete(index);
-    } else {
-      newSet.add(index);
-    }
-    setSelectedWords(newSet);
-  };
-
-  const handleCreate = async () => {
-    if (mode === 'ai_topic' && selectedWords.size === 0) {
-      alert('Please select at least one word');
-      return;
-    }
-
-    if (mode === 'free_text' && !inputText.trim()) {
-      alert('Please enter a word or phrase');
-      return;
-    }
-
-    setCreating(true);
-    try {
-      const token = (await supabase.auth.getSession()).data.session?.access_token;
-
-      let finalWords: WordSuggestion[] = [];
-      if (mode === 'ai_topic') {
-        finalWords = suggestions
-          .filter((_, i) => selectedWords.has(i))
-          .map(w => ({ ...w, selected: true }));
-      } else {
-        // Parse free text input: "word = translation" format
-        const parts = inputText.split('=').map(s => s.trim());
-        finalWords = [{
-          word: parts[0],
-          translation: parts[1] || '',
-          word_type: 'phrase',
-          selected: true
-        }];
-      }
-
-      const response = await fetch('/api/create-word-request', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          requestType: mode,
-          inputText,
-          selectedWords: finalWords,
-          xpMultiplier
+          inputText: inputText || 'Love Package',
+          selectedWords: selectedWords.map(w => ({ ...w, selected: true })),
+          xpMultiplier: 2 // Fixed 2x bonus
         })
       });
 
@@ -131,97 +220,116 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
         alert(data.error || 'Failed to send gift');
       }
     } catch (error) {
-      console.error('Error creating word request:', error);
+      console.error('Error sending gift:', error);
       alert('Failed to send gift');
     }
-    setCreating(false);
+    setSending(false);
   };
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-[2rem] w-full max-w-lg max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden max-h-[90vh] flex flex-col">
         {/* Header */}
-        <div className="p-6 border-b border-gray-100 flex items-center justify-between">
-          <div>
-            <h2 className="text-xl font-black text-gray-800 flex items-center gap-2">
-              <span>🎁</span> Gift Words
-            </h2>
-            <p className="text-sm text-gray-500">Send words for {partnerName} to learn</p>
+        <div className="p-5 border-b border-[var(--border-color)] flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-[var(--accent-light)] rounded-xl flex items-center justify-center text-xl">
+              🎁
+            </div>
+            <div>
+              <h2 className="font-black text-[var(--text-primary)]">Love Package</h2>
+              <p className="text-xs text-[var(--text-secondary)]">Send words to {partnerName}</p>
+            </div>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-xl transition-colors">
-            <ICONS.X className="w-5 h-5 text-gray-400" />
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors"
+          >
+            <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
           </button>
         </div>
 
-        {/* Mode Tabs */}
-        <div className="px-6 pt-4">
-          <div className="flex bg-gray-100 p-1 rounded-xl">
+        {/* Content */}
+        <div className="p-5 space-y-4 flex-1 overflow-y-auto">
+          {/* Mode Toggle */}
+          <div className="flex bg-[var(--bg-primary)] p-1 rounded-xl">
             <button
-              onClick={() => setMode('ai_topic')}
-              className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${
-                mode === 'ai_topic'
-                  ? 'bg-white text-teal-600 shadow-sm'
-                  : 'text-gray-500'
+              onClick={() => setInputMode('topic')}
+              className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all ${
+                inputMode === 'topic'
+                  ? 'bg-[var(--bg-card)] text-[var(--accent-color)] shadow-sm'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
-              AI Topic
+              Generate by Topic
             </button>
             <button
-              onClick={() => setMode('free_text')}
-              className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${
-                mode === 'free_text'
-                  ? 'bg-white text-teal-600 shadow-sm'
-                  : 'text-gray-500'
+              onClick={() => setInputMode('custom')}
+              className={`flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all ${
+                inputMode === 'custom'
+                  ? 'bg-[var(--bg-card)] text-[var(--accent-color)] shadow-sm'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
-              Custom Word
+              Add Words
             </button>
           </div>
-        </div>
 
-        {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">
-
-          {mode === 'ai_topic' ? (
+          {/* Topic Generation Mode */}
+          {inputMode === 'topic' && (
             <>
               {/* Topic Input */}
-              <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
-                  Topic or Theme
-                </label>
+              <div className="space-y-3">
                 <div className="flex gap-2">
                   <input
                     type="text"
                     value={inputText}
                     onChange={e => setInputText(e.target.value)}
-                    placeholder="e.g., romantic phrases, kitchen words..."
-                    className="flex-1 p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-300"
-                    onKeyDown={e => e.key === 'Enter' && handleGetSuggestions()}
+                    placeholder="Enter a topic (love, food, family...)"
+                    className="flex-1 p-4 border-2 border-[var(--border-color)] rounded-2xl text-sm font-medium focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                    onKeyDown={e => e.key === 'Enter' && !loading && inputText.trim() && generateWords()}
+                    autoFocus
                   />
-                  <button
-                    onClick={handleGetSuggestions}
-                    disabled={loading || !inputText.trim()}
-                    className="px-4 py-3 bg-teal-500 text-white font-bold text-sm rounded-xl hover:bg-teal-600 disabled:opacity-50 transition-colors"
-                  >
-                    {loading ? '...' : 'Go'}
-                  </button>
                 </div>
+
+                {/* Generate Button */}
+                <button
+                  onClick={generateWords}
+                  disabled={loading || !inputText.trim()}
+                  className="w-full py-3 bg-[var(--accent-color)] text-white rounded-xl font-bold text-sm hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                >
+                  {loading ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      Generating...
+                    </>
+                  ) : hasGenerated ? (
+                    <>
+                      <ICONS.RefreshCw className="w-4 h-4" />
+                      Generate Again
+                    </>
+                  ) : (
+                    <>
+                      <ICONS.Sparkles className="w-4 h-4" />
+                      Generate 10 Words
+                    </>
+                  )}
+                </button>
               </div>
 
-              {/* Popular Topics */}
-              {suggestions.length === 0 && (
+              {/* Quick Topics (only show before first generation) */}
+              {!hasGenerated && !inputText && (
                 <div>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Popular topics</p>
+                  <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
+                    Quick Topics
+                  </p>
                   <div className="flex flex-wrap gap-2">
-                    {popularTopics.map(topic => (
+                    {quickTopics.map(topic => (
                       <button
                         key={topic.label}
-                        onClick={() => {
-                          setInputText(topic.label);
-                        }}
-                        className="px-3 py-2 bg-gray-50 rounded-xl text-sm text-gray-600 hover:bg-gray-100 transition-colors flex items-center gap-1"
+                        onClick={() => handleQuickTopic(topic.label)}
+                        className="px-3 py-2 bg-[var(--bg-primary)] rounded-xl text-sm text-[var(--text-secondary)] hover:bg-[var(--accent-light)] hover:text-[var(--accent-color)] transition-colors flex items-center gap-1.5"
                       >
-                        <span>{topic.icon}</span>
+                        <span>{topic.emoji}</span>
                         {topic.label}
                       </button>
                     ))}
@@ -229,125 +337,164 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                 </div>
               )}
 
-              {/* Loading */}
-              {loading && (
-                <div className="text-center py-8">
-                  <div className="flex justify-center gap-1 mb-2">
-                    <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                  </div>
-                  <p className="text-sm text-gray-500">Finding words...</p>
-                </div>
-              )}
-
-              {/* Suggestions */}
-              {suggestions.length > 0 && (
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                      Select words ({selectedWords.size} selected)
-                    </p>
-                    <button
-                      onClick={() => setSelectedWords(new Set(suggestions.map((_, i) => i)))}
-                      className="text-xs text-teal-500 font-bold hover:underline"
-                    >
-                      Select All
-                    </button>
-                  </div>
-                  <div className="space-y-2">
+              {/* Generated Suggestions */}
+              {!loading && suggestions.length > 0 && (
+                <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
+                  <p className="text-xs font-bold text-[var(--accent-color)] uppercase tracking-wider mb-3">
+                    Tap to add ({suggestions.length} available)
+                  </p>
+                  <div className="flex flex-wrap gap-2">
                     {suggestions.map((word, index) => (
                       <button
                         key={index}
-                        onClick={() => toggleWord(index)}
-                        className={`w-full p-4 rounded-2xl text-left transition-all ${
-                          selectedWords.has(index)
-                            ? 'bg-teal-50 border-2 border-teal-300'
-                            : 'bg-gray-50 border-2 border-transparent hover:bg-gray-100'
-                        }`}
+                        onClick={() => addWord(word)}
+                        className="px-3 py-2 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl text-sm font-medium text-[var(--text-primary)] hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] transition-colors flex items-center gap-1.5 group"
                       >
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <p className="font-bold text-gray-800">{word.word}</p>
-                            <p className="text-sm text-gray-500">{word.translation}</p>
-                            {word.pronunciation && (
-                              <p className="text-xs text-gray-400 italic">[{word.pronunciation}]</p>
-                            )}
-                          </div>
-                          <div className={`w-6 h-6 rounded-full flex items-center justify-center ${
-                            selectedWords.has(index)
-                              ? 'bg-teal-500 text-white'
-                              : 'bg-gray-200'
-                          }`}>
-                            {selectedWords.has(index) && <ICONS.Check className="w-4 h-4" />}
-                          </div>
-                        </div>
+                        <ICONS.Plus className="w-3 h-3 text-[var(--text-secondary)] group-hover:text-[var(--accent-color)]" />
+                        <span className="font-bold">{word.word}</span>
+                        <span className="text-[var(--text-secondary)]">({word.translation})</span>
                       </button>
                     ))}
                   </div>
                 </div>
               )}
-            </>
-          ) : (
-            <>
-              {/* Free Text Input */}
-              <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
-                  Word or Phrase
-                </label>
-                <textarea
-                  value={inputText}
-                  onChange={e => setInputText(e.target.value)}
-                  placeholder="Polish word = English translation&#10;&#10;e.g., kocham cię = I love you"
-                  rows={4}
-                  className="w-full p-4 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-300 resize-none"
-                />
-                <p className="text-xs text-gray-400 mt-2">
-                  Format: Polish word = English translation
-                </p>
-              </div>
+
+              {/* No Results After Generation */}
+              {!loading && hasGenerated && suggestions.length === 0 && selectedWords.length === 0 && (
+                <div className="text-center py-4 bg-[var(--bg-primary)] rounded-2xl">
+                  <p className="text-sm text-[var(--text-secondary)]">
+                    No new words found for this topic. Try a different topic or use "Add Words" to enter custom words.
+                  </p>
+                </div>
+              )}
             </>
           )}
 
-          {/* XP Multiplier */}
-          <div className="bg-gradient-to-r from-amber-50 to-[var(--accent-light)] p-4 rounded-2xl border border-amber-100">
-            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
-              XP Bonus Multiplier: {xpMultiplier}x
-            </label>
-            <input
-              type="range"
-              min={1}
-              max={3}
-              step={0.5}
-              value={xpMultiplier}
-              onChange={e => setXpMultiplier(parseFloat(e.target.value))}
-              className="w-full h-2 bg-gradient-to-r from-amber-200 to-[var(--accent-border)] rounded-lg appearance-none cursor-pointer accent-[var(--accent-color)]"
-            />
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
-              <span>1x (Normal)</span>
-              <span>2x</span>
-              <span>3x (Maximum)</span>
+          {/* Custom Word Entry Mode */}
+          {inputMode === 'custom' && (
+            <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
+              <p className="text-xs text-[var(--text-secondary)] mb-3">
+                Enter a Polish word and its English translation. AI will verify spelling and add grammatical data.
+              </p>
+              <div className="flex gap-2 mb-2">
+                <input
+                  type="text"
+                  value={customPolish}
+                  onChange={e => setCustomPolish(e.target.value)}
+                  placeholder="Polish word"
+                  className="flex-1 p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                  onKeyDown={e => e.key === 'Enter' && customEnglish && !validating && addCustomWord()}
+                  disabled={validating}
+                  autoFocus
+                />
+                <input
+                  type="text"
+                  value={customEnglish}
+                  onChange={e => setCustomEnglish(e.target.value)}
+                  placeholder="English"
+                  className="flex-1 p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                  onKeyDown={e => e.key === 'Enter' && customPolish && !validating && addCustomWord()}
+                  disabled={validating}
+                />
+              </div>
+              <button
+                onClick={addCustomWord}
+                disabled={validating || !customPolish.trim() || !customEnglish.trim()}
+                className="w-full py-2 bg-[var(--accent-color)] text-white rounded-xl font-bold text-sm hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+              >
+                {validating ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Validating...
+                  </>
+                ) : (
+                  <>
+                    <ICONS.Plus className="w-4 h-4" />
+                    Add to Package
+                  </>
+                )}
+              </button>
+
+              {/* Correction notification */}
+              {lastCorrection && (
+                <div className="mt-3 p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded-lg">
+                  <p className="text-xs text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
+                    <ICONS.Sparkles className="w-3 h-3" />
+                    <span>Corrected: {lastCorrection}</span>
+                  </p>
+                </div>
+              )}
             </div>
-            <p className="text-xs text-gray-600 mt-3">
-              {partnerName} will earn <span className="font-bold text-[var(--accent-color)]">{xpMultiplier}x XP</span> for learning these words + a completion bonus!
-            </p>
-          </div>
+          )}
+
+          {/* Selected Words */}
+          {selectedWords.length > 0 && (
+            <div className="bg-[var(--bg-primary)] rounded-2xl p-4">
+              <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
+                Love Package ({selectedWords.length} word{selectedWords.length !== 1 ? 's' : ''})
+              </p>
+              <div className="space-y-2 max-h-40 overflow-y-auto">
+                {selectedWords.map((word, index) => {
+                  const hasContext = word.context && word.context !== '{}';
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]"
+                    >
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <p className="font-bold text-[var(--text-primary)] truncate">{word.word}</p>
+                          {word.word_type && word.word_type !== 'phrase' && (
+                            <span className="text-[10px] px-1.5 py-0.5 bg-[var(--accent-light)] text-[var(--accent-color)] rounded font-medium shrink-0">
+                              {word.word_type}
+                            </span>
+                          )}
+                          {hasContext && (
+                            <span className="text-[10px] px-1.5 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded font-medium shrink-0" title="Has conjugations/forms">
+                              +data
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-[var(--text-secondary)] truncate">{word.translation}</p>
+                      </div>
+                      <button
+                        onClick={() => removeWord(word)}
+                        className="p-1.5 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-lg transition-colors shrink-0 ml-2"
+                      >
+                        <ICONS.X className="w-4 h-4 text-red-400" />
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* XP Bonus Info */}
+          {selectedWords.length > 0 && (
+            <div className="flex items-center gap-2 px-4 py-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
+              <span className="text-lg">✨</span>
+              <p className="text-sm text-[var(--accent-color)]">
+                {partnerName} earns <span className="font-bold">2x XP</span> for learning these words!
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-gray-100 flex items-center justify-between bg-gray-50">
+        <div className="p-5 border-t border-[var(--border-color)] flex gap-3">
           <button
             onClick={onClose}
-            className="px-6 py-3 text-gray-500 font-bold text-sm hover:bg-gray-200 rounded-xl transition-colors"
+            className="flex-1 py-3 border-2 border-[var(--border-color)] rounded-xl font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] transition-colors"
           >
             Cancel
           </button>
           <button
-            onClick={handleCreate}
-            disabled={creating || (mode === 'ai_topic' && selectedWords.size === 0) || (mode === 'free_text' && !inputText.trim())}
-            className="px-8 py-3 bg-teal-500 text-white font-bold text-sm rounded-xl hover:bg-teal-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            onClick={handleSend}
+            disabled={sending || selectedWords.length === 0}
+            className="flex-1 py-3 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
           >
-            {creating ? (
+            {sending ? (
               <>
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 Sending...
@@ -355,7 +502,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
             ) : (
               <>
                 <ICONS.Heart className="w-4 h-4" />
-                Send Gift
+                Send Love Package
               </>
             )}
           </button>

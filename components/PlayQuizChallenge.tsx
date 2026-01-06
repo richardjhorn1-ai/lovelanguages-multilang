@@ -148,7 +148,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   if (!started) {
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-[2rem] w-full max-w-md overflow-hidden text-center p-8">
+        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden text-center p-8">
           <div className="text-6xl mb-4">🎯</div>
           <h2 className="text-2xl font-black text-gray-800 mb-2">{challenge.title}</h2>
           <p className="text-gray-500 mb-6">
@@ -186,7 +186,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
     const isPerfect = result.correct_answers === result.total_questions;
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-[2rem] w-full max-w-md overflow-hidden text-center p-8">
+        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden text-center p-8">
           <div className="text-6xl mb-4">{isPerfect ? '🏆' : result.score >= 70 ? '🎉' : '💪'}</div>
           <h2 className="text-2xl font-black text-gray-800 mb-2">
             {isPerfect ? 'Perfect!' : result.score >= 70 ? 'Great Job!' : 'Keep Practicing!'}
@@ -218,7 +218,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   if (submitting) {
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-[2rem] w-full max-w-md p-8 text-center">
+        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -233,7 +233,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   // Game Screen
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-[2rem] w-full max-w-md overflow-hidden">
+      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden">
         {/* Header */}
         <div className="p-4 border-b border-gray-100">
           <div className="flex items-center justify-between mb-2">

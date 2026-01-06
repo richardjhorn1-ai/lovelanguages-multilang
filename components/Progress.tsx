@@ -6,6 +6,7 @@ import { Profile, DictionaryEntry, WordType, ProgressSummary, SavedProgressSumma
 import { getLevelFromXP, getLevelProgress, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
+import GameHistory from './GameHistory';
 
 interface ProgressProps {
   profile: Profile;
@@ -416,17 +417,17 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           <div className="grid grid-cols-3 gap-3">
             <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)] text-center">
               <div className="text-2xl font-black text-[var(--accent-color)]">{stats.totalWords}</div>
-              <div className="text-[9px] uppercase font-bold text-[var(--accent-color)] tracking-wider">Total Words</div>
+              <div className="text-[9px] uppercase font-bold text-[var(--accent-color)] opacity-70 tracking-wider">Total Words</div>
             </div>
-            <div className="bg-teal-50 p-4 rounded-2xl border border-teal-100 text-center">
-              <div className="text-2xl font-black text-teal-600">{masteredWords.length}</div>
-              <div className="text-[9px] uppercase font-bold text-teal-400 tracking-wider">Mastered</div>
+            <div className="p-4 rounded-2xl border text-center" style={{ backgroundColor: `${accentHex}15`, borderColor: `${accentHex}30` }}>
+              <div className="text-2xl font-black" style={{ color: accentHex }}>{masteredWords.length}</div>
+              <div className="text-[9px] uppercase font-bold tracking-wider" style={{ color: accentHex, opacity: 0.7 }}>Mastered</div>
             </div>
-            <div className="bg-amber-50 p-4 rounded-2xl border border-amber-100 text-center">
-              <div className="text-2xl font-black text-amber-600">
+            <div className="bg-[var(--bg-card)] p-4 rounded-2xl border border-[var(--border-color)] text-center">
+              <div className="text-2xl font-black text-[var(--text-primary)]">
                 {scores.filter(s => s.fail_count > 0).length}
               </div>
-              <div className="text-[9px] uppercase font-bold text-amber-400 tracking-wider">Needs Review</div>
+              <div className="text-[9px] uppercase font-bold text-[var(--text-secondary)] tracking-wider">Needs Review</div>
             </div>
           </div>
 
@@ -434,9 +435,9 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           {encouragementPrompts.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {encouragementPrompts.map((prompt, i) => (
-                <div key={i} className="bg-gradient-to-br from-white to-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)] shadow-sm flex items-center gap-3">
+                <div key={i} className="bg-gradient-to-br from-[var(--bg-card)] to-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)] shadow-sm flex items-center gap-3">
                   <span className="text-2xl">{prompt.icon}</span>
-                  <p className={`font-bold text-sm ${prompt.color}`}>{prompt.message}</p>
+                  <p className="font-bold text-sm text-[var(--text-primary)]">{prompt.message}</p>
                 </div>
               ))}
             </div>
@@ -467,15 +468,15 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             {recentWords.length > 0 && (
               <div className="bg-[var(--bg-card)] p-6 rounded-[2rem] shadow-sm border border-[var(--border-color)]">
                 <h3 className="text-[10px] font-black uppercase text-[var(--text-secondary)] tracking-widest mb-4 flex items-center gap-2">
-                  <ICONS.Clock className="w-3.5 h-3.5 text-teal-400" />
+                  <ICONS.Clock className="w-3.5 h-3.5" style={{ color: accentHex }} />
                   Recently Learned
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {recentWords.map((word, i) => (
-                    <div key={i} className="px-3 py-1.5 bg-teal-50 rounded-full border border-teal-100">
-                      <span className="font-bold text-teal-700 text-sm">{word.word}</span>
-                      <span className="text-teal-400 mx-1.5">·</span>
-                      <span className="text-xs text-teal-600">{word.translation}</span>
+                    <div key={i} className="px-3 py-1.5 rounded-full border" style={{ backgroundColor: `${accentHex}10`, borderColor: `${accentHex}25` }}>
+                      <span className="font-bold text-sm" style={{ color: accentHex }}>{word.word}</span>
+                      <span className="mx-1.5" style={{ color: `${accentHex}60` }}>·</span>
+                      <span className="text-xs text-[var(--text-secondary)]">{word.translation}</span>
                     </div>
                   ))}
                 </div>
@@ -486,7 +487,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           {/* Words to Practice Together */}
           <div className="bg-[var(--bg-card)] p-6 rounded-[2rem] shadow-sm border border-[var(--border-color)]">
             <h3 className="text-[10px] font-black uppercase text-[var(--text-secondary)] tracking-widest mb-4 flex items-center gap-2">
-              <ICONS.Target className="w-3.5 h-3.5 text-amber-400" />
+              <ICONS.Target className="w-3.5 h-3.5" style={{ color: accentHex }} />
               Words to Practice Together
             </h3>
             <div className="space-y-2">
@@ -687,26 +688,34 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           )}
         </div>
 
-        {/* Goal Sticky Note - Why they're learning */}
+        {/* Motivation Card - Why they're learning */}
         {profile.onboarding_data?.learningReason && (
-          <div
-            className="relative bg-amber-50 dark:bg-amber-900/30 p-6 rounded-2xl shadow-md border-l-4 border-amber-400 transform rotate-[0.5deg]"
-            style={{ boxShadow: '4px 4px 0 rgba(251, 191, 36, 0.3)' }}
-          >
-            <div className="absolute -top-2 -left-2 w-8 h-8 bg-amber-200 dark:bg-amber-700 rounded-full flex items-center justify-center shadow">
-              <span className="text-sm">📌</span>
+          <div className="relative overflow-hidden bg-gradient-to-br from-[var(--accent-light)] via-[var(--bg-card)] to-[var(--accent-light)] p-6 rounded-[2rem] border border-[var(--accent-border)]">
+            {/* Decorative heart pattern */}
+            <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.07]" style={{ color: accentHex }}>
+              <ICONS.Heart className="w-full h-full fill-current" />
             </div>
-            <div className="ml-4">
-              <p className="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-2">
-                Why I'm learning Polish
-              </p>
-              <p className="text-[var(--text-primary)] font-medium italic leading-relaxed">
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${accentHex}20` }}>
+                  <ICONS.Heart className="w-4 h-4" style={{ color: accentHex, fill: accentHex }} />
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest" style={{ color: accentHex }}>
+                  My Motivation
+                </span>
+              </div>
+
+              <p className="text-[var(--text-primary)] text-lg font-semibold leading-relaxed mb-3">
                 "{profile.onboarding_data.learningReason}"
               </p>
+
               {profile.partner_name && (
-                <p className="text-xs text-amber-500 mt-3 font-bold">
-                  For {profile.partner_name} 💕
-                </p>
+                <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-color)]">
+                  <span className="text-sm text-[var(--text-secondary)]">Learning for</span>
+                  <span className="font-bold" style={{ color: accentHex }}>{profile.partner_name}</span>
+                  <span className="text-sm">💕</span>
+                </div>
               )}
             </div>
           </div>
@@ -734,6 +743,19 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                 <p className="text-[9px] font-bold uppercase tracking-wider opacity-70">{stat.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Game History Section */}
+        <div className="bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+          <div className="p-6 border-b border-[var(--border-color)]">
+            <h3 className="text-[11px] font-black flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
+              <ICONS.Clock className="w-4 h-4" style={{ color: tierColor }} />
+              Game History
+            </h3>
+          </div>
+          <div className="p-6">
+            <GameHistory xp={profile.xp || 0} />
           </div>
         </div>
 

@@ -45,6 +45,58 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
   return { userId: user.id };
 }
 
+// Conversation scenario interface
+interface ConversationScenario {
+  id: string;
+  name: string;
+  persona: string;
+  context: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+}
+
+// Build conversation practice system instruction
+function buildConversationSystemInstruction(scenario: ConversationScenario, userName: string): string {
+  return `
+You are playing the role described below in a Polish language practice conversation.
+
+## Your Role
+${scenario.persona}
+
+## Scenario Context
+${scenario.context}
+
+## CRITICAL RULES - FOLLOW EXACTLY:
+
+1. **SPEAK ONLY IN POLISH** - This is the most important rule. Default to Polish for everything.
+
+2. **STAY IN CHARACTER** - You are ${scenario.name}. Do not break character unless the user is completely stuck.
+
+3. **KEEP RESPONSES SHORT** - Use 1-3 sentences maximum. This is a conversation, not a lecture.
+
+4. **ADJUST TO USER'S LEVEL** - This scenario is marked as ${scenario.difficulty}. Keep your Polish appropriate:
+   ${scenario.difficulty === 'beginner' ? '- Use simple vocabulary, present tense, basic sentences' : ''}
+   ${scenario.difficulty === 'intermediate' ? '- Use varied vocabulary, past/future tenses, natural expressions' : ''}
+   ${scenario.difficulty === 'advanced' ? '- Use complex grammar, idioms, and natural conversational Polish' : ''}
+
+5. **HELP WHEN NEEDED** - If the user struggles significantly (seems stuck for 2+ attempts):
+   - First: Rephrase your Polish more simply
+   - Second: Offer a gentle hint in English, then return to Polish immediately
+   - Never make them feel bad about mistakes
+
+6. **BE ENCOURAGING** - The user's name is ${userName}. They are learning Polish to connect with someone they love. Be patient and supportive.
+
+7. **NATURAL CONVERSATION** - Respond naturally to what they say. Ask follow-up questions. React to their answers.
+
+8. **SPOKEN AUDIO OUTPUT** - You are speaking out loud:
+   - Do NOT include any text formatting, markdown, or styling
+   - Just speak naturally in Polish
+   - Keep it conversational
+
+## START THE CONVERSATION
+Begin speaking in Polish, appropriate to your role. Start with a greeting and opening question/statement.
+`;
+}
+
 // Voice system instructions per mode
 function buildVoiceSystemInstruction(mode: string, userLog: string[]): string {
   const COMMON = `
@@ -135,13 +187,21 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    const { mode = 'ask', userLog = [] } = body || {};
+    const { mode = 'ask', userLog = [], conversationScenario, userName = 'Friend' } = body || {};
 
     // Build mode-specific system instruction
-    const systemInstruction = buildVoiceSystemInstruction(mode, userLog);
+    let systemInstruction: string;
+    let voiceName: string;
 
-    // Select voice based on mode
-    const voiceName = mode === 'learn' ? 'Kore' : 'Puck';
+    if (mode === 'conversation' && conversationScenario) {
+      // Conversation practice mode - use scenario-specific prompt
+      systemInstruction = buildConversationSystemInstruction(conversationScenario, userName);
+      voiceName = 'Aoede'; // Use Aoede voice for conversation practice (natural, warm)
+    } else {
+      // Regular voice mode
+      systemInstruction = buildVoiceSystemInstruction(mode, userLog);
+      voiceName = mode === 'learn' ? 'Kore' : 'Puck';
+    }
     // Use the only model that supports Live API (BidiGenerateContent)
     const model = 'gemini-2.5-flash-native-audio-preview-12-2025';
 

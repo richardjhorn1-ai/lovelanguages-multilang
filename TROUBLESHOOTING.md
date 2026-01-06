@@ -1321,3 +1321,271 @@ vercel dev        # Manual testing
 - Verify before commit
 - Branch for each phase (merged to main when complete)
 - Reset to last known good state on failure
+
+---
+
+## Issue 24: Sticky Note Double Shadow Effect
+
+**Date:** January 6, 2026
+
+**Problem:**
+The "Why I'm learning Polish" sticky note on the Progress page had a double shadow effect making it look off-brand.
+
+**Cause:**
+Conflicting shadow styles - both Tailwind's `shadow-md` class AND an inline `boxShadow` style were applied simultaneously:
+
+```tsx
+// BEFORE (double shadow)
+<div className="... shadow-md ..."
+  style={{ boxShadow: '4px 4px 0 rgba(251, 191, 36, 0.3)' }}>
+```
+
+**Solution:**
+Redesigned the component from scratch as a "Motivation Card" using the app's accent color theme instead of the amber sticky-note style:
+
+```tsx
+// AFTER (clean gradient card)
+<div className="relative overflow-hidden bg-gradient-to-br from-[var(--accent-light)] via-[var(--bg-card)] to-[var(--accent-light)] p-6 rounded-[2rem] border border-[var(--accent-border)]">
+  {/* Decorative heart watermark */}
+  <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.07]">...</div>
+  {/* Content */}
+</div>
+```
+
+**Status:** ✅ FIXED - Component redesigned with proper theming
+
+---
+
+## Issue 25: Tutor Progress Page Hardcoded Colors
+
+**Date:** January 6, 2026
+
+**Problem:**
+The tutor's Progress page had hardcoded teal and amber colors that didn't work well in dark mode and didn't match the app's theming.
+
+**Affected Areas:**
+- Stats Overview cards (teal-50, teal-100, amber-50, amber-100)
+- Encouragement prompts (`from-white` gradient)
+- Recently Learned word pills (teal-700, teal-400, teal-600)
+- Icon colors (hardcoded amber-400)
+
+**Example Before:**
+```tsx
+// Hardcoded colors - broken in dark mode
+<div className="bg-teal-50 border-teal-100">
+  <span className="text-teal-600">...</span>
+</div>
+```
+
+**Solution:**
+Replaced all hardcoded colors with CSS variables and dynamic accent colors:
+
+```tsx
+// Using CSS variables and accentHex
+<div className="p-4 rounded-2xl border"
+  style={{ backgroundColor: `${accentHex}15`, borderColor: `${accentHex}30` }}>
+  <span style={{ color: accentHex }}>...</span>
+</div>
+```
+
+**Files Changed:**
+- `components/Progress.tsx` - Lines 417-492
+
+**Status:** ✅ FIXED - All colors now use CSS variables for proper dark mode support
+
+---
+
+## Issue 26: ConversationPractice Icon Type Error
+
+**Date:** January 6, 2026
+
+**Error:**
+```
+Property 'icon' does not exist on type 'ConversationScenario'.
+```
+
+**Cause:**
+The `ConversationScenario` interface in `services/live-session.ts` was missing the optional `icon` field that scenarios were using.
+
+**Solution:**
+Added the optional `icon` field to the interface:
+
+```typescript
+// services/live-session.ts
+export interface ConversationScenario {
+  id: string;
+  name: string;
+  icon?: string;  // Added this line
+  persona: string;
+  context: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+}
+```
+
+**Status:** ✅ FIXED
+
+---
+
+## Issue 27: Loading Dot Colors Not Using Accent Theme
+
+**Date:** January 6, 2026
+
+**Problem:**
+Loading dot animations across multiple components were using hardcoded Tailwind colors (blue, teal, amber, purple) instead of the app's accent color CSS variable. This made loading states look inconsistent and broke theming.
+
+**Affected Files:**
+- `components/TutorGames.tsx` - `bg-teal-400`
+- `components/PlayQuickFireChallenge.tsx` - `bg-amber-400`
+- `components/WordGiftLearning.tsx` - mixed colors
+- `components/ConversationPractice.tsx` - `bg-purple-400`
+
+**Example Before:**
+```tsx
+<div className="w-3 h-3 bg-teal-400 rounded-full animate-bounce"></div>
+```
+
+**Fix:**
+Replaced all hardcoded colors with CSS variable:
+```tsx
+<div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
+```
+
+**Status:** ✅ FIXED - All loading dots now use accent color
+
+---
+
+## Issue 28: Play Tab Losing State on Navigation
+
+**Date:** January 6, 2026
+
+**Problem:**
+The Play tab (and other main tabs) would lose their state whenever the user navigated away and came back. Selected game mode, in-progress games, and scroll position were all reset.
+
+**Root Cause:**
+React Router's default behavior unmounts components when navigating away from their routes. When the Play tab component unmounts, all its local state is destroyed.
+
+**Solution:**
+Created a `PersistentTabs` component in `App.tsx` that renders all main tab components simultaneously and uses CSS visibility (`hidden` class) to show/hide them instead of mounting/unmounting:
+
+```tsx
+const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({ profile, onRefresh }) => {
+  const location = useLocation();
+  const path = location.pathname;
+
+  const persistentPaths = ['/', '/log', '/play', '/progress'];
+  const isPersistentPath = persistentPaths.includes(path);
+
+  return (
+    <>
+      {/* Persistent tabs - always mounted, shown/hidden via CSS */}
+      <div className={path === '/' ? 'h-full' : 'hidden'}>
+        <ChatArea profile={profile} />
+      </div>
+      <div className={path === '/log' ? 'h-full' : 'hidden'}>
+        <LoveLog profile={profile} />
+      </div>
+      <div className={path === '/play' ? 'h-full' : 'hidden'}>
+        <FlashcardGame profile={profile} />
+      </div>
+      <div className={path === '/progress' ? 'h-full' : 'hidden'}>
+        <Progress profile={profile} />
+      </div>
+
+      {/* Non-persistent routes - mounted/unmounted normally */}
+      {!isPersistentPath && (
+        <Routes>
+          <Route path="/test" element={<LevelTest profile={profile} />} />
+          <Route path="/profile" element={<ProfileView profile={profile} onRefresh={onRefresh} />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      )}
+    </>
+  );
+};
+```
+
+**Key Insight:**
+- Main tabs (Chat, Log, Play, Progress) stay mounted for the entire session
+- Non-persistent routes (Test, Profile) still mount/unmount normally since they don't need state preservation
+- CSS `hidden` is much faster than React unmount/remount cycles
+
+**Status:** ✅ FIXED - Tab switching is now smooth and preserves state
+
+---
+
+## Issue 29: Love Package Auto-Suggestions Removed
+
+**Date:** January 6, 2026
+
+**Feature Change:**
+Removed the debounced auto-suggestion feature from Love Package (WordRequestCreator) and replaced it with an explicit "Generate 10 Words" button.
+
+**Why:**
+- Auto-suggestions were firing too frequently on keystroke
+- API calls were being made before user finished typing their topic
+- No control over regeneration while keeping selected words
+
+**New Behavior:**
+1. User types a topic (e.g., "cooking vocabulary")
+2. User clicks "Generate 10 Words" button
+3. API returns 10 topic-related words, excluding words already in partner's Love Log
+4. User can select words and click "Generate Again" to get more suggestions (keeps selected words)
+
+**Implementation:**
+- Added `partnerVocab` prop to WordRequestCreator to filter out existing words
+- Added `excludeWords` parameter to create-word-request API
+- Added `count` parameter to specify how many words to generate
+- Added `dryRun` mode to generate suggestions without creating database record
+
+**Status:** ✅ IMPLEMENTED
+
+---
+
+## Issue 30: Word Validation API for Manual Entries
+
+**Date:** January 6, 2026
+
+**Feature:**
+Added AI validation for manually entered words in Love Package. When tutors type custom words, Gemini validates spelling and adds grammatical data.
+
+**Endpoint:** `/api/validate-word.ts`
+
+**What it does:**
+1. Validates Polish spelling with Gemini
+2. Returns corrections if word is misspelled (with `was_corrected: true` flag)
+3. Adds grammatical data based on word type:
+   - **Verbs:** All 6 conjugations for present tense (ja, ty, on/ona, my, wy, oni)
+   - **Nouns:** Gender (masculine/feminine/neuter) + plural form
+   - **Adjectives:** All 4 forms (masculine, feminine, neuter, plural)
+4. Handles slang appropriately (recognizes valid slang vs typos)
+5. Returns `correction_note` explaining what was fixed
+
+**Example Response:**
+```json
+{
+  "valid": true,
+  "word": "gotować",
+  "was_corrected": true,
+  "correction_note": "Fixed spelling: 'gotowac' → 'gotować'",
+  "translation": "to cook",
+  "word_type": "verb",
+  "pronunciation": "go-TO-vach",
+  "conjugations": {
+    "present": {
+      "ja": "gotuję",
+      "ty": "gotujesz",
+      "onOna": "gotuje",
+      "my": "gotujemy",
+      "wy": "gotujecie",
+      "oni": "gotują"
+    }
+  }
+}
+```
+
+**UI Integration:**
+- Shows loading spinner while validating
+- Displays correction toast when word is auto-corrected
+- Shows word type badge and "+data" indicator for grammatical context
+
+**Status:** ✅ IMPLEMENTED

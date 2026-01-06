@@ -3,6 +3,11 @@ import { supabase } from '../services/supabase';
 import { Profile, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
 
+interface NewWord {
+  polish: string;
+  english: string;
+}
+
 interface CreateQuizChallengeProps {
   profile: Profile;
   partnerVocab: DictionaryEntry[];
@@ -20,10 +25,14 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 }) => {
   const [selectedWords, setSelectedWords] = useState<Set<string>>(new Set());
   const [title, setTitle] = useState('');
-  const [useWeakWords, setUseWeakWords] = useState(false);
   const [questionTypes, setQuestionTypes] = useState<Set<string>>(new Set(['multiple_choice']));
   const [creating, setCreating] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // New words feature
+  const [newWords, setNewWords] = useState<NewWord[]>([]);
+  const [newPolish, setNewPolish] = useState('');
+  const [newEnglish, setNewEnglish] = useState('');
 
   const filteredVocab = partnerVocab.filter(word =>
     word.word.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -59,8 +68,19 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
     setSelectedWords(new Set());
   };
 
+  const addNewWord = () => {
+    if (!newPolish.trim() || !newEnglish.trim()) return;
+    setNewWords(prev => [...prev, { polish: newPolish.trim(), english: newEnglish.trim() }]);
+    setNewPolish('');
+    setNewEnglish('');
+  };
+
+  const removeNewWord = (index: number) => {
+    setNewWords(prev => prev.filter((_, i) => i !== index));
+  };
+
   const handleCreate = async () => {
-    if (selectedWords.size === 0 && !useWeakWords) return;
+    if (selectedWords.size === 0 && newWords.length === 0) return;
 
     setCreating(true);
     try {
@@ -76,11 +96,11 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           challengeType: 'quiz',
           title: title || `Quiz for ${partnerName}`,
           config: {
-            wordCount: selectedWords.size || 10,
-            questionTypes: Array.from(questionTypes),
-            aiSuggestedWeakWords: useWeakWords
+            wordCount: selectedWords.size + newWords.length,
+            questionTypes: Array.from(questionTypes)
           },
-          wordIds: useWeakWords ? [] : Array.from(selectedWords)
+          wordIds: Array.from(selectedWords),
+          newWords: newWords.length > 0 ? newWords : undefined
         })
       });
 
@@ -99,15 +119,15 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-[2rem] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="p-6 border-b border-gray-100 flex items-center justify-between">
+        <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-black text-gray-800">Create Quiz</h2>
-            <p className="text-sm text-gray-500">Select words for {partnerName} to practice</p>
+            <h2 className="text-xl font-black text-[var(--text-primary)]">Create Quiz</h2>
+            <p className="text-sm text-[var(--text-secondary)]">Select words for {partnerName} to practice</p>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-xl transition-colors">
-            <ICONS.X className="w-5 h-5 text-gray-400" />
+          <button onClick={onClose} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors">
+            <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
           </button>
         </div>
 
@@ -116,7 +136,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 
           {/* Title Input */}
           <div>
-            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
               Quiz Title (optional)
             </label>
             <input
@@ -124,29 +144,71 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
               value={title}
               onChange={e => setTitle(e.target.value)}
               placeholder={`Quiz for ${partnerName}`}
-              className="w-full p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)]"
+              className="w-full p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
             />
           </div>
 
-          {/* AI Weak Words Option */}
-          <div className="bg-amber-50 p-4 rounded-2xl border border-amber-100">
-            <label className="flex items-center gap-3 cursor-pointer">
+          {/* Add New Words Section */}
+          <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
+            <div className="flex items-center gap-2 mb-3">
+              <ICONS.Plus className="w-4 h-4 text-[var(--accent-color)]" />
+              <p className="font-bold text-[var(--text-primary)] text-sm">Add New Words</p>
+            </div>
+            <p className="text-xs text-[var(--text-secondary)] mb-3">
+              Teach {partnerName} new words! They'll be added to their Love Log after completing the quiz.
+            </p>
+            <div className="flex gap-2 mb-3">
               <input
-                type="checkbox"
-                checked={useWeakWords}
-                onChange={e => setUseWeakWords(e.target.checked)}
-                className="w-5 h-5 rounded border-amber-300 text-amber-500 focus:ring-amber-500"
+                type="text"
+                value={newPolish}
+                onChange={e => setNewPolish(e.target.value)}
+                placeholder="Polish word"
+                className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                onKeyDown={e => e.key === 'Enter' && newEnglish && addNewWord()}
               />
-              <div>
-                <p className="font-bold text-gray-800 text-sm">Use AI-suggested weak words</p>
-                <p className="text-xs text-gray-500">Automatically select words {partnerName} struggles with</p>
+              <input
+                type="text"
+                value={newEnglish}
+                onChange={e => setNewEnglish(e.target.value)}
+                placeholder="English"
+                className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                onKeyDown={e => e.key === 'Enter' && newPolish && addNewWord()}
+              />
+              <button
+                onClick={addNewWord}
+                disabled={!newPolish.trim() || !newEnglish.trim()}
+                className="px-3 py-2 bg-[var(--accent-color)] text-white rounded-lg font-bold text-sm hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                Add
+              </button>
+            </div>
+            {newWords.length > 0 && (
+              <div className="space-y-2">
+                {newWords.map((word, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-2 bg-[var(--bg-card)] rounded-lg border border-[var(--border-color)]"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-[var(--text-primary)] text-sm">{word.polish}</span>
+                      <span className="text-[var(--text-secondary)]">→</span>
+                      <span className="text-[var(--text-secondary)] text-sm">{word.english}</span>
+                    </div>
+                    <button
+                      onClick={() => removeNewWord(index)}
+                      className="p-1 hover:bg-red-50 dark:hover:bg-red-900/30 rounded transition-colors"
+                    >
+                      <ICONS.X className="w-4 h-4 text-red-400" />
+                    </button>
+                  </div>
+                ))}
               </div>
-            </label>
+            )}
           </div>
 
           {/* Question Types */}
           <div>
-            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">
+            <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
               Question Types
             </label>
             <div className="flex flex-wrap gap-2">
@@ -161,7 +223,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                   className={`px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all ${
                     questionTypes.has(type.id)
                       ? 'bg-[var(--accent-light)] text-[var(--accent-color)] border-2 border-[var(--accent-border)]'
-                      : 'bg-gray-100 text-gray-600 border-2 border-transparent hover:bg-gray-200'
+                      : 'bg-[var(--bg-primary)] text-[var(--text-secondary)] border-2 border-[var(--border-color)] hover:border-[var(--text-secondary)]'
                   }`}
                 >
                   <span>{type.icon}</span>
@@ -172,79 +234,77 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           </div>
 
           {/* Word Selection */}
-          {!useWeakWords && (
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-                  Select Words ({selectedWords.size}/20)
-                </label>
-                <div className="flex gap-2">
-                  <button
-                    onClick={selectAll}
-                    className="text-xs text-[var(--accent-color)] font-bold hover:underline"
-                  >
-                    Select All
-                  </button>
-                  <span className="text-gray-300">|</span>
-                  <button
-                    onClick={clearSelection}
-                    className="text-xs text-gray-500 font-bold hover:underline"
-                  >
-                    Clear
-                  </button>
-                </div>
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <label className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+                Select Existing Words ({selectedWords.size}/20)
+              </label>
+              <div className="flex gap-2">
+                <button
+                  onClick={selectAll}
+                  className="text-xs text-[var(--accent-color)] font-bold hover:underline"
+                >
+                  Select All
+                </button>
+                <span className="text-[var(--text-secondary)]">|</span>
+                <button
+                  onClick={clearSelection}
+                  className="text-xs text-[var(--text-secondary)] font-bold hover:underline"
+                >
+                  Clear
+                </button>
               </div>
-
-              {/* Search */}
-              <div className="mb-3">
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                  placeholder="Search words..."
-                  className="w-full p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)]"
-                />
-              </div>
-
-              {/* Word Grid */}
-              <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto">
-                {filteredVocab.map(word => (
-                  <button
-                    key={word.id}
-                    onClick={() => toggleWord(word.id)}
-                    className={`p-3 rounded-xl text-left transition-all ${
-                      selectedWords.has(word.id)
-                        ? 'bg-[var(--accent-light)] border-2 border-[var(--accent-border)]'
-                        : 'bg-gray-50 border-2 border-transparent hover:bg-gray-100'
-                    }`}
-                  >
-                    <p className="font-bold text-gray-800 text-sm truncate">{word.word}</p>
-                    <p className="text-xs text-gray-500 truncate">{word.translation}</p>
-                  </button>
-                ))}
-              </div>
-
-              {partnerVocab.length === 0 && (
-                <div className="text-center py-8 text-gray-400">
-                  <p className="font-bold">{partnerName} hasn't learned any words yet!</p>
-                  <p className="text-sm">Send them some words to learn first.</p>
-                </div>
-              )}
             </div>
-          )}
+
+            {/* Search */}
+            <div className="mb-3">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                placeholder="Search words..."
+                className="w-full p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+              />
+            </div>
+
+            {/* Word Grid */}
+            <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto">
+              {filteredVocab.map(word => (
+                <button
+                  key={word.id}
+                  onClick={() => toggleWord(word.id)}
+                  className={`p-3 rounded-xl text-left transition-all ${
+                    selectedWords.has(word.id)
+                      ? 'bg-[var(--accent-light)] border-2 border-[var(--accent-border)]'
+                      : 'bg-[var(--bg-primary)] border-2 border-[var(--border-color)] hover:border-[var(--text-secondary)]'
+                  }`}
+                >
+                  <p className="font-bold text-[var(--text-primary)] text-sm truncate">{word.word}</p>
+                  <p className="text-xs text-[var(--text-secondary)] truncate">{word.translation}</p>
+                </button>
+              ))}
+            </div>
+
+            {partnerVocab.length === 0 && (
+              <div className="text-center py-8 text-[var(--text-secondary)]">
+                <p className="font-bold">{partnerName} hasn't learned any words yet!</p>
+                <p className="text-sm">Add new words above to get started.</p>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-gray-100 flex items-center justify-between bg-gray-50">
+        <div className="p-6 border-t border-[var(--border-color)] flex items-center justify-between bg-[var(--bg-primary)]">
           <button
             onClick={onClose}
-            className="px-6 py-3 text-gray-500 font-bold text-sm hover:bg-gray-200 rounded-xl transition-colors"
+            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-sm hover:bg-[var(--bg-card)] rounded-xl transition-colors"
           >
             Cancel
           </button>
           <button
             onClick={handleCreate}
-            disabled={creating || (selectedWords.size === 0 && !useWeakWords)}
+            disabled={creating || (selectedWords.size === 0 && newWords.length === 0)}
             className="px-8 py-3 bg-[var(--accent-color)] text-white font-bold text-sm rounded-xl hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
           >
             {creating ? (

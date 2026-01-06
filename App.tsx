@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { supabase } from './services/supabase';
 import { Profile } from './types';
 import { ThemeProvider } from './context/ThemeContext';
@@ -14,6 +14,43 @@ import Progress from './components/Progress';
 import LevelTest from './components/LevelTest';
 import JoinInvite from './components/JoinInvite';
 import { Onboarding } from './components/onboarding/Onboarding';
+
+// Wrapper component that keeps main tabs mounted to preserve state
+const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({ profile, onRefresh }) => {
+  const location = useLocation();
+  const path = location.pathname;
+
+  // These tabs will stay mounted to preserve their state
+  const persistentPaths = ['/', '/log', '/play', '/progress'];
+  const isPersistentPath = persistentPaths.includes(path);
+
+  return (
+    <>
+      {/* Persistent tabs - always mounted, shown/hidden via CSS */}
+      <div className={path === '/' ? 'h-full' : 'hidden'}>
+        <ChatArea profile={profile} />
+      </div>
+      <div className={path === '/log' ? 'h-full' : 'hidden'}>
+        <LoveLog profile={profile} />
+      </div>
+      <div className={path === '/play' ? 'h-full' : 'hidden'}>
+        <FlashcardGame profile={profile} />
+      </div>
+      <div className={path === '/progress' ? 'h-full' : 'hidden'}>
+        <Progress profile={profile} />
+      </div>
+
+      {/* Non-persistent routes - mounted/unmounted normally */}
+      {!isPersistentPath && (
+        <Routes>
+          <Route path="/test" element={<LevelTest profile={profile} />} />
+          <Route path="/profile" element={<ProfileView profile={profile} onRefresh={onRefresh} />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      )}
+    </>
+  );
+};
 
 const App: React.FC = () => {
   const [session, setSession] = useState<any>(null);
@@ -139,15 +176,7 @@ const App: React.FC = () => {
                   <div className="flex flex-col h-screen">
                     <Navbar profile={profile} />
                     <main className="flex-1 overflow-hidden">
-                      <Routes>
-                        <Route path="/" element={<ChatArea profile={profile} />} />
-                        <Route path="/log" element={<LoveLog profile={profile} />} />
-                        <Route path="/play" element={<FlashcardGame profile={profile} />} />
-                        <Route path="/progress" element={<Progress profile={profile} />} />
-                        <Route path="/test" element={<LevelTest profile={profile} />} />
-                        <Route path="/profile" element={<ProfileView profile={profile} onRefresh={() => fetchProfile(profile.id)} />} />
-                        <Route path="*" element={<Navigate to="/" />} />
-                      </Routes>
+                      <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
                     </main>
                   </div>
                 )

@@ -158,13 +158,13 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   if (completing) {
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-[2rem] w-full max-w-md p-8 text-center">
+        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
-            <div className="w-3 h-3 bg-amber-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+            <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
-          <p className="text-gray-500">Adding words to your Love Log...</p>
+          <p className="text-[var(--text-secondary)]">Adding words to your Love Log...</p>
         </div>
       </div>
     );

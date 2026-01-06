@@ -5,9 +5,20 @@ import { ChatMode } from '../types';
 
 export type LiveSessionState = 'disconnected' | 'connecting' | 'listening' | 'speaking' | 'error';
 
+export interface ConversationScenario {
+  id: string;
+  name: string;
+  icon?: string;
+  persona: string;
+  context: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+}
+
 export interface LiveSessionConfig {
-  mode: ChatMode;
+  mode: ChatMode | 'conversation';
   userLog?: string[];
+  conversationScenario?: ConversationScenario;
+  userName?: string;
   onTranscript?: (role: 'user' | 'model', text: string, isFinal: boolean) => void;
   onStateChange?: (state: LiveSessionState) => void;
   onError?: (error: Error) => void;
@@ -69,7 +80,9 @@ export class LiveSession {
         },
         body: JSON.stringify({
           mode: this.config.mode,
-          userLog: this.config.userLog || []
+          userLog: this.config.userLog || [],
+          conversationScenario: this.config.conversationScenario,
+          userName: this.config.userName
         })
       });
 

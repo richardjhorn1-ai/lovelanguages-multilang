@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { supabase } from '../services/supabase';
 import { Profile, DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase, TutorChallenge, WordRequest } from '../types';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
@@ -12,11 +12,34 @@ import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
+import ConversationPractice from './ConversationPractice';
 
 interface FlashcardGameProps { profile: Profile; }
 
-type PracticeMode = 'love_notes' | 'flashcards' | 'multiple_choice' | 'type_it' | 'ai_challenge';
+type PracticeMode = 'love_notes' | 'flashcards' | 'multiple_choice' | 'type_it' | 'ai_challenge' | 'quick_fire';
+type MainTab = 'local_games' | 'love_notes';
+type LocalGameType = 'flashcards' | 'multiple_choice' | 'type_it' | 'quick_fire' | 'ai_challenge' | 'verb_mastery' | null;
 type TypeItDirection = 'polish_to_english' | 'english_to_polish';
+type VerbTense = 'present' | 'past' | 'future';
+type VerbPerson = 'ja' | 'ty' | 'onOna' | 'my' | 'wy' | 'oni';
+
+interface VerbMasteryQuestion {
+  verb: DictionaryEntry;
+  tense: VerbTense;
+  person: VerbPerson;
+  correctAnswer: string;
+  infinitive: string;
+  translation: string;
+}
+
+const VERB_PERSONS: { key: VerbPerson; label: string; english: string }[] = [
+  { key: 'ja', label: 'ja', english: 'I' },
+  { key: 'ty', label: 'ty', english: 'you (singular)' },
+  { key: 'onOna', label: 'on/ona', english: 'he/she' },
+  { key: 'my', label: 'my', english: 'we' },
+  { key: 'wy', label: 'wy', english: 'you (plural)' },
+  { key: 'oni', label: 'oni', english: 'they' }
+];
 
 interface TypeItQuestion {
   word: DictionaryEntry;
@@ -25,6 +48,15 @@ interface TypeItQuestion {
 
 type SessionLength = 10 | 20 | 'all';
 type ChallengeQuestionType = 'flashcard' | 'multiple_choice' | 'type_it';
+
+interface GameSessionAnswer {
+  wordId?: string;
+  wordText: string;
+  correctAnswer: string;
+  userAnswer?: string;
+  questionType: 'flashcard' | 'multiple_choice' | 'type_it';
+  isCorrect: boolean;
+}
 
 interface ChallengeQuestion {
   id: string;
@@ -71,10 +103,19 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [activeChallenge, setActiveChallenge] = useState<TutorChallenge | null>(null);
   const [activeWordRequest, setActiveWordRequest] = useState<WordRequest | null>(null);
 
+  // Main tab and local game state
+  const [mainTab, setMainTab] = useState<MainTab>('local_games');
+  const [localGameType, setLocalGameType] = useState<LocalGameType>(null);
+  const [showConversationPractice, setShowConversationPractice] = useState(false);
+
   // Practice mode - default to love_notes if there are pending items
   const [mode, setMode] = useState<PracticeMode>('flashcards');
   const [finished, setFinished] = useState(false);
   const [sessionScore, setSessionScore] = useState({ correct: 0, incorrect: 0 });
+
+  // Game session tracking
+  const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
+  const [sessionStartTime] = useState<number>(Date.now());
 
   // Flashcard state
   const [isFlipped, setIsFlipped] = useState(false);
@@ -103,6 +144,26 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [challengeTypeAnswer, setChallengeTypeAnswer] = useState('');
   const [challengeTypeSubmitted, setChallengeTypeSubmitted] = useState(false);
   const [challengeTypeCorrect, setChallengeTypeCorrect] = useState(false);
+
+  // Quick Fire state
+  const [quickFireWords, setQuickFireWords] = useState<DictionaryEntry[]>([]);
+  const [quickFireIndex, setQuickFireIndex] = useState(0);
+  const [quickFireInput, setQuickFireInput] = useState('');
+  const [quickFireTimeLeft, setQuickFireTimeLeft] = useState(60);
+  const [quickFireStarted, setQuickFireStarted] = useState(false);
+  const [quickFireShowFeedback, setQuickFireShowFeedback] = useState<'correct' | 'wrong' | null>(null);
+  const quickFireTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const quickFireAnswersRef = useRef<GameSessionAnswer[]>([]);
+  const quickFireScoreRef = useRef({ correct: 0, incorrect: 0 });
+
+  // Verb Mastery state
+  const [verbMasteryTense, setVerbMasteryTense] = useState<VerbTense>('present');
+  const [verbMasteryQuestions, setVerbMasteryQuestions] = useState<VerbMasteryQuestion[]>([]);
+  const [verbMasteryIndex, setVerbMasteryIndex] = useState(0);
+  const [verbMasteryInput, setVerbMasteryInput] = useState('');
+  const [verbMasterySubmitted, setVerbMasterySubmitted] = useState(false);
+  const [verbMasteryCorrect, setVerbMasteryCorrect] = useState(false);
+  const [verbMasteryStarted, setVerbMasteryStarted] = useState(false);
 
   // Level styling
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
@@ -254,7 +315,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         setPendingChallenges(challengeData.challenges);
         // Auto-switch to Love Notes tab if there are pending items
         if (challengeData.challenges.length > 0) {
-          setMode('love_notes');
+          setMainTab('love_notes');
         }
       }
 
@@ -272,7 +333,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         setPendingWordRequests(requestData.wordRequests);
         // Auto-switch to Love Notes tab if there are pending items
         if (requestData.wordRequests.length > 0 && pendingChallenges.length === 0) {
-          setMode('love_notes');
+          setMainTab('love_notes');
         }
       }
     } catch (error) {
@@ -334,6 +395,33 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     });
 
     return { justLearned, newStreak };
+  };
+
+  // Save game session to database
+  const saveGameSession = async (gameMode: string, answers: GameSessionAnswer[], correct: number, incorrect: number) => {
+    try {
+      const token = (await supabase.auth.getSession()).data.session?.access_token;
+      if (!token) return;
+
+      const totalTimeSeconds = Math.floor((Date.now() - sessionStartTime) / 1000);
+
+      await fetch('/api/submit-game-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          gameMode,
+          correctCount: correct,
+          incorrectCount: incorrect,
+          totalTimeSeconds,
+          answers
+        })
+      });
+    } catch (error) {
+      console.error('Error saving game session:', error);
+    }
   };
 
   // Calculate available word counts for AI Challenge modes
@@ -420,6 +508,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setChallengeStarted(true);
     setChallengeIndex(0);
     setSessionScore({ correct: 0, incorrect: 0 });
+    setSessionAnswers([]); // Reset answers for new session
     setFinished(false);
   };
 
@@ -443,9 +532,26 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   const handleChallengeFlashcardResponse = async (isCorrect: boolean) => {
     const q = challengeQuestions[challengeIndex];
-    setSessionScore(prev => ({ correct: prev.correct + (isCorrect ? 1 : 0), incorrect: prev.incorrect + (isCorrect ? 0 : 1) }));
+
+    // Record answer
+    const answer: GameSessionAnswer = {
+      wordId: q.wordId,
+      wordText: q.polish,
+      correctAnswer: q.english,
+      questionType: 'flashcard',
+      isCorrect
+    };
+    const newAnswers = [...sessionAnswers, answer];
+    setSessionAnswers(newAnswers);
+
+    const newScore = {
+      correct: sessionScore.correct + (isCorrect ? 1 : 0),
+      incorrect: sessionScore.incorrect + (isCorrect ? 0 : 1)
+    };
+    setSessionScore(newScore);
+
     if (q.wordId) await updateWordScore(q.wordId, isCorrect);
-    advanceChallengeQuestion();
+    advanceChallengeQuestion(newAnswers, newScore);
   };
 
   const handleChallengeMcSelect = async (option: string) => {
@@ -454,27 +560,62 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setChallengeMcFeedback(true);
     const q = challengeQuestions[challengeIndex];
     const correct = option === q.english;
-    setSessionScore(prev => ({ correct: prev.correct + (correct ? 1 : 0), incorrect: prev.incorrect + (correct ? 0 : 1) }));
+
+    // Record answer
+    const answer: GameSessionAnswer = {
+      wordId: q.wordId,
+      wordText: q.polish,
+      correctAnswer: q.english,
+      userAnswer: option,
+      questionType: 'multiple_choice',
+      isCorrect: correct
+    };
+    const newAnswers = [...sessionAnswers, answer];
+    setSessionAnswers(newAnswers);
+
+    const newScore = {
+      correct: sessionScore.correct + (correct ? 1 : 0),
+      incorrect: sessionScore.incorrect + (correct ? 0 : 1)
+    };
+    setSessionScore(newScore);
+
     if (q.wordId) await updateWordScore(q.wordId, correct);
-    setTimeout(() => advanceChallengeQuestion(), correct ? 800 : 1500);
+    setTimeout(() => advanceChallengeQuestion(newAnswers, newScore), correct ? 800 : 1500);
   };
 
   const handleChallengeTypeSubmit = async () => {
-    if (challengeTypeSubmitted) { advanceChallengeQuestion(); return; }
+    if (challengeTypeSubmitted) {
+      advanceChallengeQuestion(sessionAnswers, sessionScore);
+      return;
+    }
     const q = challengeQuestions[challengeIndex];
     const correct = isCorrectAnswer(challengeTypeAnswer, q.english);
+
+    // Record answer
+    const answer: GameSessionAnswer = {
+      wordId: q.wordId,
+      wordText: q.polish,
+      correctAnswer: q.english,
+      userAnswer: challengeTypeAnswer,
+      questionType: 'type_it',
+      isCorrect: correct
+    };
+    setSessionAnswers(prev => [...prev, answer]);
+
     setChallengeTypeSubmitted(true);
     setChallengeTypeCorrect(correct);
     setSessionScore(prev => ({ correct: prev.correct + (correct ? 1 : 0), incorrect: prev.incorrect + (correct ? 0 : 1) }));
     if (q.wordId) await updateWordScore(q.wordId, correct);
   };
 
-  const advanceChallengeQuestion = () => {
+  const advanceChallengeQuestion = (answers: GameSessionAnswer[], score: { correct: number; incorrect: number }) => {
     if (challengeIndex < challengeQuestions.length - 1) {
       resetChallengeQuestionState();
       setChallengeIndex(c => c + 1);
     } else {
       setFinished(true);
+      // Save game session
+      saveGameSession('ai_challenge', answers, score.correct, score.incorrect);
     }
   };
 
@@ -519,27 +660,290 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     resetTypeItState();
     // Reset AI Challenge state when switching modes
     resetChallenge();
+    // Reset Quick Fire state
+    resetQuickFire();
 
     // Reshuffle deck
     setDeck(shuffleArray([...deck]));
   };
 
-  const handleFlashcardResponse = async (isCorrect: boolean) => {
-    const wordId = deck[currentIndex].id;
+  // Start a local game from the game selection grid
+  const startLocalGame = (gameType: LocalGameType) => {
+    setLocalGameType(gameType);
+    if (gameType) {
+      setMode(gameType as PracticeMode);
+      setCurrentIndex(0);
+      setFinished(false);
+      setSessionScore({ correct: 0, incorrect: 0 });
+      setSessionAnswers([]); // Reset answers for new session
+      setDeck(shuffleArray([...deck]));
 
-    setSessionScore(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
+      // Start Quick Fire immediately if selected
+      if (gameType === 'quick_fire') {
+        const shuffled = shuffleArray(deck).slice(0, 20);
+        setQuickFireWords(shuffled);
+        setQuickFireIndex(0);
+        setQuickFireInput('');
+        setQuickFireTimeLeft(60);
+        setQuickFireStarted(false); // Will start when user clicks Start
+      }
+    }
+  };
+
+  // Return to game selection grid
+  const exitLocalGame = () => {
+    setLocalGameType(null);
+    setFinished(false);
+    resetChallenge();
+    resetQuickFire();
+    resetTypeItState();
+    resetVerbMastery();
+  };
+
+  // Quick Fire functions
+  const startQuickFire = () => {
+    const shuffled = shuffleArray(deck).slice(0, 20);
+    setQuickFireWords(shuffled);
+    setQuickFireIndex(0);
+    setQuickFireInput('');
+    setQuickFireTimeLeft(60);
+    setSessionScore({ correct: 0, incorrect: 0 });
+    setSessionAnswers([]);
+    quickFireAnswersRef.current = [];
+    quickFireScoreRef.current = { correct: 0, incorrect: 0 };
+    setQuickFireStarted(true);
+    setFinished(false);
+
+    // Start timer
+    quickFireTimerRef.current = setInterval(() => {
+      setQuickFireTimeLeft(prev => {
+        if (prev <= 1) {
+          if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
+          setFinished(true);
+          // Save game session using refs (closure won't have latest state)
+          saveGameSession('quick_fire', quickFireAnswersRef.current, quickFireScoreRef.current.correct, quickFireScoreRef.current.incorrect);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
+
+  const handleQuickFireAnswer = async () => {
+    if (!quickFireInput.trim()) return;
+
+    const word = quickFireWords[quickFireIndex];
+    const isCorrect = quickFireInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+
+    // Record answer
+    const answer: GameSessionAnswer = {
+      wordId: word.id,
+      wordText: word.word,
+      correctAnswer: word.translation,
+      userAnswer: quickFireInput,
+      questionType: 'type_it',
+      isCorrect
+    };
+    const newAnswers = [...sessionAnswers, answer];
+    setSessionAnswers(newAnswers);
+    // Also update ref for timer callback access
+    quickFireAnswersRef.current = newAnswers;
+
+    setQuickFireShowFeedback(isCorrect ? 'correct' : 'wrong');
+    setTimeout(() => setQuickFireShowFeedback(null), 200);
+
+    const newScore = {
+      correct: sessionScore.correct + (isCorrect ? 1 : 0),
+      incorrect: sessionScore.incorrect + (isCorrect ? 0 : 1)
+    };
+    setSessionScore(newScore);
+    // Also update ref for timer callback access
+    quickFireScoreRef.current = newScore;
+
+    // Update score
+    await updateWordScore(word.id, isCorrect);
+
+    setQuickFireInput('');
+
+    if (quickFireIndex < quickFireWords.length - 1) {
+      setQuickFireIndex(prev => prev + 1);
+    } else {
+      // Finished all words
+      if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
+      setFinished(true);
+      // Save game session
+      saveGameSession('quick_fire', newAnswers, newScore.correct, newScore.incorrect);
+    }
+  };
+
+  const resetQuickFire = () => {
+    if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
+    setQuickFireWords([]);
+    setQuickFireIndex(0);
+    setQuickFireInput('');
+    setQuickFireTimeLeft(60);
+    setQuickFireStarted(false);
+    setQuickFireShowFeedback(null);
+  };
+
+  // Helper to parse context JSON
+  const parseContext = (entry: DictionaryEntry) => {
+    try {
+      return typeof entry.context === 'string' ? JSON.parse(entry.context) : entry.context;
+    } catch {
+      return null;
+    }
+  };
+
+  // Verb Mastery functions
+  const verbsWithConjugations = useMemo(() => {
+    return deck.filter(w => {
+      if (w.word_type !== 'verb') return false;
+      const ctx = parseContext(w);
+      return ctx?.conjugations?.present;
+    }).map(w => ({
+      ...w,
+      conjugations: parseContext(w)?.conjugations
     }));
+  }, [deck]);
+
+  const generateVerbMasteryQuestions = (tense: VerbTense): VerbMasteryQuestion[] => {
+    const questions: VerbMasteryQuestion[] = [];
+    const verbs = shuffleArray([...verbsWithConjugations]);
+
+    for (const verb of verbs) {
+      const conjugations = verb.conjugations;
+      if (!conjugations) continue;
+
+      const tenseData = conjugations[tense];
+      if (!tenseData) continue;
+
+      // Add a question for each person that has data
+      for (const personInfo of VERB_PERSONS) {
+        const answer = tenseData[personInfo.key];
+        if (answer) {
+          questions.push({
+            verb,
+            tense,
+            person: personInfo.key,
+            correctAnswer: answer,
+            infinitive: verb.word,
+            translation: verb.translation
+          });
+        }
+      }
+    }
+
+    return shuffleArray(questions).slice(0, 20); // Limit to 20 questions
+  };
+
+  const startVerbMastery = (tense: VerbTense) => {
+    const questions = generateVerbMasteryQuestions(tense);
+    if (questions.length === 0) {
+      alert('No verbs found with ' + tense + ' tense conjugations. Learn more verbs first!');
+      return;
+    }
+    setVerbMasteryTense(tense);
+    setVerbMasteryQuestions(questions);
+    setVerbMasteryIndex(0);
+    setVerbMasteryInput('');
+    setVerbMasterySubmitted(false);
+    setVerbMasteryCorrect(false);
+    setSessionScore({ correct: 0, incorrect: 0 });
+    setSessionAnswers([]);
+    setVerbMasteryStarted(true);
+    setFinished(false);
+  };
+
+  const handleVerbMasterySubmit = async () => {
+    if (!verbMasteryInput.trim() || verbMasterySubmitted) return;
+
+    const question = verbMasteryQuestions[verbMasteryIndex];
+    const isCorrect = isCorrectAnswer(verbMasteryInput, question.correctAnswer);
+
+    setVerbMasterySubmitted(true);
+    setVerbMasteryCorrect(isCorrect);
+
+    // Record answer
+    const answer: GameSessionAnswer = {
+      wordId: question.verb.id,
+      wordText: `${question.infinitive} (${question.person})`,
+      correctAnswer: question.correctAnswer,
+      userAnswer: verbMasteryInput,
+      questionType: 'type_it',
+      isCorrect
+    };
+    const newAnswers = [...sessionAnswers, answer];
+    setSessionAnswers(newAnswers);
+
+    const newScore = {
+      correct: sessionScore.correct + (isCorrect ? 1 : 0),
+      incorrect: sessionScore.incorrect + (isCorrect ? 0 : 1)
+    };
+    setSessionScore(newScore);
+
+    // Update word score
+    await updateWordScore(question.verb.id!, isCorrect);
+  };
+
+  const handleVerbMasteryNext = () => {
+    if (verbMasteryIndex < verbMasteryQuestions.length - 1) {
+      setVerbMasteryIndex(i => i + 1);
+      setVerbMasteryInput('');
+      setVerbMasterySubmitted(false);
+      setVerbMasteryCorrect(false);
+    } else {
+      setFinished(true);
+      saveGameSession('verb_mastery', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
+    }
+  };
+
+  const resetVerbMastery = () => {
+    setVerbMasteryQuestions([]);
+    setVerbMasteryIndex(0);
+    setVerbMasteryInput('');
+    setVerbMasterySubmitted(false);
+    setVerbMasteryCorrect(false);
+    setVerbMasteryStarted(false);
+  };
+
+  // Cleanup Quick Fire timer on unmount
+  useEffect(() => {
+    return () => {
+      if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
+    };
+  }, []);
+
+  const handleFlashcardResponse = async (isCorrect: boolean) => {
+    const word = deck[currentIndex];
+
+    // Record answer
+    const answer: GameSessionAnswer = {
+      wordId: word.id,
+      wordText: word.word,
+      correctAnswer: word.translation,
+      questionType: 'flashcard',
+      isCorrect
+    };
+    const newAnswers = [...sessionAnswers, answer];
+    setSessionAnswers(newAnswers);
+
+    const newScore = {
+      correct: sessionScore.correct + (isCorrect ? 1 : 0),
+      incorrect: sessionScore.incorrect + (isCorrect ? 0 : 1)
+    };
+    setSessionScore(newScore);
 
     // Update score with proper streak tracking
-    await updateWordScore(wordId, isCorrect);
+    await updateWordScore(word.id, isCorrect);
 
     if (currentIndex < deck.length - 1) {
       setIsFlipped(false);
       setTimeout(() => setCurrentIndex(c => c + 1), 300);
     } else {
       setFinished(true);
+      // Save game session
+      saveGameSession('flashcards', newAnswers, newScore.correct, newScore.incorrect);
     }
   };
 
@@ -552,10 +956,23 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     const currentWord = deck[currentIndex];
     const isCorrect = option === currentWord.translation;
 
-    setSessionScore(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
-    }));
+    // Record answer
+    const answer: GameSessionAnswer = {
+      wordId: currentWord.id,
+      wordText: currentWord.word,
+      correctAnswer: currentWord.translation,
+      userAnswer: option,
+      questionType: 'multiple_choice',
+      isCorrect
+    };
+    const newAnswers = [...sessionAnswers, answer];
+    setSessionAnswers(newAnswers);
+
+    const newScore = {
+      correct: sessionScore.correct + (isCorrect ? 1 : 0),
+      incorrect: sessionScore.incorrect + (isCorrect ? 0 : 1)
+    };
+    setSessionScore(newScore);
 
     // Update score with proper streak tracking
     await updateWordScore(currentWord.id, isCorrect);
@@ -566,6 +983,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         setCurrentIndex(c => c + 1);
       } else {
         setFinished(true);
+        // Save game session
+        saveGameSession('multiple_choice', newAnswers, newScore.correct, newScore.incorrect);
       }
     }, isCorrect ? 800 : 1500);
   };
@@ -578,6 +997,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         resetTypeItState();
       } else {
         setFinished(true);
+        // Save game session
+        saveGameSession('type_it', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
       }
       return;
     }
@@ -588,6 +1009,17 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       : question.word.word;
 
     const isCorrect = isCorrectAnswer(typeItAnswer, correctAnswer);
+
+    // Record answer
+    const answer: GameSessionAnswer = {
+      wordId: question.word.id,
+      wordText: question.word.word,
+      correctAnswer,
+      userAnswer: typeItAnswer,
+      questionType: 'type_it',
+      isCorrect
+    };
+    setSessionAnswers(prev => [...prev, answer]);
 
     setTypeItSubmitted(true);
     setTypeItCorrect(isCorrect);
@@ -665,12 +1097,13 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   }
 
   // Finished state
-  if (finished) return (
+  if (finished && localGameType) return (
     <GameResults
       correct={sessionScore.correct}
       incorrect={sessionScore.incorrect}
       tierColor={tierColor}
       onPlayAgain={restartSession}
+      onExit={exitLocalGame}
     />
   );
 
@@ -681,45 +1114,62 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   return (
     <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-primary)]">
-      {/* Header: Tabs + Stats - Fixed at top */}
+      {/* Header: Two Tabs - Fixed at top */}
       <div className="shrink-0 p-4 pb-2">
         <div className="w-full max-w-lg mx-auto">
-          {/* Mode Tabs */}
-          <div className="flex gap-1 p-1 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl mb-3">
-            {[
-              { id: 'love_notes' as PracticeMode, label: 'Love Notes', icon: ICONS.Heart, hasBadge: true },
-              { id: 'flashcards' as PracticeMode, label: 'Flashcards', icon: ICONS.Book, hasBadge: false },
-              { id: 'multiple_choice' as PracticeMode, label: 'Multiple Choice', icon: ICONS.Check, hasBadge: false },
-              { id: 'type_it' as PracticeMode, label: 'Type It', icon: ICONS.Pencil, hasBadge: false },
-              { id: 'ai_challenge' as PracticeMode, label: 'AI Challenge', icon: ICONS.Zap, hasBadge: false },
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => handleModeChange(tab.id)}
-                className={`relative flex-1 py-2 px-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 ${
-                  mode === tab.id
-                    ? 'text-white shadow-sm'
-                    : tab.id === 'love_notes' && pendingCount > 0
-                      ? 'text-[var(--accent-color)] hover:text-[var(--accent-color)]'
+          {/* Two-Tab Layout: Local Games | Love Notes */}
+          {!localGameType && (
+            <>
+              <h1 className="text-2xl font-black text-[var(--text-primary)] mb-3 text-center">Practice</h1>
+              <div className="inline-flex w-full bg-[var(--bg-card)] border border-[var(--border-color)] p-1 rounded-xl mb-3">
+                <button
+                  onClick={() => setMainTab('local_games')}
+                  className={`flex-1 px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${
+                    mainTab === 'local_games'
+                      ? 'bg-[var(--bg-primary)] text-[var(--accent-color)] shadow-sm'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                } ${tab.id === 'love_notes' && pendingCount > 0 && mode !== 'love_notes' ? 'animate-pulse-border' : ''}`}
-                style={mode === tab.id ? { backgroundColor: tab.id === 'love_notes' ? '#FF4761' : tierColor } : {}}
-              >
-                <tab.icon className={`w-3.5 h-3.5 shrink-0 ${tab.id === 'love_notes' && mode === tab.id ? 'fill-white' : tab.id === 'love_notes' && pendingCount > 0 ? 'fill-[var(--accent-color)]' : ''}`} />
-                <span className="hidden sm:inline truncate">{tab.label}</span>
-                {tab.hasBadge && pendingCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-[var(--accent-color)] text-white text-[9px] flex items-center justify-center rounded-full font-bold animate-bounce">
-                    {pendingCount > 9 ? '9+' : pendingCount}
-                  </span>
-                )}
-              </button>
-            ))}
-          </div>
+                  }`}
+                >
+                  <ICONS.Play className="w-4 h-4" />
+                  Local Games
+                </button>
+                <button
+                  onClick={() => setMainTab('love_notes')}
+                  className={`relative flex-1 px-4 py-2 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${
+                    mainTab === 'love_notes'
+                      ? 'bg-[var(--accent-color)] text-white shadow-sm'
+                      : pendingCount > 0
+                        ? 'text-[var(--accent-color)]'
+                        : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  <ICONS.Heart className={`w-4 h-4 ${mainTab === 'love_notes' ? 'fill-white' : pendingCount > 0 ? 'fill-[var(--accent-color)]' : ''}`} />
+                  Love Notes
+                  {pendingCount > 0 && mainTab !== 'love_notes' && (
+                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-[var(--accent-color)] text-white text-[10px] flex items-center justify-center rounded-full font-bold animate-bounce">
+                      {pendingCount > 9 ? '9+' : pendingCount}
+                    </span>
+                  )}
+                </button>
+              </div>
+              <p className="text-[var(--text-secondary)] text-xs text-center">
+                {mainTab === 'local_games'
+                  ? 'Practice your vocabulary with different game modes'
+                  : `Challenges and gifts from ${partnerName}`}
+              </p>
+            </>
+          )}
 
-          {/* Session Stats - Hide for Love Notes mode */}
-          {mode !== 'love_notes' && (
+          {/* Session Stats - Show only when a game is active */}
+          {localGameType && (
             <>
               <div className="flex items-center justify-between mb-2">
+                <button
+                  onClick={exitLocalGame}
+                  className="p-2 hover:bg-[var(--bg-card)] rounded-xl transition-colors"
+                >
+                  <ICONS.ChevronLeft className="w-5 h-5 text-[var(--text-secondary)]" />
+                </button>
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-green-500" />
@@ -752,8 +1202,163 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         <div className="w-full max-w-lg mx-auto flex items-start justify-center min-h-full">
           <div className="w-full">
 
+          {/* Game Card Grid - Show when in local_games tab and no game active */}
+          {mainTab === 'local_games' && !localGameType && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              {/* Flashcards */}
+              <button
+                onClick={() => startLocalGame('flashcards')}
+                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                    🎴
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-[var(--text-primary)] mb-1">Flashcards</h3>
+                    <p className="text-sm text-[var(--text-secondary)]">Flip cards to reveal translations</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-xs font-bold">
+                  <ICONS.Play className="w-3 h-3" />
+                  <span>Start Now</span>
+                </div>
+              </button>
+
+              {/* Multiple Choice */}
+              <button
+                onClick={() => startLocalGame('multiple_choice')}
+                disabled={deck.length < 4}
+                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                    🔘
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-[var(--text-primary)] mb-1">Multiple Choice</h3>
+                    <p className="text-sm text-[var(--text-secondary)]">Pick the correct translation</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-purple-500 text-xs font-bold">
+                  <ICONS.Play className="w-3 h-3" />
+                  <span>Start Now</span>
+                </div>
+              </button>
+
+              {/* Type It */}
+              <button
+                onClick={() => startLocalGame('type_it')}
+                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all text-left"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                    ⌨️
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-[var(--text-primary)] mb-1">Type It</h3>
+                    <p className="text-sm text-[var(--text-secondary)]">Type the translation yourself</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-blue-500 text-xs font-bold">
+                  <ICONS.Play className="w-3 h-3" />
+                  <span>Start Now</span>
+                </div>
+              </button>
+
+              {/* Quick Fire */}
+              <button
+                onClick={() => startLocalGame('quick_fire')}
+                disabled={deck.length < 5}
+                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                    ⚡
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-[var(--text-primary)] mb-1">Quick Fire</h3>
+                    <p className="text-sm text-[var(--text-secondary)]">60 second timed challenge</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-amber-500 text-xs font-bold">
+                  <ICONS.Play className="w-3 h-3" />
+                  <span>Start Now</span>
+                </div>
+              </button>
+
+              {/* AI Challenge */}
+              <button
+                onClick={() => startLocalGame('ai_challenge')}
+                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-green-500/30 transition-all text-left"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                    🤖
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-[var(--text-primary)] mb-1">AI Challenge</h3>
+                    <p className="text-sm text-[var(--text-secondary)]">Mixed question types with smart word selection</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-green-500 text-xs font-bold">
+                  <ICONS.Play className="w-3 h-3" />
+                  <span>Start Challenge</span>
+                </div>
+              </button>
+
+              {/* Conversation Practice */}
+              <button
+                onClick={() => setShowConversationPractice(true)}
+                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left relative"
+              >
+                <div className="absolute top-3 right-3 px-2 py-0.5 bg-purple-500/20 text-purple-600 dark:text-purple-400 text-[9px] font-black uppercase tracking-wider rounded-full">
+                  Beta
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                    🎙️
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-[var(--text-primary)] mb-1">Conversation Practice</h3>
+                    <p className="text-sm text-[var(--text-secondary)]">Talk to AI personas in Polish scenarios</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-purple-500 text-xs font-bold">
+                  <ICONS.Mic className="w-3 h-3" />
+                  <span>Start Conversation</span>
+                </div>
+              </button>
+
+              {/* Verb Mastery */}
+              <button
+                onClick={() => startLocalGame('verb_mastery')}
+                disabled={verbsWithConjugations.length === 0}
+                className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-orange-500/30 transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-orange-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                    🔄
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-black text-[var(--text-primary)] mb-1">Verb Mastery</h3>
+                    <p className="text-sm text-[var(--text-secondary)]">
+                      {verbsWithConjugations.length > 0
+                        ? `Practice conjugations for ${verbsWithConjugations.length} verbs`
+                        : 'Learn verbs first to unlock'}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center gap-2 text-orange-500 text-xs font-bold">
+                  <ICONS.Target className="w-3 h-3" />
+                  <span>{verbsWithConjugations.length > 0 ? 'Start Practice' : 'Locked'}</span>
+                </div>
+              </button>
+            </div>
+          )}
+
           {/* Flashcards Mode */}
-          {mode === 'flashcards' && (
+          {localGameType === 'flashcards' && (
             <div
               onClick={() => setIsFlipped(!isFlipped)}
               className="relative w-full aspect-[4/5] cursor-pointer perspective-1000 group"
@@ -794,7 +1399,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           )}
 
           {/* Multiple Choice Mode */}
-          {mode === 'multiple_choice' && (
+          {localGameType === 'multiple_choice' && (
             <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
               <span
                 className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
@@ -850,7 +1455,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           )}
 
           {/* Type It Mode */}
-          {mode === 'type_it' && typeItQuestions.length > 0 && (
+          {localGameType === 'type_it' && typeItQuestions.length > 0 && (
             <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
               {(() => {
                 const question = typeItQuestions[currentIndex];
@@ -939,7 +1544,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           )}
 
           {/* AI Challenge Mode */}
-          {mode === 'ai_challenge' && !challengeStarted && (
+          {localGameType === 'ai_challenge' && !challengeStarted && (
             <div className="w-full">
               <h2 className="text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">Choose Challenge Mode</h2>
 
@@ -1009,8 +1614,255 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             </div>
           )}
 
-          {/* Love Notes Mode - Partner Challenges & Word Gifts */}
-          {mode === 'love_notes' && (
+          {/* Quick Fire Mode */}
+          {localGameType === 'quick_fire' && !quickFireStarted && (
+            <div className="w-full text-center">
+              <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)] max-w-md mx-auto">
+                <div className="text-6xl mb-4">⚡</div>
+                <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">Quick Fire!</h2>
+                <p className="text-[var(--text-secondary)] mb-6">
+                  Translate as many words as you can in 60 seconds!
+                </p>
+                <div className="bg-amber-50 dark:bg-amber-900/30 p-4 rounded-2xl mb-6">
+                  <p className="text-lg font-bold text-amber-600 dark:text-amber-400">
+                    🔥 {deck.length} words available
+                  </p>
+                  <p className="text-sm text-[var(--text-secondary)] mt-1">
+                    Up to 20 random words per round
+                  </p>
+                </div>
+                <button
+                  onClick={startQuickFire}
+                  disabled={deck.length < 5}
+                  className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-sm bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  Start!
+                </button>
+                {deck.length < 5 && (
+                  <p className="text-sm text-red-500 mt-3">Need at least 5 words to play Quick Fire</p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {localGameType === 'quick_fire' && quickFireStarted && !finished && (
+            <div className={`w-full max-w-md mx-auto transition-colors duration-200 ${
+              quickFireShowFeedback === 'correct' ? 'bg-green-500/20 rounded-3xl' :
+              quickFireShowFeedback === 'wrong' ? 'bg-red-500/20 rounded-3xl' : ''
+            }`}>
+              {/* Timer Bar */}
+              <div className="h-3 bg-[var(--border-color)] rounded-full mb-4 overflow-hidden">
+                <div
+                  className={`h-full transition-all duration-1000 ${
+                    quickFireTimeLeft > 30 ? 'bg-amber-500' :
+                    quickFireTimeLeft > 15 ? 'bg-orange-500' : 'bg-red-500'
+                  }`}
+                  style={{ width: `${(quickFireTimeLeft / 60) * 100}%` }}
+                />
+              </div>
+
+              {/* Header */}
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-bold text-[var(--text-secondary)]">
+                  {quickFireIndex + 1} / {quickFireWords.length}
+                </span>
+                <span className={`text-3xl font-black ${
+                  quickFireTimeLeft > 10 ? 'text-amber-500' : 'text-red-500 animate-pulse'
+                }`}>
+                  {quickFireTimeLeft}s
+                </span>
+              </div>
+
+              {/* Word */}
+              <div className="bg-amber-50 dark:bg-amber-900/30 p-8 rounded-2xl mb-6 text-center">
+                <p className="text-4xl font-black text-amber-600 dark:text-amber-400">
+                  {quickFireWords[quickFireIndex]?.word}
+                </p>
+              </div>
+
+              {/* Input */}
+              <input
+                type="text"
+                value={quickFireInput}
+                onChange={e => setQuickFireInput(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && handleQuickFireAnswer()}
+                placeholder="Type translation..."
+                autoFocus
+                className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-xl font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+              />
+
+              {/* Progress */}
+              <div className="mt-4 h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-amber-500 transition-all duration-300"
+                  style={{ width: `${((quickFireIndex + 1) / quickFireWords.length) * 100}%` }}
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Verb Mastery - Tense Selection */}
+          {localGameType === 'verb_mastery' && !verbMasteryStarted && (
+            <div className="w-full max-w-md mx-auto">
+              <div className="text-center mb-8">
+                <div className="w-20 h-20 mx-auto bg-orange-500/20 rounded-2xl flex items-center justify-center text-4xl mb-4">
+                  🔄
+                </div>
+                <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">Verb Mastery</h2>
+                <p className="text-[var(--text-secondary)]">
+                  Practice conjugating {verbsWithConjugations.length} verbs
+                </p>
+              </div>
+
+              <div className="space-y-3 mb-8">
+                <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
+                  Select Tense
+                </p>
+                {(['present', 'past', 'future'] as VerbTense[]).map(tense => {
+                  const verbsWithTense = verbsWithConjugations.filter(v => v.conjugations?.[tense]);
+                  const isDisabled = verbsWithTense.length === 0;
+                  return (
+                    <button
+                      key={tense}
+                      onClick={() => !isDisabled && startVerbMastery(tense)}
+                      disabled={isDisabled}
+                      className={`w-full p-4 rounded-2xl border-2 text-left transition-all ${
+                        isDisabled
+                          ? 'border-[var(--border-color)] bg-[var(--bg-primary)] opacity-50 cursor-not-allowed'
+                          : 'border-orange-300 dark:border-orange-700 bg-orange-50 dark:bg-orange-900/20 hover:border-orange-500'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="font-black text-[var(--text-primary)] capitalize">{tense} Tense</h3>
+                          <p className="text-sm text-[var(--text-secondary)]">
+                            {isDisabled
+                              ? 'No verbs with this tense yet'
+                              : `${verbsWithTense.length} verbs available`}
+                          </p>
+                        </div>
+                        {!isDisabled && (
+                          <div className="w-10 h-10 bg-orange-500/20 rounded-xl flex items-center justify-center">
+                            <ICONS.Play className="w-5 h-5 text-orange-500" />
+                          </div>
+                        )}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <button
+                onClick={exitLocalGame}
+                className="w-full p-3 text-[var(--text-secondary)] font-bold text-sm hover:text-[var(--text-primary)] transition-colors"
+              >
+                ← Back to Games
+              </button>
+            </div>
+          )}
+
+          {/* Verb Mastery - Active Game */}
+          {localGameType === 'verb_mastery' && verbMasteryStarted && !finished && verbMasteryQuestions.length > 0 && (
+            <div className="w-full max-w-md mx-auto">
+              {/* Progress Header */}
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-bold text-[var(--text-secondary)]">
+                  {verbMasteryIndex + 1} / {verbMasteryQuestions.length}
+                </span>
+                <span className="px-3 py-1 bg-orange-500/20 text-orange-600 dark:text-orange-400 rounded-full text-xs font-black uppercase">
+                  {verbMasteryTense} tense
+                </span>
+              </div>
+
+              {/* Question Card */}
+              <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-2xl border border-orange-200 dark:border-orange-800 mb-6">
+                <p className="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">
+                  Conjugate the verb
+                </p>
+                <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2">
+                  {verbMasteryQuestions[verbMasteryIndex]?.infinitive}
+                </h3>
+                <p className="text-sm text-[var(--text-secondary)] italic mb-4">
+                  "{verbMasteryQuestions[verbMasteryIndex]?.translation}"
+                </p>
+
+                <div className="bg-[var(--bg-card)] p-4 rounded-xl">
+                  <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-1">
+                    For the pronoun
+                  </p>
+                  <p className="text-2xl font-black text-orange-500">
+                    {VERB_PERSONS.find(p => p.key === verbMasteryQuestions[verbMasteryIndex]?.person)?.label}
+                  </p>
+                  <p className="text-xs text-[var(--text-secondary)]">
+                    ({VERB_PERSONS.find(p => p.key === verbMasteryQuestions[verbMasteryIndex]?.person)?.english})
+                  </p>
+                </div>
+              </div>
+
+              {/* Input */}
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  value={verbMasteryInput}
+                  onChange={e => setVerbMasteryInput(e.target.value)}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter') {
+                      if (verbMasterySubmitted) {
+                        handleVerbMasteryNext();
+                      } else {
+                        handleVerbMasterySubmit();
+                      }
+                    }
+                  }}
+                  placeholder="Type conjugated form..."
+                  autoFocus
+                  disabled={verbMasterySubmitted}
+                  className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-xl font-bold focus:outline-none focus:border-orange-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] disabled:opacity-50"
+                />
+
+                {/* Feedback */}
+                {verbMasterySubmitted && (
+                  <div className={`p-4 rounded-xl ${verbMasteryCorrect ? 'bg-green-100 dark:bg-green-900/30' : 'bg-red-100 dark:bg-red-900/30'}`}>
+                    {verbMasteryCorrect ? (
+                      <p className="text-green-600 dark:text-green-400 font-bold text-center">
+                        ✓ Correct!
+                      </p>
+                    ) : (
+                      <div className="text-center">
+                        <p className="text-red-600 dark:text-red-400 font-bold mb-1">✗ Not quite</p>
+                        <p className="text-[var(--text-primary)]">
+                          Correct answer: <span className="font-black">{verbMasteryQuestions[verbMasteryIndex]?.correctAnswer}</span>
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Action Button */}
+                <button
+                  onClick={verbMasterySubmitted ? handleVerbMasteryNext : handleVerbMasterySubmit}
+                  disabled={!verbMasteryInput.trim() && !verbMasterySubmitted}
+                  className="w-full p-4 rounded-xl font-black text-white transition-all disabled:opacity-50"
+                  style={{ backgroundColor: verbMasterySubmitted ? (verbMasteryIndex < verbMasteryQuestions.length - 1 ? '#f97316' : '#22c55e') : '#f97316' }}
+                >
+                  {verbMasterySubmitted
+                    ? (verbMasteryIndex < verbMasteryQuestions.length - 1 ? 'Next Question' : 'See Results')
+                    : 'Check Answer'}
+                </button>
+              </div>
+
+              {/* Progress Bar */}
+              <div className="mt-6 h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-orange-500 transition-all duration-300"
+                  style={{ width: `${((verbMasteryIndex + 1) / verbMasteryQuestions.length) * 100}%` }}
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Love Notes Tab - Partner Challenges & Word Gifts */}
+          {mainTab === 'love_notes' && !localGameType && (
             <div className="w-full space-y-4">
               {/* Header */}
               <div className="text-center mb-6">
@@ -1109,17 +1961,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {pendingChallenges.length === 0 && pendingWordRequests.length === 0 && (
                 <div className="flex gap-2 mt-6">
                   <button
-                    onClick={() => handleModeChange('flashcards')}
-                    className="flex-1 py-3 rounded-xl font-bold text-sm text-[var(--text-secondary)] bg-[var(--bg-primary)] hover:bg-[var(--border-color)] transition-colors"
-                  >
-                    Practice Flashcards
-                  </button>
-                  <button
-                    onClick={() => handleModeChange('ai_challenge')}
+                    onClick={() => { setMainTab('local_games'); }}
                     className="flex-1 py-3 rounded-xl font-bold text-sm text-white transition-colors"
                     style={{ backgroundColor: tierColor }}
                   >
-                    AI Challenge
+                    Go to Practice Games
                   </button>
                 </div>
               )}
@@ -1127,7 +1973,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           )}
 
           {/* AI Challenge - Active */}
-          {mode === 'ai_challenge' && challengeStarted && challengeQuestions.length > 0 && (
+          {localGameType === 'ai_challenge' && challengeStarted && challengeQuestions.length > 0 && (
             <>
               {(() => {
                 const q = challengeQuestions[challengeIndex];
@@ -1235,6 +2081,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           partnerName={partnerName}
           onComplete={handleWordRequestComplete}
           onClose={() => setActiveWordRequest(null)}
+        />
+      )}
+
+      {/* Conversation Practice Modal */}
+      {showConversationPractice && (
+        <ConversationPractice
+          userName={profile.full_name || 'Friend'}
+          onClose={() => setShowConversationPractice(false)}
         />
       )}
 

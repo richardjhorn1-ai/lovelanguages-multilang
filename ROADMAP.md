@@ -63,9 +63,9 @@ See `docs/AI_INTEGRATION_GUIDE.md` and `TROUBLESHOOTING.md` for details.
 - Adjectives: All 4 forms required (masculine, feminine, neuter, plural)
 - All words: 5 example sentences + pro-tip required
 
-### Remaining Work
-- Manual "Sync All Words" button on Progress tab for catching missed words
-- Mark messages as harvested to prevent re-processing
+### Also Completed
+- **Manual "Sync All Words" button** - Available in Love Log section for catching missed words
+- **Mark messages as harvested** - `vocabulary_harvested_at` timestamp prevents re-processing
 
 ### Gamification Ideas
 
@@ -187,28 +187,44 @@ CREATE TABLE aspect_pairs (
 
 ---
 
-## Phase 5: Playground / Learning Environment 🆕
+## Phase 5: Playground / Learning Environment ✅ MOSTLY COMPLETE
 
 **Goal:** Transform passive chat into active learning with structured practice.
 
-### Building Blocks
+### Completed Features
 
-1. **Flash Cards**
-   - Spaced repetition algorithm (SM-2 variant)
-   - Audio pronunciation (Web Speech API → Google Cloud TTS upgrade path)
-   - User-recorded pronunciation comparison
-   - Progress tracking
+1. **Flash Cards** ✅
+   - Flip-to-reveal card interface
+   - Polish → English and English → Polish directions
+   - Hard/Got it feedback buttons
+   - Progress tracking via word_scores table
 
-2. **Word-Specific Practice** (from Love Log)
-   - "Practice This Word" button on Love Log cards
-   - Sends word to a focused practice queue
-   - Test the word in different contexts:
-     - Translation recall (Polish → English)
-     - Reverse recall (English → Polish)
-     - Fill-in-the-blank sentences
-     - Conjugation drills (for verbs)
-     - Listening comprehension (hear → identify)
-   - Links back to Love Log card after practice
+2. **Multiple Choice** ✅
+   - 4 options per question
+   - Immediate feedback with correct answer highlight
+   - Tracks success/fail counts
+
+3. **Type It** ✅
+   - Free-form text input
+   - Flexible answer matching (case-insensitive, article-tolerant)
+   - Shows correct answer on miss
+
+4. **Quick Fire** ✅
+   - Timed rapid-fire questions
+   - Mix of multiple choice and type-it
+   - Score tracking with streak bonuses
+
+5. **Role-Playing Scenarios** ✅ (ConversationPractice.tsx)
+   - 8 curated scenarios (café, restaurant, market, taxi, pharmacy, hotel, family, train)
+   - Custom scenario option
+   - AI plays character in Polish
+   - Real-time voice transcription
+
+6. **Verb Mastery Game** ✅
+   - Focus practice on verbs with conjugations
+   - Select tense (present, past, future)
+   - Conjugate verbs for random pronouns
+   - Track mastery progress
 
 ### Backend: Priority & Spaced Repetition (Hidden from User)
 
@@ -531,17 +547,159 @@ See `TROUBLESHOOTING.md` Issue 23 for details.
 
 ---
 
-## Phase 6: Partner Dashboard
+## Phase 5.7: UI Polish & Voice Conversation Practice ✅ COMPLETE
+
+**Date:** January 6, 2026
+
+**Goal:** Improve UI consistency, add conversation practice feature, and fix theming issues.
+
+### Completed Features
+
+#### 1. Voice Conversation Practice (BETA)
+Real-time voice conversations with AI personas in Polish scenarios.
+
+**Location:** Student Play area (alongside other games)
+
+**Features:**
+- 8 curated conversation scenarios:
+  - ☕ At the Café (beginner)
+  - 🍽️ Restaurant Dinner (intermediate)
+  - 🍎 At the Market (beginner)
+  - 🚕 In a Taxi (intermediate)
+  - 💊 At the Pharmacy (intermediate)
+  - 🏨 Hotel Check-in (intermediate)
+  - 👨‍👩‍👧 Family Dinner (advanced)
+  - 🚂 Train Station (intermediate)
+- Custom scenario option
+- Real-time voice transcription
+- Polish-first conversation with English hints when needed
+- BETA badge to indicate experimental status
+
+**Files Created:**
+- `components/ConversationPractice.tsx` - Main practice component
+- `components/ScenarioSelector.tsx` - Scenario picker modal
+- `constants/conversation-scenarios.ts` - Curated scenarios
+
+**Files Modified:**
+- `components/FlashcardGame.tsx` - Added ConversationPractice card to game grid
+- `services/live-session.ts` - Added `icon` field to ConversationScenario interface
+- `api/live-token.ts` - Added conversation mode with scenario-specific system prompts
+
+#### 2. Motivation Card Redesign
+Replaced the amber "sticky note" with a modern gradient card.
+
+**Before:**
+- Amber background with physical sticky-note styling
+- Double shadow effect (conflicting styles)
+- Off-brand color scheme
+
+**After:**
+- Gradient card using accent colors (CSS variables)
+- Decorative heart watermark
+- Clean typography with "My Motivation" header
+- Partner name section with subtle divider
+- Proper dark mode support
+
+**File Modified:** `components/Progress.tsx` (lines 691-722)
+
+#### 3. Tutor Progress Page Theme Fix
+Fixed hardcoded colors that didn't work in dark mode.
+
+**Replaced:**
+- `bg-teal-50`, `border-teal-100`, `text-teal-600` → CSS variables + `accentHex`
+- `bg-amber-50`, `border-amber-100`, `text-amber-600` → CSS variables
+- `from-white` → `from-[var(--bg-card)]`
+
+**File Modified:** `components/Progress.tsx` (lines 417-492)
+
+#### 4. Persistent Tab State
+Fixed main tabs losing state on navigation.
+
+**Problem:** React Router unmounted components when switching tabs, destroying all local state.
+
+**Solution:** Created `PersistentTabs` component in `App.tsx` that keeps all main tabs mounted and uses CSS `hidden` class to show/hide instead of mount/unmount.
+
+**File Modified:** `App.tsx`
+
+#### 5. Loading Dot Theming
+Fixed loading dot animations using hardcoded colors instead of accent theme.
+
+**Files Fixed:**
+- `components/TutorGames.tsx`
+- `components/PlayQuickFireChallenge.tsx`
+- `components/WordGiftLearning.tsx`
+- `components/ConversationPractice.tsx`
+
+**Change:** `bg-teal-400` / `bg-amber-400` / `bg-purple-400` → `bg-[var(--accent-color)]`
+
+#### 6. Love Package Redesign
+Replaced auto-suggestions with explicit "Generate 10 Words" button.
+
+**Changes:**
+- Removed debounced auto-search on keystroke
+- Added "Generate 10 Words" / "Generate Again" button
+- Added `partnerVocab` prop to exclude existing Love Log words
+- Added `excludeWords` and `count` parameters to API
+- Added `dryRun` mode for generating suggestions only
+
+**Files Modified:** `components/WordRequestCreator.tsx`, `api/create-word-request.ts`
+
+#### 7. Word Validation API
+Added AI validation for manually entered words in Love Package.
+
+**Endpoint:** `/api/validate-word.ts`
+
+**Features:**
+- Validates Polish spelling with Gemini
+- Returns corrections with `was_corrected` flag
+- Adds grammatical data (conjugations for verbs, gender/plural for nouns, 4 forms for adjectives)
+- Handles slang appropriately
+- Shows correction toast in UI when word is auto-corrected
+
+**Files Created:** `api/validate-word.ts`
+**Files Modified:** `components/WordRequestCreator.tsx`
+
+### Technical Details
+
+**Conversation Practice Flow:**
+1. User clicks "Conversation Practice" in Play area
+2. ScenarioSelector modal shows scenario options
+3. User selects scenario → LiveSession connects with scenario-specific prompt
+4. Gemini Live API speaks Polish based on persona
+5. User responds in Polish (or English when stuck)
+6. Transcript displayed in real-time
+
+**System Prompt Pattern:**
+```typescript
+`You are playing the role of: ${scenario.persona}
+CONTEXT: ${scenario.context}
+RULES:
+1. Speak ONLY in Polish by default
+2. Stay in character as ${scenario.name}
+3. Keep responses short (1-3 sentences)
+4. If user struggles, offer gentle hint in English, then return to Polish
+...`
+```
+
+---
+
+## Phase 6: Partner Dashboard ✅ MOSTLY COMPLETE
 
 **Goal:** Help the proficient partner support the learner
 
-**Features:**
-- See partner's vocabulary progress
-- View struggling words (high fail rate in flashcards)
-- Suggested conversation starters based on learned words
-- "Surprise them with..." suggestions
-- Send vocabulary challenges
-- Milestone celebrations ("They learned 100 words!")
+### Completed Features
+- ✅ See partner's vocabulary progress (Tutor Progress page shows partner's level, XP, word counts)
+- ✅ View struggling words (Words to Practice Together section - shows words with high fail_count)
+- ✅ Suggested conversation starters ("Phrases for Tonight" section)
+- ✅ Recently learned words display
+- ✅ Send vocabulary challenges (WordRequestCreator.tsx - tutors can gift words to students)
+- ✅ Quiz challenges (CreateQuizChallenge.tsx, CreateQuickFireChallenge.tsx)
+- ✅ Encouragement prompts based on partner's recent activity
+
+### Remaining Work
+- ⬜ "Surprise them with..." suggestions (contextual romantic phrase recommendations)
+- ⬜ Milestone celebrations ("They learned 100 words!" notifications)
+- ⬜ Achievement badges for partner milestones
 
 ---
 
@@ -623,13 +781,16 @@ CREATE TABLE flashcard_progress (
 3. ✅ Voice mode (Gemini Live API)
 4. ✅ Love Log vocabulary extraction (real-time + voice mode)
 5. ✅ XP/Level system with level tests
-6. ✅ Play section (Flashcards, Multiple Choice, Type It modes)
+6. ✅ Play section (Flashcards, Multiple Choice, Type It, Quick Fire modes)
 7. ✅ Progress page with Learning Journey diary
 8. 🔄 Tense Mastery System (track tense learning per verb)
 9. ✅ AI Challenge Mode (personalized practice from play data)
-10. ⬜ Role-play scenarios
-11. ⬜ Partner dashboard
+10. ✅ Role-play scenarios (ConversationPractice - 8 curated + custom scenarios)
+11. ✅ Partner dashboard (mostly complete - Progress page, word gifting, quiz challenges)
 12. ⬜ Mobile PWA
+13. ✅ Game session history tracking (GameHistory.tsx)
+14. ✅ Word gifting system (WordRequestCreator.tsx, WordGiftLearning.tsx)
+15. ✅ UI theming consistency (CSS variables, dark mode support)
 
 ---
 
@@ -648,7 +809,12 @@ CREATE TABLE flashcard_progress (
 
 ## Documentation
 
+- `CLAUDE.md` - Claude Code guidance for this repository
+- `README.md` - Project overview and AI persona documentation
+- `ROADMAP.md` - This file - product phases and progress
+- `TROUBLESHOOTING.md` - 30+ solved issues with detailed solutions
+- `DESIGN.md` - UI/UX design guidelines
+- `NEXT_STEPS.md` - Immediate next actions
 - `docs/AI_INTEGRATION_GUIDE.md` - How to work with AI models
 - `docs/FORMATTING.md` - Text formatting system (markdown to HTML pipeline)
-- `TROUBLESHOOTING.md` - All issues encountered and solutions
-- `NEXT_STEPS.md` - Immediate next actions
+- `docs/SYSTEM_PROMPTS.md` - AI prompt documentation

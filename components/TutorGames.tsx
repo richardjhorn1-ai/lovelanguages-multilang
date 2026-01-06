@@ -6,12 +6,109 @@ import { shuffleArray } from '../utils/array';
 import CreateQuizChallenge from './CreateQuizChallenge';
 import CreateQuickFireChallenge from './CreateQuickFireChallenge';
 import WordRequestCreator from './WordRequestCreator';
+import { useTheme } from '../context/ThemeContext';
+
+// Save Progress Dialog Component
+interface SaveProgressDialogProps {
+  partnerName: string;
+  isFirstTime: boolean;
+  onSave: (remember: boolean) => void;
+  onCancel: () => void;
+  saving: boolean;
+}
+
+const SaveProgressDialog: React.FC<SaveProgressDialogProps> = ({
+  partnerName,
+  isFirstTime,
+  onSave,
+  onCancel,
+  saving
+}) => {
+  const [rememberChoice, setRememberChoice] = useState(false);
+
+  return (
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onCancel}>
+      <div
+        className="bg-[var(--bg-card)] rounded-2xl p-6 max-w-sm w-full shadow-2xl"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="text-center">
+          <div className="w-16 h-16 bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-4">
+            <ICONS.Heart className="w-8 h-8 text-[var(--accent-color)]" />
+          </div>
+
+          <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
+            Save to {partnerName}'s Progress?
+          </h3>
+
+          {isFirstTime ? (
+            <div className="text-left bg-[var(--bg-primary)] rounded-xl p-4 mb-4 text-sm text-[var(--text-secondary)]">
+              <p className="mb-2">
+                <strong className="text-[var(--text-primary)]">How this works:</strong>
+              </p>
+              <ul className="space-y-1 text-xs">
+                <li>• Game results are saved to {partnerName}'s learning history</li>
+                <li>• Their word scores will update (streaks, mastery)</li>
+                <li>• Perfect for when you practice together!</li>
+              </ul>
+            </div>
+          ) : (
+            <p className="text-[var(--text-secondary)] text-sm mb-4">
+              This will update {partnerName}'s word scores and learning history.
+            </p>
+          )}
+
+          {/* Remember checkbox */}
+          <label className="flex items-center justify-center gap-2 mb-4 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={rememberChoice}
+              onChange={e => setRememberChoice(e.target.checked)}
+              className="w-4 h-4 rounded border-[var(--border-color)] accent-[var(--accent-color)]"
+            />
+            <span className="text-xs text-[var(--text-secondary)]">
+              Always save to {partnerName}'s progress
+            </span>
+          </label>
+
+          <div className="flex gap-3">
+            <button
+              onClick={onCancel}
+              disabled={saving}
+              className="flex-1 py-3 px-4 border-2 border-[var(--border-color)] text-[var(--text-secondary)] rounded-xl font-bold hover:bg-[var(--bg-primary)] transition-all disabled:opacity-50"
+            >
+              Not Now
+            </button>
+            <button
+              onClick={() => onSave(rememberChoice)}
+              disabled={saving}
+              className="flex-1 py-3 px-4 bg-[var(--accent-color)] text-white rounded-xl font-bold hover:bg-[var(--accent-hover)] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              {saving ? 'Saving...' : 'Save'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 interface TutorGamesProps {
   profile: Profile;
 }
 
+interface GameSessionAnswer {
+  wordId?: string;
+  wordText: string;
+  correctAnswer: string;
+  userAnswer?: string;
+  questionType: 'flashcard' | 'multiple_choice' | 'type_it';
+  isCorrect: boolean;
+}
+
 type PlayMode = 'send' | 'local';
+
+const SAVE_PREF_KEY = 'tutor_save_to_student_progress';
 
 const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const [challenges, setChallenges] = useState<TutorChallenge[]>([]);
@@ -30,7 +127,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const [showWordRequestModal, setShowWordRequestModal] = useState(false);
 
   // Local game states
-  const [localGameActive, setLocalGameActive] = useState<'quiz' | 'quickfire' | null>(null);
+  const [localGameActive, setLocalGameActive] = useState<'quiz' | 'quickfire' | 'multiple_choice' | 'type_it' | null>(null);
   const [localGameWords, setLocalGameWords] = useState<DictionaryEntry[]>([]);
   const [localGameIndex, setLocalGameIndex] = useState(0);
   const [localGameScore, setLocalGameScore] = useState({ correct: 0, incorrect: 0 });
@@ -38,6 +135,23 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const [localQuickFireTimeLeft, setLocalQuickFireTimeLeft] = useState(60);
   const [localQuickFireInput, setLocalQuickFireInput] = useState('');
   const [localQuickFireStarted, setLocalQuickFireStarted] = useState(false);
+
+  // Multiple Choice state
+  const [mcOptions, setMcOptions] = useState<string[]>([]);
+  const [mcSelected, setMcSelected] = useState<string | null>(null);
+  const [mcShowFeedback, setMcShowFeedback] = useState(false);
+
+  // Type It state
+  const [typeItAnswer, setTypeItAnswer] = useState('');
+  const [typeItSubmitted, setTypeItSubmitted] = useState(false);
+  const [typeItCorrect, setTypeItCorrect] = useState(false);
+
+  // Session tracking for save to student progress
+  const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
+  const [sessionStartTime, setSessionStartTime] = useState<number>(Date.now());
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [savingProgress, setSavingProgress] = useState(false);
+  const [savedSuccess, setSavedSuccess] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -117,6 +231,72 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setShowWordRequestModal(false);
   };
 
+  // Check if this is the first time tutor is completing a local game
+  const isFirstTimeSave = () => {
+    return localStorage.getItem(SAVE_PREF_KEY) === null;
+  };
+
+  // Get save preference
+  const getSavePreference = (): 'always' | 'never' | 'ask' | null => {
+    return localStorage.getItem(SAVE_PREF_KEY) as 'always' | 'never' | 'ask' | null;
+  };
+
+  // Save game session to student's progress
+  const saveGameSessionToStudent = async (gameMode: string, answers: GameSessionAnswer[], correct: number, incorrect: number) => {
+    if (!profile.linked_user_id) return;
+
+    setSavingProgress(true);
+    try {
+      const token = (await supabase.auth.getSession()).data.session?.access_token;
+      if (!token) return;
+
+      const totalTimeSeconds = Math.floor((Date.now() - sessionStartTime) / 1000);
+
+      await fetch('/api/submit-game-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          gameMode: `tutor_${gameMode}`,
+          correctCount: correct,
+          incorrectCount: incorrect,
+          totalTimeSeconds,
+          answers,
+          // Tell the API to save to the linked student, not the tutor
+          targetUserId: profile.linked_user_id
+        })
+      });
+
+      setSavedSuccess(true);
+      setTimeout(() => setSavedSuccess(false), 2000);
+    } catch (error) {
+      console.error('Error saving game session:', error);
+    } finally {
+      setSavingProgress(false);
+    }
+  };
+
+  // Handle save preference selection
+  const handleSavePreference = async (save: boolean, remember: boolean) => {
+    if (remember) {
+      localStorage.setItem(SAVE_PREF_KEY, save ? 'always' : 'never');
+    } else if (isFirstTimeSave()) {
+      // First time but didn't check "remember" - set to "ask"
+      localStorage.setItem(SAVE_PREF_KEY, 'ask');
+    }
+
+    if (save) {
+      const gameMode = localGameActive === 'quiz' ? 'flashcards' :
+                       localGameActive === 'quickfire' ? 'quick_fire' :
+                       localGameActive || 'flashcards';
+      await saveGameSessionToStudent(gameMode, sessionAnswers, localGameScore.correct, localGameScore.incorrect);
+    }
+
+    setShowSaveDialog(false);
+  };
+
   const startLocalQuiz = () => {
     // Pick 10 random words, prioritizing weak ones
     const weakWords = partnerVocab.filter(w => {
@@ -129,6 +309,9 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setLocalGameIndex(0);
     setLocalGameScore({ correct: 0, incorrect: 0 });
     setLocalGameFlipped(false);
+    setSessionAnswers([]);
+    setSessionStartTime(Date.now());
+    setSavedSuccess(false);
     setLocalGameActive('quiz');
   };
 
@@ -140,14 +323,122 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setLocalQuickFireTimeLeft(60);
     setLocalQuickFireInput('');
     setLocalQuickFireStarted(false);
+    setSessionAnswers([]);
+    setSessionStartTime(Date.now());
+    setSavedSuccess(false);
     setLocalGameActive('quickfire');
   };
 
+  const startLocalMultipleChoice = () => {
+    const shuffled = shuffleArray(partnerVocab).slice(0, 10);
+    setLocalGameWords(shuffled);
+    setLocalGameIndex(0);
+    setLocalGameScore({ correct: 0, incorrect: 0 });
+    generateMcOptionsFor(shuffled, 0);
+    setSessionAnswers([]);
+    setSessionStartTime(Date.now());
+    setSavedSuccess(false);
+    setLocalGameActive('multiple_choice');
+  };
+
+  const startLocalTypeIt = () => {
+    const shuffled = shuffleArray(partnerVocab).slice(0, 10);
+    setLocalGameWords(shuffled);
+    setLocalGameIndex(0);
+    setLocalGameScore({ correct: 0, incorrect: 0 });
+    setTypeItAnswer('');
+    setTypeItSubmitted(false);
+    setTypeItCorrect(false);
+    setSessionAnswers([]);
+    setSessionStartTime(Date.now());
+    setSavedSuccess(false);
+    setLocalGameActive('type_it');
+  };
+
+  const generateMcOptionsFor = (words: DictionaryEntry[], index: number) => {
+    const currentWord = words[index];
+    const wrongOptions = partnerVocab
+      .filter(w => w.id !== currentWord.id)
+      .map(w => w.translation);
+    const shuffledWrong = shuffleArray(wrongOptions).slice(0, 3);
+    const allOptions = shuffleArray([currentWord.translation, ...shuffledWrong]);
+    setMcOptions(allOptions);
+    setMcSelected(null);
+    setMcShowFeedback(false);
+  };
+
+  const handleMcSelect = (option: string) => {
+    if (mcShowFeedback) return;
+    setMcSelected(option);
+    setMcShowFeedback(true);
+    const currentWord = localGameWords[localGameIndex];
+    const isCorrect = option === currentWord.translation;
+    setLocalGameScore(prev => ({
+      correct: prev.correct + (isCorrect ? 1 : 0),
+      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
+    }));
+    // Track answer
+    setSessionAnswers(prev => [...prev, {
+      wordId: currentWord.id,
+      wordText: currentWord.word,
+      correctAnswer: currentWord.translation,
+      userAnswer: option,
+      questionType: 'multiple_choice',
+      isCorrect
+    }]);
+    setTimeout(() => {
+      if (localGameIndex < localGameWords.length - 1) {
+        const nextIndex = localGameIndex + 1;
+        setLocalGameIndex(nextIndex);
+        generateMcOptionsFor(localGameWords, nextIndex);
+      }
+    }, isCorrect ? 800 : 1500);
+  };
+
+  const handleTypeItSubmit = () => {
+    if (typeItSubmitted) {
+      // Move to next question
+      if (localGameIndex < localGameWords.length - 1) {
+        setLocalGameIndex(prev => prev + 1);
+        setTypeItAnswer('');
+        setTypeItSubmitted(false);
+        setTypeItCorrect(false);
+      }
+      return;
+    }
+    const currentWord = localGameWords[localGameIndex];
+    const isCorrect = typeItAnswer.toLowerCase().trim() === currentWord.translation.toLowerCase().trim();
+    setTypeItSubmitted(true);
+    setTypeItCorrect(isCorrect);
+    setLocalGameScore(prev => ({
+      correct: prev.correct + (isCorrect ? 1 : 0),
+      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
+    }));
+    // Track answer
+    setSessionAnswers(prev => [...prev, {
+      wordId: currentWord.id,
+      wordText: currentWord.word,
+      correctAnswer: currentWord.translation,
+      userAnswer: typeItAnswer,
+      questionType: 'type_it',
+      isCorrect
+    }]);
+  };
+
   const handleLocalQuizResponse = (correct: boolean) => {
+    const currentWord = localGameWords[localGameIndex];
     setLocalGameScore(prev => ({
       correct: prev.correct + (correct ? 1 : 0),
       incorrect: prev.incorrect + (correct ? 0 : 1)
     }));
+    // Track answer
+    setSessionAnswers(prev => [...prev, {
+      wordId: currentWord.id,
+      wordText: currentWord.word,
+      correctAnswer: currentWord.translation,
+      questionType: 'flashcard',
+      isCorrect: correct
+    }]);
     setLocalGameFlipped(false);
     if (localGameIndex < localGameWords.length - 1) {
       setTimeout(() => setLocalGameIndex(prev => prev + 1), 300);
@@ -165,6 +456,15 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       correct: prev.correct + (isCorrect ? 1 : 0),
       incorrect: prev.incorrect + (isCorrect ? 0 : 1)
     }));
+    // Track answer
+    setSessionAnswers(prev => [...prev, {
+      wordId: currentWord.id,
+      wordText: currentWord.word,
+      correctAnswer: currentWord.translation,
+      userAnswer: localQuickFireInput,
+      questionType: 'type_it',
+      isCorrect
+    }]);
     setLocalQuickFireInput('');
 
     if (localGameIndex < localGameWords.length - 1) {
@@ -179,6 +479,19 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setLocalGameScore({ correct: 0, incorrect: 0 });
     setLocalGameFlipped(false);
     setLocalQuickFireStarted(false);
+    setMcOptions([]);
+    setMcSelected(null);
+    setMcShowFeedback(false);
+    setTypeItAnswer('');
+    setTypeItSubmitted(false);
+    setTypeItCorrect(false);
+  };
+
+  const restartCurrentGame = () => {
+    if (localGameActive === 'quiz') startLocalQuiz();
+    else if (localGameActive === 'quickfire') startLocalQuickFire();
+    else if (localGameActive === 'multiple_choice') startLocalMultipleChoice();
+    else if (localGameActive === 'type_it') startLocalTypeIt();
   };
 
   // QuickFire timer effect
@@ -189,6 +502,24 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     }
   }, [localGameActive, localQuickFireStarted, localQuickFireTimeLeft]);
 
+  // Auto-save effect when preference is 'always'
+  React.useEffect(() => {
+    const totalAnswered = localGameScore.correct + localGameScore.incorrect;
+    const isGameOver = (localGameActive === 'quiz' || localGameActive === 'multiple_choice' || localGameActive === 'type_it')
+      && localGameIndex >= localGameWords.length - 1
+      && totalAnswered === localGameWords.length
+      && localGameWords.length > 0;
+    const quickFireTimeUp = localGameActive === 'quickfire' && localQuickFireTimeLeft <= 0 && localQuickFireStarted;
+    const quickFireComplete = localGameActive === 'quickfire' && localGameIndex >= localGameWords.length - 1 && totalAnswered === localGameWords.length && localGameWords.length > 0;
+
+    if ((isGameOver || quickFireTimeUp || quickFireComplete) && getSavePreference() === 'always' && !savedSuccess && !savingProgress && sessionAnswers.length > 0) {
+      const gameMode = localGameActive === 'quiz' ? 'flashcards' :
+                       localGameActive === 'quickfire' ? 'quick_fire' :
+                       localGameActive || 'flashcards';
+      saveGameSessionToStudent(gameMode, sessionAnswers, localGameScore.correct, localGameScore.incorrect);
+    }
+  }, [localGameActive, localGameIndex, localGameScore, localQuickFireTimeLeft, localQuickFireStarted, localGameWords.length, sessionAnswers.length]);
+
   const pendingChallenges = challenges.filter(c => c.status === 'pending');
   const completedChallenges = challenges.filter(c => c.status === 'completed');
   const pendingRequests = wordRequests.filter(r => r.status === 'pending');
@@ -197,9 +528,9 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     return (
       <div className="h-full flex items-center justify-center bg-[var(--bg-primary)]">
         <div className="flex gap-2">
-          <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce"></div>
-          <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-          <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+          <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
+          <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+          <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
         </div>
       </div>
     );
@@ -208,13 +539,19 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   // Local game is active - render game UI
   if (localGameActive) {
     const currentWord = localGameWords[localGameIndex];
-    const isGameOver = localGameIndex >= localGameWords.length - 1 && (localGameScore.correct + localGameScore.incorrect) === localGameWords.length;
+    const totalAnswered = localGameScore.correct + localGameScore.incorrect;
+    const isGameOver = (localGameActive === 'quiz' || localGameActive === 'multiple_choice' || localGameActive === 'type_it')
+      && localGameIndex >= localGameWords.length - 1
+      && totalAnswered === localGameWords.length;
     const quickFireTimeUp = localGameActive === 'quickfire' && localQuickFireTimeLeft <= 0;
+    const quickFireComplete = localGameActive === 'quickfire' && localGameIndex >= localGameWords.length - 1 && totalAnswered === localGameWords.length;
 
     // Game Over Screen
-    if (isGameOver || quickFireTimeUp) {
+    if (isGameOver || quickFireTimeUp || quickFireComplete) {
       const total = localGameScore.correct + localGameScore.incorrect;
       const percentage = total > 0 ? Math.round((localGameScore.correct / total) * 100) : 0;
+      const pref = getSavePreference();
+      const isFirstTime = isFirstTimeSave();
 
       return (
         <div className="h-full flex items-center justify-center p-4 bg-[var(--bg-primary)]">
@@ -224,9 +561,60 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               {percentage >= 70 ? 'Great Job!' : 'Keep Practicing!'}
             </h2>
             <div className="text-5xl font-black text-[var(--accent-color)] mb-4">{percentage}%</div>
-            <p className="text-[var(--text-secondary)] mb-6">
+            <p className="text-[var(--text-secondary)] mb-4">
               {localGameScore.correct} of {total} correct
             </p>
+
+            {/* Save to Student Progress Section */}
+            {profile.linked_user_id && !savedSuccess && pref !== 'always' && (
+              <div className="mb-4 p-4 bg-[var(--bg-primary)] rounded-xl border border-[var(--border-color)]">
+                <p className="text-xs text-[var(--text-secondary)] mb-3">
+                  {isFirstTime ? (
+                    <>
+                      <span className="font-bold text-[var(--text-primary)]">Did you practice together?</span>
+                      <br />
+                      Save this session to {partnerName}'s learning history to track their progress.
+                    </>
+                  ) : (
+                    <>Save to {partnerName}'s progress?</>
+                  )}
+                </p>
+                <button
+                  onClick={() => setShowSaveDialog(true)}
+                  disabled={savingProgress}
+                  className="w-full py-2 px-4 bg-[var(--accent-color)] text-white rounded-lg font-bold text-sm hover:bg-[var(--accent-hover)] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {savingProgress ? (
+                    <>Saving...</>
+                  ) : (
+                    <>
+                      <ICONS.Heart className="w-4 h-4" />
+                      Save to {partnerName}'s Progress
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
+
+            {/* Success message */}
+            {savedSuccess && (
+              <div className="mb-4 p-3 bg-green-50 dark:bg-green-900/30 rounded-xl border border-green-200 dark:border-green-800">
+                <p className="text-sm text-green-700 dark:text-green-400 font-bold flex items-center justify-center gap-2">
+                  <ICONS.Check className="w-4 h-4" />
+                  Saved to {partnerName}'s history!
+                </p>
+              </div>
+            )}
+
+            {/* Auto-saved message for 'always' preference */}
+            {pref === 'always' && !savedSuccess && !savingProgress && (
+              <div className="mb-4 p-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
+                <p className="text-xs text-[var(--accent-color)]">
+                  Auto-saving to {partnerName}'s progress...
+                </p>
+              </div>
+            )}
+
             <div className="flex gap-3">
               <button
                 onClick={resetLocalGame}
@@ -235,13 +623,24 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                 Done
               </button>
               <button
-                onClick={() => localGameActive === 'quiz' ? startLocalQuiz() : startLocalQuickFire()}
+                onClick={restartCurrentGame}
                 className="flex-1 py-3 px-4 bg-[var(--accent-color)] text-white rounded-xl font-bold hover:bg-[var(--accent-hover)]"
               >
                 Play Again
               </button>
             </div>
           </div>
+
+          {/* Save Preference Dialog */}
+          {showSaveDialog && (
+            <SaveProgressDialog
+              partnerName={partnerName}
+              isFirstTime={isFirstTime}
+              onSave={(remember) => handleSavePreference(true, remember)}
+              onCancel={() => setShowSaveDialog(false)}
+              saving={savingProgress}
+            />
+          )}
         </div>
       );
     }
@@ -385,13 +784,181 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               onKeyDown={e => e.key === 'Enter' && handleLocalQuickFireAnswer()}
               placeholder="Type the translation..."
               autoFocus
-              className="w-full p-4 border-2 border-amber-200 rounded-xl text-center text-xl font-bold focus:outline-none focus:border-amber-400"
+              className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-xl font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
             />
 
             {/* Score */}
             <div className="mt-4 flex justify-center gap-6">
               <span className="text-green-500 font-bold">✓ {localGameScore.correct}</span>
               <span className="text-red-400 font-bold">✗ {localGameScore.incorrect}</span>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Local Multiple Choice Game
+    if (localGameActive === 'multiple_choice') {
+      return (
+        <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
+          <div className="max-w-md mx-auto w-full">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4">
+              <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
+                <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
+              </button>
+              <span className="text-sm font-bold text-[var(--text-secondary)]">
+                {localGameIndex + 1} / {localGameWords.length}
+              </span>
+              <div className="flex gap-2">
+                <span className="text-green-500 font-bold">{localGameScore.correct}</span>
+                <span className="text-[var(--text-secondary)]">/</span>
+                <span className="text-red-400 font-bold">{localGameScore.incorrect}</span>
+              </div>
+            </div>
+
+            {/* Progress */}
+            <div className="h-2 bg-[var(--bg-primary)] rounded-full mb-6 overflow-hidden">
+              <div
+                className="h-full bg-[var(--accent-color)] transition-all"
+                style={{ width: `${((localGameIndex + 1) / localGameWords.length) * 100}%` }}
+              />
+            </div>
+
+            {/* Question Card */}
+            <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)]">
+              <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
+                Polish → English
+              </span>
+
+              <h3 className="text-3xl font-black text-[var(--text-primary)] mb-8 text-center">
+                {currentWord?.word}
+              </h3>
+
+              <div className="space-y-3">
+                {mcOptions.map((option, idx) => {
+                  const isCorrect = option === currentWord?.translation;
+                  const isSelected = mcSelected === option;
+
+                  let buttonStyle = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
+                  if (mcShowFeedback) {
+                    if (isCorrect) {
+                      buttonStyle = 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400';
+                    } else if (isSelected && !isCorrect) {
+                      buttonStyle = 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400';
+                    } else {
+                      buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)]';
+                    }
+                  }
+
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => handleMcSelect(option)}
+                      disabled={mcShowFeedback}
+                      className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${buttonStyle}`}
+                    >
+                      <span className="text-xs font-bold text-[var(--text-secondary)] mr-3">
+                        {String.fromCharCode(65 + idx)}
+                      </span>
+                      {option}
+                      {mcShowFeedback && isCorrect && (
+                        <ICONS.Check className="w-5 h-5 float-right text-green-500" />
+                      )}
+                      {mcShowFeedback && isSelected && !isCorrect && (
+                        <ICONS.X className="w-5 h-5 float-right text-red-500" />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Local Type It Game
+    if (localGameActive === 'type_it') {
+      return (
+        <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
+          <div className="max-w-md mx-auto w-full">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4">
+              <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
+                <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
+              </button>
+              <span className="text-sm font-bold text-[var(--text-secondary)]">
+                {localGameIndex + 1} / {localGameWords.length}
+              </span>
+              <div className="flex gap-2">
+                <span className="text-green-500 font-bold">{localGameScore.correct}</span>
+                <span className="text-[var(--text-secondary)]">/</span>
+                <span className="text-red-400 font-bold">{localGameScore.incorrect}</span>
+              </div>
+            </div>
+
+            {/* Progress */}
+            <div className="h-2 bg-[var(--bg-primary)] rounded-full mb-6 overflow-hidden">
+              <div
+                className="h-full bg-[var(--accent-color)] transition-all"
+                style={{ width: `${((localGameIndex + 1) / localGameWords.length) * 100}%` }}
+              />
+            </div>
+
+            {/* Question Card */}
+            <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)]">
+              <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
+                Polish → English
+              </span>
+
+              <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">
+                {currentWord?.word}
+              </h3>
+
+              {typeItSubmitted && (
+                <div className={`text-center mb-4 p-3 rounded-xl ${
+                  typeItCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+                }`}>
+                  {typeItCorrect ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <ICONS.Check className="w-5 h-5" />
+                      <span className="font-bold">Correct!</span>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className="flex items-center justify-center gap-2 mb-1">
+                        <ICONS.X className="w-5 h-5" />
+                        <span className="font-bold">Not quite</span>
+                      </div>
+                      <p className="text-sm">
+                        Correct answer: <span className="font-black">{currentWord?.translation}</span>
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="mt-6">
+                <input
+                  type="text"
+                  value={typeItAnswer}
+                  onChange={(e) => setTypeItAnswer(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleTypeItSubmit()}
+                  placeholder="Type in English..."
+                  disabled={typeItSubmitted}
+                  className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-lg font-medium text-center bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                  autoFocus
+                />
+              </div>
+
+              <button
+                onClick={handleTypeItSubmit}
+                disabled={!typeItAnswer.trim() && !typeItSubmitted}
+                className="w-full mt-6 py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50 transition-all bg-[var(--accent-color)] hover:bg-[var(--accent-hover)]"
+              >
+                {typeItSubmitted ? 'Next' : 'Check'}
+              </button>
             </div>
           </div>
         </div>
@@ -481,6 +1048,46 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               </div>
             </button>
 
+            <button
+              onClick={startLocalMultipleChoice}
+              disabled={partnerVocab.length < 4}
+              className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                  🔘
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-black text-[var(--text-primary)] mb-1">Multiple Choice</h3>
+                  <p className="text-sm text-[var(--text-secondary)]">Pick the right answer</p>
+                </div>
+              </div>
+              <div className="mt-4 flex items-center gap-2 text-purple-500 text-xs font-bold">
+                <ICONS.Play className="w-3 h-3" />
+                <span>Start Now</span>
+              </div>
+            </button>
+
+            <button
+              onClick={startLocalTypeIt}
+              disabled={partnerVocab.length < 4}
+              className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                  ⌨️
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-black text-[var(--text-primary)] mb-1">Type It</h3>
+                  <p className="text-sm text-[var(--text-secondary)]">Type the translation</p>
+                </div>
+              </div>
+              <div className="mt-4 flex items-center gap-2 text-blue-500 text-xs font-bold">
+                <ICONS.Play className="w-3 h-3" />
+                <span>Start Now</span>
+              </div>
+            </button>
+
             {partnerVocab.length < 4 && (
               <p className="text-xs text-[var(--text-secondary)] text-center col-span-2">
                 {partnerName} needs at least 4 words in their vocabulary to play
@@ -532,22 +1139,6 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </button>
-
-          {/* Whisper Game - Coming Soon */}
-          <div className="group p-6 bg-[var(--bg-primary)] rounded-[2rem] border border-[var(--border-color)] shadow-sm opacity-60 cursor-not-allowed text-left">
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-[var(--bg-primary)] rounded-2xl flex items-center justify-center text-3xl">
-                🎤
-              </div>
-              <div className="flex-1">
-                <h3 className="font-black text-[var(--text-secondary)] mb-1">Whisper Game</h3>
-                <p className="text-sm text-[var(--text-secondary)]">Pronunciation practice</p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center gap-2 text-[var(--text-secondary)] text-xs font-bold">
-              <span>Coming Soon</span>
-            </div>
-          </div>
 
           {/* Word Gift */}
           <button
@@ -684,6 +1275,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         <CreateQuickFireChallenge
           profile={profile}
           partnerVocab={partnerVocab}
+          partnerScores={partnerScores}
           partnerName={partnerName}
           onClose={() => setShowQuickFireModal(false)}
           onCreated={handleChallengeCreated}
@@ -694,6 +1286,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         <WordRequestCreator
           profile={profile}
           partnerName={partnerName}
+          partnerVocab={partnerVocab}
           onClose={() => setShowWordRequestModal(false)}
           onCreated={handleWordRequestCreated}
         />
