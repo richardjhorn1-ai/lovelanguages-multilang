@@ -267,7 +267,7 @@ export default async function handler(req: any, res: any) {
 
     // Create notification for student
     const wordCount = finalWords.filter((w: any) => w.selected !== false).length;
-    await supabase.from('notifications').insert({
+    const { error: notificationError } = await supabase.from('notifications').insert({
       user_id: profile.linked_user_id,
       type: 'word_request',
       title: `${profile.full_name} sent you ${wordCount} word${wordCount > 1 ? 's' : ''} to learn!`,
@@ -280,10 +280,16 @@ export default async function handler(req: any, res: any) {
       }
     });
 
+    if (notificationError) {
+      console.error('Error creating notification:', notificationError);
+      // Don't fail - word request was created, just warn
+    }
+
     return res.status(200).json({
       success: true,
       wordRequest,
-      suggestions: aiSuggestions
+      suggestions: aiSuggestions,
+      notificationError: notificationError ? 'Words sent but notification may not have been delivered' : undefined
     });
 
   } catch (error: any) {
