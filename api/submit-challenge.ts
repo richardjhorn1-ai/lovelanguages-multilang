@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { GoogleGenAI, Type } from "@google/genai";
 
 // CORS configuration
 function setCorsHeaders(req: any, res: any): boolean {
@@ -43,15 +44,83 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
   return { userId: user.id };
 }
 
-// Lenient answer matching (ignores diacritics)
-function isCorrectAnswer(userAnswer: string, correctAnswer: string): boolean {
+// Fast local matching (no API call needed)
+function fastMatch(userAnswer: string, correctAnswer: string): boolean {
   const normalize = (s: string) => s
     .toLowerCase()
     .trim()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
+    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
 
   return normalize(userAnswer) === normalize(correctAnswer);
+}
+
+// Smart validation using Gemini API
+async function smartValidate(
+  userAnswer: string,
+  correctAnswer: string,
+  polishWord?: string
+): Promise<{ accepted: boolean; explanation: string }> {
+  // Fast local match first (free, instant)
+  if (fastMatch(userAnswer, correctAnswer)) {
+    return { accepted: true, explanation: 'Exact match' };
+  }
+
+  // If no API key, fall back to strict matching
+  const geminiApiKey = process.env.GEMINI_API_KEY;
+  if (!geminiApiKey) {
+    return { accepted: false, explanation: 'No match (strict mode)' };
+  }
+
+  try {
+    const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+
+    const contextInfo = polishWord ? `\nPolish word: "${polishWord}"` : '';
+
+    const prompt = `You are validating answers for a Polish language learning app.
+
+Expected: "${correctAnswer}"
+User typed: "${userAnswer}"${contextInfo}
+
+ACCEPT if ANY apply:
+- Exact match (ignoring case)
+- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię, zolty=żółty)
+- Valid synonym (pretty=beautiful, hi=hello)
+- Article variation (the dog=dog, a cat=cat)
+- Minor typo (1-2 chars off)
+- Alternate valid translation (przepraszam=sorry OR excuse me)
+
+REJECT if:
+- Completely different meaning
+- Wrong language
+- Major spelling error (3+ chars wrong)
+
+Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
+
+    const result = await ai.models.generateContent({
+      model: "gemini-2.0-flash",
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
+            explanation: { type: Type.STRING, description: "Brief explanation of why accepted/rejected" }
+          },
+          required: ["accepted", "explanation"]
+        }
+      }
+    });
+
+    const responseText = result.text || '';
+    const validation = JSON.parse(responseText);
+    return { accepted: validation.accepted, explanation: validation.explanation };
+  } catch (error) {
+    console.error('Smart validation error:', error);
+    // Fall back to local matching on error
+    return { accepted: false, explanation: 'Validation error' };
+  }
 }
 
 export default async function handler(req: any, res: any) {
@@ -103,15 +172,26 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Challenge already completed' });
     }
 
-    // Grade the answers
+    // Grade the answers using smart validation
     const wordsData = challenge.words_data || [];
     let correctCount = 0;
     let streak = 0;
     let bonusXp = 0;
 
-    const gradedAnswers = answers.map((answer: any) => {
+    const gradedAnswers: any[] = [];
+
+    // Process answers sequentially to avoid rate limiting
+    for (const answer of answers) {
       const word = wordsData.find((w: any) => w.id === answer.wordId || w.word === answer.word);
-      const isCorrect = word && isCorrectAnswer(answer.userAnswer, word.translation);
+
+      let isCorrect = false;
+      let explanation = '';
+
+      if (word) {
+        const validation = await smartValidate(answer.userAnswer, word.translation, word.word);
+        isCorrect = validation.accepted;
+        explanation = validation.explanation;
+      }
 
       if (isCorrect) {
         correctCount++;
@@ -122,12 +202,13 @@ export default async function handler(req: any, res: any) {
         streak = 0;
       }
 
-      return {
+      gradedAnswers.push({
         ...answer,
         isCorrect,
+        explanation,
         correctAnswer: word?.translation || 'unknown'
-      };
-    });
+      });
+    }
 
     const totalQuestions = answers.length;
     const score = Math.round((correctCount / totalQuestions) * 100);
