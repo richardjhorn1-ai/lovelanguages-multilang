@@ -92,7 +92,7 @@ export default async function handler(req: any, res: any) {
     try {
       const { data: summaries, error } = await supabase
         .from('progress_summaries')
-        .select('id, summary, words_learned, xp_at_time, level_at_time, created_at')
+        .select('id, title, summary, words_learned, xp_at_time, level_at_time, created_at')
         .eq('user_id', auth.userId)
         .order('created_at', { ascending: false });
 
@@ -154,19 +154,22 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    // Fetch user's vocabulary
+    // Fetch user's vocabulary (all words for comprehensive analysis)
     const { data: vocabulary } = await supabase
       .from('dictionary')
       .select('word, translation, word_type, context, unlocked_at')
       .eq('user_id', auth.userId)
       .order('unlocked_at', { ascending: false });
 
-    // Fetch recent messages (last 50)
+    // Fetch messages from last 14 days for more context
+    const twoWeeksAgo = new Date();
+    twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
     const { data: messages } = await supabase
       .from('messages')
       .select('content, role, created_at')
+      .gte('created_at', twoWeeksAgo.toISOString())
       .order('created_at', { ascending: false })
-      .limit(50);
+      .limit(100);
 
     // Fetch user's profile for level info
     const { data: profile } = await supabase
@@ -174,6 +177,31 @@ export default async function handler(req: any, res: any) {
       .select('xp, level, full_name')
       .eq('id', auth.userId)
       .single();
+
+    // Fetch last 3 summaries to avoid repetition
+    const { data: previousSummaries } = await supabase
+      .from('progress_summaries')
+      .select('summary, topics_explored, can_now_say, created_at')
+      .eq('user_id', auth.userId)
+      .order('created_at', { ascending: false })
+      .limit(3);
+
+    // Fetch recent game sessions for performance stats
+    const { data: gameSessions } = await supabase
+      .from('game_sessions')
+      .select('game_mode, correct_count, incorrect_count, completed_at')
+      .eq('user_id', auth.userId)
+      .order('completed_at', { ascending: false })
+      .limit(20);
+
+    // Fetch level tests for assessment progress
+    const { data: levelTests } = await supabase
+      .from('level_tests')
+      .select('from_level, to_level, passed, score, completed_at')
+      .eq('user_id', auth.userId)
+      .eq('status', 'completed')
+      .order('completed_at', { ascending: false })
+      .limit(5);
 
     const totalWords = vocabulary?.length || 0;
 
@@ -197,7 +225,38 @@ export default async function handler(req: any, res: any) {
       .join(' ')
       .slice(0, 2000) || '';
 
+    // Calculate game performance stats
+    const gameStats = gameSessions?.reduce((acc, session) => {
+      acc.totalGames++;
+      acc.totalCorrect += session.correct_count || 0;
+      acc.totalIncorrect += session.incorrect_count || 0;
+      if (!acc.byMode[session.game_mode]) {
+        acc.byMode[session.game_mode] = { correct: 0, incorrect: 0, games: 0 };
+      }
+      acc.byMode[session.game_mode].correct += session.correct_count || 0;
+      acc.byMode[session.game_mode].incorrect += session.incorrect_count || 0;
+      acc.byMode[session.game_mode].games++;
+      return acc;
+    }, { totalGames: 0, totalCorrect: 0, totalIncorrect: 0, byMode: {} as Record<string, { correct: number; incorrect: number; games: number }> });
+
+    const overallAccuracy = gameStats && gameStats.totalGames > 0
+      ? Math.round((gameStats.totalCorrect / (gameStats.totalCorrect + gameStats.totalIncorrect)) * 100)
+      : null;
+
+    // Calculate test performance
+    const testStats = levelTests?.length ? {
+      totalTests: levelTests.length,
+      passed: levelTests.filter(t => t.passed).length,
+      avgScore: Math.round(levelTests.reduce((sum, t) => sum + (t.score || 0), 0) / levelTests.length),
+      highestLevel: levelTests.find(t => t.passed)?.to_level || null
+    } : null;
+
     const ai = new GoogleGenAI({ apiKey });
+
+    // Build previous summaries context to avoid repetition
+    const previousTopics = previousSummaries?.flatMap(s => s.topics_explored || []) || [];
+    const previousPhrases = previousSummaries?.flatMap(s => s.can_now_say || []) || [];
+    const hasPreviousSummaries = previousSummaries && previousSummaries.length > 0;
 
     const prompt = `You are a warm, encouraging language learning coach for a Polish language app designed for couples.
 
@@ -211,13 +270,39 @@ export default async function handler(req: any, res: any) {
 ${Object.entries(wordTypes).map(([type, count]) => `- ${type}: ${count}`).join('\n')}
 
 **Recent Words (last 7 days):**
-${recentWords.slice(0, 15).map(w => `- ${w.word} (${w.translation})`).join('\n') || 'None yet'}
+${recentWords.slice(0, 20).map(w => `- ${w.word} (${w.translation})`).join('\n') || 'None yet'}
+
+${gameStats && gameStats.totalGames > 0 ? `
+**Game Performance (Recent ${gameStats.totalGames} games):**
+- Overall Accuracy: ${overallAccuracy}%
+- Total Correct: ${gameStats.totalCorrect} | Incorrect: ${gameStats.totalIncorrect}
+- Game Breakdown:
+${Object.entries(gameStats.byMode).map(([mode, stats]) => {
+  const modeNames: Record<string, string> = {
+    flashcards: 'Flashcards',
+    multiple_choice: 'Multiple Choice',
+    type_it: 'Type It',
+    quick_fire: 'Quick Fire',
+    ai_challenge: 'AI Challenge'
+  };
+  const accuracy = Math.round((stats.correct / (stats.correct + stats.incorrect)) * 100);
+  return `  - ${modeNames[mode] || mode}: ${accuracy}% (${stats.games} games)`;
+}).join('\n')}
+` : ''}
+
+${testStats ? `
+**Level Test Performance:**
+- Tests Completed: ${testStats.totalTests}
+- Tests Passed: ${testStats.passed}
+- Average Score: ${testStats.avgScore}%
+${testStats.highestLevel ? `- Achieved Level: ${testStats.highestLevel}` : ''}
+` : ''}
 
 **Recent Conversation Topics:**
 ${recentConversationText || 'No conversations yet'}
 
-**All Vocabulary Samples (for analysis):**
-${vocabulary?.slice(0, 30).map(w => {
+**All Vocabulary (for comprehensive analysis):**
+${vocabulary?.slice(0, 100).map(w => {
   let context = '';
   try {
     const parsed = JSON.parse(w.context || '{}');
@@ -226,17 +311,31 @@ ${vocabulary?.slice(0, 30).map(w => {
   return `${w.word} = ${w.translation}${context ? ` (${context})` : ''}`;
 }).join('\n') || 'No vocabulary yet'}
 
+${hasPreviousSummaries ? `
+## IMPORTANT: Avoid Repetition
+
+Previous journey summaries have already covered these topics. DO NOT repeat them:
+- Topics already discussed: ${previousTopics.slice(0, 10).join(', ') || 'None'}
+- Phrases already highlighted: ${previousPhrases.slice(0, 8).join(', ') || 'None'}
+
+Generate FRESH, NOVEL insights that haven't been mentioned before. Look for:
+- New vocabulary themes not yet explored
+- Different grammar patterns
+- New phrase combinations
+- Recent progress not yet celebrated
+` : ''}
+
 ## Your Task
 
 Generate an encouraging, personalized progress summary for this learner. The tone should be warm and romantic since this is an app for couples learning each other's language.
 
 Focus on:
-1. What they've accomplished (specific words and topics)
-2. What they can now say to their partner
+1. What they've accomplished (specific words and topics) - BE SPECIFIC AND NOVEL
+2. What they can now say to their partner - DIFFERENT phrases from before
 3. Grammar concepts they've encountered
 4. What to explore next
 
-Keep it personal and encouraging. Reference specific words they've learned when possible.`;
+Keep it personal and encouraging. Reference specific words they've learned when possible. ${hasPreviousSummaries ? 'AVOID repeating themes from previous summaries.' : ''}`;
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.0-flash',
@@ -246,6 +345,10 @@ Keep it personal and encouraging. Reference specific words they've learned when 
         responseSchema: {
           type: Type.OBJECT,
           properties: {
+            title: {
+              type: Type.STRING,
+              description: 'A short, creative title for this journey entry (3-5 words, like "Mastering Kitchen Polish" or "Love Words Week")'
+            },
             summary: {
               type: Type.STRING,
               description: 'A warm, personal paragraph (2-3 sentences) summarizing their progress'
@@ -271,7 +374,7 @@ Keep it personal and encouraging. Reference specific words they've learned when 
               description: 'List of 2-3 suggestions for what to learn next'
             }
           },
-          required: ['summary', 'topicsExplored', 'grammarHighlights', 'canNowSay', 'suggestions']
+          required: ['title', 'summary', 'topicsExplored', 'grammarHighlights', 'canNowSay', 'suggestions']
         }
       }
     });
@@ -285,6 +388,7 @@ Keep it personal and encouraging. Reference specific words they've learned when 
       console.error('Failed to parse AI response:', text);
       // Return a default response
       parsed = {
+        title: totalWords > 0 ? 'Your Polish Journey' : 'Getting Started',
         summary: totalWords > 0
           ? `You've learned ${totalWords} Polish words so far - that's wonderful progress! Each word brings you closer to meaningful conversations with your partner.`
           : "Your Polish journey is just beginning! Start chatting to learn your first words.",
@@ -304,6 +408,7 @@ Keep it personal and encouraging. Reference specific words they've learned when 
       .from('progress_summaries')
       .insert({
         user_id: auth.userId,
+        title: parsed.title,
         summary: parsed.summary,
         topics_explored: parsed.topicsExplored,
         grammar_highlights: parsed.grammarHighlights,
