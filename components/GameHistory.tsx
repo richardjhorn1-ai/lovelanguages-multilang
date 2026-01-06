@@ -20,6 +20,7 @@ interface GameSessionAnswer {
   user_answer: string | null;
   question_type: string;
   is_correct: boolean;
+  explanation?: string;
 }
 
 interface GameHistoryProps {
@@ -253,36 +254,82 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                     </div>
                   )}
 
-                  {isExpanded && wrongAnswers.length > 0 && (
+                  {isExpanded && answers.length > 0 && (
                     <div className="px-4 pb-4 border-t border-[var(--border-color)]">
+                      {/* Smart-accepted answers (correct but with interesting explanation) */}
+                      {(() => {
+                        const smartAccepted = answers.filter(a =>
+                          a.is_correct && a.explanation && a.explanation !== 'Exact match'
+                        );
+                        if (smartAccepted.length === 0) return null;
+                        return (
+                          <div className="pt-3 space-y-2 mb-4">
+                            <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+                              Smart Accepted
+                            </p>
+                            {smartAccepted.map((answer, idx) => (
+                              <div
+                                key={idx}
+                                className="flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-xl"
+                              >
+                                <div className="w-6 h-6 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center">
+                                  <ICONS.Check className="w-3 h-3 text-green-500" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <p className="font-bold text-[var(--text-primary)]">
+                                    {answer.word_text}
+                                  </p>
+                                  <p className="text-xs text-[var(--text-secondary)]">
+                                    {answer.user_answer} → {answer.correct_answer}
+                                  </p>
+                                  <p className="text-[10px] text-green-600/70 dark:text-green-400/70 italic mt-0.5">
+                                    {answer.explanation}
+                                  </p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        );
+                      })()}
+
+                      {/* Wrong answers */}
+                      {wrongAnswers.length > 0 && (
                       <div className="pt-3 space-y-2">
                         <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-widest mb-2">
                           Missed Words
                         </p>
-                        {wrongAnswers.map((answer, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-xl"
-                          >
-                            <div className="w-6 h-6 bg-red-100 dark:bg-red-900/40 rounded-full flex items-center justify-center">
-                              <ICONS.X className="w-3 h-3 text-red-500" />
+                        {wrongAnswers.map((answer, idx) => {
+                          const showExplanation = answer.explanation && answer.explanation !== 'Exact match' && answer.explanation !== 'No match (strict mode)';
+                          return (
+                            <div
+                              key={idx}
+                              className="flex items-center gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-xl"
+                            >
+                              <div className="w-6 h-6 bg-red-100 dark:bg-red-900/40 rounded-full flex items-center justify-center">
+                                <ICONS.X className="w-3 h-3 text-red-500" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="font-bold text-[var(--text-primary)]">
+                                  {answer.word_text}
+                                </p>
+                                <p className="text-xs text-[var(--text-secondary)]">
+                                  {answer.user_answer ? (
+                                    <>
+                                      You said: <span className="text-red-500">{answer.user_answer}</span>
+                                      {' · '}
+                                    </>
+                                  ) : null}
+                                  Correct: <span className="text-green-600 dark:text-green-400 font-medium">{answer.correct_answer}</span>
+                                </p>
+                                {showExplanation && (
+                                  <p className="text-[10px] text-red-500/70 italic mt-0.5">
+                                    {answer.explanation}
+                                  </p>
+                                )}
+                              </div>
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="font-bold text-[var(--text-primary)]">
-                                {answer.word_text}
-                              </p>
-                              <p className="text-xs text-[var(--text-secondary)]">
-                                {answer.user_answer ? (
-                                  <>
-                                    You said: <span className="text-red-500">{answer.user_answer}</span>
-                                    {' · '}
-                                  </>
-                                ) : null}
-                                Correct: <span className="text-green-600 dark:text-green-400 font-medium">{answer.correct_answer}</span>
-                              </p>
-                            </div>
-                          </div>
-                        ))}
+                          );
+                        })}
 
                         {onPracticeWords && wrongAnswers.length > 0 && (
                           <button
@@ -293,17 +340,17 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                           </button>
                         )}
                       </div>
-                    </div>
-                  )}
+                      )}
 
-                  {isExpanded && wrongAnswers.length === 0 && answers.length > 0 && (
-                    <div className="px-4 pb-4 border-t border-[var(--border-color)]">
-                      <div className="pt-3 text-center py-4">
-                        <div className="text-3xl mb-2">🎉</div>
-                        <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-                          Perfect score! No missed words.
-                        </p>
-                      </div>
+                      {/* Perfect score message - only if no wrong answers and no smart accepted */}
+                      {wrongAnswers.length === 0 && !answers.some(a => a.is_correct && a.explanation && a.explanation !== 'Exact match') && (
+                        <div className="pt-3 text-center py-4">
+                          <div className="text-3xl mb-2">🎉</div>
+                          <p className="text-sm text-green-600 dark:text-green-400 font-medium">
+                            Perfect score! No missed words.
+                          </p>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

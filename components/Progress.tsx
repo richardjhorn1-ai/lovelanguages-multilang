@@ -1130,8 +1130,13 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               </p>
               <div className="space-y-3">
                 {selectedTestResult.questions?.map((q: any, idx: number) => {
-                  // Find the answer for this question if we have graded answers stored
-                  const isCorrect = q.userAnswer?.toLowerCase().trim() === q.correctAnswer?.toLowerCase().trim();
+                  // Use the stored isCorrect from smart validation, fallback to string compare for legacy data
+                  const isCorrect = q.isCorrect !== undefined
+                    ? q.isCorrect
+                    : q.userAnswer?.toLowerCase().trim() === q.correctAnswer?.toLowerCase().trim();
+
+                  // Show explanation if it's interesting (not exact match)
+                  const showExplanation = q.explanation && q.explanation !== 'Exact match';
 
                   return (
                     <div key={q.id || idx} className="bg-[var(--bg-primary)] rounded-xl p-3">
@@ -1164,6 +1169,11 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                           {!isCorrect && q.correctAnswer && (
                             <p className="text-xs text-green-600">
                               Correct: {q.correctAnswer}
+                            </p>
+                          )}
+                          {showExplanation && (
+                            <p className={`text-[10px] mt-1 italic ${isCorrect ? 'text-green-600/70' : 'text-red-600/70'}`}>
+                              {q.explanation}
                             </p>
                           )}
                         </div>

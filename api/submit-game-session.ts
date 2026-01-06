@@ -50,6 +50,7 @@ interface GameAnswer {
   userAnswer?: string;
   questionType: 'flashcard' | 'multiple_choice' | 'type_it';
   isCorrect: boolean;
+  explanation?: string;
 }
 
 interface SubmitSessionRequest {
@@ -143,6 +144,7 @@ export default async function handler(req: any, res: any) {
         user_answer: answer.userAnswer || null,
         question_type: answer.questionType,
         is_correct: answer.isCorrect,
+        explanation: answer.explanation || null,
         order_index: index
       }));
 
