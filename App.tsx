@@ -59,11 +59,17 @@ const App: React.FC = () => {
   const [dbError, setDbError] = useState<string | null>(null);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      if (session) fetchProfile(session.user.id);
-      else setLoading(false);
-    });
+    supabase.auth.getSession()
+      .then(({ data: { session } }) => {
+        setSession(session);
+        if (session) fetchProfile(session.user.id);
+        else setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Failed to get session:', error);
+        setDbError('Failed to connect to authentication service. Please refresh the page.');
+        setLoading(false);
+      });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);

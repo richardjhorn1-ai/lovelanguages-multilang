@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
 import { TutorChallenge, QuizConfig } from '../types';
 import { ICONS } from '../constants';
+import { shuffleArray } from '../utils/array';
 
 interface PlayQuizChallengeProps {
   challenge: TutorChallenge;
@@ -103,14 +104,14 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
         const otherTranslations = words
           .filter(w => w.word !== word.word)
           .map(w => w.translation);
-        const shuffled = otherTranslations.sort(() => Math.random() - 0.5).slice(0, 3);
-        question.options = [...shuffled, word.translation].sort(() => Math.random() - 0.5);
+        const shuffled = shuffleArray(otherTranslations).slice(0, 3);
+        question.options = shuffleArray([...shuffled, word.translation]);
       }
 
       return question;
     });
 
-    setQuestions(qs.sort(() => Math.random() - 0.5));
+    setQuestions(shuffleArray(qs));
   };
 
   const handleStart = async () => {

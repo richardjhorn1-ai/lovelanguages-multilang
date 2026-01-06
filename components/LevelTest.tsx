@@ -224,9 +224,18 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
           <p className="text-gray-500 mb-6">
             {passed
-              ? `You've advanced to ${results.newLevel}!`
+              ? results.newLevel
+                ? `You've advanced to ${results.newLevel}!`
+                : 'You passed the test!'
               : `You scored ${results.score}%. You need 80% to pass.`}
           </p>
+
+          {/* Show warning if level update failed */}
+          {passed && results.levelUpdateError && (
+            <div className="mb-6 p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 text-sm">
+              {results.levelUpdateError}
+            </div>
+          )}
 
           <div className="text-6xl font-black mb-6" style={{ color: passed ? '#10B981' : '#F59E0B' }}>
             {results.score}%

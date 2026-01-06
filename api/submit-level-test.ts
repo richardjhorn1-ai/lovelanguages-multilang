@@ -248,6 +248,7 @@ export default async function handler(req: any, res: any) {
 
     // If passed, update user's level in profile
     let newLevel = null;
+    let levelUpdateError = null;
     if (passed) {
       // Parse the level number from string like "Beginner 2"
       const toLevel = test.to_level;
@@ -268,9 +269,15 @@ export default async function handler(req: any, res: any) {
           .update({ level: numericLevel })
           .eq('id', auth.userId);
 
-        if (!profileError) {
+        if (profileError) {
+          console.error('Failed to update user level after passing test:', profileError);
+          levelUpdateError = 'Test passed but level update failed. Please refresh to sync.';
+        } else {
           newLevel = toLevel;
         }
+      } else {
+        console.error('Invalid level format:', toLevel);
+        levelUpdateError = 'Test passed but level format was invalid.';
       }
     }
 
@@ -283,6 +290,7 @@ export default async function handler(req: any, res: any) {
       totalQuestions: questions.length,
       passThreshold: PASS_THRESHOLD,
       newLevel,
+      levelUpdateError,
       gradedAnswers
     });
 
