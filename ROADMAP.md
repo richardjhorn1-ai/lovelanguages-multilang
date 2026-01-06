@@ -69,22 +69,12 @@ See `docs/AI_INTEGRATION_GUIDE.md` and `TROUBLESHOOTING.md` for details.
 
 ### Gamification Ideas
 
-1. **Limited Updates**
-   - Free tier: 3 Love Log updates per day
-   - Premium: Unlimited updates
-
-2. **Love Garden**
-   - Visual garden that grows with vocabulary
-   - Each word is a flower/plant
-   - Garden blooms as vocabulary expands
-   - Milestone achievements (10 words, 50 words, 100 words)
-
-3. **Partner Challenges**
+1. **Partner Challenges**
    - "Learn 5 words this week" challenges
    - Partner can send word challenges
    - Celebrate milestones together
 
-4. **Accomplishment Phrases**
+2. **Accomplishment Phrases**
    - Work toward being able to say meaningful phrases
    - "I love you" → "I love you with all my heart" → Full love letter
    - Unlock "achievements" for completing phrase milestones

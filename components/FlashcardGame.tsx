@@ -205,6 +205,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [verbMasterySubmitted, setVerbMasterySubmitted] = useState(false);
   const [verbMasteryCorrect, setVerbMasteryCorrect] = useState(false);
   const [verbMasteryStarted, setVerbMasteryStarted] = useState(false);
+  const [verbMasteryExplanation, setVerbMasteryExplanation] = useState<string | null>(null);
 
   // Level styling
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
@@ -938,6 +939,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     // Use smart validation if enabled, otherwise use local matching
     let isCorrect: boolean;
+    let explanation: string | null = null;
     if (profile.smart_validation) {
       const result = await validateAnswerSmart(verbMasteryInput, question.correctAnswer, {
         polishWord: question.infinitive,
@@ -945,12 +947,17 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         direction: 'english_to_polish'
       });
       isCorrect = result.accepted;
+      // Only show explanation if not exact match
+      if (result.explanation && result.explanation !== 'Exact match') {
+        explanation = result.explanation;
+      }
     } else {
       isCorrect = isCorrectAnswer(verbMasteryInput, question.correctAnswer);
     }
 
     setVerbMasterySubmitted(true);
     setVerbMasteryCorrect(isCorrect);
+    setVerbMasteryExplanation(explanation);
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -979,6 +986,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       setVerbMasteryIndex(i => i + 1);
       setVerbMasteryInput('');
       setVerbMasterySubmitted(false);
+      setVerbMasteryExplanation(null);
       setVerbMasteryCorrect(false);
     } else {
       setFinished(true);
@@ -1909,15 +1917,27 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 {verbMasterySubmitted && (
                   <div className={`p-4 rounded-xl ${verbMasteryCorrect ? 'bg-green-100 dark:bg-green-900/30' : 'bg-red-100 dark:bg-red-900/30'}`}>
                     {verbMasteryCorrect ? (
-                      <p className="text-green-600 dark:text-green-400 font-bold text-center">
-                        ✓ Correct!
-                      </p>
+                      <div className="text-center">
+                        <p className="text-green-600 dark:text-green-400 font-bold">
+                          ✓ Correct!
+                        </p>
+                        {verbMasteryExplanation && (
+                          <p className="text-sm text-green-600/80 dark:text-green-400/80 mt-1">
+                            {verbMasteryExplanation}
+                          </p>
+                        )}
+                      </div>
                     ) : (
                       <div className="text-center">
                         <p className="text-red-600 dark:text-red-400 font-bold mb-1">✗ Not quite</p>
                         <p className="text-[var(--text-primary)]">
                           Correct answer: <span className="font-black">{verbMasteryQuestions[verbMasteryIndex]?.correctAnswer}</span>
                         </p>
+                        {verbMasteryExplanation && (
+                          <p className="text-sm text-red-600/80 dark:text-red-400/80 mt-1">
+                            {verbMasteryExplanation}
+                          </p>
+                        )}
                       </div>
                     )}
                   </div>
