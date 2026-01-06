@@ -50,18 +50,6 @@ User: "How do I say good morning?"
 AI: "Dzień dobry (jen DOH-bri)! Whisper it to them before they open their eyes. Want the casual evening version?"
 ```
 
-### Ask Mode (Tutors) - UI Label: "Coach"
-
-**Purpose:** Help tutors support their partner's learning
-
-**Characteristics:**
-- Detects user intent (learning vs teaching tips)
-- Can teach directly OR give teaching strategies
-- Warm, supportive tone
-- 2-4 sentence responses
-
-**When tutors should use it:** Quick questions about Polish, teaching tips, pronunciation guidance
-
 ### Learn Mode
 
 **Purpose:** Structured lessons with rich formatting
@@ -88,15 +76,23 @@ Tonight's challenge: Say "Kocham cię" while looking into their eyes.
 
 **When users should use it:** Formal lessons, verb conjugation practice, grammar deep-dives
 
-### Coach Mode (Tutors Only) - UI Label: "Context"
+### Coach Mode (Tutors Only)
 
-**Purpose:** Relationship-focused guidance with partner context
+**Purpose:** All-in-one teaching assistant with partner context
 
-**Characteristics:**
-- Fetches partner's vocabulary, weak spots, and progress
-- Suggests phrases partner already knows
-- Creates intimate moments through language
-- No vocabulary extraction (tutor isn't the learner)
+Tutors only have one mode - Coach mode combines teaching tips with context-aware suggestions.
+
+**Two Roles in One:**
+
+1. **Teaching Helper** - Answers questions about Polish:
+   - How to explain grammar concepts simply
+   - Pronunciation tips to share
+   - Fun practice activities for couples
+
+2. **Context-Aware Coach** - Uses partner's progress:
+   - Suggests phrases using words they know
+   - Helps with words they're struggling with
+   - Recommends NEW words to grow their vocabulary
 
 **Data available to AI:**
 - Partner's learned vocabulary
@@ -104,7 +100,11 @@ Tonight's challenge: Say "Kocham cię" while looking into their eyes.
 - Recent words learned
 - XP, level, mastery stats
 
-**When tutors should use it:** Personalized suggestions, progress-aware recommendations
+**Key behaviors:**
+- Don't over-reference partner data in every response
+- Answer general questions directly
+- Actively suggest new vocabulary to expand their learning
+- No vocabulary extraction (tutor isn't the learner)
 
 ## Vocabulary Extraction
 

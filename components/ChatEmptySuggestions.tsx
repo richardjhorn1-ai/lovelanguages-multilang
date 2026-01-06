@@ -27,15 +27,11 @@ const SUGGESTIONS: Record<string, Record<string, Suggestion[]>> = {
     ],
   },
   tutor: {
-    ask: [
-      { text: "How do I explain Polish cases simply?", icon: 'HelpCircle' },
-      { text: "Tips for teaching pronunciation", icon: 'Volume2' },
-      { text: "Fun practice activities for couples", icon: 'Users' },
-    ],
+    // Tutors only have Coach mode - combines teaching tips + partner context
     coach: [
-      { text: "What words is my partner struggling with?", icon: 'Target' },
-      { text: "Suggest a surprise phrase for them", icon: 'Gift' },
-      { text: "How is their learning progress?", icon: 'TrendingUp' },
+      { text: "How do I explain Polish cases simply?", icon: 'HelpCircle' },
+      { text: "What new words should I teach them?", icon: 'Sparkles' },
+      { text: "Suggest a romantic phrase for tonight", icon: 'Heart' },
     ],
   },
 };
@@ -52,13 +48,13 @@ export const ChatEmptySuggestions: React.FC<Props> = ({ mode, role, onSuggestion
         <h3 className="text-xl font-bold font-header text-[var(--text-primary)] mb-2">
           {role === 'student'
             ? (mode === 'ask' ? 'Ask Cupid anything' : 'Ready for a lesson?')
-            : (mode === 'ask' ? 'Need help teaching?' : 'Guide their journey')
+            : 'Coach your partner'
           }
         </h3>
         <p className="text-sm text-[var(--text-secondary)] max-w-xs mx-auto">
           {role === 'student'
             ? 'Every word you learn brings you closer together'
-            : 'Help them discover the beauty of Polish'
+            : 'Teaching tips and personalized suggestions'
           }
         </p>
       </div>

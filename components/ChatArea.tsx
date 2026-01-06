@@ -146,8 +146,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [activeChat, setActiveChat] = useState<Chat | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
-  // Default mode based on role: everyone starts in ask mode
-  const [mode, setMode] = useState<ChatMode>('ask');
+  // Default mode based on role: tutors use 'coach', students use 'ask'
+  const [mode, setMode] = useState<ChatMode>(profile.role === 'tutor' ? 'coach' : 'ask');
   const [loading, setLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [attachments, setAttachments] = useState<Attachment[]>([]);
@@ -179,7 +179,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   useEffect(() => { fetchChats(); }, [profile]);
-  useEffect(() => { if (activeChat) { fetchMessages(activeChat.id); setMode(activeChat.mode); } }, [activeChat]);
+  useEffect(() => {
+    if (activeChat) {
+      fetchMessages(activeChat.id);
+      // Tutors always use 'coach' mode, students use chat's saved mode
+      setMode(profile.role === 'tutor' ? 'coach' : activeChat.mode);
+    }
+  }, [activeChat, profile.role]);
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText]);
 
   const fetchChats = async () => {
@@ -551,10 +557,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             )}
             <div className="flex bg-[var(--bg-primary)] p-1 rounded-xl">
               {profile.role === 'tutor' ? (
-                // Tutors see Coach/Context modes
-                ([{ mode: 'ask' as ChatMode, label: 'Coach' }, { mode: 'coach' as ChatMode, label: 'Context' }]).map(({ mode: m, label }) => (
-                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-[var(--bg-card)] text-teal-500 shadow-sm' : 'text-[var(--text-secondary)]'}`}>{label}</button>
-                ))
+                // Tutors see single Coach mode (always context-aware)
+                <div className="px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest bg-[var(--bg-card)] text-teal-500 shadow-sm">
+                  Coach
+                </div>
               ) : (
                 // Students see Ask/Learn modes
                 (['ask', 'learn'] as ChatMode[]).map(m => (
@@ -733,7 +739,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                       value={input}
                       onChange={e => setInput(e.target.value)}
                       onKeyDown={e => e.key === 'Enter' && handleSend()}
-                      placeholder={isLive ? (liveState === 'listening' ? "Listening..." : liveState === 'speaking' ? "Cupid is speaking..." : "Connecting...") : (mode === 'coach' ? "How can you help your partner today?" : mode === 'ask' ? (profile.role === 'tutor' ? "Ask anything about helping your partner learn..." : "Ask Cupid anything...") : "Ready for your next lesson?")}
+                      placeholder={isLive ? (liveState === 'listening' ? "Listening..." : liveState === 'speaking' ? "Cupid is speaking..." : "Connecting...") : (profile.role === 'tutor' ? "How can you help your partner today?" : mode === 'ask' ? "Ask Cupid anything..." : "Ready for your next lesson?")}
                       disabled={isLive}
                       className="w-full bg-transparent border-none text-sm font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
                     />

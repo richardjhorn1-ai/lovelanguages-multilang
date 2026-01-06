@@ -67,16 +67,13 @@ const SECTIONS: GuideSection[] = [
           </ul>
         </div>
         <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-          <h4 className="font-bold text-teal-500 mb-2">Coach Tab <span className="text-xs text-[var(--text-secondary)] font-normal">(Tutors)</span></h4>
-          <p className="text-sm text-[var(--text-secondary)]">
-            Quick teaching tips and help explaining Polish concepts to your partner.
-          </p>
-        </div>
-        <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-          <h4 className="font-bold text-purple-500 mb-2">Context Tab <span className="text-xs text-[var(--text-secondary)] font-normal">(Tutors)</span></h4>
-          <p className="text-sm text-[var(--text-secondary)]">
-            Uses your partner's actual progress to suggest personalized phrases and activities.
-          </p>
+          <h4 className="font-bold text-teal-500 mb-2">Coach Mode <span className="text-xs text-[var(--text-secondary)] font-normal">(Tutors)</span></h4>
+          <p className="text-sm text-[var(--text-secondary)] mb-2">Your all-in-one teaching assistant:</p>
+          <ul className="text-sm text-[var(--text-secondary)] ml-4 space-y-1">
+            <li>Teaching tips and grammar explanations</li>
+            <li>Personalized suggestions using partner's progress</li>
+            <li>New vocabulary recommendations to grow their skills</li>
+          </ul>
         </div>
       </div>
     ),
