@@ -1,7 +1,87 @@
 import { createClient } from '@supabase/supabase-js';
+import { GoogleGenAI, Type } from "@google/genai";
 
 // Inline constant to avoid module resolution issues in Vercel serverless
 const PASS_THRESHOLD = 80;
+
+// Fast local matching (no API call needed)
+function fastMatch(userAnswer: string, correctAnswer: string): boolean {
+  const normalize = (s: string) => s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+
+  return normalize(userAnswer) === normalize(correctAnswer);
+}
+
+// Smart validation using Gemini API
+async function smartValidate(
+  userAnswer: string,
+  correctAnswer: string,
+  polishWord?: string
+): Promise<{ accepted: boolean; explanation: string }> {
+  // Fast local match first (free, instant)
+  if (fastMatch(userAnswer, correctAnswer)) {
+    return { accepted: true, explanation: 'Exact match' };
+  }
+
+  // If no API key, fall back to strict matching
+  const geminiApiKey = process.env.GEMINI_API_KEY;
+  if (!geminiApiKey) {
+    return { accepted: false, explanation: 'No match (strict mode)' };
+  }
+
+  try {
+    const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+
+    const contextInfo = polishWord ? `\nPolish word: "${polishWord}"` : '';
+
+    const prompt = `You are validating answers for a Polish language learning app.
+
+Expected: "${correctAnswer}"
+User typed: "${userAnswer}"${contextInfo}
+
+ACCEPT if ANY apply:
+- Exact match (ignoring case)
+- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię, zolty=żółty)
+- Valid synonym (pretty=beautiful, hi=hello)
+- Article variation (the dog=dog, a cat=cat)
+- Minor typo (1-2 chars off)
+- Alternate valid translation (przepraszam=sorry OR excuse me)
+
+REJECT if:
+- Completely different meaning
+- Wrong language
+- Major spelling error (3+ chars wrong)
+
+Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
+
+    const result = await ai.models.generateContent({
+      model: "gemini-2.0-flash",
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.OBJECT,
+          properties: {
+            accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
+            explanation: { type: Type.STRING, description: "Brief explanation of why accepted/rejected" }
+          },
+          required: ["accepted", "explanation"]
+        }
+      }
+    });
+
+    const responseText = result.text || '';
+    const validation = JSON.parse(responseText);
+    return { accepted: validation.accepted, explanation: validation.explanation };
+  } catch (error) {
+    console.error('Smart validation error:', error);
+    // Fall back to local matching on error
+    return { accepted: false, explanation: 'Validation error' };
+  }
+}
 
 // CORS configuration
 function setCorsHeaders(req: any, res: any): boolean {
@@ -106,38 +186,44 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Test already completed' });
     }
 
-    // Grade the answers
+    // Grade the answers using smart validation
     const questions = test.questions as any[];
     const answersMap = new Map<string, string>();
     answers.forEach((a: Answer) => answersMap.set(a.questionId, a.userAnswer));
 
     let correctCount = 0;
-    const gradedAnswers = questions.map(q => {
+    const gradedAnswers: Array<{
+      questionId: string;
+      userAnswer: string;
+      isCorrect: boolean;
+      correctAnswer: string;
+      explanation: string;
+    }> = [];
+
+    // Process answers sequentially to avoid rate limiting
+    for (const q of questions) {
       const userAnswer = answersMap.get(q.id) || '';
-      // Normalize answers for comparison (lowercase, trim)
-      const normalizedUser = userAnswer.toLowerCase().trim();
-      const normalizedCorrect = q.correctAnswer.toLowerCase().trim();
 
-      // For fill-in-blank, be lenient with accent marks and minor typos
-      const isCorrect = normalizedUser === normalizedCorrect ||
-        // Remove Polish diacritics for fuzzy matching
-        normalizedUser.normalize('NFD').replace(/[\u0300-\u036f]/g, '') ===
-        normalizedCorrect.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      // Use smart validation for fill-in-blank questions
+      const validation = await smartValidate(userAnswer, q.correctAnswer, q.polish);
 
-      if (isCorrect) correctCount++;
+      if (validation.accepted) correctCount++;
 
-      return {
+      gradedAnswers.push({
         questionId: q.id,
         userAnswer,
-        isCorrect,
-        correctAnswer: q.correctAnswer
-      };
-    });
+        isCorrect: validation.accepted,
+        correctAnswer: q.correctAnswer,
+        explanation: validation.explanation
+      });
+    }
 
-    // Update questions with user answers for later review
-    const questionsWithAnswers = questions.map(q => ({
+    // Update questions with user answers and explanations for later review
+    const questionsWithAnswers = questions.map((q, idx) => ({
       ...q,
-      userAnswer: answersMap.get(q.id) || ''
+      userAnswer: answersMap.get(q.id) || '',
+      isCorrect: gradedAnswers[idx]?.isCorrect ?? false,
+      explanation: gradedAnswers[idx]?.explanation ?? ''
     }));
 
     const score = Math.round((correctCount / questions.length) * 100);
