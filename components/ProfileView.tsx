@@ -36,6 +36,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const [editData, setEditData] = useState<Partial<OnboardingData>>({});
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [smartValidation, setSmartValidation] = useState(profile.smart_validation ?? true);
+  const [savingValidation, setSavingValidation] = useState(false);
 
   const { theme, setAccentColor, setDarkMode, setFontSize, accentHex, isDark } = useTheme();
 
@@ -57,6 +59,23 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const updateField = (key: keyof OnboardingData, value: string) => {
     setEditData(prev => ({ ...prev, [key]: value }));
     setSaved(false);
+  };
+
+  const toggleSmartValidation = async () => {
+    const newValue = !smartValidation;
+    setSavingValidation(true);
+    try {
+      await supabase
+        .from('profiles')
+        .update({ smart_validation: newValue })
+        .eq('id', profile.id);
+      setSmartValidation(newValue);
+      onRefresh();
+    } catch (err) {
+      console.error('Error updating smart validation:', err);
+    } finally {
+      setSavingValidation(false);
+    }
   };
 
   const saveChanges = async () => {
@@ -236,6 +255,46 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     </button>
                   ))}
                 </div>
+              </div>
+
+              {/* Answer Validation Mode */}
+              <div>
+                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">Answer Checking</label>
+                <button
+                  onClick={toggleSmartValidation}
+                  disabled={savingValidation}
+                  className="w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between"
+                  style={{
+                    borderColor: smartValidation ? accentHex : 'var(--border-color)',
+                    backgroundColor: smartValidation ? `${accentHex}08` : 'transparent'
+                  }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{smartValidation ? '🧠' : '🎯'}</span>
+                    <div className="text-left">
+                      <p className="font-bold text-[var(--text-primary)]">
+                        {smartValidation ? 'Smart Mode' : 'Strict Mode'}
+                      </p>
+                      <p className="text-xs text-[var(--text-secondary)]">
+                        {smartValidation
+                          ? 'AI accepts synonyms, typos & variations'
+                          : 'Exact answers only (ignoring accents)'}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className={`w-12 h-7 rounded-full p-1 transition-all ${
+                      savingValidation ? 'opacity-50' : ''
+                    }`}
+                    style={{ backgroundColor: smartValidation ? accentHex : 'var(--border-color)' }}
+                  >
+                    <div
+                      className={`w-5 h-5 rounded-full bg-white shadow-sm transition-transform ${
+                        smartValidation ? 'translate-x-5' : 'translate-x-0'
+                      }`}
+                    />
+                  </div>
+                </button>
               </div>
 
               {/* Preview */}

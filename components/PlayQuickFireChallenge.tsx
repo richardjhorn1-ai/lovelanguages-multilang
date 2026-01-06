@@ -8,13 +8,46 @@ interface PlayQuickFireChallengeProps {
   partnerName: string;
   onClose: () => void;
   onComplete: () => void;
+  smartValidation?: boolean;
+}
+
+// Smart validation API call
+async function validateAnswerSmart(
+  userAnswer: string,
+  correctAnswer: string,
+  polishWord?: string
+): Promise<boolean> {
+  // Fast local match first
+  if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
+    return true;
+  }
+
+  try {
+    const response = await fetch('/api/validate-answer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userAnswer,
+        correctAnswer,
+        polishWord,
+        direction: 'polish_to_english'
+      })
+    });
+
+    if (!response.ok) return false;
+    const result = await response.json();
+    return result.accepted;
+  } catch {
+    return false;
+  }
 }
 
 const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   challenge,
   partnerName,
   onClose,
-  onComplete
+  onComplete,
+  smartValidation = true
 }) => {
   const [started, setStarted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -84,11 +117,18 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
     setStarted(true);
   };
 
-  const handleAnswer = () => {
+  const handleAnswer = async () => {
     if (!userInput.trim()) return;
 
     const word = words[currentIndex];
-    const isCorrect = userInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+
+    // Use smart validation if enabled, otherwise local matching
+    let isCorrect: boolean;
+    if (smartValidation) {
+      isCorrect = await validateAnswerSmart(userInput, word.translation, word.word);
+    } else {
+      isCorrect = userInput.toLowerCase().trim() === word.translation.toLowerCase().trim();
+    }
 
     setShowFeedback(isCorrect ? 'correct' : 'wrong');
     setTimeout(() => setShowFeedback(null), 200);

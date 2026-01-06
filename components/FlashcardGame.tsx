@@ -78,7 +78,7 @@ const CHALLENGE_MODES: { id: AIChallengeMode; name: string; description: string;
 
 const STREAK_TO_LEARN = 5; // Number of consecutive correct answers to mark as learned
 
-// Lenient answer matching
+// Lenient answer matching (local, fast)
 function isCorrectAnswer(userAnswer: string, correctAnswer: string): boolean {
   const normalize = (s: string) => s
     .toLowerCase()
@@ -87,6 +87,42 @@ function isCorrectAnswer(userAnswer: string, correctAnswer: string): boolean {
     .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
 
   return normalize(userAnswer) === normalize(correctAnswer);
+}
+
+// Smart validation API call
+async function validateAnswerSmart(
+  userAnswer: string,
+  correctAnswer: string,
+  options?: {
+    polishWord?: string;
+    wordType?: string;
+    direction?: 'polish_to_english' | 'english_to_polish';
+  }
+): Promise<{ accepted: boolean; reason?: string }> {
+  try {
+    const response = await fetch('/api/validate-answer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userAnswer,
+        correctAnswer,
+        polishWord: options?.polishWord,
+        wordType: options?.wordType,
+        direction: options?.direction
+      })
+    });
+
+    if (!response.ok) {
+      // Fallback to local matching on error
+      return { accepted: isCorrectAnswer(userAnswer, correctAnswer) };
+    }
+
+    const result = await response.json();
+    return { accepted: result.accepted, reason: result.reason };
+  } catch {
+    // Fallback to local matching on error
+    return { accepted: isCorrectAnswer(userAnswer, correctAnswer) };
+  }
 }
 
 const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
@@ -589,7 +625,18 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       return;
     }
     const q = challengeQuestions[challengeIndex];
-    const correct = isCorrectAnswer(challengeTypeAnswer, q.english);
+
+    // Use smart validation if enabled, otherwise use local matching
+    let correct: boolean;
+    if (profile.smart_validation) {
+      const result = await validateAnswerSmart(challengeTypeAnswer, q.english, {
+        polishWord: q.polish,
+        direction: 'polish_to_english'
+      });
+      correct = result.accepted;
+    } else {
+      correct = isCorrectAnswer(challengeTypeAnswer, q.english);
+    }
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -859,7 +906,19 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     if (!verbMasteryInput.trim() || verbMasterySubmitted) return;
 
     const question = verbMasteryQuestions[verbMasteryIndex];
-    const isCorrect = isCorrectAnswer(verbMasteryInput, question.correctAnswer);
+
+    // Use smart validation if enabled, otherwise use local matching
+    let isCorrect: boolean;
+    if (profile.smart_validation) {
+      const result = await validateAnswerSmart(verbMasteryInput, question.correctAnswer, {
+        polishWord: question.infinitive,
+        wordType: 'verb',
+        direction: 'english_to_polish'
+      });
+      isCorrect = result.accepted;
+    } else {
+      isCorrect = isCorrectAnswer(verbMasteryInput, question.correctAnswer);
+    }
 
     setVerbMasterySubmitted(true);
     setVerbMasteryCorrect(isCorrect);
@@ -1008,7 +1067,18 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       ? question.word.translation
       : question.word.word;
 
-    const isCorrect = isCorrectAnswer(typeItAnswer, correctAnswer);
+    // Use smart validation if enabled, otherwise use local matching
+    let isCorrect: boolean;
+    if (profile.smart_validation) {
+      const result = await validateAnswerSmart(typeItAnswer, correctAnswer, {
+        polishWord: question.word.word,
+        wordType: question.word.word_type,
+        direction: question.direction
+      });
+      isCorrect = result.accepted;
+    } else {
+      isCorrect = isCorrectAnswer(typeItAnswer, correctAnswer);
+    }
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -2035,6 +2105,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             partnerName={partnerName}
             onComplete={handleChallengeComplete}
             onClose={() => setActiveChallenge(null)}
+            smartValidation={profile.smart_validation}
           />
         ) : (
           <PlayQuickFireChallenge
@@ -2042,6 +2113,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             partnerName={partnerName}
             onComplete={handleChallengeComplete}
             onClose={() => setActiveChallenge(null)}
+            smartValidation={profile.smart_validation}
           />
         )
       )}
