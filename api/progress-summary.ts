@@ -189,10 +189,17 @@ export default async function handler(req: any, res: any) {
     // Fetch recent game sessions for performance stats
     const { data: gameSessions } = await supabase
       .from('game_sessions')
-      .select('game_mode, correct_count, incorrect_count, completed_at')
+      .select('id, game_mode, correct_count, incorrect_count, completed_at')
       .eq('user_id', auth.userId)
       .order('completed_at', { ascending: false })
       .limit(20);
+
+    // Fetch game session answers with explanations for validation pattern analysis
+    const sessionIds = gameSessions?.map(s => s.id) || [];
+    const { data: gameAnswers } = sessionIds.length > 0 ? await supabase
+      .from('game_session_answers')
+      .select('is_correct, explanation')
+      .in('session_id', sessionIds) : { data: [] };
 
     // Fetch level tests for assessment progress
     const { data: levelTests } = await supabase
@@ -242,6 +249,46 @@ export default async function handler(req: any, res: any) {
     const overallAccuracy = gameStats && gameStats.totalGames > 0
       ? Math.round((gameStats.totalCorrect / (gameStats.totalCorrect + gameStats.totalIncorrect)) * 100)
       : null;
+
+    // Analyze validation patterns from game answers
+    const validationPatterns = {
+      totalAnswers: 0,
+      exactMatches: 0,
+      diacriticIssues: 0,
+      synonymsAccepted: 0,
+      typosAccepted: 0,
+      wrongAnswers: 0,
+      otherSmartAccepted: 0
+    };
+
+    gameAnswers?.forEach(answer => {
+      validationPatterns.totalAnswers++;
+      const explanation = (answer.explanation || '').toLowerCase();
+
+      if (answer.is_correct) {
+        if (explanation === 'exact match' || explanation === '') {
+          validationPatterns.exactMatches++;
+        } else if (explanation.includes('diacritic') || explanation.includes('accent')) {
+          validationPatterns.diacriticIssues++;
+        } else if (explanation.includes('synonym') || explanation.includes('valid alternative')) {
+          validationPatterns.synonymsAccepted++;
+        } else if (explanation.includes('typo') || explanation.includes('minor')) {
+          validationPatterns.typosAccepted++;
+        } else {
+          validationPatterns.otherSmartAccepted++;
+        }
+      } else {
+        validationPatterns.wrongAnswers++;
+      }
+    });
+
+    // Calculate percentages for patterns
+    const smartAcceptedTotal = validationPatterns.diacriticIssues +
+      validationPatterns.synonymsAccepted +
+      validationPatterns.typosAccepted +
+      validationPatterns.otherSmartAccepted;
+
+    const hasSignificantPatterns = validationPatterns.totalAnswers >= 10 && smartAcceptedTotal > 0;
 
     // Calculate test performance
     const testStats = levelTests?.length ? {
@@ -298,6 +345,20 @@ ${testStats ? `
 ${testStats.highestLevel ? `- Achieved Level: ${testStats.highestLevel}` : ''}
 ` : ''}
 
+${hasSignificantPatterns ? `
+**Answer Validation Patterns (Smart Validation Insights):**
+- Total Answers Analyzed: ${validationPatterns.totalAnswers}
+- Exact Matches: ${validationPatterns.exactMatches}
+- Accepted Despite Missing Diacritics: ${validationPatterns.diacriticIssues}${validationPatterns.diacriticIssues > 0 ? ' ⚠️' : ''}
+- Valid Synonyms Used: ${validationPatterns.synonymsAccepted}${validationPatterns.synonymsAccepted > 3 ? ' 🌟' : ''}
+- Minor Typos Accepted: ${validationPatterns.typosAccepted}
+- Wrong Answers: ${validationPatterns.wrongAnswers}
+
+${validationPatterns.diacriticIssues > 3 ? '⚠️ NOTE: Many answers were accepted but had missing Polish diacritics (ą, ę, ć, ł, ń, ó, ś, ź, ż). Consider suggesting a Polish keyboard setup.' : ''}
+${validationPatterns.synonymsAccepted > 3 ? '🌟 NOTE: Learner frequently uses valid synonyms - shows strong vocabulary understanding and creative expression!' : ''}
+${validationPatterns.typosAccepted > 3 ? '📝 NOTE: Several minor typos were accepted. May want to encourage more careful typing for precision.' : ''}
+` : ''}
+
 **Recent Conversation Topics:**
 ${recentConversationText || 'No conversations yet'}
 
@@ -334,8 +395,12 @@ Focus on:
 2. What they can now say to their partner - DIFFERENT phrases from before
 3. Grammar concepts they've encountered
 4. What to explore next
+${hasSignificantPatterns ? `5. If there are validation pattern insights (diacritics, synonyms, typos), incorporate them into your suggestions naturally` : ''}
 
-Keep it personal and encouraging. Reference specific words they've learned when possible. ${hasPreviousSummaries ? 'AVOID repeating themes from previous summaries.' : ''}`;
+Keep it personal and encouraging. Reference specific words they've learned when possible. ${hasPreviousSummaries ? 'AVOID repeating themes from previous summaries.' : ''}
+
+${hasSignificantPatterns ? `
+IMPORTANT: If you see diacritic issues, celebrate that they know the words but gently suggest setting up a Polish keyboard. If you see lots of synonyms used, praise their creative vocabulary. Your suggestions array should include actionable tips based on these patterns.` : ''}`;
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.0-flash',
@@ -436,7 +501,16 @@ Keep it personal and encouraging. Reference specific words they've learned when 
       levelAtTime,
       newWordsSinceLastVisit: recentWords.length,
       generatedAt,
-      createdAt: generatedAt
+      createdAt: generatedAt,
+      // Include validation patterns for UI display
+      validationPatterns: hasSignificantPatterns ? {
+        totalAnswers: validationPatterns.totalAnswers,
+        exactMatches: validationPatterns.exactMatches,
+        diacriticIssues: validationPatterns.diacriticIssues,
+        synonymsAccepted: validationPatterns.synonymsAccepted,
+        typosAccepted: validationPatterns.typosAccepted,
+        wrongAnswers: validationPatterns.wrongAnswers
+      } : null
     });
 
   } catch (error: any) {

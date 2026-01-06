@@ -969,6 +969,57 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                       </ul>
                     </div>
                   )}
+
+                  {/* Validation Patterns (if available) */}
+                  {selectedSummary.validationPatterns && (
+                    <div className="bg-gradient-to-br from-[var(--bg-primary)] to-[var(--accent-light)] rounded-lg md:rounded-xl p-2.5 md:p-4 border border-[var(--accent-border)]">
+                      <p className="text-[9px] md:text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-2 md:mb-3">
+                        Answer Insights
+                      </p>
+                      <div className="grid grid-cols-3 gap-2 text-center">
+                        {selectedSummary.validationPatterns.diacriticIssues > 0 && (
+                          <div className="p-2 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
+                            <div className="text-lg font-black text-amber-600 dark:text-amber-400">
+                              {selectedSummary.validationPatterns.diacriticIssues}
+                            </div>
+                            <div className="text-[8px] uppercase font-bold text-amber-600/70 dark:text-amber-400/70">
+                              Diacritics
+                            </div>
+                          </div>
+                        )}
+                        {selectedSummary.validationPatterns.synonymsAccepted > 0 && (
+                          <div className="p-2 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                            <div className="text-lg font-black text-green-600 dark:text-green-400">
+                              {selectedSummary.validationPatterns.synonymsAccepted}
+                            </div>
+                            <div className="text-[8px] uppercase font-bold text-green-600/70 dark:text-green-400/70">
+                              Synonyms
+                            </div>
+                          </div>
+                        )}
+                        {selectedSummary.validationPatterns.typosAccepted > 0 && (
+                          <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                            <div className="text-lg font-black text-blue-600 dark:text-blue-400">
+                              {selectedSummary.validationPatterns.typosAccepted}
+                            </div>
+                            <div className="text-[8px] uppercase font-bold text-blue-600/70 dark:text-blue-400/70">
+                              Typos OK
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      {selectedSummary.validationPatterns.diacriticIssues > 3 && (
+                        <p className="text-[9px] text-amber-600 dark:text-amber-400 mt-2 italic">
+                          Tip: You know the words! Try setting up a Polish keyboard for ą, ę, ć, ł, ń, ó, ś, ź, ż
+                        </p>
+                      )}
+                      {selectedSummary.validationPatterns.synonymsAccepted > 3 && (
+                        <p className="text-[9px] text-green-600 dark:text-green-400 mt-2 italic">
+                          Great vocabulary range - you use lots of valid alternatives!
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
