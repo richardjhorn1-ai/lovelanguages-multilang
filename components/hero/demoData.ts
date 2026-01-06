@@ -22,7 +22,7 @@ export const DEMO_WORDS: DemoWord[] = [
   { id: '8', word: 'dobranoc', translation: 'goodnight', type: 'phrase' },
 
   // Funny
-  { id: '9', word: 'żółć', translation: 'bile (hardest word!)', type: 'noun' },
+  { id: '9', word: 'żółw', translation: 'turtle', type: 'noun' },
   { id: '10', word: 'chrząszcz', translation: 'beetle (try saying it!)', type: 'noun' },
 ];
 
