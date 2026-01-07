@@ -39,6 +39,8 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
   const [newWords, setNewWords] = useState<NewWord[]>([]);
   const [newPolish, setNewPolish] = useState('');
   const [newEnglish, setNewEnglish] = useState('');
+  const [generatedWord, setGeneratedWord] = useState<{ polish: string; english: string; pronunciation?: string } | null>(null);
+  const [generating, setGenerating] = useState(false);
 
   const difficultySettings = {
     easy: { time: 90, desc: 'Relaxed pace, plenty of time' },
@@ -80,11 +82,45 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
     setSelectedWordIds(newSet);
   };
 
+  const generateTranslation = async () => {
+    if (!newPolish.trim()) return;
+
+    setGenerating(true);
+    try {
+      const token = (await supabase.auth.getSession()).data.session?.access_token;
+      const response = await fetch('/api/validate-word', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ polish: newPolish.trim() })
+      });
+
+      const data = await response.json();
+      if (data.success && data.validated) {
+        setGeneratedWord({
+          polish: data.validated.word,
+          english: data.validated.translation,
+          pronunciation: data.validated.pronunciation
+        });
+        setNewEnglish(data.validated.translation);
+      } else {
+        alert(data.error || 'Failed to generate translation');
+      }
+    } catch (error) {
+      console.error('Error generating translation:', error);
+      alert('Failed to generate translation');
+    }
+    setGenerating(false);
+  };
+
   const addNewWord = () => {
     if (!newPolish.trim() || !newEnglish.trim()) return;
     setNewWords(prev => [...prev, { polish: newPolish.trim(), english: newEnglish.trim() }]);
     setNewPolish('');
     setNewEnglish('');
+    setGeneratedWord(null);
   };
 
   const removeNewWord = (index: number) => {
@@ -241,33 +277,92 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
               <p className="font-bold text-amber-800 dark:text-amber-200 text-sm">Add New Words</p>
             </div>
             <p className="text-xs text-amber-700 dark:text-amber-300 mb-3">
-              Teach {partnerName} new words! They'll be added to their Love Log after completing the challenge.
+              Enter Polish and AI will generate the translation.
             </p>
+
+            {/* Step 1: Polish input with Generate button */}
             <div className="flex gap-2 mb-3">
               <input
                 type="text"
                 value={newPolish}
-                onChange={e => setNewPolish(e.target.value)}
-                placeholder="Polish word"
+                onChange={e => {
+                  setNewPolish(e.target.value);
+                  if (generatedWord) {
+                    setGeneratedWord(null);
+                    setNewEnglish('');
+                  }
+                }}
+                placeholder="Enter Polish word or phrase..."
                 className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-                onKeyDown={e => e.key === 'Enter' && newEnglish && addNewWord()}
+                onKeyDown={e => e.key === 'Enter' && newPolish.trim() && !generatedWord && generateTranslation()}
+                disabled={generating}
               />
-              <input
-                type="text"
-                value={newEnglish}
-                onChange={e => setNewEnglish(e.target.value)}
-                placeholder="English"
-                className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-                onKeyDown={e => e.key === 'Enter' && newPolish && addNewWord()}
-              />
-              <button
-                onClick={addNewWord}
-                disabled={!newPolish.trim() || !newEnglish.trim()}
-                className="px-3 py-2 bg-amber-500 text-white rounded-lg font-bold text-sm hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                Add
-              </button>
+              {!generatedWord ? (
+                <button
+                  onClick={generateTranslation}
+                  disabled={!newPolish.trim() || generating}
+                  className="px-4 py-2 bg-amber-500 text-white rounded-lg font-bold text-sm hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                >
+                  {generating ? (
+                    <>
+                      <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span className="hidden sm:inline">Generating...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>✨</span>
+                      <span className="hidden sm:inline">Generate</span>
+                    </>
+                  )}
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setGeneratedWord(null);
+                    setNewEnglish('');
+                  }}
+                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-lg font-bold text-sm transition-colors"
+                >
+                  Clear
+                </button>
+              )}
             </div>
+
+            {/* Step 2: Show generated result with edit option */}
+            {generatedWord && (
+              <div className="mb-3 p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-bold text-[var(--text-primary)]">{generatedWord.polish}</span>
+                      {generatedWord.pronunciation && (
+                        <span className="text-xs text-[var(--text-secondary)]">[{generatedWord.pronunciation}]</span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[var(--text-secondary)]">→</span>
+                      <input
+                        type="text"
+                        value={newEnglish}
+                        onChange={e => setNewEnglish(e.target.value)}
+                        placeholder="Edit translation..."
+                        className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                        onKeyDown={e => e.key === 'Enter' && newEnglish && addNewWord()}
+                      />
+                    </div>
+                  </div>
+                  <button
+                    onClick={addNewWord}
+                    disabled={!newEnglish.trim()}
+                    className="px-3 py-2 bg-green-500 text-white rounded-lg font-bold text-sm hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                  >
+                    <ICONS.Check className="w-4 h-4" />
+                    Add
+                  </button>
+                </div>
+              </div>
+            )}
+
             {newWords.length > 0 && (
               <div className="space-y-2">
                 {newWords.map((word, index) => (
