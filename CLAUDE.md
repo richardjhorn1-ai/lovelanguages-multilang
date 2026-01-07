@@ -29,17 +29,22 @@ vercel dev        # Full local dev with serverless functions
   - `LevelTest.tsx` - AI-generated proficiency tests
 
 ### Backend (Vercel Serverless Functions)
-- **Location**: `/api/` - 23 isolated serverless functions
+- **Location**: `/api/` - 25 isolated serverless functions
 - **Key Endpoints**:
   - `chat.ts`, `chat-stream.ts` - Main conversation with Gemini
-  - `live-token.ts` - Ephemeral tokens for voice mode
+  - `live-token.ts` - Ephemeral tokens for Gemini Live voice mode
+  - `gladia-token.ts` - Token for Listen Mode (Gladia transcription)
   - `analyze-history.ts` - Batch vocabulary extraction
   - `generate-level-test.ts`, `submit-level-test.ts` - Test system
   - `validate-word.ts` - AI spelling/grammar validation for manual entries
+  - `validate-answer.ts` - Smart validation (synonyms, typos) for game answers
+  - `create-challenge.ts`, `submit-challenge.ts` - Tutor challenge system
+  - `create-word-request.ts`, `complete-word-request.ts` - Word Gift/Love Package system
 
 ### Services
 - `services/gemini.ts` - Gemini API wrapper (streaming, structured output)
 - `services/live-session.ts` - WebSocket voice mode with Gemini Live API
+- `services/gladia-session.ts` - WebSocket Listen Mode with Gladia transcription API
 - `services/supabase.ts` - Database client
 
 ### User Roles
@@ -61,11 +66,17 @@ The AI outputs special blocks that ChatArea.tsx renders:
 ### Vocabulary Extraction Schema
 Verbs require all 6 conjugations per tense. Nouns need gender + plural. Adjectives need all 4 forms. See `types.ts` for `DictionaryEntry` interface.
 
-### Voice Mode Architecture
+### Voice Mode Architecture (Gemini Live)
 Browser → `/api/live-token` (gets ephemeral token) → Gemini Live WebSocket
 - Model: `gemini-2.5-flash-native-audio-preview-12-2025`
 - Only supports `responseModalities: ['AUDIO']` (not TEXT)
 - Use `outputAudioTranscription` and `inputAudioTranscription` for text
+
+### Listen Mode Architecture (Gladia)
+Browser → `/api/gladia-token` → Gladia WebSocket (Polish → English transcription)
+- Passive transcription mode - AI listens but doesn't speak
+- Translation arrives as separate WebSocket messages (merged in `gladia-session.ts`)
+- Speaker diarization NOT supported for live streaming API
 
 ## Environment Variables
 
@@ -78,6 +89,7 @@ VITE_SUPABASE_ANON_KEY=
 SUPABASE_URL=
 SUPABASE_SERVICE_KEY=
 GEMINI_API_KEY=
+GLADIA_API_KEY=
 ALLOWED_ORIGINS=
 ```
 
@@ -88,6 +100,8 @@ ALLOWED_ORIGINS=
 - `DictionaryEntry` - Full vocabulary with conjugations/examples
 - `WordScore` - Mastery tracking (correct_streak, learned_at)
 - `LevelInfo` - 18 levels across 6 tiers
+- `TutorChallenge` - Quiz/QuickFire challenges created by tutors
+- `WordRequest` - Word Gift/Love Package from tutor to student
 
 ## Tab Persistence Pattern
 
@@ -114,15 +128,28 @@ npx tsc --noEmit && npm run build  # Always run before commit
 
 Manual testing via `vercel dev`. Single test file exists: `tests/vocabulary-extraction.test.ts`.
 
+## Answer Validation Pattern
+
+Two validation modes controlled by `profile.smart_validation`:
+- **Smart validation (true)**: Uses `/api/validate-answer` with Gemini to accept synonyms, typos, diacritic variations
+- **Strict validation (false)**: Local comparison with diacritic normalization only
+
+All game components must implement both paths consistently. Always normalize diacritics in fallback:
+```typescript
+function normalizeAnswer(s: string): string {
+  return s.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+```
+
 ## Documentation
 
 - `README.md` - AI persona and feature overview
 - `ROADMAP.md` - Product phases (up to Phase 5.7)
-- `TROUBLESHOOTING.md` - 30+ solved issues with detailed solutions
+- `TROUBLESHOOTING.md` - 36+ solved issues with detailed solutions (check here first for common errors)
 - `docs/AI_INTEGRATION_GUIDE.md` - Gemini API implementation
 - `docs/FORMATTING.md` - Markdown rendering pipeline
 - `docs/SYSTEM_PROMPTS.md` - AI prompt documentation and modification guide
-- `DESIGN.md` - Adjusted anthropic design guide
+- `DESIGN.md` - UI/UX design system, theming, mobile patterns
 
 ## Conversation Practice (BETA)
 
@@ -144,3 +171,20 @@ Use CSS variables for colors that need to work in both light/dark modes:
 - **Students**: Ask mode (quick Q&A) and Learn mode (structured lessons with tables/drills)
 - **Tutors**: Coach mode only (teaching tips + partner's vocabulary context)
 - Conversation history: Last 10 messages sent to AI for context awareness
+
+## Play Section Game Modes
+
+5 game modes in `FlashcardGame.tsx`:
+1. **Flashcard** - Simple flip cards, tap to reveal translation
+2. **Multiple Choice** - 4 options, pick the correct translation
+3. **Type It** - Type the translation, validated with diacritic normalization
+4. **AI Challenge** - Streak-based mastery system (5 correct = learned), multiple sub-modes
+5. **Conversation Practice** - Voice conversations with AI personas in curated scenarios (BETA)
+
+## Word Mastery System
+
+Streak-based mastery tracked in `word_scores` table:
+- `correct_streak` increments on correct answer, resets to 0 on wrong
+- Word is "learned" when `correct_streak >= 5` (sets `learned_at` timestamp)
+- Once learned, status persists (no decay)
+- Mastery badges shown in Love Log: green checkmark = learned, amber = in progress
