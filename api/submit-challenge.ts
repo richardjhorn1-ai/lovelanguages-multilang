@@ -56,47 +56,72 @@ function fastMatch(userAnswer: string, correctAnswer: string): boolean {
   return normalize(userAnswer) === normalize(correctAnswer);
 }
 
-// Smart validation using Gemini API
-async function smartValidate(
-  userAnswer: string,
-  correctAnswer: string,
-  polishWord?: string
-): Promise<{ accepted: boolean; explanation: string }> {
-  // Fast local match first (free, instant)
-  if (fastMatch(userAnswer, correctAnswer)) {
-    return { accepted: true, explanation: 'Exact match' };
+// Batch validation result
+interface ValidationResult {
+  index: number;
+  accepted: boolean;
+  explanation: string;
+}
+
+// BATCH smart validation - validates ALL answers in ONE Gemini call
+async function batchSmartValidate(
+  answers: Array<{ userAnswer: string; correctAnswer: string; polishWord?: string }>
+): Promise<ValidationResult[]> {
+  const results: ValidationResult[] = [];
+  const needsAiValidation: Array<{ index: number; userAnswer: string; correctAnswer: string; polishWord?: string }> = [];
+
+  // Step 1: Try fast local match first for ALL answers (free, instant)
+  answers.forEach((answer, index) => {
+    if (fastMatch(answer.userAnswer, answer.correctAnswer)) {
+      results.push({ index, accepted: true, explanation: 'Exact match' });
+    } else {
+      needsAiValidation.push({ index, ...answer });
+    }
+  });
+
+  // If all matched locally, we're done - no AI call needed!
+  if (needsAiValidation.length === 0) {
+    return results;
   }
 
-  // If no API key, fall back to strict matching
+  // Step 2: Batch validate remaining answers with ONE Gemini call
   const geminiApiKey = process.env.GEMINI_API_KEY;
   if (!geminiApiKey) {
-    return { accepted: false, explanation: 'No match (strict mode)' };
+    // No API key - reject all remaining
+    needsAiValidation.forEach(item => {
+      results.push({ index: item.index, accepted: false, explanation: 'No match (strict mode)' });
+    });
+    return results;
   }
 
   try {
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
 
-    const contextInfo = polishWord ? `\nPolish word: "${polishWord}"` : '';
+    // Build batch prompt with all answers that need validation
+    const answersText = needsAiValidation.map((item, i) =>
+      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.polishWord ? ` | Polish: "${item.polishWord}"` : ''}`
+    ).join('\n');
 
     const prompt = `You are validating answers for a Polish language learning app.
 
-Expected: "${correctAnswer}"
-User typed: "${userAnswer}"${contextInfo}
+Validate these ${needsAiValidation.length} answers:
 
-ACCEPT if ANY apply:
+${answersText}
+
+For EACH answer, ACCEPT if ANY apply:
 - Exact match (ignoring case)
-- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię, zolty=żółty)
+- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię)
 - Valid synonym (pretty=beautiful, hi=hello)
-- Article variation (the dog=dog, a cat=cat)
+- Article variation (the dog=dog)
 - Minor typo (1-2 chars off)
-- Alternate valid translation (przepraszam=sorry OR excuse me)
+- Alternate valid translation
 
 REJECT if:
 - Completely different meaning
 - Wrong language
 - Major spelling error (3+ chars wrong)
 
-Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
+Return a JSON array with ${needsAiValidation.length} results in order.`;
 
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -104,24 +129,41 @@ Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
       config: {
         responseMimeType: "application/json",
         responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
-            explanation: { type: Type.STRING, description: "Brief explanation of why accepted/rejected" }
-          },
-          required: ["accepted", "explanation"]
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
+              explanation: { type: Type.STRING, description: "Brief explanation" }
+            },
+            required: ["accepted", "explanation"]
+          }
         }
       }
     });
 
-    const responseText = result.text || '';
-    const validation = JSON.parse(responseText);
-    return { accepted: validation.accepted, explanation: validation.explanation };
+    const responseText = result.text || '[]';
+    const validations = JSON.parse(responseText) as Array<{ accepted: boolean; explanation: string }>;
+
+    // Map AI results back to original indices
+    needsAiValidation.forEach((item, i) => {
+      const validation = validations[i] || { accepted: false, explanation: 'Validation error' };
+      results.push({
+        index: item.index,
+        accepted: validation.accepted,
+        explanation: validation.explanation
+      });
+    });
+
   } catch (error) {
-    console.error('Smart validation error:', error);
-    // Fall back to local matching on error
-    return { accepted: false, explanation: 'Validation error' };
+    console.error('Batch validation error:', error);
+    // Fall back to rejection on error
+    needsAiValidation.forEach(item => {
+      results.push({ index: item.index, accepted: false, explanation: 'Validation error' });
+    });
   }
+
+  return results;
 }
 
 export default async function handler(req: any, res: any) {
@@ -173,27 +215,37 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Challenge already completed' });
     }
 
-    // Grade the answers using smart validation
+    // Grade the answers using BATCH smart validation (one Gemini call for all answers)
     const wordsData = challenge.words_data || [];
+
+    // Prepare all answers for batch validation
+    const validationInputs = answers.map((answer: any) => {
+      const word = wordsData.find((w: any) => w.id === answer.wordId || w.word === answer.word);
+      return {
+        userAnswer: answer.userAnswer || '',
+        correctAnswer: word?.translation || '',
+        polishWord: word?.word
+      };
+    });
+
+    // ONE Gemini call for ALL answers (instead of N calls)
+    const validationResults = await batchSmartValidate(validationInputs);
+
+    // Build a map of results by index for easy lookup
+    const resultMap = new Map<number, ValidationResult>();
+    validationResults.forEach(r => resultMap.set(r.index, r));
+
+    // Process results and calculate scores
     let correctCount = 0;
     let streak = 0;
     let bonusXp = 0;
-
     const gradedAnswers: any[] = [];
 
-    // Process answers sequentially to avoid rate limiting
-    for (const answer of answers) {
+    answers.forEach((answer: any, index: number) => {
       const word = wordsData.find((w: any) => w.id === answer.wordId || w.word === answer.word);
+      const validation = resultMap.get(index) || { accepted: false, explanation: 'Not validated' };
 
-      let isCorrect = false;
-      let explanation = '';
-
-      if (word) {
-        const validation = await smartValidate(answer.userAnswer, word.translation, word.word);
-        isCorrect = validation.accepted;
-        explanation = validation.explanation;
-      }
-
+      const isCorrect = validation.accepted;
       if (isCorrect) {
         correctCount++;
         streak++;
@@ -206,10 +258,10 @@ export default async function handler(req: any, res: any) {
       gradedAnswers.push({
         ...answer,
         isCorrect,
-        explanation,
+        explanation: validation.explanation,
         correctAnswer: word?.translation || 'unknown'
       });
-    }
+    });
 
     const totalQuestions = answers.length;
     const score = Math.round((correctCount / totalQuestions) * 100);
@@ -230,35 +282,58 @@ export default async function handler(req: any, res: any) {
       else if (percentTimeUsed < 0.9) xpEarned += 1;
     }
 
-    // Update word scores in scores table
-    for (const answer of gradedAnswers) {
-      const word = wordsData.find((w: any) => w.id === answer.wordId || w.word === answer.word);
-      if (!word?.id) continue;
+    // Update word scores in scores table - BATCH operation (not N+1)
+    // Step 1: Collect all word IDs that need score updates
+    const wordIdsToUpdate = gradedAnswers
+      .map(answer => {
+        const word = wordsData.find((w: any) => w.id === answer.wordId || w.word === answer.word);
+        return word?.id;
+      })
+      .filter((id): id is string => !!id);
 
-      // Get existing score
-      const { data: existingScore } = await supabase
+    if (wordIdsToUpdate.length > 0) {
+      // Step 2: Fetch ALL existing scores in ONE query
+      const { data: existingScores } = await supabase
         .from('scores')
-        .select('*')
+        .select('word_id, success_count, fail_count, correct_streak, learned_at')
         .eq('user_id', auth.userId)
-        .eq('word_id', word.id)
-        .single();
+        .in('word_id', wordIdsToUpdate);
 
-      const newSuccessCount = (existingScore?.success_count || 0) + (answer.isCorrect ? 1 : 0);
-      const newFailCount = (existingScore?.fail_count || 0) + (answer.isCorrect ? 0 : 1);
-      const newStreak = answer.isCorrect ? (existingScore?.correct_streak || 0) + 1 : 0;
-      const isLearned = newStreak >= 5;
+      // Build a map for quick lookup
+      const scoreMap = new Map<string, any>();
+      (existingScores || []).forEach(s => scoreMap.set(s.word_id, s));
 
-      await supabase.from('scores').upsert({
-        user_id: auth.userId,
-        word_id: word.id,
-        success_count: newSuccessCount,
-        fail_count: newFailCount,
-        correct_streak: newStreak,
-        learned_at: isLearned && !existingScore?.learned_at ? new Date().toISOString() : existingScore?.learned_at,
-        last_practiced: new Date().toISOString()
-      }, {
-        onConflict: 'user_id,word_id'
-      });
+      // Step 3: Compute all updates locally
+      const now = new Date().toISOString();
+      const scoreUpserts = gradedAnswers
+        .map(answer => {
+          const word = wordsData.find((w: any) => w.id === answer.wordId || w.word === answer.word);
+          if (!word?.id) return null;
+
+          const existing = scoreMap.get(word.id);
+          const newSuccessCount = (existing?.success_count || 0) + (answer.isCorrect ? 1 : 0);
+          const newFailCount = (existing?.fail_count || 0) + (answer.isCorrect ? 0 : 1);
+          const newStreak = answer.isCorrect ? (existing?.correct_streak || 0) + 1 : 0;
+          const isLearned = newStreak >= 5;
+
+          return {
+            user_id: auth.userId,
+            word_id: word.id,
+            success_count: newSuccessCount,
+            fail_count: newFailCount,
+            correct_streak: newStreak,
+            learned_at: isLearned && !existing?.learned_at ? now : existing?.learned_at || null,
+            last_practiced: now
+          };
+        })
+        .filter((s): s is NonNullable<typeof s> => s !== null);
+
+      // Step 4: Batch upsert ALL scores in ONE query
+      if (scoreUpserts.length > 0) {
+        await supabase.from('scores').upsert(scoreUpserts, {
+          onConflict: 'user_id,word_id'
+        });
+      }
     }
 
     // Create challenge result

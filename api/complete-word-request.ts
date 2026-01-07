@@ -45,78 +45,115 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
   return { userId: user.id };
 }
 
-// Generate rich word context using Gemini
-async function enrichWordContext(word: string, translation: string, wordType: string): Promise<any> {
+// BATCH enrich multiple words in ONE Gemini call (not N+1)
+async function batchEnrichWordContexts(
+  words: Array<{ word: string; translation: string; wordType: string }>
+): Promise<any[]> {
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
-  if (!apiKey) return null;
+  if (!apiKey) {
+    // Return default contexts for all words
+    return words.map(w => ({
+      original: '',
+      root: w.word,
+      proTip: 'A gift from your partner!',
+      examples: []
+    }));
+  }
 
   const ai = new GoogleGenAI({ apiKey });
 
-  const result = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
-    contents: `Generate rich learning context for the Polish word/phrase:
-Word: "${word}"
-Translation: "${translation}"
-Type: "${wordType}"
-
-This is for a romantic language learning app. Make it useful and heartfelt.`,
-    config: {
-      responseMimeType: "application/json",
-      responseSchema: {
-        type: Type.OBJECT,
-        properties: {
-          original: { type: Type.STRING, description: "A sample sentence using this word" },
-          root: { type: Type.STRING, description: "Root/base form of the word" },
-          proTip: { type: Type.STRING, description: "Brief usage tip (max 60 chars)" },
-          examples: {
-            type: Type.ARRAY,
-            items: { type: Type.STRING },
-            description: "5 example sentences with English translations in parentheses"
-          },
-          conjugations: {
-            type: Type.OBJECT,
-            description: "Only for verbs - present tense conjugations",
-            properties: {
-              present: {
-                type: Type.OBJECT,
-                properties: {
-                  ja: { type: Type.STRING },
-                  ty: { type: Type.STRING },
-                  onOna: { type: Type.STRING },
-                  my: { type: Type.STRING },
-                  wy: { type: Type.STRING },
-                  oni: { type: Type.STRING }
-                }
-              }
-            }
-          },
-          gender: { type: Type.STRING, enum: ["masculine", "feminine", "neuter"] },
-          plural: { type: Type.STRING, description: "Plural form for nouns" },
-          adjectiveForms: {
-            type: Type.OBJECT,
-            description: "Only for adjectives",
-            properties: {
-              masculine: { type: Type.STRING },
-              feminine: { type: Type.STRING },
-              neuter: { type: Type.STRING },
-              plural: { type: Type.STRING }
-            }
-          }
-        },
-        required: ["original", "root", "proTip", "examples"]
-      }
-    }
-  });
+  // Build batch prompt with all words
+  const wordsText = words.map((w, i) =>
+    `${i + 1}. Word: "${w.word}" | Translation: "${w.translation}" | Type: "${w.wordType}"`
+  ).join('\n');
 
   try {
-    return JSON.parse(result.text || '{}');
-  } catch {
-    return {
+    const result = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: `Generate rich learning context for these ${words.length} Polish words/phrases.
+This is for a romantic language learning app. Make it useful and heartfelt.
+
+${wordsText}
+
+For EACH word, provide:
+- original: A sample sentence using the word
+- root: Root/base form
+- proTip: Brief usage tip (max 60 chars)
+- examples: 5 example sentences with English translations in parentheses
+- For VERBS: conjugations.present with ja, ty, onOna, my, wy, oni
+- For NOUNS: gender (masculine/feminine/neuter) and plural form
+- For ADJECTIVES: adjectiveForms with masculine, feminine, neuter, plural
+
+Return a JSON array with ${words.length} objects in the same order as the input.`,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              original: { type: Type.STRING, description: "A sample sentence using this word" },
+              root: { type: Type.STRING, description: "Root/base form of the word" },
+              proTip: { type: Type.STRING, description: "Brief usage tip (max 60 chars)" },
+              examples: {
+                type: Type.ARRAY,
+                items: { type: Type.STRING },
+                description: "5 example sentences with English translations in parentheses"
+              },
+              conjugations: {
+                type: Type.OBJECT,
+                description: "Only for verbs - present tense conjugations",
+                properties: {
+                  present: {
+                    type: Type.OBJECT,
+                    properties: {
+                      ja: { type: Type.STRING },
+                      ty: { type: Type.STRING },
+                      onOna: { type: Type.STRING },
+                      my: { type: Type.STRING },
+                      wy: { type: Type.STRING },
+                      oni: { type: Type.STRING }
+                    }
+                  }
+                }
+              },
+              gender: { type: Type.STRING, enum: ["masculine", "feminine", "neuter"] },
+              plural: { type: Type.STRING, description: "Plural form for nouns" },
+              adjectiveForms: {
+                type: Type.OBJECT,
+                description: "Only for adjectives",
+                properties: {
+                  masculine: { type: Type.STRING },
+                  feminine: { type: Type.STRING },
+                  neuter: { type: Type.STRING },
+                  plural: { type: Type.STRING }
+                }
+              }
+            },
+            required: ["original", "root", "proTip", "examples"]
+          }
+        }
+      }
+    });
+
+    const contexts = JSON.parse(result.text || '[]');
+
+    // Ensure we have a result for each input word (pad with defaults if needed)
+    return words.map((w, i) => contexts[i] || {
       original: '',
-      root: word,
+      root: w.word,
       proTip: 'A gift from your partner!',
       examples: []
-    };
+    });
+  } catch (error) {
+    console.error('Batch enrichment error:', error);
+    // Return default contexts for all words
+    return words.map(w => ({
+      original: '',
+      root: w.word,
+      proTip: 'A gift from your partner!',
+      examples: []
+    }));
   }
 }
 
@@ -186,47 +223,51 @@ export default async function handler(req: any, res: any) {
       .eq('id', wordRequest.tutor_id)
       .single();
 
+    // Step 1: BATCH enrich ALL words in ONE Gemini call (not N+1)
+    const wordsToEnrich = selectedWords.map((w: any) => ({
+      word: w.word,
+      translation: w.translation,
+      wordType: w.word_type || 'phrase'
+    }));
+
+    const enrichedContexts = await batchEnrichWordContexts(wordsToEnrich);
+
+    // Step 2: Prepare all dictionary entries for batch upsert
+    const now = new Date().toISOString();
+    const dictionaryEntries = selectedWords.map((word: any, index: number) => ({
+      user_id: auth.userId,
+      word: word.word.toLowerCase().trim(),
+      translation: word.translation,
+      word_type: word.word_type || 'phrase',
+      importance: 3,
+      context: JSON.stringify(enrichedContexts[index]),
+      unlocked_at: now
+    }));
+
+    // Step 3: Batch upsert ALL dictionary entries
+    const { data: insertedWords, error: dictError } = await supabase
+      .from('dictionary')
+      .upsert(dictionaryEntries, {
+        onConflict: 'user_id,word',
+        ignoreDuplicates: false
+      })
+      .select();
+
+    if (dictError) {
+      console.error('Error adding words:', dictError);
+      return res.status(500).json({ error: 'Failed to add words to dictionary' });
+    }
+
+    // Step 4: Calculate XP and prepare gift_words records
     const addedWords: any[] = [];
     let totalXpEarned = 0;
+    const giftWordRecords: any[] = [];
 
-    // Add each word to the dictionary
-    for (const word of selectedWords) {
-      // Enrich the word with AI-generated context
-      const context = await enrichWordContext(
-        word.word,
-        word.translation,
-        word.word_type || 'phrase'
-      );
-
-      // Insert into dictionary
-      const { data: dictEntry, error: dictError } = await supabase
-        .from('dictionary')
-        .upsert({
-          user_id: auth.userId,
-          word: word.word.toLowerCase().trim(),
-          translation: word.translation,
-          word_type: word.word_type || 'phrase',
-          importance: 3,
-          context: JSON.stringify(context),
-          unlocked_at: new Date().toISOString()
-        }, {
-          onConflict: 'user_id,word',
-          ignoreDuplicates: false
-        })
-        .select()
-        .single();
-
-      if (dictError) {
-        console.error('Error adding word:', dictError);
-        continue;
-      }
-
-      // Calculate XP for this word (base 1 × multiplier)
+    (insertedWords || []).forEach((dictEntry: any) => {
       const wordXp = Math.round(1 * xpMultiplier);
       totalXpEarned += wordXp;
 
-      // Create gift_words record for badge tracking
-      await supabase.from('gift_words').insert({
+      giftWordRecords.push({
         word_id: dictEntry.id,
         word_request_id: requestId,
         tutor_id: wordRequest.tutor_id,
@@ -238,6 +279,11 @@ export default async function handler(req: any, res: any) {
         ...dictEntry,
         xp_earned: wordXp
       });
+    });
+
+    // Step 5: Batch insert ALL gift_words records
+    if (giftWordRecords.length > 0) {
+      await supabase.from('gift_words').insert(giftWordRecords);
     }
 
     // Add completion bonus (+5 XP)

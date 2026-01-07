@@ -123,21 +123,28 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to fetch game history' });
     }
 
-    // For each session, get count of wrong answers
-    const sessionsWithWrongCount = await Promise.all(
-      (sessions || []).map(async (session) => {
-        const { count: wrongCount } = await supabase
-          .from('game_session_answers')
-          .select('*', { count: 'exact', head: true })
-          .eq('session_id', session.id)
-          .eq('is_correct', false);
+    // Get wrong answer counts for all sessions in ONE query (not N+1)
+    const sessionIds = (sessions || []).map(s => s.id);
+    let wrongCountMap: Record<string, number> = {};
 
-        return {
-          ...session,
-          wrong_answer_count: wrongCount || 0
-        };
-      })
-    );
+    if (sessionIds.length > 0) {
+      // Use a single aggregation query instead of N separate queries
+      const { data: wrongCounts } = await supabase
+        .from('game_session_answers')
+        .select('session_id')
+        .in('session_id', sessionIds)
+        .eq('is_correct', false);
+
+      // Count occurrences per session_id
+      (wrongCounts || []).forEach((row: any) => {
+        wrongCountMap[row.session_id] = (wrongCountMap[row.session_id] || 0) + 1;
+      });
+    }
+
+    const sessionsWithWrongCount = (sessions || []).map(session => ({
+      ...session,
+      wrong_answer_count: wrongCountMap[session.id] || 0
+    }));
 
     return res.status(200).json({
       success: true,
