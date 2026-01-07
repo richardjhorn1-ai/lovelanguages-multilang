@@ -48,6 +48,7 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
 interface ValidateWordRequest {
   polish: string;
   english?: string; // Optional - if not provided, AI will generate translation
+  lightweight?: boolean; // Optional - if true, skip full grammatical data (conjugations, etc.)
 }
 
 export default async function handler(req: any, res: any) {
@@ -65,7 +66,7 @@ export default async function handler(req: any, res: any) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    const { polish, english } = req.body as ValidateWordRequest;
+    const { polish, english, lightweight } = req.body as ValidateWordRequest;
 
     if (!polish) {
       return res.status(400).json({ error: 'Missing polish word' });
@@ -73,6 +74,8 @@ export default async function handler(req: any, res: any) {
 
     // Determine mode: generate (no english) or validate (has english)
     const generateMode = !english || english.trim() === '';
+    // Lightweight mode skips full grammatical data (conjugations, gender, etc.)
+    const isLightweight = lightweight === true;
 
     const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
     if (!apiKey) {
@@ -95,7 +98,14 @@ export default async function handler(req: any, res: any) {
 
     const ai = new GoogleGenAI({ apiKey });
 
-    // Build prompt based on mode
+    // Build prompt based on mode (generate vs validate) and weight (lightweight vs full)
+    const grammarInstructions = isLightweight ? '' : `
+
+IMPORTANT FOR GRAMMATICAL DATA:
+- If it's a VERB: Provide present tense conjugations for all 6 persons (ja, ty, on/ona/ono, my, wy, oni/one)
+- If it's a NOUN: Provide the grammatical gender (masculine/feminine/neuter) and plural form
+- If it's an ADJECTIVE: Provide all 4 forms (masculine, feminine, neuter, plural)`;
+
     const prompt = generateMode
       ? `You are a Polish language expert. Translate this Polish word/phrase to English and provide linguistic data.
 
@@ -110,11 +120,7 @@ Your task:
 5. Rate the formality (formal, neutral, informal, vulgar)
 6. If you corrected the spelling, briefly explain why
 7. Provide pronunciation guide
-
-IMPORTANT FOR GRAMMATICAL DATA:
-- If it's a VERB: Provide present tense conjugations for all 6 persons (ja, ty, on/ona/ono, my, wy, oni/one)
-- If it's a NOUN: Provide the grammatical gender (masculine/feminine/neuter) and plural form
-- If it's an ADJECTIVE: Provide all 4 forms (masculine, feminine, neuter, plural)
+${grammarInstructions}
 
 NOTES:
 - Accept slang and colloquial Polish - it's valid language
@@ -136,11 +142,7 @@ Your task:
 5. Rate the formality (formal, neutral, informal, vulgar)
 6. If you made any corrections, briefly explain why
 7. Provide pronunciation guide
-
-IMPORTANT FOR GRAMMATICAL DATA:
-- If it's a VERB: Provide present tense conjugations for all 6 persons (ja, ty, on/ona/ono, my, wy, oni/one)
-- If it's a NOUN: Provide the grammatical gender (masculine/feminine/neuter) and plural form
-- If it's an ADJECTIVE: Provide all 4 forms (masculine, feminine, neuter, plural)
+${grammarInstructions}
 
 NOTES:
 - Accept slang and colloquial Polish - it's valid language
@@ -150,60 +152,79 @@ NOTES:
 
 Return ONLY the JSON object, no other text.`;
 
+    // Lightweight schema - just basic validation without grammar data
+    const lightweightSchema = {
+      type: Type.OBJECT,
+      properties: {
+        word: { type: Type.STRING, description: "Corrected Polish word/phrase" },
+        translation: { type: Type.STRING, description: "Corrected English translation" },
+        word_type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
+        pronunciation: { type: Type.STRING, description: "Pronunciation guide in English" },
+        is_slang: { type: Type.BOOLEAN, description: "Whether this is slang or colloquial" },
+        formality: { type: Type.STRING, enum: ["formal", "neutral", "informal", "vulgar"] },
+        was_corrected: { type: Type.BOOLEAN, description: "Whether any corrections were made" },
+        correction_note: { type: Type.STRING, description: "Brief explanation if corrections were made" }
+      },
+      required: ["word", "translation", "word_type", "is_slang", "formality", "was_corrected"]
+    };
+
+    // Full schema - includes conjugations, gender, adjective forms, examples
+    const fullSchema = {
+      type: Type.OBJECT,
+      properties: {
+        word: { type: Type.STRING, description: "Corrected Polish word/phrase" },
+        translation: { type: Type.STRING, description: "Corrected English translation" },
+        word_type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
+        pronunciation: { type: Type.STRING, description: "Pronunciation guide in English" },
+        is_slang: { type: Type.BOOLEAN, description: "Whether this is slang or colloquial" },
+        formality: { type: Type.STRING, enum: ["formal", "neutral", "informal", "vulgar"] },
+        was_corrected: { type: Type.BOOLEAN, description: "Whether any corrections were made" },
+        correction_note: { type: Type.STRING, description: "Brief explanation if corrections were made" },
+        // Verb conjugations
+        conjugations: {
+          type: Type.OBJECT,
+          description: "Present tense conjugations for verbs",
+          properties: {
+            present: {
+              type: Type.OBJECT,
+              properties: {
+                ja: { type: Type.STRING },
+                ty: { type: Type.STRING },
+                on_ona_ono: { type: Type.STRING },
+                my: { type: Type.STRING },
+                wy: { type: Type.STRING },
+                oni_one: { type: Type.STRING }
+              }
+            }
+          }
+        },
+        // Noun data
+        gender: { type: Type.STRING, enum: ["masculine", "feminine", "neuter"], description: "Grammatical gender for nouns" },
+        plural: { type: Type.STRING, description: "Plural form for nouns" },
+        // Adjective forms
+        adjective_forms: {
+          type: Type.OBJECT,
+          description: "All 4 forms for adjectives",
+          properties: {
+            masculine: { type: Type.STRING },
+            feminine: { type: Type.STRING },
+            neuter: { type: Type.STRING },
+            plural: { type: Type.STRING }
+          }
+        },
+        // Example sentence
+        example_sentence: { type: Type.STRING, description: "Example sentence using the word" },
+        example_translation: { type: Type.STRING, description: "English translation of example" }
+      },
+      required: ["word", "translation", "word_type", "is_slang", "formality", "was_corrected"]
+    };
+
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            word: { type: Type.STRING, description: "Corrected Polish word/phrase" },
-            translation: { type: Type.STRING, description: "Corrected English translation" },
-            word_type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
-            pronunciation: { type: Type.STRING, description: "Pronunciation guide in English" },
-            is_slang: { type: Type.BOOLEAN, description: "Whether this is slang or colloquial" },
-            formality: { type: Type.STRING, enum: ["formal", "neutral", "informal", "vulgar"] },
-            was_corrected: { type: Type.BOOLEAN, description: "Whether any corrections were made" },
-            correction_note: { type: Type.STRING, description: "Brief explanation if corrections were made" },
-            // Verb conjugations
-            conjugations: {
-              type: Type.OBJECT,
-              description: "Present tense conjugations for verbs",
-              properties: {
-                present: {
-                  type: Type.OBJECT,
-                  properties: {
-                    ja: { type: Type.STRING },
-                    ty: { type: Type.STRING },
-                    on_ona_ono: { type: Type.STRING },
-                    my: { type: Type.STRING },
-                    wy: { type: Type.STRING },
-                    oni_one: { type: Type.STRING }
-                  }
-                }
-              }
-            },
-            // Noun data
-            gender: { type: Type.STRING, enum: ["masculine", "feminine", "neuter"], description: "Grammatical gender for nouns" },
-            plural: { type: Type.STRING, description: "Plural form for nouns" },
-            // Adjective forms
-            adjective_forms: {
-              type: Type.OBJECT,
-              description: "All 4 forms for adjectives",
-              properties: {
-                masculine: { type: Type.STRING },
-                feminine: { type: Type.STRING },
-                neuter: { type: Type.STRING },
-                plural: { type: Type.STRING }
-              }
-            },
-            // Example sentence
-            example_sentence: { type: Type.STRING, description: "Example sentence using the word" },
-            example_translation: { type: Type.STRING, description: "English translation of example" }
-          },
-          required: ["word", "translation", "word_type", "is_slang", "formality", "was_corrected"]
-        }
+        responseSchema: isLightweight ? lightweightSchema : fullSchema
       }
     });
 
