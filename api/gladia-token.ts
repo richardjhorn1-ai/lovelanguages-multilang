@@ -85,10 +85,10 @@ export default async function handler(req: any, res: any) {
         bit_depth: 16,
         channels: 1,
 
-        // Language configuration for Polish with English translation
+        // Language configuration for Polish and English with code switching
         language_config: {
-          languages: ['pl'],  // Polish
-          code_switching: false,
+          languages: ['pl', 'en'],  // Detect both Polish and English
+          code_switching: true,      // Allow switching between languages mid-conversation
         },
 
         // Real-time processing options

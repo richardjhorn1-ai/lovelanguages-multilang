@@ -89,7 +89,7 @@ export default async function handler(req: any, res: any) {
     const ai = new GoogleGenAI({ apiKey });
 
     const result = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3-flash-preview",
       contents: `You are a Polish language expert. Validate and enrich this Polish word/phrase with its English translation.
 
 Input:

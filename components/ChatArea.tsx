@@ -19,6 +19,29 @@ interface TranscriptEntry {
   timestamp: number;
   isBookmarked: boolean;
   isFinal: boolean;
+  language?: string;  // Detected language code: 'pl', 'en', etc.
+}
+
+// Get flag emoji for detected language
+function getLanguageFlag(lang?: string): string {
+  switch (lang) {
+    case 'pl': return '🇵🇱';
+    case 'en': return '🇬🇧';
+    case 'de': return '🇩🇪';
+    case 'fr': return '🇫🇷';
+    case 'es': return '🇪🇸';
+    case 'it': return '🇮🇹';
+    case 'ru': return '🇷🇺';
+    case 'uk': return '🇺🇦';
+    case 'zh': return '🇨🇳';
+    case 'ja': return '🇯🇵';
+    case 'ko': return '🇰🇷';
+    case 'pt': return '🇵🇹';
+    case 'nl': return '🇳🇱';
+    case 'cs': return '🇨🇿';
+    case 'sv': return '🇸🇪';
+    default: return '🗣️';  // Generic speech for unknown
+  }
 }
 
 interface ListenSession {
@@ -31,13 +54,8 @@ interface ListenSession {
   created_at: string;
 }
 
-// Chat-style speaker bubble colors for listen mode
-const SPEAKER_BUBBLES = [
-  { bg: 'bg-blue-100 dark:bg-blue-900/30', border: 'border-blue-200 dark:border-blue-800', text: 'text-blue-700 dark:text-blue-300', label: 'Speaker 1' },
-  { bg: 'bg-purple-100 dark:bg-purple-900/30', border: 'border-purple-200 dark:border-purple-800', text: 'text-purple-700 dark:text-purple-300', label: 'Speaker 2' },
-  { bg: 'bg-green-100 dark:bg-green-900/30', border: 'border-green-200 dark:border-green-800', text: 'text-green-700 dark:text-green-300', label: 'Speaker 3' },
-  { bg: 'bg-amber-100 dark:bg-amber-900/30', border: 'border-amber-200 dark:border-amber-800', text: 'text-amber-700 dark:text-amber-300', label: 'Speaker 4' },
-];
+// Note: Speaker diarization not supported in Gladia live streaming
+// All transcripts attributed to single speaker, so we use accent color styling
 
 const parseMarkdown = (text: string) => {
   if (!text) return '';
@@ -220,9 +238,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [listenContextLabel, setListenContextLabel] = useState('');
   const [showListenPrompt, setShowListenPrompt] = useState(false);
   const [listenError, setListenError] = useState<string | null>(null);
+  const [isPolishingTranscript, setIsPolishingTranscript] = useState(false);
+  const [showWordExtractor, setShowWordExtractor] = useState(false);
+  const [extractedWords, setExtractedWords] = useState<any[]>([]);
+  const [selectedWords, setSelectedWords] = useState<Set<string>>(new Set());
+  const [extractedSessionIds, setExtractedSessionIds] = useState<Set<string>>(new Set());
   const gladiaRef = useRef<GladiaSession | null>(null);
   const listenTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const speakerMapRef = useRef<Map<string, number>>(new Map());
 
   useEffect(() => { fetchChats(); fetchListenSessions(); }, [profile]);
   useEffect(() => {
@@ -531,15 +553,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // ========== LISTEN MODE FUNCTIONS ==========
 
-  // Get speaker display info for listen mode
-  const getSpeakerInfo = useCallback((speakerId: string) => {
-    if (!speakerMapRef.current.has(speakerId)) {
-      const index = speakerMapRef.current.size % SPEAKER_BUBBLES.length;
-      speakerMapRef.current.set(speakerId, index);
-    }
-    const index = speakerMapRef.current.get(speakerId) || 0;
-    return SPEAKER_BUBBLES[index];
-  }, []);
+  // Note: getSpeakerInfo removed - speaker diarization not supported in Gladia live
+  // All entries use accent color styling
 
   // Format duration as MM:SS
   const formatListenDuration = (seconds: number): string => {
@@ -564,6 +579,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       timestamp: chunk.timestamp,
       isBookmarked: false,
       isFinal: chunk.isFinal,
+      language: chunk.language,
     };
 
     if (chunk.isFinal) {
@@ -611,7 +627,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setListenEntries([]);
     setListenPartial(null);
     setListenDuration(0);
-    speakerMapRef.current.clear();
     setActiveChat(null);
     setActiveListenSession(null);
     setIsListening(true);
@@ -657,6 +672,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (listenEntries.length > 0) {
       const bookmarkedPhrases = listenEntries.filter(e => e.isBookmarked);
 
+      // Save raw session first
       const { data, error } = await supabase.from('listen_sessions').insert({
         user_id: profile.id,
         context_label: listenContextLabel.trim() || null,
@@ -669,11 +685,214 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       if (!error && data) {
         setListenSessions(prev => [data, ...prev]);
         setActiveListenSession(data);
+
+        // Start post-processing in background
+        setIsPolishingTranscript(true);
+        polishTranscript(data.id, listenEntries, listenContextLabel);
       }
     }
 
     setIsListening(false);
     setListenContextLabel('');
+  };
+
+  // Post-process transcript with Gemini
+  const polishTranscript = async (sessionId: string, entries: TranscriptEntry[], contextLabel: string) => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) return;
+
+      const response = await fetch('/api/polish-transcript', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({
+          transcript: entries.map(e => ({
+            id: e.id,
+            speaker: e.speaker,
+            text: e.polish,
+            language: e.language,
+            timestamp: e.timestamp
+          })),
+          contextLabel: contextLabel
+        })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('[polishTranscript] API response:', result);
+
+        // Update entries with polished data, using the index from API response
+        const polishedEntries = entries.map((entry, idx) => {
+          const polished = result.polishedTranscript.find((p: any) => p.index === idx);
+          if (polished) {
+            return {
+              ...entry,
+              polish: polished.text,
+              english: polished.translation || entry.english || '',
+              language: polished.language,
+              originalText: polished.originalText,
+            };
+          }
+          return entry;
+        });
+
+        console.log('[polishTranscript] Polished entries:', polishedEntries);
+
+        // Update local state
+        setListenEntries(polishedEntries);
+
+        // Update the session in database (note: summary not stored - table has no summary column)
+        await supabase.from('listen_sessions').update({
+          transcript: polishedEntries,
+        }).eq('id', sessionId);
+
+        // Update sessions list
+        setListenSessions(prev => prev.map(s =>
+          s.id === sessionId ? { ...s, transcript: polishedEntries } : s
+        ));
+        setActiveListenSession(prev =>
+          prev?.id === sessionId ? { ...prev, transcript: polishedEntries } : prev
+        );
+      } else {
+        const errorText = await response.text();
+        console.error('[polishTranscript] API error:', response.status, errorText);
+      }
+    } catch (err) {
+      console.error('[polishTranscript] Failed:', err);
+    } finally {
+      setIsPolishingTranscript(false);
+    }
+  };
+
+  // Extract words from listen session using analyze-history API
+  const extractWordsFromSession = async () => {
+    console.log('[extractWords] Starting extraction, activeSession:', activeListenSession?.id, 'entries:', listenEntries.length);
+
+    if (!activeListenSession || listenEntries.length === 0) {
+      console.log('[extractWords] Skipped - no active session or empty entries');
+      return;
+    }
+
+    setShowWordExtractor(true);
+    setExtractedWords([]);
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) {
+        console.error('[extractWords] No auth session');
+        return;
+      }
+
+      // Format transcript as messages for the analyze-history API
+      const messages = listenEntries
+        .filter(e => e.language === 'pl' || e.english) // Focus on Polish content
+        .map(e => ({
+          role: 'assistant',
+          content: e.english
+            ? `${e.polish} (${e.english})`
+            : e.polish
+        }));
+
+      console.log('[extractWords] Prepared', messages.length, 'messages for analysis');
+
+      // Get user's current words to avoid duplicates
+      const { data: existingWords } = await supabase
+        .from('dictionary')
+        .select('word')
+        .eq('user_id', profile.id);
+
+      const currentWords = (existingWords || []).map((w: any) => w.word);
+      console.log('[extractWords] User has', currentWords.length, 'existing words');
+
+      const response = await fetch('/api/analyze-history', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({ messages, currentWords })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('[extractWords] API response:', result);
+        const words = result.newWords || [];
+        setExtractedWords(words);
+        // Select all words by default
+        setSelectedWords(new Set(words.map((w: any) => w.word)));
+      } else {
+        const errorText = await response.text();
+        console.error('[extractWords] API error:', response.status, errorText);
+      }
+    } catch (err) {
+      console.error('[extractWords] Failed:', err);
+    }
+  };
+
+  // Add selected words to dictionary
+  const [isAddingWords, setIsAddingWords] = useState(false);
+  const addSelectedWordsToDictionary = async () => {
+    const wordsToAdd = extractedWords.filter(w => selectedWords.has(w.word));
+    if (wordsToAdd.length === 0) {
+      setShowWordExtractor(false);
+      return;
+    }
+
+    setIsAddingWords(true);
+    try {
+      const entries = wordsToAdd.map(word => {
+        // Build context object with all grammatical data
+        const contextObj: Record<string, any> = {};
+        if (word.gender) contextObj.gender = word.gender;
+        if (word.plural) contextObj.plural = word.plural;
+        if (word.conjugations) contextObj.conjugations = word.conjugations;
+        if (word.adjectiveForms) contextObj.adjective_forms = word.adjectiveForms;
+        if (word.examples?.length) contextObj.examples = word.examples;
+        if (word.proTip) contextObj.proTip = word.proTip;
+        contextObj.source = 'listen_session';
+
+        return {
+          user_id: profile.id,
+          word: word.word.toLowerCase().trim(),
+          translation: word.translation,
+          word_type: word.type || 'phrase',
+          importance: word.importance || 3,
+          context: JSON.stringify(contextObj),
+          unlocked_at: new Date().toISOString(),
+        };
+      });
+
+      console.log('Adding words to dictionary:', entries);
+      // Use upsert to handle duplicates - update existing words with new context
+      const { data, error } = await supabase.from('dictionary').upsert(entries, {
+        onConflict: 'user_id,word',
+        ignoreDuplicates: false  // Update existing entries with new data
+      }).select();
+
+      if (error) {
+        console.error('Supabase error adding words:', error);
+        alert(`Failed to add words: ${error.message}`);
+      } else {
+        console.log('Words added successfully:', data);
+        setShowWordExtractor(false);
+        setExtractedWords([]);
+        setSelectedWords(new Set());
+        // Mark this session as having words extracted
+        if (activeListenSession?.id) {
+          setExtractedSessionIds(prev => new Set([...prev, activeListenSession.id]));
+        }
+        // Dispatch event for Love Log to refresh
+        window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: data?.length || 0 } }));
+      }
+    } catch (err) {
+      console.error('Failed to add words:', err);
+      alert('Failed to add words. Check console for details.');
+    } finally {
+      setIsAddingWords(false);
+    }
   };
 
   // Toggle bookmark on listen entry
@@ -925,61 +1144,56 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 </div>
               )}
 
-              {/* Chat-style transcript entries */}
-              {listenEntries.map((entry) => {
-                const speakerInfo = getSpeakerInfo(entry.speaker);
-                return (
-                  <div key={entry.id} className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
-                    <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 shadow-sm rounded-tl-none border ${speakerInfo.bg} ${speakerInfo.border}`}>
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex-1 min-w-0">
-                          <span className={`text-[10px] font-bold uppercase tracking-wider ${speakerInfo.text}`}>
-                            {speakerInfo.label}
-                          </span>
-                          <p className="text-[var(--text-primary)] font-medium mt-1">
-                            {entry.polish}
-                            {entry.english && (
-                              <span className="text-[var(--text-secondary)] text-sm font-normal">
-                                {' '}— {entry.english}
-                              </span>
-                            )}
-                          </p>
-                        </div>
-                        {isListening && (
-                          <button
-                            onClick={() => toggleListenBookmark(entry.id)}
-                            className={`p-1.5 rounded-lg transition-colors flex-shrink-0 ${
-                              entry.isBookmarked
-                                ? 'bg-amber-200 dark:bg-amber-800/50 text-amber-600 dark:text-amber-400'
-                                : 'hover:bg-white/50 dark:hover:bg-black/20 text-[var(--text-secondary)]'
-                            }`}
-                            title={entry.isBookmarked ? 'Remove bookmark' : 'Bookmark this phrase'}
-                          >
-                            <ICONS.Star className={`w-4 h-4 ${entry.isBookmarked ? 'fill-current' : ''}`} />
-                          </button>
-                        )}
-                        {!isListening && entry.isBookmarked && (
-                          <ICONS.Star className="w-4 h-4 text-amber-500 fill-current flex-shrink-0" />
+              {/* Transcript entries - using accent color */}
+              {listenEntries.map((entry) => (
+                <div key={entry.id} className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+                  <div
+                    className="max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 shadow-sm rounded-tl-none border bg-[var(--accent-light)] border-[var(--accent-border)]"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-[var(--text-primary)] font-medium">
+                          {getLanguageFlag(entry.language)} {entry.polish}
+                        </p>
+                        {entry.english && (
+                          <div className="mt-1.5 ml-4 pl-3 border-l-2 border-[var(--accent-color)]/30">
+                            <p className="text-[var(--text-secondary)] text-sm">
+                              🇬🇧 {entry.english}
+                            </p>
+                          </div>
                         )}
                       </div>
+                      {isListening && (
+                        <button
+                          onClick={() => toggleListenBookmark(entry.id)}
+                          className={`p-1.5 rounded-lg transition-colors flex-shrink-0 ${
+                            entry.isBookmarked
+                              ? 'bg-amber-200 dark:bg-amber-800/50 text-amber-600 dark:text-amber-400'
+                              : 'hover:bg-white/50 dark:hover:bg-black/20 text-[var(--text-secondary)]'
+                          }`}
+                          title={entry.isBookmarked ? 'Remove bookmark' : 'Bookmark this phrase'}
+                        >
+                          <ICONS.Star className={`w-4 h-4 ${entry.isBookmarked ? 'fill-current' : ''}`} />
+                        </button>
+                      )}
+                      {!isListening && entry.isBookmarked && (
+                        <ICONS.Star className="w-4 h-4 text-amber-500 fill-current flex-shrink-0" />
+                      )}
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
 
               {/* Current Partial (interim result) */}
               {listenPartial && (
                 <div className="flex justify-start animate-in fade-in duration-200">
-                  <div className="max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 rounded-tl-none border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800/50">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
-                      {getSpeakerInfo(listenPartial.speaker).label}
-                    </span>
-                    <p className="text-[var(--text-secondary)] mt-1 italic flex items-center gap-2">
-                      🇵🇱 {listenPartial.polish}
+                  <div className="max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 rounded-tl-none border border-dashed border-[var(--accent-color)]/50 bg-[var(--accent-light)]/50">
+                    <p className="text-[var(--text-secondary)] italic flex items-center gap-2">
+                      {getLanguageFlag(listenPartial.language)} {listenPartial.polish}
                       <span className="inline-flex gap-0.5">
-                        <span className="w-1 h-1 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '0ms' }} />
-                        <span className="w-1 h-1 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '150ms' }} />
-                        <span className="w-1 h-1 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '300ms' }} />
+                        <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '300ms' }} />
                       </span>
                     </p>
                   </div>
@@ -1202,25 +1416,52 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                   </button>
                 </div>
               ) : activeListenSession && (
-                <div className="flex items-center justify-center gap-4">
-                  <button
-                    onClick={() => setShowListenPrompt(true)}
-                    className="px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-white"
-                    style={{ backgroundColor: accentHex }}
-                  >
-                    <span>👂</span>
-                    New Listen Session
-                  </button>
-                  <button
-                    onClick={() => {
-                      setActiveListenSession(null);
-                      setListenEntries([]);
-                      if (chats.length > 0) setActiveChat(chats[0]);
-                    }}
-                    className="px-6 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-primary)] font-bold hover:opacity-80 transition-opacity"
-                  >
-                    Back to Chats
-                  </button>
+                <div className="flex flex-col items-center gap-3">
+                  {/* Polishing indicator */}
+                  {isPolishingTranscript && (
+                    <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+                      <div className="w-4 h-4 border-2 border-[var(--accent-color)] border-t-transparent rounded-full animate-spin" />
+                      Improving transcript with AI...
+                    </div>
+                  )}
+
+                  {/* Action buttons */}
+                  <div className="flex items-center justify-center gap-3 flex-wrap">
+                    {activeListenSession && extractedSessionIds.has(activeListenSession.id) ? (
+                      <div className="px-5 py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+                        <ICONS.Check className="w-4 h-4" />
+                        Words Added to Love Log
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => extractWordsFromSession()}
+                        disabled={isPolishingTranscript}
+                        className="px-5 py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-white disabled:opacity-50"
+                        style={{ backgroundColor: accentHex }}
+                      >
+                        <ICONS.BookOpen className="w-4 h-4" />
+                        Extract Words
+                      </button>
+                    )}
+                    <button
+                      onClick={() => setShowListenPrompt(true)}
+                      className="px-5 py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 border-2 hover:opacity-80 transition-opacity text-[var(--text-primary)]"
+                      style={{ borderColor: accentHex }}
+                    >
+                      <span>👂</span>
+                      New Session
+                    </button>
+                    <button
+                      onClick={() => {
+                        setActiveListenSession(null);
+                        setListenEntries([]);
+                        if (chats.length > 0) setActiveChat(chats[0]);
+                      }}
+                      className="px-5 py-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-secondary)] font-medium hover:opacity-80 transition-opacity"
+                    >
+                      Back to Chats
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
@@ -1337,6 +1578,118 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           words={newWordsNotification}
           onClose={() => setNewWordsNotification([])}
         />
+      )}
+
+      {/* Word Extractor Modal */}
+      {showWordExtractor && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-[var(--bg-card)] rounded-3xl shadow-2xl w-full max-w-lg max-h-[80vh] flex flex-col">
+            {/* Header */}
+            <div className="p-6 border-b border-[var(--border-color)]">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
+                    <ICONS.BookOpen className="w-6 h-6" style={{ color: accentHex }} />
+                  </div>
+                  <div>
+                    <h2 className="text-lg font-bold text-[var(--text-primary)]">Extract Words</h2>
+                    <p className="text-xs text-[var(--text-secondary)]">
+                      {extractedWords.length > 0
+                        ? `${extractedWords.length} words found • ${selectedWords.size} selected`
+                        : 'Analyzing transcript...'}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowWordExtractor(false)}
+                  className="p-2 hover:bg-[var(--bg-primary)] rounded-lg transition-colors"
+                >
+                  <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
+                </button>
+              </div>
+            </div>
+
+            {/* Word List */}
+            <div className="flex-1 overflow-y-auto p-4">
+              {extractedWords.length === 0 ? (
+                <div className="flex flex-col items-center justify-center py-12 text-[var(--text-secondary)]">
+                  <div className="w-8 h-8 border-2 border-[var(--accent-color)] border-t-transparent rounded-full animate-spin mb-4" />
+                  <p className="text-sm">Extracting vocabulary...</p>
+                </div>
+              ) : (
+                <div className="space-y-2">
+                  {extractedWords.map((word, idx) => (
+                    <label
+                      key={idx}
+                      className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-colors ${
+                        selectedWords.has(word.word)
+                          ? 'bg-[var(--accent-light)] border-[var(--accent-color)]'
+                          : 'bg-[var(--bg-primary)] border-[var(--border-color)] hover:border-[var(--accent-color)]/50'
+                      }`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedWords.has(word.word)}
+                        onChange={() => {
+                          setSelectedWords(prev => {
+                            const next = new Set(prev);
+                            if (next.has(word.word)) {
+                              next.delete(word.word);
+                            } else {
+                              next.add(word.word);
+                            }
+                            return next;
+                          });
+                        }}
+                        className="mt-1 w-4 h-4 rounded accent-[var(--accent-color)]"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline gap-2">
+                          <span className="font-bold text-[var(--text-primary)]">{word.word}</span>
+                          <span className="text-xs px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-[var(--text-secondary)]">
+                            {word.type}
+                          </span>
+                        </div>
+                        <p className="text-sm text-[var(--text-secondary)]">{word.translation}</p>
+                        {word.proTip && (
+                          <p className="text-xs text-[var(--accent-color)] mt-1 italic">{word.proTip}</p>
+                        )}
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Footer */}
+            <div className="p-4 border-t border-[var(--border-color)] flex gap-3">
+              <button
+                onClick={() => setShowWordExtractor(false)}
+                className="flex-1 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-primary)] font-bold hover:opacity-80 transition-opacity"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={addSelectedWordsToDictionary}
+                disabled={selectedWords.size === 0 || isAddingWords}
+                className="flex-1 py-3 px-4 rounded-xl text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
+                style={{ backgroundColor: accentHex }}
+              >
+                {isAddingWords ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    Adding...
+                  </>
+                ) : (
+                  <>
+                    <ICONS.Plus className="w-4 h-4" />
+                    Add {selectedWords.size} Words
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Listen Mode Start Prompt */}
