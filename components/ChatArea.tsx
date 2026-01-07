@@ -1,13 +1,43 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase } from '../services/supabase';
 import { geminiService, Attachment, ExtractedWord } from '../services/gemini';
 import { LiveSession, LiveSessionState } from '../services/live-session';
+import { GladiaSession, GladiaState, TranscriptChunk } from '../services/gladia-session';
 import { Profile, Chat, Message, ChatMode, WordType } from '../types';
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 import NewWordsNotification from './NewWordsNotification';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
+
+// Listen session types
+interface TranscriptEntry {
+  id: string;
+  speaker: string;
+  polish: string;
+  english: string;
+  timestamp: number;
+  isBookmarked: boolean;
+  isFinal: boolean;
+}
+
+interface ListenSession {
+  id: string;
+  user_id: string;
+  context_label: string | null;
+  duration_seconds: number;
+  transcript: TranscriptEntry[];
+  bookmarked_phrases: TranscriptEntry[];
+  created_at: string;
+}
+
+// Chat-style speaker bubble colors for listen mode
+const SPEAKER_BUBBLES = [
+  { bg: 'bg-blue-100 dark:bg-blue-900/30', border: 'border-blue-200 dark:border-blue-800', text: 'text-blue-700 dark:text-blue-300', label: 'Speaker 1' },
+  { bg: 'bg-purple-100 dark:bg-purple-900/30', border: 'border-purple-200 dark:border-purple-800', text: 'text-purple-700 dark:text-purple-300', label: 'Speaker 2' },
+  { bg: 'bg-green-100 dark:bg-green-900/30', border: 'border-green-200 dark:border-green-800', text: 'text-green-700 dark:text-green-300', label: 'Speaker 3' },
+  { bg: 'bg-amber-100 dark:bg-amber-900/30', border: 'border-amber-200 dark:border-amber-800', text: 'text-amber-700 dark:text-amber-300', label: 'Speaker 4' },
+];
 
 const parseMarkdown = (text: string) => {
   if (!text) return '';
@@ -179,7 +209,22 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
-  useEffect(() => { fetchChats(); }, [profile]);
+  // Listen mode state
+  const [listenSessions, setListenSessions] = useState<ListenSession[]>([]);
+  const [activeListenSession, setActiveListenSession] = useState<ListenSession | null>(null);
+  const [isListening, setIsListening] = useState(false);
+  const [listenState, setListenState] = useState<GladiaState>('disconnected');
+  const [listenEntries, setListenEntries] = useState<TranscriptEntry[]>([]);
+  const [listenPartial, setListenPartial] = useState<TranscriptEntry | null>(null);
+  const [listenDuration, setListenDuration] = useState(0);
+  const [listenContextLabel, setListenContextLabel] = useState('');
+  const [showListenPrompt, setShowListenPrompt] = useState(false);
+  const [listenError, setListenError] = useState<string | null>(null);
+  const gladiaRef = useRef<GladiaSession | null>(null);
+  const listenTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const speakerMapRef = useRef<Map<string, number>>(new Map());
+
+  useEffect(() => { fetchChats(); fetchListenSessions(); }, [profile]);
   useEffect(() => {
     if (activeChat) {
       fetchMessages(activeChat.id);
@@ -187,16 +232,23 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       setMode(profile.role === 'tutor' ? 'coach' : activeChat.mode);
     }
   }, [activeChat, profile.role]);
-  useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText]);
+  useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText, listenEntries]);
 
   const fetchChats = async () => {
     const { data } = await supabase.from('chats').select('*').eq('user_id', profile.id).order('created_at', { ascending: false });
     if (data) {
         setChats(data);
-        if (data.length > 0 && !activeChat) setActiveChat(data[0]);
+        if (data.length > 0 && !activeChat && !activeListenSession) setActiveChat(data[0]);
     }
     // Create initial chat - everyone starts in Ask mode
     if (!data || data.length === 0) createNewChat('ask');
+  };
+
+  const fetchListenSessions = async () => {
+    const { data } = await supabase.from('listen_sessions').select('*').eq('user_id', profile.id).order('created_at', { ascending: false });
+    if (data) {
+      setListenSessions(data);
+    }
   };
 
   const fetchMessages = async (chatId: string) => {
@@ -468,13 +520,201 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   const createNewChat = async (selectedMode: ChatMode) => {
     const { data } = await supabase.from('chats').insert({ user_id: profile.id, title: 'New Session', mode: selectedMode }).select().single();
-    if (data) { 
-        setChats(prev => [data, ...prev]); 
-        setActiveChat(data); 
-        setMessages([]); 
-        setMode(selectedMode); 
+    if (data) {
+        setChats(prev => [data, ...prev]);
+        setActiveChat(data);
+        setActiveListenSession(null);
+        setMessages([]);
+        setMode(selectedMode);
     }
   };
+
+  // ========== LISTEN MODE FUNCTIONS ==========
+
+  // Get speaker display info for listen mode
+  const getSpeakerInfo = useCallback((speakerId: string) => {
+    if (!speakerMapRef.current.has(speakerId)) {
+      const index = speakerMapRef.current.size % SPEAKER_BUBBLES.length;
+      speakerMapRef.current.set(speakerId, index);
+    }
+    const index = speakerMapRef.current.get(speakerId) || 0;
+    return SPEAKER_BUBBLES[index];
+  }, []);
+
+  // Format duration as MM:SS
+  const formatListenDuration = (seconds: number): string => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  // Handle transcript from Gladia
+  const handleListenTranscript = useCallback((chunk: TranscriptChunk) => {
+    const entry: TranscriptEntry = {
+      id: chunk.id,
+      speaker: chunk.speaker,
+      polish: chunk.text,
+      english: chunk.translation || '',
+      timestamp: chunk.timestamp,
+      isBookmarked: false,
+      isFinal: chunk.isFinal,
+    };
+
+    if (chunk.isFinal) {
+      setListenEntries(prev => {
+        // Find last entry from same speaker (ES5-compatible)
+        let lastSameSpeakerIdx = -1;
+        for (let i = prev.length - 1; i >= 0; i--) {
+          if (prev[i].speaker === chunk.speaker) {
+            lastSameSpeakerIdx = i;
+            break;
+          }
+        }
+
+        if (lastSameSpeakerIdx >= 0) {
+          const lastEntry = prev[lastSameSpeakerIdx];
+          const isExtension = entry.polish.startsWith(lastEntry.polish.slice(0, 10)) ||
+                             lastEntry.polish.startsWith(entry.polish.slice(0, 10)) ||
+                             entry.polish.length > lastEntry.polish.length;
+          const isRecent = entry.timestamp - lastEntry.timestamp < 10000;
+
+          if (isExtension && isRecent && !lastEntry.isBookmarked) {
+            const updated = [...prev];
+            updated[lastSameSpeakerIdx] = { ...entry, isBookmarked: lastEntry.isBookmarked };
+            return updated;
+          }
+        }
+
+        const filtered = prev.filter(e => e.isFinal || e.speaker !== chunk.speaker);
+        return [...filtered, entry];
+      });
+      setListenPartial(null);
+    } else {
+      setListenPartial(entry);
+    }
+
+    setTimeout(() => {
+      scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
+    }, 100);
+  }, []);
+
+  // Start listening
+  const startListening = async () => {
+    setShowListenPrompt(false);
+    setListenError(null);
+    setListenEntries([]);
+    setListenPartial(null);
+    setListenDuration(0);
+    speakerMapRef.current.clear();
+    setActiveChat(null);
+    setActiveListenSession(null);
+    setIsListening(true);
+
+    try {
+      gladiaRef.current = new GladiaSession({
+        onTranscript: handleListenTranscript,
+        onStateChange: (state) => {
+          setListenState(state);
+        },
+        onError: (err) => {
+          console.error('[Listen] Error:', err);
+          setListenError(err.message);
+        },
+        onClose: () => {
+          // Session closed - handled by stopListening
+        },
+      });
+
+      await gladiaRef.current.connect();
+
+      listenTimerRef.current = setInterval(() => {
+        setListenDuration(prev => prev + 1);
+      }, 1000);
+
+    } catch (err: any) {
+      setListenError(err.message || 'Failed to start listening');
+      setIsListening(false);
+    }
+  };
+
+  // Stop listening and save session
+  const stopListening = async () => {
+    gladiaRef.current?.disconnect();
+    gladiaRef.current = null;
+
+    if (listenTimerRef.current) {
+      clearInterval(listenTimerRef.current);
+      listenTimerRef.current = null;
+    }
+
+    // Save session if we have entries
+    if (listenEntries.length > 0) {
+      const bookmarkedPhrases = listenEntries.filter(e => e.isBookmarked);
+
+      const { data, error } = await supabase.from('listen_sessions').insert({
+        user_id: profile.id,
+        context_label: listenContextLabel.trim() || null,
+        duration_seconds: listenDuration,
+        transcript: listenEntries,
+        bookmarked_phrases: bookmarkedPhrases,
+        detected_words: [],
+      }).select().single();
+
+      if (!error && data) {
+        setListenSessions(prev => [data, ...prev]);
+        setActiveListenSession(data);
+      }
+    }
+
+    setIsListening(false);
+    setListenContextLabel('');
+  };
+
+  // Toggle bookmark on listen entry
+  const toggleListenBookmark = (entryId: string) => {
+    setListenEntries(prev =>
+      prev.map(e =>
+        e.id === entryId ? { ...e, isBookmarked: !e.isBookmarked } : e
+      )
+    );
+  };
+
+  // Select a listen session from sidebar
+  const selectListenSession = (session: ListenSession) => {
+    setActiveChat(null);
+    setActiveListenSession(session);
+    setListenEntries(session.transcript || []);
+    setListenDuration(session.duration_seconds);
+    setListenContextLabel(session.context_label || '');
+    setIsMobileSidebarOpen(false);
+  };
+
+  // Delete a listen session
+  const deleteListenSession = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this listen session?")) return;
+    const { error } = await supabase.from('listen_sessions').delete().eq('id', id);
+    if (!error) {
+      setListenSessions(prev => prev.filter(s => s.id !== id));
+      if (activeListenSession?.id === id) {
+        setActiveListenSession(null);
+        if (chats.length > 0) setActiveChat(chats[0]);
+      }
+    }
+  };
+
+  // Combined sidebar items (chats + listen sessions) sorted by date
+  const sidebarItems = [
+    ...chats.map(c => ({ ...c, type: 'chat' as const })),
+    ...listenSessions.map(s => ({
+      ...s,
+      type: 'listen' as const,
+      title: s.context_label || 'Listen Session',
+      mode: 'listen' as const
+    }))
+  ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+
+  // Get bookmarked count for listen mode
+  const listenBookmarkedCount = listenEntries.filter(e => e.isBookmarked).length;
 
   return (
     <div className="flex h-full bg-[var(--bg-primary)] relative overflow-hidden font-header">
@@ -508,36 +748,74 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           )}
         </div>
 
-        {/* Expanded: Full chat list */}
+        {/* Expanded: Full chat + listen session list */}
         {!isSidebarCollapsed && (
           <div className="flex-1 overflow-y-auto p-2 space-y-1 no-scrollbar">
-            {chats.map(c => (
-              <div key={c.id} className={`group w-full text-left p-3 rounded-xl cursor-pointer transition-all flex flex-col gap-0.5 relative ${activeChat?.id === c.id ? 'font-bold' : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'}`} style={activeChat?.id === c.id ? { backgroundColor: `${accentHex}15`, color: accentHex } : {}} onClick={() => setActiveChat(c)}>
-                {editingChatId === c.id ? (
-                  <input
-                    autoFocus
-                    className="bg-[var(--bg-card)] border border-[var(--accent-border)] rounded px-1 text-xs w-full outline-none text-[var(--text-primary)]"
-                    value={newTitle}
-                    onChange={e => setNewTitle(e.target.value)}
-                    onBlur={() => renameChat(c.id)}
-                    onKeyDown={e => e.key === 'Enter' && renameChat(c.id)}
-                  />
-                ) : (
-                  <>
-                    <span className="truncate text-xs pr-12">{c.title}</span>
-                    <span className="text-[8px] uppercase tracking-widest opacity-60 font-black">{c.mode}</span>
-                    <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button onClick={(e) => { e.stopPropagation(); setEditingChatId(c.id); setNewTitle(c.title); }} className="p-1 hover:text-[var(--accent-color)] transition-colors">
-                          <ICONS.Pencil className="w-3 h-3" />
-                      </button>
-                      <button onClick={(e) => { e.stopPropagation(); deleteChat(c.id); }} className="p-1 hover:text-red-500 transition-colors">
+            {sidebarItems.map(item => {
+              const isActive = item.type === 'chat'
+                ? activeChat?.id === item.id
+                : activeListenSession?.id === item.id;
+              const isListenItem = item.type === 'listen';
+
+              return (
+                <div
+                  key={item.id}
+                  className={`group w-full text-left p-3 rounded-xl cursor-pointer transition-all flex flex-col gap-0.5 relative ${
+                    isActive ? 'font-bold' : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
+                  }`}
+                  style={isActive ? { backgroundColor: `${accentHex}15`, color: accentHex } : {}}
+                  onClick={() => {
+                    if (isListenItem) {
+                      selectListenSession(item as ListenSession);
+                    } else {
+                      setActiveChat(item as Chat);
+                      setActiveListenSession(null);
+                    }
+                  }}
+                >
+                  {editingChatId === item.id && !isListenItem ? (
+                    <input
+                      autoFocus
+                      className="bg-[var(--bg-card)] border border-[var(--accent-border)] rounded px-1 text-xs w-full outline-none text-[var(--text-primary)]"
+                      value={newTitle}
+                      onChange={e => setNewTitle(e.target.value)}
+                      onBlur={() => renameChat(item.id)}
+                      onKeyDown={e => e.key === 'Enter' && renameChat(item.id)}
+                    />
+                  ) : (
+                    <>
+                      <span className="truncate text-xs pr-12 flex items-center gap-1.5">
+                        {isListenItem && <span>👂</span>}
+                        {item.title}
+                      </span>
+                      <span className={`text-[8px] uppercase tracking-widest opacity-60 font-black ${isListenItem ? 'text-blue-500' : ''}`}>
+                        {isListenItem ? `listen • ${formatListenDuration((item as ListenSession).duration_seconds)}` : (item as Chat).mode}
+                      </span>
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        {!isListenItem && (
+                          <button onClick={(e) => { e.stopPropagation(); setEditingChatId(item.id); setNewTitle(item.title); }} className="p-1 hover:text-[var(--accent-color)] transition-colors">
+                            <ICONS.Pencil className="w-3 h-3" />
+                          </button>
+                        )}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (isListenItem) {
+                              deleteListenSession(item.id);
+                            } else {
+                              deleteChat(item.id);
+                            }
+                          }}
+                          className="p-1 hover:text-red-500 transition-colors"
+                        >
                           <ICONS.Trash className="w-3 h-3" />
-                      </button>
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
@@ -578,64 +856,199 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               )}
             </div>
           </div>
+
+          {/* Right side - Listen Mode button or indicator */}
+          {isListening ? (
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-xs font-bold text-red-600 dark:text-red-400">
+                  Recording {formatListenDuration(listenDuration)}
+                </span>
+              </div>
+              <button
+                onClick={stopListening}
+                className="px-3 py-1.5 rounded-lg bg-red-500 text-white text-xs font-bold hover:bg-red-600 transition-colors"
+              >
+                Stop
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setShowListenPrompt(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] hover:bg-[var(--accent-light)] transition-all text-[var(--text-secondary)] hover:text-[var(--accent-color)]"
+              title="Listen Mode - Capture real Polish conversations"
+            >
+              <span>👂</span>
+              <span className="text-xs font-bold hidden sm:inline">Listen</span>
+              <span className="text-[8px] px-1 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded font-bold">BETA</span>
+            </button>
+          )}
         </div>
 
-        {/* Messages */}
+        {/* Messages / Listen Transcripts */}
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-2 md:p-4 space-y-3 md:space-y-6 bg-[var(--bg-primary)] no-scrollbar">
-          {/* Empty state with suggestions */}
-          {messages.length === 0 && !loading && !streamingText && (
-            <ChatEmptySuggestions
-              mode={mode}
-              role={profile.role}
-              onSuggestionClick={(text) => handleSend(text)}
-            />
-          )}
+          {/* ========== LISTEN MODE VIEW ========== */}
+          {(isListening || activeListenSession) ? (
+            <>
+              {/* Listen mode header info */}
+              {activeListenSession && !isListening && (
+                <div className="text-center py-4">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+                    <span>👂</span>
+                    <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                      {activeListenSession.context_label || 'Listen Session'}
+                    </span>
+                    <span className="text-xs text-blue-500">
+                      {formatListenDuration(activeListenSession.duration_seconds)}
+                    </span>
+                  </div>
+                </div>
+              )}
 
-          {messages.map((m, i) => (
-            <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
-              <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm ${m.role === 'user' ? 'text-white rounded-tr-sm md:rounded-tr-none font-medium' : 'bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
-                {m.role === 'user' ? <p className="text-xs md:text-sm leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} />}
-              </div>
-            </div>
-          ))}
-          
-          {/* Streaming response */}
-          {streamingText && (
-            <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
-              <div className="max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none">
-                <RichMessageRenderer content={streamingText} />
-                <span className="inline-block w-2 h-4 ml-1 animate-pulse rounded-sm" style={{ backgroundColor: accentHex }}></span>
-              </div>
-            </div>
-          )}
+              {/* Empty state for listen mode */}
+              {listenEntries.length === 0 && !listenPartial && isListening && (
+                <div className="h-full flex items-center justify-center text-[var(--text-secondary)] text-sm">
+                  <div className="text-center">
+                    <ICONS.Mic className="w-8 h-8 mx-auto mb-2 animate-pulse" style={{ color: accentHex }} />
+                    <p>Listening for Polish speech...</p>
+                    {listenError && (
+                      <p className="text-red-500 text-xs mt-2">{listenError}</p>
+                    )}
+                  </div>
+                </div>
+              )}
 
-          {/* Loading indicator (only show if not streaming) */}
-          {loading && !streamingText && (
-            <div className="flex gap-1.5 px-6">
-              <div className="w-1.5 h-1.5 rounded-full animate-bounce" style={{ backgroundColor: `${accentHex}80` }}></div>
-              <div className="w-1.5 h-1.5 rounded-full animate-bounce delay-75" style={{ backgroundColor: `${accentHex}80` }}></div>
-              <div className="w-1.5 h-1.5 rounded-full animate-bounce delay-150" style={{ backgroundColor: `${accentHex}80` }}></div>
-            </div>
-          )}
+              {/* Chat-style transcript entries */}
+              {listenEntries.map((entry) => {
+                const speakerInfo = getSpeakerInfo(entry.speaker);
+                return (
+                  <div key={entry.id} className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 shadow-sm rounded-tl-none border ${speakerInfo.bg} ${speakerInfo.border}`}>
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1 min-w-0">
+                          <span className={`text-[10px] font-bold uppercase tracking-wider ${speakerInfo.text}`}>
+                            {speakerInfo.label}
+                          </span>
+                          <p className="text-[var(--text-primary)] font-medium mt-1">
+                            🇵🇱 {entry.polish}
+                          </p>
+                          {entry.english && (
+                            <p className="text-[var(--text-secondary)] text-sm mt-1">
+                              🇬🇧 {entry.english}
+                            </p>
+                          )}
+                        </div>
+                        {isListening && (
+                          <button
+                            onClick={() => toggleListenBookmark(entry.id)}
+                            className={`p-1.5 rounded-lg transition-colors flex-shrink-0 ${
+                              entry.isBookmarked
+                                ? 'bg-amber-200 dark:bg-amber-800/50 text-amber-600 dark:text-amber-400'
+                                : 'hover:bg-white/50 dark:hover:bg-black/20 text-[var(--text-secondary)]'
+                            }`}
+                            title={entry.isBookmarked ? 'Remove bookmark' : 'Bookmark this phrase'}
+                          >
+                            <ICONS.Star className={`w-4 h-4 ${entry.isBookmarked ? 'fill-current' : ''}`} />
+                          </button>
+                        )}
+                        {!isListening && entry.isBookmarked && (
+                          <ICONS.Star className="w-4 h-4 text-amber-500 fill-current flex-shrink-0" />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
 
-          {/* Live Voice - User transcript bubble */}
-          {liveUserText && (
-            <div className="flex justify-end animate-in fade-in slide-in-from-bottom-2 duration-300">
-              <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm text-white rounded-tr-none font-medium border-2 border-dashed" style={{ backgroundColor: `${accentHex}cc`, borderColor: accentHex }}>
-                <p className="text-sm leading-relaxed italic">{liveUserText}</p>
-                <span className="inline-block w-2 h-4 ml-1 bg-white/50 animate-pulse rounded-sm"></span>
-              </div>
-            </div>
-          )}
+              {/* Current Partial (interim result) */}
+              {listenPartial && (
+                <div className="flex justify-start animate-in fade-in duration-200">
+                  <div className="max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 rounded-tl-none border border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800/50">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                      {getSpeakerInfo(listenPartial.speaker).label}
+                    </span>
+                    <p className="text-[var(--text-secondary)] mt-1 italic flex items-center gap-2">
+                      🇵🇱 {listenPartial.polish}
+                      <span className="inline-flex gap-0.5">
+                        <span className="w-1 h-1 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <span className="w-1 h-1 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <span className="w-1 h-1 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: '300ms' }} />
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              )}
 
-          {/* Live Voice - Model transcript bubble */}
-          {liveModelText && (
-            <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
-              <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm bg-[var(--bg-card)] border-2 border-dashed border-teal-200 dark:border-teal-700 text-[var(--text-primary)] rounded-tl-none">
-                <p className="text-sm leading-relaxed">{liveModelText}</p>
-                <span className="inline-block w-2 h-4 ml-1 bg-teal-400 animate-pulse rounded-sm"></span>
-              </div>
-            </div>
+              {/* Bookmark count footer for listen mode */}
+              {isListening && listenBookmarkedCount > 0 && (
+                <div className="text-center py-2">
+                  <span className="inline-flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400">
+                    <ICONS.Star className="w-3 h-3 fill-current" />
+                    {listenBookmarkedCount} phrase{listenBookmarkedCount !== 1 ? 's' : ''} bookmarked
+                  </span>
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              {/* ========== REGULAR CHAT VIEW ========== */}
+              {/* Empty state with suggestions */}
+              {messages.length === 0 && !loading && !streamingText && (
+                <ChatEmptySuggestions
+                  mode={mode}
+                  role={profile.role}
+                  onSuggestionClick={(text) => handleSend(text)}
+                />
+              )}
+
+              {messages.map((m, i) => (
+                <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
+                  <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm ${m.role === 'user' ? 'text-white rounded-tr-sm md:rounded-tr-none font-medium' : 'bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
+                    {m.role === 'user' ? <p className="text-xs md:text-sm leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} />}
+                  </div>
+                </div>
+              ))}
+
+              {/* Streaming response */}
+              {streamingText && (
+                <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+                  <div className="max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none">
+                    <RichMessageRenderer content={streamingText} />
+                    <span className="inline-block w-2 h-4 ml-1 animate-pulse rounded-sm" style={{ backgroundColor: accentHex }}></span>
+                  </div>
+                </div>
+              )}
+
+              {/* Loading indicator (only show if not streaming) */}
+              {loading && !streamingText && (
+                <div className="flex gap-1.5 px-6">
+                  <div className="w-1.5 h-1.5 rounded-full animate-bounce" style={{ backgroundColor: `${accentHex}80` }}></div>
+                  <div className="w-1.5 h-1.5 rounded-full animate-bounce delay-75" style={{ backgroundColor: `${accentHex}80` }}></div>
+                  <div className="w-1.5 h-1.5 rounded-full animate-bounce delay-150" style={{ backgroundColor: `${accentHex}80` }}></div>
+                </div>
+              )}
+
+              {/* Live Voice - User transcript bubble */}
+              {liveUserText && (
+                <div className="flex justify-end animate-in fade-in slide-in-from-bottom-2 duration-300">
+                  <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm text-white rounded-tr-none font-medium border-2 border-dashed" style={{ backgroundColor: `${accentHex}cc`, borderColor: accentHex }}>
+                    <p className="text-sm leading-relaxed italic">{liveUserText}</p>
+                    <span className="inline-block w-2 h-4 ml-1 bg-white/50 animate-pulse rounded-sm"></span>
+                  </div>
+                </div>
+              )}
+
+              {/* Live Voice - Model transcript bubble */}
+              {liveModelText && (
+                <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+                  <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm bg-[var(--bg-card)] border-2 border-dashed border-teal-200 dark:border-teal-700 text-[var(--text-primary)] rounded-tl-none">
+                    <p className="text-sm leading-relaxed">{liveModelText}</p>
+                    <span className="inline-block w-2 h-4 ml-1 bg-teal-400 animate-pulse rounded-sm"></span>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </div>
 
@@ -691,80 +1104,122 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           </div>
         )}
 
-        {/* Input */}
-        <div className="p-2 md:p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] relative">
-          <div className={`absolute bottom-16 md:bottom-20 left-2 md:left-4 flex flex-col items-center gap-3 md:gap-4 transition-all duration-300 z-20 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
-             <button onClick={() => imgInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
-                <ICONS.Image className="w-5 h-5 md:w-6 md:h-6" />
-             </button>
-             <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
-                <ICONS.FileText className="w-5 h-5 md:w-6 md:h-6" />
-             </button>
-          </div>
-
-          <div className="max-w-4xl mx-auto flex items-end gap-1.5 md:gap-3">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              disabled={isLive}
-              className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${isMenuOpen ? 'bg-[var(--bg-primary)] border-[var(--border-color)] text-[var(--text-secondary)] rotate-90' : 'bg-[var(--bg-card)] border-[var(--accent-border)] hover:bg-[var(--accent-light)]'} disabled:opacity-50`}
-              style={!isMenuOpen ? { color: accentHex } : {}}
-            >
-                {isMenuOpen ? <ICONS.X className="w-5 h-5 md:w-6 md:h-6" /> : <ICONS.Plus className="w-5 h-5 md:w-6 md:h-6" />}
-            </button>
-
-            {/* Microphone Button */}
-            <button
-              onClick={isLive ? stopLive : startLive}
-              className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${
-                isLive
-                  ? 'text-white'
-                  : 'bg-[var(--bg-card)] border-[var(--accent-border)] hover:bg-[var(--accent-light)]'
-              } ${liveState === 'listening' ? 'animate-pulse' : ''}`}
-              style={isLive ? { backgroundColor: accentHex, borderColor: accentHex } : { color: accentHex }}
-            >
-                <ICONS.Mic className="w-5 h-5 md:w-6 md:h-6" />
-            </button>
-
-            <div className="flex-1 flex flex-col gap-2">
-                {attachments.length > 0 && (
-                    <div className="flex gap-2 p-2 bg-[var(--bg-primary)] rounded-xl overflow-x-auto no-scrollbar">
-                        {attachments.map((a, idx) => (
-                            <div key={idx} className="relative group shrink-0">
-                                {a.mimeType.startsWith('image/') ? (
-                                    <img src={`data:${a.mimeType};base64,${a.data}`} className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover" />
-                                ) : (
-                                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center text-[var(--accent-color)]">
-                                        <ICONS.FileText className="w-4 h-4 md:w-5 md:h-5" />
-                                    </div>
-                                )}
-                                <button onClick={() => setAttachments(p => p.filter((_, i) => i !== idx))} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-0.5 shadow-md"><ICONS.X className="w-3 h-3" /></button>
-                            </div>
-                        ))}
-                    </div>
-                )}
-                <div className={`w-full flex items-center bg-[var(--bg-card)] rounded-full md:rounded-[2rem] px-4 py-2.5 md:px-6 md:py-4 transition-all duration-300 ${isLive ? 'border-2 border-[var(--accent-border)]' : 'border border-[var(--border-color)]'}`} style={isLive ? { boxShadow: `inset 0 0 20px var(--accent-shadow)` } : {}}>
-                    <input
-                      type="text"
-                      value={input}
-                      onChange={e => setInput(e.target.value)}
-                      onKeyDown={e => e.key === 'Enter' && handleSend()}
-                      placeholder={isLive ? (liveState === 'listening' ? "Listening..." : liveState === 'speaking' ? "Cupid is speaking..." : "Connecting...") : (profile.role === 'tutor' ? "How can you help your partner today?" : mode === 'ask' ? "Ask Cupid anything..." : "Ready for your next lesson?")}
-                      disabled={isLive}
-                      className="w-full bg-transparent border-none text-xs md:text-sm font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
-                    />
-                </div>
+        {/* Input - Hidden in listen mode */}
+        {!isListening && !activeListenSession && (
+          <div className="p-2 md:p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] relative">
+            <div className={`absolute bottom-16 md:bottom-20 left-2 md:left-4 flex flex-col items-center gap-3 md:gap-4 transition-all duration-300 z-20 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
+               <button onClick={() => imgInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
+                  <ICONS.Image className="w-5 h-5 md:w-6 md:h-6" />
+               </button>
+               <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
+                  <ICONS.FileText className="w-5 h-5 md:w-6 md:h-6" />
+               </button>
             </div>
 
-            <button
-              onClick={() => handleSend()}
-              disabled={loading || (!input.trim() && attachments.length === 0)}
-              className="w-10 h-10 md:w-14 md:h-14 text-white rounded-full flex items-center justify-center shadow-xl active:scale-95 disabled:opacity-50 transition-all shrink-0"
-              style={{ backgroundColor: accentHex }}
-            >
-                <ICONS.Play className="w-5 h-5 md:w-6 md:h-6 fill-white translate-x-0.5" />
-            </button>
+            <div className="max-w-4xl mx-auto flex items-end gap-1.5 md:gap-3">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                disabled={isLive}
+                className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${isMenuOpen ? 'bg-[var(--bg-primary)] border-[var(--border-color)] text-[var(--text-secondary)] rotate-90' : 'bg-[var(--bg-card)] border-[var(--accent-border)] hover:bg-[var(--accent-light)]'} disabled:opacity-50`}
+                style={!isMenuOpen ? { color: accentHex } : {}}
+              >
+                  {isMenuOpen ? <ICONS.X className="w-5 h-5 md:w-6 md:h-6" /> : <ICONS.Plus className="w-5 h-5 md:w-6 md:h-6" />}
+              </button>
+
+              {/* Microphone Button */}
+              <button
+                onClick={isLive ? stopLive : startLive}
+                className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${
+                  isLive
+                    ? 'text-white'
+                    : 'bg-[var(--bg-card)] border-[var(--accent-border)] hover:bg-[var(--accent-light)]'
+                } ${liveState === 'listening' ? 'animate-pulse' : ''}`}
+                style={isLive ? { backgroundColor: accentHex, borderColor: accentHex } : { color: accentHex }}
+              >
+                  <ICONS.Mic className="w-5 h-5 md:w-6 md:h-6" />
+              </button>
+
+              <div className="flex-1 flex flex-col gap-2">
+                  {attachments.length > 0 && (
+                      <div className="flex gap-2 p-2 bg-[var(--bg-primary)] rounded-xl overflow-x-auto no-scrollbar">
+                          {attachments.map((a, idx) => (
+                              <div key={idx} className="relative group shrink-0">
+                                  {a.mimeType.startsWith('image/') ? (
+                                      <img src={`data:${a.mimeType};base64,${a.data}`} className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover" />
+                                  ) : (
+                                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center text-[var(--accent-color)]">
+                                          <ICONS.FileText className="w-4 h-4 md:w-5 md:h-5" />
+                                      </div>
+                                  )}
+                                  <button onClick={() => setAttachments(p => p.filter((_, i) => i !== idx))} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-0.5 shadow-md"><ICONS.X className="w-3 h-3" /></button>
+                              </div>
+                          ))}
+                      </div>
+                  )}
+                  <div className={`w-full flex items-center bg-[var(--bg-card)] rounded-full md:rounded-[2rem] px-4 py-2.5 md:px-6 md:py-4 transition-all duration-300 ${isLive ? 'border-2 border-[var(--accent-border)]' : 'border border-[var(--border-color)]'}`} style={isLive ? { boxShadow: `inset 0 0 20px var(--accent-shadow)` } : {}}>
+                      <input
+                        type="text"
+                        value={input}
+                        onChange={e => setInput(e.target.value)}
+                        onKeyDown={e => e.key === 'Enter' && handleSend()}
+                        placeholder={isLive ? (liveState === 'listening' ? "Listening..." : liveState === 'speaking' ? "Cupid is speaking..." : "Connecting...") : (profile.role === 'tutor' ? "How can you help your partner today?" : mode === 'ask' ? "Ask Cupid anything..." : "Ready for your next lesson?")}
+                        disabled={isLive}
+                        className="w-full bg-transparent border-none text-xs md:text-sm font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
+                      />
+                  </div>
+              </div>
+
+              <button
+                onClick={() => handleSend()}
+                disabled={loading || (!input.trim() && attachments.length === 0)}
+                className="w-10 h-10 md:w-14 md:h-14 text-white rounded-full flex items-center justify-center shadow-xl active:scale-95 disabled:opacity-50 transition-all shrink-0"
+                style={{ backgroundColor: accentHex }}
+              >
+                  <ICONS.Play className="w-5 h-5 md:w-6 md:h-6 fill-white translate-x-0.5" />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* Listen Mode Footer - shown when listening or viewing session */}
+        {(isListening || activeListenSession) && (
+          <div className="p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)]">
+            <div className="max-w-4xl mx-auto">
+              {isListening ? (
+                <div className="flex items-center justify-center gap-4">
+                  <button
+                    onClick={stopListening}
+                    className="px-6 py-3 rounded-xl bg-red-500 text-white font-bold flex items-center justify-center gap-2 hover:bg-red-600 transition-colors"
+                  >
+                    <ICONS.Square className="w-5 h-5" />
+                    Stop & Save
+                  </button>
+                </div>
+              ) : activeListenSession && (
+                <div className="flex items-center justify-center gap-4">
+                  <button
+                    onClick={() => setShowListenPrompt(true)}
+                    className="px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-white"
+                    style={{ backgroundColor: accentHex }}
+                  >
+                    <span>👂</span>
+                    New Listen Session
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveListenSession(null);
+                      setListenEntries([]);
+                      if (chats.length > 0) setActiveChat(chats[0]);
+                    }}
+                    className="px-6 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-primary)] font-bold hover:opacity-80 transition-opacity"
+                  >
+                    Back to Chats
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
 
       <input type="file" ref={imgInputRef} accept="image/*" className="hidden" onChange={handleFileUpload} />
@@ -816,40 +1271,55 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </button>
           </div>
 
-          {/* Chat List */}
+          {/* Chat + Listen Session List */}
           <div className="flex-1 overflow-y-auto p-2 space-y-1">
-            {chats.length === 0 ? (
+            {sidebarItems.length === 0 ? (
               <div className="py-8 text-center">
                 <ICONS.MessageCircle className="w-8 h-8 mx-auto mb-2 text-[var(--text-secondary)] opacity-40" />
                 <p className="text-xs text-[var(--text-secondary)]">No conversations yet</p>
                 <p className="text-[10px] text-[var(--text-secondary)] mt-1">Start a new session above</p>
               </div>
             ) : (
-              chats.map(c => (
-                <button
-                  key={c.id}
-                  onClick={() => {
-                    setActiveChat(c);
-                    setIsMobileSidebarOpen(false);
-                  }}
-                  className={`w-full text-left p-3 rounded-xl transition-all flex flex-col gap-0.5 ${
-                    activeChat?.id === c.id
-                      ? 'font-bold'
-                      : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
-                  }`}
-                  style={activeChat?.id === c.id ? { backgroundColor: `${accentHex}15`, color: accentHex } : {}}
-                >
-                  <span className="truncate text-xs">{c.title}</span>
-                  <span className="text-[8px] uppercase tracking-widest opacity-60 font-black">{c.mode}</span>
-                </button>
-              ))
+              sidebarItems.map(item => {
+                const isActive = item.type === 'chat'
+                  ? activeChat?.id === item.id
+                  : activeListenSession?.id === item.id;
+                const isListenItem = item.type === 'listen';
+
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      if (isListenItem) {
+                        selectListenSession(item as ListenSession);
+                      } else {
+                        setActiveChat(item as Chat);
+                        setActiveListenSession(null);
+                        setIsMobileSidebarOpen(false);
+                      }
+                    }}
+                    className={`w-full text-left p-3 rounded-xl transition-all flex flex-col gap-0.5 ${
+                      isActive ? 'font-bold' : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
+                    }`}
+                    style={isActive ? { backgroundColor: `${accentHex}15`, color: accentHex } : {}}
+                  >
+                    <span className="truncate text-xs flex items-center gap-1.5">
+                      {isListenItem && <span>👂</span>}
+                      {item.title}
+                    </span>
+                    <span className={`text-[8px] uppercase tracking-widest opacity-60 font-black ${isListenItem ? 'text-blue-500' : ''}`}>
+                      {isListenItem ? `listen • ${formatListenDuration((item as ListenSession).duration_seconds)}` : (item as Chat).mode}
+                    </span>
+                  </button>
+                );
+              })
             )}
           </div>
 
           {/* Footer */}
           <div className="p-3 border-t border-[var(--border-color)] text-center">
             <span className="text-[10px] text-[var(--text-secondary)]">
-              {chats.length} conversation{chats.length !== 1 ? 's' : ''}
+              {sidebarItems.length} item{sidebarItems.length !== 1 ? 's' : ''}
             </span>
           </div>
         </div>
@@ -861,6 +1331,71 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           words={newWordsNotification}
           onClose={() => setNewWordsNotification([])}
         />
+      )}
+
+      {/* Listen Mode Start Prompt */}
+      {showListenPrompt && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-[var(--bg-card)] rounded-3xl shadow-2xl w-full max-w-md p-8 text-center">
+            <div className="w-20 h-20 mx-auto rounded-full bg-[var(--accent-light)] flex items-center justify-center mb-6">
+              <span className="text-4xl">👂</span>
+            </div>
+
+            <h2 className="text-xl font-bold text-[var(--text-primary)] mb-2">Ready to Listen?</h2>
+            <p className="text-sm text-[var(--text-secondary)] mb-6">
+              Capture real Polish conversations with live transcription and translation.
+            </p>
+
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-[var(--text-secondary)] mb-2 text-left">
+                What are you listening to? <span className="opacity-60">(optional)</span>
+              </label>
+              <input
+                type="text"
+                value={listenContextLabel}
+                onChange={(e) => setListenContextLabel(e.target.value)}
+                placeholder="e.g., Dinner at Babcia's, TV show..."
+                className="w-full p-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]"
+              />
+              <p className="text-xs text-[var(--text-secondary)] mt-1 text-left opacity-60">
+                You can name it later if you prefer
+              </p>
+            </div>
+
+            {listenError && (
+              <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-600 dark:text-red-400 text-sm">
+                {listenError}
+              </div>
+            )}
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  setShowListenPrompt(false);
+                  setListenContextLabel('');
+                  setListenError(null);
+                }}
+                className="flex-1 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-primary)] font-bold hover:opacity-80 transition-opacity"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={startListening}
+                className="flex-1 py-3 px-4 rounded-xl text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: accentHex }}
+              >
+                <ICONS.Mic className="w-5 h-5" />
+                Start Listening
+              </button>
+            </div>
+
+            <p className="text-[10px] text-[var(--text-secondary)] mt-4 flex items-center justify-center gap-1">
+              <span className="px-1.5 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded font-bold">
+                BETA
+              </span>
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );

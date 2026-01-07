@@ -25,8 +25,8 @@ export interface LiveSessionConfig {
   onClose?: () => void;
 }
 
-// Debug mode - set to true for verbose logging
-const DEBUG = true;
+// Debug mode - set to false to reduce console noise
+const DEBUG = false;
 
 function log(...args: any[]) {
   if (DEBUG) {

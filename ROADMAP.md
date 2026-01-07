@@ -543,6 +543,27 @@ See `TROUBLESHOOTING.md` Issue 23 for details.
 
 **Goal:** Improve UI consistency, add conversation practice feature, and fix theming issues.
 
+### Late Addition: Listen Mode Integration (January 7, 2026)
+
+**Major Feature:** Integrated Listen Mode into main chat UI for capturing real Polish conversations.
+
+**What Changed:**
+- Listen sessions now appear in sidebar alongside regular chats
+- Recording UI rendered inline in ChatArea (not as modal)
+- Polish transcription with English translation (via Gladia API)
+- Phrase bookmarking during recording
+- Session saving and viewing
+
+**Technical Fixes:**
+- Fixed Gladia translation merging (translations arrive as separate WebSocket messages)
+- Added `pendingTranscripts` Map with 800ms timeout for translation arrival
+- Removed unsupported diarization parameters from Gladia API call
+
+**Files Modified:**
+- `services/gladia-session.ts` - Translation merging logic
+- `components/ChatArea.tsx` - Full Listen Mode integration
+- `api/gladia-token.ts` - Removed diarization params
+
 ### Completed Features
 
 #### 1. Voice Conversation Practice (BETA)
@@ -805,6 +826,20 @@ CREATE TABLE flashcard_progress (
 - `TROUBLESHOOTING.md` - 30+ solved issues with detailed solutions
 - `DESIGN.md` - UI/UX design guidelines
 - `NEXT_STEPS.md` - Immediate next actions
+- `FINAL_PHASES.md` - **NEW** Deployment readiness, payments, security, legal
 - `docs/AI_INTEGRATION_GUIDE.md` - How to work with AI models
 - `docs/FORMATTING.md` - Text formatting system (markdown to HTML pipeline)
 - `docs/SYSTEM_PROMPTS.md` - AI prompt documentation
+
+---
+
+## Next: Deployment Phases
+
+See **`FINAL_PHASES.md`** for:
+- Phase 8: Codebase Integrity & Cleanup
+- Phase 9: Data Routing & Integration Testing
+- Phase 10: Stripe Payments & Subscriptions
+- Phase 11: Security Hardening
+- Phase 12: Scale Resilience
+- Phase 13: Legal & Compliance
+- Phase 14: Launch Checklist
