@@ -45,7 +45,9 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
   return { userId: user.id };
 }
 
-// Get AI suggestions for a topic with full grammatical data
+// Get AI suggestions for a topic - lightweight preview data only
+// Full grammatical data (conjugations, examples, etc.) is generated later
+// in complete-word-request.ts when the student actually accepts the words
 async function getTopicSuggestions(topic: string, count: number = 10, excludeWords: string[] = []): Promise<any[]> {
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
   if (!apiKey) return [];
@@ -63,58 +65,20 @@ async function getTopicSuggestions(topic: string, count: number = 10, excludeWor
 
 For a romantic couple learning Polish together. The words should be practical and useful for everyday communication.${exclusionText}
 
-IMPORTANT - Include grammatical data based on word type:
-- VERBS: Must include present tense conjugations for all 6 persons (ja, ty, on/ona/ono, my, wy, oni/one)
-- NOUNS: Must include grammatical gender (masculine/feminine/neuter) and plural form
-- ADJECTIVES: Must include all 4 forms (masculine, feminine, neuter, plural)
-
-Return ONLY the JSON array, no other text.`,
+Return ONLY the JSON array with basic word info for preview.`,
     config: {
       responseMimeType: "application/json",
+      // Lightweight schema - just enough for tutor to preview and select words
+      // Full enrichment (conjugations, examples, etc.) happens in complete-word-request.ts
       responseSchema: {
         type: Type.ARRAY,
         items: {
           type: Type.OBJECT,
           properties: {
-            word: { type: Type.STRING, description: "Polish word or phrase (infinitive for verbs, masculine singular for adjectives)" },
+            word: { type: Type.STRING, description: "Polish word or phrase" },
             translation: { type: Type.STRING, description: "English translation" },
             word_type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
-            pronunciation: { type: Type.STRING, description: "Pronunciation guide in English" },
-            // Verb conjugations
-            conjugations: {
-              type: Type.OBJECT,
-              description: "Present tense conjugations for verbs only",
-              properties: {
-                present: {
-                  type: Type.OBJECT,
-                  properties: {
-                    ja: { type: Type.STRING },
-                    ty: { type: Type.STRING },
-                    on_ona_ono: { type: Type.STRING },
-                    my: { type: Type.STRING },
-                    wy: { type: Type.STRING },
-                    oni_one: { type: Type.STRING }
-                  }
-                }
-              }
-            },
-            // Noun data
-            gender: { type: Type.STRING, enum: ["masculine", "feminine", "neuter"], description: "Grammatical gender for nouns" },
-            plural: { type: Type.STRING, description: "Plural form for nouns" },
-            // Adjective forms
-            adjective_forms: {
-              type: Type.OBJECT,
-              description: "All 4 forms for adjectives",
-              properties: {
-                masculine: { type: Type.STRING },
-                feminine: { type: Type.STRING },
-                neuter: { type: Type.STRING },
-                plural: { type: Type.STRING }
-              }
-            },
-            // Example
-            example_sentence: { type: Type.STRING, description: "Example sentence using the word" },
-            example_translation: { type: Type.STRING, description: "English translation of example" }
+            pronunciation: { type: Type.STRING, description: "Pronunciation guide in English" }
           },
           required: ["word", "translation", "word_type", "pronunciation"]
         }
@@ -124,37 +88,13 @@ Return ONLY the JSON array, no other text.`,
 
   try {
     const words = JSON.parse(result.text || '[]');
-
-    // Process each word to store grammatical data in context field
-    return words.map((w: any) => {
-      const context: any = {};
-
-      if (w.word_type === 'verb' && w.conjugations?.present) {
-        context.conjugations = w.conjugations;
-      }
-
-      if (w.word_type === 'noun') {
-        if (w.gender) context.gender = w.gender;
-        if (w.plural) context.plural = w.plural;
-      }
-
-      if (w.word_type === 'adjective' && w.adjective_forms) {
-        context.adjective_forms = w.adjective_forms;
-      }
-
-      if (w.example_sentence) {
-        context.example_sentence = w.example_sentence;
-        context.example_translation = w.example_translation;
-      }
-
-      return {
-        word: w.word,
-        translation: w.translation,
-        word_type: w.word_type,
-        pronunciation: w.pronunciation,
-        context: Object.keys(context).length > 0 ? JSON.stringify(context) : undefined
-      };
-    });
+    // Return lightweight preview data - no context field needed here
+    return words.map((w: any) => ({
+      word: w.word,
+      translation: w.translation,
+      word_type: w.word_type,
+      pronunciation: w.pronunciation
+    }));
   } catch {
     return [];
   }

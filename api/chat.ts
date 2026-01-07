@@ -523,6 +523,86 @@ ${modePrompt}`
       : `${COMMON_INSTRUCTIONS}${personalizedContext}
 ${modePrompt}`;
 
+    // Lightweight schema for tutor/coach mode - no vocabulary extraction needed
+    // Tutors don't add words to their Love Log, so we skip the expensive extraction
+    const coachModeSchema = {
+      type: Type.OBJECT,
+      properties: {
+        replyText: { type: Type.STRING }
+      },
+      required: ["replyText"]
+    };
+
+    // Full schema for student modes (ASK/LEARN) - vocabulary goes to Love Log
+    const studentModeSchema = {
+      type: Type.OBJECT,
+      properties: {
+        replyText: { type: Type.STRING },
+        newWords: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              word: { type: Type.STRING },
+              translation: { type: Type.STRING },
+              type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
+              importance: { type: Type.INTEGER },
+              context: { type: Type.STRING },
+              rootWord: { type: Type.STRING },
+              examples: {
+                type: Type.ARRAY,
+                items: { type: Type.STRING },
+                description: "REQUIRED: Exactly 5 example sentences. Format: 'Polish sentence. (English translation.)'"
+              },
+              proTip: { type: Type.STRING },
+              conjugations: {
+                type: Type.OBJECT,
+                description: "REQUIRED for verbs. Only present tense - past/future unlocked separately.",
+                properties: {
+                  present: {
+                    type: Type.OBJECT,
+                    description: "Present tense conjugations - ALL 6 fields required",
+                    properties: {
+                      ja: { type: Type.STRING, description: "I form - REQUIRED" },
+                      ty: { type: Type.STRING, description: "You (singular) form - REQUIRED" },
+                      onOna: { type: Type.STRING, description: "He/She/It form - REQUIRED" },
+                      my: { type: Type.STRING, description: "We form - REQUIRED" },
+                      wy: { type: Type.STRING, description: "You (plural) form - REQUIRED" },
+                      oni: { type: Type.STRING, description: "They form - REQUIRED" }
+                    },
+                    required: ["ja", "ty", "onOna", "my", "wy", "oni"]
+                  }
+                },
+                required: ["present"]
+              },
+              adjectiveForms: {
+                type: Type.OBJECT,
+                description: "REQUIRED for adjectives. All 4 gender forms must be provided.",
+                properties: {
+                  masculine: { type: Type.STRING, description: "Masculine form - REQUIRED" },
+                  feminine: { type: Type.STRING, description: "Feminine form - REQUIRED" },
+                  neuter: { type: Type.STRING, description: "Neuter form - REQUIRED" },
+                  plural: { type: Type.STRING, description: "Plural form - REQUIRED" }
+                },
+                required: ["masculine", "feminine", "neuter", "plural"]
+              },
+              gender: {
+                type: Type.STRING,
+                enum: ["masculine", "feminine", "neuter"],
+                description: "REQUIRED for nouns. Grammatical gender."
+              },
+              plural: {
+                type: Type.STRING,
+                description: "REQUIRED for nouns. The plural form of the word."
+              }
+            },
+            required: ["word", "translation", "type", "importance", "rootWord", "examples", "proTip"]
+          }
+        }
+      },
+      required: ["replyText", "newWords"]
+    };
+
     // Build multi-turn conversation contents
     const contents: any[] = [];
 
@@ -558,74 +638,8 @@ ${modePrompt}`;
       config: {
         systemInstruction: activeSystemInstruction,
         responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            replyText: { type: Type.STRING },
-            newWords: {
-              type: Type.ARRAY,
-              items: {
-                type: Type.OBJECT,
-                properties: {
-                  word: { type: Type.STRING },
-                  translation: { type: Type.STRING },
-                  type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
-                  importance: { type: Type.INTEGER },
-                  context: { type: Type.STRING },
-                  rootWord: { type: Type.STRING },
-                  examples: {
-                    type: Type.ARRAY,
-                    items: { type: Type.STRING },
-                    description: "REQUIRED: Exactly 5 example sentences. Format: 'Polish sentence. (English translation.)'"
-                  },
-                  proTip: { type: Type.STRING },
-                  conjugations: {
-                    type: Type.OBJECT,
-                    description: "REQUIRED for verbs. Only present tense - past/future unlocked separately.",
-                    properties: {
-                      present: {
-                        type: Type.OBJECT,
-                        description: "Present tense conjugations - ALL 6 fields required",
-                        properties: {
-                          ja: { type: Type.STRING, description: "I form - REQUIRED" },
-                          ty: { type: Type.STRING, description: "You (singular) form - REQUIRED" },
-                          onOna: { type: Type.STRING, description: "He/She/It form - REQUIRED" },
-                          my: { type: Type.STRING, description: "We form - REQUIRED" },
-                          wy: { type: Type.STRING, description: "You (plural) form - REQUIRED" },
-                          oni: { type: Type.STRING, description: "They form - REQUIRED" }
-                        },
-                        required: ["ja", "ty", "onOna", "my", "wy", "oni"]
-                      }
-                    },
-                    required: ["present"]
-                  },
-                  adjectiveForms: {
-                    type: Type.OBJECT,
-                    description: "REQUIRED for adjectives. All 4 gender forms must be provided.",
-                    properties: {
-                      masculine: { type: Type.STRING, description: "Masculine form - REQUIRED" },
-                      feminine: { type: Type.STRING, description: "Feminine form - REQUIRED" },
-                      neuter: { type: Type.STRING, description: "Neuter form - REQUIRED" },
-                      plural: { type: Type.STRING, description: "Plural form - REQUIRED" }
-                    },
-                    required: ["masculine", "feminine", "neuter", "plural"]
-                  },
-                  gender: {
-                    type: Type.STRING,
-                    enum: ["masculine", "feminine", "neuter"],
-                    description: "REQUIRED for nouns. Grammatical gender."
-                  },
-                  plural: {
-                    type: Type.STRING,
-                    description: "REQUIRED for nouns. The plural form of the word."
-                  }
-                },
-                required: ["word", "translation", "type", "importance", "rootWord", "examples", "proTip"]
-              }
-            }
-          },
-          required: ["replyText", "newWords"]
-        }
+        // Use lightweight schema for tutors (no vocab extraction), full schema for students
+        responseSchema: isTutorMode ? coachModeSchema : studentModeSchema
       }
     });
 
@@ -634,6 +648,10 @@ ${modePrompt}`;
       const parsed = JSON.parse(output);
       // Sanitize the reply text to remove any CSS/HTML artifacts
       parsed.replyText = sanitizeOutput(parsed.replyText || '');
+      // Ensure newWords is always present (empty for tutor mode)
+      if (!parsed.newWords) {
+        parsed.newWords = [];
+      }
       return res.status(200).json(parsed);
     } catch (parseError) {
       return res.status(200).json({ replyText: sanitizeOutput(output), newWords: [] });
