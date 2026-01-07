@@ -192,16 +192,14 @@ export default async function handler(req: any, res: any) {
 
     // Build mode-specific system instruction
     let systemInstruction: string;
-    let voiceName: string;
+    const voiceName = 'Kore'; // Use Kore for all voice modes
 
     if (mode === 'conversation' && conversationScenario) {
       // Conversation practice mode - use scenario-specific prompt
       systemInstruction = buildConversationSystemInstruction(conversationScenario, userName);
-      voiceName = 'Aoede'; // Use Aoede voice for conversation practice (natural, warm)
     } else {
       // Regular voice mode
       systemInstruction = buildVoiceSystemInstruction(mode, userLog);
-      voiceName = mode === 'learn' ? 'Kore' : 'Puck';
     }
     // Use the only model that supports Live API (BidiGenerateContent)
     const model = 'gemini-2.5-flash-native-audio-preview-12-2025';
