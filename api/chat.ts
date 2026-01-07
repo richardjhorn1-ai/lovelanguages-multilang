@@ -640,9 +640,9 @@ ${modePrompt}`;
     // Build multi-turn conversation contents
     const contents: any[] = [];
 
-    // Add conversation history (last 10 messages for context)
+    // Add conversation history (last 50 messages for context)
     if (messages && Array.isArray(messages) && messages.length > 0) {
-      messages.slice(-10).forEach((msg: any) => {
+      messages.slice(-50).forEach((msg: any) => {
         if (msg.content) {
           contents.push({
             role: msg.role === 'model' ? 'model' : 'user',

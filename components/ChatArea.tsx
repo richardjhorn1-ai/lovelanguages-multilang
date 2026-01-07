@@ -427,21 +427,41 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     // ACT 1: SAVE USER MESSAGE
     await saveMessage('user', currentAttachments.length > 0 ? `${userMessage} [Media Attached]`.trim() : userMessage);
 
-    // ACT 2: FETCH AI REPLY (using non-streaming API for clean formatting)
     const userWords = messages.map(m => m.content);
-    // Build message history with roles for context awareness
     const messageHistory = messages.map(m => ({ role: m.role, content: m.content }));
 
-    // Always use generateReply (non-streaming) as it produces clean markdown
-    // Pass session context to avoid re-fetching on every message
-    const { replyText, newWords } = await geminiService.generateReply(
-      userMessage,
-      mode,
-      currentAttachments,
-      userWords,
-      messageHistory,
-      sessionContextRef.current
-    );
+    let replyText: string;
+    let newWords: ExtractedWord[] = [];
+
+    // ACT 2: FETCH AI REPLY
+    if (currentAttachments.length > 0) {
+      // Use non-streaming for image messages (streaming doesn't support images)
+      const result = await geminiService.generateReply(
+        userMessage,
+        mode,
+        currentAttachments,
+        userWords,
+        messageHistory,
+        sessionContextRef.current
+      );
+      replyText = result.replyText;
+      newWords = result.newWords;
+    } else {
+      // Use streaming for text-only messages - show words as they arrive
+      replyText = await geminiService.generateReplyStream(
+        userMessage,
+        mode,
+        userWords,
+        (chunk) => setStreamingText(prev => prev + chunk),
+        messageHistory
+      );
+      // Extract words after streaming completes
+      const extracted = await geminiService.analyzeHistory(
+        [...messageHistory, { role: 'user', content: userMessage }, { role: 'model', content: replyText }],
+        userWords
+      );
+      newWords = extracted;
+    }
 
     // ACT 3: SAVE MODEL REPLY
     setStreamingText('');
@@ -1277,6 +1297,25 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                   </div>
                 </div>
               ))}
+
+              {/* Encourage new chat after 50 messages */}
+              {messages.length >= 50 && (
+                <div className="flex justify-center py-4">
+                  <div className="flex items-center gap-3 px-4 py-3 bg-[var(--accent-light)] border border-[var(--accent-border)] rounded-xl text-sm">
+                    <span className="text-[var(--text-secondary)]">This conversation is getting long!</span>
+                    <button
+                      onClick={async () => {
+                        const { data } = await supabase.from('chats').insert({ user_id: profile.id, title: 'New Session', mode }).select().single();
+                        if (data) { setActiveChat(data); setMessages([]); }
+                      }}
+                      className="px-3 py-1.5 rounded-lg font-medium text-white transition-colors"
+                      style={{ backgroundColor: accentHex }}
+                    >
+                      Start Fresh
+                    </button>
+                  </div>
+                </div>
+              )}
 
               {/* Streaming response */}
               {streamingText && (
