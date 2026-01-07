@@ -840,6 +840,9 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
+              <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
+                <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
+              </button>
               <span className="text-sm font-bold text-[var(--text-secondary)]">
                 {localGameIndex + 1} / {localGameWords.length}
               </span>

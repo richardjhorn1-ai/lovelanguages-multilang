@@ -138,13 +138,44 @@ export class LiveSession {
         }
       });
 
-      log('SDK session connected, starting audio...');
-      this.setState('listening');
+      log('SDK session connected');
 
-      // Initialize audio recorder and start capturing
+      // Initialize audio recorder
       this.audioRecorder = new AudioRecorder();
-      await this.startListening();
-      log('Audio capture started successfully');
+
+      // For conversation mode, prompt AI to speak first
+      if (this.config.mode === 'conversation' && this.config.conversationScenario) {
+        log('Conversation mode: prompting AI to speak first...');
+        this.setState('speaking');
+
+        // Send a text message to trigger the AI's opening line
+        // The system prompt already instructs it to start the conversation
+        try {
+          this.session.sendClientContent({
+            turns: [{
+              role: 'user',
+              parts: [{ text: '[The customer has just arrived. Begin the conversation in Polish as instructed in your role.]' }]
+            }],
+            turnComplete: true
+          });
+          log('Sent initial prompt to AI');
+        } catch (e) {
+          log('Error sending initial prompt:', e);
+        }
+
+        // Start listening after a short delay to let AI start speaking
+        setTimeout(async () => {
+          if (this.state === 'speaking' || this.state === 'listening') {
+            await this.startListening();
+            log('Audio capture started after AI prompt');
+          }
+        }, 500);
+      } else {
+        // Normal mode - start listening immediately
+        this.setState('listening');
+        await this.startListening();
+        log('Audio capture started successfully');
+      }
 
     } catch (error) {
       log('Connection error:', error);
