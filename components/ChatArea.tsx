@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase } from '../services/supabase';
-import { geminiService, Attachment, ExtractedWord } from '../services/gemini';
+import { geminiService, Attachment, ExtractedWord, SessionContext } from '../services/gemini';
 import { LiveSession, LiveSessionState } from '../services/live-session';
 import { GladiaSession, GladiaState, TranscriptChunk } from '../services/gladia-session';
 import { Profile, Chat, Message, ChatMode, WordType } from '../types';
@@ -246,6 +246,46 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const gladiaRef = useRef<GladiaSession | null>(null);
   const listenTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // Session context - loaded once, reused for all chat messages
+  const sessionContextRef = useRef<SessionContext | null>(null);
+  const contextLoadedRef = useRef(false);
+
+  // Boot session on mount - fetch context once
+  useEffect(() => {
+    const bootSession = async () => {
+      if (contextLoadedRef.current) return;
+      const context = await geminiService.bootSession();
+      if (context) {
+        sessionContextRef.current = context;
+        contextLoadedRef.current = true;
+      }
+    };
+    bootSession();
+  }, []);
+
+  // Invalidate context when vocabulary changes
+  useEffect(() => {
+    const invalidateContext = () => {
+      contextLoadedRef.current = false;
+      sessionContextRef.current = null;
+      // Re-boot after invalidation
+      geminiService.bootSession().then(context => {
+        if (context) {
+          sessionContextRef.current = context;
+          contextLoadedRef.current = true;
+        }
+      });
+    };
+
+    window.addEventListener('dictionary-updated', invalidateContext);
+    window.addEventListener('level-changed', invalidateContext);
+
+    return () => {
+      window.removeEventListener('dictionary-updated', invalidateContext);
+      window.removeEventListener('level-changed', invalidateContext);
+    };
+  }, []);
+
   useEffect(() => { fetchChats(); fetchListenSessions(); }, [profile]);
   useEffect(() => {
     if (activeChat) {
@@ -393,7 +433,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     const messageHistory = messages.map(m => ({ role: m.role, content: m.content }));
 
     // Always use generateReply (non-streaming) as it produces clean markdown
-    const { replyText, newWords } = await geminiService.generateReply(userMessage, mode, currentAttachments, userWords, messageHistory);
+    // Pass session context to avoid re-fetching on every message
+    const { replyText, newWords } = await geminiService.generateReply(
+      userMessage,
+      mode,
+      currentAttachments,
+      userWords,
+      messageHistory,
+      sessionContextRef.current
+    );
 
     // ACT 3: SAVE MODEL REPLY
     setStreamingText('');

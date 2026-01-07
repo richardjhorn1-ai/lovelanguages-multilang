@@ -238,7 +238,7 @@ export default async function handler(req: any, res: any) {
        });
     }
 
-    const { prompt, mode = 'ask', userLog = [], action, images, messages = [] } = body;
+    const { prompt, mode = 'ask', userLog = [], action, images, messages = [], sessionContext } = body;
     const ai = new GoogleGenAI({ apiKey });
 
     // Handle Title Generation
@@ -492,22 +492,55 @@ Good: "I see **mówić** is tricky for them. Make it a game - you say 'Ja mówi�
     };
 
     // Get user's profile for mode-specific prompts and personalization
-    const userProfile = await getUserProfile(auth.userId);
-    const userRole = userProfile.role;
+    // Use sessionContext if provided (avoids re-fetching on every message)
+    let userRole: 'student' | 'tutor';
+    let partnerName: string | null = null;
+    let partnerContext: PartnerContext | null = null;
+
+    if (sessionContext && sessionContext.bootedAt) {
+      // Use cached session context (efficient path)
+      userRole = sessionContext.role === 'tutor' ? 'tutor' : 'student';
+      partnerName = sessionContext.partnerName;
+
+      // For tutors, build partner context from session
+      if (userRole === 'tutor' && sessionContext.partner) {
+        const p = sessionContext.partner;
+        partnerContext = {
+          learnerName: p.name,
+          vocabulary: p.vocabulary.map(v => `${v.word} (${v.translation})`),
+          weakSpots: p.weakSpots,
+          recentWords: p.recentWords,
+          stats: {
+            totalWords: p.stats.totalWords,
+            masteredCount: p.stats.masteredCount,
+            xp: p.xp,
+            level: p.level
+          }
+        };
+      }
+    } else {
+      // Fallback: Fetch fresh (backwards compatible, but slower)
+      const userProfile = await getUserProfile(auth.userId);
+      userRole = userProfile.role;
+      partnerName = userProfile.partnerName;
+
+      if (userRole === 'tutor') {
+        partnerContext = await getPartnerContext(auth.userId);
+      }
+    }
 
     // For tutors, ALWAYS use coach mode with partner context
     // For students, use the requested mode (ask/learn)
     let modePrompt = '';
     if (userRole === 'tutor') {
-      const partnerContext = await getPartnerContext(auth.userId);
       modePrompt = generateCoachPrompt(partnerContext);
     } else {
       modePrompt = MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.ask;
     }
 
     // Generate personalized context for students (minimal - just partner name)
-    const personalizedContext = userProfile.partnerName && userRole === 'student'
-      ? `\nPERSONALIZATION:\nThe user is learning Polish for someone named ${userProfile.partnerName}. Reference this person naturally in examples and encouragement (e.g., "Try saying this to ${userProfile.partnerName} tonight!" or "Imagine ${userProfile.partnerName}'s reaction when you say this!").\n`
+    const personalizedContext = partnerName && userRole === 'student'
+      ? `\nPERSONALIZATION:\nThe user is learning Polish for someone named ${partnerName}. Reference this person naturally in examples and encouragement (e.g., "Try saying this to ${partnerName} tonight!" or "Imagine ${partnerName}'s reaction when you say this!").\n`
       : '';
 
     // Tutors use simplified instructions (no vocabulary extraction needed)

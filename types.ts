@@ -472,3 +472,60 @@ export interface Attachment {
   data: string;
   mimeType: string;
 }
+
+// ===========================================
+// Session Boot Context Types
+// ===========================================
+
+// Context loaded once per session to avoid repeated DB fetches
+export interface SessionContext {
+  // Common fields
+  userId: string;
+  role: 'student' | 'tutor';
+  name: string;
+  partnerName: string | null;
+  bootedAt: string;  // ISO timestamp for cache invalidation
+
+  // Student-specific (or learner data for tutors)
+  level: string;
+  xp: number;
+
+  // Vocabulary context (for AI prompts)
+  vocabulary: Array<{
+    word: string;
+    translation: string;
+    wordType?: string;
+  }>;
+
+  // Words they struggle with
+  weakSpots: Array<{
+    word: string;
+    translation: string;
+    failCount: number;
+  }>;
+
+  // Recently learned words
+  recentWords: Array<{
+    word: string;
+    translation: string;
+  }>;
+
+  // Stats summary
+  stats: {
+    totalWords: number;
+    masteredCount: number;
+  };
+
+  // Tutor-specific: partner's learning data
+  partner?: {
+    userId: string;
+    name: string;
+    level: string;
+    xp: number;
+    vocabulary: Array<{ word: string; translation: string }>;
+    weakSpots: Array<{ word: string; translation: string; failCount: number }>;
+    recentWords: Array<{ word: string; translation: string }>;
+    stats: { totalWords: number; masteredCount: number };
+    lastActive?: string;
+  };
+}
