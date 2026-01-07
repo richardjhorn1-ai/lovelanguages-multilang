@@ -1,7 +1,7 @@
 # Phase 8: Codebase Integrity & Cleanup Plan
 
 **Created:** January 7, 2026
-**Status:** Partially Complete (13/16 phases done)
+**Status:** Nearly Complete (13/16 done, 1 pending, 2 deferred)
 **Last Updated:** January 7, 2026
 **Goal:** Clean, consistent codebase ready for production deployment
 
@@ -15,16 +15,25 @@
 | 8.4 | ✅ Complete | TODO Resolution (legacy modes removed) |
 | 8.5 | ✅ Complete | API Error Response Standardization |
 | 8.6 | ✅ Complete | Auth Logging Standardization |
-| 8.7 | ⬜ Deferred | Onboarding Theme Cleanup |
+| 8.7 | ⏸️ Deferred | Onboarding Theme Cleanup (post-launch) |
 | 8.8 | ✅ Complete | Level Test Theme Fix |
 | 8.9 | ✅ Complete | Create Quiz Word Validation Bug |
-| 8.10 | ✅ Complete | Tutor Word Entry UX |
-| 8.11 | ⬜ Deferred | Audio Feedback System |
+| 8.10 | ✅ Complete | Tutor Word Entry UX (unified Polish-first flow) |
+| 8.11 | ⏸️ Deferred | Audio Feedback System (post-launch) |
 | 8.12 | ✅ Complete | Notification Count Bug Fix |
 | 8.13 | ✅ Complete | Conversation Practice AI Speaks First |
 | 8.14 | ✅ Complete | Love Package Completion Bug |
 | 8.15 | ⬜ Pending | Profile Photo Upload Feature |
 | 8.16 | ✅ Complete | Game Quit Functionality |
+
+## Remaining Work
+
+### Pending (Pre-Launch)
+- **8.15 Profile Photo Upload** (~45-60 min) - Supabase Storage bucket, image cropping, onboarding + profile integration
+
+### Deferred (Post-Launch)
+- **8.7 Onboarding Theme Cleanup** (~30-45 min) - Hardcoded colors in onboarding steps
+- **8.11 Audio Feedback System** (~1-2 hours) - Sound effects for correct/wrong answers, level ups
 
 ---
 
