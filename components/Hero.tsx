@@ -660,6 +660,7 @@ interface WordEvent {
   stateStartTime: number;
   centerX: number;
   centerY: number;
+  rotation: number; // Rotation angle in radians
   polishPositions: { x: number; y: number }[];
   englishPositions: { x: number; y: number }[];
   heartPositions: { x: number; y: number }[];
@@ -683,15 +684,16 @@ const WordParticleEffect: React.FC<{
     text: string,
     centerX: number,
     centerY: number,
-    fontSize: number
+    fontSize: number,
+    rotation: number = 0
   ): { x: number; y: number }[] => {
     const offscreen = document.createElement('canvas');
     const ctx = offscreen.getContext('2d');
     if (!ctx) return [];
 
-    // Set canvas size
-    offscreen.width = 400;
-    offscreen.height = 100;
+    // Set canvas size (larger for bigger text)
+    offscreen.width = 500;
+    offscreen.height = 150;
 
     // Draw text
     ctx.fillStyle = 'white';
@@ -700,18 +702,27 @@ const WordParticleEffect: React.FC<{
     ctx.textBaseline = 'middle';
     ctx.fillText(text, offscreen.width / 2, offscreen.height / 2);
 
-    // Sample pixels
+    // Sample pixels (smaller sample rate = more particles)
     const imageData = ctx.getImageData(0, 0, offscreen.width, offscreen.height);
     const positions: { x: number; y: number }[] = [];
-    const sampleRate = 3; // Sample every 3rd pixel for performance
+    const sampleRate = 2; // Sample every 2nd pixel for more resolution
+
+    const cos = Math.cos(rotation);
+    const sin = Math.sin(rotation);
 
     for (let y = 0; y < offscreen.height; y += sampleRate) {
       for (let x = 0; x < offscreen.width; x += sampleRate) {
         const i = (y * offscreen.width + x) * 4;
         if (imageData.data[i + 3] > 128) { // Alpha > 50%
+          // Apply rotation around center
+          const localX = x - offscreen.width / 2;
+          const localY = y - offscreen.height / 2;
+          const rotatedX = localX * cos - localY * sin;
+          const rotatedY = localX * sin + localY * cos;
+
           positions.push({
-            x: centerX + (x - offscreen.width / 2),
-            y: centerY + (y - offscreen.height / 2),
+            x: centerX + rotatedX,
+            y: centerY + rotatedY,
           });
         }
       }
@@ -744,15 +755,48 @@ const WordParticleEffect: React.FC<{
   // Spawn a new word event
   const spawnWordEvent = (canvasWidth: number, canvasHeight: number): WordEvent => {
     const pair = WORD_PAIRS[Math.floor(Math.random() * WORD_PAIRS.length)];
-    const centerX = canvasWidth * (0.3 + Math.random() * 0.4); // Middle 40% of screen
-    const centerY = canvasHeight * (0.5 + Math.random() * 0.3); // Lower half
 
-    const polishPositions = getTextParticlePositions(pair.polish, centerX, centerY, 32);
-    const englishPositions = getTextParticlePositions(pair.english, centerX, centerY, 32);
+    // Spawn at edges - avoid center text area
+    // Pick a random edge: 0=left, 1=right, 2=top-left, 3=top-right, 4=bottom
+    const edge = Math.floor(Math.random() * 5);
+    let centerX: number;
+    let centerY: number;
+
+    switch (edge) {
+      case 0: // Left edge
+        centerX = canvasWidth * (0.05 + Math.random() * 0.15);
+        centerY = canvasHeight * (0.2 + Math.random() * 0.6);
+        break;
+      case 1: // Right edge
+        centerX = canvasWidth * (0.80 + Math.random() * 0.15);
+        centerY = canvasHeight * (0.2 + Math.random() * 0.6);
+        break;
+      case 2: // Top-left corner
+        centerX = canvasWidth * (0.1 + Math.random() * 0.2);
+        centerY = canvasHeight * (0.05 + Math.random() * 0.15);
+        break;
+      case 3: // Top-right corner
+        centerX = canvasWidth * (0.7 + Math.random() * 0.2);
+        centerY = canvasHeight * (0.05 + Math.random() * 0.15);
+        break;
+      default: // Bottom area
+        centerX = canvasWidth * (0.2 + Math.random() * 0.6);
+        centerY = canvasHeight * (0.85 + Math.random() * 0.1);
+        break;
+    }
+
+    // Random rotation: -90 to +90 degrees (keeps text readable)
+    const rotation = (Math.random() - 0.5) * Math.PI; // -π/2 to +π/2
+
+    // Larger font size for more presence
+    const fontSize = 48;
+
+    const polishPositions = getTextParticlePositions(pair.polish, centerX, centerY, fontSize, rotation);
+    const englishPositions = getTextParticlePositions(pair.english, centerX, centerY, fontSize, rotation);
 
     // Use the larger particle count for consistency
     const particleCount = Math.max(polishPositions.length, englishPositions.length, 50);
-    const heartPositions = getHeartPositions(centerX, centerY, 1.5, particleCount);
+    const heartPositions = getHeartPositions(centerX, centerY, 2, particleCount);
 
     // Extend smaller arrays by repeating positions
     while (polishPositions.length < particleCount) {
@@ -762,7 +806,7 @@ const WordParticleEffect: React.FC<{
       englishPositions.push(englishPositions[Math.floor(Math.random() * englishPositions.length)]);
     }
 
-    // Create particles starting scattered
+    // Create particles starting scattered - smaller particles
     const particles: WordParticle[] = polishPositions.slice(0, particleCount).map((pos, i) => ({
       x: pos.x + (Math.random() - 0.5) * 100,
       y: pos.y + (Math.random() - 0.5) * 100,
@@ -771,7 +815,7 @@ const WordParticleEffect: React.FC<{
       targetX: pos.x,
       targetY: pos.y,
       alpha: 0,
-      size: 1.5 + Math.random() * 1.5,
+      size: 0.8 + Math.random() * 0.8, // Smaller particles
       angle: Math.random() * Math.PI * 2,
       speed: 0.5 + Math.random() * 0.5,
     }));
@@ -785,6 +829,7 @@ const WordParticleEffect: React.FC<{
       stateStartTime: Date.now(),
       centerX,
       centerY,
+      rotation,
       polishPositions: polishPositions.slice(0, particleCount),
       englishPositions: englishPositions.slice(0, particleCount),
       heartPositions,
@@ -845,7 +890,7 @@ const WordParticleEffect: React.FC<{
               const target = event.polishPositions[i];
               p.x += (target.x - p.x) * 0.08;
               p.y += (target.y - p.y) * 0.08;
-              p.alpha = ease * 0.8;
+              p.alpha = ease * 0.35; // More faint
             });
 
             if (progress >= 1) {
@@ -857,12 +902,12 @@ const WordParticleEffect: React.FC<{
 
           case 'showing_polish': {
             // Gentle breathing effect
-            const breathe = Math.sin(elapsed * 0.003) * 0.1;
+            const breathe = Math.sin(elapsed * 0.003) * 0.05;
             event.particles.forEach((p, i) => {
               const target = event.polishPositions[i];
               p.x += (target.x - p.x) * 0.1;
               p.y += (target.y - p.y) * 0.1;
-              p.alpha = 0.7 + breathe;
+              p.alpha = 0.3 + breathe; // More faint
             });
 
             if (elapsed > SHOWING_POLISH_DURATION) {
@@ -894,7 +939,7 @@ const WordParticleEffect: React.FC<{
 
               p.x += (p.targetX - p.x) * 0.15;
               p.y += (p.targetY - p.y) * 0.15;
-              p.alpha = 0.6 + Math.sin(progress * Math.PI) * 0.3;
+              p.alpha = 0.25 + Math.sin(progress * Math.PI) * 0.15; // More faint
             });
 
             if (progress >= 1) {
@@ -905,12 +950,12 @@ const WordParticleEffect: React.FC<{
           }
 
           case 'showing_english': {
-            const breathe = Math.sin(elapsed * 0.003) * 0.1;
+            const breathe = Math.sin(elapsed * 0.003) * 0.05;
             event.particles.forEach((p, i) => {
               const target = event.englishPositions[i];
               p.x += (target.x - p.x) * 0.1;
               p.y += (target.y - p.y) * 0.1;
-              p.alpha = 0.7 + breathe;
+              p.alpha = 0.3 + breathe; // More faint
             });
 
             if (elapsed > SHOWING_ENGLISH_DURATION) {
@@ -940,7 +985,7 @@ const WordParticleEffect: React.FC<{
 
               p.x += (p.targetX - p.x) * 0.12;
               p.y += (p.targetY - p.y) * 0.12;
-              p.alpha = 0.7;
+              p.alpha = 0.3; // More faint
             });
 
             if (progress >= 1) {
@@ -959,7 +1004,7 @@ const WordParticleEffect: React.FC<{
               const target = event.heartPositions[i % event.heartPositions.length];
               p.x += (target.x - p.x) * 0.05;
               p.y += (target.y - event.floatY - p.y) * 0.05;
-              p.alpha = 0.7 * event.opacity;
+              p.alpha = 0.3 * event.opacity; // More faint
 
               // Slight dispersion as it fades
               p.x += (Math.random() - 0.5) * progress * 2;
@@ -973,7 +1018,7 @@ const WordParticleEffect: React.FC<{
           }
         }
 
-        // Render particles
+        // Render particles - subtle glow
         event.particles.forEach((p) => {
           if (p.alpha <= 0) return;
 
@@ -981,7 +1026,7 @@ const WordParticleEffect: React.FC<{
           ctx.globalAlpha = p.alpha;
           ctx.fillStyle = accentColor;
           ctx.shadowColor = accentColor;
-          ctx.shadowBlur = 4;
+          ctx.shadowBlur = 2; // Reduced glow
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
