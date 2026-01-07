@@ -1,7 +1,7 @@
 import { supabase } from './supabase';
-import { ExtractedWord, Attachment } from '../types';
+import { ExtractedWord, Attachment, SessionContext } from '../types';
 
-export type { ExtractedWord, Attachment };
+export type { ExtractedWord, Attachment, SessionContext };
 
 // Helper to get auth headers
 async function getAuthHeaders(): Promise<HeadersInit> {
@@ -18,6 +18,31 @@ async function getAuthHeaders(): Promise<HeadersInit> {
 }
 
 export const geminiService = {
+  // Boot session - fetch context once per chat session
+  async bootSession(): Promise<SessionContext | null> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/boot-session', {
+        method: 'POST',
+        headers
+      });
+
+      if (response.status === 401) {
+        console.error('Boot session: unauthorized');
+        return null;
+      }
+
+      const data = await response.json();
+      if (data.success && data.context) {
+        return data.context as SessionContext;
+      }
+      return null;
+    } catch (e) {
+      console.error('Boot session error:', e);
+      return null;
+    }
+  },
+
   // Streaming response - calls onChunk for each text piece
   async generateReplyStream(
     prompt: string,
@@ -113,14 +138,22 @@ export const geminiService = {
     mode: string,
     images: Attachment[] = [],
     userWords: string[] = [],
-    messageHistory: { role: string; content: string }[] = []
+    messageHistory: { role: string; content: string }[] = [],
+    sessionContext?: SessionContext | null
   ): Promise<{ replyText: string; newWords: ExtractedWord[] }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ prompt, mode, images, userLog: userWords, messages: messageHistory.slice(-10) })
+        body: JSON.stringify({
+          prompt,
+          mode,
+          images,
+          userLog: userWords,
+          messages: messageHistory.slice(-10),
+          sessionContext: sessionContext || undefined
+        })
       });
 
       if (response.status === 401) {

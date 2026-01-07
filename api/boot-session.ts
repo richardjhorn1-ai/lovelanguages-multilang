@@ -1,0 +1,235 @@
+import { createClient } from '@supabase/supabase-js';
+
+// CORS configuration
+function setCorsHeaders(req: any, res: any): boolean {
+  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
+  const origin = req.headers.origin || '';
+
+  if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+  }
+
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+
+  return req.method === 'OPTIONS';
+}
+
+// Verify user authentication
+async function verifyAuth(req: any): Promise<{ userId: string } | null> {
+  const authHeader = req.headers.authorization;
+  if (!authHeader?.startsWith('Bearer ')) {
+    return null;
+  }
+
+  const token = authHeader.split(' ')[1];
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+  if (!supabaseUrl || !supabaseServiceKey) {
+    return null;
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+  const { data: { user }, error } = await supabase.auth.getUser(token);
+
+  if (error || !user) {
+    console.error('Auth verification failed:', error?.message || 'No user');
+    return null;
+  }
+
+  return { userId: user.id };
+}
+
+// Level name lookup
+const LEVEL_NAMES = [
+  'Beginner 1', 'Beginner 2', 'Beginner 3',
+  'Elementary 1', 'Elementary 2', 'Elementary 3',
+  'Conversational 1', 'Conversational 2', 'Conversational 3',
+  'Proficient 1', 'Proficient 2', 'Proficient 3',
+  'Fluent 1', 'Fluent 2', 'Fluent 3',
+  'Master 1', 'Master 2', 'Master 3'
+];
+
+function getLevelName(level: number): string {
+  const levelIndex = Math.min((level || 1) - 1, 17);
+  return LEVEL_NAMES[levelIndex] || 'Beginner 1';
+}
+
+// Fetch user's learning context (vocabulary, weak spots, stats)
+async function fetchLearnerContext(supabase: any, userId: string) {
+  // Parallel fetch: vocabulary and scores
+  const [vocabResult, scoresResult, profileResult] = await Promise.all([
+    supabase
+      .from('dictionary')
+      .select('word, translation, word_type')
+      .eq('user_id', userId)
+      .order('unlocked_at', { ascending: false })
+      .limit(100),
+    supabase
+      .from('scores')
+      .select('word_id, success_count, fail_count, learned_at, last_practiced, dictionary:word_id(word, translation)')
+      .eq('user_id', userId),
+    supabase
+      .from('profiles')
+      .select('full_name, xp, level, partner_name, linked_user_id')
+      .eq('id', userId)
+      .single()
+  ]);
+
+  const vocabulary = vocabResult.data || [];
+  const scores = scoresResult.data || [];
+  const profile = profileResult.data;
+
+  // Calculate weak spots (words with failures, sorted by fail count)
+  const weakSpots = scores
+    .filter((s: any) => s.fail_count > 0)
+    .sort((a: any, b: any) => b.fail_count - a.fail_count)
+    .slice(0, 10)
+    .map((s: any) => ({
+      word: s.dictionary?.word || 'unknown',
+      translation: s.dictionary?.translation || '',
+      failCount: s.fail_count
+    }));
+
+  // Calculate mastered count
+  const masteredCount = scores.filter((s: any) => s.learned_at != null).length;
+
+  // Recent words (last 10)
+  const recentWords = vocabulary.slice(0, 10).map((v: any) => ({
+    word: v.word,
+    translation: v.translation
+  }));
+
+  // Find last active time from scores
+  const lastActive = scores.length > 0
+    ? scores.reduce((latest: string | null, s: any) => {
+        if (!s.last_practiced) return latest;
+        if (!latest) return s.last_practiced;
+        return s.last_practiced > latest ? s.last_practiced : latest;
+      }, null)
+    : null;
+
+  return {
+    profile,
+    vocabulary: vocabulary.map((v: any) => ({
+      word: v.word,
+      translation: v.translation,
+      wordType: v.word_type
+    })),
+    weakSpots,
+    recentWords,
+    stats: {
+      totalWords: vocabulary.length,
+      masteredCount
+    },
+    lastActive
+  };
+}
+
+export default async function handler(req: any, res: any) {
+  if (setCorsHeaders(req, res)) {
+    return res.status(200).end();
+  }
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  try {
+    const auth = await verifyAuth(req);
+    if (!auth) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+    if (!supabaseUrl || !supabaseServiceKey) {
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const bootedAt = new Date().toISOString();
+
+    // Fetch user's own context
+    const userContext = await fetchLearnerContext(supabase, auth.userId);
+    const profile = userContext.profile;
+
+    if (!profile) {
+      return res.status(404).json({ error: 'Profile not found' });
+    }
+
+    const isStudent = profile.role !== 'tutor';
+
+    // Base context (same structure for both roles)
+    const baseContext = {
+      userId: auth.userId,
+      role: profile.role || 'student',
+      name: profile.full_name || 'User',
+      partnerName: profile.partner_name || null,
+      bootedAt,
+      level: getLevelName(profile.level || 1),
+      xp: profile.xp || 0,
+      vocabulary: userContext.vocabulary,
+      weakSpots: userContext.weakSpots,
+      recentWords: userContext.recentWords,
+      stats: userContext.stats
+    };
+
+    // For students, return their own context
+    if (isStudent) {
+      return res.status(200).json({
+        success: true,
+        context: baseContext
+      });
+    }
+
+    // For tutors, also fetch partner's learning context
+    if (!profile.linked_user_id) {
+      // Tutor without linked partner
+      return res.status(200).json({
+        success: true,
+        context: {
+          ...baseContext,
+          partner: null  // No partner linked yet
+        }
+      });
+    }
+
+    // Fetch partner's context
+    const partnerContext = await fetchLearnerContext(supabase, profile.linked_user_id);
+    const partnerProfile = partnerContext.profile;
+
+    return res.status(200).json({
+      success: true,
+      context: {
+        ...baseContext,
+        // For tutors, their own vocab/weakSpots aren't needed - clear them
+        vocabulary: [],
+        weakSpots: [],
+        recentWords: [],
+        stats: { totalWords: 0, masteredCount: 0 },
+        // Partner's learning data is what matters for coach mode
+        partner: {
+          userId: profile.linked_user_id,
+          name: partnerProfile?.full_name || 'Partner',
+          level: getLevelName(partnerProfile?.level || 1),
+          xp: partnerProfile?.xp || 0,
+          vocabulary: partnerContext.vocabulary,
+          weakSpots: partnerContext.weakSpots,
+          recentWords: partnerContext.recentWords,
+          stats: partnerContext.stats,
+          lastActive: partnerContext.lastActive
+        }
+      }
+    });
+
+  } catch (error: any) {
+    console.error('Boot session error:', error);
+    return res.status(500).json({ error: error.message || 'Internal server error' });
+  }
+}
