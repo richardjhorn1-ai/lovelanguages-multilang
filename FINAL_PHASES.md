@@ -18,48 +18,45 @@
 
 ---
 
-## Phase 8: Codebase Integrity
+## Phase 8: Codebase Integrity ✅ NEARLY COMPLETE (13/16)
 
-### 8.1 Dead Code Removal
+**Status:** 13 completed, 1 pending (photo upload), 2 deferred (onboarding theming, audio feedback)
 
-| File | Lines | Action | Reason |
-|------|-------|--------|--------|
-| `components/ListenMode.tsx` | 589 | DELETE | Functionality moved inline to ChatArea.tsx |
-| `schema.sql` | 0 | DELETE | Empty file |
-| `db_schema.sql` | 16 | DELETE | Empty file |
-| `supabase_schema.sql` | 0 | DELETE | Empty file |
+See `PHASE_8_PLAN.md` for detailed breakdown of all 16 sub-phases.
 
-**Note:** `gladia-session.ts` and `gladia-token.ts` are now USED by the integrated Listen Mode in ChatArea.tsx.
+### Completed Work
 
-### 8.2 TODO Cleanup
+| Phase | Description | Status |
+|-------|-------------|--------|
+| 8.1 | Dead code removal (ListenMode.tsx, empty SQL files) | ✅ |
+| 8.2 | Debug flags use `import.meta.env.DEV` | ✅ |
+| 8.3 | shuffleArray deduplicated to utils/array.ts | ✅ |
+| 8.4 | Legacy chat mode mapping removed | ✅ |
+| 8.5 | API error responses standardized | ✅ |
+| 8.6 | Auth logging in all 24 API files | ✅ |
+| 8.8 | LevelTest.tsx dark mode theming | ✅ |
+| 8.9 | Create Quiz validates new words via AI | ✅ |
+| 8.10 | Unified Polish-first word entry UX | ✅ |
+| 8.12 | Notification count updates on dismiss | ✅ |
+| 8.13 | Conversation Practice AI speaks first | ✅ |
+| 8.14 | Love Package completion bug fix | ✅ |
+| 8.16 | Game quit functionality + progress bar fix | ✅ |
 
-| File | Line | Current TODO | Resolution |
-|------|------|--------------|------------|
-| `api/chat.ts` | 493 | Legacy mode migration | Query DB for any remaining 'chat'/'tutor' modes, migrate to 'ask'/'coach', then remove code |
-| `components/steps/PhotoStep.tsx` | 47 | Photo upload not implemented | Either implement Supabase Storage upload OR remove PhotoStep from onboarding |
+### Remaining Work
 
-### 8.3 Debug Flag Audit
+| Phase | Description | Priority |
+|-------|-------------|----------|
+| 8.15 | Profile photo upload feature | Pre-launch |
+| 8.7 | Onboarding theme cleanup | Post-launch |
+| 8.11 | Audio feedback system | Post-launch |
 
-| File | Current | Change To |
-|------|---------|-----------|
-| `services/live-session.ts` | `DEBUG = false` | `DEBUG = import.meta.env.DEV` |
-| `services/gladia-session.ts` | `DEBUG = false` | `DEBUG = import.meta.env.DEV` |
+### Consistency Checks (Verified)
 
-### 8.4 Import Cleanup
-
-```bash
-# Run after removing ListenMode.tsx:
-npx tsc --noEmit  # Verify no broken imports
-npm run build     # Verify production build
-```
-
-### 8.5 Consistency Checks
-
-- [ ] All components use CSS variables for theming (no hardcoded colors in dark mode)
-- [ ] All API endpoints have consistent error response format
-- [ ] All forms have proper validation and error display
-- [ ] All buttons have loading states
-- [ ] All async operations have error boundaries
+- [x] All API endpoints have consistent error response format (`{ error: string }`)
+- [x] All forms have validation and error display
+- [x] All buttons have loading states
+- [x] All challenge creators have unified word entry UX
+- [ ] All components use CSS variables (onboarding steps still have hardcoded colors - deferred)
 
 ---
 

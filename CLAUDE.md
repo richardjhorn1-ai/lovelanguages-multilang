@@ -192,7 +192,9 @@ function normalizeAnswer(s: string): string {
 ## Documentation
 
 - `README.md` - AI persona and feature overview
-- `ROADMAP.md` - Product phases (up to Phase 5.7)
+- `ROADMAP.md` - Product phases and progress tracking
+- `PHASE_8_PLAN.md` - Codebase cleanup plan (13/16 complete)
+- `FINAL_PHASES.md` - Deployment phases 8-14 (payments, security, legal)
 - `TROUBLESHOOTING.md` - 36+ solved issues with detailed solutions (check here first for common errors)
 - `docs/AI_INTEGRATION_GUIDE.md` - Gemini API implementation
 - `docs/FORMATTING.md` - Markdown rendering pipeline
@@ -236,3 +238,40 @@ Streak-based mastery tracked in `word_scores` table:
 - Word is "learned" when `correct_streak >= 5` (sets `learned_at` timestamp)
 - Once learned, status persists (no decay)
 - Mastery badges shown in Love Log: green checkmark = learned, amber = in progress
+
+## Tutor Challenge System
+
+Tutors can create three types of challenges for their partner:
+
+### Challenge Types
+1. **Do You Remember (Quiz)** - `CreateQuizChallenge.tsx` - Quiz on existing or new vocabulary
+2. **Quick Fire** - `CreateQuickFireChallenge.tsx` - Timed vocabulary challenge
+3. **Gift Words (Love Package)** - `WordRequestCreator.tsx` - Send new words for partner to learn
+
+### Unified Word Entry UX (Phase 8.10)
+All three challenge creators share the same Polish-first word entry flow:
+1. Enter Polish word/phrase in text input
+2. Click "✨ Generate" button to get AI translation
+3. AI returns: corrected Polish, English translation, pronunciation, word type
+4. User can edit the translation if needed
+5. Click "Add" to add word to challenge/package
+6. Words appear in list below with remove option
+
+**Key files:**
+- `api/validate-word.ts` - AI validation endpoint (Polish-only or Polish+English)
+- `components/CreateQuizChallenge.tsx`
+- `components/CreateQuickFireChallenge.tsx`
+- `components/WordRequestCreator.tsx`
+
+### API Pattern for Word Validation
+```typescript
+// Polish-only (generate mode)
+POST /api/validate-word
+{ polish: "cześć" }
+// Returns: { word: "cześć", translation: "hi / hello / bye", pronunciation: "cheshch", ... }
+
+// Polish + English (validate mode)
+POST /api/validate-word
+{ polish: "cześć", english: "hello" }
+// Returns: validated/corrected versions
+```
