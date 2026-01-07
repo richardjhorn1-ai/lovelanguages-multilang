@@ -1768,3 +1768,129 @@ END $$;
 **Key Lesson:** Migrations should be defensive. Check prerequisites and fail gracefully with helpful messages.
 
 **Status:** ✅ FIXED - Migration now checks for table existence
+
+---
+
+## Issue 35: Gladia API Diarization Not Supported
+
+**Date:** January 7, 2026
+
+**Error:**
+```json
+{
+  "statusCode": 400,
+  "message": "Invalid parameter(s)...",
+  "validation_errors": [
+    "property diarization should not exist",
+    "property diarization_config should not exist"
+  ]
+}
+```
+
+**Problem:**
+The Gladia Live Streaming API does NOT support speaker diarization. The API documentation shows diarization for pre-recorded audio only. Our `gladia-token.ts` was passing unsupported parameters.
+
+**Original Code:**
+```typescript
+// api/gladia-token.ts
+body: JSON.stringify({
+  // ... other config
+  diarization: true,  // ❌ NOT SUPPORTED
+  diarization_config: {
+    min_speakers: 1,
+    max_speakers: 4,
+  },
+})
+```
+
+**The Fix:**
+Removed diarization parameters entirely. All transcripts are attributed to "speaker_0":
+
+```typescript
+// api/gladia-token.ts
+body: JSON.stringify({
+  encoding: 'wav/pcm',
+  sample_rate: 16000,
+  bit_depth: 16,
+  channels: 1,
+  language_config: { languages: ['pl'], code_switching: false },
+  realtime_processing: {
+    translation: true,
+    translation_config: { target_languages: ['en'] },
+  },
+  // Note: Speaker diarization is NOT supported for live streaming API
+})
+```
+
+**Key Lesson:** Always verify API capabilities for streaming vs batch endpoints. Features available for file uploads may not exist for real-time streaming.
+
+**Status:** ✅ FIXED - Diarization params removed, Listen Mode connects successfully
+
+---
+
+## Issue 36: Gladia Translations Arrive as Separate Messages
+
+**Date:** January 7, 2026
+
+**Symptom:**
+Listen Mode showed Polish transcripts but no English translations, even though translation was enabled in the API.
+
+**Investigation:**
+```javascript
+// WebSocket messages showed translation arriving AFTER transcript:
+{ type: 'transcript', data: { text: 'Cześć' } }
+{ type: 'translation', data: { translation: 'Hello' } }  // Separate message!
+```
+
+**Problem:**
+Gladia sends translations as separate WebSocket messages with type `'translation'`, not embedded in the transcript. Our handler was logging but discarding them:
+
+```typescript
+// gladia-session.ts (BEFORE)
+case 'translation':
+  log('Translation received:', message.data?.translation);
+  break;  // ← DISCARDED!
+```
+
+**The Fix:**
+Implemented a pending transcript system that waits for translations:
+
+```typescript
+// Track transcripts waiting for translations
+private pendingTranscripts: Map<string, { chunk: TranscriptChunk; timer: ReturnType<typeof setTimeout> }> = new Map();
+private lastTranscriptId: string | null = null;
+
+// In handleTranscript() - for final transcripts without inline translation:
+if (isFinal && !chunk.translation) {
+  this.lastTranscriptId = chunk.id;
+  const timer = setTimeout(() => {
+    // Emit without translation after 800ms timeout
+    if (this.pendingTranscripts.has(chunk.id)) {
+      this.pendingTranscripts.delete(chunk.id);
+      this.config.onTranscript(chunk);
+    }
+  }, 800);
+  this.pendingTranscripts.set(chunk.id, { chunk, timer });
+}
+
+// In handleTranslation() - merge with pending transcript:
+case 'translation':
+  if (this.lastTranscriptId && this.pendingTranscripts.has(this.lastTranscriptId)) {
+    const pending = this.pendingTranscripts.get(this.lastTranscriptId)!;
+    clearTimeout(pending.timer);
+    this.pendingTranscripts.delete(this.lastTranscriptId);
+
+    const mergedChunk = { ...pending.chunk, translation: translation.trim() };
+    this.config.onTranscript(mergedChunk);
+  }
+  break;
+```
+
+**Flow:**
+1. Transcript arrives → store in pending map with 800ms timer
+2. Translation arrives within 800ms → merge and emit combined
+3. No translation after 800ms → emit transcript without translation
+
+**Key Lesson:** Real-time APIs often send related data as separate messages for latency reasons. Design handlers to correlate and merge related messages.
+
+**Status:** ✅ FIXED - Polish transcripts now display with English translations
