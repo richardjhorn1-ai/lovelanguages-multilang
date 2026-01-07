@@ -15,47 +15,72 @@ function fastMatch(userAnswer: string, correctAnswer: string): boolean {
   return normalize(userAnswer) === normalize(correctAnswer);
 }
 
-// Smart validation using Gemini API
-async function smartValidate(
-  userAnswer: string,
-  correctAnswer: string,
-  polishWord?: string
-): Promise<{ accepted: boolean; explanation: string }> {
-  // Fast local match first (free, instant)
-  if (fastMatch(userAnswer, correctAnswer)) {
-    return { accepted: true, explanation: 'Exact match' };
+// Batch validation result
+interface ValidationResult {
+  index: number;
+  accepted: boolean;
+  explanation: string;
+}
+
+// BATCH smart validation - validates ALL answers in ONE Gemini call
+async function batchSmartValidate(
+  answers: Array<{ userAnswer: string; correctAnswer: string; polishWord?: string }>
+): Promise<ValidationResult[]> {
+  const results: ValidationResult[] = [];
+  const needsAiValidation: Array<{ index: number; userAnswer: string; correctAnswer: string; polishWord?: string }> = [];
+
+  // Step 1: Try fast local match first for ALL answers (free, instant)
+  answers.forEach((answer, index) => {
+    if (fastMatch(answer.userAnswer, answer.correctAnswer)) {
+      results.push({ index, accepted: true, explanation: 'Exact match' });
+    } else {
+      needsAiValidation.push({ index, ...answer });
+    }
+  });
+
+  // If all matched locally, we're done - no AI call needed!
+  if (needsAiValidation.length === 0) {
+    return results;
   }
 
-  // If no API key, fall back to strict matching
+  // Step 2: Batch validate remaining answers with ONE Gemini call
   const geminiApiKey = process.env.GEMINI_API_KEY;
   if (!geminiApiKey) {
-    return { accepted: false, explanation: 'No match (strict mode)' };
+    // No API key - reject all remaining
+    needsAiValidation.forEach(item => {
+      results.push({ index: item.index, accepted: false, explanation: 'No match (strict mode)' });
+    });
+    return results;
   }
 
   try {
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
 
-    const contextInfo = polishWord ? `\nPolish word: "${polishWord}"` : '';
+    // Build batch prompt with all answers that need validation
+    const answersText = needsAiValidation.map((item, i) =>
+      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.polishWord ? ` | Polish: "${item.polishWord}"` : ''}`
+    ).join('\n');
 
     const prompt = `You are validating answers for a Polish language learning app.
 
-Expected: "${correctAnswer}"
-User typed: "${userAnswer}"${contextInfo}
+Validate these ${needsAiValidation.length} answers:
 
-ACCEPT if ANY apply:
+${answersText}
+
+For EACH answer, ACCEPT if ANY apply:
 - Exact match (ignoring case)
-- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię, zolty=żółty)
+- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię)
 - Valid synonym (pretty=beautiful, hi=hello)
-- Article variation (the dog=dog, a cat=cat)
+- Article variation (the dog=dog)
 - Minor typo (1-2 chars off)
-- Alternate valid translation (przepraszam=sorry OR excuse me)
+- Alternate valid translation
 
 REJECT if:
 - Completely different meaning
 - Wrong language
 - Major spelling error (3+ chars wrong)
 
-Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
+Return a JSON array with ${needsAiValidation.length} results in order.`;
 
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -63,24 +88,41 @@ Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
       config: {
         responseMimeType: "application/json",
         responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
-            explanation: { type: Type.STRING, description: "Brief explanation of why accepted/rejected" }
-          },
-          required: ["accepted", "explanation"]
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
+              explanation: { type: Type.STRING, description: "Brief explanation" }
+            },
+            required: ["accepted", "explanation"]
+          }
         }
       }
     });
 
-    const responseText = result.text || '';
-    const validation = JSON.parse(responseText);
-    return { accepted: validation.accepted, explanation: validation.explanation };
+    const responseText = result.text || '[]';
+    const validations = JSON.parse(responseText) as Array<{ accepted: boolean; explanation: string }>;
+
+    // Map AI results back to original indices
+    needsAiValidation.forEach((item, i) => {
+      const validation = validations[i] || { accepted: false, explanation: 'Validation error' };
+      results.push({
+        index: item.index,
+        accepted: validation.accepted,
+        explanation: validation.explanation
+      });
+    });
+
   } catch (error) {
-    console.error('Smart validation error:', error);
-    // Fall back to local matching on error
-    return { accepted: false, explanation: 'Validation error' };
+    console.error('Batch validation error:', error);
+    // Fall back to rejection on error
+    needsAiValidation.forEach(item => {
+      results.push({ index: item.index, accepted: false, explanation: 'Validation error' });
+    });
   }
+
+  return results;
 }
 
 // CORS configuration
@@ -187,11 +229,26 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Test already completed' });
     }
 
-    // Grade the answers using smart validation
+    // Grade the answers using BATCH smart validation (one Gemini call for all answers)
     const questions = test.questions as any[];
     const answersMap = new Map<string, string>();
     answers.forEach((a: Answer) => answersMap.set(a.questionId, a.userAnswer));
 
+    // Prepare all answers for batch validation
+    const validationInputs = questions.map((q: any) => ({
+      userAnswer: answersMap.get(q.id) || '',
+      correctAnswer: q.correctAnswer,
+      polishWord: q.polish
+    }));
+
+    // ONE Gemini call for ALL answers (instead of N calls)
+    const validationResults = await batchSmartValidate(validationInputs);
+
+    // Build a map of results by index for easy lookup
+    const resultMap = new Map<number, ValidationResult>();
+    validationResults.forEach(r => resultMap.set(r.index, r));
+
+    // Process results
     let correctCount = 0;
     const gradedAnswers: Array<{
       questionId: string;
@@ -201,12 +258,9 @@ export default async function handler(req: any, res: any) {
       explanation: string;
     }> = [];
 
-    // Process answers sequentially to avoid rate limiting
-    for (const q of questions) {
+    questions.forEach((q: any, index: number) => {
       const userAnswer = answersMap.get(q.id) || '';
-
-      // Use smart validation for fill-in-blank questions
-      const validation = await smartValidate(userAnswer, q.correctAnswer, q.polish);
+      const validation = resultMap.get(index) || { accepted: false, explanation: 'Not validated' };
 
       if (validation.accepted) correctCount++;
 
@@ -217,7 +271,7 @@ export default async function handler(req: any, res: any) {
         correctAnswer: q.correctAnswer,
         explanation: validation.explanation
       });
-    }
+    });
 
     // Update questions with user answers and explanations for later review
     const questionsWithAnswers = questions.map((q, idx) => ({
