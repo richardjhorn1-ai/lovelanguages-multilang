@@ -4,6 +4,334 @@ This document outlines the P1 (high impact, non-critical) optimizations identifi
 
 ---
 
+## NEW: Session Boot Context System
+
+### The Problem
+
+Currently, **every chat message** triggers multiple database queries:
+- Tutor sends message → Fetch tutor profile, partner profile, partner vocab, weak spots (4 queries)
+- Student sends message → Fetch student profile, vocab context (2+ queries)
+
+This is wasteful because:
+1. The data barely changes within a session
+2. A user sending 10 messages causes 40 unnecessary database lookups
+3. The AI gets the same context info repeated every time
+
+### The Vision
+
+**"Boot" the session once with rich context, then reuse it.**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    CURRENT (WASTEFUL)                       │
+├─────────────────────────────────────────────────────────────┤
+│ Message 1 → Fetch all context → Send to AI                  │
+│ Message 2 → Fetch all context AGAIN → Send to AI            │
+│ Message 3 → Fetch all context AGAIN → Send to AI            │
+│ Message 4 → Fetch all context AGAIN → Send to AI            │
+│                                                             │
+│ Result: 4× database round-trips, same data each time        │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                    NEW (EFFICIENT)                          │
+├─────────────────────────────────────────────────────────────┤
+│ Chat Opens → BOOT: Fetch rich context once → Cache locally  │
+│ Message 1 → Use cached context → Send to AI                 │
+│ Message 2 → Use cached context → Send to AI                 │
+│ Message 3 → Use cached context → Send to AI                 │
+│ Message 4 → Use cached context → Send to AI                 │
+│                                                             │
+│ Result: 1× database round-trip, reused for entire session   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Design: `/api/boot-session` Endpoint
+
+New endpoint called **once** when chat tab loads.
+
+**Request:**
+```typescript
+POST /api/boot-session
+{
+  // No body needed - uses auth token to determine role
+}
+```
+
+**Response for Students:**
+```typescript
+{
+  success: true,
+  role: 'student',
+  context: {
+    // Student's own data
+    userId: 'xxx',
+    name: 'Richard',
+    level: 'Beginner 2',
+    xp: 145,
+
+    // Their vocabulary (recent, for AI context)
+    vocabulary: [
+      { word: 'kocham', translation: 'I love', wordType: 'verb' },
+      { word: 'piękna', translation: 'beautiful', wordType: 'adjective' },
+      // ... up to 100 recent words
+    ],
+
+    // Words they struggle with (high fail rate)
+    weakSpots: [
+      { word: 'dziękuję', translation: 'thank you', failCount: 5 },
+      // ... up to 10 weak words
+    ],
+
+    // Learning preferences
+    learningGoal: 'Romantic communication',
+
+    // Timestamp for incremental updates later
+    bootedAt: '2026-01-07T12:00:00Z'
+  }
+}
+```
+
+**Response for Tutors:**
+```typescript
+{
+  success: true,
+  role: 'tutor',
+  context: {
+    // Tutor's own info
+    userId: 'xxx',
+    name: 'Michalina',
+
+    // Partner's learning data (what tutors need for coaching)
+    partner: {
+      userId: 'yyy',
+      name: 'Richard',
+      level: 'Beginner 2',
+      xp: 145,
+
+      // Partner's vocabulary
+      vocabulary: [
+        { word: 'kocham', translation: 'I love', wordType: 'verb' },
+        // ... up to 100 recent words
+      ],
+
+      // Partner's weak spots
+      weakSpots: [
+        { word: 'dziękuję', translation: 'thank you', failCount: 5 },
+      ],
+
+      // Recent progress
+      wordsLearnedThisWeek: 12,
+      lastActive: '2026-01-07T10:30:00Z'
+    },
+
+    bootedAt: '2026-01-07T12:00:00Z'
+  }
+}
+```
+
+### Frontend Changes (ChatArea.tsx)
+
+```typescript
+// Store context in ref (survives re-renders, doesn't cause re-renders)
+const sessionContextRef = useRef<SessionContext | null>(null);
+const contextLoadedRef = useRef(false);
+
+// Boot session on mount
+useEffect(() => {
+  const bootSession = async () => {
+    if (contextLoadedRef.current) return; // Already loaded
+
+    const response = await fetch('/api/boot-session', {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    const data = await response.json();
+
+    if (data.success) {
+      sessionContextRef.current = data.context;
+      contextLoadedRef.current = true;
+    }
+  };
+
+  bootSession();
+}, []);
+
+// Pass context to chat API calls
+const sendMessage = async (message: string) => {
+  const response = await fetch('/api/chat', {
+    method: 'POST',
+    body: JSON.stringify({
+      message,
+      chatId,
+      mode,
+      // NEW: Pass pre-loaded context instead of re-fetching
+      sessionContext: sessionContextRef.current
+    })
+  });
+};
+```
+
+### Modified Chat Endpoint (chat.ts)
+
+```typescript
+export default async function handler(req, res) {
+  const { message, chatId, mode, sessionContext } = req.body;
+
+  let context;
+
+  if (sessionContext && sessionContext.bootedAt) {
+    // Use pre-loaded context (efficient path)
+    context = sessionContext;
+  } else {
+    // Fallback: Fetch fresh (backwards compatible)
+    context = await fetchContextFromDatabase(auth.userId);
+  }
+
+  // Use context for AI prompt...
+}
+```
+
+### When to Re-Boot (Invalidate Cache)
+
+The frontend should re-fetch context when:
+
+1. **User adds words manually** → Their vocabulary changed
+2. **Word gift completed** → New words added
+3. **Level test passed** → Level changed
+4. **Session is old** → After 30 minutes, re-boot
+5. **User explicitly refreshes** → Manual override
+
+```typescript
+// Listen for events that invalidate context
+useEffect(() => {
+  const invalidateContext = () => {
+    contextLoadedRef.current = false;
+    sessionContextRef.current = null;
+    bootSession(); // Re-fetch
+  };
+
+  window.addEventListener('dictionary-updated', invalidateContext);
+  window.addEventListener('level-changed', invalidateContext);
+
+  return () => {
+    window.removeEventListener('dictionary-updated', invalidateContext);
+    window.removeEventListener('level-changed', invalidateContext);
+  };
+}, []);
+```
+
+---
+
+## NEW: Incremental Progress Summaries
+
+### The Problem
+
+Currently, every progress summary:
+1. Downloads ALL vocabulary (could be 1000+ words)
+2. Downloads ALL game sessions
+3. Re-analyzes everything from scratch
+
+Even if you generated a summary yesterday and only learned 5 new words.
+
+### The Vision
+
+**First summary = Full analysis. Subsequent summaries = Only new stuff.**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    CURRENT (WASTEFUL)                       │
+├─────────────────────────────────────────────────────────────┤
+│ Summary 1 (Jan 1) → Analyze 100 words                       │
+│ Summary 2 (Jan 7) → Analyze 120 words (20 new)              │
+│ Summary 3 (Jan 14) → Analyze 150 words (30 new)             │
+│                                                             │
+│ Total analyzed: 100 + 120 + 150 = 370 word-analyses         │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│                    NEW (EFFICIENT)                          │
+├─────────────────────────────────────────────────────────────┤
+│ Summary 1 (Jan 1) → Full: Analyze 100 words                 │
+│ Summary 2 (Jan 7) → Delta: Analyze 20 NEW words only        │
+│ Summary 3 (Jan 14) → Delta: Analyze 30 NEW words only       │
+│                                                             │
+│ Total analyzed: 100 + 20 + 30 = 150 word-analyses           │
+│ Savings: 60% less data processed                            │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Design Changes
+
+**1. Track last summary timestamp:**
+
+The `progress_summaries` table already has `created_at`. Use the most recent one.
+
+**2. Modified progress-summary.ts:**
+
+```typescript
+// Get timestamp of last summary
+const { data: lastSummary } = await supabase
+  .from('progress_summaries')
+  .select('created_at')
+  .eq('user_id', auth.userId)
+  .order('created_at', { ascending: false })
+  .limit(1)
+  .single();
+
+const sinceTimestamp = lastSummary?.created_at || null;
+
+if (sinceTimestamp) {
+  // INCREMENTAL: Only fetch new data since last summary
+  const { data: newVocabulary } = await supabase
+    .from('dictionary')
+    .select('word, translation, word_type, unlocked_at')
+    .eq('user_id', auth.userId)
+    .gt('unlocked_at', sinceTimestamp)  // Only NEW words
+    .order('unlocked_at', { ascending: false });
+
+  const { data: newGameSessions } = await supabase
+    .from('game_sessions')
+    .select('...')
+    .gt('completed_at', sinceTimestamp);  // Only NEW sessions
+
+  // AI prompt focuses on "what's new since last time"
+
+} else {
+  // FULL: First summary ever - analyze everything
+  const { data: allVocabulary } = await supabase
+    .from('dictionary')
+    .select('...')
+    .limit(200);  // Still limit for sanity
+}
+```
+
+**3. AI prompt changes:**
+
+```typescript
+// For incremental summaries
+const prompt = `
+This is a PROGRESS UPDATE since ${formatDate(sinceTimestamp)}.
+
+**New words learned (${newVocabulary.length}):**
+${newVocabulary.map(w => `- ${w.word} (${w.translation})`).join('\n')}
+
+**Games played since last summary:**
+${gameStats}
+
+Focus on celebrating what's NEW. Don't repeat analysis of old vocabulary.
+`;
+
+// For first summary
+const prompt = `
+This is a FIRST-TIME learning journey summary.
+
+**Total vocabulary (${allVocabulary.length} words):**
+...
+`;
+```
+
+---
+
 ## Quick Reference: Priority Matrix
 
 | # | Issue | Impact | Effort | Files | Est. Savings |
@@ -310,17 +638,66 @@ const getPartnerContext = async () => {
 ## Implementation Order
 
 ### Sprint 1: Quick Wins (1-2 hours)
-1. ✅ P1.1 - Limit partner vocab fetch
-2. ✅ P1.2 - Optimize progress-summary
-3. ✅ P1.3 - Add column selection
-4. ✅ P1.4 - Lightweight validate-word mode
+Simple changes with immediate impact.
 
-### Sprint 2: Consolidation (2-4 hours)
-5. ⬜ P2.1 - Move batchSmartValidate to services/
-6. ⬜ P2.2 - Investigate chat vs chat-stream (decision only)
+| # | Task | Files | Est. Time |
+|---|------|-------|-----------|
+| 1.1 | Add `.limit(50)` to partner vocab fetch | `api/chat.ts` | 5 min |
+| 1.2 | Add column selection to get-challenges | `api/get-challenges.ts` | 10 min |
+| 1.3 | Add lightweight mode to validate-word | `api/validate-word.ts` | 30 min |
+| 1.4 | Move batchSmartValidate to services/ | `services/validation.ts`, 3 API files | 45 min |
 
-### Sprint 3: Architecture (4-8 hours)
-7. ⬜ P3.1 - Partner context caching (if needed after Sprint 1)
+### Sprint 2: Session Boot System (2-3 hours)
+The big architectural win - fetch context once per session.
+
+| # | Task | Files | Est. Time |
+|---|------|-------|-----------|
+| 2.1 | Create `/api/boot-session` endpoint | `api/boot-session.ts` (new) | 45 min |
+| 2.2 | Add SessionContext type | `types.ts` | 10 min |
+| 2.3 | Integrate boot into ChatArea.tsx | `components/ChatArea.tsx` | 30 min |
+| 2.4 | Modify chat.ts to accept sessionContext | `api/chat.ts` | 30 min |
+| 2.5 | Add cache invalidation listeners | `components/ChatArea.tsx` | 20 min |
+| 2.6 | Test both student and tutor flows | Manual testing | 30 min |
+
+**Savings after Sprint 2:** ~75% reduction in DB queries per chat message
+
+### Sprint 3: Incremental Progress Summaries (1-2 hours)
+Make progress summaries delta-based instead of full re-analysis.
+
+| # | Task | Files | Est. Time |
+|---|------|-------|-----------|
+| 3.1 | Detect if first summary vs subsequent | `api/progress-summary.ts` | 15 min |
+| 3.2 | Add incremental fetch logic | `api/progress-summary.ts` | 30 min |
+| 3.3 | Update AI prompt for delta mode | `api/progress-summary.ts` | 20 min |
+| 3.4 | Test first summary + update flows | Manual testing | 30 min |
+
+**Savings after Sprint 3:** ~60% reduction in data processed per summary
+
+### Sprint 4: Investigation & Cleanup (1-2 hours)
+Lower priority improvements.
+
+| # | Task | Files | Est. Time |
+|---|------|-------|-----------|
+| 4.1 | Investigate chat.ts vs chat-stream.ts | Research only | 30 min |
+| 4.2 | Document decision on streaming | `P1_OPTIMIZATION_PLAN.md` | 15 min |
+| 4.3 | Clean up progress-summary.ts fetches | `api/progress-summary.ts` | 30 min |
+
+---
+
+## Sprint Checklist
+
+### Before Each Sprint
+- [ ] Note current Gemini spend in dashboard
+- [ ] Note current Supabase query count
+- [ ] Run `npx tsc --noEmit` (baseline)
+
+### After Each Sprint
+- [ ] `npx tsc --noEmit` passes
+- [ ] `npm run build` succeeds
+- [ ] Manual test with `vercel dev`
+- [ ] Commit changes
+- [ ] Note new Gemini spend (after 24-48 hours)
+- [ ] Note new query count
 
 ---
 
