@@ -47,7 +47,7 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
 
 interface ValidateWordRequest {
   polish: string;
-  english: string;
+  english?: string; // Optional - if not provided, AI will generate translation
 }
 
 export default async function handler(req: any, res: any) {
@@ -67,18 +67,24 @@ export default async function handler(req: any, res: any) {
 
     const { polish, english } = req.body as ValidateWordRequest;
 
-    if (!polish || !english) {
-      return res.status(400).json({ error: 'Missing polish or english word' });
+    if (!polish) {
+      return res.status(400).json({ error: 'Missing polish word' });
     }
+
+    // Determine mode: generate (no english) or validate (has english)
+    const generateMode = !english || english.trim() === '';
 
     const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
     if (!apiKey) {
-      // If no API key, just return the original words without validation
+      // If no API key, return error for generate mode or original words for validate mode
+      if (generateMode) {
+        return res.status(500).json({ error: 'AI service required to generate translations' });
+      }
       return res.status(200).json({
         success: true,
         validated: {
           word: polish.trim(),
-          translation: english.trim(),
+          translation: english?.trim() || '',
           word_type: 'phrase',
           is_slang: false,
           formality: 'neutral',
@@ -89,9 +95,34 @@ export default async function handler(req: any, res: any) {
 
     const ai = new GoogleGenAI({ apiKey });
 
-    const result = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
-      contents: `You are a Polish language expert. Validate and enrich this Polish word/phrase with its English translation.
+    // Build prompt based on mode
+    const prompt = generateMode
+      ? `You are a Polish language expert. Translate this Polish word/phrase to English and provide linguistic data.
+
+Input:
+- Polish: "${polish}"
+
+Your task:
+1. Check if the Polish spelling is correct. If not, provide the correct spelling.
+2. Provide the accurate English translation.
+3. Determine the word type (noun, verb, adjective, adverb, phrase, other)
+4. Identify if it's slang or informal language - this is OK, just note it
+5. Rate the formality (formal, neutral, informal, vulgar)
+6. If you corrected the spelling, briefly explain why
+7. Provide pronunciation guide
+
+IMPORTANT FOR GRAMMATICAL DATA:
+- If it's a VERB: Provide present tense conjugations for all 6 persons (ja, ty, on/ona/ono, my, wy, oni/one)
+- If it's a NOUN: Provide the grammatical gender (masculine/feminine/neuter) and plural form
+- If it's an ADJECTIVE: Provide all 4 forms (masculine, feminine, neuter, plural)
+
+NOTES:
+- Accept slang and colloquial Polish - it's valid language
+- If the word doesn't exist in Polish, still try to guess what they meant
+- Set was_corrected to true only if the Polish spelling was incorrect
+
+Return ONLY the JSON object, no other text.`
+      : `You are a Polish language expert. Validate and enrich this Polish word/phrase with its English translation.
 
 Input:
 - Polish: "${polish}"
@@ -117,7 +148,11 @@ NOTES:
 - Only flag as "was_corrected" if spelling was wrong or translation was significantly off
 - If the word doesn't exist in Polish, still try to guess what they meant
 
-Return ONLY the JSON object, no other text.`,
+Return ONLY the JSON object, no other text.`;
+
+    const result = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: prompt,
       config: {
         responseMimeType: "application/json",
         responseSchema: {

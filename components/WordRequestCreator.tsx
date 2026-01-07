@@ -33,6 +33,8 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
   // Custom word entry
   const [customPolish, setCustomPolish] = useState('');
   const [customEnglish, setCustomEnglish] = useState('');
+  const [generatedCustom, setGeneratedCustom] = useState<{ polish: string; english: string; pronunciation?: string } | null>(null);
+  const [generating, setGenerating] = useState(false);
 
   const quickTopics = [
     { label: 'Love words', emoji: '💕' },
@@ -100,10 +102,67 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
     setSuggestions(prev => prev.filter(s => s.word !== word.word));
   };
 
+  const generateCustomTranslation = async () => {
+    if (!customPolish.trim()) return;
+
+    // Check if already added or in Love Log first
+    const lowerWord = customPolish.trim().toLowerCase();
+    if (selectedWords.some(w => w.word.toLowerCase() === lowerWord)) {
+      alert('This word is already in your package!');
+      return;
+    }
+    if (partnerVocab.some(w => w.word.toLowerCase() === lowerWord)) {
+      alert(`"${customPolish}" is already in ${partnerName}'s Love Log!`);
+      return;
+    }
+
+    setGenerating(true);
+    try {
+      const token = (await supabase.auth.getSession()).data.session?.access_token;
+      const response = await fetch('/api/validate-word', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ polish: customPolish.trim() })
+      });
+
+      const data = await response.json();
+      if (data.success && data.validated) {
+        // Check if the corrected word is in Love Log
+        if (partnerVocab.some(w => w.word.toLowerCase() === data.validated.word.toLowerCase())) {
+          alert(`"${data.validated.word}" is already in ${partnerName}'s Love Log!`);
+          setGenerating(false);
+          return;
+        }
+
+        setGeneratedCustom({
+          polish: data.validated.word,
+          english: data.validated.translation,
+          pronunciation: data.validated.pronunciation
+        });
+        setCustomEnglish(data.validated.translation);
+
+        // Show correction if word was corrected
+        if (data.validated.was_corrected && data.validated.correction_note) {
+          setLastCorrection(data.validated.correction_note);
+          setTimeout(() => setLastCorrection(null), 4000);
+        }
+      } else {
+        alert(data.error || 'Failed to generate translation');
+      }
+    } catch (error) {
+      console.error('Error generating translation:', error);
+      alert('Failed to generate translation');
+    }
+    setGenerating(false);
+  };
+
   const addCustomWord = async () => {
     if (!customPolish.trim() || !customEnglish.trim()) return;
 
-    // Check if already added or in Love Log first
+    // Check if already added or in Love Log
     const lowerWord = customPolish.trim().toLowerCase();
     if (selectedWords.some(w => w.word.toLowerCase() === lowerWord)) {
       return;
@@ -119,6 +178,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
 
+      // If we already have a generated result, validate with both Polish and English
       const response = await fetch('/api/validate-word', {
         method: 'POST',
         headers: {
@@ -151,16 +211,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           context: validated.context
         };
 
-        // Show correction note if word was corrected
-        if (validated.was_corrected && validated.correction_note) {
-          setLastCorrection(validated.correction_note);
-          // Auto-clear after 4 seconds
-          setTimeout(() => setLastCorrection(null), 4000);
-        }
-
         setSelectedWords(prev => [...prev, newWord]);
-        setCustomPolish('');
-        setCustomEnglish('');
       } else {
         // Fallback: add without validation
         const newWord: WordSuggestion = {
@@ -169,8 +220,6 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           word_type: 'phrase'
         };
         setSelectedWords(prev => [...prev, newWord]);
-        setCustomPolish('');
-        setCustomEnglish('');
       }
     } catch (error) {
       console.error('Error validating word:', error);
@@ -181,10 +230,11 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
         word_type: 'phrase'
       };
       setSelectedWords(prev => [...prev, newWord]);
-      setCustomPolish('');
-      setCustomEnglish('');
     }
 
+    setCustomPolish('');
+    setCustomEnglish('');
+    setGeneratedCustom(null);
     setValidating(false);
   };
 
@@ -374,50 +424,103 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           {inputMode === 'custom' && (
             <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
               <p className="text-xs text-[var(--text-secondary)] mb-3">
-                Enter a Polish word and its English translation. AI will verify spelling and add grammatical data.
+                Enter a Polish word and AI will generate the translation.
               </p>
-              <div className="flex gap-2 mb-2">
+
+              {/* Step 1: Polish input with Generate button */}
+              <div className="flex gap-2 mb-3">
                 <input
                   type="text"
                   value={customPolish}
-                  onChange={e => setCustomPolish(e.target.value)}
-                  placeholder="Polish word"
+                  onChange={e => {
+                    setCustomPolish(e.target.value);
+                    if (generatedCustom) {
+                      setGeneratedCustom(null);
+                      setCustomEnglish('');
+                    }
+                  }}
+                  placeholder="Enter Polish word or phrase..."
                   className="flex-1 p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-                  onKeyDown={e => e.key === 'Enter' && customEnglish && !validating && addCustomWord()}
-                  disabled={validating}
+                  onKeyDown={e => e.key === 'Enter' && customPolish.trim() && !generatedCustom && generateCustomTranslation()}
+                  disabled={generating || validating}
                   autoFocus
                 />
-                <input
-                  type="text"
-                  value={customEnglish}
-                  onChange={e => setCustomEnglish(e.target.value)}
-                  placeholder="English"
-                  className="flex-1 p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-                  onKeyDown={e => e.key === 'Enter' && customPolish && !validating && addCustomWord()}
-                  disabled={validating}
-                />
-              </div>
-              <button
-                onClick={addCustomWord}
-                disabled={validating || !customPolish.trim() || !customEnglish.trim()}
-                className="w-full py-2 bg-[var(--accent-color)] text-white rounded-xl font-bold text-sm hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
-              >
-                {validating ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Validating...
-                  </>
+                {!generatedCustom ? (
+                  <button
+                    onClick={generateCustomTranslation}
+                    disabled={!customPolish.trim() || generating}
+                    className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-xl font-bold text-sm hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  >
+                    {generating ? (
+                      <>
+                        <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span className="hidden sm:inline">Generating...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>✨</span>
+                        <span className="hidden sm:inline">Generate</span>
+                      </>
+                    )}
+                  </button>
                 ) : (
-                  <>
-                    <ICONS.Plus className="w-4 h-4" />
-                    Add to Package
-                  </>
+                  <button
+                    onClick={() => {
+                      setGeneratedCustom(null);
+                      setCustomEnglish('');
+                    }}
+                    className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-xl font-bold text-sm transition-colors"
+                  >
+                    Clear
+                  </button>
                 )}
-              </button>
+              </div>
+
+              {/* Step 2: Show generated result with edit option */}
+              {generatedCustom && (
+                <div className="mb-3 p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="font-bold text-[var(--text-primary)]">{generatedCustom.polish}</span>
+                        {generatedCustom.pronunciation && (
+                          <span className="text-xs text-[var(--text-secondary)]">[{generatedCustom.pronunciation}]</span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[var(--text-secondary)]">→</span>
+                        <input
+                          type="text"
+                          value={customEnglish}
+                          onChange={e => setCustomEnglish(e.target.value)}
+                          placeholder="Edit translation..."
+                          className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                          onKeyDown={e => e.key === 'Enter' && customEnglish && addCustomWord()}
+                          disabled={validating}
+                        />
+                      </div>
+                    </div>
+                    <button
+                      onClick={addCustomWord}
+                      disabled={!customEnglish.trim() || validating}
+                      className="px-3 py-2 bg-green-500 text-white rounded-xl font-bold text-sm hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    >
+                      {validating ? (
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      ) : (
+                        <>
+                          <ICONS.Check className="w-4 h-4" />
+                          Add
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              )}
 
               {/* Correction notification */}
               {lastCorrection && (
-                <div className="mt-3 p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded-lg">
+                <div className="p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded-lg">
                   <p className="text-xs text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
                     <ICONS.Sparkles className="w-3 h-3" />
                     <span>Corrected: {lastCorrection}</span>
