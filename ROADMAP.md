@@ -853,16 +853,17 @@ CREATE TABLE flashcard_progress (
 
 ## Documentation
 
+- `STATUS.md` - **START HERE** - Current project status and what's left to ship
+- `ROADMAP.md` - This file - product phases and progress
+- `FINAL_PHASES.md` - Deployment readiness (Phases 9-14): payments, security, legal
+- `TROUBLESHOOTING.md` - 36+ solved issues with detailed solutions
 - `CLAUDE.md` - Claude Code guidance for this repository
 - `README.md` - Project overview and AI persona documentation
-- `ROADMAP.md` - This file - product phases and progress
-- `TROUBLESHOOTING.md` - 30+ solved issues with detailed solutions
 - `DESIGN.md` - UI/UX design guidelines
-- `NEXT_STEPS.md` - Immediate next actions
-- `FINAL_PHASES.md` - **NEW** Deployment readiness, payments, security, legal
 - `docs/AI_INTEGRATION_GUIDE.md` - How to work with AI models
 - `docs/FORMATTING.md` - Text formatting system (markdown to HTML pipeline)
 - `docs/SYSTEM_PROMPTS.md` - AI prompt documentation
+- `docs/archived/` - Completed plans (PHASE_8_PLAN.md, P1_OPTIMIZATION_PLAN.md)
 
 ---
 
