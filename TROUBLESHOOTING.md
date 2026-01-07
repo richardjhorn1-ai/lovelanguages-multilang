@@ -1894,3 +1894,246 @@ case 'translation':
 **Key Lesson:** Real-time APIs often send related data as separate messages for latency reasons. Design handlers to correlate and merge related messages.
 
 **Status:** ✅ FIXED - Polish transcripts now display with English translations
+
+---
+
+## Issue 37: Notification Count Not Updating on Dismiss
+
+**Date:** January 7, 2026
+
+**Problem:**
+When dismissing a notification from the Navbar dropdown, the unread count badge did not update. The notification disappeared from the list, but the badge still showed the old count.
+
+**Root Cause:**
+The `dismissNotification()` function in `Navbar.tsx` was removing the notification from state but not checking if it was unread before decrementing the count:
+
+```typescript
+// BEFORE (buggy)
+const dismissNotification = async (notificationId: string) => {
+  await supabase
+    .from('notifications')
+    .update({ dismissed_at: new Date().toISOString() })
+    .eq('id', notificationId);
+
+  setNotifications(prev => prev.filter(n => n.id !== notificationId));
+  // BUG: Never updates unreadCount!
+};
+```
+
+**The Fix:**
+Check if the notification was unread before dismissing, then decrement the count:
+
+```typescript
+// AFTER (fixed)
+const dismissNotification = async (notificationId: string) => {
+  // Check if notification was unread before dismissing
+  const wasUnread = notifications.find(n => n.id === notificationId)?.read_at === null;
+
+  await supabase
+    .from('notifications')
+    .update({ dismissed_at: new Date().toISOString() })
+    .eq('id', notificationId);
+
+  setNotifications(prev => prev.filter(n => n.id !== notificationId));
+
+  // Update unread count if the dismissed notification was unread
+  if (wasUnread) {
+    setUnreadCount(prev => Math.max(0, prev - 1));
+  }
+};
+```
+
+**Status:** ✅ FIXED - Notification badge now updates correctly on dismiss
+
+---
+
+## Issue 38: Love Package/Word Gift Words Not Adding to Dictionary
+
+**Date:** January 7, 2026
+
+**Problem:**
+After completing a Word Gift from a partner, the words were marked as completed but never appeared in the Love Log. The `complete-word-request` API worked correctly, but the UI didn't refresh to show new words.
+
+**Root Cause:**
+`WordGiftLearning.tsx` was missing:
+1. Error handling for failed completion
+2. The `dictionary-updated` event dispatch that triggers Love Log refresh
+
+**The Fix:**
+Added error state handling and cross-component communication:
+
+```typescript
+// Added error state
+const [error, setError] = useState<string | null>(null);
+
+const handleComplete = async () => {
+  setCompleting(true);
+  setError(null);
+  try {
+    const token = (await supabase.auth.getSession()).data.session?.access_token;
+    const response = await fetch('/api/complete-word-request', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({ requestId: wordRequest.id })
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      setResult(data);
+      // Dispatch event so Love Log refreshes with new words
+      window.dispatchEvent(new CustomEvent('dictionary-updated', {
+        detail: { count: data.wordsAdded, source: 'word-gift' }
+      }));
+    } else {
+      setError(data.error || 'Failed to complete. Please try again.');
+    }
+  } catch (err) {
+    console.error('Error completing word request:', err);
+    setError('Network error. Please check your connection and try again.');
+  }
+  setCompleting(false);
+};
+```
+
+Also added error screen UI with retry capability.
+
+**Key Lesson:** Cross-component communication via custom events is essential when multiple components need to react to data changes. Always dispatch events when modifying shared data.
+
+**Status:** ✅ FIXED - Word Gift words now appear in Love Log immediately
+
+---
+
+## Issue 39: Create Quiz Ignoring New Words Added by Tutor
+
+**Date:** January 7, 2026
+
+**Problem:**
+When tutors created a Quiz challenge and added new custom words (not from the student's existing vocabulary), those words were included in the challenge but never added to the student's dictionary.
+
+**Root Cause:**
+`/api/create-challenge.ts` extracted `wordIds` from the request but ignored the `newWords` array:
+
+```typescript
+// BEFORE (buggy)
+const { challengeType, title, config, wordIds } = req.body;
+// newWords was never extracted or processed!
+```
+
+**The Fix:**
+Extract `newWords` from the request body and insert them into the student's dictionary:
+
+```typescript
+const { challengeType, title, config, wordIds, newWords } = req.body;
+
+// Handle new words added by tutor
+if (newWords && Array.isArray(newWords) && newWords.length > 0) {
+  const newWordEntries = newWords.map((w: { polish: string; english: string }) => ({
+    user_id: profile.linked_user_id,  // Student's user ID
+    word: w.polish.toLowerCase().trim(),
+    translation: w.english.trim(),
+    word_type: 'other',
+    importance: 3,
+    context: `Added by ${profile.full_name} in challenge`,
+    root_word: w.polish.toLowerCase().trim(),
+    examples: [],
+    pro_tip: ''
+  }));
+
+  const { data: insertedWords, error: insertError } = await supabase
+    .from('dictionary')
+    .insert(newWordEntries)
+    .select('id, word, translation, word_type');
+
+  if (insertError) {
+    console.error('Error inserting new words:', insertError);
+  } else if (insertedWords) {
+    // Add to wordsData so they're included in the challenge
+    wordsData = [...wordsData, ...insertedWords];
+  }
+}
+```
+
+**Key Lesson:** When features support multiple input sources (existing data + new data), ensure all sources are processed. Don't assume all data comes from the same place.
+
+**Status:** ✅ FIXED - New words are now added to student's dictionary when challenge is created
+
+---
+
+## Issue 40: LevelTest Hardcoded Colors Breaking Dark Mode
+
+**Date:** January 7, 2026
+
+**Problem:**
+The Level Test component (`LevelTest.tsx`) used hardcoded Tailwind colors like `bg-white`, `text-gray-800`, `border-gray-100` that didn't work in dark mode.
+
+**Affected Areas:**
+- Loading screen
+- Ready screen (pre-test)
+- Question cards
+- Results screen
+- Navigation buttons
+
+**Example Before:**
+```tsx
+// Hardcoded colors - invisible text in dark mode!
+<div className="bg-white p-12 rounded-[3rem] shadow-lg text-center border border-gray-100">
+  <h2 className="text-xl font-black text-gray-800 mb-2">Preparing Your Test</h2>
+  <p className="text-gray-500 text-sm">Generating questions...</p>
+</div>
+```
+
+**The Fix:**
+Replaced all hardcoded colors with CSS variables:
+
+```tsx
+<div className="bg-[var(--bg-card)] p-12 rounded-[3rem] shadow-lg text-center border border-[var(--border-color)]">
+  <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">Preparing Your Test</h2>
+  <p className="text-[var(--text-secondary)] text-sm">Generating questions...</p>
+</div>
+```
+
+For semantic colors (success green, warning amber), added dark mode variants:
+```tsx
+className={`... ${passed ? 'bg-green-50 dark:bg-green-900/20' : 'bg-amber-50 dark:bg-amber-900/20'}`}
+```
+
+**Status:** ✅ FIXED - Level Test now fully supports dark mode
+
+---
+
+## Issue 41: Undefined CSS Variables Used in LevelTest
+
+**Date:** January 7, 2026
+
+**Problem:**
+After the initial dark mode fix for LevelTest.tsx, three undefined CSS variables were accidentally used:
+- `--bg-secondary` (doesn't exist)
+- `--border-hover` (doesn't exist)
+- `--text-muted` (doesn't exist)
+
+**Discovery:**
+Found during code review by checking `services/theme.ts` which defines only:
+- `--accent-color`, `--accent-light`, `--accent-border`, `--accent-text`
+- `--bg-primary`, `--bg-card`
+- `--text-primary`, `--text-secondary`
+- `--border-color`
+
+**The Fix:**
+Replaced undefined variables with existing equivalents:
+- `--bg-secondary` → `--bg-primary`
+- `--border-hover` → `--text-secondary` (for hover effects)
+- `--text-muted` → `--text-secondary`
+
+```bash
+# Used replace_all to fix all occurrences
+old: var(--bg-secondary)   → new: var(--bg-primary)
+old: var(--border-hover)   → new: var(--text-secondary)
+old: var(--text-muted)     → new: var(--text-secondary)
+```
+
+**Key Lesson:** When using CSS variables, always verify they're defined in the theme system. Don't assume variable names exist based on convention.
+
+**Status:** ✅ FIXED - All CSS variables now exist in theme.ts

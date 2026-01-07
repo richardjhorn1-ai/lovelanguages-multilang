@@ -802,6 +802,39 @@ CREATE TABLE flashcard_progress (
 13. ✅ Game session history tracking (GameHistory.tsx)
 14. ✅ Word gifting system (WordRequestCreator.tsx, WordGiftLearning.tsx)
 15. ✅ UI theming consistency (CSS variables, dark mode support)
+16. ✅ Phase 8 codebase cleanup (see below)
+
+---
+
+## Phase 8: Codebase Integrity & Cleanup ✅ PARTIALLY COMPLETE
+
+**Completed January 7, 2026** - See `PHASE_8_PLAN.md` for full details.
+
+### Completed (9/16 phases)
+
+| Phase | Description |
+|-------|-------------|
+| 8.1 ✅ | Dead code removal - deleted unused ListenMode.tsx and empty SQL files |
+| 8.2 ✅ | DEBUG flag now uses `import.meta.env.DEV` |
+| 8.3 ✅ | Removed duplicate shuffleArray function |
+| 8.4 ✅ | Legacy chat mode mapping removed |
+| 8.5 ✅ | API error responses standardized |
+| 8.8 ✅ | LevelTest.tsx dark mode theming fixed |
+| 8.9 ✅ | Create Quiz now properly handles new words from tutors |
+| 8.12 ✅ | Notification count updates on dismiss |
+| 8.14 ✅ | Love Package completion - error handling + dictionary-updated event |
+
+### Remaining
+
+| Phase | Description | Priority |
+|-------|-------------|----------|
+| 8.6 | Auth logging standardization | Recommended |
+| 8.7 | Onboarding theme cleanup | Deferred |
+| 8.10 | Tutor word entry UX (Polish-only input) | Medium |
+| 8.11 | Audio feedback system | Deferred |
+| 8.13 | Conversation Practice - AI speaks first | Medium |
+| 8.15 | Profile photo upload feature | Medium |
+| 8.16 | Game quit functionality | Medium |
 
 ---
 
