@@ -155,65 +155,99 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    // Fetch user's vocabulary (all words for comprehensive analysis)
-    const { data: vocabulary } = await supabase
-      .from('dictionary')
-      .select('word, translation, word_type, context, unlocked_at')
+    // STEP 1: Check for previous summary to determine incremental vs full mode
+    const { data: lastSummary } = await supabase
+      .from('progress_summaries')
+      .select('id, created_at, topics_explored, can_now_say, words_learned')
       .eq('user_id', auth.userId)
-      .order('unlocked_at', { ascending: false });
-
-    // Fetch messages from last 14 days for more context
-    const twoWeeksAgo = new Date();
-    twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
-    const { data: messages } = await supabase
-      .from('messages')
-      .select('content, role, created_at')
-      .gte('created_at', twoWeeksAgo.toISOString())
       .order('created_at', { ascending: false })
-      .limit(100);
+      .limit(1)
+      .single();
 
-    // Fetch user's profile for level info
+    const isIncremental = !!lastSummary;
+    const sinceDate = lastSummary?.created_at || new Date(0).toISOString();
+
+    // STEP 2: Fetch profile (always needed)
     const { data: profile } = await supabase
       .from('profiles')
       .select('xp, level, full_name')
       .eq('id', auth.userId)
       .single();
 
-    // Fetch last 3 summaries to avoid repetition
-    const { data: previousSummaries } = await supabase
-      .from('progress_summaries')
-      .select('summary, topics_explored, can_now_say, created_at')
+    // STEP 3: Incremental fetches - only data SINCE last summary
+    // Vocabulary: only new words since last summary (or all if first summary, limited to 100)
+    const vocabQuery = supabase
+      .from('dictionary')
+      .select('word, translation, word_type, context, unlocked_at')
       .eq('user_id', auth.userId)
-      .order('created_at', { ascending: false })
-      .limit(3);
+      .order('unlocked_at', { ascending: false });
 
-    // Fetch recent game sessions for performance stats
-    const { data: gameSessions } = await supabase
+    if (isIncremental) {
+      vocabQuery.gte('unlocked_at', sinceDate);
+    } else {
+      vocabQuery.limit(100);
+    }
+    const { data: vocabulary } = await vocabQuery;
+
+    // Total word count (for stats)
+    const { count: totalWordCount } = await supabase
+      .from('dictionary')
+      .select('id', { count: 'exact', head: true })
+      .eq('user_id', auth.userId);
+
+    // Messages: only since last summary (or last 14 days if first)
+    const messagesSinceDate = isIncremental ? sinceDate : (() => {
+      const d = new Date(); d.setDate(d.getDate() - 14); return d.toISOString();
+    })();
+    const { data: messages } = await supabase
+      .from('messages')
+      .select('content, role, created_at')
+      .eq('user_id', auth.userId)
+      .gte('created_at', messagesSinceDate)
+      .order('created_at', { ascending: false })
+      .limit(isIncremental ? 50 : 100);
+
+    // Game sessions: only since last summary
+    const gameQuery = supabase
       .from('game_sessions')
       .select('id, game_mode, correct_count, incorrect_count, completed_at')
       .eq('user_id', auth.userId)
-      .order('completed_at', { ascending: false })
-      .limit(20);
+      .order('completed_at', { ascending: false });
 
-    // Fetch game session answers with explanations for validation pattern analysis
+    if (isIncremental) {
+      gameQuery.gte('completed_at', sinceDate);
+    } else {
+      gameQuery.limit(20);
+    }
+    const { data: gameSessions } = await gameQuery;
+
+    // Game answers (skip if no sessions to analyze)
     const sessionIds = gameSessions?.map(s => s.id) || [];
     const { data: gameAnswers } = sessionIds.length > 0 ? await supabase
       .from('game_session_answers')
       .select('is_correct, explanation')
       .in('session_id', sessionIds) : { data: [] };
 
-    // Fetch level tests for assessment progress
-    const { data: levelTests } = await supabase
+    // Level tests: only since last summary
+    const testQuery = supabase
       .from('level_tests')
       .select('from_level, to_level, passed, score, completed_at')
       .eq('user_id', auth.userId)
       .eq('status', 'completed')
-      .order('completed_at', { ascending: false })
-      .limit(5);
+      .order('completed_at', { ascending: false });
 
-    const totalWords = vocabulary?.length || 0;
+    if (isIncremental) {
+      testQuery.gte('completed_at', sinceDate);
+    } else {
+      testQuery.limit(5);
+    }
+    const { data: levelTests } = await testQuery;
 
-    // Count words by type
+    // Use total count from DB, not just fetched vocabulary length
+    const totalWords = totalWordCount || 0;
+    const newWordsSinceLast = vocabulary?.length || 0;
+
+    // Count words by type (from fetched vocabulary - new words only in incremental mode)
     const wordTypes: Record<string, number> = {};
     vocabulary?.forEach(w => {
       wordTypes[w.word_type] = (wordTypes[w.word_type] || 0) + 1;
@@ -301,107 +335,81 @@ export default async function handler(req: any, res: any) {
 
     const ai = new GoogleGenAI({ apiKey });
 
-    // Build previous summaries context to avoid repetition
-    const previousTopics = previousSummaries?.flatMap(s => s.topics_explored || []) || [];
-    const previousPhrases = previousSummaries?.flatMap(s => s.can_now_say || []) || [];
-    const hasPreviousSummaries = previousSummaries && previousSummaries.length > 0;
+    // Build context from last summary (for delta mode)
+    const previousTopics = lastSummary?.topics_explored || [];
+    const previousPhrases = lastSummary?.can_now_say || [];
+    const previousWordCount = lastSummary?.words_learned || 0;
 
-    const prompt = `You are a warm, encouraging language learning coach for a Polish language app designed for couples.
+    // Build the prompt based on mode (incremental vs first-time)
+    const gameStatsSection = gameStats && gameStats.totalGames > 0 ? `
+**Game Performance (${gameStats.totalGames} games):**
+- Overall Accuracy: ${overallAccuracy}%
+- Total Correct: ${gameStats.totalCorrect} | Incorrect: ${gameStats.totalIncorrect}
+${Object.entries(gameStats.byMode).map(([mode, stats]) => {
+  const modeNames: Record<string, string> = { flashcards: 'Flashcards', multiple_choice: 'Multiple Choice', type_it: 'Type It', quick_fire: 'Quick Fire', ai_challenge: 'AI Challenge' };
+  const accuracy = Math.round((stats.correct / (stats.correct + stats.incorrect)) * 100);
+  return `  - ${modeNames[mode] || mode}: ${accuracy}%`;
+}).join('\n')}` : '';
+
+    const testStatsSection = testStats ? `
+**Level Tests:** ${testStats.passed}/${testStats.totalTests} passed (avg ${testStats.avgScore}%)` : '';
+
+    const validationSection = hasSignificantPatterns ? `
+**Validation Insights:** ${validationPatterns.diacriticIssues} diacritic issues, ${validationPatterns.synonymsAccepted} synonyms used` : '';
+
+    const vocabList = vocabulary?.slice(0, 30).map(w => `${w.word} = ${w.translation}`).join('\n') || 'No new vocabulary';
+
+    const prompt = isIncremental
+      ? `You are a warm, encouraging language learning coach providing a PROGRESS UPDATE.
+
+## INCREMENTAL UPDATE MODE
+Focus ONLY on what's NEW since the last summary. Keep it brief and celebratory.
+
+## Recent Progress
+**New Words Learned:** ${newWordsSinceLast}
+**Total Words Now:** ${totalWords} (was ${previousWordCount})
+**XP:** ${profile?.xp || 0}
+${gameStatsSection}
+${testStatsSection}
+${validationSection}
+
+**New Vocabulary:**
+${vocabList}
+
+**Recent Conversations:**
+${recentConversationText?.slice(0, 1000) || 'None'}
+
+## Avoid Repeating These (from last summary)
+- Topics: ${previousTopics.slice(0, 5).join(', ') || 'None'}
+- Phrases: ${previousPhrases.slice(0, 5).join(', ') || 'None'}
+
+## Your Task
+Generate a SHORT, encouraging update (2-3 sentences) celebrating recent progress. Focus on NEW words and achievements only.`
+
+      : `You are a warm, encouraging language learning coach for a Polish language app for couples.
 
 ## User's Learning Data
-
-**Total Words Learned:** ${totalWords}
+**Total Words:** ${totalWords}
 **Words This Week:** ${recentWords.length}
 **XP:** ${profile?.xp || 0}
 
 **Vocabulary by Type:**
 ${Object.entries(wordTypes).map(([type, count]) => `- ${type}: ${count}`).join('\n')}
 
-**Recent Words (last 7 days):**
+**Recent Words:**
 ${recentWords.slice(0, 20).map(w => `- ${w.word} (${w.translation})`).join('\n') || 'None yet'}
+${gameStatsSection}
+${testStatsSection}
+${validationSection}
 
-${gameStats && gameStats.totalGames > 0 ? `
-**Game Performance (Recent ${gameStats.totalGames} games):**
-- Overall Accuracy: ${overallAccuracy}%
-- Total Correct: ${gameStats.totalCorrect} | Incorrect: ${gameStats.totalIncorrect}
-- Game Breakdown:
-${Object.entries(gameStats.byMode).map(([mode, stats]) => {
-  const modeNames: Record<string, string> = {
-    flashcards: 'Flashcards',
-    multiple_choice: 'Multiple Choice',
-    type_it: 'Type It',
-    quick_fire: 'Quick Fire',
-    ai_challenge: 'AI Challenge'
-  };
-  const accuracy = Math.round((stats.correct / (stats.correct + stats.incorrect)) * 100);
-  return `  - ${modeNames[mode] || mode}: ${accuracy}% (${stats.games} games)`;
-}).join('\n')}
-` : ''}
+**Vocabulary:**
+${vocabList}
 
-${testStats ? `
-**Level Test Performance:**
-- Tests Completed: ${testStats.totalTests}
-- Tests Passed: ${testStats.passed}
-- Average Score: ${testStats.avgScore}%
-${testStats.highestLevel ? `- Achieved Level: ${testStats.highestLevel}` : ''}
-` : ''}
-
-${hasSignificantPatterns ? `
-**Answer Validation Patterns (Smart Validation Insights):**
-- Total Answers Analyzed: ${validationPatterns.totalAnswers}
-- Exact Matches: ${validationPatterns.exactMatches}
-- Accepted Despite Missing Diacritics: ${validationPatterns.diacriticIssues}${validationPatterns.diacriticIssues > 0 ? ' ⚠️' : ''}
-- Valid Synonyms Used: ${validationPatterns.synonymsAccepted}${validationPatterns.synonymsAccepted > 3 ? ' 🌟' : ''}
-- Minor Typos Accepted: ${validationPatterns.typosAccepted}
-- Wrong Answers: ${validationPatterns.wrongAnswers}
-
-${validationPatterns.diacriticIssues > 3 ? '⚠️ NOTE: Many answers were accepted but had missing Polish diacritics (ą, ę, ć, ł, ń, ó, ś, ź, ż). Consider suggesting a Polish keyboard setup.' : ''}
-${validationPatterns.synonymsAccepted > 3 ? '🌟 NOTE: Learner frequently uses valid synonyms - shows strong vocabulary understanding and creative expression!' : ''}
-${validationPatterns.typosAccepted > 3 ? '📝 NOTE: Several minor typos were accepted. May want to encourage more careful typing for precision.' : ''}
-` : ''}
-
-**Recent Conversation Topics:**
-${recentConversationText || 'No conversations yet'}
-
-**All Vocabulary (for comprehensive analysis):**
-${vocabulary?.slice(0, 100).map(w => {
-  let context = '';
-  try {
-    const parsed = JSON.parse(w.context || '{}');
-    context = parsed.proTip || '';
-  } catch {}
-  return `${w.word} = ${w.translation}${context ? ` (${context})` : ''}`;
-}).join('\n') || 'No vocabulary yet'}
-
-${hasPreviousSummaries ? `
-## IMPORTANT: Avoid Repetition
-
-Previous journey summaries have already covered these topics. DO NOT repeat them:
-- Topics already discussed: ${previousTopics.slice(0, 10).join(', ') || 'None'}
-- Phrases already highlighted: ${previousPhrases.slice(0, 8).join(', ') || 'None'}
-
-Generate FRESH, NOVEL insights that haven't been mentioned before. Look for:
-- New vocabulary themes not yet explored
-- Different grammar patterns
-- New phrase combinations
-- Recent progress not yet celebrated
-` : ''}
+**Recent Conversations:**
+${recentConversationText?.slice(0, 1500) || 'None'}
 
 ## Your Task
-
-Generate an encouraging, personalized progress summary for this learner. The tone should be warm and romantic since this is an app for couples learning each other's language.
-
-Focus on:
-1. What they've accomplished (specific words and topics) - BE SPECIFIC AND NOVEL
-2. What they can now say to their partner - DIFFERENT phrases from before
-3. Grammar concepts they've encountered
-4. What to explore next
-${hasSignificantPatterns ? `5. If there are validation pattern insights (diacritics, synonyms, typos), incorporate them into your suggestions naturally` : ''}
-
-Keep it personal and encouraging. Reference specific words they've learned when possible. ${hasPreviousSummaries ? 'AVOID repeating themes from previous summaries.' : ''}
-
-${hasSignificantPatterns ? `
-IMPORTANT: If you see diacritic issues, celebrate that they know the words but gently suggest setting up a Polish keyboard. If you see lots of synonyms used, praise their creative vocabulary. Your suggestions array should include actionable tips based on these patterns.` : ''}`;
+Generate an encouraging, personalized progress summary. Focus on specific words learned and what they can now say to their partner.`;
 
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
