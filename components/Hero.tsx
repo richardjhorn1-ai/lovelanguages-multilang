@@ -691,9 +691,9 @@ const WordParticleEffect: React.FC<{
     const ctx = offscreen.getContext('2d');
     if (!ctx) return [];
 
-    // Set canvas size (larger for bigger text)
-    offscreen.width = 500;
-    offscreen.height = 150;
+    // Set canvas size
+    offscreen.width = 300;
+    offscreen.height = 80;
 
     // Draw text
     ctx.fillStyle = 'white';
@@ -702,10 +702,10 @@ const WordParticleEffect: React.FC<{
     ctx.textBaseline = 'middle';
     ctx.fillText(text, offscreen.width / 2, offscreen.height / 2);
 
-    // Sample pixels (smaller sample rate = more particles)
+    // Sample pixels (higher sample rate = fewer particles for performance)
     const imageData = ctx.getImageData(0, 0, offscreen.width, offscreen.height);
     const positions: { x: number; y: number }[] = [];
-    const sampleRate = 2; // Sample every 2nd pixel for more resolution
+    const sampleRate = 5; // Sample every 5th pixel for performance
 
     const cos = Math.cos(rotation);
     const sin = Math.sin(rotation);
@@ -788,15 +788,16 @@ const WordParticleEffect: React.FC<{
     // Random rotation: -90 to +90 degrees (keeps text readable)
     const rotation = (Math.random() - 0.5) * Math.PI; // -π/2 to +π/2
 
-    // Larger font size for more presence
-    const fontSize = 48;
+    // Smaller font for performance
+    const fontSize = 28;
 
     const polishPositions = getTextParticlePositions(pair.polish, centerX, centerY, fontSize, rotation);
     const englishPositions = getTextParticlePositions(pair.english, centerX, centerY, fontSize, rotation);
 
-    // Use the larger particle count for consistency
-    const particleCount = Math.max(polishPositions.length, englishPositions.length, 50);
-    const heartPositions = getHeartPositions(centerX, centerY, 2, particleCount);
+    // Limit particle count for performance
+    const maxParticles = 80;
+    const particleCount = Math.min(Math.max(polishPositions.length, englishPositions.length, 30), maxParticles);
+    const heartPositions = getHeartPositions(centerX, centerY, 1.2, particleCount);
 
     // Extend smaller arrays by repeating positions
     while (polishPositions.length < particleCount) {
@@ -1018,21 +1019,17 @@ const WordParticleEffect: React.FC<{
           }
         }
 
-        // Render particles - subtle glow
+        // Render particles - no shadow for performance
         event.particles.forEach((p) => {
           if (p.alpha <= 0) return;
 
-          ctx.save();
           ctx.globalAlpha = p.alpha;
           ctx.fillStyle = accentColor;
-          ctx.shadowColor = accentColor;
-          ctx.shadowBlur = 2; // Reduced glow
-
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
           ctx.fill();
-          ctx.restore();
         });
+        ctx.globalAlpha = 1;
       });
 
       // Clean up done events
