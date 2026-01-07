@@ -168,6 +168,7 @@ RULES:
     });
 
     // Validate response
+    // Note: retryable: true signals frontend to offer retry option for transient AI errors
     const responseText = response.text || '';
     if (!responseText || !responseText.trim().startsWith('{')) {
       console.error("Invalid Gemini response (not JSON):", responseText.substring(0, 200));

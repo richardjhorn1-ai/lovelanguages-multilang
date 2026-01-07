@@ -123,8 +123,7 @@ export default async function handler(req: any, res: any) {
       const errorText = await gladiaResponse.text();
       console.error('Gladia API error:', gladiaResponse.status, errorText);
       return res.status(500).json({
-        error: 'Failed to initialize Listen Mode',
-        details: errorText
+        error: `Failed to initialize Listen Mode: ${errorText}`
       });
     }
 

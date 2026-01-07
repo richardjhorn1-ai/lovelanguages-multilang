@@ -155,12 +155,12 @@ export default async function handler(req: any, res: any) {
       if (answersError) {
         console.error('Error inserting answers:', answersError);
         // Don't fail the whole request, session is already created
-        // But warn the client so UI can inform user
+        // Return warning (not error) so client knows it's non-fatal
         return res.status(200).json({
           success: true,
           sessionId: session.id,
           session,
-          answersError: 'Session saved but detailed answers failed to save'
+          warning: 'Session saved but detailed answers may be incomplete'
         });
       }
     }

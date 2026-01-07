@@ -1,6 +1,11 @@
 // Demo words for landing page game showcase
 // Mix of romantic, practical, and funny words
 
+import { shuffleArray } from '../../utils/array';
+
+// Re-export for consumers that import from this file
+export { shuffleArray };
+
 export interface DemoWord {
   id: string;
   word: string;
@@ -25,16 +30,6 @@ export const DEMO_WORDS: DemoWord[] = [
   { id: '9', word: 'żółw', translation: 'turtle', type: 'noun' },
   { id: '10', word: 'chrząszcz', translation: 'beetle (try saying it!)', type: 'noun' },
 ];
-
-// Helper to shuffle array
-export const shuffleArray = <T>(array: T[]): T[] => {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-};
 
 // Generate wrong options for multiple choice
 export const generateMCOptions = (

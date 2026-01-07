@@ -25,8 +25,8 @@ export interface LiveSessionConfig {
   onClose?: () => void;
 }
 
-// Debug mode - set to false to reduce console noise
-const DEBUG = false;
+// Debug mode - enabled in development, disabled in production
+const DEBUG = import.meta.env.DEV;
 
 function log(...args: any[]) {
   if (DEBUG) {

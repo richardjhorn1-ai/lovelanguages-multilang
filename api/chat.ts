@@ -489,12 +489,6 @@ Good: "I see **mówić** is tricky for them. Make it a game - you say 'Ja mówi�
 `;
     };
 
-    // Map old mode names to new ones for backwards compatibility
-    // TODO: Remove after confirming no 'chat'/'tutor' entries exist in database
-    // Frontend now only uses: 'ask' | 'learn' | 'coach' (ChatMode type)
-    const modeMap: Record<string, string> = { chat: 'ask', tutor: 'learn' };
-    const activeMode = modeMap[mode] || mode;
-
     // Get user's profile for mode-specific prompts and personalization
     const userProfile = await getUserProfile(auth.userId);
     const userRole = userProfile.role;
@@ -506,7 +500,7 @@ Good: "I see **mówić** is tricky for them. Make it a game - you say 'Ja mówi�
       const partnerContext = await getPartnerContext(auth.userId);
       modePrompt = generateCoachPrompt(partnerContext);
     } else {
-      modePrompt = MODE_DEFINITIONS[activeMode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.ask;
+      modePrompt = MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.ask;
     }
 
     // Generate personalized context for students (minimal - just partner name)

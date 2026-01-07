@@ -21,11 +21,13 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   const [completing, setCompleting] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [showIntro, setShowIntro] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const words = wordRequest.selected_words || [];
 
   const handleComplete = async () => {
     setCompleting(true);
+    setError(null);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       const response = await fetch('/api/complete-word-request', {
@@ -40,9 +42,16 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
       const data = await response.json();
       if (data.success) {
         setResult(data);
+        // Dispatch event so Love Log refreshes with new words
+        window.dispatchEvent(new CustomEvent('dictionary-updated', {
+          detail: { count: data.wordsAdded, source: 'word-gift' }
+        }));
+      } else {
+        setError(data.error || 'Failed to complete. Please try again.');
       }
-    } catch (error) {
-      console.error('Error completing word request:', error);
+    } catch (err) {
+      console.error('Error completing word request:', err);
+      setError('Network error. Please check your connection and try again.');
     }
     setCompleting(false);
   };
@@ -165,6 +174,40 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
           <p className="text-[var(--text-secondary)]">Adding words to your Love Log...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error Screen
+  if (error) {
+    return (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center text-3xl md:text-4xl mx-auto mb-3 md:mb-4">
+            😔
+          </div>
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">Oops!</h2>
+          <p className="text-[var(--text-secondary)] text-sm md:text-base mb-4 md:mb-6">
+            {error}
+          </p>
+          <div className="flex gap-2 md:gap-3">
+            <button
+              onClick={onClose}
+              className="flex-1 px-4 md:px-6 py-3 md:py-4 text-[var(--text-secondary)] font-bold rounded-xl hover:bg-[var(--bg-primary)] transition-colors text-sm md:text-base"
+            >
+              Close
+            </button>
+            <button
+              onClick={() => {
+                setError(null);
+                handleComplete();
+              }}
+              className="flex-1 px-4 md:px-6 py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 transition-colors text-sm md:text-base"
+            >
+              Try Again
+            </button>
+          </div>
         </div>
       </div>
     );
