@@ -128,12 +128,20 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   };
 
   const dismissNotification = async (notificationId: string) => {
+    // Check if notification was unread before dismissing
+    const wasUnread = notifications.find(n => n.id === notificationId)?.read_at === null;
+
     await supabase
       .from('notifications')
       .update({ dismissed_at: new Date().toISOString() })
       .eq('id', notificationId);
 
     setNotifications(prev => prev.filter(n => n.id !== notificationId));
+
+    // Update unread count if the dismissed notification was unread
+    if (wasUnread) {
+      setUnreadCount(prev => Math.max(0, prev - 1));
+    }
   };
 
   const getNotificationIcon = (type: string) => {

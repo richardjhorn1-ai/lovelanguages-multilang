@@ -86,7 +86,7 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
-    const { challengeType, title, config, wordIds } = req.body;
+    const { challengeType, title, config, wordIds, newWords } = req.body;
 
     if (!challengeType || !config) {
       return res.status(400).json({ error: 'Missing required fields: challengeType, config' });
@@ -102,7 +102,36 @@ export default async function handler(req: any, res: any) {
         .eq('user_id', profile.linked_user_id);
 
       wordsData = words || [];
-    } else if (config.aiSuggestedWeakWords) {
+    }
+
+    // Handle new words added by tutor
+    if (newWords && Array.isArray(newWords) && newWords.length > 0) {
+      const newWordEntries = newWords.map((w: { polish: string; english: string }) => ({
+        user_id: profile.linked_user_id,
+        word: w.polish.toLowerCase().trim(),
+        translation: w.english.trim(),
+        word_type: 'other',
+        importance: 3,
+        context: `Added by ${profile.full_name} in challenge`,
+        root_word: w.polish.toLowerCase().trim(),
+        examples: [],
+        pro_tip: ''
+      }));
+
+      const { data: insertedWords, error: insertError } = await supabase
+        .from('dictionary')
+        .insert(newWordEntries)
+        .select('id, word, translation, word_type');
+
+      if (insertError) {
+        console.error('Error inserting new words:', insertError);
+        // Continue without the new words rather than failing entirely
+      } else if (insertedWords) {
+        wordsData = [...wordsData, ...insertedWords];
+      }
+    }
+
+    if (config.aiSuggestedWeakWords) {
       // Auto-select weak words based on scores
       const { data: weakWords } = await supabase
         .from('scores')

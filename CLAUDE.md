@@ -29,7 +29,7 @@ vercel dev        # Full local dev with serverless functions
   - `LevelTest.tsx` - AI-generated proficiency tests
 
 ### Backend (Vercel Serverless Functions)
-- **Location**: `/api/` - 25 isolated serverless functions
+- **Location**: `/api/` - 26 isolated serverless functions
 - **Key Endpoints**:
   - `chat.ts`, `chat-stream.ts` - Main conversation with Gemini
   - `live-token.ts` - Ephemeral tokens for Gemini Live voice mode
