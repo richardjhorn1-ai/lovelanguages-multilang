@@ -1220,9 +1220,24 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     />
   );
 
-  // Current items based on mode
-  const currentDeckLength = mode === 'type_it' ? typeItQuestions.length : deck.length;
-  const progress = ((currentIndex + 1) / currentDeckLength) * 100;
+  // Current items based on mode/game type
+  const getCurrentStats = (): { index: number; length: number } => {
+    if (localGameType === 'ai_challenge' && challengeStarted && challengeQuestions.length > 0) {
+      return { index: challengeIndex, length: challengeQuestions.length };
+    }
+    if (localGameType === 'verb_mastery' && verbMasteryStarted && verbMasteryQuestions.length > 0) {
+      return { index: verbMasteryIndex, length: verbMasteryQuestions.length };
+    }
+    if (localGameType === 'quick_fire' && quickFireStarted && quickFireWords.length > 0) {
+      return { index: quickFireIndex, length: quickFireWords.length };
+    }
+    if (mode === 'type_it' && typeItQuestions.length > 0) {
+      return { index: currentIndex, length: typeItQuestions.length };
+    }
+    return { index: currentIndex, length: deck.length || 1 };
+  };
+  const { index: displayIndex, length: currentDeckLength } = getCurrentStats();
+  const progress = ((displayIndex + 1) / currentDeckLength) * 100;
   const pendingCount = pendingChallenges.length + pendingWordRequests.length;
 
   return (
@@ -1294,7 +1309,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                   </div>
                 </div>
                 <span className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest">
-                  {currentIndex + 1} / {currentDeckLength}
+                  {displayIndex + 1} / {currentDeckLength}
                 </span>
               </div>
 

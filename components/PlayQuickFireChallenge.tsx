@@ -381,6 +381,16 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
         {/* Header */}
         <div className="p-3 md:p-4 flex items-center justify-between">
+          <button
+            onClick={() => {
+              if (timerRef.current) clearInterval(timerRef.current);
+              onClose();
+            }}
+            className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors"
+            title="Quit challenge"
+          >
+            <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
+          </button>
           <span className="text-xs md:text-sm font-bold text-[var(--text-secondary)]">
             {currentIndex + 1} / {words.length}
           </span>
