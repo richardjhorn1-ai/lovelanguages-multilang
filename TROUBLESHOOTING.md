@@ -2137,3 +2137,242 @@ old: var(--text-muted)     → new: var(--text-secondary)
 **Key Lesson:** When using CSS variables, always verify they're defined in the theme system. Don't assume variable names exist based on convention.
 
 **Status:** ✅ FIXED - All CSS variables now exist in theme.ts
+
+---
+
+## Issue 42: N+1 API/Database Query Patterns (P0 Cost Optimization)
+
+**Date:** January 7, 2026
+
+**Problem:**
+Multiple API endpoints had N+1 query patterns where loops made individual API calls or database queries instead of batching, causing:
+- Excessive Gemini API costs (N calls instead of 1)
+- Excessive database round-trips
+- Slow response times for batch operations
+
+**Affected Endpoints:**
+
+### 1. submit-challenge.ts - N+1 Gemini Validation
+**Before:** Each answer validated in a separate Gemini call
+```typescript
+// BAD: N API calls for N answers
+for (const answer of answers) {
+  const result = await smartValidate(answer.userAnswer, word.translation);
+}
+```
+
+**After:** All answers validated in ONE batch call
+```typescript
+// GOOD: 1 API call for N answers
+const validationResults = await batchSmartValidate(validationInputs);
+```
+
+### 2. submit-level-test.ts - Same N+1 Validation Pattern
+Applied identical batch validation fix.
+
+### 3. complete-word-request.ts - N+1 Word Enrichment
+**Before:** Each word enriched with separate Gemini call
+```typescript
+// BAD: N API calls for N words
+for (const word of selectedWords) {
+  const context = await enrichWordContext(word);
+}
+```
+
+**After:** All words enriched in ONE batch call
+```typescript
+// GOOD: 1 API call for N words with array response schema
+const enrichedContexts = await batchEnrichWordContexts(wordsToEnrich);
+```
+
+### 4. get-game-history.ts - N+1 Database Queries
+**Before:** Separate query for each session's wrong answer count
+```typescript
+// BAD: N queries for N sessions
+for (const session of sessions) {
+  const { count } = await supabase.from('answers').select('*', { count: 'exact' })
+    .eq('session_id', session.id).eq('is_correct', false);
+}
+```
+
+**After:** Single aggregate query for all sessions
+```typescript
+// GOOD: 1 query for all sessions
+const { data: wrongCounts } = await supabase
+  .from('game_session_answers')
+  .select('session_id')
+  .in('session_id', sessionIds)
+  .eq('is_correct', false);
+
+// Count client-side from single result set
+wrongCounts.forEach(row => {
+  wrongCountMap[row.session_id] = (wrongCountMap[row.session_id] || 0) + 1;
+});
+```
+
+### 5. submit-challenge.ts - N+1 Score Updates
+**Before:** Fetch + upsert for each word score
+```typescript
+// BAD: 2N database operations
+for (const answer of answers) {
+  const existing = await supabase.from('scores').select('*').eq('word_id', wordId);
+  await supabase.from('scores').upsert({ ...existing, ...updates });
+}
+```
+
+**After:** Batch fetch + batch upsert
+```typescript
+// GOOD: 2 database operations total
+const { data: existingScores } = await supabase
+  .from('scores')
+  .select('word_id, success_count, fail_count, correct_streak, learned_at')
+  .in('word_id', wordIdsToUpdate);
+
+// Build all updates locally, then batch upsert
+await supabase.from('scores').upsert(scoreUpserts, { onConflict: 'user_id,word_id' });
+```
+
+---
+
+### The Batch Pattern
+
+**Key Implementation Pattern:**
+```typescript
+async function batchSmartValidate(
+  answers: Array<{ userAnswer: string; correctAnswer: string; polishWord?: string }>
+): Promise<ValidationResult[]> {
+  const results: ValidationResult[] = [];
+  const needsAiValidation: Array<{ index: number; ... }> = [];
+
+  // STEP 1: Try FREE local matching first
+  answers.forEach((answer, index) => {
+    if (fastMatch(answer.userAnswer, answer.correctAnswer)) {
+      results.push({ index, accepted: true, explanation: 'Exact match' });
+    } else {
+      needsAiValidation.push({ index, ...answer });
+    }
+  });
+
+  // STEP 2: If all matched locally, no API call needed!
+  if (needsAiValidation.length === 0) return results;
+
+  // STEP 3: Batch validate remaining in ONE Gemini call
+  const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+  const result = await ai.models.generateContent({
+    model: "gemini-3-flash-preview",
+    contents: buildBatchPrompt(needsAiValidation),
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.ARRAY,  // Returns array of results
+        items: { type: Type.OBJECT, properties: { accepted, explanation } }
+      }
+    }
+  });
+
+  // STEP 4: Map AI results back to original indices
+  const validations = JSON.parse(result.text);
+  needsAiValidation.forEach((item, i) => {
+    results.push({ index: item.index, ...validations[i] });
+  });
+
+  return results;
+}
+```
+
+---
+
+### Key Lessons Learned
+
+1. **Local-first validation** - Always try free local matching before calling AI
+2. **Array response schemas** - Use `Type.ARRAY` in Gemini schemas to get batch results
+3. **Index tracking** - Track original indices when filtering for AI validation, then map back
+4. **Batch DB operations** - Use `.in('id', arrayOfIds)` for fetches, `.upsert()` for batch writes
+5. **Timeout handling** - Batch operations may need longer timeouts
+
+### Cost Impact
+
+| Endpoint | Before | After | Savings |
+|----------|--------|-------|---------|
+| submit-challenge (10 answers) | 10 Gemini calls | 0-1 Gemini calls | ~90-100% |
+| submit-level-test (15 questions) | 15 Gemini calls | 0-1 Gemini calls | ~90-100% |
+| complete-word-request (5 words) | 5 Gemini calls | 1 Gemini call | ~80% |
+| get-game-history (20 sessions) | 20 DB queries | 1 DB query | ~95% |
+
+**Status:** ✅ FIXED - All P0 N+1 patterns resolved
+
+---
+
+## Issue 43: Gemini Schema Over-Requesting (Schema Optimization)
+
+**Date:** January 7, 2026
+
+**Problem:**
+Several endpoints requested rich vocabulary data from Gemini that was never used:
+- Coach mode (tutors) requested full vocabulary extraction but tutors don't add words to their dictionary
+- Word request previews requested full conjugation data that gets regenerated later anyway
+
+### 1. chat.ts - Coach Mode Schema Bloat
+
+**Before:** Tutors got same schema as students
+```typescript
+// Both modes used expensive studentModeSchema with full vocabulary extraction
+const responseSchema = studentModeSchema; // Always
+```
+
+**After:** Lightweight schema for tutors
+```typescript
+// Coach mode: tutors don't need vocabulary extraction
+const coachModeSchema = {
+  type: Type.OBJECT,
+  properties: { replyText: { type: Type.STRING } },
+  required: ["replyText"]
+};
+
+// Student mode: full vocabulary extraction
+const studentModeSchema = { /* full schema with newWords array */ };
+
+// Use appropriate schema based on role
+responseSchema: isTutorMode ? coachModeSchema : studentModeSchema
+```
+
+### 2. create-word-request.ts - Preview Data Bloat
+
+**Before:** Full grammatical data for previews
+```typescript
+// Generated full conjugations, examples, gender, etc. for PREVIEW
+responseSchema: {
+  items: {
+    properties: {
+      word, translation, word_type, pronunciation,
+      conjugations, gender, plural, examples, proTip  // All this for preview!
+    }
+  }
+}
+```
+
+**After:** Lightweight preview-only data
+```typescript
+// Just enough for tutor to preview and select words
+// Full enrichment happens in complete-word-request.ts when student accepts
+responseSchema: {
+  items: {
+    properties: {
+      word: { type: Type.STRING },
+      translation: { type: Type.STRING },
+      word_type: { type: Type.STRING },
+      pronunciation: { type: Type.STRING }
+    },
+    required: ["word", "translation", "word_type", "pronunciation"]
+  }
+}
+```
+
+### Key Principle
+
+**Request data proportional to usage:**
+- If data goes to Love Log (dictionary) → request full schema
+- If data is for preview/display only → request minimal schema
+- If user role doesn't add vocabulary → don't request vocabulary extraction
+
+**Status:** ✅ FIXED - Schema complexity now matches data usage
