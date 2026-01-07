@@ -56,7 +56,7 @@ export const geminiService = {
       const response = await fetch('/api/chat-stream', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ prompt, mode, userLog: userWords, messages: messageHistory.slice(-10) })
+        body: JSON.stringify({ prompt, mode, userLog: userWords, messages: messageHistory.slice(-50) })
       });
 
       if (response.status === 401) {
@@ -151,7 +151,7 @@ export const geminiService = {
           mode,
           images,
           userLog: userWords,
-          messages: messageHistory.slice(-10),
+          messages: messageHistory.slice(-50),
           sessionContext: sessionContext || undefined
         })
       });
