@@ -575,6 +575,14 @@ grep -r "api/chat-stream" src/
 - Accept 6× cost difference
 - May be acceptable if chat volume is low
 
+**✅ DECISION MADE (Sprint 2.5 - Jan 2025):**
+Implemented **Strategy A with hybrid approach**:
+- Text-only messages → `chat-stream.ts` (streaming) + `analyze-history.ts` (batch extraction)
+- Image messages → `chat.ts` (non-streaming, includes extraction)
+- Result: ~80% savings on text chat, full features preserved for images
+
+See `components/ChatArea.tsx` handleSend() for implementation.
+
 ---
 
 ## Phase 3: Architectural Improvements (HARD)
@@ -637,7 +645,7 @@ const getPartnerContext = async () => {
 
 ## Implementation Order
 
-### Sprint 1: Quick Wins (1-2 hours)
+### Sprint 1: Quick Wins (1-2 hours) ✅ COMPLETE
 Simple changes with immediate impact.
 
 | # | Task | Files | Est. Time |
@@ -647,7 +655,7 @@ Simple changes with immediate impact.
 | 1.3 | Add lightweight mode to validate-word | `api/validate-word.ts` | 30 min |
 | 1.4 | Move batchSmartValidate to services/ | `services/validation.ts`, 3 API files | 45 min |
 
-### Sprint 2: Session Boot System (2-3 hours)
+### Sprint 2: Session Boot System (2-3 hours) ✅ COMPLETE
 The big architectural win - fetch context once per session.
 
 | # | Task | Files | Est. Time |
@@ -661,7 +669,7 @@ The big architectural win - fetch context once per session.
 
 **Savings after Sprint 2:** ~75% reduction in DB queries per chat message
 
-### Sprint 3: Incremental Progress Summaries (1-2 hours)
+### Sprint 3: Incremental Progress Summaries (1-2 hours) ✅ COMPLETE
 Make progress summaries delta-based instead of full re-analysis.
 
 | # | Task | Files | Est. Time |
@@ -673,14 +681,16 @@ Make progress summaries delta-based instead of full re-analysis.
 
 **Savings after Sprint 3:** ~60% reduction in data processed per summary
 
-### Sprint 4: Investigation & Cleanup (1-2 hours)
+### Sprint 4: Investigation & Cleanup (1-2 hours) ✅ COMPLETE
 Lower priority improvements.
 
-| # | Task | Files | Est. Time |
-|---|------|-------|-----------|
-| 4.1 | Investigate chat.ts vs chat-stream.ts | Research only | 30 min |
-| 4.2 | Document decision on streaming | `P1_OPTIMIZATION_PLAN.md` | 15 min |
-| 4.3 | Clean up progress-summary.ts fetches | `api/progress-summary.ts` | 30 min |
+| # | Task | Files | Status |
+|---|------|-------|--------|
+| 4.1 | Investigate chat.ts vs chat-stream.ts | Research only | ✅ Done (Sprint 2.5) |
+| 4.2 | Document decision on streaming | `P1_OPTIMIZATION_PLAN.md` | ✅ Done |
+| 4.3 | Clean up progress-summary.ts fetches | `api/progress-summary.ts` | ✅ Done (Sprint 3) |
+
+**Summary:** All P1 optimizations complete. Streaming decision documented in P2.2 section.
 
 ---
 
