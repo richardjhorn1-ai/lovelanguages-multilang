@@ -550,6 +550,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Handle transcript from Gladia
   const handleListenTranscript = useCallback((chunk: TranscriptChunk) => {
+    // Filter out background sounds like [MUZYKA], [music], [silence], etc.
+    const backgroundSoundPattern = /^\s*\[.*\]\s*$/i;
+    if (backgroundSoundPattern.test(chunk.text)) {
+      return; // Skip non-speech audio events
+    }
+
     const entry: TranscriptEntry = {
       id: chunk.id,
       speaker: chunk.speaker,
@@ -931,13 +937,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                             {speakerInfo.label}
                           </span>
                           <p className="text-[var(--text-primary)] font-medium mt-1">
-                            🇵🇱 {entry.polish}
+                            {entry.polish}
+                            {entry.english && (
+                              <span className="text-[var(--text-secondary)] text-sm font-normal">
+                                {' '}— {entry.english}
+                              </span>
+                            )}
                           </p>
-                          {entry.english && (
-                            <p className="text-[var(--text-secondary)] text-sm mt-1">
-                              🇬🇧 {entry.english}
-                            </p>
-                          )}
                         </div>
                         {isListening && (
                           <button
