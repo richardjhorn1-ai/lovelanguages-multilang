@@ -25,6 +25,7 @@ export interface TranscriptChunk {
   timestamp: number;
   isFinal: boolean;
   confidence?: number;
+  language?: string;  // Detected language: 'pl', 'en', etc.
 }
 
 // Configuration for GladiaSession
@@ -36,7 +37,7 @@ export interface GladiaConfig {
 }
 
 // Debug mode - set to false to reduce console noise
-const DEBUG = false;
+const DEBUG = import.meta.env.DEV;  // Enable in development
 
 function log(...args: any[]) {
   if (DEBUG) {
@@ -59,9 +60,7 @@ export class GladiaSession {
   private currentSpeaker = 'speaker_0';
   private transcriptCounter = 0;
 
-  // Track transcripts waiting for translations
-  private pendingTranscripts: Map<string, { chunk: TranscriptChunk; timer: ReturnType<typeof setTimeout> }> = new Map();
-  private lastTranscriptId: string | null = null;
+  // Note: Real-time translation matching removed - translations handled in post-processing
 
   constructor(config: GladiaConfig) {
     this.config = config;
@@ -282,12 +281,24 @@ export class GladiaSession {
     // Extract transcript data - Gladia v2 format
     const transcriptData = message.data || message;
 
+    // DEBUG: Log full transcript message for final transcripts
+    if (isFinal) {
+      log('FULL TRANSCRIPT MESSAGE:', JSON.stringify(message, null, 2));
+    }
+
     // Get the text
     const text = transcriptData.utterance?.text ||
                  transcriptData.transcript ||
                  transcriptData.text || '';
 
     if (!text.trim()) return;
+
+    // Get detected language (with code_switching enabled)
+    const detectedLanguage = transcriptData.utterance?.language ||
+                             transcriptData.language ||
+                             'unknown';
+
+    log(`Detected language: ${detectedLanguage}`);
 
     // Get translation if available (from realtime_processing)
     let translation = '';
@@ -297,6 +308,8 @@ export class GladiaSession {
       translation = transcriptData.translations.en;
     } else if (transcriptData.translation) {
       translation = transcriptData.translation;
+    } else if (transcriptData.results?.[0]?.translations?.en) {
+      translation = transcriptData.results[0].translations.en;
     }
 
     // Get speaker info if available
@@ -320,70 +333,30 @@ export class GladiaSession {
       timestamp: Date.now(),
       isFinal,
       confidence,
+      language: detectedLanguage !== 'unknown' ? detectedLanguage : undefined,
     };
 
     log(isFinal ? 'Final transcript:' : 'Partial:', chunk.text, translation ? `→ ${chunk.translation}` : '');
 
-    // For final transcripts without translation, wait briefly for translation message
-    if (isFinal && !chunk.translation) {
-      this.lastTranscriptId = chunk.id;
-
-      // Set timer to emit transcript if no translation arrives within 800ms
-      const timer = setTimeout(() => {
-        if (this.pendingTranscripts.has(chunk.id)) {
-          log('Emitting transcript without translation (timeout):', chunk.text);
-          this.pendingTranscripts.delete(chunk.id);
-          this.config.onTranscript(chunk);
-        }
-      }, 800);
-
-      this.pendingTranscripts.set(chunk.id, { chunk, timer });
-      log('Waiting for translation for:', chunk.id);
-    } else {
-      // Emit immediately (partials or transcripts with inline translation)
-      this.config.onTranscript(chunk);
-    }
+    // Emit ALL transcripts immediately - no waiting for translations
+    // Translations will be added in post-session processing by Gemini
+    this.config.onTranscript(chunk);
   }
 
   /**
    * Handle translation messages from Gladia
-   * Translations arrive separately and need to be merged with the transcript
+   * Note: Real-time translation display removed - translations are handled in post-processing
+   * We still log them for debugging purposes
    */
   private handleTranslation(message: any): void {
     const translationData = message.data || message;
+    const translation = translationData.translated_utterance?.text || '';
+    const originalLang = translationData.original_language;
+    const targetLang = translationData.target_language;
 
-    // Extract English translation
-    const translation = translationData.translations?.en ||
-                       translationData.translation?.en ||
-                       translationData.translation ||
-                       translationData.text || '';
-
-    if (!translation.trim()) {
-      log('Empty translation received, ignoring');
-      return;
-    }
-
-    log('Translation received:', translation);
-
-    // Find the most recent pending transcript to merge with
-    // Gladia sends translation right after the transcript it belongs to
-    if (this.lastTranscriptId && this.pendingTranscripts.has(this.lastTranscriptId)) {
-      const pending = this.pendingTranscripts.get(this.lastTranscriptId)!;
-      clearTimeout(pending.timer);
-      this.pendingTranscripts.delete(this.lastTranscriptId);
-
-      // Merge translation with transcript
-      const mergedChunk: TranscriptChunk = {
-        ...pending.chunk,
-        translation: translation.trim(),
-      };
-
-      log('Merged translation with transcript:', mergedChunk.text, '→', mergedChunk.translation);
-      this.config.onTranscript(mergedChunk);
-      this.lastTranscriptId = null;
-    } else {
-      // No pending transcript - log for debugging
-      log('Translation received but no pending transcript to merge with');
+    // Just log for debugging - translations handled in post-session processing
+    if (translation && originalLang !== targetLang) {
+      log('Translation available (for post-processing):', `${originalLang}→${targetLang}:`, translation);
     }
   }
 
@@ -392,13 +365,6 @@ export class GladiaSession {
    */
   private cleanup(): void {
     log('Cleaning up...');
-
-    // Clear all pending transcript timers
-    for (const pending of this.pendingTranscripts.values()) {
-      clearTimeout(pending.timer);
-    }
-    this.pendingTranscripts.clear();
-    this.lastTranscriptId = null;
 
     this.audioRecorder?.stop();
     this.audioRecorder = null;

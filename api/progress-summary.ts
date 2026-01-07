@@ -403,7 +403,7 @@ ${hasSignificantPatterns ? `
 IMPORTANT: If you see diacritic issues, celebrate that they know the words but gently suggest setting up a Polish keyboard. If you see lots of synonyms used, praise their creative vocabulary. Your suggestions array should include actionable tips based on these patterns.` : ''}`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3-flash-preview',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',

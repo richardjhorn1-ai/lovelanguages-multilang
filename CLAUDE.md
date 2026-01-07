@@ -34,6 +34,7 @@ vercel dev        # Full local dev with serverless functions
   - `chat.ts`, `chat-stream.ts` - Main conversation with Gemini
   - `live-token.ts` - Ephemeral tokens for Gemini Live voice mode
   - `gladia-token.ts` - Token for Listen Mode (Gladia transcription)
+  - `polish-transcript.ts` - Gemini post-processing for Listen Mode transcripts
   - `analyze-history.ts` - Batch vocabulary extraction
   - `generate-level-test.ts`, `submit-level-test.ts` - Test system
   - `validate-word.ts` - AI spelling/grammar validation for manual entries
@@ -78,6 +79,53 @@ Browser → `/api/gladia-token` → Gladia WebSocket (Polish → English transcr
 - Translation arrives as separate WebSocket messages (merged in `gladia-session.ts`)
 - Speaker diarization NOT supported for live streaming API
 
+## Listen Mode Feature
+
+Listen Mode is a passive transcription feature that records real-world Polish conversations and extracts vocabulary.
+
+### User Flow
+1. User starts Listen Mode from Chat tab (headphones icon)
+2. Audio is streamed to Gladia for real-time transcription with language detection
+3. Transcript entries show language flags (🇵🇱 Polish, 🇬🇧 English)
+4. User can "Polish" the transcript with Gemini AI to fix errors and add translations
+5. User can "Extract Words" to identify vocabulary and add to Love Log
+6. Sessions are saved to `listen_sessions` table for later review
+
+### Key Files
+- `components/ChatArea.tsx` - Listen Mode UI (modal, transcript display, word extraction)
+- `services/gladia-session.ts` - WebSocket management for Gladia streaming API
+- `api/gladia-token.ts` - Generates Gladia session token with translation config
+- `api/polish-transcript.ts` - Gemini post-processing to correct transcription errors
+
+### Word Extraction Flow
+1. Raw transcript → `/api/polish-transcript` (Gemini corrects language detection & adds translations)
+2. Polished transcript → `/api/analyze-history` (extracts vocabulary with grammatical data)
+3. Extracted words displayed in modal with selection UI
+4. Selected words → upserted to `dictionary` table via Supabase
+5. `dictionary-updated` custom event dispatched → Love Log auto-refreshes
+
+### Cross-Component Communication
+```typescript
+// In ChatArea.tsx after adding words:
+window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count } }));
+
+// In LoveLog.tsx:
+window.addEventListener('dictionary-updated', () => fetchEntries());
+```
+
+### Database Schema
+```sql
+-- listen_sessions table (migrations/012_listen_sessions.sql)
+CREATE TABLE listen_sessions (
+  id UUID PRIMARY KEY,
+  user_id UUID REFERENCES profiles(id),
+  transcript JSONB,        -- Array of transcript entries
+  context_label TEXT,      -- Optional session label
+  created_at TIMESTAMPTZ,
+  ended_at TIMESTAMPTZ
+);
+```
+
 ## Environment Variables
 
 ```env
@@ -116,7 +164,7 @@ Main tabs (Chat, Log, Play, Progress) stay mounted for session lifetime via `Per
 
 ## Database (Supabase)
 
-Key tables: `profiles`, `chats`, `messages`, `dictionary`, `word_scores`, `level_tests`, `tutor_challenges`
+Key tables: `profiles`, `chats`, `messages`, `dictionary`, `word_scores`, `level_tests`, `tutor_challenges`, `listen_sessions`
 
 Migrations in `/migrations/` - run manually in Supabase SQL editor.
 

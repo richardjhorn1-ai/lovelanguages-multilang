@@ -57,7 +57,7 @@ async function getTopicSuggestions(topic: string, count: number = 10, excludeWor
     : '';
 
   const result = await ai.models.generateContent({
-    model: "gemini-2.0-flash",
+    model: "gemini-3-flash-preview",
     contents: `Generate ${count} Polish vocabulary words/phrases related to the topic: "${topic}"
 
 For a romantic couple learning Polish together. The words should be practical and useful for everyday communication.${exclusionText}

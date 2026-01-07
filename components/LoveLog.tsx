@@ -36,6 +36,16 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
   useEffect(() => { fetchEntries(); }, [profile]);
 
+  // Listen for dictionary updates from other components (e.g., Listen Mode word extraction)
+  useEffect(() => {
+    const handleDictionaryUpdate = (event: CustomEvent) => {
+      console.log('Dictionary updated, refreshing Love Log...', event.detail);
+      fetchEntries();
+    };
+    window.addEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
+    return () => window.removeEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
+  }, []);
+
   const fetchEntries = async () => {
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
 
@@ -306,12 +316,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               >
                 <ICONS.Search className={`w-4 h-4 ${showMobileSearch ? 'text-[var(--accent-color)]' : 'text-[var(--text-secondary)]'}`} />
               </button>
-              {/* Mobile sync button */}
+              {/* Mobile sync button - scans chat history for new words */}
               <button
                 onClick={handleSync}
                 disabled={isSyncing}
                 className="p-2 bg-[var(--accent-light)] rounded-lg transition-all disabled:opacity-50"
-                title="Sync vocabulary"
+                title="Scan chat history for new vocabulary"
               >
                 <ICONS.RefreshCw className={`w-4 h-4 text-[var(--accent-color)] ${isSyncing ? 'animate-spin' : ''}`} />
               </button>
@@ -353,14 +363,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 onClick={handleSync}
                 disabled={isSyncing}
                 className="flex items-center gap-2 px-3 py-2 bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] rounded-xl transition-all disabled:opacity-50"
-                title="Sync vocabulary from conversations"
+                title="Scan your chat history for new vocabulary words"
               >
                 <ICONS.RefreshCw className={`w-4 h-4 text-[var(--accent-color)] ${isSyncing ? 'animate-spin' : ''}`} />
-                {syncMessage && (
-                  <span className={`text-[10px] font-bold ${syncMessage.includes('error') ? 'text-red-500' : 'text-green-500'}`}>
-                    {syncMessage}
-                  </span>
-                )}
+                <span className="text-[10px] font-bold text-[var(--accent-color)]">
+                  {syncMessage || 'Scan Chats'}
+                </span>
               </button>
               <span className="text-[10px] font-bold text-[var(--text-secondary)]">{entries.length} words</span>
             </div>
