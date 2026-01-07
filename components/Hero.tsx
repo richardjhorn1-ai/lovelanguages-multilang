@@ -164,7 +164,112 @@ interface Heart {
   wobbleOffset: number; // For organic horizontal drift
   size: number;
   opacity: number;
+  radius: number; // Collision radius based on size
 }
+
+// Heart shape collision using parametric form
+// x = 16*sin³(t), y = 13*cos(t) - 5*cos(2t) - 2*cos(3t) - cos(4t)
+// Classic heart shape with pronounced cleft at top
+
+// Helper to get heart point at parameter t
+const getHeartPoint = (t: number, centerX: number, centerY: number, scale: number) => {
+  const sint = Math.sin(t);
+  // Original coefficients for deeper cleft at top
+  return {
+    x: centerX + 16 * sint * sint * sint * scale,
+    y: centerY - (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * scale
+  };
+};
+
+// Check if point is inside heart using ray casting algorithm
+const isInsideHeartShape = (px: number, py: number, centerX: number, centerY: number, scale: number): boolean => {
+  // Generate heart boundary points
+  const points: { x: number; y: number }[] = [];
+  for (let t = 0; t < Math.PI * 2; t += 0.15) {
+    points.push(getHeartPoint(t, centerX, centerY, scale));
+  }
+
+  // Ray casting algorithm - count intersections
+  let inside = false;
+  for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
+    const xi = points[i].x, yi = points[i].y;
+    const xj = points[j].x, yj = points[j].y;
+
+    if (((yi > py) !== (yj > py)) && (px < (xj - xi) * (py - yi) / (yj - yi) + xi)) {
+      inside = !inside;
+    }
+  }
+
+  return inside;
+};
+
+// Get the closest point on heart boundary and the parameter t
+// Excludes the cleft zone (around t=π) to prevent hearts filling the dip
+const getHeartBoundaryInfo = (px: number, py: number, centerX: number, centerY: number, scale: number, excludeCleft: boolean = true): { x: number; y: number; t: number } => {
+  let closestDist = Infinity;
+  let closestX = centerX;
+  let closestY = centerY;
+  let closestT = 0;
+
+  // Cleft is around t=π (3.14), exclude roughly ±0.6 radians
+  const cleftMin = Math.PI - 0.6;
+  const cleftMax = Math.PI + 0.6;
+
+  for (let t = 0; t < Math.PI * 2; t += 0.1) {
+    // Skip cleft zone if excluding
+    if (excludeCleft && t > cleftMin && t < cleftMax) {
+      continue;
+    }
+
+    const { x: hx, y: hy } = getHeartPoint(t, centerX, centerY, scale);
+    const dx = px - hx;
+    const dy = py - hy;
+    const dist = dx * dx + dy * dy;
+
+    if (dist < closestDist) {
+      closestDist = dist;
+      closestX = hx;
+      closestY = hy;
+      closestT = t;
+    }
+  }
+
+  return { x: closestX, y: closestY, t: closestT };
+};
+
+// Get magnetic field vector at a point - flows along heart shape
+const getHeartMagneticField = (px: number, py: number, centerX: number, centerY: number, scale: number): { fx: number; fy: number } => {
+  const { x: bx, y: by, t } = getHeartBoundaryInfo(px, py, centerX, centerY, scale);
+
+  // Calculate tangent direction at the closest boundary point
+  // Derivative of heart parametric: dx/dt and dy/dt
+  const sint = Math.sin(t);
+  const cost = Math.cos(t);
+
+  // dx/dt = 48 * sin²(t) * cos(t)
+  const dxdt = 48 * sint * sint * cost * scale;
+  // dy/dt for classic heart
+  const dydt = (13 * Math.sin(t) - 10 * Math.sin(2 * t) - 6 * Math.sin(3 * t) - 4 * Math.sin(4 * t)) * scale;
+
+  // Normalize tangent
+  const tangentLen = Math.sqrt(dxdt * dxdt + dydt * dydt);
+  if (tangentLen < 0.001) return { fx: 0, fy: 0 };
+
+  const tx = dxdt / tangentLen;
+  const ty = dydt / tangentLen;
+
+  // Distance from point to boundary
+  const dx = px - bx;
+  const dy = py - by;
+  const distToBoundary = Math.sqrt(dx * dx + dy * dy);
+
+  // Field strength falls off with distance (stronger near boundary)
+  const maxDist = 150;
+  const strength = Math.max(0, 1 - distToBoundary / maxDist);
+
+  // Return field vector (tangent direction, scaled by strength)
+  return { fx: tx * strength, fy: ty * strength };
+};
 
 const InteractiveHearts: React.FC<{
   accentColor: string;
@@ -178,10 +283,10 @@ const InteractiveHearts: React.FC<{
   const clickImpulseRef = useRef<{ x: number; y: number; time: number } | null>(null);
   const animationRef = useRef<number>();
 
-  // Calculate heart count based on section (starts with 20, increases by 10 each section)
-  // Mobile: reduce by 60% for better performance
-  const baseCount = 20 + activeSection * 10;
-  const heartCount = isMobile ? Math.round(baseCount * 0.4) : baseCount;
+  // Calculate heart count based on section (starts with 30, increases by 8 each section)
+  // Desktop: 70% of base, Mobile: 40% of base
+  const baseCount = 30 + activeSection * 8;
+  const heartCount = isMobile ? Math.round(baseCount * 0.4) : Math.round(baseCount * 0.7);
 
   // Initialize or update hearts when count changes
   useEffect(() => {
@@ -192,16 +297,28 @@ const InteractiveHearts: React.FC<{
 
     // Add new hearts if needed
     while (currentHearts.length < heartCount) {
+      // Desktop only: 15% chance of a large, faint heart
+      const isLargeHeart = !isMobile && Math.random() < 0.15;
+      const size = isLargeHeart
+        ? 28 + Math.random() * 12  // Large: 28-40px
+        : 10 + Math.random() * 14; // Normal: 10-24px
+      const opacity = isLargeHeart
+        ? 0.06 + Math.random() * 0.08  // Large: very faint (0.06-0.14)
+        : 0.15 + Math.random() * 0.25; // Normal: 0.15-0.40
+
       currentHearts.push({
         id: currentHearts.length,
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: 0,
         vy: 0,
-        baseSpeed: 0.8 + Math.random() * 1.2, // Each heart floats at its own pace (0.8-2.0)
-        wobbleOffset: Math.random() * Math.PI * 2, // Random starting phase for wobble
-        size: 10 + Math.random() * 14,
-        opacity: 0.15 + Math.random() * 0.25,
+        baseSpeed: isLargeHeart
+          ? 0.25 + Math.random() * 0.35  // Large hearts float slower
+          : 0.5 + Math.random() * 0.7,   // Normal hearts slowed down
+        wobbleOffset: Math.random() * Math.PI * 2,
+        size,
+        opacity,
+        radius: size * 0.3,
       });
     }
   }, [heartCount]);
@@ -299,6 +416,9 @@ const InteractiveHearts: React.FC<{
       const mouse = mouseRef.current;
       const clickImpulse = clickImpulseRef.current;
 
+      // Cursor heart shape parameters - scale 2 = ~64px wide heart boundary
+      const cursorHeartScale = 2;
+
       // Apply click impulse to all hearts (pushes them away from click point)
       if (clickImpulse && Date.now() - clickImpulse.time < 100) {
         hearts.forEach((heart) => {
@@ -318,51 +438,133 @@ const InteractiveHearts: React.FC<{
         }
       }
 
+      // Phase 1: Apply forces (attraction + always floating upward)
       hearts.forEach((heart) => {
-        // Check if mouse is attracting this heart
-        let isAttracted = false;
+        // ALWAYS apply natural upward float and wobble
+        const wobble = Math.sin(time * 1.5 + heart.wobbleOffset) * 0.3;
+        heart.vx += wobble * 0.03;
+        heart.vy -= heart.baseSpeed * 0.06; // Constant upward push (slowed)
 
+        // Add gentle attraction toward cursor when active
         if (mouse.active) {
           const dx = mouse.x - heart.x;
           const dy = mouse.y - heart.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 200) { // Attraction radius
-            isAttracted = true;
-            const force = 0.3 * (1 - distance / 200); // Stronger when closer
+          // Very gentle attraction - whimsical and leisurely
+          if (distance < 350 && distance > 0) {
+            const force = 0.04 * (1 - distance / 350);
             heart.vx += (dx / distance) * force;
             heart.vy += (dy / distance) * force;
           }
         }
 
-        if (isAttracted) {
-          // When attracted, apply velocity with damping
-          heart.vx *= 0.95;
-          heart.vy *= 0.95;
+        // Apply damping - floaty and dreamy
+        heart.vx *= 0.98;
+        heart.vy *= 0.98;
 
-          // Limit velocity when attracted
-          const maxSpeed = 4;
-          const speed = Math.sqrt(heart.vx * heart.vx + heart.vy * heart.vy);
-          if (speed > maxSpeed) {
-            heart.vx = (heart.vx / speed) * maxSpeed;
-            heart.vy = (heart.vy / speed) * maxSpeed;
+        // Limit velocity - keep it slow
+        const maxSpeed = 1.25;
+        const speed = Math.sqrt(heart.vx * heart.vx + heart.vy * heart.vy);
+        if (speed > maxSpeed) {
+          heart.vx = (heart.vx / speed) * maxSpeed;
+          heart.vy = (heart.vy / speed) * maxSpeed;
+        }
+      });
+
+      // Phase 2: Heart-to-heart collision detection and response
+      for (let i = 0; i < hearts.length; i++) {
+        for (let j = i + 1; j < hearts.length; j++) {
+          const h1 = hearts[i];
+          const h2 = hearts[j];
+
+          const dx = h2.x - h1.x;
+          const dy = h2.y - h1.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const minDist = h1.radius + h2.radius;
+
+          if (distance < minDist && distance > 0) {
+            // Collision! Push hearts apart
+            const overlap = minDist - distance;
+            const nx = dx / distance;
+            const ny = dy / distance;
+
+            // Move hearts apart (half each)
+            const pushForce = overlap * 0.5;
+            h1.x -= nx * pushForce;
+            h1.y -= ny * pushForce;
+            h2.x += nx * pushForce;
+            h2.y += ny * pushForce;
+
+            // Transfer velocity (elastic collision)
+            const relVelX = h1.vx - h2.vx;
+            const relVelY = h1.vy - h2.vy;
+            const relVelDotN = relVelX * nx + relVelY * ny;
+
+            if (relVelDotN > 0) {
+              const bounce = 0.3;
+              h1.vx -= relVelDotN * nx * bounce;
+              h1.vy -= relVelDotN * ny * bounce;
+              h2.vx += relVelDotN * nx * bounce;
+              h2.vy += relVelDotN * ny * bounce;
+            }
+          }
+        }
+      }
+
+      // Phase 3: Pull hearts toward heart-shaped boundary
+      if (mouse.active) {
+        // Cleft repulsion zone - at top center of heart (where the V dip is)
+        const cleftX = mouse.x;
+        const cleftY = mouse.y - 15 * cursorHeartScale; // Top center of heart
+        const cleftRadius = 12 * cursorHeartScale; // Size of repulsion zone
+
+        hearts.forEach((heart) => {
+          const dx = heart.x - mouse.x;
+          const dy = heart.y - mouse.y;
+          const distToCenter = Math.sqrt(dx * dx + dy * dy);
+
+          // Gentle repulsion from cleft area to keep it clear
+          const cleftDx = heart.x - cleftX;
+          const cleftDy = heart.y - cleftY;
+          const distToCleft = Math.sqrt(cleftDx * cleftDx + cleftDy * cleftDy);
+
+          if (distToCleft < cleftRadius && distToCleft > 0) {
+            // Gentle push away from cleft
+            const repelStrength = 0.025 * (1 - distToCleft / cleftRadius);
+            heart.vx += (cleftDx / distToCleft) * repelStrength;
+            heart.vy += (cleftDy / distToCleft) * repelStrength;
           }
 
-          heart.x += heart.vx;
-          heart.y += heart.vy;
-        } else {
-          // Natural balloon floating - gentle and organic
-          // Horizontal wobble like a balloon drifting
-          const wobble = Math.sin(time * 1.5 + heart.wobbleOffset) * 0.3;
+          // Only affect hearts within 2x the heart size
+          const pullRange = 32 * cursorHeartScale * 2; // ~2x heart width
+          if (distToCenter < pullRange) {
+            // Find nearest point on heart boundary
+            const { x: bx, y: by } = getHeartBoundaryInfo(heart.x, heart.y, mouse.x, mouse.y, cursorHeartScale);
+            const toBoundaryX = bx - heart.x;
+            const toBoundaryY = by - heart.y;
+            const distToBoundary = Math.sqrt(toBoundaryX * toBoundaryX + toBoundaryY * toBoundaryY);
 
-          // Gradually return vx/vy to natural state
-          heart.vx *= 0.92;
-          heart.vy *= 0.92;
+            if (distToBoundary > 2) {
+              // Gentle inward pull toward the heart boundary - slow and dreamy
+              const pullStrength = 0.035;
+              heart.vx += (toBoundaryX / distToBoundary) * pullStrength;
+              heart.vy += (toBoundaryY / distToBoundary) * pullStrength;
+            }
 
-          // Apply natural upward float + wobble + any residual velocity
-          heart.x += wobble + heart.vx;
-          heart.y += -heart.baseSpeed + heart.vy;
-        }
+            // When close to boundary, add damping to settle gently
+            if (distToBoundary < heart.radius * 3) {
+              heart.vx *= 0.92;
+              heart.vy *= 0.92;
+            }
+          }
+        });
+      }
+
+      // Phase 4: Update positions and handle boundaries
+      hearts.forEach((heart) => {
+        heart.x += heart.vx;
+        heart.y += heart.vy;
 
         // When heart exits top, respawn at bottom
         if (heart.y < -heart.size * 2) {
@@ -370,10 +572,10 @@ const InteractiveHearts: React.FC<{
           heart.x = Math.random() * canvas.width;
           heart.vx = 0;
           heart.vy = 0;
-          heart.wobbleOffset = Math.random() * Math.PI * 2; // New wobble phase
+          heart.wobbleOffset = Math.random() * Math.PI * 2;
         }
 
-        // Keep hearts within horizontal bounds (gentle wrap)
+        // Keep hearts within horizontal bounds
         if (heart.x < -heart.size) {
           heart.x = canvas.width + heart.size;
         }
@@ -411,6 +613,407 @@ const InteractiveHearts: React.FC<{
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none z-0"
       style={{ width: '100%', height: '100%' }}
+    />
+  );
+};
+
+// Romantic Polish-English word pairs for the particle effect
+const WORD_PAIRS = [
+  { polish: 'kocham', english: 'I love' },
+  { polish: 'serce', english: 'heart' },
+  { polish: 'miłość', english: 'love' },
+  { polish: 'zawsze', english: 'always' },
+  { polish: 'razem', english: 'together' },
+  { polish: 'moje', english: 'mine' },
+  { polish: 'twoje', english: 'yours' },
+  { polish: 'piękny', english: 'beautiful' },
+  { polish: 'kochanie', english: 'darling' },
+  { polish: 'słonko', english: 'sunshine' },
+  { polish: 'skarbie', english: 'treasure' },
+  { polish: 'na zawsze', english: 'forever' },
+];
+
+// Particle for word effect
+interface WordParticle {
+  x: number;
+  y: number;
+  originX: number;
+  originY: number;
+  targetX: number;
+  targetY: number;
+  alpha: number;
+  size: number;
+  angle: number; // For spiral motion
+  speed: number;
+}
+
+// Animation states
+type WordEventState = 'spawning' | 'showing_polish' | 'transforming' | 'showing_english' | 'forming_heart' | 'floating' | 'done';
+
+// Word event - one word animation sequence
+interface WordEvent {
+  id: number;
+  polishWord: string;
+  englishWord: string;
+  particles: WordParticle[];
+  state: WordEventState;
+  stateStartTime: number;
+  centerX: number;
+  centerY: number;
+  polishPositions: { x: number; y: number }[];
+  englishPositions: { x: number; y: number }[];
+  heartPositions: { x: number; y: number }[];
+  floatY: number;
+  opacity: number;
+}
+
+// Word particle effect - independent background animation
+const WordParticleEffect: React.FC<{
+  accentColor: string;
+  containerRef: React.RefObject<HTMLDivElement>;
+}> = ({ accentColor, containerRef }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const eventsRef = useRef<WordEvent[]>([]);
+  const animationRef = useRef<number>();
+  const lastSpawnRef = useRef<number>(0);
+  const eventIdRef = useRef<number>(0);
+
+  // Convert text to particle positions using offscreen canvas
+  const getTextParticlePositions = (
+    text: string,
+    centerX: number,
+    centerY: number,
+    fontSize: number
+  ): { x: number; y: number }[] => {
+    const offscreen = document.createElement('canvas');
+    const ctx = offscreen.getContext('2d');
+    if (!ctx) return [];
+
+    // Set canvas size
+    offscreen.width = 400;
+    offscreen.height = 100;
+
+    // Draw text
+    ctx.fillStyle = 'white';
+    ctx.font = `bold ${fontSize}px system-ui, -apple-system, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, offscreen.width / 2, offscreen.height / 2);
+
+    // Sample pixels
+    const imageData = ctx.getImageData(0, 0, offscreen.width, offscreen.height);
+    const positions: { x: number; y: number }[] = [];
+    const sampleRate = 3; // Sample every 3rd pixel for performance
+
+    for (let y = 0; y < offscreen.height; y += sampleRate) {
+      for (let x = 0; x < offscreen.width; x += sampleRate) {
+        const i = (y * offscreen.width + x) * 4;
+        if (imageData.data[i + 3] > 128) { // Alpha > 50%
+          positions.push({
+            x: centerX + (x - offscreen.width / 2),
+            y: centerY + (y - offscreen.height / 2),
+          });
+        }
+      }
+    }
+
+    return positions;
+  };
+
+  // Generate heart-shaped positions
+  const getHeartPositions = (
+    centerX: number,
+    centerY: number,
+    scale: number,
+    count: number
+  ): { x: number; y: number }[] => {
+    const positions: { x: number; y: number }[] = [];
+
+    for (let i = 0; i < count; i++) {
+      const t = (i / count) * Math.PI * 2;
+      const sint = Math.sin(t);
+      positions.push({
+        x: centerX + 16 * sint * sint * sint * scale,
+        y: centerY - (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * scale,
+      });
+    }
+
+    return positions;
+  };
+
+  // Spawn a new word event
+  const spawnWordEvent = (canvasWidth: number, canvasHeight: number): WordEvent => {
+    const pair = WORD_PAIRS[Math.floor(Math.random() * WORD_PAIRS.length)];
+    const centerX = canvasWidth * (0.3 + Math.random() * 0.4); // Middle 40% of screen
+    const centerY = canvasHeight * (0.5 + Math.random() * 0.3); // Lower half
+
+    const polishPositions = getTextParticlePositions(pair.polish, centerX, centerY, 32);
+    const englishPositions = getTextParticlePositions(pair.english, centerX, centerY, 32);
+
+    // Use the larger particle count for consistency
+    const particleCount = Math.max(polishPositions.length, englishPositions.length, 50);
+    const heartPositions = getHeartPositions(centerX, centerY, 1.5, particleCount);
+
+    // Extend smaller arrays by repeating positions
+    while (polishPositions.length < particleCount) {
+      polishPositions.push(polishPositions[Math.floor(Math.random() * polishPositions.length)]);
+    }
+    while (englishPositions.length < particleCount) {
+      englishPositions.push(englishPositions[Math.floor(Math.random() * englishPositions.length)]);
+    }
+
+    // Create particles starting scattered
+    const particles: WordParticle[] = polishPositions.slice(0, particleCount).map((pos, i) => ({
+      x: pos.x + (Math.random() - 0.5) * 100,
+      y: pos.y + (Math.random() - 0.5) * 100,
+      originX: pos.x,
+      originY: pos.y,
+      targetX: pos.x,
+      targetY: pos.y,
+      alpha: 0,
+      size: 1.5 + Math.random() * 1.5,
+      angle: Math.random() * Math.PI * 2,
+      speed: 0.5 + Math.random() * 0.5,
+    }));
+
+    return {
+      id: eventIdRef.current++,
+      polishWord: pair.polish,
+      englishWord: pair.english,
+      particles,
+      state: 'spawning',
+      stateStartTime: Date.now(),
+      centerX,
+      centerY,
+      polishPositions: polishPositions.slice(0, particleCount),
+      englishPositions: englishPositions.slice(0, particleCount),
+      heartPositions,
+      floatY: 0,
+      opacity: 1,
+    };
+  };
+
+  // Animation loop
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const resizeCanvas = () => {
+      const container = containerRef.current;
+      if (container) {
+        canvas.width = container.clientWidth;
+        canvas.height = container.clientHeight;
+      }
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Timing constants (in ms)
+    const SPAWN_INTERVAL = 10000; // New word every 10 seconds
+    const SPAWNING_DURATION = 1500;
+    const SHOWING_POLISH_DURATION = 2000;
+    const TRANSFORMING_DURATION = 1500;
+    const SHOWING_ENGLISH_DURATION = 2000;
+    const FORMING_HEART_DURATION = 2000;
+    const FLOATING_DURATION = 4000;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const now = Date.now();
+
+      // Spawn new event periodically (max 1 active at a time for elegance)
+      const activeEvents = eventsRef.current.filter(e => e.state !== 'done');
+      if (activeEvents.length === 0 && now - lastSpawnRef.current > SPAWN_INTERVAL) {
+        eventsRef.current.push(spawnWordEvent(canvas.width, canvas.height));
+        lastSpawnRef.current = now;
+      }
+
+      // Update and render each event
+      eventsRef.current.forEach((event) => {
+        const elapsed = now - event.stateStartTime;
+
+        // State machine
+        switch (event.state) {
+          case 'spawning': {
+            const progress = Math.min(elapsed / SPAWNING_DURATION, 1);
+            const ease = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+
+            event.particles.forEach((p, i) => {
+              const target = event.polishPositions[i];
+              p.x += (target.x - p.x) * 0.08;
+              p.y += (target.y - p.y) * 0.08;
+              p.alpha = ease * 0.8;
+            });
+
+            if (progress >= 1) {
+              event.state = 'showing_polish';
+              event.stateStartTime = now;
+            }
+            break;
+          }
+
+          case 'showing_polish': {
+            // Gentle breathing effect
+            const breathe = Math.sin(elapsed * 0.003) * 0.1;
+            event.particles.forEach((p, i) => {
+              const target = event.polishPositions[i];
+              p.x += (target.x - p.x) * 0.1;
+              p.y += (target.y - p.y) * 0.1;
+              p.alpha = 0.7 + breathe;
+            });
+
+            if (elapsed > SHOWING_POLISH_DURATION) {
+              event.state = 'transforming';
+              event.stateStartTime = now;
+            }
+            break;
+          }
+
+          case 'transforming': {
+            const progress = Math.min(elapsed / TRANSFORMING_DURATION, 1);
+            const ease = progress < 0.5
+              ? 4 * progress * progress * progress
+              : 1 - Math.pow(-2 * progress + 2, 3) / 2; // Ease in-out cubic
+
+            event.particles.forEach((p, i) => {
+              const from = event.polishPositions[i];
+              const to = event.englishPositions[i];
+
+              // Spiral motion during transform
+              const spiralRadius = Math.sin(progress * Math.PI) * 30;
+              const spiralAngle = p.angle + progress * Math.PI * 2;
+
+              const baseX = from.x + (to.x - from.x) * ease;
+              const baseY = from.y + (to.y - from.y) * ease;
+
+              p.targetX = baseX + Math.cos(spiralAngle) * spiralRadius;
+              p.targetY = baseY + Math.sin(spiralAngle) * spiralRadius;
+
+              p.x += (p.targetX - p.x) * 0.15;
+              p.y += (p.targetY - p.y) * 0.15;
+              p.alpha = 0.6 + Math.sin(progress * Math.PI) * 0.3;
+            });
+
+            if (progress >= 1) {
+              event.state = 'showing_english';
+              event.stateStartTime = now;
+            }
+            break;
+          }
+
+          case 'showing_english': {
+            const breathe = Math.sin(elapsed * 0.003) * 0.1;
+            event.particles.forEach((p, i) => {
+              const target = event.englishPositions[i];
+              p.x += (target.x - p.x) * 0.1;
+              p.y += (target.y - p.y) * 0.1;
+              p.alpha = 0.7 + breathe;
+            });
+
+            if (elapsed > SHOWING_ENGLISH_DURATION) {
+              event.state = 'forming_heart';
+              event.stateStartTime = now;
+            }
+            break;
+          }
+
+          case 'forming_heart': {
+            const progress = Math.min(elapsed / FORMING_HEART_DURATION, 1);
+            const ease = 1 - Math.pow(1 - progress, 4); // Ease out quart
+
+            event.particles.forEach((p, i) => {
+              const from = event.englishPositions[i];
+              const to = event.heartPositions[i % event.heartPositions.length];
+
+              // Inward spiral
+              const spiralRadius = (1 - progress) * 50;
+              const spiralAngle = p.angle + progress * Math.PI * 4;
+
+              const baseX = from.x + (to.x - from.x) * ease;
+              const baseY = from.y + (to.y - from.y) * ease;
+
+              p.targetX = baseX + Math.cos(spiralAngle) * spiralRadius * (1 - ease);
+              p.targetY = baseY + Math.sin(spiralAngle) * spiralRadius * (1 - ease);
+
+              p.x += (p.targetX - p.x) * 0.12;
+              p.y += (p.targetY - p.y) * 0.12;
+              p.alpha = 0.7;
+            });
+
+            if (progress >= 1) {
+              event.state = 'floating';
+              event.stateStartTime = now;
+            }
+            break;
+          }
+
+          case 'floating': {
+            const progress = Math.min(elapsed / FLOATING_DURATION, 1);
+            event.floatY = progress * 150; // Float up 150px
+            event.opacity = 1 - progress; // Fade out
+
+            event.particles.forEach((p, i) => {
+              const target = event.heartPositions[i % event.heartPositions.length];
+              p.x += (target.x - p.x) * 0.05;
+              p.y += (target.y - event.floatY - p.y) * 0.05;
+              p.alpha = 0.7 * event.opacity;
+
+              // Slight dispersion as it fades
+              p.x += (Math.random() - 0.5) * progress * 2;
+              p.y += (Math.random() - 0.5) * progress * 2;
+            });
+
+            if (progress >= 1) {
+              event.state = 'done';
+            }
+            break;
+          }
+        }
+
+        // Render particles
+        event.particles.forEach((p) => {
+          if (p.alpha <= 0) return;
+
+          ctx.save();
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle = accentColor;
+          ctx.shadowColor = accentColor;
+          ctx.shadowBlur = 4;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        });
+      });
+
+      // Clean up done events
+      eventsRef.current = eventsRef.current.filter(e => e.state !== 'done');
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    // Start first word after a short delay
+    lastSpawnRef.current = Date.now() - SPAWN_INTERVAL + 2000;
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [accentColor, containerRef]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 pointer-events-none"
+      style={{ width: '100%', height: '100%', zIndex: -1 }}
     />
   );
 };
@@ -922,6 +1525,11 @@ const Hero: React.FC = () => {
 
         {/* Middle: Horizontal Swipe Carousel (~55% of remaining space) */}
         <div className="flex-1 relative overflow-hidden min-h-0">
+          {/* Word particle effect - background layer */}
+          <WordParticleEffect
+            accentColor={accentColor}
+            containerRef={mobileCarouselRef as React.RefObject<HTMLDivElement>}
+          />
           {/* Floating hearts background - 60% fewer on mobile */}
           <InteractiveHearts
             accentColor={accentColor}
@@ -1065,8 +1673,13 @@ const Hero: React.FC = () => {
           className="flex-1 overflow-y-auto snap-y snap-mandatory h-screen relative hide-scrollbar"
           style={{ scrollBehavior: 'smooth' }}
         >
-          {/* Sticky hearts container - stays visible while scrolling */}
+          {/* Sticky effects container - stays visible while scrolling */}
           <div className="sticky top-0 h-screen w-full pointer-events-none" style={{ marginBottom: '-100vh' }}>
+            {/* Word particle effect - background layer */}
+            <WordParticleEffect
+              accentColor={accentColor}
+              containerRef={scrollRef as React.RefObject<HTMLDivElement>}
+            />
             {/* Interactive floating hearts */}
             <InteractiveHearts
               accentColor={accentColor}
