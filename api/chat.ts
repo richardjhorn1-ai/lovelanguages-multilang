@@ -139,12 +139,13 @@ async function getPartnerContext(userId: string): Promise<PartnerContext | null>
     .eq('id', learnerId)
     .single();
 
-  // Get learner's vocabulary
+  // Get learner's vocabulary (limit to recent 50 - we only use ~30 in prompts)
   const { data: vocabulary } = await supabase
     .from('dictionary')
-    .select('id, word, translation, unlocked_at')
+    .select('word, translation')  // Only need these fields for prompt context
     .eq('user_id', learnerId)
-    .order('unlocked_at', { ascending: false });
+    .order('unlocked_at', { ascending: false })
+    .limit(50);
 
   // Get learner's scores for weak spots
   const { data: scores } = await supabase

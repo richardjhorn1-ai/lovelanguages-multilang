@@ -79,10 +79,10 @@ export default async function handler(req: any, res: any) {
 
     const userRole = role || profile?.role || 'student';
 
-    // Build query based on role
+    // Build query based on role - select only needed columns
     let query = supabase
       .from('tutor_challenges')
-      .select('*')
+      .select('id, title, challenge_type, status, created_at, tutor_id, student_id, config, words_data')
       .order('created_at', { ascending: false });
 
     if (userRole === 'tutor') {
@@ -111,7 +111,7 @@ export default async function handler(req: any, res: any) {
     if (completedIds.length > 0) {
       const { data: resultsData } = await supabase
         .from('challenge_results')
-        .select('*')
+        .select('challenge_id, score, correct_answers, total_questions, xp_earned, completed_at')
         .in('challenge_id', completedIds);
       results = resultsData || [];
     }
