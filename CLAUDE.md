@@ -239,6 +239,99 @@ Streak-based mastery tracked in `word_scores` table:
 - Once learned, status persists (no decay)
 - Mastery badges shown in Love Log: green checkmark = learned, amber = in progress
 
+## API Cost Optimization Patterns
+
+Gemini AI is the largest cost driver. Follow these patterns to minimize API spend:
+
+### 1. Batch Operations (N→1)
+
+**NEVER** make N API calls in a loop. Use batch patterns:
+
+```typescript
+// BAD: N Gemini calls
+for (const answer of answers) {
+  const result = await gemini.validate(answer);  // N calls!
+}
+
+// GOOD: 1 Gemini call with array schema
+const results = await gemini.generateContent({
+  contents: buildBatchPrompt(answers),
+  config: {
+    responseSchema: { type: Type.ARRAY, items: { ... } }  // Returns all results
+  }
+});
+```
+
+### 2. Local-First Validation
+
+Always try free local matching before calling AI:
+
+```typescript
+function fastMatch(userAnswer: string, correctAnswer: string): boolean {
+  const normalize = (s: string) => s
+    .toLowerCase().trim()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  return normalize(userAnswer) === normalize(correctAnswer);
+}
+
+// Only call Gemini for non-exact matches
+const needsAi = answers.filter(a => !fastMatch(a.user, a.correct));
+if (needsAi.length > 0) {
+  // Batch validate only the ones that need AI
+}
+```
+
+### 3. Schema Proportional to Usage
+
+Request only the data you'll actually use:
+
+| Data Destination | Schema Complexity |
+|------------------|-------------------|
+| Love Log (dictionary) | Full schema (conjugations, examples, etc.) |
+| Preview/Display only | Minimal schema (word, translation, pronunciation) |
+| Tutor (doesn't learn) | No vocabulary extraction needed |
+
+### 4. Database Batch Operations
+
+```typescript
+// BAD: N+1 queries
+for (const id of ids) {
+  const data = await supabase.from('table').select('*').eq('id', id);
+}
+
+// GOOD: 1 query with .in()
+const { data } = await supabase.from('table').select('*').in('id', ids);
+
+// BAD: N inserts
+for (const item of items) {
+  await supabase.from('table').insert(item);
+}
+
+// GOOD: 1 batch upsert
+await supabase.from('table').upsert(items, { onConflict: 'id' });
+```
+
+### 5. Limit Data Fetching
+
+```typescript
+// BAD: Fetch all vocabulary, use 30
+const { data: vocab } = await supabase.from('dictionary').select('*');
+const prompt = vocab.slice(0, 30).join(', ');
+
+// GOOD: Fetch only what you need
+const { data: vocab } = await supabase.from('dictionary')
+  .select('word, translation')
+  .limit(30);
+```
+
+### Key Files with Batch Patterns
+- `api/submit-challenge.ts` - `batchSmartValidate()` for answer validation
+- `api/submit-level-test.ts` - Same batch validation pattern
+- `api/complete-word-request.ts` - `batchEnrichWordContexts()` for word enrichment
+- `api/get-game-history.ts` - Aggregate query for session stats
+
+See `TROUBLESHOOTING.md` Issues #42-43 for detailed examples.
+
 ## Tutor Challenge System
 
 Tutors can create three types of challenges for their partner:

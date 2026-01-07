@@ -229,11 +229,157 @@ function log(...args: any[]) {
 
 ## Cost Optimization
 
+### Basic Principles
+
 1. **Use cheaper models for simple tasks** (titles, summaries)
 2. **Cache responses** where appropriate
 3. **Limit context** - don't send entire chat history every time
 4. **Use streaming** - users can interrupt, saving tokens
 5. **Set max tokens** - prevent runaway responses
+
+### Advanced: Batch Operations (Critical for High-Volume Endpoints)
+
+The biggest cost savings come from converting N API calls to 1 batch call:
+
+```typescript
+// ❌ BAD: N API calls in a loop (costs N× tokens)
+for (const item of items) {
+  const result = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: buildPrompt(item),
+    config: { responseSchema: singleItemSchema }
+  });
+  results.push(JSON.parse(result.text));
+}
+
+// ✅ GOOD: 1 API call with array schema (costs 1× tokens)
+const result = await ai.models.generateContent({
+  model: 'gemini-3-flash-preview',
+  contents: buildBatchPrompt(items),  // "Process these N items..."
+  config: {
+    responseMimeType: 'application/json',
+    responseSchema: {
+      type: Type.ARRAY,  // Return array of results
+      items: singleItemSchema
+    }
+  }
+});
+const results = JSON.parse(result.text);
+```
+
+**Savings**: 80-95% cost reduction on batch operations
+
+### Local-First Validation Pattern
+
+Always try free local matching before calling AI:
+
+```typescript
+async function batchValidate(answers: Answer[]): Promise<Result[]> {
+  const results: Result[] = [];
+  const needsAi: { index: number; answer: Answer }[] = [];
+
+  // Step 1: FREE local matching (handles 60-80% of cases)
+  answers.forEach((answer, index) => {
+    if (fastMatch(answer.user, answer.correct)) {
+      results.push({ index, accepted: true, explanation: 'Exact match' });
+    } else {
+      needsAi.push({ index, answer });
+    }
+  });
+
+  // Step 2: If all matched locally, skip AI entirely!
+  if (needsAi.length === 0) return results;
+
+  // Step 3: Batch validate ONLY the non-matches
+  const aiResults = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: buildValidationPrompt(needsAi.map(n => n.answer)),
+    config: { responseSchema: arraySchema }
+  });
+
+  // Step 4: Merge AI results back with original indices
+  const validations = JSON.parse(aiResults.text);
+  needsAi.forEach((item, i) => {
+    results.push({ index: item.index, ...validations[i] });
+  });
+
+  return results;
+}
+
+function fastMatch(userAnswer: string, correctAnswer: string): boolean {
+  const normalize = (s: string) => s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
+  return normalize(userAnswer) === normalize(correctAnswer);
+}
+```
+
+**Savings**: Eliminates 60-80% of AI calls when users type exact answers
+
+### Schema Optimization by Use Case
+
+Request only the data you'll actually use:
+
+| Use Case | Schema Strategy | Token Savings |
+|----------|-----------------|---------------|
+| **Dictionary entry** (saved to DB) | Full schema with conjugations, examples | None (need full data) |
+| **Preview/display only** | Minimal schema: word, translation, pronunciation | ~70% |
+| **Tutor mode** (doesn't add vocab) | No vocabulary extraction at all | ~90% |
+| **Quick validation** | Just accepted/explanation fields | ~80% |
+
+```typescript
+// Full schema for dictionary entries
+const fullSchema = {
+  type: Type.OBJECT,
+  properties: {
+    word: { type: Type.STRING },
+    translation: { type: Type.STRING },
+    word_type: { type: Type.STRING },
+    pronunciation: { type: Type.STRING },
+    conjugations: { /* 6 forms × 3 tenses */ },
+    examples: { type: Type.ARRAY, items: { type: Type.STRING } },
+    gender: { type: Type.STRING },
+    plural: { type: Type.STRING },
+    proTip: { type: Type.STRING }
+  }
+};
+
+// Lightweight schema for previews (same data shown differently)
+const previewSchema = {
+  type: Type.OBJECT,
+  properties: {
+    word: { type: Type.STRING },
+    translation: { type: Type.STRING },
+    word_type: { type: Type.STRING },
+    pronunciation: { type: Type.STRING }
+  },
+  required: ['word', 'translation', 'word_type', 'pronunciation']
+};
+```
+
+### Implementation Checklist for New Endpoints
+
+Before deploying any Gemini-calling endpoint, verify:
+
+- [ ] **Batch operations?** - If processing multiple items, use array schema
+- [ ] **Local fallback?** - Try free matching before AI validation
+- [ ] **Schema minimal?** - Request only fields that will be used
+- [ ] **Role-appropriate?** - Tutors don't need vocabulary extraction
+- [ ] **Limits set?** - Cap array sizes and response tokens
+
+### Key Implementation Files
+
+| File | Pattern | Notes |
+|------|---------|-------|
+| `api/submit-challenge.ts` | `batchSmartValidate()` | Validates N answers in 1 call |
+| `api/submit-level-test.ts` | `batchSmartValidate()` | Same pattern |
+| `api/complete-word-request.ts` | `batchEnrichWordContexts()` | Enriches N words in 1 call |
+| `api/chat.ts` | Role-based schema | `coachModeSchema` vs `studentModeSchema` |
+| `api/create-word-request.ts` | Preview schema | Minimal data for tutor preview |
+
+See `TROUBLESHOOTING.md` Issues #42-43 for detailed before/after examples
 
 ---
 
