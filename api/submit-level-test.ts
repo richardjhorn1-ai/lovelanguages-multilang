@@ -1,8 +1,130 @@
 import { createClient } from '@supabase/supabase-js';
-import { batchSmartValidate, ValidationResult } from '../services/validation';
+import { GoogleGenAI, Type } from "@google/genai";
 
 // Inline constant to avoid module resolution issues in Vercel serverless
 const PASS_THRESHOLD = 80;
+
+// ============================================================================
+// INLINE VALIDATION (Vercel serverless can't import from ../services/)
+// ============================================================================
+
+interface ValidationResult {
+  index: number;
+  accepted: boolean;
+  explanation: string;
+}
+
+interface AnswerToValidate {
+  userAnswer: string;
+  correctAnswer: string;
+  polishWord?: string;
+}
+
+function fastMatch(userAnswer: string, correctAnswer: string): boolean {
+  const normalize = (s: string) => s
+    .toLowerCase()
+    .trim()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+  return normalize(userAnswer) === normalize(correctAnswer);
+}
+
+async function batchSmartValidate(
+  answers: AnswerToValidate[],
+  apiKey?: string
+): Promise<ValidationResult[]> {
+  const results: ValidationResult[] = [];
+  const needsAiValidation: Array<{ index: number } & AnswerToValidate> = [];
+
+  answers.forEach((answer, index) => {
+    if (fastMatch(answer.userAnswer, answer.correctAnswer)) {
+      results.push({ index, accepted: true, explanation: 'Exact match' });
+    } else {
+      needsAiValidation.push({ index, ...answer });
+    }
+  });
+
+  if (needsAiValidation.length === 0) {
+    return results;
+  }
+
+  const geminiApiKey = apiKey || process.env.GEMINI_API_KEY;
+  if (!geminiApiKey) {
+    needsAiValidation.forEach(item => {
+      results.push({ index: item.index, accepted: false, explanation: 'No match (strict mode)' });
+    });
+    return results;
+  }
+
+  try {
+    const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+    const answersText = needsAiValidation.map((item, i) =>
+      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.polishWord ? ` | Polish: "${item.polishWord}"` : ''}`
+    ).join('\n');
+
+    const prompt = `You are validating answers for a Polish language learning app.
+
+Validate these ${needsAiValidation.length} answers:
+
+${answersText}
+
+For EACH answer, ACCEPT if ANY apply:
+- Exact match (ignoring case)
+- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię)
+- Valid synonym (pretty=beautiful, hi=hello)
+- Article variation (the dog=dog)
+- Minor typo (1-2 chars off)
+- Alternate valid translation
+
+REJECT if:
+- Completely different meaning
+- Wrong language
+- Major spelling error (3+ chars wrong)
+
+Return a JSON array with ${needsAiValidation.length} results in order.`;
+
+    const result = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: prompt,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
+              explanation: { type: Type.STRING, description: "Brief explanation" }
+            },
+            required: ["accepted", "explanation"]
+          }
+        }
+      }
+    });
+
+    const responseText = result.text || '[]';
+    const validations = JSON.parse(responseText) as Array<{ accepted: boolean; explanation: string }>;
+
+    needsAiValidation.forEach((item, i) => {
+      const validation = validations[i] || { accepted: false, explanation: 'Validation error' };
+      results.push({
+        index: item.index,
+        accepted: validation.accepted,
+        explanation: validation.explanation
+      });
+    });
+
+  } catch (error) {
+    console.error('Batch validation error:', error);
+    needsAiValidation.forEach(item => {
+      results.push({ index: item.index, accepted: false, explanation: 'Validation error' });
+    });
+  }
+
+  return results;
+}
+
+// ============================================================================
 
 // CORS configuration
 function setCorsHeaders(req: any, res: any): boolean {
