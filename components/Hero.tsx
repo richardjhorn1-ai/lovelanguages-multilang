@@ -619,18 +619,49 @@ const InteractiveHearts: React.FC<{
 
 // Romantic Polish-English word pairs for the particle effect
 const WORD_PAIRS = [
+  // Terms of endearment
   { polish: 'kocham', english: 'I love' },
-  { polish: 'serce', english: 'heart' },
+  { polish: 'kochanie', english: 'darling' },
+  { polish: 'skarbie', english: 'treasure' },
+  { polish: 'słonko', english: 'sunshine' },
+  { polish: 'kotku', english: 'kitten' },
+  { polish: 'misiu', english: 'teddy bear' },
+  { polish: 'złotko', english: 'sweetheart' },
+  { polish: 'aniołku', english: 'little angel' },
+  // Love & feelings
   { polish: 'miłość', english: 'love' },
-  { polish: 'zawsze', english: 'always' },
+  { polish: 'serce', english: 'heart' },
+  { polish: 'szczęście', english: 'happiness' },
+  { polish: 'radość', english: 'joy' },
+  { polish: 'marzenie', english: 'dream' },
+  { polish: 'nadzieja', english: 'hope' },
+  { polish: 'uśmiech', english: 'smile' },
+  { polish: 'przytulenie', english: 'hug' },
+  { polish: 'pocałunek', english: 'kiss' },
+  // Together
   { polish: 'razem', english: 'together' },
+  { polish: 'zawsze', english: 'always' },
+  { polish: 'na zawsze', english: 'forever' },
+  { polish: 'my', english: 'we' },
+  { polish: 'nas', english: 'us' },
+  // Possessive
   { polish: 'moje', english: 'mine' },
   { polish: 'twoje', english: 'yours' },
+  { polish: 'nasze', english: 'ours' },
+  // Descriptive
   { polish: 'piękny', english: 'beautiful' },
-  { polish: 'kochanie', english: 'darling' },
-  { polish: 'słonko', english: 'sunshine' },
-  { polish: 'skarbie', english: 'treasure' },
-  { polish: 'na zawsze', english: 'forever' },
+  { polish: 'cudowny', english: 'wonderful' },
+  { polish: 'wspaniały', english: 'amazing' },
+  { polish: 'uroczy', english: 'charming' },
+  { polish: 'słodki', english: 'sweet' },
+  // Phrases
+  { polish: 'kocham cię', english: 'I love you' },
+  { polish: 'jesteś mój', english: "you're mine" },
+  { polish: 'mój świat', english: 'my world' },
+  { polish: 'dla ciebie', english: 'for you' },
+  { polish: 'tylko ty', english: 'only you' },
+  { polish: 'tęsknię', english: 'I miss you' },
+  { polish: 'bądź ze mną', english: 'be with me' },
 ];
 
 // Particle for word effect
@@ -702,10 +733,10 @@ const WordParticleEffect: React.FC<{
     ctx.textBaseline = 'middle';
     ctx.fillText(text, offscreen.width / 2, offscreen.height / 2);
 
-    // Sample pixels (higher sample rate = fewer particles for performance)
+    // Sample pixels - use rate that clearly resolves the text
     const imageData = ctx.getImageData(0, 0, offscreen.width, offscreen.height);
     const positions: { x: number; y: number }[] = [];
-    const sampleRate = 5; // Sample every 5th pixel for performance
+    const sampleRate = 2; // Sample every 2nd pixel for clear resolution
 
     const cos = Math.cos(rotation);
     const sin = Math.sin(rotation);
@@ -731,7 +762,7 @@ const WordParticleEffect: React.FC<{
     return positions;
   };
 
-  // Generate heart-shaped positions
+  // Generate filled heart-shaped positions (not just outline)
   const getHeartPositions = (
     centerX: number,
     centerY: number,
@@ -740,64 +771,135 @@ const WordParticleEffect: React.FC<{
   ): { x: number; y: number }[] => {
     const positions: { x: number; y: number }[] = [];
 
-    for (let i = 0; i < count; i++) {
-      const t = (i / count) * Math.PI * 2;
-      const sint = Math.sin(t);
-      positions.push({
-        x: centerX + 16 * sint * sint * sint * scale,
-        y: centerY - (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * scale,
-      });
+    // Fill the heart by sampling points and checking if inside
+    // Heart parametric bounds: x ∈ [-16, 16], y ∈ [-17, 13] at scale=1
+    const gridSize = Math.ceil(Math.sqrt(count * 1.5)); // Oversample then trim
+    const step = 34 * scale / gridSize; // Cover the heart width
+
+    for (let gx = 0; gx < gridSize; gx++) {
+      for (let gy = 0; gy < gridSize; gy++) {
+        const x = (gx / gridSize - 0.5) * 34 * scale;
+        const y = (gy / gridSize - 0.5) * 34 * scale;
+
+        // Check if point is inside heart using implicit equation
+        // Normalized: ((x/16)² + (y/13)² - 1)³ - (x/16)²(y/13)³ < 0
+        const nx = x / (16 * scale);
+        const ny = -y / (13 * scale); // Flip y for heart orientation
+        const term1 = nx * nx + ny * ny - 1;
+        const inside = term1 * term1 * term1 - nx * nx * ny * ny * ny < 0;
+
+        if (inside) {
+          positions.push({
+            x: centerX + x,
+            y: centerY + y,
+          });
+        }
+      }
     }
 
-    return positions;
+    // Shuffle and trim to exact count needed
+    for (let i = positions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [positions[i], positions[j]] = [positions[j], positions[i]];
+    }
+
+    return positions.slice(0, count);
   };
 
-  // Spawn a new word event
-  const spawnWordEvent = (canvasWidth: number, canvasHeight: number): WordEvent => {
+  // Spawn a new word event, avoiding existing event positions
+  const spawnWordEvent = (
+    canvasWidth: number,
+    canvasHeight: number,
+    existingEvents: WordEvent[]
+  ): WordEvent => {
     const pair = WORD_PAIRS[Math.floor(Math.random() * WORD_PAIRS.length)];
 
-    // Spawn at edges - avoid center text area
-    // Pick a random edge: 0=left, 1=right, 2=top-left, 3=top-right, 4=bottom
-    const edge = Math.floor(Math.random() * 5);
+    // Generate candidate position at edges - avoid center text area
+    const generatePosition = (): { x: number; y: number } => {
+      const edge = Math.floor(Math.random() * 5);
+      switch (edge) {
+        case 0: // Left edge
+          return {
+            x: canvasWidth * (0.05 + Math.random() * 0.15),
+            y: canvasHeight * (0.2 + Math.random() * 0.6),
+          };
+        case 1: // Right edge
+          return {
+            x: canvasWidth * (0.80 + Math.random() * 0.15),
+            y: canvasHeight * (0.2 + Math.random() * 0.6),
+          };
+        case 2: // Top-left corner
+          return {
+            x: canvasWidth * (0.1 + Math.random() * 0.2),
+            y: canvasHeight * (0.05 + Math.random() * 0.15),
+          };
+        case 3: // Top-right corner
+          return {
+            x: canvasWidth * (0.7 + Math.random() * 0.2),
+            y: canvasHeight * (0.05 + Math.random() * 0.15),
+          };
+        default: // Bottom area
+          return {
+            x: canvasWidth * (0.2 + Math.random() * 0.6),
+            y: canvasHeight * (0.85 + Math.random() * 0.1),
+          };
+      }
+    };
+
+    // Minimum distance between word events
+    const MIN_DISTANCE = 250;
+
+    // Try to find a position away from existing events
     let centerX: number;
     let centerY: number;
+    let bestDistance = 0;
+    let bestPos = generatePosition();
 
-    switch (edge) {
-      case 0: // Left edge
-        centerX = canvasWidth * (0.05 + Math.random() * 0.15);
-        centerY = canvasHeight * (0.2 + Math.random() * 0.6);
+    // Try several positions, pick the one furthest from all existing events
+    for (let attempt = 0; attempt < 10; attempt++) {
+      const pos = generatePosition();
+      let minDistToExisting = Infinity;
+
+      for (const existing of existingEvents) {
+        if (existing.state === 'done') continue;
+        const dx = pos.x - existing.centerX;
+        const dy = pos.y - existing.centerY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        minDistToExisting = Math.min(minDistToExisting, dist);
+      }
+
+      // If no existing events or far enough, use this position
+      if (minDistToExisting > MIN_DISTANCE) {
+        bestPos = pos;
         break;
-      case 1: // Right edge
-        centerX = canvasWidth * (0.80 + Math.random() * 0.15);
-        centerY = canvasHeight * (0.2 + Math.random() * 0.6);
-        break;
-      case 2: // Top-left corner
-        centerX = canvasWidth * (0.1 + Math.random() * 0.2);
-        centerY = canvasHeight * (0.05 + Math.random() * 0.15);
-        break;
-      case 3: // Top-right corner
-        centerX = canvasWidth * (0.7 + Math.random() * 0.2);
-        centerY = canvasHeight * (0.05 + Math.random() * 0.15);
-        break;
-      default: // Bottom area
-        centerX = canvasWidth * (0.2 + Math.random() * 0.6);
-        centerY = canvasHeight * (0.85 + Math.random() * 0.1);
-        break;
+      }
+
+      // Track best candidate
+      if (minDistToExisting > bestDistance) {
+        bestDistance = minDistToExisting;
+        bestPos = pos;
+      }
     }
+
+    centerX = bestPos.x;
+    centerY = bestPos.y;
 
     // Random rotation: -90 to +90 degrees (keeps text readable)
     const rotation = (Math.random() - 0.5) * Math.PI; // -π/2 to +π/2
 
-    // Smaller font for performance
-    const fontSize = 28;
+    // Font size for clear readability
+    const fontSize = 32;
 
     const polishPositions = getTextParticlePositions(pair.polish, centerX, centerY, fontSize, rotation);
     const englishPositions = getTextParticlePositions(pair.english, centerX, centerY, fontSize, rotation);
 
-    // Limit particle count for performance
-    const maxParticles = 80;
-    const particleCount = Math.min(Math.max(polishPositions.length, englishPositions.length, 30), maxParticles);
-    const heartPositions = getHeartPositions(centerX, centerY, 1.2, particleCount);
+    // Use the exact particle count needed to resolve text clearly
+    // Heart scales to fit that number of particles nicely
+    const particleCount = Math.max(polishPositions.length, englishPositions.length);
+    // Scale heart based on particle count: more particles = larger heart
+    // sqrt scaling keeps particle density consistent
+    const heartScale = Math.sqrt(particleCount / 80) * 2.5;
+    const heartPositions = getHeartPositions(centerX, centerY, heartScale, particleCount);
 
     // Extend smaller arrays by repeating positions
     while (polishPositions.length < particleCount) {
@@ -858,7 +960,8 @@ const WordParticleEffect: React.FC<{
     window.addEventListener('resize', resizeCanvas);
 
     // Timing constants (in ms)
-    const SPAWN_INTERVAL = 10000; // New word every 10 seconds
+    const SPAWN_INTERVAL = 6000; // New word every 6 seconds
+    const MAX_ACTIVE_EVENTS = 3; // Allow multiple words at once
     const SPAWNING_DURATION = 1500;
     const SHOWING_POLISH_DURATION = 2000;
     const TRANSFORMING_DURATION = 1500;
@@ -866,14 +969,25 @@ const WordParticleEffect: React.FC<{
     const FORMING_HEART_DURATION = 2000;
     const FLOATING_DURATION = 4000;
 
+    // Lighter version of accent color for softer appearance
+    const lighterColor = accentColor.replace(/^#/, '');
+    const r = parseInt(lighterColor.slice(0, 2), 16);
+    const g = parseInt(lighterColor.slice(2, 4), 16);
+    const b = parseInt(lighterColor.slice(4, 6), 16);
+    // Blend toward white by 30%
+    const lr = Math.round(r + (255 - r) * 0.3);
+    const lg = Math.round(g + (255 - g) * 0.3);
+    const lb = Math.round(b + (255 - b) * 0.3);
+    const softColor = `rgb(${lr}, ${lg}, ${lb})`;
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const now = Date.now();
 
-      // Spawn new event periodically (max 1 active at a time for elegance)
+      // Spawn new events periodically (allow multiple active)
       const activeEvents = eventsRef.current.filter(e => e.state !== 'done');
-      if (activeEvents.length === 0 && now - lastSpawnRef.current > SPAWN_INTERVAL) {
-        eventsRef.current.push(spawnWordEvent(canvas.width, canvas.height));
+      if (activeEvents.length < MAX_ACTIVE_EVENTS && now - lastSpawnRef.current > SPAWN_INTERVAL) {
+        eventsRef.current.push(spawnWordEvent(canvas.width, canvas.height, eventsRef.current));
         lastSpawnRef.current = now;
       }
 
@@ -891,7 +1005,7 @@ const WordParticleEffect: React.FC<{
               const target = event.polishPositions[i];
               p.x += (target.x - p.x) * 0.08;
               p.y += (target.y - p.y) * 0.08;
-              p.alpha = ease * 0.35; // More faint
+              p.alpha = ease * 0.45; // Slightly visible
             });
 
             if (progress >= 1) {
@@ -908,7 +1022,7 @@ const WordParticleEffect: React.FC<{
               const target = event.polishPositions[i];
               p.x += (target.x - p.x) * 0.1;
               p.y += (target.y - p.y) * 0.1;
-              p.alpha = 0.3 + breathe; // More faint
+              p.alpha = 0.4 + breathe; // Slightly visible
             });
 
             if (elapsed > SHOWING_POLISH_DURATION) {
@@ -940,7 +1054,7 @@ const WordParticleEffect: React.FC<{
 
               p.x += (p.targetX - p.x) * 0.15;
               p.y += (p.targetY - p.y) * 0.15;
-              p.alpha = 0.25 + Math.sin(progress * Math.PI) * 0.15; // More faint
+              p.alpha = 0.35 + Math.sin(progress * Math.PI) * 0.15; // Slightly visible
             });
 
             if (progress >= 1) {
@@ -956,7 +1070,7 @@ const WordParticleEffect: React.FC<{
               const target = event.englishPositions[i];
               p.x += (target.x - p.x) * 0.1;
               p.y += (target.y - p.y) * 0.1;
-              p.alpha = 0.3 + breathe; // More faint
+              p.alpha = 0.4 + breathe; // Slightly visible
             });
 
             if (elapsed > SHOWING_ENGLISH_DURATION) {
@@ -986,7 +1100,7 @@ const WordParticleEffect: React.FC<{
 
               p.x += (p.targetX - p.x) * 0.12;
               p.y += (p.targetY - p.y) * 0.12;
-              p.alpha = 0.3; // More faint
+              p.alpha = 0.4; // Slightly visible
             });
 
             if (progress >= 1) {
@@ -1005,7 +1119,7 @@ const WordParticleEffect: React.FC<{
               const target = event.heartPositions[i % event.heartPositions.length];
               p.x += (target.x - p.x) * 0.05;
               p.y += (target.y - event.floatY - p.y) * 0.05;
-              p.alpha = 0.3 * event.opacity; // More faint
+              p.alpha = 0.4 * event.opacity; // Slightly visible
 
               // Slight dispersion as it fades
               p.x += (Math.random() - 0.5) * progress * 2;
@@ -1024,7 +1138,7 @@ const WordParticleEffect: React.FC<{
           if (p.alpha <= 0) return;
 
           ctx.globalAlpha = p.alpha;
-          ctx.fillStyle = accentColor;
+          ctx.fillStyle = softColor;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
           ctx.fill();
@@ -1567,12 +1681,7 @@ const Hero: React.FC = () => {
 
         {/* Middle: Horizontal Swipe Carousel (~55% of remaining space) */}
         <div className="flex-1 relative overflow-hidden min-h-0">
-          {/* Word particle effect - background layer */}
-          <WordParticleEffect
-            accentColor={accentColor}
-            containerRef={mobileCarouselRef as React.RefObject<HTMLDivElement>}
-          />
-          {/* Floating hearts background - 60% fewer on mobile */}
+          {/* Floating hearts background - 60% fewer on mobile (word particles desktop only) */}
           <InteractiveHearts
             accentColor={accentColor}
             activeSection={activeSection}
