@@ -151,10 +151,10 @@ export default async function handler(req: any, res: any) {
       giftPasses: giftPasses || [],
       // Price IDs for checkout (frontend uses these)
       prices: {
-        standardMonthly: process.env.STRIPE_PRICE_STANDARD_MONTHLY,
-        standardYearly: process.env.STRIPE_PRICE_STANDARD_YEARLY,
-        unlimitedMonthly: process.env.STRIPE_PRICE_UNLIMITED_MONTHLY,
-        unlimitedYearly: process.env.STRIPE_PRICE_UNLIMITED_YEARLY,
+        standardMonthly: process.env.STRIPE_PRICE_STANDARD_MONTHLY || null,
+        standardYearly: process.env.STRIPE_PRICE_STANDARD_YEARLY || null,
+        unlimitedMonthly: process.env.STRIPE_PRICE_UNLIMITED_MONTHLY || null,
+        unlimitedYearly: process.env.STRIPE_PRICE_UNLIMITED_YEARLY || null,
       },
     });
 

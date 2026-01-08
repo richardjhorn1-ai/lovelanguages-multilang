@@ -50,12 +50,19 @@ export const WhenStep: React.FC<WhenStepProps> = ({
             onClick={() => setSelected(option.id)}
             className={`p-5 rounded-2xl border-2 transition-all ${
               selected === option.id
-                ? 'border-[var(--accent-border)] bg-[var(--accent-light)]'
+                ? 'border-gray-200'
                 : 'border-gray-100 bg-white hover:border-gray-200'
             }`}
+            style={selected === option.id ? {
+              borderColor: `${accentColor}60`,
+              backgroundColor: `${accentColor}10`
+            } : undefined}
           >
             <span className="text-3xl block mb-2">{option.emoji}</span>
-            <span className={`font-bold ${selected === option.id ? 'text-[var(--accent-color)]' : 'text-gray-700'}`}>
+            <span
+              className="font-bold"
+              style={{ color: selected === option.id ? accentColor : '#374151' }}
+            >
               {option.label}
             </span>
           </button>

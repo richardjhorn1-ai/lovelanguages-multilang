@@ -19,6 +19,12 @@ export interface Profile {
   font_size?: 'small' | 'medium' | 'large';
   // Answer validation mode
   smart_validation?: boolean; // true = AI-powered (accepts synonyms, typos), false = strict matching
+  // Subscription
+  subscription_plan?: 'none' | 'standard' | 'unlimited';
+  subscription_status?: 'active' | 'inactive' | 'past_due' | 'canceled';
+  subscription_period?: 'monthly' | 'yearly';
+  subscription_ends_at?: string;
+  stripe_customer_id?: string;
 }
 
 // Onboarding data collected during signup flow

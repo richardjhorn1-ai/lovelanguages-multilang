@@ -14,6 +14,18 @@ import Progress from './components/Progress';
 import LevelTest from './components/LevelTest';
 import JoinInvite from './components/JoinInvite';
 import { Onboarding } from './components/onboarding/Onboarding';
+import SubscriptionRequired from './components/SubscriptionRequired';
+import RoleSelection from './components/RoleSelection';
+
+// Beta testers who get free access (add emails here)
+const BETA_TESTERS = [
+  // Add beta tester emails here:
+  // 'friend@example.com',
+];
+
+const isBetaTester = (email: string): boolean => {
+  return BETA_TESTERS.some(e => e.toLowerCase() === email.toLowerCase());
+};
 
 // Wrapper component that keeps main tabs mounted to preserve state
 const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({ profile, onRefresh }) => {
@@ -52,11 +64,41 @@ const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({
   );
 };
 
+// Success toast component
+const SuccessToast: React.FC<{ message: string; onClose: () => void }> = ({ message, onClose }) => {
+  useEffect(() => {
+    const timer = setTimeout(onClose, 4000);
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 animate-slideDown">
+      <div className="bg-white rounded-2xl shadow-lg border border-rose-100 px-6 py-4 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center">
+          <span className="text-xl">💕</span>
+        </div>
+        <div>
+          <p className="font-bold text-gray-800">{message}</p>
+          <p className="text-sm text-gray-500">Let's start learning together!</p>
+        </div>
+      </div>
+      <style>{`
+        @keyframes slideDown {
+          from { opacity: 0; transform: translate(-50%, -20px); }
+          to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        .animate-slideDown { animation: slideDown 0.3s ease-out; }
+      `}</style>
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   const [session, setSession] = useState<any>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [dbError, setDbError] = useState<string | null>(null);
+  const [successToast, setSuccessToast] = useState<string | null>(null);
 
   useEffect(() => {
     supabase.auth.getSession()
@@ -83,6 +125,19 @@ const App: React.FC = () => {
     return () => subscription.unsubscribe();
   }, []);
 
+  // Check for subscription success in URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('subscription') === 'success') {
+      setSuccessToast("You're all set!");
+      // Clean up URL
+      const url = new URL(window.location.href);
+      url.searchParams.delete('subscription');
+      url.searchParams.delete('onboarding');
+      window.history.replaceState({}, '', url.pathname + url.hash);
+    }
+  }, []);
+
   const fetchProfile = async (userId: string) => {
     try {
       setDbError(null);
@@ -103,8 +158,8 @@ const App: React.FC = () => {
               .insert({
                 id: userData.user.id,
                 email: userData.user.email,
-                full_name: userData.user.user_metadata.full_name || 'Lover',
-                role: 'student'
+                full_name: userData.user.user_metadata.full_name || 'Lover'
+                // role intentionally not set - user will choose in RoleSelection
               })
               .select()
               .single();
@@ -164,6 +219,10 @@ const App: React.FC = () => {
     <ThemeProvider userId={profile?.id}>
       <HashRouter>
         <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+          {/* Success toast */}
+          {successToast && (
+            <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
+          )}
           <Routes>
             {/* Partner invite route - accessible without auth */}
             <Route path="/join/:token" element={<JoinInvite />} />
@@ -171,12 +230,24 @@ const App: React.FC = () => {
             {/* All other routes */}
             <Route path="*" element={
               session && profile ? (
-                // Check if onboarding is completed
+                // Step 1: Check if user has selected a role
+                !profile.role ? (
+                  <RoleSelection
+                    userId={profile.id}
+                    onRoleSelected={() => fetchProfile(profile.id)}
+                  />
+                ) : // Step 2: Check if onboarding is completed
                 !profile.onboarding_completed_at ? (
                   <Onboarding
                     role={profile.role}
                     userId={profile.id}
                     onComplete={() => fetchProfile(profile.id)}
+                  />
+                ) : // Step 3: Check if user has active subscription (or is a beta tester)
+                !profile.subscription_status || (profile.subscription_status !== 'active' && !isBetaTester(profile.email)) ? (
+                  <SubscriptionRequired
+                    profile={profile}
+                    onSubscribed={() => fetchProfile(profile.id)}
                   />
                 ) : (
                   <div className="flex flex-col h-screen">

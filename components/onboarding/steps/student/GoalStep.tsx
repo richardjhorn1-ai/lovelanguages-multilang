@@ -50,8 +50,11 @@ export const GoalStep: React.FC<GoalStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-6">
-          <ICONS.Target className="w-8 h-8 text-amber-500" />
+        <div
+          className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+          style={{ backgroundColor: `${accentColor}15` }}
+        >
+          <ICONS.Target className="w-8 h-8" style={{ color: accentColor }} />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
           What's your first milestone?
@@ -68,12 +71,19 @@ export const GoalStep: React.FC<GoalStepProps> = ({
             onClick={() => setSelected(option.id)}
             className={`w-full p-4 rounded-2xl border-2 transition-all flex items-center gap-4 ${
               selected === option.id
-                ? 'border-amber-300 bg-amber-50'
+                ? 'border-gray-200'
                 : 'border-gray-100 bg-white hover:border-gray-200'
             }`}
+            style={selected === option.id ? {
+              borderColor: `${accentColor}60`,
+              backgroundColor: `${accentColor}10`
+            } : undefined}
           >
             <span className="text-2xl">{option.emoji}</span>
-            <span className={`font-bold text-left ${selected === option.id ? 'text-amber-700' : 'text-gray-700'}`}>
+            <span
+              className="font-bold text-left"
+              style={{ color: selected === option.id ? accentColor : '#374151' }}
+            >
               {option.label}
             </span>
           </button>
@@ -88,7 +98,10 @@ export const GoalStep: React.FC<GoalStepProps> = ({
             onChange={(e) => setCustomGoal(e.target.value)}
             placeholder={`e.g., "Order in Polish at their favorite restaurant"`}
             autoFocus
-            className="w-full px-5 py-4 rounded-xl bg-white border-2 border-gray-100 focus:border-amber-200 focus:outline-none text-gray-800 placeholder:text-gray-300 transition-all"
+            className="w-full px-5 py-4 rounded-xl bg-white border-2 border-gray-100 focus:outline-none text-gray-800 placeholder:text-gray-300 transition-all"
+            style={{ '--tw-ring-color': accentColor } as React.CSSProperties}
+            onFocus={(e) => e.target.style.borderColor = `${accentColor}60`}
+            onBlur={(e) => e.target.style.borderColor = '#f3f4f6'}
           />
         </div>
       )}

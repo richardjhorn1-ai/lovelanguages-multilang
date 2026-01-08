@@ -50,13 +50,20 @@ export const FearStep: React.FC<FearStepProps> = ({
             onClick={() => setSelected(option.id)}
             className={`w-full p-4 rounded-2xl border-2 transition-all flex items-center gap-4 ${
               selected === option.id
-                ? 'border-purple-300 bg-purple-50'
+                ? 'border-gray-200'
                 : 'border-gray-100 bg-white hover:border-gray-200'
             }`}
+            style={selected === option.id ? {
+              borderColor: `${accentColor}60`,
+              backgroundColor: `${accentColor}10`
+            } : undefined}
           >
             <span className="text-2xl">{option.emoji}</span>
             <div className="text-left">
-              <div className={`font-bold ${selected === option.id ? 'text-purple-600' : 'text-gray-700'}`}>
+              <div
+                className="font-bold"
+                style={{ color: selected === option.id ? accentColor : '#374151' }}
+              >
                 {option.label}
               </div>
               <div className="text-sm text-gray-400">{option.description}</div>
