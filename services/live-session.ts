@@ -44,6 +44,7 @@ export class LiveSession {
   private userTranscript = '';
   private userTranscriptTimer: ReturnType<typeof setTimeout> | null = null;
   private audioChunkCount = 0;
+  private hasCalledOnClose = false;  // Prevents double onClose callback
 
   constructor(config: LiveSessionConfig) {
     this.config = config;
@@ -60,6 +61,7 @@ export class LiveSession {
     }
 
     this.setState('connecting');
+    this.hasCalledOnClose = false;  // Reset for new connection
     log('Starting connection...');
 
     try {
@@ -133,7 +135,12 @@ export class LiveSession {
           onclose: (event: any) => {
             log('SDK session closed:', event);
             this.cleanup();
-            this.config.onClose?.();
+            this.setState('disconnected');  // Always update state
+            // Only fire onClose if disconnect() hasn't already fired it
+            if (!this.hasCalledOnClose) {
+              this.hasCalledOnClose = true;
+              this.config.onClose?.();
+            }
           }
         }
       });
@@ -217,6 +224,9 @@ export class LiveSession {
    * Disconnect and cleanup
    */
   disconnect(): void {
+    if (this.hasCalledOnClose) return; // Already disconnecting
+    this.hasCalledOnClose = true;
+
     this.cleanup();
     this.setState('disconnected');
     this.config.onClose?.();
@@ -234,7 +244,7 @@ export class LiveSession {
     this.audioRecorder?.stop();
     this.audioRecorder = null;
 
-    this.audioPlayer?.stop();
+    this.audioPlayer?.destroy();  // Full cleanup, not just stop
     this.audioPlayer = null;
 
     if (this.session) {
@@ -252,6 +262,7 @@ export class LiveSession {
   }
 
   private setState(state: LiveSessionState): void {
+    if (this.state === state) return;  // Skip redundant state changes
     log(`State: ${this.state} → ${state}`);
     this.state = state;
     this.config.onStateChange?.(state);
