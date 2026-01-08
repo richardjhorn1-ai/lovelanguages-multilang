@@ -808,9 +808,9 @@ CREATE TABLE flashcard_progress (
 
 ## Phase 8: Codebase Integrity & Cleanup ✅ NEARLY COMPLETE
 
-**January 7, 2026** - See `PHASE_8_PLAN.md` for full details.
+**January 7-9, 2026** - See `PHASE_8_PLAN.md` for full details.
 
-### Completed (13/16 phases)
+### Completed (14/16 phases)
 
 | Phase | Description |
 |-------|-------------|
@@ -826,13 +826,13 @@ CREATE TABLE flashcard_progress (
 | 8.12 ✅ | Notification count updates on dismiss |
 | 8.13 ✅ | Conversation Practice - AI speaks first with scenario greeting |
 | 8.14 ✅ | Love Package completion - error handling + dictionary-updated event |
+| 8.15 ✅ | Profile photo upload with crop/zoom UI (react-easy-crop, 400x400 JPEG compression) |
 | 8.16 ✅ | Game quit functionality - progress bar fix + quit buttons |
 
-### Remaining
+### Remaining (Deferred to Post-Launch)
 
 | Phase | Description | Priority |
 |-------|-------------|----------|
-| 8.15 ⬜ | Profile photo upload feature | Medium (pre-launch) |
 | 8.7 ⏸️ | Onboarding theme cleanup | Deferred (post-launch) |
 | 8.11 ⏸️ | Audio feedback system | Deferred (post-launch) |
 

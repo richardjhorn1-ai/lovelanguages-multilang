@@ -1,26 +1,27 @@
 # Final Phases: Deployment Readiness
 
 **Created:** January 7, 2026
-**Status:** Pre-Production
+**Updated:** January 9, 2026
+**Status:** 🚀 LAUNCH READY (pending manual testing)
 **Goal:** Production deployment with payments, security hardening, and legal compliance
 
 ---
 
 ## Table of Contents
 
-1. [Phase 8: Codebase Integrity](#phase-8-codebase-integrity)
-2. [Phase 9: Data Routing & Integration Testing](#phase-9-data-routing--integration-testing)
-3. [Phase 10: Stripe Payments & Subscriptions](#phase-10-stripe-payments--subscriptions)
-4. [Phase 11: Security Hardening](#phase-11-security-hardening)
-5. [Phase 12: Scale Resilience](#phase-12-scale-resilience)
-6. [Phase 13: Legal & Compliance](#phase-13-legal--compliance)
-7. [Phase 14: Launch Checklist](#phase-14-launch-checklist)
+1. [Phase 8: Codebase Integrity](#phase-8-codebase-integrity) ✅ (14/16)
+2. [Phase 9: Data Routing & Integration Testing](#phase-9-data-routing--integration-testing) ⏳ Manual testing
+3. [Phase 10: Stripe Payments & Subscriptions](#phase-10-stripe-payments--subscriptions) ✅ Complete
+4. [Phase 11: Security Hardening](#phase-11-security-hardening) ✅ Mostly complete
+5. [Phase 12: Scale Resilience](#phase-12-scale-resilience) ⏳ Post-launch
+6. [Phase 13: Legal & Compliance](#phase-13-legal--compliance) ✅ Complete
+7. [Phase 14: Launch Checklist](#phase-14-launch-checklist) 🚀 Ready
 
 ---
 
-## Phase 8: Codebase Integrity ✅ NEARLY COMPLETE (13/16)
+## Phase 8: Codebase Integrity ✅ NEARLY COMPLETE (14/16)
 
-**Status:** 13 completed, 1 pending (photo upload), 2 deferred (onboarding theming, audio feedback)
+**Status:** 14 completed, 2 deferred (onboarding theming, audio feedback)
 
 See `PHASE_8_PLAN.md` for detailed breakdown of all 16 sub-phases.
 
@@ -40,13 +41,13 @@ See `PHASE_8_PLAN.md` for detailed breakdown of all 16 sub-phases.
 | 8.12 | Notification count updates on dismiss | ✅ |
 | 8.13 | Conversation Practice AI speaks first | ✅ |
 | 8.14 | Love Package completion bug fix | ✅ |
+| 8.15 | Profile photo upload with crop UI | ✅ |
 | 8.16 | Game quit functionality + progress bar fix | ✅ |
 
-### Remaining Work
+### Remaining Work (Deferred to Post-Launch)
 
 | Phase | Description | Priority |
 |-------|-------------|----------|
-| 8.15 | Profile photo upload feature | Pre-launch |
 | 8.7 | Onboarding theme cleanup | Post-launch |
 | 8.11 | Audio feedback system | Post-launch |
 
@@ -205,9 +206,9 @@ AND NOT EXISTS (SELECT 1 FROM profiles p2 WHERE p2.id = p1.partner_id);
 
 ---
 
-## Phase 10: Stripe Payments & Subscriptions ✅ MOSTLY COMPLETE
+## Phase 10: Stripe Payments & Subscriptions ✅ COMPLETE
 
-**Status:** Core payment flow working. Remaining: feature gating, customer portal, pricing page.
+**Status:** Full payment system implemented with partner subscription sharing.
 
 ### Completed Items (January 8, 2026)
 
@@ -220,15 +221,19 @@ AND NOT EXISTS (SELECT 1 FROM profiles p2 WHERE p2.id = p1.partner_id);
 - [x] Add role selection for new users (`RoleSelection.tsx`)
 - [x] Add success toast after payment
 - [x] Create unit tests (`tests/stripe-webhook.test.ts`)
+- [x] Create `/api/create-customer-portal` (manage/cancel subscription)
+- [x] Create `/api/subscription-status` endpoint
+- [x] Add `SubscriptionManager.tsx` component
+- [x] Add subscription check middleware with usage limits by tier
+- [x] Partner subscription inheritance (free access via linked partner)
+- [x] `InvitePartnerSection.tsx` for sharing subscription
+- [x] `BreakupModal.tsx` for unlinking accounts
+- [x] `UsageSection.tsx` showing limits in Profile
 
-### Remaining Items
+### Remaining (Nice-to-Have)
 
-- [ ] Create `/api/create-customer-portal` (manage/cancel subscription)
-- [ ] Create `/api/subscription-status` endpoint
-- [ ] Add subscription check middleware to gated features
-- [ ] Build pricing page component
-- [ ] Build upgrade prompts when hitting limits
-- [ ] Test full subscription lifecycle (create → upgrade → cancel → renew)
+- [ ] Dedicated pricing page component (currently in onboarding)
+- [ ] Upgrade prompts when hitting limits (usage tracking exists)
 
 ### Key Files
 
@@ -475,11 +480,32 @@ We'd miss you, though. 💔
 
 ---
 
-## Phase 11: Security Hardening
+## Phase 11: Security Hardening ✅ MOSTLY COMPLETE
+
+**Status:** Core security measures implemented. See `SECURITY_AUDIT_RESPONSE.md` for full details.
+
+### Completed Items (January 8, 2026)
+
+- [x] **Rate Limiting** - Monthly usage limits by subscription tier
+  - Trial: 100 text messages/month, voice blocked
+  - Standard: 5,000 text/month, 20 voice sessions/month
+  - Unlimited: No limits
+- [x] **Error Message Sanitization** - All 28 API endpoints sanitized
+- [x] **Input Validation** - Prompt limits (10K chars), message limits (50 max), userLog limits
+- [x] **CORS Security** - Secure `setCorsHeaders()` in all 32 API files
+- [x] **RLS Fix** - Migration 017 fixed infinite recursion in profiles table
+- [x] **Open Redirect Prevention** - `validateRedirectUrl()` in checkout
+- [x] **TTS Cache Security** - userId included in cache key hash
+
+### Remaining (Low Priority)
+
+- [ ] ESLint setup
+- [ ] Structured logging (using console.log currently)
+- [ ] Secret rotation schedule (operational)
 
 ### 11.1 Rate Limiting
 
-**Current State:** No rate limiting implemented.
+**Current State:** ✅ Implemented via subscription tier limits.
 
 #### Implementation Strategy
 
@@ -807,11 +833,26 @@ function log(level: LogLevel, message: string, meta?: Partial<LogEntry>) {
 
 ---
 
-## Phase 13: Legal & Compliance
+## Phase 13: Legal & Compliance ✅ COMPLETE
+
+**Status:** All legal pages and GDPR compliance implemented.
+
+### Completed Items (January 8, 2026)
+
+- [x] **Privacy Policy** - Full document at `/privacy` (`components/PrivacyPolicy.tsx`)
+- [x] **Terms of Service** - Full document at `/terms` (`components/TermsOfService.tsx`)
+- [x] **GDPR Data Export** - `/api/export-user-data.ts` exports all user data as JSON
+- [x] **GDPR Account Deletion** - `/api/delete-account.ts` with full data cleanup
+- [x] **Footer Links** - Legal links on landing page (`components/Hero.tsx`)
+- [x] **SEO Foundation** - robots.txt, sitemap.xml, OG image, meta tags, JSON-LD
+
+### Not Required
+
+- Cookie consent banner - Only essential cookies (Supabase auth), no tracking cookies
 
 ### 13.1 Privacy Policy
 
-**Location:** `/privacy` route, `pages/Privacy.tsx`
+**Location:** `/privacy` route, `components/PrivacyPolicy.tsx`
 
 #### Required Sections
 
@@ -922,16 +963,16 @@ function log(level: LogLevel, message: string, meta?: Partial<LogEntry>) {
 
 ### 13.5 Implementation Checklist
 
-- [ ] Write Privacy Policy document
-- [ ] Write Terms of Service document
-- [ ] Create `/privacy` page
-- [ ] Create `/terms` page
-- [ ] Add links to footer
-- [ ] Add checkbox to signup form ("I agree to Terms and Privacy Policy")
-- [ ] Build data export endpoint
-- [ ] Build account deletion endpoint
-- [ ] Add cookie consent banner (if needed)
-- [ ] Create Data Processing Agreement for B2B (if applicable)
+- [x] Write Privacy Policy document
+- [x] Write Terms of Service document
+- [x] Create `/privacy` page
+- [x] Create `/terms` page
+- [x] Add links to footer
+- [x] Build data export endpoint (`/api/export-user-data`)
+- [x] Build account deletion endpoint (`/api/delete-account`)
+- [x] Cookie consent banner - NOT NEEDED (essential cookies only)
+- [ ] Add checkbox to signup form ("I agree to Terms and Privacy Policy") - Optional
+- [ ] Create Data Processing Agreement for B2B (if applicable) - Future
 
 ---
 
@@ -940,35 +981,35 @@ function log(level: LogLevel, message: string, meta?: Partial<LogEntry>) {
 ### 14.1 Pre-Launch (T-7 Days)
 
 #### Code
-- [ ] All Phase 8 cleanup complete
-- [ ] All Phase 9 tests passing
-- [ ] Production build successful
-- [ ] No TypeScript errors
-- [ ] ESLint passing
+- [x] All Phase 8 cleanup complete (14/16, 2 deferred)
+- [ ] All Phase 9 tests passing (manual testing needed)
+- [x] Production build successful
+- [x] No TypeScript errors
+- [ ] ESLint passing (not configured)
 
 #### Infrastructure
-- [ ] Vercel production environment configured
-- [ ] All environment variables set
+- [x] Vercel production environment configured
+- [x] All environment variables set
 - [ ] Custom domain configured
-- [ ] SSL certificate active
-- [ ] Supabase production project ready
+- [x] SSL certificate active (Vercel provides)
+- [x] Supabase production project ready
 
 #### Payments
-- [ ] Stripe production account active
-- [ ] Webhook endpoint verified
-- [ ] Test subscription lifecycle complete
-- [ ] Pricing page live
+- [x] Stripe production account active
+- [x] Webhook endpoint verified
+- [x] Test subscription lifecycle complete
+- [ ] Dedicated pricing page (using onboarding flow)
 
 #### Security
-- [ ] Rate limiting active on critical endpoints
-- [ ] RLS policies verified
-- [ ] Secrets rotated
-- [ ] Security headers configured
+- [x] Rate limiting active (usage limits by tier)
+- [x] RLS policies verified (21/22 tables)
+- [ ] Secrets rotated (operational task)
+- [x] Security headers configured (Vercel defaults)
 
 #### Legal
-- [ ] Privacy Policy published
-- [ ] Terms of Service published
-- [ ] Cookie consent (if needed)
+- [x] Privacy Policy published
+- [x] Terms of Service published
+- [x] Cookie consent - NOT NEEDED
 - [ ] Contact email configured
 
 ### 14.2 Launch Day (T-0)
