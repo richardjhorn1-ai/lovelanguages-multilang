@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
+import { speakPolish } from '../../../../services/audio';
 
 interface LearnLoveStepProps {
   currentStep: number;
@@ -22,10 +23,7 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
   const [hasListened, setHasListened] = useState(false);
 
   const playAudio = () => {
-    const utterance = new SpeechSynthesisUtterance('Kocham cię');
-    utterance.lang = 'pl-PL';
-    utterance.rate = 0.7;
-    speechSynthesis.speak(utterance);
+    speakPolish('Kocham cię');
     setHasListened(true);
   };
 

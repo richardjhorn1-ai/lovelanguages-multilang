@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
+import { speakPolish } from '../../../../services/audio';
 
 interface LearnHelloStepProps {
   currentStep: number;
@@ -22,11 +23,7 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
   const [hasListened, setHasListened] = useState(false);
 
   const playAudio = () => {
-    // Use Web Speech API for pronunciation
-    const utterance = new SpeechSynthesisUtterance('Cześć');
-    utterance.lang = 'pl-PL';
-    utterance.rate = 0.8;
-    speechSynthesis.speak(utterance);
+    speakPolish('Cześć');
     setHasListened(true);
   };
 

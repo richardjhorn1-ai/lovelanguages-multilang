@@ -6,6 +6,7 @@ import type { OnboardingData } from '../../types';
 import { NameStep } from './steps/shared/NameStep';
 import { PartnerNameStep } from './steps/shared/PartnerNameStep';
 import { ValidationModeStep } from './steps/shared/ValidationModeStep';
+import { PlanSelectionStep } from './steps/shared/PlanSelectionStep';
 
 // Student steps
 import { VibeStep } from './steps/student/VibeStep';
@@ -37,8 +38,8 @@ interface OnboardingProps {
   onComplete: () => void;
 }
 
-const STUDENT_TOTAL_STEPS = 16;
-const TUTOR_TOTAL_STEPS = 10;
+const STUDENT_TOTAL_STEPS = 17; // +1 for plan selection
+const TUTOR_TOTAL_STEPS = 11; // +1 for plan selection
 
 const STORAGE_KEY = 'onboarding_progress';
 
@@ -117,6 +118,40 @@ export const Onboarding: React.FC<OnboardingProps> = ({
 
       // Clear localStorage
       localStorage.removeItem(STORAGE_KEY);
+
+      // If a plan was selected with a valid price ID, redirect to Stripe checkout
+      if (data.selectedPriceId) {
+        try {
+          const session = await supabase.auth.getSession();
+          const token = session.data.session?.access_token;
+
+          if (token) {
+            const response = await fetch('/api/create-checkout-session', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              },
+              body: JSON.stringify({
+                priceId: data.selectedPriceId,
+                successUrl: `${window.location.origin}/?onboarding=complete&subscription=success`,
+                cancelUrl: `${window.location.origin}/?onboarding=complete&subscription=canceled`
+              })
+            });
+
+            const checkoutData = await response.json();
+
+            if (checkoutData.url) {
+              // Redirect to Stripe Checkout
+              window.location.href = checkoutData.url;
+              return; // Don't call onComplete - Stripe will handle redirect
+            }
+          }
+        } catch (stripeErr) {
+          console.error('Error creating checkout session:', stripeErr);
+          // Continue with onComplete even if Stripe fails
+        }
+      }
 
       onComplete();
     } catch (err) {
@@ -302,8 +337,23 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         );
       case 16:
         return (
-          <StartStep
+          <PlanSelectionStep
             currentStep={16}
+            totalSteps={totalSteps}
+            userName={data.userName || 'Friend'}
+            onNext={(plan, priceId) => {
+              updateData('selectedPlan', plan);
+              updateData('selectedPriceId', priceId);
+              goNext();
+            }}
+            onBack={goBack}
+            accentColor={accentColor}
+          />
+        );
+      case 17:
+        return (
+          <StartStep
+            currentStep={17}
             totalSteps={totalSteps}
             userName={data.userName || 'Friend'}
             partnerName={data.partnerName || 'them'}
@@ -422,8 +472,23 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       );
     case 10:
       return (
-        <TutorStartStep
+        <PlanSelectionStep
           currentStep={10}
+          totalSteps={totalSteps}
+          userName={data.userName || 'Friend'}
+          onNext={(plan, priceId) => {
+            updateData('selectedPlan', plan);
+            updateData('selectedPriceId', priceId);
+            goNext();
+          }}
+          onBack={goBack}
+          accentColor={accentColor}
+        />
+      );
+    case 11:
+      return (
+        <TutorStartStep
+          currentStep={11}
           totalSteps={totalSteps}
           userName={data.userName || 'Friend'}
           learnerName={data.learnerName || 'them'}

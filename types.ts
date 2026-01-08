@@ -50,6 +50,10 @@ export interface OnboardingData {
 
   // Shared fields
   smartValidation?: boolean;     // true = AI-powered validation, false = strict matching
+
+  // Subscription selection (from onboarding)
+  selectedPlan?: string;         // 'standard' or 'unlimited'
+  selectedPriceId?: string;      // Stripe price ID for checkout
 }
 
 export type WordType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
