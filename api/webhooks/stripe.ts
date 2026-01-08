@@ -93,7 +93,7 @@ export default async function handler(req: any, res: any) {
     event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
   } catch (err: any) {
     console.error('[stripe-webhook] Signature verification failed:', err.message);
-    return res.status(400).json({ error: `Webhook signature verification failed: ${err.message}` });
+    return res.status(400).json({ error: 'Webhook verification failed' });
   }
 
   console.log(`[stripe-webhook] Received event: ${event.type} (${event.id})`);
@@ -400,6 +400,6 @@ export default async function handler(req: any, res: any) {
 
   } catch (error: any) {
     console.error('[stripe-webhook] Error processing event:', error);
-    return res.status(500).json({ error: error.message || 'Webhook processing failed' });
+    return res.status(500).json({ error: 'Webhook processing failed' });
   }
 }

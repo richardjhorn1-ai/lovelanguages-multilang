@@ -239,7 +239,7 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error('Boot session error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[boot-session] Error:', error);
+    return res.status(500).json({ error: 'Failed to load session. Please refresh the page.' });
   }
 }

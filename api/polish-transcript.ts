@@ -225,7 +225,7 @@ RULES:
     });
 
   } catch (e: any) {
-    console.error("Polish Transcript Error:", e);
-    return res.status(500).json({ error: e.message || 'Internal Server Error', retryable: true });
+    console.error("[polish-transcript] Error:", e);
+    return res.status(500).json({ error: 'Failed to process transcript. Please try again.', retryable: true });
   }
 }

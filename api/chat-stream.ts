@@ -229,8 +229,8 @@ export default async function handler(req: any, res: any) {
     res.end();
 
   } catch (error: any) {
-    console.error('Streaming error:', error);
-    res.write(`data: ${JSON.stringify({ error: error.message || 'Streaming failed' })}\n\n`);
+    console.error('[chat-stream] Error:', error);
+    res.write(`data: ${JSON.stringify({ error: 'Something went wrong. Please try again.' })}\n\n`);
     res.end();
   }
 }

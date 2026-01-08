@@ -391,9 +391,9 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error("[live-token] Error:", error.message || error);
+    console.error("[live-token] Error:", error);
     return res.status(500).json({
-      error: error.message || "Failed to generate token"
+      error: "Failed to start voice mode. Please try again."
     });
   }
 }

@@ -296,7 +296,7 @@ Return ONLY the JSON object, no other text.`;
     }
 
   } catch (error: any) {
-    console.error('Validate word error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[validate-word] Error:', error);
+    return res.status(500).json({ error: 'Failed to validate word. Please try again.' });
   }
 }

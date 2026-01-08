@@ -324,7 +324,7 @@ EVERY field must be filled. No nulls or empty strings.`;
     });
 
   } catch (e: any) {
-    console.error("Unlock Tense Error:", e);
-    return res.status(500).json({ error: e.message || 'Internal Server Error', retryable: true });
+    console.error("[unlock-tense] Error:", e);
+    return res.status(500).json({ error: 'Failed to unlock tense. Please try again.', retryable: true });
   }
 }

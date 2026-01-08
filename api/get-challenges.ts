@@ -138,7 +138,7 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error('Get challenges error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[get-challenges] Error:', error);
+    return res.status(500).json({ error: 'Failed to load challenges. Please try again.' });
   }
 }

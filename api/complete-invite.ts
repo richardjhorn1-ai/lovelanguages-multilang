@@ -239,7 +239,7 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error('Complete invite error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[complete-invite] Error:', error);
+    return res.status(500).json({ error: 'Failed to complete invite. Please try again.' });
   }
 }

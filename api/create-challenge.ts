@@ -269,7 +269,7 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error('Create challenge error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[create-challenge] Error:', error);
+    return res.status(500).json({ error: 'Failed to create challenge. Please try again.' });
   }
 }

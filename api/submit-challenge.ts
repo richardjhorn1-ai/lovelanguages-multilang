@@ -416,7 +416,7 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error('Submit challenge error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[submit-challenge] Error:', error);
+    return res.status(500).json({ error: 'Failed to submit challenge. Please try again.' });
   }
 }
