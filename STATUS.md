@@ -1,10 +1,10 @@
-# Project Status - January 7, 2026
+# Project Status - January 9, 2026
 
 ## Where We Are
 
-**The app is feature-complete and ready for pre-launch polish.**
+**The app is LAUNCH READY - pending final manual testing.**
 
-All core learning features work. The remaining work is deployment readiness: payments, security, legal, and testing.
+All features complete. Payments integrated. Security hardened. Legal pages published.
 
 ---
 
@@ -20,43 +20,29 @@ All core learning features work. The remaining work is deployment readiness: pay
 | 5.5 | AI Challenge Mode | ✅ |
 | 5.6 | Codebase Refactoring | ✅ |
 | 5.7 | UI Polish & Conversation Practice | ✅ |
-| 6 | Partner Dashboard | ✅ (mostly) |
-| 8 | Codebase Cleanup | ✅ 13/16 |
+| 6 | Partner Dashboard | ✅ |
+| 8 | Codebase Cleanup | ✅ 14/16 (2 deferred) |
+| 9 | Integration Testing | ⏳ Manual testing needed |
+| 10 | Stripe Payments | ✅ |
+| 11 | Security Hardening | ✅ |
+| 13 | Legal & Compliance | ✅ |
+| 14 | Launch Checklist | 🚀 Ready |
 | P1 | Performance Optimizations | ✅ All 4 sprints |
 
 ---
 
-## What's Left to Ship
+## What's Left
 
 ### Pre-Launch Required
 
-1. **Phase 8.15: Profile Photo Upload** - Medium priority
-   - Users need profile pictures for the couple experience
-
-2. **Phase 9: Integration Testing** - High priority
-   - Verify all 26 API endpoints work correctly
+1. **Phase 9: Manual Testing** - HIGH priority
    - Test 6 critical user journeys end-to-end
    - Database integrity checks
+   - See `docs/PHASE_9_TEST_CHECKLIST.md`
 
-3. **Phase 10: Payments (Stripe)** - High priority
-   - Free tier limits
-   - Duo ($9.99/mo) and Family ($19.99/mo) plans
-   - Checkout, webhooks, customer portal
+2. **Custom Domain** - Configure in Vercel
 
-4. **Phase 11: Security** - High priority
-   - Rate limiting (especially voice/listen tokens)
-   - RLS audit
-   - Input validation
-
-5. **Phase 13: Legal** - High priority
-   - Privacy Policy
-   - Terms of Service
-   - Cookie consent (if needed)
-
-6. **Phase 14: Launch Checklist** - Final step
-   - Environment setup
-   - Monitoring
-   - Launch day procedures
+3. **Contact Email** - Set up support email
 
 ### Post-Launch (Deferred)
 
@@ -64,7 +50,8 @@ All core learning features work. The remaining work is deployment readiness: pay
 - Phase 8.7: Onboarding theme cleanup
 - Phase 8.11: Audio feedback system
 - Phase 4.5: Tense mastery tracking
-- Phase 6 completion: Surprise suggestions, milestone celebrations
+- ESLint setup
+- Dedicated pricing page
 
 ---
 
@@ -72,11 +59,12 @@ All core learning features work. The remaining work is deployment readiness: pay
 
 | File | Purpose |
 |------|---------|
-| `ROADMAP.md` | Master product roadmap (all phases) |
-| `FINAL_PHASES.md` | Deployment phases 9-14 detail |
+| `ROADMAP.md` | Master product roadmap |
+| `FINAL_PHASES.md` | Deployment phases 8-14 |
 | `TROUBLESHOOTING.md` | 36+ solved issues |
 | `CLAUDE.md` | Developer guidance |
-| `docs/archived/` | Completed plans (Phase 8, P1) |
+| `docs/PHASE_9_TEST_CHECKLIST.md` | Manual testing guide |
+| `docs/archived/` | Completed plans |
 
 ---
 
@@ -93,4 +81,4 @@ npm run build        # Production build
 
 ## Next Action
 
-Start with **Phase 9: Integration Testing** - verify everything works before adding payments and security.
+Complete **Phase 9: Manual Testing** using the checklist in `docs/PHASE_9_TEST_CHECKLIST.md`.

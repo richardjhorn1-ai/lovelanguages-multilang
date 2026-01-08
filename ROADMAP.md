@@ -794,15 +794,19 @@ CREATE TABLE flashcard_progress (
 5. ✅ XP/Level system with level tests
 6. ✅ Play section (Flashcards, Multiple Choice, Type It, Quick Fire modes)
 7. ✅ Progress page with Learning Journey diary
-8. 🔄 Tense Mastery System (track tense learning per verb)
+8. ⏸️ Tense Mastery System (deferred post-launch)
 9. ✅ AI Challenge Mode (personalized practice from play data)
 10. ✅ Role-play scenarios (ConversationPractice - 8 curated + custom scenarios)
-11. ✅ Partner dashboard (mostly complete - Progress page, word gifting, quiz challenges)
-12. ⬜ Mobile PWA
+11. ✅ Partner dashboard (Progress page, word gifting, quiz challenges)
+12. ⏸️ Mobile PWA (post-launch)
 13. ✅ Game session history tracking (GameHistory.tsx)
 14. ✅ Word gifting system (WordRequestCreator.tsx, WordGiftLearning.tsx)
 15. ✅ UI theming consistency (CSS variables, dark mode support)
-16. ✅ Phase 8 codebase cleanup (see below)
+16. ✅ Phase 8 codebase cleanup (14/16 complete)
+17. ✅ Phase 10 Stripe payments (full subscription system)
+18. ✅ Phase 11 Security hardening (rate limits, sanitization, RLS)
+19. ✅ Phase 13 Legal compliance (Privacy, Terms, GDPR)
+20. ⏳ Phase 9 Integration testing (manual testing needed)
 
 ---
 
@@ -847,72 +851,30 @@ CREATE TABLE flashcard_progress (
 1. **Subscription Plans**
    - Standard Plan: $19/month or $69/year
    - Unlimited Plan: $39/month or $139/year
-   - Unlimited Yearly includes gift pass for partner
+   - Partner subscription sharing (free access via linked partner)
 
 2. **Stripe Integration**
    - Checkout sessions via `/api/create-checkout-session`
-   - Webhook handler at `/api/webhooks/stripe`
-   - Customer portal for subscription management
+   - Webhook handler at `/api/webhooks/stripe` (all 4 events)
+   - Customer portal via `/api/create-customer-portal`
+   - Subscription status via `/api/subscription-status`
 
-3. **Webhook Events Handled**
-   - `checkout.session.completed` - Initial subscription activation
-   - `customer.subscription.updated` - Plan changes, renewals
-   - `customer.subscription.deleted` - Cancellations
-   - `invoice.payment_failed` - Payment issues
+3. **Partner System**
+   - Partner invite links (`/api/generate-invite`, `/api/complete-invite`)
+   - Inherited subscription (partners get free access)
+   - Breakup modal for unlinking accounts (`/api/delink-partner`)
 
-4. **Role Selection Flow**
-   - New users must select student/tutor role before onboarding
-   - RoleSelection component with Polish-first UX
+4. **Components**
+   - `RoleSelection.tsx` - Student/tutor role selection
+   - `SubscriptionManager.tsx` - Manage subscription
+   - `InvitePartnerSection.tsx` - Share subscription link
+   - `BreakupModal.tsx` - Unlink accounts
+   - `UsageSection.tsx` - Show usage limits in profile
 
-5. **Paywall & Success Flow**
-   - SubscriptionRequired component blocks access for non-subscribers
-   - Success toast appears after payment completion
-   - Redirect to app after Stripe checkout
-
-### Database Changes
-
-```sql
--- Subscription fields added to profiles
-ALTER TABLE profiles ADD COLUMN subscription_plan VARCHAR(50) DEFAULT 'none';
-ALTER TABLE profiles ADD COLUMN subscription_status VARCHAR(20) DEFAULT 'inactive';
-ALTER TABLE profiles ADD COLUMN subscription_period VARCHAR(20);
-ALTER TABLE profiles ADD COLUMN subscription_started_at TIMESTAMPTZ;
-ALTER TABLE profiles ADD COLUMN subscription_ends_at TIMESTAMPTZ;
-ALTER TABLE profiles ADD COLUMN stripe_customer_id VARCHAR(100);
-
--- Subscription events log
-CREATE TABLE subscription_events (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID REFERENCES profiles(id),
-  event_type VARCHAR(50) NOT NULL,
-  stripe_event_id VARCHAR(100),
-  plan VARCHAR(50),
-  status VARCHAR(20),
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
--- Gift passes for Unlimited Yearly subscribers
-CREATE TABLE gift_passes (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  code VARCHAR(20) UNIQUE NOT NULL,
-  creator_id UUID REFERENCES profiles(id),
-  redeemed_by UUID REFERENCES profiles(id),
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  redeemed_at TIMESTAMPTZ,
-  expires_at TIMESTAMPTZ NOT NULL
-);
-```
-
-### Files Created/Modified
-
-| File | Purpose |
-|------|---------|
-| `api/webhooks/stripe.ts` | Webhook handler for all subscription events |
-| `api/create-checkout-session.ts` | Creates Stripe checkout sessions |
-| `components/RoleSelection.tsx` | Role selection for new users |
-| `components/SubscriptionRequired.tsx` | Paywall component |
-| `App.tsx` | Success toast, role selection integration |
-| `tests/stripe-webhook.test.ts` | Unit tests for webhook logic |
+5. **Usage Limits by Tier**
+   - Trial: 100 text/month, voice blocked
+   - Standard: 5,000 text/month, 20 voice sessions/month
+   - Unlimited: No limits
 
 ---
 
@@ -931,27 +893,31 @@ CREATE TABLE gift_passes (
 
 ## Documentation
 
-- `STATUS.md` - **START HERE** - Current project status and what's left to ship
+- `STATUS.md` - **START HERE** - Current project status
 - `ROADMAP.md` - This file - product phases and progress
-- `FINAL_PHASES.md` - Deployment readiness (Phases 9-14): payments, security, legal
+- `FINAL_PHASES.md` - Deployment readiness (all phases complete except manual testing)
 - `TROUBLESHOOTING.md` - 36+ solved issues with detailed solutions
 - `CLAUDE.md` - Claude Code guidance for this repository
 - `README.md` - Project overview and AI persona documentation
 - `DESIGN.md` - UI/UX design guidelines
+- `docs/PHASE_9_TEST_CHECKLIST.md` - Manual testing checklist
 - `docs/AI_INTEGRATION_GUIDE.md` - How to work with AI models
 - `docs/FORMATTING.md` - Text formatting system (markdown to HTML pipeline)
 - `docs/SYSTEM_PROMPTS.md` - AI prompt documentation
-- `docs/archived/` - Completed plans (PHASE_8_PLAN.md, P1_OPTIMIZATION_PLAN.md)
+- `docs/archived/` - Completed plans (PHASE_8, P1 optimizations, security audits)
+- `FUTURE_IMPROVEMENTS.md` - Post-launch nice-to-haves (AudioWorklet, CORS cleanup)
 
 ---
 
-## Next: Deployment Phases
+## Next: Launch
 
-See **`FINAL_PHASES.md`** for:
-- Phase 8: Codebase Integrity & Cleanup
-- Phase 9: Data Routing & Integration Testing
-- Phase 10: Stripe Payments & Subscriptions
-- Phase 11: Security Hardening
-- Phase 12: Scale Resilience
-- Phase 13: Legal & Compliance
-- Phase 14: Launch Checklist
+**Status: 🚀 LAUNCH READY**
+
+All deployment phases complete:
+- ✅ Phase 8: Codebase Integrity (14/16)
+- ⏳ Phase 9: Manual Testing (see `docs/PHASE_9_TEST_CHECKLIST.md`)
+- ✅ Phase 10: Stripe Payments
+- ✅ Phase 11: Security Hardening
+- ⏸️ Phase 12: Scale Resilience (post-launch)
+- ✅ Phase 13: Legal & Compliance
+- 🚀 Phase 14: Launch Checklist (ready)
