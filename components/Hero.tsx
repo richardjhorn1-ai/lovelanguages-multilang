@@ -1812,6 +1812,13 @@ const Hero: React.FC = () => {
                 {isSignUp ? 'Already have an account? Sign in' : "New here? Create an account"}
               </button>
             </div>
+
+            {/* Legal links */}
+            <div className="mt-4 flex justify-center gap-4 text-xs" style={{ color: '#9ca3af' }}>
+              <a href="#/terms" className="hover:underline">Terms</a>
+              <span>|</span>
+              <a href="#/privacy" className="hover:underline">Privacy</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1934,6 +1941,13 @@ const Hero: React.FC = () => {
             message={message}
             onSubmit={handleAuth}
           />
+
+          {/* Legal links */}
+          <div className="mt-8 flex justify-center gap-6 text-sm" style={{ color: '#9ca3af' }}>
+            <a href="#/terms" className="hover:underline">Terms of Service</a>
+            <span>|</span>
+            <a href="#/privacy" className="hover:underline">Privacy Policy</a>
+          </div>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { Profile, OnboardingData } from '../types';
 import { ICONS } from '../constants';
 import SubscriptionManager from './SubscriptionManager';
+import UsageSection from './UsageSection';
 import InvitePartnerSection from './InvitePartnerSection';
 import BreakupModal from './BreakupModal';
 import { useTheme } from '../context/ThemeContext';
@@ -168,6 +169,9 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
           }}
           partnerName={partner?.full_name}
         />
+
+        {/* Usage Section - Shows usage against plan limits */}
+        <UsageSection userId={profile.id} />
 
         {/* Invite Partner Section - Only for payers without a partner */}
         <InvitePartnerSection

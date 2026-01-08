@@ -16,6 +16,8 @@ import JoinInvite from './components/JoinInvite';
 import { Onboarding } from './components/onboarding/Onboarding';
 import SubscriptionRequired from './components/SubscriptionRequired';
 import RoleSelection from './components/RoleSelection';
+import TermsOfService from './components/TermsOfService';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
@@ -224,8 +226,10 @@ const App: React.FC = () => {
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
           )}
           <Routes>
-            {/* Partner invite route - accessible without auth */}
+            {/* Public routes - accessible without auth */}
             <Route path="/join/:token" element={<JoinInvite />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
 
             {/* All other routes */}
             <Route path="*" element={
