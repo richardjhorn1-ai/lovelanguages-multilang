@@ -316,10 +316,18 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
             </div>
             <div className="relative">
               <div
-                className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center font-black shadow-sm shrink-0 text-xs md:text-sm"
+                className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center font-black shadow-sm shrink-0 text-xs md:text-sm overflow-hidden"
                 style={{ backgroundColor: `${accentHex}20`, color: accentHex, border: `1px solid ${accentHex}30` }}
               >
-                {profile.full_name[0].toUpperCase()}
+                {profile.avatar_url ? (
+                  <img
+                    src={profile.avatar_url}
+                    alt={profile.full_name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  (profile.full_name?.[0] || '?').toUpperCase()
+                )}
               </div>
               {/* Mobile badge: combined requests + notifications */}
               {(requestCount + unreadCount > 0) && (

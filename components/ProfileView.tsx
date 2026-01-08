@@ -7,6 +7,7 @@ import SubscriptionManager from './SubscriptionManager';
 import UsageSection from './UsageSection';
 import InvitePartnerSection from './InvitePartnerSection';
 import BreakupModal from './BreakupModal';
+import AvatarUpload from './AvatarUpload';
 import { useTheme } from '../context/ThemeContext';
 import {
   AccentColor,
@@ -137,11 +138,16 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
         {/* User Card */}
         <div className="bg-[var(--bg-card)] p-8 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm text-center">
-          <div
-            className="w-24 h-24 rounded-full flex items-center justify-center text-4xl font-black mx-auto mb-4 border-4 border-[var(--bg-card)] shadow-sm"
-            style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
-          >
-            {profile.full_name[0].toUpperCase()}
+          <div className="mb-4">
+            <AvatarUpload
+              userId={profile.id}
+              currentAvatarUrl={profile.avatar_url}
+              userName={profile.full_name}
+              size="md"
+              accentHex={accentHex}
+              onUploadComplete={() => onRefresh()}
+              editable={true}
+            />
           </div>
           <h2 className="text-2xl font-black text-[var(--text-primary)]">{profile.full_name}</h2>
           <p className="text-[var(--text-secondary)] text-sm mb-4">{profile.email}</p>
@@ -207,7 +213,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 className="w-12 h-12 bg-[var(--bg-card)] rounded-full flex items-center justify-center font-black shadow-sm z-10 border-2"
                 style={{ color: accentHex, borderColor: `${accentHex}30` }}
               >
-                {partner.full_name[0].toUpperCase()}
+                {(partner.full_name?.[0] || '?').toUpperCase()}
               </div>
               <div className="flex-1 z-10">
                 <p className="font-black text-[var(--text-primary)] text-sm leading-none mb-1">{partner.full_name}</p>
