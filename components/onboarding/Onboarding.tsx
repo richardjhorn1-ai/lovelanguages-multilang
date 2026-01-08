@@ -756,7 +756,9 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             <PhotoStep
               currentStep={4}
               totalSteps={totalSteps}
-              partnerName={data.partnerName || 'them'}
+              userId={userId}
+              userName={data.userName || 'User'}
+              initialValue={data.couplePhotoUrl}
               onNext={(url) => { updateData('couplePhotoUrl', url); goNext(); }}
               onBack={goBack}
               accentColor={accentColor}

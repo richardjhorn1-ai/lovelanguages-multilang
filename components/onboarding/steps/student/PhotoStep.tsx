@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
-import { ICONS } from '../../../../constants';
+import AvatarUpload from '../../../AvatarUpload';
 
 interface PhotoStepProps {
   currentStep: number;
   totalSteps: number;
-  partnerName: string;
+  userId: string;
+  userName: string;
+  initialValue?: string | null;
   onNext: (photoUrl: string | null) => void;
   onBack?: () => void;
   accentColor?: string;
@@ -14,11 +16,19 @@ interface PhotoStepProps {
 export const PhotoStep: React.FC<PhotoStepProps> = ({
   currentStep,
   totalSteps,
-  partnerName,
+  userId,
+  userName,
+  initialValue,
   onNext,
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const [uploadedUrl, setUploadedUrl] = useState<string | null>(initialValue ?? null);
+
+  const handleUploadComplete = (url: string) => {
+    setUploadedUrl(url);
+  };
+
   return (
     <OnboardingStep
       currentStep={currentStep}
@@ -27,23 +37,35 @@ export const PhotoStep: React.FC<PhotoStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-10">
-        <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-6 border-4 border-dashed border-gray-200">
-          <ICONS.Camera className="w-10 h-10 text-gray-300" />
+        <div className="mb-6">
+          <AvatarUpload
+            userId={userId}
+            currentAvatarUrl={uploadedUrl}
+            userName={userName}
+            size="lg"
+            accentHex={accentColor}
+            onUploadComplete={handleUploadComplete}
+            editable={true}
+          />
         </div>
+
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          Photo of you & {partnerName}
+          Add your photo
         </h1>
         <p className="text-gray-500 mb-2">
-          A little reminder of why you're doing this.
-        </p>
-        <p className="text-sm text-gray-400 italic">
-          Photo upload coming soon!
+          {uploadedUrl
+            ? "Looking good! This will appear on your profile."
+            : "A photo helps make your profile feel more personal."
+          }
         </p>
       </div>
 
       <div className="space-y-4">
-        <NextButton onClick={() => onNext(null)} accentColor={accentColor}>
-          Continue
+        <NextButton
+          onClick={() => onNext(uploadedUrl)}
+          accentColor={accentColor}
+        >
+          {uploadedUrl ? 'Continue' : 'Skip for now'}
         </NextButton>
       </div>
     </OnboardingStep>
