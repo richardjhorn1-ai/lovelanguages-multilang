@@ -16,10 +16,10 @@ function setCorsHeaders(req: any, res: any): boolean {
     // Wildcard mode - NEVER combine with credentials (security vulnerability)
     res.setHeader('Access-Control-Allow-Origin', '*');
     // Do NOT set credentials header with wildcard
-  } else if (allowedOrigins.length > 0) {
-    // No match but have allowed origins - use first one
+  } else if (allowedOrigins.length > 0 && allowedOrigins[0] !== '*') {
+    // No match - set origin for debugging, but browser will block without credentials
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    // Note: NOT setting credentials when origin doesn't match
   }
 
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
