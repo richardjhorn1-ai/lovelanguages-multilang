@@ -1,18 +1,28 @@
 import { GoogleGenAI } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
 
-// CORS configuration
+// CORS configuration - secure version that prevents wildcard + credentials
 function setCorsHeaders(req: any, res: any): boolean {
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
   const origin = req.headers.origin || '';
 
-  if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+  // Check for explicit origin match (not wildcard)
+  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
+
+  if (isExplicitMatch) {
+    // Explicit match - safe to allow credentials
     res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  } else if (allowedOrigins.includes('*')) {
+    // Wildcard mode - NEVER combine with credentials (security vulnerability)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Do NOT set credentials header with wildcard
+  } else if (allowedOrigins.length > 0) {
+    // No match but have allowed origins - use first one
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
 
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
@@ -172,6 +182,86 @@ export default async function handler(req: any, res: any) {
     }
     console.log('[live-token] Auth successful for user:', auth.userId.substring(0, 8) + '...');
 
+    // Rate limiting - Voice mode: blocked for non-subscribers, 60 min/month for standard, unlimited for unlimited
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+    if (supabaseUrl && supabaseServiceKey) {
+      const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+      // Get user's subscription plan
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('subscription_plan, subscription_status')
+        .eq('id', auth.userId)
+        .single();
+
+      const isActive = profile?.subscription_status === 'active';
+      const plan = isActive ? (profile?.subscription_plan || 'none') : 'none';
+
+      // Voice mode limits (minutes per month)
+      // Tracking sessions as ~3 min each: 60 min = ~20 sessions
+      const VOICE_LIMITS: Record<string, number | null> = {
+        'none': 0,         // Non-subscribers: blocked
+        'standard': 20,    // Standard: ~60 min (20 sessions × 3 min avg)
+        'unlimited': null  // Unlimited: no limit
+      };
+
+      const sessionLimit = VOICE_LIMITS[plan];
+
+      // Block non-subscribers completely
+      if (sessionLimit === 0) {
+        return res.status(403).json({
+          error: 'Voice mode requires a subscription. Please upgrade to Standard or Unlimited.',
+          feature: 'voice_mode'
+        });
+      }
+
+      // Check usage for standard plan
+      if (sessionLimit !== null) {
+        const currentMonth = new Date().toISOString().slice(0, 7);
+
+        const { data: monthlyUsage } = await supabase
+          .from('usage_tracking')
+          .select('count')
+          .eq('user_id', auth.userId)
+          .eq('usage_type', 'voice_sessions')
+          .gte('usage_date', `${currentMonth}-01`)
+          .lte('usage_date', `${currentMonth}-31`);
+
+        const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
+
+        if (currentCount >= sessionLimit) {
+          return res.status(429).json({
+            error: 'Monthly voice mode limit reached (60 minutes). Upgrade to Unlimited for unlimited voice.',
+            limit: sessionLimit,
+            used: currentCount
+          });
+        }
+
+        // Increment usage
+        const today = new Date().toISOString().split('T')[0];
+        const { data: todayUsage } = await supabase
+          .from('usage_tracking')
+          .select('count')
+          .eq('user_id', auth.userId)
+          .eq('usage_type', 'voice_sessions')
+          .eq('usage_date', today)
+          .single();
+
+        await supabase
+          .from('usage_tracking')
+          .upsert({
+            user_id: auth.userId,
+            usage_type: 'voice_sessions',
+            usage_date: today,
+            count: (todayUsage?.count || 0) + 1
+          }, {
+            onConflict: 'user_id,usage_type,usage_date'
+          });
+      }
+    }
+
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       console.error("[live-token] API Configuration Error: GEMINI_API_KEY not found.");
@@ -190,16 +280,49 @@ export default async function handler(req: any, res: any) {
 
     const { mode = 'ask', userLog = [], conversationScenario, userName = 'Friend' } = body || {};
 
+    // Input validation to prevent prompt injection and cost/latency abuse
+    const MAX_USERNAME_LENGTH = 50;
+    const MAX_USERLOG_ITEMS = 30;
+    const MAX_USERLOG_ITEM_LENGTH = 200;
+    const MAX_SCENARIO_FIELD_LENGTH = 500;
+
+    // Validate and sanitize userName
+    const sanitizedUserName = typeof userName === 'string'
+      ? userName.trim().substring(0, MAX_USERNAME_LENGTH)
+      : 'Friend';
+
+    // Validate and sanitize userLog (limit array size and item lengths)
+    const sanitizedUserLog = Array.isArray(userLog)
+      ? userLog
+          .slice(0, MAX_USERLOG_ITEMS)
+          .map(item => typeof item === 'string' ? item.substring(0, MAX_USERLOG_ITEM_LENGTH) : '')
+          .filter(item => item.length > 0)
+      : [];
+
+    // Validate conversationScenario if provided
+    let sanitizedScenario = conversationScenario;
+    if (conversationScenario && typeof conversationScenario === 'object') {
+      sanitizedScenario = {
+        id: typeof conversationScenario.id === 'string' ? conversationScenario.id.substring(0, 50) : '',
+        name: typeof conversationScenario.name === 'string' ? conversationScenario.name.substring(0, 100) : '',
+        persona: typeof conversationScenario.persona === 'string' ? conversationScenario.persona.substring(0, MAX_SCENARIO_FIELD_LENGTH) : '',
+        context: typeof conversationScenario.context === 'string' ? conversationScenario.context.substring(0, MAX_SCENARIO_FIELD_LENGTH) : '',
+        difficulty: ['beginner', 'intermediate', 'advanced'].includes(conversationScenario.difficulty)
+          ? conversationScenario.difficulty
+          : 'beginner'
+      };
+    }
+
     // Build mode-specific system instruction
     let systemInstruction: string;
     const voiceName = 'Kore'; // Use Kore for all voice modes
 
-    if (mode === 'conversation' && conversationScenario) {
-      // Conversation practice mode - use scenario-specific prompt
-      systemInstruction = buildConversationSystemInstruction(conversationScenario, userName);
+    if (mode === 'conversation' && sanitizedScenario) {
+      // Conversation practice mode - use scenario-specific prompt (with sanitized inputs)
+      systemInstruction = buildConversationSystemInstruction(sanitizedScenario, sanitizedUserName);
     } else {
-      // Regular voice mode
-      systemInstruction = buildVoiceSystemInstruction(mode, userLog);
+      // Regular voice mode (with sanitized inputs)
+      systemInstruction = buildVoiceSystemInstruction(mode, sanitizedUserLog);
     }
     // Use the only model that supports Live API (BidiGenerateContent)
     const model = 'gemini-2.5-flash-native-audio-preview-12-2025';

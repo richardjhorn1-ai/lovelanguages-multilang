@@ -1,18 +1,28 @@
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 
-// CORS configuration
+// CORS configuration - secure version that prevents wildcard + credentials
 function setCorsHeaders(req: any, res: any): boolean {
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
   const origin = req.headers.origin || '';
 
-  if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+  // Check for explicit origin match (not wildcard)
+  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
+
+  if (isExplicitMatch) {
+    // Explicit match - safe to allow credentials
     res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  } else if (allowedOrigins.includes('*')) {
+    // Wildcard mode - NEVER combine with credentials (security vulnerability)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Do NOT set credentials header with wildcard
+  } else if (allowedOrigins.length > 0) {
+    // No match but have allowed origins - use first one
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
 
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
@@ -131,10 +141,43 @@ export default async function handler(req: any, res: any) {
         .eq('id', auth.userId);
     }
 
-    // Determine success/cancel URLs
-    const origin = req.headers.origin || 'http://localhost:5173';
-    const finalSuccessUrl = successUrl || `${origin}/profile?subscription=success`;
-    const finalCancelUrl = cancelUrl || `${origin}/pricing?subscription=canceled`;
+    // Determine success/cancel URLs with open redirect protection
+    // Only allow redirects to our own allowed origins
+    const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',').filter(o => o !== '*');
+    const requestOrigin = req.headers.origin || '';
+
+    // Use request origin if it's in allowed list, otherwise use first allowed origin
+    const safeOrigin = allowedOrigins.includes(requestOrigin)
+      ? requestOrigin
+      : (allowedOrigins[0] || 'http://localhost:5173');
+
+    // Validate custom URLs - must be same origin or relative paths
+    function validateRedirectUrl(url: string | undefined, defaultPath: string): string {
+      if (!url) {
+        return `${safeOrigin}${defaultPath}`;
+      }
+
+      // If it's a relative path (starts with /), use safe origin
+      if (url.startsWith('/')) {
+        return `${safeOrigin}${url}`;
+      }
+
+      // If it's an absolute URL, validate the origin
+      try {
+        const parsed = new URL(url);
+        if (allowedOrigins.includes(parsed.origin)) {
+          return url;
+        }
+      } catch {
+        // Invalid URL, use default
+      }
+
+      // Fallback to safe default
+      return `${safeOrigin}${defaultPath}`;
+    }
+
+    const finalSuccessUrl = validateRedirectUrl(successUrl, '/profile?subscription=success');
+    const finalCancelUrl = validateRedirectUrl(cancelUrl, '/pricing?subscription=canceled');
 
     // Create checkout session
     const session = await stripe.checkout.sessions.create({

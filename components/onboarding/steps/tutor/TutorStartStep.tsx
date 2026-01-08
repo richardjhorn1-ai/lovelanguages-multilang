@@ -17,7 +17,7 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
   userName,
   learnerName,
   onComplete,
-  accentColor = '#14B8A6'
+  accentColor = '#FF4761'
 }) => {
   return (
     <OnboardingStep
@@ -27,7 +27,7 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center">
-        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-teal-200">
+        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-rose-200">
           <ICONS.Heart className="w-10 h-10 text-white fill-white" />
         </div>
 
@@ -64,8 +64,8 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
               <span className="font-medium text-gray-700">Send word gifts to surprise them</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
-                <ICONS.Users className="w-4 h-4 text-teal-500" />
+              <div className="w-8 h-8 rounded-full bg-rose-100 flex items-center justify-center">
+                <ICONS.Users className="w-4 h-4 text-rose-500" />
               </div>
               <span className="font-medium text-gray-700">Link accounts to see their journey</span>
             </div>

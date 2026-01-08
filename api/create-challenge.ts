@@ -1,17 +1,27 @@
 import { createClient } from '@supabase/supabase-js';
 
-// CORS configuration
+// CORS configuration - secure version that prevents wildcard + credentials
 function setCorsHeaders(req: any, res: any): boolean {
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
   const origin = req.headers.origin || '';
 
-  if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+  // Check for explicit origin match (not wildcard)
+  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
+
+  if (isExplicitMatch) {
+    // Explicit match - safe to allow credentials
     res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  } else if (allowedOrigins.includes('*')) {
+    // Wildcard mode - NEVER combine with credentials (security vulnerability)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Do NOT set credentials header with wildcard
+  } else if (allowedOrigins.length > 0) {
+    // No match but have allowed origins - use first one
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
 
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
@@ -67,6 +77,77 @@ export default async function handler(req: any, res: any) {
     }
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    // Rate limiting - AI Challenges: blocked for non-subscribers, 50/month for standard, unlimited for unlimited
+    const { data: subscriptionProfile } = await supabase
+      .from('profiles')
+      .select('subscription_plan, subscription_status')
+      .eq('id', auth.userId)
+      .single();
+
+    const isActive = subscriptionProfile?.subscription_status === 'active';
+    const plan = isActive ? (subscriptionProfile?.subscription_plan || 'none') : 'none';
+
+    // AI Challenge limits per month
+    const CHALLENGE_LIMITS: Record<string, number | null> = {
+      'none': 0,         // Non-subscribers: blocked
+      'standard': 50,    // Standard: 50 challenges/month
+      'unlimited': null  // Unlimited: no limit
+    };
+
+    const challengeLimit = CHALLENGE_LIMITS[plan];
+
+    // Block non-subscribers completely
+    if (challengeLimit === 0) {
+      return res.status(403).json({
+        error: 'AI Challenges require a subscription. Please upgrade to Standard or Unlimited.',
+        feature: 'ai_challenges'
+      });
+    }
+
+    // Check usage for standard plan
+    if (challengeLimit !== null) {
+      const currentMonth = new Date().toISOString().slice(0, 7);
+
+      const { data: monthlyUsage } = await supabase
+        .from('usage_tracking')
+        .select('count')
+        .eq('user_id', auth.userId)
+        .eq('usage_type', 'ai_challenges')
+        .gte('usage_date', `${currentMonth}-01`)
+        .lte('usage_date', `${currentMonth}-31`);
+
+      const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
+
+      if (currentCount >= challengeLimit) {
+        return res.status(429).json({
+          error: 'Monthly AI challenge limit reached (50 challenges). Upgrade to Unlimited for unlimited challenges.',
+          limit: challengeLimit,
+          used: currentCount
+        });
+      }
+
+      // Increment usage
+      const today = new Date().toISOString().split('T')[0];
+      const { data: todayUsage } = await supabase
+        .from('usage_tracking')
+        .select('count')
+        .eq('user_id', auth.userId)
+        .eq('usage_type', 'ai_challenges')
+        .eq('usage_date', today)
+        .single();
+
+      await supabase
+        .from('usage_tracking')
+        .upsert({
+          user_id: auth.userId,
+          usage_type: 'ai_challenges',
+          usage_date: today,
+          count: (todayUsage?.count || 0) + 1
+        }, {
+          onConflict: 'user_id,usage_type,usage_date'
+        });
+    }
 
     // Get tutor's profile and linked student
     const { data: profile, error: profileError } = await supabase

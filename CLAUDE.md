@@ -139,6 +139,82 @@ SUPABASE_SERVICE_KEY=
 GEMINI_API_KEY=
 GLADIA_API_KEY=
 ALLOWED_ORIGINS=
+
+# Stripe (server-side only)
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+STRIPE_PRICE_STANDARD_MONTHLY=
+STRIPE_PRICE_STANDARD_YEARLY=
+STRIPE_PRICE_UNLIMITED_MONTHLY=
+STRIPE_PRICE_UNLIMITED_YEARLY=
+```
+
+## Stripe Payments Integration
+
+### Subscription Plans
+- **Standard**: $19/month or $69/year
+- **Unlimited**: $39/month or $139/year (includes gift pass)
+
+### Webhook Handler (`api/webhooks/stripe.ts`)
+Handles all subscription lifecycle events:
+- `checkout.session.completed` - Activates subscription, saves `stripe_customer_id`
+- `customer.subscription.updated` - Updates plan/status on changes
+- `customer.subscription.deleted` - Marks subscription as canceled
+- `invoice.payment_failed` - Sets status to `past_due`
+
+### Critical Patterns
+
+**Non-blocking operations**: Event logging and gift pass creation use async IIFEs to avoid crashing the webhook:
+```typescript
+// Good - non-blocking
+(async () => {
+  try {
+    await supabase.from('subscription_events').insert(data);
+  } catch (err) {
+    console.error('Failed to log event:', err.message);
+  }
+})();
+
+// Bad - blocking, can crash webhook
+await supabase.from('subscription_events').insert(data);
+```
+
+**User lookup fallback**: When `supabase_user_id` is missing from metadata, look up by `stripe_customer_id`:
+```typescript
+let userId = subscription.metadata?.supabase_user_id;
+if (!userId && customerId) {
+  const { data } = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('stripe_customer_id', customerId)
+    .single();
+  userId = data?.id;
+}
+```
+
+### Testing Webhooks Locally
+```bash
+# Terminal 1: Start local server
+vercel dev
+
+# Terminal 2: Forward Stripe events
+stripe listen --forward-to localhost:3000/api/webhooks/stripe
+
+# Terminal 3: Trigger test events
+stripe trigger checkout.session.completed
+stripe trigger customer.subscription.updated
+stripe trigger customer.subscription.deleted
+stripe trigger invoice.payment_failed
+```
+
+### Database Fields (profiles table)
+```sql
+subscription_plan VARCHAR(50)      -- 'none', 'standard', 'unlimited'
+subscription_status VARCHAR(20)    -- 'active', 'past_due', 'canceled', 'inactive'
+subscription_period VARCHAR(20)    -- 'monthly', 'yearly'
+subscription_started_at TIMESTAMPTZ
+subscription_ends_at TIMESTAMPTZ
+stripe_customer_id VARCHAR(100)    -- Critical for webhook lookups
 ```
 
 ## Key Types (types.ts)

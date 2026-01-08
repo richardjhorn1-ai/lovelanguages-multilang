@@ -26,7 +26,7 @@ export const RelationStep: React.FC<RelationStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#14B8A6'
+  accentColor = '#FF4761'
 }) => {
   const [selected, setSelected] = useState(initialValue);
 
@@ -38,8 +38,8 @@ export const RelationStep: React.FC<RelationStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-6">
-          <ICONS.Users className="w-8 h-8 text-teal-500" />
+        <div className="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-6">
+          <ICONS.Users className="w-8 h-8 text-rose-500" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
           What's your relationship with {learnerName}?
@@ -56,12 +56,12 @@ export const RelationStep: React.FC<RelationStepProps> = ({
             onClick={() => setSelected(option.id)}
             className={`p-4 rounded-2xl border-2 transition-all flex flex-col items-center gap-2 ${
               selected === option.id
-                ? 'border-teal-300 bg-teal-50'
+                ? 'border-rose-300 bg-rose-50'
                 : 'border-gray-100 bg-white hover:border-gray-200'
             }`}
           >
             <span className="text-3xl">{option.emoji}</span>
-            <span className={`font-bold ${selected === option.id ? 'text-teal-700' : 'text-gray-700'}`}>
+            <span className={`font-bold ${selected === option.id ? 'text-rose-700' : 'text-gray-700'}`}>
               {option.label}
             </span>
           </button>

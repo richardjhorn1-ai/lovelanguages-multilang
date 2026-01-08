@@ -242,6 +242,7 @@ const App: React.FC = () => {
                     role={profile.role}
                     userId={profile.id}
                     onComplete={() => fetchProfile(profile.id)}
+                    onQuit={() => supabase.auth.signOut()}
                   />
                 ) : // Step 3: Check if user has active subscription (or is a beta tester)
                 !profile.subscription_status || (profile.subscription_status !== 'active' && !isBetaTester(profile.email)) ? (
