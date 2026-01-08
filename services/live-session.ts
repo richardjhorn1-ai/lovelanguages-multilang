@@ -168,6 +168,8 @@ export class LiveSession {
           if (this.state === 'speaking' || this.state === 'listening') {
             await this.startListening();
             log('Audio capture started after AI prompt');
+            // Note: State remains 'speaking' until AI finishes its first response
+            // AudioPlayer callback will transition to 'listening' when playback ends
           }
         }, 500);
       } else {
@@ -189,7 +191,11 @@ export class LiveSession {
    * Start listening for voice input
    */
   async startListening(): Promise<void> {
-    if (!this.audioRecorder || !this.session || this.state !== 'listening') return;
+    // Allow starting audio capture in 'listening' OR 'speaking' state
+    // Speaking state is valid for conversation mode where AI speaks first
+    // but we still need to capture user audio for when they respond
+    if (!this.audioRecorder || !this.session) return;
+    if (this.state !== 'listening' && this.state !== 'speaking') return;
 
     try {
       await this.audioRecorder.start((base64Audio) => {
