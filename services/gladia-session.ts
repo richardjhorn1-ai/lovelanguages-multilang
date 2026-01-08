@@ -55,6 +55,7 @@ export class GladiaSession {
   private state: GladiaState = 'disconnected';
   private audioChunkCount = 0;
   private sessionId: string | null = null;
+  private hasCalledOnClose = false;  // Prevents double onClose callback
 
   // Partial transcript accumulation
   private currentSpeaker = 'speaker_0';
@@ -77,6 +78,7 @@ export class GladiaSession {
     }
 
     this.setState('connecting');
+    this.hasCalledOnClose = false;  // Reset for new connection
     log('Starting Gladia connection...');
 
     try {
@@ -130,7 +132,12 @@ export class GladiaSession {
       this.ws.onclose = (event) => {
         log('WebSocket closed:', event.code, event.reason);
         this.cleanup();
-        this.config.onClose?.();
+        this.setState('disconnected');  // Always update state
+        // Only fire onClose if disconnect() hasn't already fired it
+        if (!this.hasCalledOnClose) {
+          this.hasCalledOnClose = true;
+          this.config.onClose?.();
+        }
       };
 
     } catch (error) {
@@ -190,6 +197,8 @@ export class GladiaSession {
    * Stop listening and disconnect
    */
   disconnect(): void {
+    if (this.hasCalledOnClose) return;  // Already disconnecting
+    this.hasCalledOnClose = true;
     log('Disconnecting...');
 
     // Send stop_recording signal to trigger any final processing
@@ -266,11 +275,11 @@ export class GladiaSession {
           break;
 
         default:
-          log('Unknown message type:', message.type, message);
+          log('Unknown message type:', message.type);
       }
 
     } catch (error) {
-      log('Error parsing message:', error, data);
+      log('Error parsing message:', error);
     }
   }
 
@@ -281,10 +290,9 @@ export class GladiaSession {
     // Extract transcript data - Gladia v2 format
     const transcriptData = message.data || message;
 
-    // DEBUG: Log full transcript message for final transcripts
-    if (isFinal) {
-      log('FULL TRANSCRIPT MESSAGE:', JSON.stringify(message, null, 2));
-    }
+    // Note: Full transcript logging removed for privacy
+    // Enable locally if debugging transcript parsing issues:
+    // if (isFinal) log('FULL TRANSCRIPT MESSAGE:', JSON.stringify(message, null, 2));
 
     // Get the text
     const text = transcriptData.utterance?.text ||
@@ -336,7 +344,10 @@ export class GladiaSession {
       language: detectedLanguage !== 'unknown' ? detectedLanguage : undefined,
     };
 
-    log(isFinal ? 'Final transcript:' : 'Partial:', chunk.text, translation ? `→ ${chunk.translation}` : '');
+    log(isFinal ? 'Final transcript:' : 'Partial:',
+        `${chunk.text.length} chars`,
+        chunk.language ? `[${chunk.language}]` : '',
+        translation ? '(translated)' : '');
 
     // Emit ALL transcripts immediately - no waiting for translations
     // Translations will be added in post-session processing by Gemini
@@ -356,7 +367,7 @@ export class GladiaSession {
 
     // Just log for debugging - translations handled in post-session processing
     if (translation && originalLang !== targetLang) {
-      log('Translation available (for post-processing):', `${originalLang}→${targetLang}:`, translation);
+      log('Translation available (for post-processing):', `${originalLang}→${targetLang}`, `${translation.length} chars`);
     }
   }
 
@@ -386,6 +397,7 @@ export class GladiaSession {
    * Update and emit state
    */
   private setState(state: GladiaState): void {
+    if (this.state === state) return;  // Skip redundant state changes
     log(`State: ${this.state} → ${state}`);
     this.state = state;
     this.config.onStateChange(state);
