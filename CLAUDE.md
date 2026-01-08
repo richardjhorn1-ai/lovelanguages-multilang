@@ -58,6 +58,12 @@ The app distinguishes between two roles (`UserRole` in `types.ts`):
 ### Vercel Serverless Limitation
 **API files cannot import from sibling directories.** Each function bundles independently. Shared code must be duplicated inline or placed in `utils/` or `services/` (outside `/api/`).
 
+### CORS Code Duplication (Architectural Decision)
+The `setCorsHeaders()` function is duplicated across 30+ API files. This is intentional due to Vercel's bundling model. When modifying CORS logic:
+1. Use find-and-replace across all `api/*.ts` files
+2. Test with `grep -l "setCorsHeaders" api/*.ts | wc -l` to verify all files updated
+3. See `FUTURE_IMPROVEMENTS.md` for the full file list and recommended changes
+
 ### Custom Markdown Blocks
 The AI outputs special blocks that ChatArea.tsx renders:
 - `::: table` - Conjugation/grammar tables
