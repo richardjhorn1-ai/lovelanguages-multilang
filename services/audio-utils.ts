@@ -228,17 +228,49 @@ export class AudioPlayer {
 
   /**
    * Stop playback and clear the queue
+   * Note: We suspend (not close) the AudioContext to allow quick resumption
    */
   stop(): void {
+    // Skip if already stopped (avoid redundant work and UI callbacks)
+    if (!this.isPlaying && this.audioQueue.length === 0) {
+      return;
+    }
+
+    // Disconnect gain node to immediately silence any scheduled/playing audio
+    // BufferSources are already scheduled with start times, so we can't cancel them
+    // directly - disconnecting the gain node is the only way to stop audio output
+    if (this.gainNode && this.audioContext) {
+      this.gainNode.disconnect();
+      // Recreate gain node for next playback
+      this.gainNode = this.audioContext.createGain();
+      this.gainNode.connect(this.audioContext.destination);
+    }
+
+    // Suspend context (can be resumed quickly, unlike close which destroys it)
+    if (this.audioContext && this.audioContext.state === 'running') {
+      this.audioContext.suspend().catch(() => {
+        // Ignore suspend errors
+      });
+    }
+
+    this.audioQueue = [];
+    this.isPlaying = false;
+    this.nextStartTime = 0;
+    this.onPlaybackStateChange?.(false);
+  }
+
+  /**
+   * Fully close the audio context (call when completely done with audio)
+   */
+  destroy(): void {
     if (this.audioContext) {
-      this.audioContext.close();
+      this.audioContext.close().catch(() => {});
       this.audioContext = null;
     }
     this.gainNode = null;
     this.audioQueue = [];
     this.isPlaying = false;
     this.nextStartTime = 0;
-    this.onPlaybackStateChange?.(false);
   }
 
   /**
