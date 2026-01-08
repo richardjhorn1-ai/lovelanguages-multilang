@@ -19,7 +19,7 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#14B8A6'
+  accentColor = '#FF4761'
 }) => {
   const [phrase, setPhrase] = useState(initialValue);
 
@@ -31,8 +31,8 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-6">
-          <ICONS.Heart className="w-8 h-8 text-teal-500" />
+        <div className="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-6">
+          <ICONS.Heart className="w-8 h-8 text-rose-500" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
           Dream moment 💭
@@ -49,7 +49,7 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
           onChange={(e) => setPhrase(e.target.value)}
           placeholder={`e.g., "Kocham cię" or "Dzień dobry, mamo"`}
           autoFocus
-          className="w-full px-5 py-4 rounded-xl bg-white border-2 border-gray-100 focus:border-teal-200 focus:outline-none text-gray-800 placeholder:text-gray-300 transition-all text-center"
+          className="w-full px-5 py-4 rounded-xl bg-white border-2 border-gray-100 focus:border-rose-200 focus:outline-none text-gray-800 placeholder:text-gray-300 transition-all text-center"
         />
         <p className="text-sm text-gray-400 mt-2 text-center">
           This becomes your first teaching goal together

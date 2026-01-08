@@ -28,18 +28,28 @@ function sanitizeOutput(text: string): string {
     .trim();
 }
 
-// CORS configuration
+// CORS configuration - secure version that prevents wildcard + credentials
 function setCorsHeaders(req: any, res: any): boolean {
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
   const origin = req.headers.origin || '';
 
-  if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+  // Check for explicit origin match (not wildcard)
+  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
+
+  if (isExplicitMatch) {
+    // Explicit match - safe to allow credentials
     res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  } else if (allowedOrigins.includes('*')) {
+    // Wildcard mode - NEVER combine with credentials (security vulnerability)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Do NOT set credentials header with wildcard
+  } else if (allowedOrigins.length > 0) {
+    // No match but have allowed origins - use first one
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
 
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
@@ -205,12 +215,96 @@ export default async function handler(req: any, res: any) {
     return res.status(200).end();
   }
 
+  // Enforce POST method only
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
   try {
     // Verify authentication
     const auth = await verifyAuth(req);
     if (!auth) {
       return res.status(401).json({ error: 'Unauthorized. Please log in.' });
     }
+
+    // Rate limiting - check monthly text message usage
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+    if (supabaseUrl && supabaseServiceKey) {
+      const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+      // Get user's subscription plan to determine limits
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('subscription_plan, subscription_status')
+        .eq('id', auth.userId)
+        .single();
+
+      const isActive = profile?.subscription_status === 'active';
+      const plan = isActive ? (profile?.subscription_plan || 'none') : 'none';
+
+      // Monthly limits per subscription tier (from pricing table)
+      // Standard: 5,000 text messages/month
+      // Unlimited: no limit
+      const TEXT_MESSAGE_LIMITS: Record<string, number | null> = {
+        'none': 100,       // Non-subscribers: 100 messages/month (trial)
+        'standard': 5000,  // Standard plan: 5,000/month
+        'unlimited': null  // Unlimited plan: no limit
+      };
+
+      const monthlyLimit = TEXT_MESSAGE_LIMITS[plan];
+
+      // Skip rate limiting for unlimited plan
+      if (monthlyLimit !== null) {
+        // Get current month in YYYY-MM format for monthly tracking
+        const currentMonth = new Date().toISOString().slice(0, 7);
+
+        // Sum all usage for this month
+        const { data: monthlyUsage } = await supabase
+          .from('usage_tracking')
+          .select('count')
+          .eq('user_id', auth.userId)
+          .eq('usage_type', 'text_messages')
+          .gte('usage_date', `${currentMonth}-01`)
+          .lte('usage_date', `${currentMonth}-31`);
+
+        const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
+
+        if (currentCount >= monthlyLimit) {
+          return res.status(429).json({
+            error: 'Monthly message limit reached. Upgrade to Unlimited for unlimited messages.',
+            limit: monthlyLimit,
+            used: currentCount,
+            plan: plan
+          });
+        }
+
+        // Increment usage counter for today (daily granularity, monthly aggregation)
+        const today = new Date().toISOString().split('T')[0];
+        const { data: todayUsage } = await supabase
+          .from('usage_tracking')
+          .select('count')
+          .eq('user_id', auth.userId)
+          .eq('usage_type', 'text_messages')
+          .eq('usage_date', today)
+          .single();
+
+        const todayCount = todayUsage?.count || 0;
+
+        await supabase
+          .from('usage_tracking')
+          .upsert({
+            user_id: auth.userId,
+            usage_type: 'text_messages',
+            usage_date: today,
+            count: todayCount + 1
+          }, {
+            onConflict: 'user_id,usage_type,usage_date'
+          });
+      }
+    }
+
     // Priority 1: GEMINI_API_KEY
     const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
     
@@ -229,16 +323,47 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    // Diagnostics: If no prompt or action is provided, return status
+    // Require either prompt or action in request body
     if (!body || (!body.prompt && !body.action)) {
-       return res.status(200).json({ 
-         status: "online", 
-         message: "Cupid API is ready. Send a POST request with a prompt.",
-         methodReceived: req.method 
+       return res.status(400).json({
+         error: "Missing required field: 'prompt' or 'action'"
        });
     }
 
     const { prompt, mode = 'ask', userLog = [], action, images, messages = [], sessionContext } = body;
+
+    // Input validation to prevent API cost abuse and potential DoS
+    const MAX_PROMPT_LENGTH = 10000;
+    const MAX_MESSAGES = 50;
+    const MAX_MESSAGE_LENGTH = 5000;
+    const MAX_USERLOG_ITEMS = 50;
+    const MAX_USERLOG_ITEM_LENGTH = 200;
+
+    // Validate prompt length
+    if (prompt && typeof prompt === 'string' && prompt.length > MAX_PROMPT_LENGTH) {
+      return res.status(400).json({
+        error: `Prompt too long. Maximum ${MAX_PROMPT_LENGTH} characters allowed.`
+      });
+    }
+
+    // Sanitize messages array (limit count and individual message length)
+    const sanitizedMessages = Array.isArray(messages)
+      ? messages.slice(0, MAX_MESSAGES).map((msg: any) => ({
+          ...msg,
+          content: typeof msg.content === 'string'
+            ? msg.content.substring(0, MAX_MESSAGE_LENGTH)
+            : msg.content
+        }))
+      : [];
+
+    // Sanitize userLog array
+    const sanitizedUserLog = Array.isArray(userLog)
+      ? userLog
+          .slice(0, MAX_USERLOG_ITEMS)
+          .map(item => typeof item === 'string' ? item.substring(0, MAX_USERLOG_ITEM_LENGTH) : '')
+          .filter(item => item.length > 0)
+      : [];
+
     const ai = new GoogleGenAI({ apiKey });
 
     // Handle Title Generation
@@ -359,7 +484,7 @@ BANNED:
 
 You MUST use special markdown syntax. This is NON-NEGOTIABLE.
 
-Known vocabulary: [${(userLog || []).slice(0, 30).join(', ')}]
+Known vocabulary: [${sanitizedUserLog.slice(0, 30).join(', ')}]
 
 VERB TEACHING RULE:
 When teaching ANY verb, ALWAYS show ALL 6 conjugations (I, You, He/She, We, You plural, They).
@@ -640,9 +765,9 @@ ${modePrompt}`;
     // Build multi-turn conversation contents
     const contents: any[] = [];
 
-    // Add conversation history (last 50 messages for context)
-    if (messages && Array.isArray(messages) && messages.length > 0) {
-      messages.slice(-50).forEach((msg: any) => {
+    // Add conversation history (using sanitized messages with length limits)
+    if (sanitizedMessages.length > 0) {
+      sanitizedMessages.slice(-50).forEach((msg: any) => {
         if (msg.content) {
           contents.push({
             role: msg.role === 'model' ? 'model' : 'user',

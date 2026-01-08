@@ -2376,3 +2376,238 @@ responseSchema: {
 - If user role doesn't add vocabulary → don't request vocabulary extraction
 
 **Status:** ✅ FIXED - Schema complexity now matches data usage
+
+---
+
+## Issue 44: Stripe Webhook 307 Redirect
+
+**Date:** January 8, 2026
+
+**Problem:**
+Stripe webhooks were failing with a 307 redirect response. The webhook showed successful delivery but returned:
+```json
+{"redirect": "https://www.lovelanguages.xyz/api/webhooks/stripe", "status": "307"}
+```
+
+**Root Cause:**
+Domain `lovelanguages.xyz` was configured to redirect to `www.lovelanguages.xyz`. Stripe was sending webhooks to the non-www domain and receiving a redirect instead of reaching the endpoint.
+
+**The Fix:**
+Updated the webhook URL in Stripe Dashboard to include `www`:
+- **Before:** `https://lovelanguages.xyz/api/webhooks/stripe`
+- **After:** `https://www.lovelanguages.xyz/api/webhooks/stripe`
+
+**Key Lesson:** Always use the canonical domain (with or without www) for webhooks. Check for redirects by testing the webhook URL directly in a browser.
+
+**Status:** ✅ FIXED
+
+---
+
+## Issue 45: Stripe Webhook "Not Configured" Error
+
+**Date:** January 8, 2026
+
+**Problem:**
+After fixing the redirect, webhooks returned:
+```json
+{"error": "Stripe not configured"}
+```
+
+**Root Cause:**
+The `STRIPE_WEBHOOK_SECRET` environment variable was not set in Vercel production environment. The variable was added to `.env.local` but never deployed to Vercel.
+
+**Investigation:**
+Created a temporary debug endpoint to check env vars:
+```typescript
+// api/debug-env.ts (TEMPORARY - DELETE AFTER USE)
+export default function handler(req, res) {
+  res.json({
+    STRIPE_SECRET_KEY: !!process.env.STRIPE_SECRET_KEY,
+    STRIPE_WEBHOOK_SECRET: !!process.env.STRIPE_WEBHOOK_SECRET,
+  });
+}
+```
+
+This revealed `STRIPE_WEBHOOK_SECRET: false`.
+
+**The Fix:**
+1. Added `STRIPE_WEBHOOK_SECRET` to Vercel project settings
+2. Triggered a redeploy with `vercel --prod`
+3. Deleted the debug endpoint
+
+**Key Lesson:** Sensitive environment variables need to be added to Vercel separately - they don't sync from `.env.local`. Use `vercel env ls` to verify.
+
+**Status:** ✅ FIXED
+
+---
+
+## Issue 46: Stripe Price ID Typos
+
+**Date:** January 8, 2026
+
+**Problem:**
+Webhook was working but returning "No such subscription" or incorrect plan mappings.
+
+**Root Cause:**
+Price IDs in environment variables had typos with double `price_` prefix:
+```
+STRIPE_PRICE_STANDARD_MONTHLY=price_price_1Sn7sM...  ❌ WRONG
+STRIPE_PRICE_STANDARD_MONTHLY=price_1Sn7sM...       ✅ CORRECT
+```
+
+**The Fix:**
+Corrected all four price ID environment variables in Vercel:
+- `STRIPE_PRICE_STANDARD_MONTHLY`
+- `STRIPE_PRICE_STANDARD_YEARLY`
+- `STRIPE_PRICE_UNLIMITED_MONTHLY`
+- `STRIPE_PRICE_UNLIMITED_YEARLY`
+
+**Key Lesson:** Double-check env var VALUES, not just names. Copy-paste from Stripe Dashboard to avoid typos.
+
+**Status:** ✅ FIXED
+
+---
+
+## Issue 47: Stripe Webhook Handler Logic Bugs (5 Critical Fixes)
+
+**Date:** January 8, 2026
+
+**Problem:**
+After deployment, webhook was processing events but database wasn't updating correctly.
+
+**Bugs Found During Code Review:**
+
+### 1. Missing `stripe_customer_id` in checkout handler
+The `checkout.session.completed` handler wasn't saving the Stripe customer ID to the profile, making it impossible to look up users for subsequent webhook events.
+
+```typescript
+// BEFORE (missing stripe_customer_id)
+.update({
+  subscription_plan: plan,
+  subscription_status: 'active',
+  // ... no stripe_customer_id!
+})
+
+// AFTER (includes stripe_customer_id)
+.update({
+  subscription_plan: plan,
+  subscription_status: 'active',
+  stripe_customer_id: customerId,  // Critical fix
+  // ...
+})
+```
+
+### 2. Inverted logic in `subscription.updated` handler
+The handler only processed events when userId was NOT in metadata, which is backwards:
+
+```typescript
+// BEFORE (inverted)
+if (!userId && customerId) {
+  // Only runs when metadata is missing
+}
+
+// AFTER (correct)
+if (!userId && customerId) {
+  // Look up by customer ID
+  userId = await lookupByCustomerId(customerId);
+}
+if (userId) {
+  // Process update
+}
+```
+
+### 3. Wrong field access for `current_period_end`
+Was accessing `subscription.items.data[0].current_period_end` which doesn't exist:
+
+```typescript
+// BEFORE (wrong path)
+const periodEnd = subscription.items.data[0]?.current_period_end;
+
+// AFTER (correct path)
+const periodEnd = subscription.current_period_end;
+```
+
+### 4. Event logging could crash webhook
+Database insert errors in the event logger would crash the entire webhook handler:
+
+```typescript
+// BEFORE (blocking, can crash)
+await supabase.from('subscription_events').insert(data);
+
+// AFTER (non-blocking with IIFE)
+(async () => {
+  try {
+    await supabase.from('subscription_events').insert(data);
+  } catch (err) {
+    console.error('[stripe-webhook] Failed to log event:', err.message);
+    // Don't throw - logging failure shouldn't break the webhook
+  }
+})();
+```
+
+### 5. Gift pass creation could crash webhook
+Same issue - gift pass creation errors would crash the webhook:
+
+```typescript
+// AFTER (non-blocking)
+(async () => {
+  try {
+    const code = generateGiftCode();
+    await supabase.from('gift_passes').insert({ ... });
+  } catch (err) {
+    console.error('[stripe-webhook] Failed to create gift pass:', err.message);
+  }
+})();
+```
+
+**The Fix:**
+Complete rewrite of `/api/webhooks/stripe.ts` with all fixes applied.
+
+**Testing:**
+- Created unit tests in `tests/stripe-webhook.test.ts` (15 tests passing)
+- Local testing with Stripe CLI: `stripe listen --forward-to localhost:3000/api/webhooks/stripe`
+- Triggered all 4 event types successfully
+
+**Key Lesson:** Webhook handlers must be resilient. Non-critical operations (logging, gift passes) should never crash the main flow. Use async IIFEs for fire-and-forget operations.
+
+**Status:** ✅ FIXED - All 5 bugs resolved, webhook tested end-to-end
+
+---
+
+## Stripe Webhook Architecture (Current)
+
+```
+┌──────────────┐       ┌──────────────────┐       ┌─────────────────┐
+│   Stripe     │──────▶│  /api/webhooks/  │──────▶│   Supabase      │
+│   Events     │       │  stripe.ts       │       │   profiles      │
+└──────────────┘       └──────────────────┘       └─────────────────┘
+                              │
+                              ▼
+                       ┌──────────────────┐
+                       │ subscription_    │
+                       │ events (logging) │
+                       └──────────────────┘
+```
+
+**Events Handled:**
+1. `checkout.session.completed` → Activate subscription, save customer ID
+2. `customer.subscription.updated` → Update status, plan changes
+3. `customer.subscription.deleted` → Cancel subscription
+4. `invoice.payment_failed` → Mark as past_due
+
+**Security:**
+- Signature verification via `stripe.webhooks.constructEvent()`
+- `STRIPE_WEBHOOK_SECRET` env var required
+- Returns 400 for invalid signatures
+
+**Testing Commands:**
+```bash
+# Start local forwarding
+stripe listen --forward-to localhost:3000/api/webhooks/stripe
+
+# Trigger test events
+stripe trigger checkout.session.completed
+stripe trigger customer.subscription.updated
+stripe trigger customer.subscription.deleted
+stripe trigger invoice.payment_failed
+```

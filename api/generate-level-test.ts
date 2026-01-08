@@ -154,18 +154,28 @@ function getThemeForTransition(fromLevel: string, toLevel: string): LevelTheme |
   return LEVEL_THEMES[key] || null;
 }
 
-// CORS configuration
+// CORS configuration - secure version that prevents wildcard + credentials
 function setCorsHeaders(req: any, res: any): boolean {
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
   const origin = req.headers.origin || '';
 
-  if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+  // Check for explicit origin match (not wildcard)
+  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
+
+  if (isExplicitMatch) {
+    // Explicit match - safe to allow credentials
     res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  } else if (allowedOrigins.includes('*')) {
+    // Wildcard mode - NEVER combine with credentials (security vulnerability)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Do NOT set credentials header with wildcard
+  } else if (allowedOrigins.length > 0) {
+    // No match but have allowed origins - use first one
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
 
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
@@ -212,6 +222,85 @@ export default async function handler(req: any, res: any) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
+  // Rate limiting - Level tests: blocked for non-subscribers, 10/month for standard, unlimited for unlimited
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+  if (supabaseUrl && supabaseServiceKey) {
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    // Get user's subscription plan
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('subscription_plan, subscription_status')
+      .eq('id', auth.userId)
+      .single();
+
+    const isActive = profile?.subscription_status === 'active';
+    const plan = isActive ? (profile?.subscription_plan || 'none') : 'none';
+
+    // Level test limits per month
+    const LEVEL_TEST_LIMITS: Record<string, number | null> = {
+      'none': 0,         // Non-subscribers: blocked
+      'standard': 10,    // Standard: 10 tests/month
+      'unlimited': null  // Unlimited: no limit
+    };
+
+    const testLimit = LEVEL_TEST_LIMITS[plan];
+
+    // Block non-subscribers completely
+    if (testLimit === 0) {
+      return res.status(403).json({
+        error: 'Level tests require a subscription. Please upgrade to Standard or Unlimited.',
+        feature: 'level_tests'
+      });
+    }
+
+    // Check usage for standard plan
+    if (testLimit !== null) {
+      const currentMonth = new Date().toISOString().slice(0, 7);
+
+      const { data: monthlyUsage } = await supabase
+        .from('usage_tracking')
+        .select('count')
+        .eq('user_id', auth.userId)
+        .eq('usage_type', 'level_tests')
+        .gte('usage_date', `${currentMonth}-01`)
+        .lte('usage_date', `${currentMonth}-31`);
+
+      const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
+
+      if (currentCount >= testLimit) {
+        return res.status(429).json({
+          error: 'Monthly level test limit reached (10 tests). Upgrade to Unlimited for unlimited tests.',
+          limit: testLimit,
+          used: currentCount
+        });
+      }
+
+      // Increment usage
+      const today = new Date().toISOString().split('T')[0];
+      const { data: todayUsage } = await supabase
+        .from('usage_tracking')
+        .select('count')
+        .eq('user_id', auth.userId)
+        .eq('usage_type', 'level_tests')
+        .eq('usage_date', today)
+        .single();
+
+      await supabase
+        .from('usage_tracking')
+        .upsert({
+          user_id: auth.userId,
+          usage_type: 'level_tests',
+          usage_date: today,
+          count: (todayUsage?.count || 0) + 1
+        }, {
+          onConflict: 'user_id,usage_type,usage_date'
+        });
+    }
+  }
+
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
   if (!apiKey) {
     return res.status(500).json({ error: 'API key not configured' });
@@ -245,11 +334,13 @@ export default async function handler(req: any, res: any) {
   const personalizedCount = totalQuestions - coreQuestionCount;
 
   // Fetch user's vocabulary for personalized questions
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-  const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
+  // Note: supabase client created in rate limiting section above
+  const supabaseForVocab = createClient(
+    process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '',
+    process.env.SUPABASE_SERVICE_KEY || ''
+  );
 
-  const { data: userWords } = await supabase
+  const { data: userWords } = await supabaseForVocab
     .from('dictionary')
     .select('id, word, translation, word_type')
     .eq('user_id', auth.userId)
@@ -348,7 +439,7 @@ Generate the test questions now.`;
 
     // Create test record in database
     const testId = crypto.randomUUID();
-    const { error: insertError } = await supabase
+    const { error: insertError } = await supabaseForVocab
       .from('level_tests')
       .insert({
         id: testId,

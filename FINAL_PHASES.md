@@ -205,7 +205,51 @@ AND NOT EXISTS (SELECT 1 FROM profiles p2 WHERE p2.id = p1.partner_id);
 
 ---
 
-## Phase 10: Stripe Payments & Subscriptions
+## Phase 10: Stripe Payments & Subscriptions ✅ MOSTLY COMPLETE
+
+**Status:** Core payment flow working. Remaining: feature gating, customer portal, pricing page.
+
+### Completed Items (January 8, 2026)
+
+- [x] Create Stripe account and products (Standard + Unlimited plans)
+- [x] Add `stripe` npm package
+- [x] Create `/api/create-checkout-session`
+- [x] Create `/api/webhooks/stripe` with signature verification
+- [x] Run subscription migrations
+- [x] Test webhook flow end-to-end (all 4 events)
+- [x] Add role selection for new users (`RoleSelection.tsx`)
+- [x] Add success toast after payment
+- [x] Create unit tests (`tests/stripe-webhook.test.ts`)
+
+### Remaining Items
+
+- [ ] Create `/api/create-customer-portal` (manage/cancel subscription)
+- [ ] Create `/api/subscription-status` endpoint
+- [ ] Add subscription check middleware to gated features
+- [ ] Build pricing page component
+- [ ] Build upgrade prompts when hitting limits
+- [ ] Test full subscription lifecycle (create → upgrade → cancel → renew)
+
+### Key Files
+
+| File | Purpose |
+|------|---------|
+| `api/webhooks/stripe.ts` | Webhook handler (all 4 events) |
+| `api/create-checkout-session.ts` | Creates Stripe checkout |
+| `components/RoleSelection.tsx` | Role selection flow |
+| `components/SubscriptionRequired.tsx` | Paywall component |
+| `tests/stripe-webhook.test.ts` | 15 unit tests |
+
+### Environment Variables Required
+
+```env
+STRIPE_SECRET_KEY=sk_live_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+STRIPE_PRICE_STANDARD_MONTHLY=price_...
+STRIPE_PRICE_STANDARD_YEARLY=price_...
+STRIPE_PRICE_UNLIMITED_MONTHLY=price_...
+STRIPE_PRICE_UNLIMITED_YEARLY=price_...
+```
 
 ### 10.1 Architecture
 

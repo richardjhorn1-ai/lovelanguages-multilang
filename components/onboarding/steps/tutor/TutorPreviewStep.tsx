@@ -17,7 +17,7 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
   learnerName,
   onNext,
   onBack,
-  accentColor = '#14B8A6'
+  accentColor = '#FF4761'
 }) => {
   return (
     <OnboardingStep
@@ -27,7 +27,7 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-teal-200">
+        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-rose-200">
           <ICONS.Sparkles className="w-8 h-8 text-white" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">

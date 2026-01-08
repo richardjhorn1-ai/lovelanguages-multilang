@@ -1,18 +1,28 @@
 import { createClient } from '@supabase/supabase-js';
 import { createHash } from 'crypto';
 
-// CORS configuration
+// CORS configuration - secure version that prevents wildcard + credentials
 function setCorsHeaders(req: any, res: any): boolean {
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
   const origin = req.headers.origin || '';
 
-  if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+  // Check for explicit origin match (not wildcard)
+  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
+
+  if (isExplicitMatch) {
+    // Explicit match - safe to allow credentials
     res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  } else if (allowedOrigins.includes('*')) {
+    // Wildcard mode - NEVER combine with credentials (security vulnerability)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Do NOT set credentials header with wildcard
+  } else if (allowedOrigins.length > 0) {
+    // No match but have allowed origins - use first one
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
   }
 
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
@@ -46,9 +56,11 @@ async function verifyAuth(req: any): Promise<{ userId: string } | null> {
   return { userId: user.id };
 }
 
-// Generate hash for cache key
-function generateCacheKey(text: string): string {
-  const hash = createHash('sha256').update(text.toLowerCase().trim()).digest('hex');
+// Generate hash for cache key - includes userId to prevent cross-user cache sharing
+function generateCacheKey(text: string, userId: string): string {
+  // Include userId in hash to ensure users don't share cached audio
+  // This prevents potential privacy issues if sensitive text is synthesized
+  const hash = createHash('sha256').update(`${userId}:${text.toLowerCase().trim()}`).digest('hex');
   return hash.substring(0, 16); // Use first 16 chars for shorter filenames
 }
 
@@ -136,8 +148,8 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Text cannot be empty' });
     }
 
-    // Generate cache key
-    const cacheKey = generateCacheKey(sanitizedText);
+    // Generate cache key with user_id to prevent cross-user cache sharing
+    const cacheKey = generateCacheKey(sanitizedText, auth.userId);
     const fileName = `pl/${cacheKey}.mp3`;
 
     // Initialize Supabase client with service key for storage access

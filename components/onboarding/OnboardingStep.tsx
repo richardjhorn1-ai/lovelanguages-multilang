@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ICONS } from '../../constants';
+import { OnboardingContext } from './Onboarding';
 
 interface OnboardingStepProps {
   children: React.ReactNode;
@@ -18,10 +19,21 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
   canGoBack = true,
   accentColor = '#FF4761'
 }) => {
+  // Get onQuit from context - no prop drilling needed
+  const { onQuit } = useContext(OnboardingContext);
   const progress = (currentStep / totalSteps) * 100;
 
+  // On step 1, back button quits; on other steps, it goes back
+  const handleBack = () => {
+    if (currentStep === 1 && onQuit) {
+      onQuit();
+    } else if (onBack) {
+      onBack();
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#fdfcfd] flex flex-col">
+    <div className="min-h-screen flex flex-col relative z-10">
       {/* Progress bar */}
       <div className="w-full h-1 bg-gray-100">
         <div
@@ -30,11 +42,12 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         />
       </div>
 
-      {/* Header with back button and step counter */}
+      {/* Header with back button, step counter, and quit button */}
       <div className="flex items-center justify-between px-6 py-4">
-        {canGoBack && currentStep > 1 && onBack ? (
+        {/* Back button - always shown */}
+        {canGoBack && (onBack || onQuit) ? (
           <button
-            onClick={onBack}
+            onClick={handleBack}
             className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors"
           >
             <ICONS.ChevronLeft className="w-5 h-5" />
@@ -43,9 +56,24 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         ) : (
           <div />
         )}
+
+        {/* Step counter */}
         <span className="text-xs font-bold text-gray-300 uppercase tracking-widest">
           {currentStep} of {totalSteps}
         </span>
+
+        {/* Quit button */}
+        {onQuit ? (
+          <button
+            onClick={onQuit}
+            className="text-gray-400 hover:text-gray-600 transition-colors p-1"
+            title="Quit signup"
+          >
+            <ICONS.X className="w-5 h-5" />
+          </button>
+        ) : (
+          <div className="w-7" />
+        )}
       </div>
 
       {/* Main content area with animation */}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { OnboardingStep, NextButton, SkipButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
 interface PhotoStepProps {
@@ -19,9 +19,6 @@ export const PhotoStep: React.FC<PhotoStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
-  // For now, we'll skip photo upload and just allow skipping
-  // Photo upload would require Supabase Storage setup
-
   return (
     <OnboardingStep
       currentStep={currentStep}
@@ -34,31 +31,20 @@ export const PhotoStep: React.FC<PhotoStepProps> = ({
           <ICONS.Camera className="w-10 h-10 text-gray-300" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          Add a photo of you & {partnerName}
+          Photo of you & {partnerName}
         </h1>
-        <p className="text-gray-500">
-          A little reminder of why you're doing this. (Optional)
+        <p className="text-gray-500 mb-2">
+          A little reminder of why you're doing this.
+        </p>
+        <p className="text-sm text-gray-400 italic">
+          Photo upload coming soon!
         </p>
       </div>
 
       <div className="space-y-4">
-        <button
-          onClick={() => {
-            // TODO: Implement photo upload with Supabase Storage
-            // For now, skip to next
-            onNext(null);
-          }}
-          className="w-full py-4 rounded-2xl bg-white border-2 border-gray-200 text-gray-600 font-bold text-lg hover:border-gray-300 transition-all flex items-center justify-center gap-3"
-        >
-          <ICONS.Upload className="w-5 h-5" />
-          Upload photo
-        </button>
-
-        <div className="text-center">
-          <SkipButton onClick={() => onNext(null)}>
-            Skip for now
-          </SkipButton>
-        </div>
+        <NextButton onClick={() => onNext(null)} accentColor={accentColor}>
+          Continue
+        </NextButton>
       </div>
     </OnboardingStep>
   );

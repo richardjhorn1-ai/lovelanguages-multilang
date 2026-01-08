@@ -838,6 +838,84 @@ CREATE TABLE flashcard_progress (
 
 ---
 
+## Phase 10: Stripe Payments & Subscriptions ✅ COMPLETE
+
+**Date:** January 8, 2026
+
+### Implemented Features
+
+1. **Subscription Plans**
+   - Standard Plan: $19/month or $69/year
+   - Unlimited Plan: $39/month or $139/year
+   - Unlimited Yearly includes gift pass for partner
+
+2. **Stripe Integration**
+   - Checkout sessions via `/api/create-checkout-session`
+   - Webhook handler at `/api/webhooks/stripe`
+   - Customer portal for subscription management
+
+3. **Webhook Events Handled**
+   - `checkout.session.completed` - Initial subscription activation
+   - `customer.subscription.updated` - Plan changes, renewals
+   - `customer.subscription.deleted` - Cancellations
+   - `invoice.payment_failed` - Payment issues
+
+4. **Role Selection Flow**
+   - New users must select student/tutor role before onboarding
+   - RoleSelection component with Polish-first UX
+
+5. **Paywall & Success Flow**
+   - SubscriptionRequired component blocks access for non-subscribers
+   - Success toast appears after payment completion
+   - Redirect to app after Stripe checkout
+
+### Database Changes
+
+```sql
+-- Subscription fields added to profiles
+ALTER TABLE profiles ADD COLUMN subscription_plan VARCHAR(50) DEFAULT 'none';
+ALTER TABLE profiles ADD COLUMN subscription_status VARCHAR(20) DEFAULT 'inactive';
+ALTER TABLE profiles ADD COLUMN subscription_period VARCHAR(20);
+ALTER TABLE profiles ADD COLUMN subscription_started_at TIMESTAMPTZ;
+ALTER TABLE profiles ADD COLUMN subscription_ends_at TIMESTAMPTZ;
+ALTER TABLE profiles ADD COLUMN stripe_customer_id VARCHAR(100);
+
+-- Subscription events log
+CREATE TABLE subscription_events (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES profiles(id),
+  event_type VARCHAR(50) NOT NULL,
+  stripe_event_id VARCHAR(100),
+  plan VARCHAR(50),
+  status VARCHAR(20),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Gift passes for Unlimited Yearly subscribers
+CREATE TABLE gift_passes (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  code VARCHAR(20) UNIQUE NOT NULL,
+  creator_id UUID REFERENCES profiles(id),
+  redeemed_by UUID REFERENCES profiles(id),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  redeemed_at TIMESTAMPTZ,
+  expires_at TIMESTAMPTZ NOT NULL
+);
+```
+
+### Files Created/Modified
+
+| File | Purpose |
+|------|---------|
+| `api/webhooks/stripe.ts` | Webhook handler for all subscription events |
+| `api/create-checkout-session.ts` | Creates Stripe checkout sessions |
+| `components/RoleSelection.tsx` | Role selection for new users |
+| `components/SubscriptionRequired.tsx` | Paywall component |
+| `App.tsx` | Success toast, role selection integration |
+| `tests/stripe-webhook.test.ts` | Unit tests for webhook logic |
+
+---
+
 ## Technical Decisions
 
 | Decision | Choice | Rationale |
