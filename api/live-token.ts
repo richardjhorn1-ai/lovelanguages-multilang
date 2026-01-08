@@ -186,6 +186,9 @@ export default async function handler(req: any, res: any) {
     const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
+    // Track if we need to increment usage (set after passing limit check)
+    let shouldIncrementUsage = false;
+
     if (supabaseUrl && supabaseServiceKey) {
       const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
@@ -220,6 +223,11 @@ export default async function handler(req: any, res: any) {
       // Check usage for standard plan
       if (sessionLimit !== null) {
         const currentMonth = new Date().toISOString().slice(0, 7);
+        // Calculate proper date range (handles Feb, Apr, Jun, Sep, Nov correctly)
+        const [year, month] = currentMonth.split('-').map(Number);
+        const nextMonth = month === 12
+          ? `${year + 1}-01`
+          : `${year}-${String(month + 1).padStart(2, '0')}`;
 
         const { data: monthlyUsage } = await supabase
           .from('usage_tracking')
@@ -227,7 +235,7 @@ export default async function handler(req: any, res: any) {
           .eq('user_id', auth.userId)
           .eq('usage_type', 'voice_sessions')
           .gte('usage_date', `${currentMonth}-01`)
-          .lte('usage_date', `${currentMonth}-31`);
+          .lt('usage_date', `${nextMonth}-01`);
 
         const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
 
@@ -239,26 +247,9 @@ export default async function handler(req: any, res: any) {
           });
         }
 
-        // Increment usage
-        const today = new Date().toISOString().split('T')[0];
-        const { data: todayUsage } = await supabase
-          .from('usage_tracking')
-          .select('count')
-          .eq('user_id', auth.userId)
-          .eq('usage_type', 'voice_sessions')
-          .eq('usage_date', today)
-          .single();
-
-        await supabase
-          .from('usage_tracking')
-          .upsert({
-            user_id: auth.userId,
-            usage_type: 'voice_sessions',
-            usage_date: today,
-            count: (todayUsage?.count || 0) + 1
-          }, {
-            onConflict: 'user_id,usage_type,usage_date'
-          });
+        // Mark for increment - will happen after successful token creation
+        // This prevents charging users when the API call fails
+        shouldIncrementUsage = true;
       }
     }
 
@@ -381,7 +372,40 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to get token from response' });
     }
 
-    console.log('[live-token] Token created successfully:', tokenName.substring(0, 20) + '...');
+    console.log('[live-token] Token created successfully for model:', model);
+
+    // INCREMENT USAGE AFTER SUCCESS - only charged if we got here
+    if (shouldIncrementUsage && supabaseUrl && supabaseServiceKey) {
+      const supabase = createClient(supabaseUrl, supabaseServiceKey);
+      const today = new Date().toISOString().split('T')[0];
+
+      const { data: todayUsage } = await supabase
+        .from('usage_tracking')
+        .select('count')
+        .eq('user_id', auth.userId)
+        .eq('usage_type', 'voice_sessions')
+        .eq('usage_date', today)
+        .single();
+
+      // Non-blocking increment - don't fail the request if tracking fails
+      (async () => {
+        try {
+          await supabase
+            .from('usage_tracking')
+            .upsert({
+              user_id: auth.userId,
+              usage_type: 'voice_sessions',
+              usage_date: today,
+              count: (todayUsage?.count || 0) + 1
+            }, {
+              onConflict: 'user_id,usage_type,usage_date'
+            });
+          console.log('[live-token] Usage incremented for user:', auth.userId.substring(0, 8) + '...');
+        } catch (err: any) {
+          console.error('[live-token] Usage tracking failed:', err.message);
+        }
+      })();
+    }
 
     return res.status(200).json({
       token: tokenName,
