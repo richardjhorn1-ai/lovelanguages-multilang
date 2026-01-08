@@ -165,7 +165,7 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error('Get game history error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[get-game-history] Error:', error);
+    return res.status(500).json({ error: 'Failed to load game history. Please try again.' });
   }
 }

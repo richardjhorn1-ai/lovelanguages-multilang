@@ -817,7 +817,7 @@ ${modePrompt}`;
     }
 
   } catch (error: any) {
-    console.error("Gemini API Error:", error);
-    return res.status(500).json({ error: error.message || "Internal Server Error" });
+    console.error("[chat] Error:", error);
+    return res.status(500).json({ error: "Something went wrong. Please try again." });
   }
 }

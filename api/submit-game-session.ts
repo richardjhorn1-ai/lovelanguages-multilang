@@ -183,7 +183,7 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error('Submit game session error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[submit-game-session] Error:', error);
+    return res.status(500).json({ error: 'Failed to save game session. Please try again.' });
   }
 }

@@ -340,7 +340,7 @@ ${historyText}`,
 
     return res.status(200).json({ newWords: sanitizedWords });
   } catch (e: any) {
-    console.error("Analyze History Error:", e);
-    return res.status(500).json({ error: e.message || 'Internal Server Error', retryable: true });
+    console.error("[analyze-history] Error:", e);
+    return res.status(500).json({ error: 'Failed to analyze conversation. Please try again.', retryable: true });
   }
 }

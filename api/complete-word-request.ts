@@ -352,7 +352,7 @@ export default async function handler(req: any, res: any) {
     });
 
   } catch (error: any) {
-    console.error('Complete word request error:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+    console.error('[complete-word-request] Error:', error);
+    return res.status(500).json({ error: 'Failed to add words. Please try again.' });
   }
 }

@@ -170,6 +170,6 @@ export default async function handler(req: any, res: any) {
 
   } catch (error: any) {
     console.error('[subscription-status] Error:', error);
-    return res.status(500).json({ error: error.message || 'Failed to get subscription status' });
+    return res.status(500).json({ error: 'Failed to load subscription status. Please try again.' });
   }
 }
