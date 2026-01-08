@@ -24,6 +24,7 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
   accentColor = '#FF4761'
 }) => {
   const [partnerName, setPartnerName] = useState(initialValue);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleSubmit = () => {
     if (partnerName.trim()) {
@@ -41,8 +42,11 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-10">
-        <div className="w-16 h-16 rounded-full bg-[var(--accent-light)] flex items-center justify-center mx-auto mb-6">
-          <ICONS.Users className="w-8 h-8 text-[var(--accent-color)]" />
+        <div
+          className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+          style={{ backgroundColor: `${accentColor}15` }}
+        >
+          <ICONS.Users className="w-8 h-8" style={{ color: accentColor }} />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
           {isStudent
@@ -63,7 +67,12 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
           onChange={(e) => setPartnerName(e.target.value)}
           placeholder={isStudent ? "Their name" : "Their name"}
           autoFocus
-          className="w-full px-6 py-4 rounded-2xl bg-white border-2 border-gray-100 focus:border-[var(--accent-border)] focus:outline-none text-lg font-medium text-gray-800 placeholder:text-gray-300 transition-all"
+          className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-lg font-medium text-gray-800 placeholder:text-gray-300 transition-all"
+          style={{
+            borderColor: isFocused ? `${accentColor}60` : '#f3f4f6'
+          }}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
           onKeyDown={(e) => e.key === 'Enter' && partnerName.trim() && handleSubmit()}
         />
 
