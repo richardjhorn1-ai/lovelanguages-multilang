@@ -243,9 +243,14 @@ const App: React.FC = () => {
                     userId={profile.id}
                     onComplete={() => fetchProfile(profile.id)}
                     onQuit={() => supabase.auth.signOut()}
+                    hasInheritedSubscription={!!profile.subscription_granted_by}
                   />
-                ) : // Step 3: Check if user has active subscription (or is a beta tester)
-                !profile.subscription_status || (profile.subscription_status !== 'active' && !isBetaTester(profile.email)) ? (
+                ) : // Step 3: Check if user has active subscription (direct or inherited) or is beta tester
+                !profile.subscription_status || (
+                  profile.subscription_status !== 'active' &&
+                  !profile.subscription_granted_by &&  // Partner with inherited access
+                  !isBetaTester(profile.email)
+                ) ? (
                   <SubscriptionRequired
                     profile={profile}
                     onSubscribed={() => fetchProfile(profile.id)}

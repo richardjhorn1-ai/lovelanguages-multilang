@@ -82,19 +82,32 @@ export default async function handler(req: any, res: any) {
 
     const stripe = new Stripe(stripeSecretKey);
 
-    // Get user's Stripe customer ID
+    // Get user's profile with subscription info
     const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
     const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
 
     const { data: profile } = await supabase
       .from('profiles')
-      .select('stripe_customer_id')
+      .select('stripe_customer_id, subscription_granted_by, linked_user_id')
       .eq('id', auth.userId)
       .single();
 
+    // Check if they have inherited subscription (can't manage it themselves)
+    if (profile?.subscription_granted_by) {
+      return res.status(400).json({
+        error: 'Cannot manage inherited subscription',
+        code: 'INHERITED_SUBSCRIPTION',
+        message: 'Your subscription is provided by your partner. Ask them to manage it.'
+      });
+    }
+
     if (!profile?.stripe_customer_id) {
-      return res.status(400).json({ error: 'No subscription found. Subscribe first to manage your plan.' });
+      return res.status(400).json({
+        error: 'No subscription found',
+        code: 'NO_SUBSCRIPTION',
+        message: 'Subscribe first to manage your plan.'
+      });
     }
 
     // Parse body for return URL
@@ -118,7 +131,10 @@ export default async function handler(req: any, res: any) {
 
     console.log(`[create-customer-portal] Created portal session for user ${auth.userId}`);
 
-    return res.status(200).json({ url: session.url });
+    return res.status(200).json({
+      url: session.url,
+      hasPartner: !!profile.linked_user_id
+    });
 
   } catch (error: any) {
     console.error('[create-customer-portal] Error:', error);

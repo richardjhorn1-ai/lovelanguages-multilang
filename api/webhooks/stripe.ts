@@ -256,6 +256,21 @@ export default async function handler(req: any, res: any) {
           throw updateError;
         }
 
+        // CASCADE: Update partner's inherited subscription to match
+        const { data: updatedPartners } = await supabase
+          .from('profiles')
+          .update({
+            subscription_plan: plan,
+            subscription_status: status,
+            subscription_ends_at: new Date(periodEnd * 1000).toISOString(),
+          })
+          .eq('subscription_granted_by', userId)
+          .select('id');
+
+        if (updatedPartners?.length) {
+          console.log(`[stripe-webhook] Cascaded update to ${updatedPartners.length} partner(s)`);
+        }
+
         // Non-blocking: Log the event
         logSubscriptionEvent(supabase, {
           user_id: userId,
@@ -263,7 +278,7 @@ export default async function handler(req: any, res: any) {
           stripe_event_id: event.id,
           previous_plan: previousPlan,
           new_plan: plan,
-          metadata: { status, period },
+          metadata: { status, period, updated_partners: updatedPartners?.map(p => p.id) || [] },
         });
 
         console.log(`[stripe-webhook] Updated subscription for user ${userId}: ${plan} (${status})`);
@@ -280,7 +295,7 @@ export default async function handler(req: any, res: any) {
         // Find user by customer ID
         const { data: profile } = await supabase
           .from('profiles')
-          .select('id, subscription_plan')
+          .select('id, subscription_plan, linked_user_id')
           .eq('stripe_customer_id', customerId)
           .single();
 
@@ -304,6 +319,23 @@ export default async function handler(req: any, res: any) {
           throw updateError;
         }
 
+        // CASCADE: Revoke ALL inherited subscriptions from this payer
+        const { data: revokedPartners } = await supabase
+          .from('profiles')
+          .update({
+            subscription_plan: 'none',
+            subscription_status: 'canceled',
+            subscription_granted_by: null,
+            subscription_granted_at: null,
+            subscription_ends_at: new Date().toISOString(),
+          })
+          .eq('subscription_granted_by', profile.id)
+          .select('id, email');
+
+        if (revokedPartners?.length) {
+          console.log(`[stripe-webhook] Revoked access for ${revokedPartners.length} partner(s)`);
+        }
+
         // Non-blocking: Log the event
         logSubscriptionEvent(supabase, {
           user_id: profile.id,
@@ -311,6 +343,7 @@ export default async function handler(req: any, res: any) {
           stripe_event_id: event.id,
           previous_plan: profile.subscription_plan,
           new_plan: 'none',
+          metadata: { revoked_partners: revokedPartners?.map(p => p.id) || [] },
         });
 
         console.log(`[stripe-webhook] Subscription canceled for user ${profile.id}`);
