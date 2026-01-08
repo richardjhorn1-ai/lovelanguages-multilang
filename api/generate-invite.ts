@@ -87,10 +87,10 @@ export default async function handler(req: any, res: any) {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Get user profile
+    // Get user profile with subscription info
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('id, full_name, email, linked_user_id')
+      .select('id, full_name, email, linked_user_id, subscription_status, subscription_granted_by')
       .eq('id', auth.userId)
       .single();
 
@@ -101,6 +101,22 @@ export default async function handler(req: any, res: any) {
     // Check if already has a linked partner
     if (profile.linked_user_id) {
       return res.status(400).json({ error: 'You already have a linked partner' });
+    }
+
+    // Must have active subscription to invite
+    if (profile.subscription_status !== 'active') {
+      return res.status(403).json({
+        error: 'Active subscription required to invite a partner',
+        code: 'SUBSCRIPTION_REQUIRED'
+      });
+    }
+
+    // Only subscription owners can invite (not those with inherited access)
+    if (profile.subscription_granted_by) {
+      return res.status(403).json({
+        error: 'Only subscription owners can invite partners. Ask your partner to send the invite.',
+        code: 'NOT_SUBSCRIPTION_OWNER'
+      });
     }
 
     // Check for existing valid (unused, unexpired) token

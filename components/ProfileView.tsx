@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../services/supabase';
 import { Profile, OnboardingData } from '../types';
 import { ICONS } from '../constants';
-import InviteLinkCard from './InviteLinkCard';
+import SubscriptionManager from './SubscriptionManager';
+import InvitePartnerSection from './InvitePartnerSection';
+import BreakupModal from './BreakupModal';
 import { useTheme } from '../context/ThemeContext';
 import {
   AccentColor,
@@ -38,8 +40,12 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const [saved, setSaved] = useState(false);
   const [smartValidation, setSmartValidation] = useState(profile.smart_validation ?? true);
   const [savingValidation, setSavingValidation] = useState(false);
+  const [showBreakupModal, setShowBreakupModal] = useState(false);
 
   const { theme, setAccentColor, setDarkMode, setFontSize, accentHex, isDark } = useTheme();
+
+  // Am I the payer (not receiving inherited subscription)?
+  const isPayer = !profile.subscription_granted_by;
 
   useEffect(() => {
     if (profile.linked_user_id) fetchPartner();
@@ -101,6 +107,29 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
     }
   };
 
+  const handleBreakup = async () => {
+    const token = (await supabase.auth.getSession()).data.session?.access_token;
+    if (!token) throw new Error('Not authenticated');
+
+    const response = await fetch('/api/delink-partner', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Failed to unlink accounts');
+    }
+
+    // Refresh profile to reflect changes
+    setPartner(null);
+    onRefresh();
+  };
+
   return (
     <div className="h-full overflow-y-auto p-4 sm:p-8 bg-[var(--bg-primary)]">
       <div className="max-w-xl mx-auto space-y-6">
@@ -126,12 +155,42 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
           </div>
         </div>
 
+        {/* Subscription Manager */}
+        <SubscriptionManager
+          profile={{
+            id: profile.id,
+            subscription_plan: profile.subscription_plan || null,
+            subscription_status: profile.subscription_status || null,
+            subscription_ends_at: profile.subscription_ends_at || null,
+            subscription_granted_by: profile.subscription_granted_by || null,
+            linked_user_id: profile.linked_user_id || null,
+            stripe_customer_id: profile.stripe_customer_id || null
+          }}
+          partnerName={partner?.full_name}
+        />
+
+        {/* Invite Partner Section - Only for payers without a partner */}
+        <InvitePartnerSection
+          userId={profile.id}
+          subscriptionStatus={profile.subscription_status || null}
+          subscriptionGrantedBy={profile.subscription_granted_by || null}
+          linkedUserId={profile.linked_user_id || null}
+        />
+
         {/* Connected Partner Card - Only show if linked */}
         {partner && (
           <div className="bg-[var(--bg-card)] p-8 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
-            <h3 className="text-[11px] font-black mb-6 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
-              <ICONS.Heart style={{ color: accentHex }} className="w-4 h-4" />
-              Your Partner
+            <h3 className="text-[11px] font-black mb-6 flex items-center justify-between text-[var(--text-secondary)] uppercase tracking-[0.2em]">
+              <span className="flex items-center gap-2">
+                <ICONS.Heart style={{ color: accentHex }} className="w-4 h-4" />
+                Your Partner
+              </span>
+              <button
+                onClick={() => setShowBreakupModal(true)}
+                className="text-red-400 hover:text-red-500 text-[10px] font-bold normal-case tracking-normal transition-colors"
+              >
+                Unlink
+              </button>
             </h3>
             <div
               className="flex items-center gap-4 p-5 rounded-[2rem] border relative overflow-hidden group"
@@ -155,11 +214,6 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               </div>
             </div>
           </div>
-        )}
-
-        {/* Magic Invite Link - Only show for students without a partner */}
-        {!partner && profile.role === 'student' && (
-          <InviteLinkCard profile={profile} />
         )}
 
         {/* Customisation Section */}
@@ -528,6 +582,16 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
           Sign Out
         </button>
       </div>
+
+      {/* Breakup Modal */}
+      {showBreakupModal && partner && (
+        <BreakupModal
+          partnerName={partner.full_name}
+          isGranter={isPayer}
+          onConfirm={handleBreakup}
+          onCancel={() => setShowBreakupModal(false)}
+        />
+      )}
     </div>
   );
 };

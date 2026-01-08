@@ -1,0 +1,213 @@
+import React, { useState } from 'react';
+import { supabase } from '../services/supabase';
+
+interface SubscriptionManagerProps {
+  profile: {
+    id: string;
+    subscription_plan: string | null;
+    subscription_status: string | null;
+    subscription_ends_at: string | null;
+    subscription_granted_by: string | null;
+    linked_user_id: string | null;
+    stripe_customer_id: string | null;
+  };
+  partnerName?: string;
+}
+
+const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, partnerName }) => {
+  const [loading, setLoading] = useState(false);
+  const [showWarning, setShowWarning] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const isInherited = !!profile.subscription_granted_by;
+  const hasPartner = !!profile.linked_user_id;
+  const isPayer = profile.stripe_customer_id && !isInherited;
+
+  const formatDate = (dateStr: string | null) => {
+    if (!dateStr) return 'N/A';
+    return new Date(dateStr).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const getPlanDisplay = (plan: string | null) => {
+    switch (plan) {
+      case 'standard': return 'Standard';
+      case 'unlimited': return 'Unlimited';
+      default: return 'None';
+    }
+  };
+
+  const getStatusColor = (status: string | null) => {
+    switch (status) {
+      case 'active': return 'text-green-500';
+      case 'past_due': return 'text-amber-500';
+      case 'canceled': return 'text-red-500';
+      default: return 'text-gray-500';
+    }
+  };
+
+  const handleManageSubscription = async () => {
+    // If they have a partner who will lose access, show warning first
+    if (hasPartner && isPayer && !showWarning) {
+      setShowWarning(true);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const token = (await supabase.auth.getSession()).data.session?.access_token;
+      const response = await fetch('/api/create-customer-portal', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || data.error || 'Failed to open portal');
+      }
+
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (err: any) {
+      console.error('Error opening portal:', err);
+      setError(err.message || 'Failed to open subscription management');
+      setShowWarning(false);
+    }
+    setLoading(false);
+  };
+
+  // Partner with inherited subscription - can't manage
+  if (isInherited) {
+    return (
+      <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-3xl">💕</span>
+          <div>
+            <h3 className="font-bold text-[var(--text-primary)]">Couple Pass</h3>
+            <p className="text-sm text-[var(--text-secondary)]">
+              Free access from {partnerName || 'your partner'}
+            </p>
+          </div>
+        </div>
+
+        <div className="text-sm text-[var(--text-secondary)] space-y-1">
+          <p>
+            Plan: <strong className="text-[var(--text-primary)]">{getPlanDisplay(profile.subscription_plan)}</strong>
+          </p>
+          <p>
+            Status: <strong className={getStatusColor(profile.subscription_status)}>
+              {profile.subscription_status || 'Active'}
+            </strong>
+          </p>
+          {profile.subscription_ends_at && (
+            <p>
+              Valid until: <strong className="text-[var(--text-primary)]">
+                {formatDate(profile.subscription_ends_at)}
+              </strong>
+            </p>
+          )}
+        </div>
+
+        <p className="text-xs text-[var(--text-secondary)] mt-4 italic border-t border-[var(--border-color)] pt-4">
+          To manage this subscription, ask {partnerName || 'your partner'}.
+        </p>
+      </div>
+    );
+  }
+
+  // No subscription
+  if (!profile.subscription_plan || profile.subscription_plan === 'none') {
+    return (
+      <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-3xl">💳</span>
+          <div>
+            <h3 className="font-bold text-[var(--text-primary)]">No Subscription</h3>
+            <p className="text-sm text-[var(--text-secondary)]">
+              Subscribe to unlock all features
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Payer - can manage
+  return (
+    <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+      <div className="flex items-center gap-3 mb-4">
+        <span className="text-3xl">💳</span>
+        <div>
+          <h3 className="font-bold text-[var(--text-primary)]">Your Subscription</h3>
+          <p className="text-sm text-[var(--text-secondary)]">
+            {getPlanDisplay(profile.subscription_plan)} plan
+          </p>
+        </div>
+      </div>
+
+      <div className="text-sm text-[var(--text-secondary)] space-y-1 mb-4">
+        <p>
+          Status: <strong className={getStatusColor(profile.subscription_status)}>
+            {profile.subscription_status}
+          </strong>
+        </p>
+        {profile.subscription_ends_at && (
+          <p>
+            {profile.subscription_status === 'canceled' ? 'Ends' : 'Renews'}:{' '}
+            <strong className="text-[var(--text-primary)]">
+              {formatDate(profile.subscription_ends_at)}
+            </strong>
+          </p>
+        )}
+        {hasPartner && (
+          <p className="mt-2 pt-2 border-t border-[var(--border-color)]">
+            <span className="text-pink-500">💕</span> {partnerName || 'Your partner'} has free access through you
+          </p>
+        )}
+      </div>
+
+      {error && (
+        <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-sm">
+          {error}
+        </div>
+      )}
+
+      {showWarning && hasPartner && (
+        <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 mb-4">
+          <p className="text-amber-800 dark:text-amber-200 text-sm font-medium">
+            If you cancel your subscription, <strong>{partnerName || 'your partner'}</strong> will also lose access.
+          </p>
+        </div>
+      )}
+
+      <button
+        onClick={handleManageSubscription}
+        disabled={loading}
+        className="w-full py-3 px-6 rounded-xl border-2 border-[var(--border-color)] text-[var(--text-primary)] font-bold hover:bg-[var(--bg-primary)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {loading ? (
+          <span className="flex items-center justify-center gap-2">
+            <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+            Opening...
+          </span>
+        ) : showWarning ? (
+          'Continue to Manage'
+        ) : (
+          'Manage Subscription'
+        )}
+      </button>
+    </div>
+  );
+};
+
+export default SubscriptionManager;

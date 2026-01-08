@@ -25,6 +25,9 @@ export interface Profile {
   subscription_period?: 'monthly' | 'yearly';
   subscription_ends_at?: string;
   stripe_customer_id?: string;
+  // Couple subscription - inherited access from partner
+  subscription_granted_by?: string;
+  subscription_granted_at?: string;
 }
 
 // Onboarding data collected during signup flow

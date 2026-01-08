@@ -578,6 +578,7 @@ interface OnboardingProps {
   userId: string;
   onComplete: () => void;
   onQuit?: () => void;
+  hasInheritedSubscription?: boolean;  // Skip plan selection if user already has access via partner
 }
 
 const STUDENT_TOTAL_STEPS = 17;
@@ -589,13 +590,17 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   role,
   userId,
   onComplete,
-  onQuit
+  onQuit,
+  hasInheritedSubscription = false
 }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [data, setData] = useState<Partial<OnboardingData>>({});
   const [saving, setSaving] = useState(false);
 
-  const totalSteps = role === 'student' ? STUDENT_TOTAL_STEPS : TUTOR_TOTAL_STEPS;
+  // When user has inherited subscription, skip the PlanSelectionStep
+  const totalSteps = role === 'student'
+    ? (hasInheritedSubscription ? STUDENT_TOTAL_STEPS - 1 : STUDENT_TOTAL_STEPS)
+    : (hasInheritedSubscription ? TUTOR_TOTAL_STEPS - 1 : TUTOR_TOTAL_STEPS);
   // Use consistent red/rose theme for both roles after login
   const accentColor = '#FF4761';
 
@@ -879,6 +884,19 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             />
           );
         case 16:
+          // Skip PlanSelectionStep if user has inherited subscription
+          if (hasInheritedSubscription) {
+            return (
+              <StartStep
+                currentStep={16}
+                totalSteps={totalSteps}
+                userName={data.userName || 'Friend'}
+                partnerName={data.partnerName || 'them'}
+                onComplete={handleComplete}
+                accentColor={accentColor}
+              />
+            );
+          }
           return (
             <PlanSelectionStep
               currentStep={16}
@@ -1014,6 +1032,19 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           />
         );
       case 10:
+        // Skip PlanSelectionStep if user has inherited subscription
+        if (hasInheritedSubscription) {
+          return (
+            <TutorStartStep
+              currentStep={10}
+              totalSteps={totalSteps}
+              userName={data.userName || 'Friend'}
+              learnerName={data.learnerName || 'them'}
+              onComplete={handleComplete}
+              accentColor={accentColor}
+            />
+          );
+        }
         return (
           <PlanSelectionStep
             currentStep={10}

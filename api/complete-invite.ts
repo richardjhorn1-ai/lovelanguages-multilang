@@ -125,10 +125,10 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'You cannot accept your own invite' });
     }
 
-    // Get the inviter's profile to ensure they're still valid
+    // Get the inviter's profile to ensure they're still valid (including subscription info)
     const { data: inviterProfile, error: inviterError } = await supabase
       .from('profiles')
-      .select('id, linked_user_id')
+      .select('id, linked_user_id, subscription_plan, subscription_status, subscription_ends_at, subscription_period')
       .eq('id', tokenData.inviter_id)
       .single();
 
@@ -150,13 +150,28 @@ export default async function handler(req: any, res: any) {
     // All checks passed - link the accounts!
     console.log('[complete-invite] Linking accounts:', { newPartnerId: auth.userId, inviterId: tokenData.inviter_id });
 
-    // 1. Update the new partner's profile: set role to tutor, link to inviter
+    // Build update data for new partner
+    const partnerUpdateData: Record<string, any> = {
+      role: 'tutor',
+      linked_user_id: tokenData.inviter_id
+    };
+
+    // Grant inherited subscription if inviter has active subscription
+    const hasActiveSubscription = inviterProfile.subscription_status === 'active';
+    if (hasActiveSubscription) {
+      partnerUpdateData.subscription_plan = inviterProfile.subscription_plan;
+      partnerUpdateData.subscription_status = 'active';
+      partnerUpdateData.subscription_period = inviterProfile.subscription_period;
+      partnerUpdateData.subscription_ends_at = inviterProfile.subscription_ends_at;
+      partnerUpdateData.subscription_granted_by = inviterProfile.id;
+      partnerUpdateData.subscription_granted_at = new Date().toISOString();
+      console.log('[complete-invite] Granting inherited subscription:', inviterProfile.subscription_plan);
+    }
+
+    // 1. Update the new partner's profile: set role to tutor, link to inviter, grant subscription
     const { data: updatedPartner, error: newPartnerError } = await supabase
       .from('profiles')
-      .update({
-        role: 'tutor',
-        linked_user_id: tokenData.inviter_id
-      })
+      .update(partnerUpdateData)
       .eq('id', auth.userId)
       .select()
       .single();
@@ -165,7 +180,7 @@ export default async function handler(req: any, res: any) {
       console.error('[complete-invite] Error updating new partner profile:', newPartnerError);
       return res.status(500).json({ error: 'Failed to link accounts' });
     }
-    console.log('[complete-invite] Updated partner profile:', updatedPartner);
+    console.log('[complete-invite] Updated partner profile:', updatedPartner?.id, 'with subscription:', hasActiveSubscription);
 
     // 2. Update the inviter's profile: link to new partner
     const { error: inviterUpdateError } = await supabase
@@ -180,7 +195,14 @@ export default async function handler(req: any, res: any) {
       // Try to rollback the new partner update
       await supabase
         .from('profiles')
-        .update({ role: 'student', linked_user_id: null })
+        .update({
+          role: 'student',
+          linked_user_id: null,
+          subscription_plan: null,
+          subscription_status: 'inactive',
+          subscription_granted_by: null,
+          subscription_granted_at: null
+        })
         .eq('id', auth.userId);
       return res.status(500).json({ error: 'Failed to complete linking' });
     }
@@ -203,9 +225,17 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({
       success: true,
-      message: 'Accounts successfully linked!',
+      message: hasActiveSubscription
+        ? 'Accounts linked! You now have free access through your partner.'
+        : 'Accounts successfully linked!',
       partnerId: tokenData.inviter_id,
-      partnerName: tokenData.inviter_name
+      partnerName: tokenData.inviter_name,
+      subscription: hasActiveSubscription ? {
+        plan: inviterProfile.subscription_plan,
+        status: 'active',
+        grantedBy: inviterProfile.id,
+        expiresAt: inviterProfile.subscription_ends_at
+      } : null
     });
 
   } catch (error: any) {
