@@ -170,7 +170,15 @@ export default async function handler(req: any, res: any) {
         });
     }
 
-    // 4. Delete the user's profile
+    // 4. Delete avatar from storage (ignore errors - might not exist)
+    try {
+      await supabase.storage.from('avatars').remove([`${userId}/avatar`]);
+      console.log(`[delete-account] Deleted avatar from storage`);
+    } catch (storageErr: any) {
+      console.log(`[delete-account] No avatar to delete or storage error:`, storageErr.message);
+    }
+
+    // 5. Delete the user's profile
     // CASCADE on foreign keys should handle:
     // - chats (and messages via cascade)
     // - dictionary
