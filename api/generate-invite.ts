@@ -131,8 +131,8 @@ export default async function handler(req: any, res: any) {
       .single();
 
     if (existingToken) {
-      // Return existing token
-      const baseUrl = process.env.VITE_APP_URL || process.env.APP_URL || 'http://localhost:5173';
+      // Return existing token - use request origin (validated by CORS) or production URL
+      const baseUrl = req.headers.origin || process.env.APP_URL || 'https://lovelanguages.xyz';
       return res.status(200).json({
         token: existingToken.token,
         inviteLink: `${baseUrl}/#/join/${existingToken.token}`,
@@ -163,7 +163,8 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to create invite link' });
     }
 
-    const baseUrl = process.env.VITE_APP_URL || process.env.APP_URL || 'http://localhost:5173';
+    // Use request origin (validated by CORS) or production URL
+    const baseUrl = req.headers.origin || process.env.APP_URL || 'https://lovelanguages.xyz';
 
     return res.status(200).json({
       token: newToken.token,
