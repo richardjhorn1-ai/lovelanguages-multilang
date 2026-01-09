@@ -61,6 +61,59 @@ function generateToken(): string {
   return crypto.randomBytes(32).toString('hex');
 }
 
+// Production fallback URL - used when APP_URL and ALLOWED_ORIGINS are not configured
+const PRODUCTION_FALLBACK_URL = 'https://lovelanguages.xyz';
+
+function getValidOrigin(origin: string | undefined | null): string | null {
+  if (!origin) {
+    return null;
+  }
+
+  const trimmed = origin.trim();
+  if (!trimmed || trimmed === '*') {
+    return null;
+  }
+
+  try {
+    const url = new URL(trimmed);
+    // Reject if there's a path (other than /), search params, or hash
+    if ((url.pathname !== '/' && url.pathname !== '') || url.search || url.hash) {
+      return null;
+    }
+    // Always return the normalized origin (without trailing slash)
+    return url.origin;
+  } catch {
+    return null;
+  }
+}
+
+function getServerBaseUrl(): string {
+  // Priority 1: Explicit APP_URL environment variable
+  const appUrl = getValidOrigin(process.env.APP_URL);
+  if (appUrl) {
+    return appUrl;
+  }
+
+  // Priority 2: First valid non-wildcard entry from ALLOWED_ORIGINS
+  const allowedOriginsRaw = process.env.ALLOWED_ORIGINS || '';
+  if (allowedOriginsRaw) {
+    const allowedOrigins = allowedOriginsRaw
+      .split(',')
+      .map((origin) => origin.trim())
+      .filter((origin) => origin && origin !== '*');
+
+    for (const origin of allowedOrigins) {
+      const validOrigin = getValidOrigin(origin);
+      if (validOrigin) {
+        return validOrigin;
+      }
+    }
+  }
+
+  // Priority 3: Production fallback (ensures invite links always work)
+  return PRODUCTION_FALLBACK_URL;
+}
+
 export default async function handler(req: any, res: any) {
   // CORS Headers
   if (setCorsHeaders(req, res)) {
@@ -119,6 +172,8 @@ export default async function handler(req: any, res: any) {
       });
     }
 
+    const baseUrl = getServerBaseUrl();
+
     // Check for existing valid (unused, unexpired) token
     const { data: existingToken } = await supabase
       .from('invite_tokens')
@@ -131,8 +186,6 @@ export default async function handler(req: any, res: any) {
       .single();
 
     if (existingToken) {
-      // Return existing token - use request origin (validated by CORS) or production URL
-      const baseUrl = req.headers.origin || process.env.APP_URL || 'https://lovelanguages.xyz';
       return res.status(200).json({
         token: existingToken.token,
         inviteLink: `${baseUrl}/#/join/${existingToken.token}`,
@@ -162,9 +215,6 @@ export default async function handler(req: any, res: any) {
       console.error('Error creating invite token:', insertError);
       return res.status(500).json({ error: 'Failed to create invite link' });
     }
-
-    // Use request origin (validated by CORS) or production URL
-    const baseUrl = req.headers.origin || process.env.APP_URL || 'https://lovelanguages.xyz';
 
     return res.status(200).json({
       token: newToken.token,
