@@ -138,13 +138,6 @@ Your articles should be:
 3. ENGAGING - Written for couples, romantic tone, practical examples
 4. SEO-OPTIMIZED - Natural keyword usage, good heading structure
 5. STRUCTURED - Use MDX components properly
-6. TRANSLATED - EVERY Polish word/phrase MUST have an English translation inline
-
-## Critical Rule: Always Translate
-Every time you write a Polish word or phrase in the article body, you MUST include the English translation immediately after in parentheses. No exceptions.
-- ✅ **chleb i sól** (bread and salt)
-- ✅ The **oczepiny** (capping ceremony) is a beloved tradition
-- ❌ During the oczepiny, guests dance... (missing translation!)
 
 ## Available MDX Components
 
@@ -312,11 +305,9 @@ export function validateArticle(article: GeneratedArticle): ValidationResult {
   }
 
   // Check for unclosed JSX tags (basic check)
-  // Count opening tags and both self-closing (/>) and closing tags (</Component>)
-  const openTags = (article.content.match(/<(VocabCard|ConjugationTable|CultureTip|PhraseOfDay|CTA)[\s>]/g) || []).length;
-  const selfCloseTags = (article.content.match(/\/>/g) || []).length;
-  const closingTags = (article.content.match(/<\/(VocabCard|ConjugationTable|CultureTip|PhraseOfDay|CTA)>/g) || []).length;
-  if (openTags > selfCloseTags + closingTags) {
+  const openTags = (article.content.match(/<(VocabCard|ConjugationTable|CultureTip|PhraseOfDay|CTA)\s/g) || []).length;
+  const closeTags = (article.content.match(/\/>/g) || []).length;
+  if (openTags > closeTags) {
     errors.push('Possible unclosed JSX component tags');
   }
 
