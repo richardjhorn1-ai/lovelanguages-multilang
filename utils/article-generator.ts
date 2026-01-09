@@ -305,9 +305,11 @@ export function validateArticle(article: GeneratedArticle): ValidationResult {
   }
 
   // Check for unclosed JSX tags (basic check)
-  const openTags = (article.content.match(/<(VocabCard|ConjugationTable|CultureTip|PhraseOfDay|CTA)\s/g) || []).length;
-  const closeTags = (article.content.match(/\/>/g) || []).length;
-  if (openTags > closeTags) {
+  // Count opening tags and both self-closing (/>) and closing tags (</Component>)
+  const openTags = (article.content.match(/<(VocabCard|ConjugationTable|CultureTip|PhraseOfDay|CTA)[\s>]/g) || []).length;
+  const selfCloseTags = (article.content.match(/\/>/g) || []).length;
+  const closingTags = (article.content.match(/<\/(VocabCard|ConjugationTable|CultureTip|PhraseOfDay|CTA)>/g) || []).length;
+  if (openTags > selfCloseTags + closingTags) {
     errors.push('Possible unclosed JSX component tags');
   }
 
