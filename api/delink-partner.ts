@@ -1,22 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-
-// CORS configuration
-function setCorsHeaders(req: any, res: any): boolean {
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
-
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  } else if (allowedOrigins.includes('*')) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-  }
-
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-  return req.method === 'OPTIONS';
-}
+import { setCorsHeaders, verifyAuth } from '../utils/api-middleware';
 
 export default async function handler(req: any, res: any) {
   // Handle CORS preflight
@@ -28,9 +11,9 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Auth check
-  const authHeader = req.headers.authorization;
-  if (!authHeader?.startsWith('Bearer ')) {
+  // Verify authentication
+  const auth = await verifyAuth(req);
+  if (!auth) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
@@ -43,20 +26,12 @@ export default async function handler(req: any, res: any) {
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-  // Verify user
-  const token = authHeader.replace('Bearer ', '');
-  const { data: { user }, error: authError } = await supabase.auth.getUser(token);
-
-  if (authError || !user) {
-    return res.status(401).json({ error: 'Invalid token' });
-  }
-
   try {
     // Get current user's profile with partner info
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('id, linked_user_id, subscription_granted_by, subscription_status, full_name')
-      .eq('id', user.id)
+      .eq('id', auth.userId)
       .single();
 
     if (profileError || !profile) {
@@ -71,7 +46,7 @@ export default async function handler(req: any, res: any) {
     const isPayer = !profile.subscription_granted_by;
     const now = new Date().toISOString();
 
-    console.log(`[delink-partner] User ${user.id} initiating breakup with ${partnerId}. isPayer: ${isPayer}`);
+    console.log(`[delink-partner] User ${auth.userId} initiating breakup with ${partnerId}. isPayer: ${isPayer}`);
 
     // 1. Delink both profiles (bidirectional)
     const { error: delinkError1 } = await supabase

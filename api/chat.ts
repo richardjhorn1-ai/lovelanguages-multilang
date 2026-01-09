@@ -1,5 +1,14 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
+import {
+  setCorsHeaders,
+  verifyAuth,
+  createServiceClient,
+  requireSubscription,
+  checkRateLimit,
+  incrementUsage,
+  RATE_LIMITS
+} from '../utils/api-middleware';
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {
@@ -26,61 +35,6 @@ function sanitizeOutput(text: string): string {
     // Clean up double spaces
     .replace(/\s{2,}/g, ' ')
     .trim();
-}
-
-// CORS configuration - secure version that prevents wildcard + credentials
-function setCorsHeaders(req: any, res: any): boolean {
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
-
-  // Check for explicit origin match (not wildcard)
-  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
-
-  if (isExplicitMatch) {
-    // Explicit match - safe to allow credentials
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  } else if (allowedOrigins.includes('*')) {
-    // Wildcard mode - NEVER combine with credentials (security vulnerability)
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Do NOT set credentials header with wildcard
-  } else if (allowedOrigins.length > 0) {
-    // No match but have allowed origins - use first one
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  }
-
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
-
-  return req.method === 'OPTIONS';
-}
-
-// Verify user authentication
-async function verifyAuth(req: any): Promise<{ userId: string } | null> {
-  const authHeader = req.headers.authorization;
-  if (!authHeader?.startsWith('Bearer ')) {
-    return null;
-  }
-
-  const token = authHeader.split(' ')[1];
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) {
-    console.error('Missing Supabase config for auth verification');
-    return null;
-  }
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
-  const { data: { user }, error } = await supabase.auth.getUser(token);
-
-  if (error || !user) {
-    console.error('Auth verification failed:', error?.message || 'No user');
-    return null;
-  }
-
-  return { userId: user.id };
 }
 
 // Simplified PartnerContext for prompt generation (see types.ts for full version)
@@ -227,82 +181,27 @@ export default async function handler(req: any, res: any) {
       return res.status(401).json({ error: 'Unauthorized. Please log in.' });
     }
 
-    // Rate limiting - check monthly text message usage
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+    // Create Supabase client for rate limiting and data access
+    const supabase = createServiceClient();
+    if (!supabase) {
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
 
-    if (supabaseUrl && supabaseServiceKey) {
-      const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // Block free users - subscription required
+    const sub = await requireSubscription(supabase, auth.userId);
+    if (!sub.allowed) {
+      return res.status(403).json({ error: sub.error });
+    }
 
-      // Get user's subscription plan to determine limits
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('subscription_plan, subscription_status')
-        .eq('id', auth.userId)
-        .single();
-
-      const isActive = profile?.subscription_status === 'active';
-      const plan = isActive ? (profile?.subscription_plan || 'none') : 'none';
-
-      // Monthly limits per subscription tier (from pricing table)
-      // Standard: 5,000 text messages/month
-      // Unlimited: no limit
-      const TEXT_MESSAGE_LIMITS: Record<string, number | null> = {
-        'none': 100,       // Non-subscribers: 100 messages/month (trial)
-        'standard': 5000,  // Standard plan: 5,000/month
-        'unlimited': null  // Unlimited plan: no limit
-      };
-
-      const monthlyLimit = TEXT_MESSAGE_LIMITS[plan];
-
-      // Skip rate limiting for unlimited plan
-      if (monthlyLimit !== null) {
-        // Get current month in YYYY-MM format for monthly tracking
-        const currentMonth = new Date().toISOString().slice(0, 7);
-
-        // Sum all usage for this month
-        const { data: monthlyUsage } = await supabase
-          .from('usage_tracking')
-          .select('count')
-          .eq('user_id', auth.userId)
-          .eq('usage_type', 'text_messages')
-          .gte('usage_date', `${currentMonth}-01`)
-          .lte('usage_date', `${currentMonth}-31`);
-
-        const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
-
-        if (currentCount >= monthlyLimit) {
-          return res.status(429).json({
-            error: 'Monthly message limit reached. Upgrade to Unlimited for unlimited messages.',
-            limit: monthlyLimit,
-            used: currentCount,
-            plan: plan
-          });
-        }
-
-        // Increment usage counter for today (daily granularity, monthly aggregation)
-        const today = new Date().toISOString().split('T')[0];
-        const { data: todayUsage } = await supabase
-          .from('usage_tracking')
-          .select('count')
-          .eq('user_id', auth.userId)
-          .eq('usage_type', 'text_messages')
-          .eq('usage_date', today)
-          .single();
-
-        const todayCount = todayUsage?.count || 0;
-
-        await supabase
-          .from('usage_tracking')
-          .upsert({
-            user_id: auth.userId,
-            usage_type: 'text_messages',
-            usage_date: today,
-            count: todayCount + 1
-          }, {
-            onConflict: 'user_id,usage_type,usage_date'
-          });
-      }
+    // Check rate limit for chat endpoint (sub.plan is guaranteed to be 'standard' or 'unlimited' after requireSubscription)
+    const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as 'standard' | 'unlimited');
+    if (!limit.allowed) {
+      return res.status(429).json({
+        error: limit.error,
+        remaining: limit.remaining,
+        limit: limit.limit,
+        resetAt: limit.resetAt
+      });
     }
 
     // Priority 1: GEMINI_API_KEY
@@ -811,8 +710,12 @@ ${modePrompt}`;
       if (!parsed.newWords) {
         parsed.newWords = [];
       }
+      // Increment usage after successful response (non-blocking)
+      incrementUsage(supabase, auth.userId, RATE_LIMITS.chat.type);
       return res.status(200).json(parsed);
     } catch (parseError) {
+      // Still increment - Gemini API was called
+      incrementUsage(supabase, auth.userId, RATE_LIMITS.chat.type);
       return res.status(200).json({ replyText: sanitizeOutput(output), newWords: [] });
     }
 

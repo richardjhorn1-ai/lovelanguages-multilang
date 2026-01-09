@@ -1,5 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
-import { createClient } from '@supabase/supabase-js';
+import { setStreamingCorsHeaders, verifyAuth } from '../utils/api-middleware';
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {
@@ -36,32 +36,6 @@ function sanitizeOutput(text: string): string {
     // Clean up double spaces
     .replace(/\s{2,}/g, ' ')
     .trim();
-}
-
-// Verify user authentication
-async function verifyAuth(req: any): Promise<{ userId: string } | null> {
-  const authHeader = req.headers.authorization;
-  if (!authHeader?.startsWith('Bearer ')) {
-    return null;
-  }
-
-  const token = authHeader.split(' ')[1];
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) {
-    return null;
-  }
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
-  const { data: { user }, error } = await supabase.auth.getUser(token);
-
-  if (error || !user) {
-    console.error('Auth verification failed:', error?.message || 'No user');
-    return null;
-  }
-
-  return { userId: user.id };
 }
 
 // Build system instruction based on mode
@@ -123,16 +97,8 @@ ALWAYS end with a follow-up question.
 }
 
 export default async function handler(req: any, res: any) {
-  // Set headers for SSE
-  res.setHeader('Content-Type', 'text/event-stream');
-  res.setHeader('Cache-Control', 'no-cache');
-  res.setHeader('Connection', 'keep-alive');
-  res.setHeader('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS?.split(',')[0] || '*');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-
-  if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  // Set SSE and CORS headers (handles OPTIONS preflight)
+  if (setStreamingCorsHeaders(req, res)) {
     return res.status(200).end();
   }
 

@@ -58,11 +58,37 @@ The app distinguishes between two roles (`UserRole` in `types.ts`):
 ### Vercel Serverless Limitation
 **API files cannot import from sibling directories.** Each function bundles independently. Shared code must be duplicated inline or placed in `utils/` or `services/` (outside `/api/`).
 
-### CORS Code Duplication (Architectural Decision)
-The `setCorsHeaders()` function is duplicated across 30+ API files. This is intentional due to Vercel's bundling model. When modifying CORS logic:
-1. Use find-and-replace across all `api/*.ts` files
-2. Test with `grep -l "setCorsHeaders" api/*.ts | wc -l` to verify all files updated
-3. See `FUTURE_IMPROVEMENTS.md` for the full file list and recommended changes
+### Centralized API Middleware (`utils/api-middleware.ts`)
+CORS and auth logic is centralized in `utils/api-middleware.ts`. All API files import from this module:
+
+```typescript
+import { setCorsHeaders, verifyAuth } from '../utils/api-middleware';
+
+export default async function handler(req: any, res: any) {
+  if (setCorsHeaders(req, res)) {
+    return res.status(200).end();
+  }
+
+  const auth = await verifyAuth(req);
+  if (!auth) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  // ...
+}
+```
+
+Available exports:
+- `setCorsHeaders(req, res)` - Standard CORS headers, returns true for OPTIONS
+- `setStreamingCorsHeaders(req, res)` - SSE streaming variant (used by `chat-stream.ts`)
+- `verifyAuth(req)` - JWT verification via Supabase, returns `{ userId }` or null
+- `createServiceClient()` - Creates Supabase client with service key
+- `getSupabaseConfig()` - Returns `{ url, serviceKey }` for manual client creation
+
+Security features:
+- CORS: Never combines wildcard origin (`*`) with credentials (OWASP vulnerability)
+- Auth: Validates JWT server-side using Supabase service key
+
+**When adding new API endpoints**, import from this module instead of duplicating code
 
 ### Custom Markdown Blocks
 The AI outputs special blocks that ChatArea.tsx renders:
