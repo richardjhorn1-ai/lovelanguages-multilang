@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Theme CSS Variables */
+:root {
+    --accent-color: #FF4761;
+    --accent-light: #fff1f3;
+    --accent-border: #fecdd3;
+    --bg-primary: #fdfcfd;
+    --bg-card: #ffffff;
+    --text-primary: #292F36;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --font-size-base: 16px;
+}
+
+html {
+    font-size: var(--font-size-base);
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-header {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Desktop scrollbar styling */
+@media (min-width: 768px) {
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: color-mix(in srgb, var(--accent-color) 30%, transparent);
+        border-radius: 20px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-color);
+    }
+}
+
+/* Mobile: hide scrollbar completely */
+@media (max-width: 767px) {
+    * {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    *::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Rich Content Styles - Polish word highlighting */
+strong {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+/* Dark mode specific overrides */
+.dark input,
+.dark select,
+.dark textarea {
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: var(--text-secondary);
+}
