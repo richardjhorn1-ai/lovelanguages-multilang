@@ -1,0 +1,79 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  category: 'phrases' | 'vocabulary' | 'grammar' | 'culture' | 'situations';
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  readTime: number;
+  image?: string;
+  date: string;
+}
+
+const { slug, title, description, category, difficulty, readTime, image, date } = Astro.props;
+
+const categoryConfig = {
+  phrases: { icon: '💬', bg: 'bg-rose-100', text: 'text-rose-700' },
+  vocabulary: { icon: '📚', bg: 'bg-purple-100', text: 'text-purple-700' },
+  grammar: { icon: '📝', bg: 'bg-blue-100', text: 'text-blue-700' },
+  culture: { icon: '🇵🇱', bg: 'bg-amber-100', text: 'text-amber-700' },
+  situations: { icon: '🎭', bg: 'bg-emerald-100', text: 'text-emerald-700' },
+};
+
+const difficultyConfig = {
+  beginner: { bg: 'bg-green-100', text: 'text-green-700' },
+  intermediate: { bg: 'bg-yellow-100', text: 'text-yellow-700' },
+  advanced: { bg: 'bg-red-100', text: 'text-red-700' },
+};
+
+const cat = categoryConfig[category];
+const diff = difficultyConfig[difficulty];
+---
+
+<a
+  href={`/learn/${slug}`}
+  class="group block rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-white border border-gray-100"
+>
+  <div class="relative h-48 bg-gradient-to-br from-accent/10 to-pink-100">
+    {image ? (
+      <img
+        src={image}
+        alt={title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center text-6xl opacity-50">
+        {cat.icon}
+      </div>
+    )}
+    <div class="absolute bottom-3 left-3 flex gap-2">
+      <span class={`px-3 py-1 rounded-full text-xs font-bold ${cat.bg} ${cat.text}`}>
+        {cat.icon} {category}
+      </span>
+    </div>
+  </div>
+  <div class="p-5">
+    <h3 class="text-lg font-bold text-gray-900 group-hover:text-accent transition-colors line-clamp-2 font-header mb-2">
+      {title}
+    </h3>
+    <p class="text-gray-600 text-sm line-clamp-2 mb-4">
+      {description}
+    </p>
+    <div class="flex items-center justify-between text-xs text-gray-500">
+      <span class={`px-2 py-1 rounded ${diff.bg} ${diff.text}`}>
+        {difficulty}
+      </span>
+      <span>{readTime} min read</span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+interface Conjugation {
+  person: string;
+  polish: string;
+  english: string;
+}
+
+interface Props {
+  verb: string;
+  meaning: string;
+  conjugations: Conjugation[];
+}
+
+const { verb, meaning, conjugations } = Astro.props;
+---
+
+<div class="my-8 bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+  <div class="bg-accent text-white px-6 py-4">
+    <h4 class="text-xl font-bold font-header">{verb}</h4>
+    <p class="text-white/80">{meaning}</p>
+  </div>
+  <table class="w-full">
+    <tbody>
+      {conjugations.map((c, i) => (
+        <tr class={i % 2 === 0 ? 'bg-gray-50' : ''}>
+          <td class="px-4 py-3 font-medium text-gray-600 w-1/4">{c.person}</td>
+          <td class="px-4 py-3 font-bold text-accent">{c.polish}</td>
+          <td class="px-4 py-3 text-gray-600">{c.english}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

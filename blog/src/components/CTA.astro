@@ -1,0 +1,21 @@
+---
+interface Props {
+  text?: string;
+  buttonText?: string;
+}
+
+const {
+  text = "Ready to start learning Polish with your partner?",
+  buttonText = "Start Learning Free"
+} = Astro.props;
+---
+
+<div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+  <h3 class="text-2xl font-bold font-header mb-4">{text}</h3>
+  <a
+    href="/"
+    class="inline-block bg-white text-accent font-bold px-8 py-3 rounded-full hover:shadow-lg transition-shadow"
+  >
+    {buttonText} →
+  </a>
+</div>
