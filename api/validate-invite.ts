@@ -1,32 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-
-// CORS configuration - secure version that prevents wildcard + credentials
-function setCorsHeaders(req: any, res: any): boolean {
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
-
-  // Check for explicit origin match (not wildcard)
-  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
-
-  if (isExplicitMatch) {
-    // Explicit match - safe to allow credentials
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  } else if (allowedOrigins.includes('*')) {
-    // Wildcard mode - NEVER combine with credentials (security vulnerability)
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Do NOT set credentials header with wildcard
-  } else if (allowedOrigins.length > 0) {
-    // No match but have allowed origins - use first one
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  }
-
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
-
-  return req.method === 'OPTIONS';
-}
+import { setCorsHeaders } from '../utils/api-middleware';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers

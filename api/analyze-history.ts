@@ -1,60 +1,13 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { createClient } from '@supabase/supabase-js';
-
-// CORS configuration - secure version that prevents wildcard + credentials
-function setCorsHeaders(req: any, res: any): boolean {
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
-
-  // Check for explicit origin match (not wildcard)
-  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
-
-  if (isExplicitMatch) {
-    // Explicit match - safe to allow credentials
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  } else if (allowedOrigins.includes('*')) {
-    // Wildcard mode - NEVER combine with credentials (security vulnerability)
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Do NOT set credentials header with wildcard
-  } else if (allowedOrigins.length > 0) {
-    // No match but have allowed origins - use first one
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  }
-
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
-
-  return req.method === 'OPTIONS';
-}
-
-// Verify user authentication
-async function verifyAuth(req: any): Promise<{ userId: string } | null> {
-  const authHeader = req.headers.authorization;
-  if (!authHeader?.startsWith('Bearer ')) {
-    return null;
-  }
-
-  const token = authHeader.split(' ')[1];
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) {
-    console.error('Missing Supabase config for auth verification');
-    return null;
-  }
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
-  const { data: { user }, error } = await supabase.auth.getUser(token);
-
-  if (error || !user) {
-    console.error('Auth verification failed:', error?.message || 'No user');
-    return null;
-  }
-
-  return { userId: user.id };
-}
+import {
+  setCorsHeaders,
+  verifyAuth,
+  createServiceClient,
+  requireSubscription,
+  checkRateLimit,
+  incrementUsage,
+  RATE_LIMITS
+} from '../utils/api-middleware';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers
@@ -70,6 +23,27 @@ export default async function handler(req: any, res: any) {
   const auth = await verifyAuth(req);
   if (!auth) {
     return res.status(401).json({ error: 'Unauthorized. Please log in.' });
+  }
+
+  const supabase = createServiceClient();
+  if (!supabase) {
+    return res.status(500).json({ error: 'Server configuration error' });
+  }
+
+  // Block free users
+  const sub = await requireSubscription(supabase, auth.userId);
+  if (!sub.allowed) {
+    return res.status(403).json({ error: sub.error });
+  }
+
+  // Check rate limit
+  const limit = await checkRateLimit(supabase, auth.userId, 'analyzeHistory', sub.plan as 'standard' | 'unlimited');
+  if (!limit.allowed) {
+    return res.status(429).json({
+      error: limit.error,
+      remaining: limit.remaining,
+      resetAt: limit.resetAt
+    });
   }
 
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
@@ -337,6 +311,9 @@ ${historyText}`,
 
       return sanitized;
     });
+
+    // Track usage after successful AI call
+    incrementUsage(supabase, auth.userId, RATE_LIMITS.analyzeHistory.type);
 
     return res.status(200).json({ newWords: sanitizedWords });
   } catch (e: any) {

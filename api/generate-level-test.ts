@@ -1,5 +1,14 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
+import {
+  setCorsHeaders,
+  verifyAuth,
+  createServiceClient,
+  requireSubscription,
+  checkRateLimit,
+  incrementUsage,
+  RATE_LIMITS
+} from '../utils/api-middleware';
 
 // Inline constants to avoid module resolution issues in Vercel serverless
 
@@ -154,60 +163,6 @@ function getThemeForTransition(fromLevel: string, toLevel: string): LevelTheme |
   return LEVEL_THEMES[key] || null;
 }
 
-// CORS configuration - secure version that prevents wildcard + credentials
-function setCorsHeaders(req: any, res: any): boolean {
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
-
-  // Check for explicit origin match (not wildcard)
-  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
-
-  if (isExplicitMatch) {
-    // Explicit match - safe to allow credentials
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  } else if (allowedOrigins.includes('*')) {
-    // Wildcard mode - NEVER combine with credentials (security vulnerability)
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Do NOT set credentials header with wildcard
-  } else if (allowedOrigins.length > 0) {
-    // No match but have allowed origins - use first one
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  }
-
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
-
-  return req.method === 'OPTIONS';
-}
-
-// Verify user authentication
-async function verifyAuth(req: any): Promise<{ userId: string } | null> {
-  const authHeader = req.headers.authorization;
-  if (!authHeader?.startsWith('Bearer ')) {
-    return null;
-  }
-
-  const token = authHeader.split(' ')[1];
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) {
-    return null;
-  }
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
-  const { data: { user }, error } = await supabase.auth.getUser(token);
-
-  if (error || !user) {
-    console.error('Auth verification failed:', error?.message || 'No user');
-    return null;
-  }
-
-  return { userId: user.id };
-}
-
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
     return res.status(200).end();
@@ -222,83 +177,25 @@ export default async function handler(req: any, res: any) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  // Rate limiting - Level tests: blocked for non-subscribers, 10/month for standard, unlimited for unlimited
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+  const supabase = createServiceClient();
+  if (!supabase) {
+    return res.status(500).json({ error: 'Server configuration error' });
+  }
 
-  if (supabaseUrl && supabaseServiceKey) {
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+  // Block free users
+  const sub = await requireSubscription(supabase, auth.userId);
+  if (!sub.allowed) {
+    return res.status(403).json({ error: sub.error });
+  }
 
-    // Get user's subscription plan
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('subscription_plan, subscription_status')
-      .eq('id', auth.userId)
-      .single();
-
-    const isActive = profile?.subscription_status === 'active';
-    const plan = isActive ? (profile?.subscription_plan || 'none') : 'none';
-
-    // Level test limits per month
-    const LEVEL_TEST_LIMITS: Record<string, number | null> = {
-      'none': 0,         // Non-subscribers: blocked
-      'standard': 10,    // Standard: 10 tests/month
-      'unlimited': null  // Unlimited: no limit
-    };
-
-    const testLimit = LEVEL_TEST_LIMITS[plan];
-
-    // Block non-subscribers completely
-    if (testLimit === 0) {
-      return res.status(403).json({
-        error: 'Level tests require a subscription. Please upgrade to Standard or Unlimited.',
-        feature: 'level_tests'
-      });
-    }
-
-    // Check usage for standard plan
-    if (testLimit !== null) {
-      const currentMonth = new Date().toISOString().slice(0, 7);
-
-      const { data: monthlyUsage } = await supabase
-        .from('usage_tracking')
-        .select('count')
-        .eq('user_id', auth.userId)
-        .eq('usage_type', 'level_tests')
-        .gte('usage_date', `${currentMonth}-01`)
-        .lte('usage_date', `${currentMonth}-31`);
-
-      const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
-
-      if (currentCount >= testLimit) {
-        return res.status(429).json({
-          error: 'Monthly level test limit reached (10 tests). Upgrade to Unlimited for unlimited tests.',
-          limit: testLimit,
-          used: currentCount
-        });
-      }
-
-      // Increment usage
-      const today = new Date().toISOString().split('T')[0];
-      const { data: todayUsage } = await supabase
-        .from('usage_tracking')
-        .select('count')
-        .eq('user_id', auth.userId)
-        .eq('usage_type', 'level_tests')
-        .eq('usage_date', today)
-        .single();
-
-      await supabase
-        .from('usage_tracking')
-        .upsert({
-          user_id: auth.userId,
-          usage_type: 'level_tests',
-          usage_date: today,
-          count: (todayUsage?.count || 0) + 1
-        }, {
-          onConflict: 'user_id,usage_type,usage_date'
-        });
-    }
+  // Check rate limit
+  const limit = await checkRateLimit(supabase, auth.userId, 'generateLevelTest', sub.plan as 'standard' | 'unlimited');
+  if (!limit.allowed) {
+    return res.status(429).json({
+      error: limit.error,
+      remaining: limit.remaining,
+      resetAt: limit.resetAt
+    });
   }
 
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
@@ -334,13 +231,7 @@ export default async function handler(req: any, res: any) {
   const personalizedCount = totalQuestions - coreQuestionCount;
 
   // Fetch user's vocabulary for personalized questions
-  // Note: supabase client created in rate limiting section above
-  const supabaseForVocab = createClient(
-    process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || '',
-    process.env.SUPABASE_SERVICE_KEY || ''
-  );
-
-  const { data: userWords } = await supabaseForVocab
+  const { data: userWords } = await supabase
     .from('dictionary')
     .select('id, word, translation, word_type')
     .eq('user_id', auth.userId)
@@ -439,7 +330,7 @@ Generate the test questions now.`;
 
     // Create test record in database
     const testId = crypto.randomUUID();
-    const { error: insertError } = await supabaseForVocab
+    const { error: insertError } = await supabase
       .from('level_tests')
       .insert({
         id: testId,
@@ -458,6 +349,9 @@ Generate the test questions now.`;
       console.error('Failed to create test record:', insertError);
       return res.status(500).json({ error: 'Failed to create test' });
     }
+
+    // Increment usage counter
+    incrementUsage(supabase, auth.userId, RATE_LIMITS.generateLevelTest.type);
 
     return res.status(200).json({
       success: true,
