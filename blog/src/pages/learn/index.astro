@@ -64,20 +64,22 @@ const jsonLd = {
     </div>
   </header>
 
-  <!-- Filter Bar (decorative - JS-free static version) -->
+  <!-- Filter Bar -->
   <div class="sticky top-0 z-40 bg-white/90 backdrop-blur-lg border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
+      <div class="flex gap-2 overflow-x-auto py-4 scrollbar-hide" id="filter-bar">
         {categories.map((cat, i) => (
-          <span
-            class={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+          <button
+            type="button"
+            data-category={cat.id}
+            class={`filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
               i === 0
-                ? 'bg-accent text-white'
+                ? 'bg-accent text-white active'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
             {cat.icon} {cat.label}
-          </span>
+          </button>
         ))}
       </div>
     </div>
@@ -86,18 +88,20 @@ const jsonLd = {
   <!-- Article Grid -->
   <main class="max-w-6xl mx-auto px-4 py-12">
     {articles.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="article-grid">
         {articles.map((article) => (
-          <ArticleCard
-            slug={article.slug}
-            title={article.data.title}
-            description={article.data.description}
-            category={article.data.category}
-            difficulty={article.data.difficulty}
-            readTime={article.data.readTime}
-            image={article.data.image}
-            date={article.data.date}
-          />
+          <div class="article-item" data-category={article.data.category}>
+            <ArticleCard
+              slug={article.slug}
+              title={article.data.title}
+              description={article.data.description}
+              category={article.data.category}
+              difficulty={article.data.difficulty}
+              readTime={article.data.readTime}
+              image={article.data.image}
+              date={article.data.date}
+            />
+          </div>
         ))}
       </div>
     ) : (
@@ -152,4 +156,41 @@ const jsonLd = {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  .article-item {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .article-item.hidden {
+    display: none;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const articles = document.querySelectorAll('.article-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+
+        // Update active button styles
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-accent', 'text-white', 'active');
+          b.classList.add('bg-gray-100', 'text-gray-600');
+        });
+        btn.classList.remove('bg-gray-100', 'text-gray-600');
+        btn.classList.add('bg-accent', 'text-white', 'active');
+
+        // Filter articles
+        articles.forEach(article => {
+          const articleCategory = article.getAttribute('data-category');
+          if (category === 'all' || articleCategory === category) {
+            article.classList.remove('hidden');
+          } else {
+            article.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>
