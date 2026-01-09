@@ -3,8 +3,7 @@ import { ArticleMeta } from '../components/blog/ArticleCard';
 // Article registry - add your articles here
 // The slug must match the MDX filename (without .mdx extension)
 
-export const articles: ArticleMeta[] = [
-  // Example article - replace with your generated content
+export const articles: ArticleMeta[] = [// Example article - replace with your generated content
   {
     slug: 'how-to-say-i-love-you-in-polish',
     title: 'How to Say "I Love You" in Polish: A Complete Guide',
@@ -25,6 +24,15 @@ export const articles: ArticleMeta[] = [
   //   readTime: 4,
   //   date: '2026-01-09',
   // },
+  {
+    slug: 'polish-pet-names',
+    title: '25 Adorable Polish Pet Names for Your Partner',
+    description: 'Learn the sweetest Polish terms of endearment to call your boyfriend, girlfriend, or spouse. From classic kochanie to playful misiaczek.',
+    category: 'vocabulary',
+    difficulty: 'beginner',
+    readTime: 6,
+    date: '2026-01-09',
+  }
 ];
 
 // Helper to get article by slug

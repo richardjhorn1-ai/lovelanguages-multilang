@@ -55,7 +55,7 @@ const BlogIndex: React.FC = () => {
               href="/#/"
               className="flex items-center gap-2 text-[var(--accent-color)] font-bold"
             >
-              <span className="text-2xl">💕</span>
+              <ICONS.Heart className="w-6 h-6 text-[var(--accent-color)] fill-[var(--accent-color)]" />
               <span className="font-header text-xl">Love Languages</span>
             </a>
             <a
@@ -186,7 +186,7 @@ const BlogIndex: React.FC = () => {
       <footer className="bg-[var(--bg-card)] border-t border-[var(--border-color)] py-8">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <a href="/#/" className="inline-flex items-center gap-2 text-[var(--accent-color)] font-bold mb-4">
-            <span className="text-2xl">💕</span>
+            <ICONS.Heart className="w-6 h-6 text-[var(--accent-color)] fill-[var(--accent-color)]" />
             <span className="font-header text-xl">Love Languages</span>
           </a>
           <p className="text-[var(--text-secondary)] text-sm mb-4">

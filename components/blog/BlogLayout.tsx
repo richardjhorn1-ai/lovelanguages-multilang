@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { mdxComponents } from './MDXComponents';
 import { ArticleMeta } from './ArticleCard';
@@ -18,6 +18,7 @@ const CATEGORY_LABELS = {
 };
 
 const BlogLayout: React.FC<BlogLayoutProps> = ({ children, meta }) => {
+  const [imageError, setImageError] = useState(false);
   const category = CATEGORY_LABELS[meta.category];
   const formattedDate = new Date(meta.date).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -41,7 +42,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, meta }) => {
             href="/#/"
             className="flex items-center gap-2 text-[var(--accent-color)] font-bold"
           >
-            <span className="text-xl">💕</span>
+            <ICONS.Heart className="w-5 h-5 text-[var(--accent-color)] fill-[var(--accent-color)]" />
             <span className="font-header">Love Languages</span>
           </a>
         </div>
@@ -49,17 +50,20 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, meta }) => {
 
       {/* Hero */}
       <div className="relative">
-        {meta.image ? (
+        {meta.image && !imageError ? (
           <div className="h-64 md:h-80 overflow-hidden">
             <img
               src={meta.image}
               alt={meta.title}
               className="w-full h-full object-cover"
+              onError={() => setImageError(true)}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-transparent" />
           </div>
         ) : (
-          <div className="h-32 bg-gradient-to-b from-[var(--accent-color)]/10 to-[var(--bg-primary)]" />
+          <div className="h-48 md:h-64 bg-gradient-to-br from-[var(--accent-color)]/20 via-pink-500/10 to-[var(--bg-primary)] flex items-center justify-center">
+            <span className="text-6xl md:text-8xl opacity-30">{category.icon}</span>
+          </div>
         )}
       </div>
 
@@ -89,41 +93,21 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, meta }) => {
         </div>
 
         {/* MDX Content */}
-        <div className="bg-[var(--bg-card)] rounded-2xl shadow-lg p-6 md:p-10">
+        <div className="bg-[var(--bg-card)] rounded-2xl shadow-lg p-6 md:p-10 mb-12">
           <MDXProvider components={mdxComponents}>
             {children}
           </MDXProvider>
-        </div>
 
-        {/* Bottom CTA */}
-        <div className="my-12 bg-gradient-to-r from-[var(--accent-color)] to-pink-500 rounded-2xl p-8 text-center text-white">
-          <h3 className="text-2xl font-bold font-header mb-2">
-            Start Learning Polish Together
-          </h3>
-          <p className="text-white/80 mb-6">
-            Join thousands of couples learning their partner's language with AI-powered coaching.
-          </p>
-          <a
-            href="/#/"
-            className="inline-block bg-white text-[var(--accent-color)] font-bold px-8 py-3 rounded-full hover:shadow-lg transition-shadow"
-          >
-            Try Love Languages Free →
-          </a>
-        </div>
-
-        {/* Related Articles Placeholder */}
-        <div className="mb-12">
-          <h3 className="text-xl font-bold font-header text-[var(--text-primary)] mb-4">
-            Keep Learning
-          </h3>
-          <a
-            href="/#/learn"
-            className="block bg-[var(--bg-card)] rounded-xl p-4 border border-[var(--border-color)] hover:border-[var(--accent-color)]/30 transition-colors"
-          >
-            <span className="text-[var(--accent-color)] font-medium">
-              Browse all articles →
-            </span>
-          </a>
+          {/* Browse more - inside content card */}
+          <div className="mt-8 pt-6 border-t border-[var(--border-color)]">
+            <a
+              href="/#/learn"
+              className="flex items-center justify-center gap-2 text-[var(--accent-color)] font-medium hover:underline"
+            >
+              <span>Browse all articles</span>
+              <span>→</span>
+            </a>
+          </div>
         </div>
       </article>
 
@@ -131,7 +115,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, meta }) => {
       <footer className="bg-[var(--bg-card)] border-t border-[var(--border-color)] py-8 mt-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <a href="/#/" className="inline-flex items-center gap-2 text-[var(--accent-color)] font-bold mb-4">
-            <span className="text-2xl">💕</span>
+            <ICONS.Heart className="w-6 h-6 text-[var(--accent-color)] fill-[var(--accent-color)]" />
             <span className="font-header text-xl">Love Languages</span>
           </a>
           <p className="text-[var(--text-secondary)] text-sm mb-4">

@@ -240,7 +240,7 @@ export const CTA: React.FC<{ text?: string; buttonText?: string }> = ({
   text = "Ready to start learning Polish with your partner?",
   buttonText = "Start Learning Free"
 }) => (
-  <div className="my-12 bg-gradient-to-r from-[var(--accent-color)] to-pink-500 rounded-2xl p-8 text-center text-white">
+  <div className="mt-12 bg-gradient-to-r from-[var(--accent-color)] to-pink-500 rounded-2xl p-8 text-center text-white">
     <h3 className="text-2xl font-bold font-header mb-4">{text}</h3>
     <a
       href="/#/"

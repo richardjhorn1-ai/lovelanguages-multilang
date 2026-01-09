@@ -30,4 +30,10 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://lovelanguages.xyz/#/learn/polish-pet-names</loc>
+    <lastmod>2026-01-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
