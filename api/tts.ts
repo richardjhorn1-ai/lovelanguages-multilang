@@ -64,6 +64,13 @@ function generateCacheKey(text: string, userId: string): string {
   return hash.substring(0, 16); // Use first 16 chars for shorter filenames
 }
 
+export function buildCacheLogContext(sanitizedText: string) {
+  return {
+    length: sanitizedText.length,
+    hash: createHash('sha256').update(sanitizedText).digest('hex'),
+  };
+}
+
 // Google Cloud TTS API
 async function synthesizeSpeech(text: string, apiKey: string): Promise<Buffer> {
   const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
@@ -168,7 +175,7 @@ export default async function handler(req: any, res: any) {
       .createSignedUrl(fileName, 3600); // 1 hour signed URL
 
     if (existingFile?.signedUrl) {
-      console.log('[tts] Cache hit for:', sanitizedText.substring(0, 20) + '...');
+      console.log('[tts] Cache hit', buildCacheLogContext(sanitizedText));
       return res.status(200).json({
         url: existingFile.signedUrl,
         cached: true,
@@ -176,7 +183,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Cache miss - generate audio
-    console.log('[tts] Cache miss, generating audio for:', sanitizedText.substring(0, 20) + '...');
+    console.log('[tts] Cache miss, generating audio', buildCacheLogContext(sanitizedText));
 
     const audioBuffer = await synthesizeSpeech(sanitizedText, apiKey);
 
