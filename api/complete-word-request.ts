@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { GoogleGenAI, Type } from "@google/genai";
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware';
+import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
 
 // BATCH enrich multiple words in ONE Gemini call (not N+1)
 async function batchEnrichWordContexts(

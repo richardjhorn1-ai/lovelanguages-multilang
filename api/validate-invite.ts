@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders } from '../utils/api-middleware';
+import { setCorsHeaders } from '../utils/api-middleware.js';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers

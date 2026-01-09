@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders } from '../utils/api-middleware';
+import { setCorsHeaders } from '../utils/api-middleware.js';
 
 // Extended auth type for checkout (needs email for Stripe customer)
 interface CheckoutAuth {

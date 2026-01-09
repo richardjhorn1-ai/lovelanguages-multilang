@@ -8,7 +8,7 @@ import {
   checkRateLimit,
   incrementUsage,
   RATE_LIMITS
-} from '../utils/api-middleware';
+} from '../utils/api-middleware.js';
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {

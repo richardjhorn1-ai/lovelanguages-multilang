@@ -7,7 +7,7 @@ import {
   checkRateLimit,
   incrementUsage,
   RATE_LIMITS
-} from '../utils/api-middleware';
+} from '../utils/api-middleware.js';
 
 // Conversation scenario interface
 interface ConversationScenario {

@@ -8,7 +8,7 @@ import {
   checkRateLimit,
   incrementUsage,
   RATE_LIMITS
-} from '../utils/api-middleware';
+} from '../utils/api-middleware.js';
 
 // ============================================================================
 // INLINE VALIDATION (Vercel serverless can't import from ../services/)
