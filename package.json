@@ -11,7 +11,7 @@
     "build:blog": "cd blog && npm run build",
     "preview": "vite preview",
     "import-content": "node scripts/import-content.cjs",
-    "generate-article": "tsx scripts/generate-article.ts"
+    "generate-article": "node --env-file=.env --import=tsx scripts/generate-article.ts"
   },
   "dependencies": {
     "@google/genai": "*",
