@@ -115,6 +115,61 @@ async function trackGeneration(
 }
 
 // =============================================================================
+// DUPLICATE DETECTION
+// =============================================================================
+
+interface ExistingArticle {
+  slug: string;
+  title: string;
+}
+
+function getExistingArticles(): ExistingArticle[] {
+  const blogDir = path.join(process.cwd(), 'blog', 'src', 'content', 'articles');
+  if (!fs.existsSync(blogDir)) return [];
+
+  const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.mdx'));
+  const articles: ExistingArticle[] = [];
+
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(blogDir, file), 'utf-8');
+    const titleMatch = content.match(/title:\s*["'](.+?)["']/);
+    if (titleMatch) {
+      articles.push({
+        slug: file.replace('.mdx', ''),
+        title: titleMatch[1]
+      });
+    }
+  }
+  return articles;
+}
+
+function normalizeForComparison(str: string): string {
+  return str.toLowerCase()
+    .replace(/[^a-z0-9]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function findSimilarArticles(topic: string, existing: ExistingArticle[]): ExistingArticle[] {
+  const normalizedTopic = normalizeForComparison(topic);
+  const topicWords = new Set(normalizedTopic.split(' ').filter(w => w.length > 3));
+
+  return existing.filter(article => {
+    const normalizedTitle = normalizeForComparison(article.title);
+    const titleWords = new Set(normalizedTitle.split(' ').filter(w => w.length > 3));
+
+    // Check for significant word overlap
+    let matches = 0;
+    for (const word of topicWords) {
+      if (titleWords.has(word)) matches++;
+    }
+
+    // If more than 50% of topic words match, it's probably similar
+    return topicWords.size > 0 && matches / topicWords.size > 0.5;
+  });
+}
+
+// =============================================================================
 // MAIN
 // =============================================================================
 
@@ -131,6 +186,21 @@ async function main(): Promise<void> {
     console.error(colors.red('\n❌ Error: ANTHROPIC_API_KEY environment variable is required\n'));
     console.log('Set it with: export ANTHROPIC_API_KEY=your-key-here\n');
     process.exit(1);
+  }
+
+  // Check for existing similar articles
+  const existing = getExistingArticles();
+  const similar = findSimilarArticles(args.topic, existing);
+
+  if (similar.length > 0) {
+    console.log(colors.yellow('\n⚠️  Similar articles already exist:\n'));
+    similar.forEach(a => console.log(colors.yellow(`  • ${a.title}`)));
+    console.log(colors.yellow(`\n  Slug(s): ${similar.map(a => a.slug).join(', ')}`));
+    console.log(colors.dim('\n  Use a different topic or add --force to override.\n'));
+    if (!process.argv.includes('--force')) {
+      process.exit(1);
+    }
+    console.log(colors.yellow('  --force flag detected, continuing anyway...\n'));
   }
 
   console.log(colors.bold('\n📝 Generating Article\n'));
