@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { GoogleGenAI, Type } from "@google/genai";
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware';
+import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
 
 // Get AI suggestions for a topic - lightweight preview data only
 // Full grammatical data (conjugations, examples, etc.) is generated later

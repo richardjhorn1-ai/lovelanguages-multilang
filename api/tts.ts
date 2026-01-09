@@ -8,7 +8,7 @@ import {
   checkRateLimit,
   incrementUsage,
   RATE_LIMITS
-} from '../utils/api-middleware';
+} from '../utils/api-middleware.js';
 
 // Generate hash for cache key - includes userId to prevent cross-user cache sharing
 function generateCacheKey(text: string, userId: string): string {

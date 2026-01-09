@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware';
+import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
 
 // Level name lookup
 const LEVEL_NAMES = [

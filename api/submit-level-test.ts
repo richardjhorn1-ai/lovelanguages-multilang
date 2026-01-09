@@ -8,7 +8,7 @@ import {
   checkRateLimit,
   incrementUsage,
   RATE_LIMITS
-} from '../utils/api-middleware';
+} from '../utils/api-middleware.js';
 
 // Inline constant to avoid module resolution issues in Vercel serverless
 const PASS_THRESHOLD = 80;

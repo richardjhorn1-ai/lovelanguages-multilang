@@ -1,6 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware';
+import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
 
 // Get level display name from XP
 function getLevelDisplayName(xp: number): string {

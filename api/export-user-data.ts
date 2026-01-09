@@ -6,7 +6,7 @@ import {
   checkRateLimit,
   incrementUsage,
   RATE_LIMITS
-} from '../utils/api-middleware';
+} from '../utils/api-middleware.js';
 
 export default async function handler(req: any, res: any) {
   // CORS

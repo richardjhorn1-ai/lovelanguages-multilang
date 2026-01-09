@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware';
+import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
 
 // Plan limits
 const PLAN_LIMITS = {
