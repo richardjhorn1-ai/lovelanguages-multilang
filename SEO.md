@@ -1,0 +1,184 @@
+# SEO Strategy & Progress Tracker
+
+## Mission
+Make Love Languages discoverable by couples searching for Polish learning resources, romantic phrases, and cultural content.
+
+---
+
+## Current Status
+
+### Technical Foundation (Completed)
+- [x] Migrated blog from React hash routing to Astro static HTML
+- [x] Clean URLs: `/learn/[slug]` (crawlable by Google)
+- [x] Meta tags: title, description per page
+- [x] Open Graph tags for social sharing
+- [x] Twitter Card tags
+- [x] JSON-LD structured data (BlogPosting, BreadcrumbList)
+- [x] Sitemap at `/sitemap-index.xml`
+- [x] robots.txt configured
+- [x] Canonical URLs
+
+### Content Published
+| Article | URL | Target Keywords | Published |
+|---------|-----|-----------------|-----------|
+| How to Say "I Love You" in Polish | `/learn/how-to-say-i-love-you-in-polish` | "i love you in polish", "kocham cię", "polish love phrases" | 2026-01-09 |
+| Polish Pet Names for Your Partner | `/learn/polish-pet-names` | "polish pet names", "polish terms of endearment", "polish nicknames" | 2026-01-09 |
+
+---
+
+## Goals & KPIs
+
+### Primary Goals
+1. **Organic Discovery**: Rank on page 1 for romantic Polish phrase queries
+2. **Content Authority**: Become go-to resource for couples learning Polish
+3. **Conversion**: Drive signups from blog readers
+
+### Key Metrics to Track
+| Metric | Baseline | Target | Current |
+|--------|----------|--------|---------|
+| Indexed pages | 0 | 10+ | TBD |
+| Organic impressions/month | 0 | 1,000 | TBD |
+| Organic clicks/month | 0 | 100 | TBD |
+| Avg. position for target keywords | - | Top 10 | TBD |
+| Blog → Signup conversion | - | 5% | TBD |
+
+---
+
+## Target Keywords
+
+### High Intent (Conversion Focus)
+- "learn polish for couples"
+- "polish language app for couples"
+- "learn polish with partner"
+
+### Content Keywords (Traffic Focus)
+| Keyword | Search Volume | Difficulty | Status |
+|---------|---------------|------------|--------|
+| "i love you in polish" | High | Medium | Published |
+| "polish pet names" | Medium | Low | Published |
+| "polish terms of endearment" | Medium | Low | Published |
+| "how to say beautiful in polish" | Medium | Low | Planned |
+| "polish romantic phrases" | Medium | Medium | Planned |
+| "polish wedding phrases" | Low | Low | Planned |
+| "polish anniversary wishes" | Low | Low | Planned |
+| "polish love songs" | Medium | Medium | Planned |
+
+---
+
+## Content Pipeline
+
+### Article Ideas (Prioritized)
+1. **"50 Polish Terms of Endearment"** - Comprehensive listicle
+2. **"Polish Phrases for Your Wedding"** - Niche, high intent
+3. **"How to Compliment Someone in Polish"** - Broad appeal
+4. **"Polish Love Songs to Learn Together"** - Unique angle
+5. **"Meeting Polish Parents: Essential Phrases"** - Situational
+6. **"Polish Valentine's Day Traditions"** - Seasonal
+7. **"Polish Anniversary Wishes & Messages"** - High intent
+8. **"Romantic Polish Poems with Translations"** - Cultural depth
+
+### Content Requirements
+Each article should include:
+- [ ] 1,500+ words
+- [ ] Custom MDX components (VocabCard, ConjugationTable, etc.)
+- [ ] Hero image (or emoji fallback)
+- [ ] Internal links to app and other articles
+- [ ] Clear CTA to sign up
+- [ ] Pronunciation guides
+- [ ] Cultural context
+
+---
+
+## Technical Improvements (Backlog)
+
+### High Priority
+- [ ] Submit sitemap to Google Search Console
+- [ ] Set up Google Analytics 4
+- [ ] Add internal linking between articles
+- [ ] Create category landing pages (`/learn/phrases`, `/learn/vocabulary`)
+
+### Medium Priority
+- [ ] Add article schema for rich snippets
+- [ ] Implement breadcrumb schema on all pages
+- [ ] Add "Related Articles" section
+- [ ] Create RSS feed for blog
+
+### Low Priority
+- [ ] Add search functionality to blog
+- [ ] Implement article reading progress indicator
+- [ ] Add social share buttons
+- [ ] Create printable vocabulary sheets
+
+---
+
+## Content Generation Tool (Implemented)
+
+### CLI Command
+```bash
+npm run generate-article "Polish Wedding Phrases"
+npm run generate-article "How to Say Beautiful in Polish" --category phrases
+npm run generate-article "Polish Grammar Basics" --difficulty beginner
+```
+
+### How It Works
+1. **Input**: Topic string + optional category/difficulty hints
+2. **Claude API**: Generates 1200-1800 word article with MDX components
+3. **Output**: Ready-to-publish MDX file in `blog/src/content/articles/`
+4. **Image**: Provides prompt for Glif/DALL-E (manual generation for now)
+
+### Requirements
+- `ANTHROPIC_API_KEY` environment variable
+- Admin flag in database (for API endpoint)
+- Run: `npm install` to get dependencies
+
+### API Endpoint (Optional)
+`POST /api/admin/generate-article`
+- Admin-only (requires `is_admin` flag in profiles)
+- Body: `{ topic: string, category?: string, difficulty?: string }`
+- Returns: `{ slug, frontmatter, content, imagePrompt }`
+
+### Tracking Table
+Generated articles are tracked in `article_generations` table:
+- slug, topic, category, difficulty
+- generated_by, generated_at
+- word_count, has_image
+
+### Future Enhancements
+- [ ] Glif MCP integration for automatic image generation
+- [ ] Batch generation from keyword list
+- [ ] Auto-publish schedule
+- [ ] Google Search Console integration for tracking
+
+---
+
+## Progress Log
+
+### 2026-01-09 (continued)
+- Built content generation CLI tool (`npm run generate-article`)
+- Created admin verification middleware
+- Added `article_generations` tracking table
+- Documented content generation workflow
+
+### 2026-01-09
+- Completed Astro blog migration
+- Published 2 initial articles
+- Implemented emoji fallback for missing images
+- Added brand logo to blog header/footer
+
+---
+
+## Resources
+
+- [Google Search Console](https://search.google.com/search-console)
+- [Google Analytics](https://analytics.google.com)
+- [Ahrefs Free Tools](https://ahrefs.com/free-seo-tools)
+- [Schema Markup Validator](https://validator.schema.org)
+
+---
+
+## Notes
+
+- Focus on long-tail keywords initially (less competition)
+- Prioritize "how to say X in Polish" format (high search intent)
+- Include pronunciation in every article (differentiator)
+- Link to app features where relevant (natural CTAs)
