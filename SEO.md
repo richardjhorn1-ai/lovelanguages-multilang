@@ -155,8 +155,19 @@ Generated articles are tracked in `article_generations` table:
 - generated_by, generated_at
 - word_count, has_image
 
+### Image Generation (Glif MCP)
+Use **Z Image Turbo** for hero images - fast and credit-efficient.
+
+```bash
+# Glif ID: cmincelxf0000l104qgpz7iaa
+# Output: 1024x1024 JPG
+# Save to: blog/public/blog/[slug].jpg
+```
+
+Prompt style: `"A romantic couple [scene], warm lighting, [theme] theme, lifestyle photography"`
+
 ### Future Enhancements
-- [~] **Glif MCP integration** - MCP server configured, ready to test image generation
+- [x] **Glif MCP integration** - Z Image Turbo for hero images
 - [ ] Batch generation from keyword list
 - [ ] Auto-publish schedule
 - [ ] Google Search Console integration for tracking
