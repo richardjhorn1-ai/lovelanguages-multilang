@@ -23,6 +23,8 @@ Make Love Languages discoverable by couples searching for Polish learning resour
 |---------|-----|-----------------|-----------|
 | How to Say "I Love You" in Polish | `/learn/how-to-say-i-love-you-in-polish` | "i love you in polish", "kocham cię", "polish love phrases" | 2026-01-09 |
 | Polish Pet Names for Your Partner | `/learn/polish-pet-names` | "polish pet names", "polish terms of endearment", "polish nicknames" | 2026-01-09 |
+| Essential Polish Wedding Phrases | `/learn/essential-polish-wedding-phrases-for-your-special-day` | "polish wedding phrases", "polish wedding traditions" | 2026-01-09 |
+| How to Compliment Someone in Polish | `/learn/how-to-give-beautiful-compliments-in-polish-30-essential-phrases` | "polish compliments", "how to compliment in polish" | 2026-01-09 |
 
 ---
 
@@ -59,7 +61,8 @@ Make Love Languages discoverable by couples searching for Polish learning resour
 | "polish terms of endearment" | Medium | Low | Published |
 | "how to say beautiful in polish" | Medium | Low | Planned |
 | "polish romantic phrases" | Medium | Medium | Planned |
-| "polish wedding phrases" | Low | Low | Planned |
+| "polish wedding phrases" | Low | Low | **Published** |
+| "polish compliments" | Medium | Low | **Published** |
 | "polish anniversary wishes" | Low | Low | Planned |
 | "polish love songs" | Medium | Medium | Planned |
 
@@ -69,8 +72,8 @@ Make Love Languages discoverable by couples searching for Polish learning resour
 
 ### Article Ideas (Prioritized)
 1. **"50 Polish Terms of Endearment"** - Comprehensive listicle
-2. **"Polish Phrases for Your Wedding"** - Niche, high intent
-3. **"How to Compliment Someone in Polish"** - Broad appeal
+2. ~~**"Polish Phrases for Your Wedding"**~~ - DONE
+3. ~~**"How to Compliment Someone in Polish"**~~ - DONE
 4. **"Polish Love Songs to Learn Together"** - Unique angle
 5. **"Meeting Polish Parents: Essential Phrases"** - Situational
 6. **"Polish Valentine's Day Traditions"** - Seasonal
@@ -116,19 +119,28 @@ Each article should include:
 ### CLI Command
 ```bash
 npm run generate-article "Polish Wedding Phrases"
-npm run generate-article "How to Say Beautiful in Polish" --category phrases
-npm run generate-article "Polish Grammar Basics" --difficulty beginner
+npm run generate-article "How to Say Beautiful in Polish" -- --category phrases
+npm run generate-article "Polish Grammar Basics" -- --difficulty beginner
+npm run generate-article "Topic" -- --dry-run     # Preview without saving
+npm run generate-article "Topic" -- --force       # Override duplicate check
 ```
 
 ### How It Works
-1. **Input**: Topic string + optional category/difficulty hints
-2. **Claude API**: Generates 1200-1800 word article with MDX components
-3. **Output**: Ready-to-publish MDX file in `blog/src/content/articles/`
-4. **Image**: Provides prompt for Glif/DALL-E (manual generation for now)
+1. **Duplicate Check**: Scans existing articles to prevent similar topics
+2. **Claude API**: Generates 1000-1200 word article with MDX components
+3. **Validation**: Checks frontmatter, content length, JSX tags, imports
+4. **Output**: Ready-to-publish MDX file in `blog/src/content/articles/`
+5. **Image Prompt**: Provides detailed prompt for Glif image generation
+6. **Tracking**: Logs generation to `article_generations` table
+
+### Features
+- **Duplicate detection**: Warns if similar article exists (use `--force` to override)
+- **Inline translations**: Every Polish word has English translation in parentheses
+- **Dry run mode**: Preview article without saving (`--dry-run`)
+- **Shared module**: CLI and API both use `utils/article-generator.ts`
 
 ### Requirements
-- `ANTHROPIC_API_KEY` environment variable
-- Admin flag in database (for API endpoint)
+- `ANTHROPIC_API_KEY` environment variable in `.env`
 - Run: `npm install` to get dependencies
 
 ### API Endpoint (Optional)
@@ -143,8 +155,19 @@ Generated articles are tracked in `article_generations` table:
 - generated_by, generated_at
 - word_count, has_image
 
+### Image Generation (Glif MCP)
+Use **Z Image Turbo** for hero images - fast and credit-efficient.
+
+```bash
+# Glif ID: cmincelxf0000l104qgpz7iaa
+# Output: 1024x1024 JPG
+# Save to: blog/public/blog/[slug].jpg
+```
+
+Prompt style: `"A romantic couple [scene], warm lighting, [theme] theme, lifestyle photography"`
+
 ### Future Enhancements
-- [ ] Glif MCP integration for automatic image generation
+- [x] **Glif MCP integration** - Z Image Turbo for hero images
 - [ ] Batch generation from keyword list
 - [ ] Auto-publish schedule
 - [ ] Google Search Console integration for tracking
@@ -153,13 +176,23 @@ Generated articles are tracked in `article_generations` table:
 
 ## Progress Log
 
-### 2026-01-09 (continued)
+### 2026-01-09 (Session 3)
+- Refactored article generator with shared module (`utils/article-generator.ts`)
+- Fixed JSX validation to handle both self-closing and closing tags
+- Added duplicate detection (checks existing articles before generating)
+- Added `--force` and `--dry-run` flags to CLI
+- Updated prompt to require inline translations for every Polish word
+- Generated 2 new articles: Polish Wedding Phrases, Polish Compliments
+- Configured Glif MCP server for image generation (ready to test)
+- **Next step**: Test Glif image generation for existing articles
+
+### 2026-01-09 (Session 2)
 - Built content generation CLI tool (`npm run generate-article`)
 - Created admin verification middleware
 - Added `article_generations` tracking table
 - Documented content generation workflow
 
-### 2026-01-09
+### 2026-01-09 (Session 1)
 - Completed Astro blog migration
 - Published 2 initial articles
 - Implemented emoji fallback for missing images
