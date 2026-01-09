@@ -110,7 +110,8 @@ const breadcrumbJsonLd = {
         </svg>
         <span class="font-medium">All Articles</span>
       </a>
-      <a href="/" class="text-accent font-bold font-header hover:opacity-80 transition-opacity">
+      <a href="/" class="flex items-center gap-2 text-accent font-bold font-header hover:opacity-80 transition-opacity">
+        <img src="/favicon.svg" alt="" class="w-6 h-6" />
         Love Languages
       </a>
     </div>
@@ -127,21 +128,38 @@ const breadcrumbJsonLd = {
     </ol>
   </nav>
 
-  <!-- Hero Image or Gradient -->
-  <div class="relative h-64 md:h-80 bg-gradient-to-br from-accent/20 to-pink-100">
+  <!-- Hero Image or Emoji Fallback -->
+  <div class="relative h-64 md:h-80 bg-gradient-to-br from-accent/20 to-pink-100 hero-container" data-emoji={cat.icon}>
     {image ? (
       <img
         src={image}
         alt={title}
-        class="w-full h-full object-cover"
+        class="hero-image w-full h-full object-cover"
         loading="eager"
+        onerror="this.style.display='none'"
       />
-    ) : (
-      <div class="w-full h-full flex items-center justify-center text-8xl opacity-30">
-        {cat.icon}
-      </div>
-    )}
+    ) : null}
+    <div class="hero-emoji absolute inset-0 flex items-center justify-center text-8xl opacity-30">
+      {cat.icon}
+    </div>
   </div>
+
+  <style>
+    .hero-container {
+      position: relative;
+    }
+    .hero-image {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-emoji {
+      z-index: 0;
+    }
+    /* When image loads successfully, it covers the emoji */
+    .hero-image:not([style*="display: none"]) ~ .hero-emoji {
+      display: none;
+    }
+  </style>
 
   <!-- Article Content Card -->
   <main class="max-w-3xl mx-auto px-4 -mt-16 relative z-10 pb-16">
@@ -170,7 +188,8 @@ const breadcrumbJsonLd = {
   <!-- Footer -->
   <footer class="bg-gray-100 border-t border-gray-200 py-12">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <a href="/" class="text-2xl font-bold font-header text-accent mb-4 block">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
         Love Languages
       </a>
       <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>

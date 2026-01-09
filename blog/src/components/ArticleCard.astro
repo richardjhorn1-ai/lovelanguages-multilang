@@ -34,20 +34,20 @@ const diff = difficultyConfig[difficulty];
   href={`/learn/${slug}`}
   class="group block rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-white border border-gray-100"
 >
-  <div class="relative h-48 bg-gradient-to-br from-accent/10 to-pink-100">
+  <div class="relative h-48 bg-gradient-to-br from-accent/10 to-pink-100 card-image-container">
     {image ? (
       <img
         src={image}
         alt={title}
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        class="card-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         loading="lazy"
+        onerror="this.style.display='none'"
       />
-    ) : (
-      <div class="w-full h-full flex items-center justify-center text-6xl opacity-50">
-        {cat.icon}
-      </div>
-    )}
-    <div class="absolute bottom-3 left-3 flex gap-2">
+    ) : null}
+    <div class="card-emoji absolute inset-0 flex items-center justify-center text-6xl opacity-50">
+      {cat.icon}
+    </div>
+    <div class="absolute bottom-3 left-3 flex gap-2 z-10">
       <span class={`px-3 py-1 rounded-full text-xs font-bold ${cat.bg} ${cat.text}`}>
         {cat.icon} {category}
       </span>
@@ -75,5 +75,15 @@ const diff = difficultyConfig[difficulty];
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+  .card-image-container {
+    position: relative;
+  }
+  .card-image {
+    position: relative;
+    z-index: 1;
+  }
+  .card-emoji {
+    z-index: 0;
   }
 </style>
