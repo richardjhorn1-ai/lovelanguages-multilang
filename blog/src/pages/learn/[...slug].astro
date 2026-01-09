@@ -6,27 +6,12 @@ export async function getStaticPaths() {
   const articles = await getCollection('articles');
   return articles.map((article) => ({
     params: { slug: article.slug },
-    props: { article, allArticles: articles },
+    props: { article },
   }));
 }
 
-const { article, allArticles } = Astro.props;
+const { article } = Astro.props;
 const { Content } = await article.render();
-
-// Get related articles: same category, excluding current, max 3
-const relatedArticles = allArticles
-  .filter((a) => a.slug !== article.slug && a.data.category === article.data.category)
-  .sort(() => Math.random() - 0.5) // Shuffle for variety
-  .slice(0, 3);
-
-// If not enough in same category, fill with other articles
-if (relatedArticles.length < 3) {
-  const otherArticles = allArticles
-    .filter((a) => a.slug !== article.slug && !relatedArticles.includes(a))
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 3 - relatedArticles.length);
-  relatedArticles.push(...otherArticles);
-}
 ---
 
 <ArticleLayout
@@ -38,7 +23,6 @@ if (relatedArticles.length < 3) {
   image={article.data.image}
   date={article.data.date}
   tags={article.data.tags}
-  relatedArticles={relatedArticles}
 >
   <Content />
 </ArticleLayout>

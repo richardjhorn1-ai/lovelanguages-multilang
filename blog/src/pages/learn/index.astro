@@ -50,8 +50,7 @@ const jsonLd = {
   <header class="bg-gradient-to-b from-accent/10 to-white">
     <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
       <div class="text-center max-w-2xl mx-auto">
-        <a href="/" class="inline-flex items-center gap-2 text-accent font-bold font-header text-xl mb-4 hover:opacity-80">
-          <img src="/favicon.svg" alt="" class="w-6 h-6" />
+        <a href="/" class="inline-block text-accent font-bold font-header text-xl mb-4 hover:opacity-80">
           Love Languages
         </a>
         <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
@@ -64,22 +63,20 @@ const jsonLd = {
     </div>
   </header>
 
-  <!-- Filter Bar -->
+  <!-- Filter Bar (decorative - JS-free static version) -->
   <div class="sticky top-0 z-40 bg-white/90 backdrop-blur-lg border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="flex gap-2 overflow-x-auto py-4 scrollbar-hide" id="filter-bar">
+      <div class="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
         {categories.map((cat, i) => (
-          <button
-            type="button"
-            data-category={cat.id}
-            class={`filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
+          <span
+            class={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
               i === 0
-                ? 'bg-accent text-white active'
+                ? 'bg-accent text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
             {cat.icon} {cat.label}
-          </button>
+          </span>
         ))}
       </div>
     </div>
@@ -88,20 +85,18 @@ const jsonLd = {
   <!-- Article Grid -->
   <main class="max-w-6xl mx-auto px-4 py-12">
     {articles.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="article-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map((article) => (
-          <div class="article-item" data-category={article.data.category}>
-            <ArticleCard
-              slug={article.slug}
-              title={article.data.title}
-              description={article.data.description}
-              category={article.data.category}
-              difficulty={article.data.difficulty}
-              readTime={article.data.readTime}
-              image={article.data.image}
-              date={article.data.date}
-            />
-          </div>
+          <ArticleCard
+            slug={article.slug}
+            title={article.data.title}
+            description={article.data.description}
+            category={article.data.category}
+            difficulty={article.data.difficulty}
+            readTime={article.data.readTime}
+            image={article.data.image}
+            date={article.data.date}
+          />
         ))}
       </div>
     ) : (
@@ -134,8 +129,7 @@ const jsonLd = {
   <!-- Footer -->
   <footer class="bg-gray-100 border-t border-gray-200 py-12">
     <div class="max-w-6xl mx-auto px-4 text-center">
-      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
-        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+      <a href="/" class="text-2xl font-bold font-header text-accent mb-4 block">
         Love Languages
       </a>
       <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
@@ -156,41 +150,4 @@ const jsonLd = {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-  .article-item {
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-  .article-item.hidden {
-    display: none;
-  }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const articles = document.querySelectorAll('.article-item');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const category = btn.getAttribute('data-category');
-
-        // Update active button styles
-        filterButtons.forEach(b => {
-          b.classList.remove('bg-accent', 'text-white', 'active');
-          b.classList.add('bg-gray-100', 'text-gray-600');
-        });
-        btn.classList.remove('bg-gray-100', 'text-gray-600');
-        btn.classList.add('bg-accent', 'text-white', 'active');
-
-        // Filter articles
-        articles.forEach(article => {
-          const articleCategory = article.getAttribute('data-category');
-          if (category === 'all' || articleCategory === category) {
-            article.classList.remove('hidden');
-          } else {
-            article.classList.add('hidden');
-          }
-        });
-      });
-    });
-  });
-</script>
