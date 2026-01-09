@@ -198,6 +198,62 @@ export async function verifyAuth(req: VercelRequest): Promise<AuthResult | null>
   return { userId: user.id };
 }
 
+/**
+ * Extended auth result including admin status
+ */
+export interface AdminAuthResult {
+  userId: string;
+  isAdmin: boolean;
+}
+
+/**
+ * Verifies admin authentication - requires valid JWT AND is_admin flag in profiles.
+ *
+ * Use this for protected admin-only endpoints (e.g., content generation, analytics).
+ *
+ * @param req - Vercel request object with Authorization header
+ * @returns AdminAuthResult if valid auth, null otherwise. Check isAdmin for admin access.
+ *
+ * @example
+ * ```typescript
+ * const admin = await verifyAdminAuth(req);
+ * if (!admin) {
+ *   return res.status(401).json({ error: 'Unauthorized' });
+ * }
+ * if (!admin.isAdmin) {
+ *   return res.status(403).json({ error: 'Admin access required' });
+ * }
+ * ```
+ */
+export async function verifyAdminAuth(req: VercelRequest): Promise<AdminAuthResult | null> {
+  const auth = await verifyAuth(req);
+  if (!auth) {
+    return null;
+  }
+
+  const supabase = createServiceClient();
+  if (!supabase) {
+    console.error('[api-middleware] Missing Supabase config for admin verification');
+    return null;
+  }
+
+  const { data: profile, error } = await supabase
+    .from('profiles')
+    .select('is_admin')
+    .eq('id', auth.userId)
+    .single();
+
+  if (error) {
+    console.error('[api-middleware] Failed to check admin status:', error.message);
+    return { userId: auth.userId, isAdmin: false };
+  }
+
+  return {
+    userId: auth.userId,
+    isAdmin: profile?.is_admin === true
+  };
+}
+
 // =============================================================================
 // SUPABASE CLIENT FACTORY
 // =============================================================================
