@@ -1,0 +1,184 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  category: 'phrases' | 'vocabulary' | 'grammar' | 'culture' | 'situations';
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  readTime: number;
+  image?: string;
+  date: string;
+  tags?: string[];
+}
+
+const { title, description, category, difficulty, readTime, image, date, tags } = Astro.props;
+
+const categoryConfig = {
+  phrases: { icon: '💬', bg: 'bg-rose-100', text: 'text-rose-700', label: 'Phrases' },
+  vocabulary: { icon: '📚', bg: 'bg-purple-100', text: 'text-purple-700', label: 'Vocabulary' },
+  grammar: { icon: '📝', bg: 'bg-blue-100', text: 'text-blue-700', label: 'Grammar' },
+  culture: { icon: '🇵🇱', bg: 'bg-amber-100', text: 'text-amber-700', label: 'Culture' },
+  situations: { icon: '🎭', bg: 'bg-emerald-100', text: 'text-emerald-700', label: 'Situations' },
+};
+
+const cat = categoryConfig[category];
+
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+// JSON-LD structured data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": image ? `https://lovelanguages.xyz${image}` : "https://lovelanguages.xyz/og-image.png",
+  "datePublished": date,
+  "dateModified": date,
+  "author": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lovelanguages.xyz/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://lovelanguages.xyz${Astro.url.pathname}`
+  },
+  "articleSection": category,
+  "keywords": tags?.join(', ')
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://lovelanguages.xyz"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Learn Polish",
+      "item": "https://lovelanguages.xyz/learn"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": title,
+      "item": `https://lovelanguages.xyz${Astro.url.pathname}`
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  article={{
+    publishedTime: date,
+    section: category,
+    tags: tags,
+  }}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+  </Fragment>
+
+  <!-- Sticky Header -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100">
+    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/learn" class="flex items-center gap-2 text-gray-600 hover:text-accent transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span class="font-medium">All Articles</span>
+      </a>
+      <a href="/" class="text-accent font-bold font-header hover:opacity-80 transition-opacity">
+        Love Languages
+      </a>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="max-w-3xl mx-auto px-4 py-4">
+    <ol class="flex items-center gap-2 text-sm text-gray-500">
+      <li><a href="/" class="hover:text-accent">Home</a></li>
+      <li>/</li>
+      <li><a href="/learn" class="hover:text-accent">Learn</a></li>
+      <li>/</li>
+      <li class="text-gray-900 truncate max-w-[200px]">{title}</li>
+    </ol>
+  </nav>
+
+  <!-- Hero Image or Gradient -->
+  <div class="relative h-64 md:h-80 bg-gradient-to-br from-accent/20 to-pink-100">
+    {image ? (
+      <img
+        src={image}
+        alt={title}
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center text-8xl opacity-30">
+        {cat.icon}
+      </div>
+    )}
+  </div>
+
+  <!-- Article Content Card -->
+  <main class="max-w-3xl mx-auto px-4 -mt-16 relative z-10 pb-16">
+    <article class="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+      <!-- Meta -->
+      <div class="flex flex-wrap items-center gap-3 mb-6 text-sm">
+        <span class={`px-3 py-1 rounded-full font-bold ${cat.bg} ${cat.text}`}>
+          {cat.icon} {cat.label}
+        </span>
+        <span class="text-gray-500">{formattedDate}</span>
+        <span class="text-gray-500">{readTime} min read</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-3xl md:text-4xl font-black font-header text-gray-900 mb-6 leading-tight">
+        {title}
+      </h1>
+
+      <!-- Content -->
+      <div class="prose max-w-none">
+        <slot />
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <a href="/" class="text-2xl font-bold font-header text-accent mb-4 block">
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>

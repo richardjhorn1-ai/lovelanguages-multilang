@@ -1,0 +1,235 @@
+---
+import SEO from '../components/SEO.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  article?: {
+    publishedTime: string;
+    modifiedTime?: string;
+    author?: string;
+    section?: string;
+    tags?: string[];
+  };
+}
+
+const { title, description, image, article } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#FF4761',
+          }
+        }
+      }
+    }
+  </script>
+
+  <SEO
+    title={title}
+    description={description}
+    image={image}
+    article={article}
+  />
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased" style="font-family: 'Outfit', sans-serif;">
+  <slot />
+</body>
+</html>
+
+<style is:global>
+  /* CSS Custom Properties for theming */
+  :root {
+    --accent-color: #FF4761;
+    --accent-light: #FFE4E8;
+    --accent-border: #FFB3C1;
+  }
+
+  .font-header {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Prose styling for article content */
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+    color: #111827;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  @media (min-width: 768px) {
+    .prose h2 {
+      font-size: 1.875rem;
+    }
+  }
+
+  .prose h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .prose h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .prose p {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .prose ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .prose ul li {
+    font-size: 1.125rem;
+    color: #4b5563;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose ul li::before {
+    content: "♥";
+    color: var(--accent-color);
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+  }
+
+  .prose ol {
+    list-style: decimal;
+    list-style-position: inside;
+    margin-bottom: 1.5rem;
+    color: #4b5563;
+  }
+
+  .prose ol li {
+    margin-bottom: 0.75rem;
+  }
+
+  .prose ol li::before {
+    content: none;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid var(--accent-color);
+    background: rgba(255, 71, 97, 0.05);
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #111827;
+  }
+
+  .prose a {
+    color: var(--accent-color);
+    font-weight: 500;
+  }
+
+  .prose a:hover {
+    text-decoration: underline;
+  }
+
+  .prose strong {
+    font-weight: 700;
+    color: var(--accent-color);
+  }
+
+  .prose code {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: #111827;
+  }
+
+  .prose hr {
+    margin: 3rem 0;
+    border-top: 2px solid #e5e7eb;
+  }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+  }
+
+  .prose th {
+    background: rgba(255, 71, 97, 0.1);
+    color: var(--accent-color);
+    font-weight: 700;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .prose td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+  }
+
+  .prose img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+  }
+
+  /* Utility classes */
+  .text-accent {
+    color: var(--accent-color);
+  }
+
+  .bg-accent {
+    background-color: var(--accent-color);
+  }
+
+  .border-accent {
+    border-color: var(--accent-color);
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  polish: string;
+  english: string;
+  pronunciation: string;
+  context?: string;
+}
+
+const { polish, english, pronunciation, context } = Astro.props;
+---
+
+<div class="my-8 relative overflow-hidden bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl p-8">
+  <div class="absolute top-4 right-4 text-6xl opacity-20">💕</div>
+  <p class="text-sm uppercase tracking-wide text-accent font-bold mb-2">
+    Phrase to Learn
+  </p>
+  <p class="text-3xl font-bold text-gray-900 font-header mb-2">{polish}</p>
+  <p class="text-lg text-gray-600 mb-1">{english}</p>
+  <p class="text-sm text-accent">[ {pronunciation} ]</p>
+  {context && (
+    <p class="mt-4 text-gray-600 italic border-t border-accent/20 pt-4">
+      {context}
+    </p>
+  )}
+</div>

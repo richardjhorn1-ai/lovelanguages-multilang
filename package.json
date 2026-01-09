@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "dev:blog": "cd blog && npm run dev",
+    "build": "vite build && cd blog && npm install && npm run build && cp -r dist/* ../dist/",
+    "build:app": "vite build",
+    "build:blog": "cd blog && npm run build",
     "preview": "vite preview",
     "import-content": "node scripts/import-content.cjs"
   },

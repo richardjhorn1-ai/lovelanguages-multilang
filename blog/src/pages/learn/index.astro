@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+// Get all articles and sort by date (newest first)
+const articles = (await getCollection('articles')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+// Category filters
+const categories = [
+  { id: 'all', label: 'All', icon: '📖' },
+  { id: 'phrases', label: 'Phrases', icon: '💬' },
+  { id: 'vocabulary', label: 'Vocabulary', icon: '📚' },
+  { id: 'grammar', label: 'Grammar', icon: '📝' },
+  { id: 'culture', label: 'Culture', icon: '🇵🇱' },
+  { id: 'situations', label: 'Situations', icon: '🎭' },
+];
+
+// JSON-LD for the blog listing page
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Love Languages - Learn Polish Blog",
+  "description": "Free Polish lessons, vocabulary guides, and cultural tips for couples learning together.",
+  "url": "https://lovelanguages.xyz/learn",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  },
+  "blogPost": articles.map(article => ({
+    "@type": "BlogPosting",
+    "headline": article.data.title,
+    "description": article.data.description,
+    "url": `https://lovelanguages.xyz/learn/${article.slug}`,
+    "datePublished": article.data.date
+  }))
+};
+---
+
+<BaseLayout
+  title="Learn Polish - Free Lessons for Couples"
+  description="Free Polish lessons, vocabulary guides, and cultural tips designed for couples learning together. Start your Polish language journey today."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <div class="text-center max-w-2xl mx-auto">
+        <a href="/" class="inline-block text-accent font-bold font-header text-xl mb-4 hover:opacity-80">
+          Love Languages
+        </a>
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Learn Polish Together
+        </h1>
+        <p class="text-xl text-gray-600">
+          Free lessons, vocabulary guides, and cultural tips for couples learning Polish.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter Bar (decorative - JS-free static version) -->
+  <div class="sticky top-0 z-40 bg-white/90 backdrop-blur-lg border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
+        {categories.map((cat, i) => (
+          <span
+            class={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+              i === 0
+                ? 'bg-accent text-white'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+          >
+            {cat.icon} {cat.label}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Article Grid -->
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    {articles.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {articles.map((article) => (
+          <ArticleCard
+            slug={article.slug}
+            title={article.data.title}
+            description={article.data.description}
+            category={article.data.category}
+            difficulty={article.data.difficulty}
+            readTime={article.data.readTime}
+            image={article.data.image}
+            date={article.data.date}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-20">
+        <div class="text-6xl mb-4">📚</div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Coming Soon</h2>
+        <p class="text-gray-600">We're working on new articles. Check back soon!</p>
+      </div>
+    )}
+  </main>
+
+  <!-- Newsletter CTA -->
+  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl font-bold font-header mb-4">
+        Ready to Start Learning?
+      </h2>
+      <p class="text-white/90 mb-8">
+        Join couples learning Polish together with AI coaching, games, and conversation practice.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-3 rounded-full hover:shadow-lg transition-shadow"
+      >
+        Try Love Languages Free →
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="text-2xl font-bold font-header text-accent mb-4 block">
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>

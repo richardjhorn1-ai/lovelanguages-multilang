@@ -1,4 +1,8 @@
 {
+  "rewrites": [
+    { "source": "/learn", "destination": "/learn/index.html" },
+    { "source": "/learn/:slug", "destination": "/learn/:slug/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
