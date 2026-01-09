@@ -145,6 +145,7 @@ SUPABASE_SERVICE_KEY=
 GEMINI_API_KEY=
 GLADIA_API_KEY=
 ALLOWED_ORIGINS=
+APP_URL=                      # Base URL for invite links (e.g., https://lovelanguages.xyz)
 
 # Stripe (server-side only)
 STRIPE_SECRET_KEY=
