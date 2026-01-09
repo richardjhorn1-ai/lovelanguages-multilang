@@ -1414,6 +1414,7 @@ const LoginForm: React.FC<{
           </label>
           <input
             type="password"
+            autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -1777,6 +1778,7 @@ const Hero: React.FC = () => {
               />
               <input
                 type="password"
+                autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
