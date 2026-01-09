@@ -1120,7 +1120,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             {/* Mobile: Hamburger menu button for conversation sidebar */}
             <button
               onClick={() => setIsMobileSidebarOpen(true)}
-              className="lg:hidden p-1.5 rounded-lg hover:bg-[var(--bg-primary)] transition-all text-[var(--text-secondary)]"
+              className="lg:hidden w-10 h-10 rounded-xl hover:bg-[var(--bg-primary)] transition-all text-[var(--text-secondary)] flex items-center justify-center"
               title="Conversations"
             >
               <ICONS.Menu className="w-5 h-5" />
@@ -1129,13 +1129,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             {isSidebarCollapsed && (
               <button
                 onClick={() => setIsSidebarCollapsed(false)}
-                className="hidden lg:flex p-2 rounded-xl hover:bg-[var(--bg-primary)] transition-all text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                className="hidden lg:flex w-10 h-10 rounded-xl hover:bg-[var(--bg-primary)] transition-all text-[var(--text-secondary)] hover:text-[var(--text-primary)] items-center justify-center"
                 title="Expand sidebar"
               >
                 <ICONS.ChevronRight className="w-5 h-5" />
               </button>
             )}
-            <div className="flex bg-[var(--bg-primary)] p-0.5 md:p-1 rounded-lg md:rounded-xl">
+            <div className="flex items-center bg-[var(--bg-primary)] h-10 px-1 rounded-xl">
               {profile.role === 'tutor' ? (
                 // Tutors see single Coach mode (always context-aware)
                 <div className="px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest bg-[var(--bg-card)] text-teal-500 shadow-sm">

@@ -440,9 +440,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       </div>
                     )}
                     {!isLearned && currentStreak > 0 && (
-                      <div className="absolute top-2 md:top-3 right-2 md:right-3 flex items-center gap-0.5 md:gap-1 bg-amber-50 dark:bg-amber-900/30 px-1.5 md:px-2 py-0.5 md:py-1 rounded-full" title={`${currentStreak}/${STREAK_TO_LEARN} correct in a row`}>
-                        <span className="text-[8px] md:text-[10px] font-black text-amber-600 dark:text-amber-400">{currentStreak}/{STREAK_TO_LEARN}</span>
-                        <ICONS.Zap className="w-2.5 h-2.5 md:w-3 md:h-3 text-amber-500" />
+                      <div className="absolute top-2 md:top-3 right-2 md:right-3 flex items-center gap-0.5 md:gap-1 bg-[var(--accent-light)] px-1.5 md:px-2 py-0.5 md:py-1 rounded-full" title={`${currentStreak}/${STREAK_TO_LEARN} correct in a row`}>
+                        <span className="text-[8px] md:text-[10px] font-black text-[var(--accent-color)]">{currentStreak}/{STREAK_TO_LEARN}</span>
+                        <ICONS.Zap className="w-2.5 h-2.5 md:w-3 md:h-3 text-[var(--accent-color)]" />
                       </div>
                     )}
 
