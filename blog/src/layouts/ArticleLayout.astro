@@ -1,17 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 
-interface RelatedArticle {
-  slug: string;
-  data: {
-    title: string;
-    description: string;
-    category: string;
-    readTime: number;
-    image?: string;
-  };
-}
-
 interface Props {
   title: string;
   description: string;
@@ -21,10 +10,9 @@ interface Props {
   image?: string;
   date: string;
   tags?: string[];
-  relatedArticles?: RelatedArticle[];
 }
 
-const { title, description, category, difficulty, readTime, image, date, tags, relatedArticles = [] } = Astro.props;
+const { title, description, category, difficulty, readTime, image, date, tags } = Astro.props;
 
 const categoryConfig = {
   phrases: { icon: '💬', bg: 'bg-rose-100', text: 'text-rose-700', label: 'Phrases' },
@@ -122,8 +110,7 @@ const breadcrumbJsonLd = {
         </svg>
         <span class="font-medium">All Articles</span>
       </a>
-      <a href="/" class="flex items-center gap-2 text-accent font-bold font-header hover:opacity-80 transition-opacity">
-        <img src="/favicon.svg" alt="" class="w-6 h-6" />
+      <a href="/" class="text-accent font-bold font-header hover:opacity-80 transition-opacity">
         Love Languages
       </a>
     </div>
@@ -140,38 +127,21 @@ const breadcrumbJsonLd = {
     </ol>
   </nav>
 
-  <!-- Hero Image or Emoji Fallback -->
-  <div class="relative h-64 md:h-80 bg-gradient-to-br from-accent/20 to-pink-100 hero-container" data-emoji={cat.icon}>
+  <!-- Hero Image or Gradient -->
+  <div class="relative h-64 md:h-80 bg-gradient-to-br from-accent/20 to-pink-100">
     {image ? (
       <img
         src={image}
         alt={title}
-        class="hero-image w-full h-full object-cover"
+        class="w-full h-full object-cover"
         loading="eager"
-        onerror="this.style.display='none'"
       />
-    ) : null}
-    <div class="hero-emoji absolute inset-0 flex items-center justify-center text-8xl opacity-30">
-      {cat.icon}
-    </div>
+    ) : (
+      <div class="w-full h-full flex items-center justify-center text-8xl opacity-30">
+        {cat.icon}
+      </div>
+    )}
   </div>
-
-  <style>
-    .hero-container {
-      position: relative;
-    }
-    .hero-image {
-      position: relative;
-      z-index: 1;
-    }
-    .hero-emoji {
-      z-index: 0;
-    }
-    /* When image loads successfully, it covers the emoji */
-    .hero-image:not([style*="display: none"]) ~ .hero-emoji {
-      display: none;
-    }
-  </style>
 
   <!-- Article Content Card -->
   <main class="max-w-3xl mx-auto px-4 -mt-16 relative z-10 pb-16">
@@ -197,53 +167,10 @@ const breadcrumbJsonLd = {
     </article>
   </main>
 
-  <!-- Related Articles -->
-  {relatedArticles.length > 0 && (
-    <section class="max-w-3xl mx-auto px-4 pb-16">
-      <h2 class="text-2xl font-bold font-header text-gray-900 mb-6">Keep Learning</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {relatedArticles.map((related) => {
-          const relCat = categoryConfig[related.data.category as keyof typeof categoryConfig];
-          return (
-            <a
-              href={`/learn/${related.slug}`}
-              class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-            >
-              <div class="aspect-video bg-gradient-to-br from-accent/20 to-pink-100 relative">
-                {related.data.image ? (
-                  <img
-                    src={related.data.image}
-                    alt={related.data.title}
-                    class="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div class="absolute inset-0 flex items-center justify-center text-4xl opacity-30">
-                    {relCat?.icon || '📖'}
-                  </div>
-                )}
-              </div>
-              <div class="p-4">
-                <span class={`inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2 ${relCat?.bg || 'bg-gray-100'} ${relCat?.text || 'text-gray-700'}`}>
-                  {relCat?.icon} {relCat?.label || related.data.category}
-                </span>
-                <h3 class="font-bold text-gray-900 group-hover:text-accent transition-colors line-clamp-2">
-                  {related.data.title}
-                </h3>
-                <p class="text-sm text-gray-500 mt-1">{related.data.readTime} min read</p>
-              </div>
-            </a>
-          );
-        })}
-      </div>
-    </section>
-  )}
-
   <!-- Footer -->
   <footer class="bg-gray-100 border-t border-gray-200 py-12">
     <div class="max-w-3xl mx-auto px-4 text-center">
-      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
-        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+      <a href="/" class="text-2xl font-bold font-header text-accent mb-4 block">
         Love Languages
       </a>
       <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
