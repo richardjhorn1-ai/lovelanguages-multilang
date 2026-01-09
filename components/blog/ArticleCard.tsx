@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export interface ArticleMeta {
   slug: string;
@@ -25,9 +25,19 @@ const DIFFICULTY_BADGES = {
   advanced: { bg: 'bg-red-100', text: 'text-red-700', label: '🌳 Advanced' },
 };
 
+const CATEGORY_ICONS = {
+  phrases: '💬',
+  vocabulary: '📚',
+  grammar: '📝',
+  culture: '🇵🇱',
+  situations: '🎭',
+};
+
 const ArticleCard: React.FC<{ article: ArticleMeta }> = ({ article }) => {
+  const [imageError, setImageError] = useState(false);
   const category = CATEGORY_COLORS[article.category];
   const difficulty = DIFFICULTY_BADGES[article.difficulty];
+  const showImage = article.image && !imageError;
 
   return (
     <a
@@ -35,12 +45,13 @@ const ArticleCard: React.FC<{ article: ArticleMeta }> = ({ article }) => {
       className="group block bg-[var(--bg-card)] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[var(--border-color)] hover:border-[var(--accent-color)]/30"
     >
       {/* Image */}
-      {article.image ? (
+      {showImage ? (
         <div className="relative h-48 overflow-hidden">
           <img
             src={article.image}
             alt={article.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            onError={() => setImageError(true)}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           <div className="absolute bottom-3 left-3 flex gap-2">
@@ -51,7 +62,7 @@ const ArticleCard: React.FC<{ article: ArticleMeta }> = ({ article }) => {
         </div>
       ) : (
         <div className="h-48 bg-gradient-to-br from-[var(--accent-color)]/20 to-pink-200/30 flex items-center justify-center">
-          <span className="text-6xl opacity-50">🇵🇱</span>
+          <span className="text-6xl opacity-50">{CATEGORY_ICONS[article.category]}</span>
         </div>
       )}
 
@@ -59,7 +70,7 @@ const ArticleCard: React.FC<{ article: ArticleMeta }> = ({ article }) => {
       <div className="p-5">
         {/* Meta badges */}
         <div className="flex items-center gap-2 mb-3 flex-wrap">
-          {!article.image && (
+          {!showImage && (
             <span className={`${category.bg} ${category.text} text-xs font-bold px-2 py-1 rounded-full`}>
               {category.label}
             </span>
