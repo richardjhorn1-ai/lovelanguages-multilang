@@ -23,10 +23,41 @@ CREATE INDEX IF NOT EXISTS idx_article_generations_user ON article_generations(g
 -- Index for recent generations
 CREATE INDEX IF NOT EXISTS idx_article_generations_date ON article_generations(generated_at DESC);
 
--- RLS: Disabled for this table
--- This table is accessed exclusively via service key (CLI and admin API)
--- which bypasses RLS entirely. No client-side access is intended.
--- If future client access is needed, enable RLS and add appropriate policies.
+-- RLS policies
+ALTER TABLE article_generations ENABLE ROW LEVEL SECURITY;
+
+-- Admins can read all generations
+CREATE POLICY "Admins can view all article generations"
+  ON article_generations FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM profiles
+      WHERE profiles.id = auth.uid()
+      AND profiles.is_admin = true
+    )
+  );
+
+-- Admins can insert new generations
+CREATE POLICY "Admins can create article generations"
+  ON article_generations FOR INSERT
+  WITH CHECK (
+    EXISTS (
+      SELECT 1 FROM profiles
+      WHERE profiles.id = auth.uid()
+      AND profiles.is_admin = true
+    )
+  );
+
+-- Admins can update generations (e.g., mark as published)
+CREATE POLICY "Admins can update article generations"
+  ON article_generations FOR UPDATE
+  USING (
+    EXISTS (
+      SELECT 1 FROM profiles
+      WHERE profiles.id = auth.uid()
+      AND profiles.is_admin = true
+    )
+  );
 
 -- Comment for documentation
-COMMENT ON TABLE article_generations IS 'Tracks AI-generated blog articles. Admin-only, accessed via service key.';
+COMMENT ON TABLE article_generations IS 'Tracks AI-generated blog articles for SEO metrics and audit';
