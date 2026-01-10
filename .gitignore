@@ -35,3 +35,4 @@ dist-ssr
 
 # Local test files
 test-logins.local.txt
+blog/.astro/
