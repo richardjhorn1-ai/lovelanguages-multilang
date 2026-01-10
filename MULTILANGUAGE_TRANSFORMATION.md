@@ -4,7 +4,7 @@
 
 ## Vision
 
-Transform the app into a language-agnostic platform supporting ~15 curated languages while maintaining the romantic couples-focused brand. Multi-language access is a premium feature.
+Transform the app into a truly language-agnostic platform supporting 18 curated languages while maintaining the romantic couples-focused brand. Any language can be your native language OR your target language. Multi-language access is a premium feature.
 
 ---
 
@@ -12,18 +12,23 @@ Transform the app into a language-agnostic platform supporting ~15 curated langu
 
 | Decision | Choice |
 |----------|--------|
-| Language pairs | Curated list (~15 languages) → English base |
+| Language pairs | **Any of 18 languages → Any of 18 languages** (306 possible pairs) |
+| Native language | User's mother tongue - AI explains in this language |
+| Target language | Language user is learning - words shown with native translations |
 | Target audience | Couples only (keep Love Languages brand) |
 | Grammar model | Language-specific schemas (most flexible) |
 | Curriculum | None - app is partner-driven, not curriculum-driven |
-| AI persona | "Cupid" globally (same persona, speaks target language) |
+| AI persona | "Cupid" globally (same persona, speaks user's native language) |
 | Onboarding | Generic "connection to [Language]" questions |
 | Scenarios | Universal (8 scenarios adapted culturally per language) |
 | Multi-language | Premium feature - costs extra to add languages |
 
 ---
 
-## Supported Languages (Initial ~15)
+## Supported Languages (18 Total)
+
+### Tier 0 - Global
+- **English (en)** - Can be native OR target language
 
 ### Tier 1 - Romance Languages
 - Spanish (es)
@@ -40,7 +45,7 @@ Transform the app into a language-agnostic platform supporting ~15 curated langu
 - Danish (da)
 
 ### Tier 3 - Slavic Languages
-- Polish (pl) - Original
+- Polish (pl)
 - Czech (cs)
 - Russian (ru)
 - Ukrainian (uk)
@@ -50,7 +55,7 @@ Transform the app into a language-agnostic platform supporting ~15 curated langu
 - Hungarian (hu)
 - Turkish (tr)
 
-> **Note:** All languages target English speakers (Language → English learning).
+> **Key Principle:** Any language can be NATIVE or TARGET. A Spanish speaker learning Polish sees `Cześć (Hola)`. An English speaker learning Polish sees `Cześć (Hello)`.
 
 ---
 
@@ -145,6 +150,26 @@ export interface LanguageConfig {
 }
 
 export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
+  en: {
+    code: 'en',
+    name: 'English',
+    nativeName: 'English',
+    flag: '🇬🇧',
+    grammar: {
+      hasGender: false,
+      genderTypes: [],
+      hasConjugation: true,
+      conjugationPersons: ['I', 'you', 'he/she/it', 'we', 'you', 'they'],
+      hasCases: false,
+      hasArticles: true,
+      hasTones: false,
+      writingSystem: 'latin',
+    },
+    specialChars: [],  // No special diacritics
+    tts: { voiceCode: 'en-US-Standard-A', langCode: 'en-US' },
+    transcription: { gladiaCode: 'en', supported: true },
+    voiceMode: { supported: true },
+  },
   pl: {
     code: 'pl',
     name: 'Polish',
@@ -204,9 +229,10 @@ export interface RomanticPhrase {
 
 // NEW: Language-agnostic
 export interface RomanticPhrase {
-  word: string;           // Target language
-  translation: string;    // Native language (usually English)
-  languageCode: string;   // Which language this is
+  word: string;                 // Word in target language
+  translation: string;          // Translation in native language
+  targetLanguageCode: string;   // e.g., 'pl' for Polish
+  nativeLanguageCode: string;   // e.g., 'es' for Spanish speaker
 }
 
 // OLD: Polish-specific onboarding
@@ -294,22 +320,28 @@ export type WordContext =
 ```typescript
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 
-export function buildCupidSystemPrompt(languageCode: string, mode: 'ask' | 'learn' | 'coach'): string {
-  const lang = LANGUAGE_CONFIGS[languageCode];
+export function buildCupidSystemPrompt(
+  targetLanguageCode: string,
+  nativeLanguageCode: string,
+  mode: 'ask' | 'learn' | 'coach'
+): string {
+  const target = LANGUAGE_CONFIGS[targetLanguageCode];
+  const native = LANGUAGE_CONFIGS[nativeLanguageCode];
 
-  return `You are "Cupid" - a warm, encouraging ${lang.name} language companion for couples learning together.
+  return `You are "Cupid" - a warm, encouraging language companion for couples learning together.
 
 ## Core Rules
-1. You are teaching ${lang.name} (${lang.nativeName}) to English speakers
-2. Every ${lang.name} word MUST have English translation: "${getExampleWord(languageCode)} (${getExampleTranslation(languageCode)})"
-3. Use **asterisks** for ${lang.name} words
-4. Be warm, romantic, encouraging - this is for couples!
+1. You are teaching ${target.name} (${target.nativeName}) to a ${native.name} speaker
+2. RESPOND IN ${native.name.toUpperCase()} - all explanations must be in ${native.name}
+3. Every ${target.name} word MUST have ${native.name} translation: "${getExampleWord(targetLanguageCode)} (${getExampleTranslation(targetLanguageCode, nativeLanguageCode)})"
+4. Use **asterisks** for ${target.name} words
+5. Be warm, romantic, encouraging - this is for couples!
 
-## ${lang.name}-Specific Notes
-${buildLanguageSpecificNotes(languageCode)}
+## ${target.name}-Specific Notes
+${buildLanguageSpecificNotes(targetLanguageCode)}
 
 ## Grammar Focus
-${buildGrammarGuidance(languageCode)}
+${buildGrammarGuidance(targetLanguageCode, nativeLanguageCode)}
 `;
 }
 
@@ -362,16 +394,22 @@ type TranslationDirection = 'target_to_native' | 'native_to_target';
 
 // Usage with language context
 interface GameProps {
-  languageCode: string;
+  targetLanguageCode: string;
+  nativeLanguageCode: string;
   direction: TranslationDirection;
 }
 
 // Display logic
-const getDirectionLabel = (direction: TranslationDirection, langCode: string) => {
-  const lang = LANGUAGE_CONFIGS[langCode];
+const getDirectionLabel = (
+  direction: TranslationDirection,
+  targetCode: string,
+  nativeCode: string
+) => {
+  const target = LANGUAGE_CONFIGS[targetCode];
+  const native = LANGUAGE_CONFIGS[nativeCode];
   return direction === 'target_to_native'
-    ? `${lang.name} → English`
-    : `English → ${lang.name}`;
+    ? `${target.name} → ${native.name}`   // e.g., "Polish → Spanish"
+    : `${native.name} → ${target.name}`;  // e.g., "Spanish → Polish"
 };
 ```
 
@@ -529,7 +567,7 @@ CREATE TABLE user_languages (
 ## Migration Phases
 
 ### Phase 1: Foundation (No User Impact)
-- [ ] Create `constants/language-config.ts` with all 15 languages
+- [ ] Create `constants/language-config.ts` with all 18 languages
 - [ ] Create `utils/prompt-templates.ts` with template functions
 - [ ] Add database columns (with 'pl' defaults)
 - [ ] Create `user_languages` table
@@ -610,13 +648,15 @@ CREATE TABLE user_languages (
 
 ## Success Metrics
 
-- [ ] All 15 languages configurable and selectable
-- [ ] Existing Polish users unaffected (default language = pl)
-- [ ] New users can choose any supported language
-- [ ] Premium users can add multiple languages
-- [ ] AI responds appropriately in each language
+- [ ] All 18 languages configurable and selectable (including English)
+- [ ] Any native → target language pair works correctly
+- [ ] AI responds in the user's native language (not always English)
+- [ ] Translations display in user's native language
+- [ ] Existing Polish users unaffected (default: native=en, target=pl)
+- [ ] New users choose both native AND target language during onboarding
+- [ ] Premium users can add multiple target languages
 - [ ] Validation works with language-specific diacritics
-- [ ] Conversation scenarios adapt to language/culture
+- [ ] Conversation scenarios adapt to target language culture
 - [ ] Per-language progress tracking works correctly
 
 ---

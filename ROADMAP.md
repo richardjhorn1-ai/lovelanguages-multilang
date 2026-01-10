@@ -69,7 +69,7 @@ A language learning app for couples where one partner learns their loved one's n
 - [x] Create transformation planning document
 - [x] Create new repo (lovelanguages-multilang)
 - [x] Update documentation for new direction
-- [ ] Create `constants/language-config.ts` with all 15 languages
+- [ ] Create `constants/language-config.ts` with all 18 languages
 - [ ] Create `utils/prompt-templates.ts` with template functions
 - [ ] Add database columns (with 'pl' defaults)
 - [ ] Create `user_languages` table
@@ -109,14 +109,17 @@ A language learning app for couples where one partner learns their loved one's n
 
 ---
 
-## Supported Languages (Target: 15+)
+## Supported Languages (18 Total)
 
 | Tier | Languages |
 |------|-----------|
+| Global | **English** (can be native OR target) |
 | Romance | Spanish, French, Italian, Portuguese, Romanian |
 | Germanic | German, Dutch, Swedish, Norwegian, Danish |
 | Slavic | Polish, Czech, Russian, Ukrainian |
 | Other | Greek, Hungarian, Turkish |
+
+> Any language can be **native** (AI explains in this) or **target** (what you're learning).
 
 ---
 

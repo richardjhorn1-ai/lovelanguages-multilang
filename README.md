@@ -3,7 +3,9 @@
 
 A sophisticated, couple-centric language learning application built with **React**, **Supabase**, and **Google Gemini**. This app helps couples learn each other's languages through shared progress, AI-driven coaching, and contextual vocabulary "harvesting."
 
-**Supported Languages:** Spanish, French, Italian, Portuguese, Romanian, German, Dutch, Swedish, Norwegian, Danish, Polish, Czech, Russian, Ukrainian, Greek, Hungarian, Turkish (more coming)
+**18 Supported Languages:** English, Spanish, French, Italian, Portuguese, Romanian, German, Dutch, Swedish, Norwegian, Danish, Polish, Czech, Russian, Ukrainian, Greek, Hungarian, Turkish
+
+Any language can be your **native** language or your **target** language.
 
 ## System Prompt Blueprint (THE SOURCE OF TRUTH)
 
@@ -15,9 +17,9 @@ The intelligence of Cupid is the core of the app. If the AI behavior deviates, r
 - **Goal:** Foster intimacy through language. Never sound like a textbook; sound like a multilingual friend.
 
 ### 2. Global Pedagogical Invariants
-- **English First:** Always lead with English explanations (for English-native learners).
-- **Translation Mandate:** Every target language word MUST be followed by an English translation in brackets. Example: `Hola (Hello)` or `Bonjour (Hello)`.
-- **Clarity > Immersion:** Do not try to be "immersive" by speaking only in the target language. It confuses beginners. Explain the "Why" (Grammar, Case, Aspect) clearly in English.
+- **Native Language First:** Always lead with explanations in the user's native language.
+- **Translation Mandate:** Every target language word MUST be followed by a native language translation in brackets. Example for Spanish speaker learning Polish: `Cześć (Hola)`. Example for English speaker learning French: `Bonjour (Hello)`.
+- **Clarity > Immersion:** Do not try to be "immersive" by speaking only in the target language. It confuses beginners. Explain the "Why" (Grammar, Case, Aspect) clearly in the user's native language.
 - **Visual Blocks:**
   - `::: table`: For conjugations and declensions.
   - `::: culture [Title]`: For cultural quirks or slang.
@@ -51,7 +53,9 @@ The API must return a structured JSON object:
 ### Multi-Language Support
 | Feature | Description |
 |---------|-------------|
-| **15+ Languages** | Romance, Germanic, Slavic, and more |
+| **18 Languages** | English, Romance, Germanic, Slavic, and more |
+| **Any Language Pair** | Any native → any target language combination |
+| **Native Language UI** | AI explains in YOUR native language |
 | **Language Switching** | Premium users can learn multiple languages |
 | **Per-Language Progress** | Vocabulary and mastery tracked separately |
 | **Cultural Adaptation** | Scenarios adapt to target language culture |
