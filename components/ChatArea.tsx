@@ -11,6 +11,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import NewWordsNotification from './NewWordsNotification';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
+import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
 
 // Listen session types
 interface TranscriptEntry {
@@ -62,7 +63,7 @@ interface ListenSession {
 const parseMarkdown = (text: string) => {
   if (!text) return '';
 
-  // Sanitize any legacy CSS artifacts that might exist in stored messages
+  // Step 1: Clean legacy CSS artifacts from stored messages (before escaping)
   let clean = text
     .split('(#FF4761) font-semibold">').join('')
     .split('(#FF4761)font-semibold">').join('')
@@ -70,38 +71,33 @@ const parseMarkdown = (text: string) => {
     .split('font-semibold">').join('')
     .split('font-semibold>').join('');
 
-  // Then regex patterns for remaining variations
   clean = clean
-    // Remove patterns like: (#HEX) font-semibold"> with any hex color
     .replace(/\(?#[A-Fa-f0-9]{3,6}\)?\s*font-semibold[^a-z>]*>/gi, '')
-    // Remove hex colors in parentheses: (#FF4761)
     .replace(/\(#[A-Fa-f0-9]{3,6}\)/g, '')
-    // Remove font-semibold with trailing punctuation
     .replace(/font-semibold["'>:\s]*/gi, '')
-    // Remove Tailwind classes: text-[#FF4761]
     .replace(/text-\[#[A-Fa-f0-9]{3,6}\]/g, '')
-    // Remove HTML tags
     .replace(/<\/?(?:span|strong|div|em|b|i)[^>]*>/gi, '')
-    // Remove style/class attributes
     .replace(/style=["'][^"']*["']/gi, '')
     .replace(/class=["'][^"']*["']/gi, '')
-    // Remove stray hex colors (6 digits only to preserve 3-digit numbers)
     .replace(/#[A-Fa-f0-9]{6}(?![A-Fa-f0-9])/g, '')
-    // Clean orphaned quotes/brackets/angles
     .replace(/["']\s*>/g, '')
     .replace(/<\s*["']/g, '')
-    // Clean up multiple spaces
     .replace(/\s{2,}/g, ' ')
     .trim();
 
-  // Then apply markdown formatting
-  // IMPORTANT: Pronunciation replacement MUST run first to avoid matching brackets in HTML attributes
-  return clean
-    // Pronunciation: subtle italic gray
-    .replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-sm">($1)</span>')
-    // Polish words: rose/pink semi-bold highlight
-    .replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--accent-color); font-weight: 600;">$1</strong>')
-    .replace(/\n/g, '<br />');
+  // Step 2: Escape HTML to prevent XSS injection
+  clean = escapeHtml(clean);
+
+  // Step 3: Apply safe markdown transformations (on escaped text)
+  // Pronunciation: subtle italic gray
+  clean = clean.replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-sm">($1)</span>');
+  // Polish words: rose/pink semi-bold highlight
+  clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--accent-color); font-weight: 600;">$1</strong>');
+  // Line breaks
+  clean = clean.replace(/\n/g, '<br />');
+
+  // Step 4: Final sanitization with DOMPurify
+  return sanitizeHtml(clean);
 };
 
 const CultureCard: React.FC<{ title: string; content: string; t: (key: string) => string }> = ({ title, content, t }) => (
