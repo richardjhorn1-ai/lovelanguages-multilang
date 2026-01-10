@@ -250,6 +250,12 @@ export default async function handler(req: any, res: any) {
     const MAX_USERLOG_ITEMS = 50;
     const MAX_USERLOG_ITEM_LENGTH = 200;
 
+    // Image validation limits
+    const MAX_IMAGES = 5;
+    const MAX_IMAGE_SIZE_BYTES = 4 * 1024 * 1024;      // 4MB per image
+    const MAX_TOTAL_IMAGE_SIZE = 16 * 1024 * 1024;     // 16MB total
+    const ALLOWED_MIME_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+
     // Validate prompt length
     if (prompt && typeof prompt === 'string' && prompt.length > MAX_PROMPT_LENGTH) {
       return res.status(400).json({
@@ -274,6 +280,53 @@ export default async function handler(req: any, res: any) {
           .map(item => typeof item === 'string' ? item.substring(0, MAX_USERLOG_ITEM_LENGTH) : '')
           .filter(item => item.length > 0)
       : [];
+
+    // Validate images array
+    let validatedImages: Array<{ data: string; mimeType: string }> = [];
+    if (images && Array.isArray(images)) {
+      // Check image count
+      if (images.length > MAX_IMAGES) {
+        return res.status(400).json({
+          error: `Too many images. Maximum ${MAX_IMAGES} images allowed.`
+        });
+      }
+
+      let totalSize = 0;
+      for (const img of images) {
+        // Validate structure
+        if (!img || typeof img.data !== 'string' || typeof img.mimeType !== 'string') {
+          continue; // Skip invalid entries
+        }
+
+        // Validate MIME type
+        if (!ALLOWED_MIME_TYPES.includes(img.mimeType)) {
+          return res.status(400).json({
+            error: `Invalid image type: ${img.mimeType}. Allowed types: ${ALLOWED_MIME_TYPES.join(', ')}`
+          });
+        }
+
+        // Calculate base64 decoded size (base64 is ~4/3 of original size)
+        const estimatedSize = Math.ceil(img.data.length * 0.75);
+
+        // Check individual image size
+        if (estimatedSize > MAX_IMAGE_SIZE_BYTES) {
+          return res.status(400).json({
+            error: `Image too large. Maximum size is ${MAX_IMAGE_SIZE_BYTES / (1024 * 1024)}MB per image.`
+          });
+        }
+
+        totalSize += estimatedSize;
+
+        // Check total size
+        if (totalSize > MAX_TOTAL_IMAGE_SIZE) {
+          return res.status(400).json({
+            error: `Total image size too large. Maximum is ${MAX_TOTAL_IMAGE_SIZE / (1024 * 1024)}MB combined.`
+          });
+        }
+
+        validatedImages.push({ data: img.data, mimeType: img.mimeType });
+      }
+    }
 
     const ai = new GoogleGenAI({ apiKey });
 
@@ -652,15 +705,11 @@ ${modePrompt}`;
       });
     }
 
-    // Build current message parts (with optional images)
+    // Build current message parts (with validated images)
     const currentParts: any[] = [];
-    if (images && Array.isArray(images)) {
-      images.forEach((img: any) => {
-        if (img.data && img.mimeType) {
-          currentParts.push({ inlineData: { data: img.data, mimeType: img.mimeType } });
-        }
-      });
-    }
+    validatedImages.forEach((img) => {
+      currentParts.push({ inlineData: { data: img.data, mimeType: img.mimeType } });
+    });
     currentParts.push({ text: prompt || " " });
 
     // Add current user message

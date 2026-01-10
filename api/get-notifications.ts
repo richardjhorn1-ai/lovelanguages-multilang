@@ -1,6 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
 
+// Notification limit constraints
+const MAX_NOTIFICATION_LIMIT = 100;
+const DEFAULT_NOTIFICATION_LIMIT = 50;
+
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
     return res.status(200).end();
@@ -25,21 +29,27 @@ export default async function handler(req: any, res: any) {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    const { unreadOnly, limit } = req.body || {};
+    const { unreadOnly, limit: rawLimit } = req.body || {};
+
+    // Validate and clamp limit parameter
+    let validLimit = DEFAULT_NOTIFICATION_LIMIT;
+    if (rawLimit !== undefined && rawLimit !== null) {
+      const parsedLimit = typeof rawLimit === 'number' ? rawLimit : parseInt(String(rawLimit), 10);
+      if (!isNaN(parsedLimit) && parsedLimit > 0) {
+        validLimit = Math.min(parsedLimit, MAX_NOTIFICATION_LIMIT);
+      }
+    }
 
     let query = supabase
       .from('notifications')
       .select('*')
       .eq('user_id', auth.userId)
       .is('dismissed_at', null)
-      .order('created_at', { ascending: false });
+      .order('created_at', { ascending: false })
+      .limit(validLimit);  // Always apply a limit
 
     if (unreadOnly) {
       query = query.is('read_at', null);
-    }
-
-    if (limit) {
-      query = query.limit(limit);
     }
 
     const { data: notifications, error: notifError } = await query;
