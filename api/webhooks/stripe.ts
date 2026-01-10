@@ -1,3 +1,4 @@
+import { randomInt } from 'crypto';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 
@@ -29,13 +30,13 @@ function getPlanFromPriceId(priceId: string): { plan: string; period: string } {
   return priceMap[priceId] || { plan: 'unknown', period: 'unknown' };
 }
 
-// Generate a gift pass code
+// Generate a cryptographically secure gift pass code
 function generateGiftCode(): string {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
   let code = 'LOVE-';
-  for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  for (let i = 0; i < 4; i++) code += chars[randomInt(chars.length)];
   code += '-';
-  for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  for (let i = 0; i < 4; i++) code += chars[randomInt(chars.length)];
   return code;
 }
 
