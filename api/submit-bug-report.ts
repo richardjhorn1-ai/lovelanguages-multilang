@@ -6,7 +6,7 @@
  * Returns: { success, reportId }
  */
 
-import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware';
+import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
 
 interface BugReportBody {
   title: string;
