@@ -38,7 +38,7 @@ The API must return a structured JSON object:
   "newWords": [
     {
       "word": "target language word",
-      "translation": "english meaning",
+      "translation": "meaning in user's native language",
       "type": "noun/verb/etc",
       "importance": 1-5,
       "context": "Short sentence where it was used",
