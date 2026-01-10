@@ -1,9 +1,12 @@
 # Final Phases: Deployment Readiness
 
 **Created:** January 7, 2026
-**Updated:** January 9, 2026
-**Status:** 🚀 LAUNCH READY (pending manual testing)
+**Updated:** January 10, 2026
+**Status:** 🚀 PRODUCTION READY - English → Polish
 **Goal:** Production deployment with payments, security hardening, and legal compliance
+
+> **Note:** Multi-language support (other language pairs) has been moved to a separate fork.
+> See `docs/MULTI_LANGUAGE_LEARNINGS.md` for architectural notes.
 
 ---
 
@@ -1043,33 +1046,7 @@ function log(level: LogLevel, message: string, meta?: Partial<LogEntry>) {
 
 ---
 
-## Appendix A: File Changes Since Last Checkpoint
-
-### Modified Files (January 6-7, 2026)
-
-| File | Changes |
-|------|---------|
-| `services/gladia-session.ts` | Added translation merging (pendingTranscripts Map, handleTranslation method) |
-| `components/ChatArea.tsx` | Integrated Listen Mode inline (sidebar, recording UI, session viewing) |
-| `api/gladia-token.ts` | Removed unsupported diarization parameters |
-| `services/live-session.ts` | Set DEBUG = false |
-
-### New Functionality
-
-1. **Listen Mode Integration**
-   - Listen sessions appear in sidebar alongside chats
-   - Recording with live Polish transcription + English translation
-   - Session saving and viewing
-   - Phrase bookmarking
-
-2. **Translation Fix**
-   - Gladia translations now properly merged with transcripts
-   - 800ms timeout for translation arrival
-   - Fallback to transcript-only if no translation
-
----
-
-## Appendix B: Quick Reference
+## Appendix: Quick Reference
 
 ### Critical API Endpoints
 
