@@ -7,6 +7,7 @@ import { supabase } from '../services/supabase';
 import { getLevelFromXP, getLevelProgress, getTierColor } from '../services/level-utils';
 import { useTheme } from '../context/ThemeContext';
 import { HelpGuide } from './HelpGuide';
+import { BugReportModal } from './BugReportModal';
 
 interface NavbarProps {
   profile: Profile;
@@ -17,6 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [isBugReportOpen, setIsBugReportOpen] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -204,6 +206,19 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Bug Report Button - Hidden on mobile, shown in profile dropdown instead */}
+          <button
+            onClick={() => {
+              setIsBugReportOpen(true);
+              setIsNotificationsOpen(false);
+              setIsProfileDropdownOpen(false);
+            }}
+            className="hidden md:block p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-all"
+            title="Report a Bug"
+          >
+            <ICONS.Bug className="w-5 h-5 text-[var(--text-secondary)]" />
+          </button>
+
           {/* Help Guide Button - Hidden on mobile, shown in profile dropdown instead */}
           <button
             onClick={() => {
@@ -391,8 +406,19 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">Love Log</span>
               </button>
 
-              {/* Mobile-only: Help & Notifications (hidden on desktop where they have dedicated buttons) */}
+              {/* Mobile-only: Help, Bug Report & Notifications (hidden on desktop where they have dedicated buttons) */}
               <div className="md:hidden border-t border-[var(--border-color)] mt-1.5 pt-1.5">
+                <button
+                  onClick={() => {
+                    setIsBugReportOpen(true);
+                    setIsProfileDropdownOpen(false);
+                  }}
+                  className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
+                >
+                  <ICONS.Bug className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
+                  <span className="text-xs font-medium text-[var(--text-primary)]">Report a Bug</span>
+                </button>
+
                 <button
                   onClick={() => {
                     setIsHelpOpen(true);
@@ -535,6 +561,13 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         isOpen={isHelpOpen}
         onClose={() => setIsHelpOpen(false)}
         role={profile.role}
+      />
+
+      {/* Bug Report Modal */}
+      <BugReportModal
+        isOpen={isBugReportOpen}
+        onClose={() => setIsBugReportOpen(false)}
+        profile={profile}
       />
     </>
   );

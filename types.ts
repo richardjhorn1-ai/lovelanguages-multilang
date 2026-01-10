@@ -459,6 +459,40 @@ export interface Notification {
 }
 
 // ===========================================
+// Bug Report System Types
+// ===========================================
+
+export type BugReportSeverity = 'low' | 'medium' | 'high' | 'critical';
+export type BugReportStatus = 'open' | 'investigating' | 'resolved' | 'closed';
+
+export interface BugReport {
+  id: string;
+  user_id: string;
+  title: string;
+  description: string;
+  severity: BugReportSeverity;
+  status: BugReportStatus;
+  page_url?: string;
+  browser_info?: {
+    userAgent: string;
+    language: string;
+    screenWidth: number;
+    screenHeight: number;
+    platform: string;
+  };
+  app_state?: {
+    role: string;
+    level: string;
+    xp: number;
+    currentPath: string;
+  };
+  admin_notes?: string;
+  resolved_at?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+// ===========================================
 // Gemini Service Types
 // ===========================================
 
