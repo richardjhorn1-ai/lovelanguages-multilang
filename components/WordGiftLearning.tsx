@@ -242,27 +242,23 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
         <div className="p-4 md:p-6">
           <div
             onClick={() => setFlipped(!flipped)}
-            className="cursor-pointer perspective-1000"
+            className="relative cursor-pointer perspective-1000 aspect-[4/3]"
           >
-            <div className={`relative transition-transform duration-500 transform-style-preserve-3d ${
+            <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${
               flipped ? 'rotate-y-180' : ''
             }`}>
               {/* Front - Polish Word */}
-              <div className={`bg-[var(--accent-light)] p-6 md:p-8 rounded-xl md:rounded-2xl border border-[var(--accent-border)] text-center min-h-[160px] md:min-h-[200px] flex flex-col items-center justify-center ${
-                flipped ? 'hidden' : ''
-              }`}>
+              <div className="absolute inset-0 bg-[var(--accent-light)] p-6 md:p-8 rounded-xl md:rounded-2xl border border-[var(--accent-border)] text-center flex flex-col items-center justify-center backface-hidden">
                 <p className="text-[10px] md:text-xs font-bold text-[var(--accent-color)] uppercase tracking-wider mb-1.5 md:mb-2">Polish</p>
                 <p className="text-2xl md:text-3xl font-black text-[var(--text-primary)] mb-1.5 md:mb-2">{currentWord?.word}</p>
                 {currentWord?.pronunciation && (
                   <p className="text-xs md:text-sm text-[var(--text-secondary)] italic">[{currentWord.pronunciation}]</p>
                 )}
-                <p className="text-[10px] md:text-xs text-[var(--text-secondary)] mt-3 md:mt-4">Tap to flip</p>
+                <p className="text-[10px] md:text-xs text-[var(--text-secondary)] mt-3 md:mt-4 animate-pulse">Tap to flip</p>
               </div>
 
               {/* Back - Translation */}
-              <div className={`bg-[var(--bg-primary)] p-6 md:p-8 rounded-xl md:rounded-2xl border border-[var(--border-color)] text-center min-h-[160px] md:min-h-[200px] flex flex-col items-center justify-center ${
-                flipped ? '' : 'hidden'
-              }`}>
+              <div className="absolute inset-0 bg-[var(--bg-primary)] p-6 md:p-8 rounded-xl md:rounded-2xl border border-[var(--border-color)] text-center flex flex-col items-center justify-center backface-hidden rotate-y-180">
                 <p className="text-[10px] md:text-xs font-bold text-[var(--accent-color)] uppercase tracking-wider mb-1.5 md:mb-2">English</p>
                 <p className="text-2xl md:text-3xl font-black text-[var(--text-primary)] mb-1.5 md:mb-2">{currentWord?.translation}</p>
                 {currentWord?.context && (
@@ -305,6 +301,13 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
           </div>
         </div>
       </div>
+
+      <style>{`
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+      `}</style>
     </div>
   );
 };

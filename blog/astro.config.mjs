@@ -9,7 +9,13 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      filter: (page) => page.includes('/learn/')
+      filter: (page) => page.includes('/learn/'),
+      serialize: (item) => ({
+        ...item,
+        lastmod: new Date().toISOString(),
+        changefreq: item.url.endsWith('/learn/') ? 'daily' : 'weekly',
+        priority: item.url.endsWith('/learn/') ? 0.9 : 0.7
+      })
     }),
     tailwind({
       // Use a separate config file for the blog
