@@ -39,10 +39,10 @@ Instead of a dashboard, Play should offer relationship-based quiz games:
 | Game | Description |
 |------|-------------|
 | **"Do You Remember?"** | Tutor asks partner to translate words they've learned |
-| **"Whisper Game"** | Tutor says Polish phrase, partner repeats (pronunciation practice) |
+| **"Whisper Game"** | Tutor says phrase in target language, partner repeats (pronunciation practice) |
 | **"Scene Builder"** | Both roleplay scenarios using vocabulary (ordering coffee, meeting family) |
 | **"Quick Fire"** | Timed vocabulary recall - fun competitive element |
-| **"Love Notes"** | Write short messages to each other in Polish |
+| **"Love Notes"** | Write short messages to each other in target language |
 
 These turn "studying" into "playing together" - the whole point of having a partner.
 
@@ -94,7 +94,7 @@ These turn "studying" into "playing together" - the whole point of having a part
 - No way for tutor to add encouraging notes to specific words
 
 **Suggestions for Bonding & Helping:**
-- [ ] **Memory Tags**: Tutor can add memory tags like "we learned this at grandma's" or "from our trip to Krakow"
+- [ ] **Memory Tags**: Tutor can add memory tags like "we learned this at grandma's" or "from our trip together"
 - [ ] **Practice Mode Toggle**: View words student needs help with vs mastered
 - [ ] **Together Words**: Flag words to practice together during daily life
 - [ ] **Add Personal Context**: Tutor adds real-life context to abstract words
@@ -122,8 +122,8 @@ Move the Learning Dashboard to Progress section. Replace Play with interactive c
 - [ ] **"Whisper Game"**: Pronunciation practice with audio recording
 - [ ] **"Scene Builder"**: Roleplay scenarios together (cafe, family dinner, etc.)
 - [ ] **"Quick Fire"**: Timed vocabulary challenge - competitive and fun
-- [ ] **"Love Notes"**: Write short Polish messages to each other
-- [ ] **"Complete My Sentence"**: Tutor starts, partner finishes in Polish
+- [ ] **"Love Notes"**: Write short messages to each other in target language
+- [ ] **"Complete My Sentence"**: Tutor starts, partner finishes in target language
 
 ---
 
@@ -201,7 +201,7 @@ Move the Learning Dashboard here from Play. This section should show:
 | "Do You Remember?" | Tutor quizzes partner on learned words | Active practice together |
 | "Whisper Game" | Pronunciation practice with recording | Intimate, playful |
 | "Quick Fire" | Timed vocabulary challenge | Competitive fun |
-| "Love Notes" | Write Polish messages to each other | Romantic, practical |
+| "Love Notes" | Write messages in target language to each other | Romantic, practical |
 
 ### Phase 2: Deeper Connection Features
 

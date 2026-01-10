@@ -16,7 +16,7 @@ All 28 API endpoints verified responding correctly:
 | | /api/live-token | 401 | Auth required |
 | | /api/gladia-token | 401 | Auth required |
 | | /api/analyze-history | 401 | Auth required |
-| | /api/polish-transcript | 401 | Auth required |
+| | /api/process-transcript | 401 | Auth required |
 | **Level** | /api/generate-level-test | 401 | Auth required |
 | | /api/submit-level-test | 401 | **FIXED** - was 500, inline validation |
 | | /api/increment-xp | 401 | Auth required |
@@ -75,9 +75,9 @@ All 28 API endpoints verified responding correctly:
 [ ] 2. Go to Chat tab
 [ ] 3. Send a message in ASK mode
     [ ] - Verify streaming response
-    [ ] - Verify Polish words are formatted correctly
+    [ ] - Verify target language words are formatted correctly
 [ ] 4. Switch to LEARN mode
-[ ] 5. Ask to learn a verb (e.g., "teach me kochać")
+[ ] 5. Ask to learn a verb (e.g., "teach me [verb in target language]")
     [ ] - Verify table renders
     [ ] - Verify conjugations shown
 [ ] 6. Check Love Log tab
@@ -92,7 +92,7 @@ All 28 API endpoints verified responding correctly:
     [ ] - Verify correct/incorrect feedback
 [ ] 10. Play Type It
     [ ] - Verify answer validation
-    [ ] - Test diacritic tolerance (e.g., "cie" for "cię")
+    [ ] - Test diacritic tolerance (language-specific special characters)
 [ ] 11. Check Progress tab
     [ ] - Verify XP displayed
     [ ] - Verify level shown
@@ -142,8 +142,8 @@ All 28 API endpoints verified responding correctly:
 [ ] 3. Select "Conversation Practice" (BETA)
 [ ] 4. Choose a scenario (e.g., "At the Café")
 [ ] 5. Grant microphone permission when prompted
-[ ] 6. Verify AI speaks first (greeting)
-[ ] 7. Respond in Polish
+[ ] 6. Verify AI speaks first (greeting in target language)
+[ ] 7. Respond in target language
     [ ] - Verify transcription appears
 [ ] 8. Continue conversation (3-4 exchanges)
 [ ] 9. End session
@@ -165,15 +165,15 @@ All 28 API endpoints verified responding correctly:
 [ ] 4. Enter optional context label
 [ ] 5. Grant microphone permission
 [ ] 6. Start listening
-[ ] 7. Speak in Polish (or play Polish audio)
+[ ] 7. Speak in target language (or play target language audio)
     [ ] - Verify transcription appears
-    [ ] - Verify language flag (🇵🇱/🇬🇧) shows
-    [ ] - Verify translation appears (if Polish)
+    [ ] - Verify language flag shows
+    [ ] - Verify translation appears in native language
 [ ] 8. Bookmark a phrase
 [ ] 9. Stop & Save session
 [ ] 10. Verify session appears in sidebar
 [ ] 11. Click session to view transcript
-[ ] 12. (Optional) Click "Polish" to run AI correction
+[ ] 12. (Optional) Click "Process" to run AI correction
 [ ] 13. (Optional) Click "Extract Words" to add vocabulary
 ```
 

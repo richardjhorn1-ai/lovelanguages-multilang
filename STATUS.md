@@ -1,14 +1,14 @@
-# Project Status - January 9, 2026
+# Project Status - January 10, 2026
 
 ## Where We Are
 
-**The app is LAUNCH READY - pending final manual testing.**
+**Multi-Language Transformation in Progress**
 
-All features complete. Payments integrated. Security hardened. Legal pages published.
+The Polish-only version is complete and was launched. This fork is transforming the app to support **18 languages** with any native → target language pair.
 
 ---
 
-## Phases Complete
+## Foundation Complete (Polish-Only Era)
 
 | Phase | Description | Status |
 |-------|-------------|--------|
@@ -18,40 +18,50 @@ All features complete. Payments integrated. Security hardened. Legal pages publi
 | 4 | Love Log & Vocabulary | ✅ |
 | 5 | Play Section (5 game modes) | ✅ |
 | 5.5 | AI Challenge Mode | ✅ |
-| 5.6 | Codebase Refactoring | ✅ |
-| 5.7 | UI Polish & Conversation Practice | ✅ |
 | 6 | Partner Dashboard | ✅ |
-| 8 | Codebase Cleanup | ✅ 14/16 (2 deferred) |
-| 9 | Integration Testing | ⏳ Manual testing needed |
+| 8 | Codebase Cleanup | ✅ 14/16 |
 | 10 | Stripe Payments | ✅ |
 | 11 | Security Hardening | ✅ |
 | 13 | Legal & Compliance | ✅ |
-| 14 | Launch Checklist | 🚀 Ready |
-| P1 | Performance Optimizations | ✅ All 4 sprints |
 
 ---
 
-## What's Left
+## Multi-Language Transformation
 
-### Pre-Launch Required
+| Phase | Description | Status |
+|-------|-------------|--------|
+| ML-1 | Foundation & Documentation | 🔄 In Progress |
+| ML-2 | Backend Refactoring | ⏳ Pending |
+| ML-3 | Type System Changes | ⏳ Pending |
+| ML-4 | Frontend Components | ⏳ Pending |
+| ML-5 | Scenarios & Content | ⏳ Pending |
+| ML-6 | Premium Multi-Language | ⏳ Pending |
 
-1. **Phase 9: Manual Testing** - HIGH priority
-   - Test 6 critical user journeys end-to-end
-   - Database integrity checks
-   - See `docs/PHASE_9_TEST_CHECKLIST.md`
+### ML-1 Progress (Current)
 
-2. **Custom Domain** - Configure in Vercel
+- [x] Create `MULTILANGUAGE_TRANSFORMATION.md` (source of truth)
+- [x] Create new repo (lovelanguages-multilang)
+- [x] Update all documentation for multi-language
+- [x] Archive Polish-specific docs
+- [x] Create new `docs/SYSTEM_PROMPTS.md`
+- [ ] Create `constants/language-config.ts` with 18 languages
+- [ ] Create `utils/prompt-templates.ts`
+- [ ] Add database columns
+- [ ] Create `user_languages` table
 
-3. **Contact Email** - Set up support email
+---
 
-### Post-Launch (Deferred)
+## Supported Languages (18)
 
-- Phase 7: Mobile PWA
-- Phase 8.7: Onboarding theme cleanup
-- Phase 8.11: Audio feedback system
-- Phase 4.5: Tense mastery tracking
-- ESLint setup
-- Dedicated pricing page
+| Tier | Languages |
+|------|-----------|
+| Global | **English** (native or target) |
+| Romance | Spanish, French, Italian, Portuguese, Romanian |
+| Germanic | German, Dutch, Swedish, Norwegian, Danish |
+| Slavic | Polish, Czech, Russian, Ukrainian |
+| Other | Greek, Hungarian, Turkish |
+
+> Any language can be **native** (AI explains in this) or **target** (what you're learning).
 
 ---
 
@@ -59,12 +69,12 @@ All features complete. Payments integrated. Security hardened. Legal pages publi
 
 | File | Purpose |
 |------|---------|
-| `ROADMAP.md` | Master product roadmap |
-| `FINAL_PHASES.md` | Deployment phases 8-14 |
-| `TROUBLESHOOTING.md` | 36+ solved issues |
+| `MULTILANGUAGE_TRANSFORMATION.md` | Architecture source of truth |
+| `ROADMAP.md` | Product roadmap with ML phases |
 | `CLAUDE.md` | Developer guidance |
-| `docs/PHASE_9_TEST_CHECKLIST.md` | Manual testing guide |
-| `docs/archived/` | Completed plans |
+| `docs/SYSTEM_PROMPTS.md` | AI prompt documentation |
+| `TROUBLESHOOTING.md` | 36+ solved issues |
+| `docs/archived/polish-era/` | Polish-only era documentation |
 
 ---
 
@@ -81,4 +91,7 @@ npm run build        # Production build
 
 ## Next Action
 
-Complete **Phase 9: Manual Testing** using the checklist in `docs/PHASE_9_TEST_CHECKLIST.md`.
+Complete **Phase ML-1: Foundation** by implementing:
+1. `constants/language-config.ts` - All 18 language configurations
+2. `utils/prompt-templates.ts` - Language-agnostic prompt builders
+3. Database migrations for language columns

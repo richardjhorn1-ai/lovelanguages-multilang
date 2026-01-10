@@ -51,7 +51,7 @@ Soft Pink:  #FFF0F3
 Soft Blue:  #E7F5FF
 ```
 
-**Polish word highlight**: `#FF4761` - Used consistently for all Polish vocabulary
+**Target language word highlight**: `#FF4761` - Used consistently for all target language vocabulary
 
 **Tier colors** (for level system): Each proficiency tier has a distinct color defined in `constants/levels.ts`. Use `tierColor` from level info, not hardcoded values.
 
