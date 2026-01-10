@@ -4,7 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Love Languages: Polish for Couples - A language learning app built with React, Supabase, and Google Gemini. Helps couples learn Polish together through AI coaching, vocabulary tracking, and gamified learning.
+Love Languages: Multi-Language Learning for Couples - A language learning app built with React, Supabase, and Google Gemini. Helps couples learn each other's languages through AI coaching, vocabulary tracking, and gamified learning.
+
+**Supported Languages:** 15+ languages including Spanish, French, Italian, Portuguese, Romanian, German, Dutch, Swedish, Norwegian, Danish, Polish, Czech, Russian, Ukrainian, Greek, Hungarian, Turkish.
+
+**Key Architecture Document:** `MULTILANGUAGE_TRANSFORMATION.md` - The central source of truth for multi-language architecture.
 
 ## Build & Development Commands
 
@@ -16,6 +20,41 @@ npx tsc --noEmit  # TypeScript check (run before committing)
 vercel dev        # Full local dev with serverless functions
 ```
 
+## Multi-Language Architecture
+
+### Language Configuration (`constants/language-config.ts`)
+Each supported language has a configuration defining:
+- Grammar features (gender, conjugation, cases, articles)
+- Special characters and diacritics
+- TTS voice codes
+- Transcription/voice mode support
+
+### Database Model
+- `profiles.active_language` - User's current learning language
+- `profiles.languages` - Array of unlocked language codes
+- `profiles.native_language` - User's native language (usually 'en')
+- All data tables (`dictionary`, `word_scores`, `chats`, etc.) have `language_code` column
+
+### API Pattern
+All API endpoints accept `languageCode` parameter:
+```typescript
+// Request
+POST /api/chat
+{ languageCode: 'es', mode: 'learn', message: '...' }
+
+// The endpoint uses language config for prompts, validation rules, etc.
+const lang = LANGUAGE_CONFIGS[languageCode];
+const systemPrompt = buildCupidSystemPrompt(languageCode, mode);
+```
+
+### Prompt Templates (`utils/prompt-templates.ts`)
+AI prompts are language-agnostic templates:
+```typescript
+buildCupidSystemPrompt(languageCode: string, mode: ChatMode): string
+buildValidationPrompt(languageCode: string): string
+buildVocabularyExtractionPrompt(languageCode: string): string
+```
+
 ## Architecture
 
 ### Frontend (React + TypeScript + Tailwind)
@@ -24,18 +63,18 @@ vercel dev        # Full local dev with serverless functions
   - `ChatArea.tsx` - Text & voice chat with custom markdown rendering
   - `LoveLog.tsx` - Vocabulary browser with mastery tracking
   - `FlashcardGame.tsx` - 5 game modes (Flashcard, Multiple Choice, Type It, AI Challenge, Conversation Practice)
-  - `ConversationPractice.tsx` - Voice conversation with AI personas in Polish scenarios (BETA)
+  - `ConversationPractice.tsx` - Voice conversation with AI personas in language-specific scenarios (BETA)
   - `Progress.tsx` - XP/level system, test history, motivation card
   - `LevelTest.tsx` - AI-generated proficiency tests
 
 ### Backend (Vercel Serverless Functions)
 - **Location**: `/api/` - 26 isolated serverless functions
 - **Key Endpoints**:
-  - `chat.ts`, `chat-stream.ts` - Main conversation with Gemini
-  - `live-token.ts` - Ephemeral tokens for Gemini Live voice mode
+  - `chat.ts`, `chat-stream.ts` - Main conversation with Gemini (language-aware)
+  - `live-token.ts` - Ephemeral tokens for Gemini Live voice mode (language-aware)
   - `gladia-token.ts` - Token for Listen Mode (Gladia transcription)
-  - `polish-transcript.ts` - Gemini post-processing for Listen Mode transcripts
-  - `analyze-history.ts` - Batch vocabulary extraction
+  - `process-transcript.ts` - Gemini post-processing for Listen Mode transcripts
+  - `analyze-history.ts` - Batch vocabulary extraction (language-aware)
   - `generate-level-test.ts`, `submit-level-test.ts` - Test system
   - `validate-word.ts` - AI spelling/grammar validation for manual entries
   - `validate-answer.ts` - Smart validation (synonyms, typos) for game answers
@@ -50,7 +89,7 @@ vercel dev        # Full local dev with serverless functions
 
 ### User Roles
 The app distinguishes between two roles (`UserRole` in `types.ts`):
-- **Students**: Learn Polish, have Ask/Learn chat modes, play games, track vocabulary
+- **Students**: Learn their target language, have Ask/Learn chat modes, play games, track vocabulary
 - **Tutors**: Help their partner learn, have Coach mode only, can create challenges and word gifts
 
 ## Critical Patterns
@@ -97,29 +136,37 @@ The AI outputs special blocks that ChatArea.tsx renders:
 - `::: culture [Title]` - Cultural notes
 
 ### Vocabulary Extraction Schema
-Verbs require all 6 conjugations per tense. Nouns need gender + plural. Adjectives need all 4 forms. See `types.ts` for `DictionaryEntry` interface.
+Grammar requirements vary by language:
+- Languages with conjugation: Verb forms appropriate to the language
+- Languages with gender: Noun gender + plural form
+- Languages with adjective agreement: All agreement forms
+- All words: Example sentences + pro-tips
+
+See `types.ts` for `DictionaryEntry` interface and language-specific grammar schemas.
 
 ### Voice Mode Architecture (Gemini Live)
 Browser → `/api/live-token` (gets ephemeral token) → Gemini Live WebSocket
 - Model: `gemini-2.5-flash-native-audio-preview-12-2025`
 - Only supports `responseModalities: ['AUDIO']` (not TEXT)
 - Use `outputAudioTranscription` and `inputAudioTranscription` for text
+- System instructions are built from language-specific templates
 
 ### Listen Mode Architecture (Gladia)
-Browser → `/api/gladia-token` → Gladia WebSocket (Polish → English transcription)
+Browser → `/api/gladia-token` → Gladia WebSocket (Source Language → English transcription)
 - Passive transcription mode - AI listens but doesn't speak
+- Language codes from user's `active_language` profile setting
 - Translation arrives as separate WebSocket messages (merged in `gladia-session.ts`)
 - Speaker diarization NOT supported for live streaming API
 
 ## Listen Mode Feature
 
-Listen Mode is a passive transcription feature that records real-world Polish conversations and extracts vocabulary.
+Listen Mode is a passive transcription feature that records real-world conversations and extracts vocabulary.
 
 ### User Flow
 1. User starts Listen Mode from Chat tab (headphones icon)
 2. Audio is streamed to Gladia for real-time transcription with language detection
-3. Transcript entries show language flags (🇵🇱 Polish, 🇬🇧 English)
-4. User can "Polish" the transcript with Gemini AI to fix errors and add translations
+3. Transcript entries show language flags (based on detected language)
+4. User can "Process" the transcript with Gemini AI to fix errors and add translations
 5. User can "Extract Words" to identify vocabulary and add to Love Log
 6. Sessions are saved to `listen_sessions` table for later review
 
@@ -127,11 +174,11 @@ Listen Mode is a passive transcription feature that records real-world Polish co
 - `components/ChatArea.tsx` - Listen Mode UI (modal, transcript display, word extraction)
 - `services/gladia-session.ts` - WebSocket management for Gladia streaming API
 - `api/gladia-token.ts` - Generates Gladia session token with translation config
-- `api/polish-transcript.ts` - Gemini post-processing to correct transcription errors
+- `api/process-transcript.ts` - Gemini post-processing to correct transcription errors
 
 ### Word Extraction Flow
-1. Raw transcript → `/api/polish-transcript` (Gemini corrects language detection & adds translations)
-2. Polished transcript → `/api/analyze-history` (extracts vocabulary with grammatical data)
+1. Raw transcript → `/api/process-transcript` (Gemini corrects language detection & adds translations)
+2. Processed transcript → `/api/analyze-history` (extracts vocabulary with grammatical data)
 3. Extracted words displayed in modal with selection UI
 4. Selected words → upserted to `dictionary` table via Supabase
 5. `dictionary-updated` custom event dispatched → Love Log auto-refreshes
@@ -147,10 +194,11 @@ window.addEventListener('dictionary-updated', () => fetchEntries());
 
 ### Database Schema
 ```sql
--- listen_sessions table (migrations/012_listen_sessions.sql)
+-- listen_sessions table
 CREATE TABLE listen_sessions (
   id UUID PRIMARY KEY,
   user_id UUID REFERENCES profiles(id),
+  language_code VARCHAR(5) NOT NULL,
   transcript JSONB,        -- Array of transcript entries
   context_label TEXT,      -- Optional session label
   created_at TIMESTAMPTZ,
@@ -185,8 +233,9 @@ STRIPE_PRICE_UNLIMITED_YEARLY=
 ## Stripe Payments Integration
 
 ### Subscription Plans
-- **Standard**: $19/month or $69/year
-- **Unlimited**: $39/month or $139/year (includes gift pass)
+- **Standard**: $19/month or $69/year (1 language)
+- **Unlimited**: $39/month or $139/year (1 language + gift pass)
+- **Multi-Language Add-on**: +$5/language/month
 
 ### Webhook Handler (`api/webhooks/stripe.ts`)
 Handles all subscription lifecycle events:
@@ -248,17 +297,22 @@ subscription_period VARCHAR(20)    -- 'monthly', 'yearly'
 subscription_started_at TIMESTAMPTZ
 subscription_ends_at TIMESTAMPTZ
 stripe_customer_id VARCHAR(100)    -- Critical for webhook lookups
+active_language VARCHAR(5)         -- Current learning language code
+languages TEXT[]                   -- All unlocked language codes
+native_language VARCHAR(5)         -- User's native language
 ```
 
 ## Key Types (types.ts)
 
 - `UserRole` - 'student' | 'tutor' (determines UI, available modes, game access)
 - `ChatMode` - 'ask' | 'learn' | 'coach' (tutors always use 'coach' with partner context)
-- `DictionaryEntry` - Full vocabulary with conjugations/examples
+- `TranslationDirection` - 'target_to_native' | 'native_to_target' (language-agnostic)
+- `DictionaryEntry` - Full vocabulary with language-specific grammar
 - `WordScore` - Mastery tracking (correct_streak, learned_at)
 - `LevelInfo` - 18 levels across 6 tiers
 - `TutorChallenge` - Quiz/QuickFire challenges created by tutors
 - `WordRequest` - Word Gift/Love Package from tutor to student
+- `LanguageConfig` - Language-specific grammar, TTS, diacritics configuration
 
 ## Tab Persistence Pattern
 
@@ -266,14 +320,17 @@ Main tabs (Chat, Log, Play, Progress) stay mounted for session lifetime via `Per
 
 ## AI Persona: "Cupid"
 
-- English-first explanations with Polish examples
-- Every Polish word must have English translation: `Cześć (Hello)`
-- Use **asterisks** for Polish words, [brackets] for pronunciation
+- English-first explanations with target language examples
+- Every target language word must have English translation: `Hola (Hello)`, `Bonjour (Hello)`
+- Use **asterisks** for target language words, [brackets] for pronunciation
+- Persona is consistent across all languages - only the language taught changes
 - See README.md for full system prompt blueprint
 
 ## Database (Supabase)
 
-Key tables: `profiles`, `chats`, `messages`, `dictionary`, `word_scores`, `level_tests`, `tutor_challenges`, `listen_sessions`
+Key tables: `profiles`, `chats`, `messages`, `dictionary`, `word_scores`, `level_tests`, `tutor_challenges`, `listen_sessions`, `user_languages`
+
+All user data tables include `language_code` column for multi-language support.
 
 Migrations in `/migrations/` - run manually in Supabase SQL editor.
 
@@ -291,19 +348,28 @@ Two validation modes controlled by `profile.smart_validation`:
 - **Smart validation (true)**: Uses `/api/validate-answer` with Gemini to accept synonyms, typos, diacritic variations
 - **Strict validation (false)**: Local comparison with diacritic normalization only
 
-All game components must implement both paths consistently. Always normalize diacritics in fallback:
+Language-specific diacritic handling:
 ```typescript
-function normalizeAnswer(s: string): string {
-  return s.toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+import { LANGUAGE_CONFIGS } from '../constants/language-config';
+
+function normalizeAnswer(s: string, languageCode: string): string {
+  // Base normalization
+  let normalized = s.toLowerCase().trim();
+
+  // Remove diacritics for comparison
+  normalized = normalized.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  return normalized;
 }
 ```
 
+All game components must implement both paths consistently using the user's `active_language`.
+
 ## Documentation
 
+- `MULTILANGUAGE_TRANSFORMATION.md` - Multi-language architecture (source of truth)
 - `README.md` - AI persona and feature overview
 - `ROADMAP.md` - Product phases and progress tracking
-- `PHASE_8_PLAN.md` - Codebase cleanup plan (13/16 complete)
-- `FINAL_PHASES.md` - Deployment phases 8-14 (payments, security, legal)
 - `TROUBLESHOOTING.md` - 36+ solved issues with detailed solutions (check here first for common errors)
 - `docs/AI_INTEGRATION_GUIDE.md` - Gemini API implementation
 - `docs/FORMATTING.md` - Markdown rendering pipeline
@@ -313,9 +379,9 @@ function normalizeAnswer(s: string): string {
 ## Conversation Practice (BETA)
 
 8 curated scenarios in `constants/conversation-scenarios.ts`:
-- ☕ Café, 🍽️ Restaurant, 🍎 Market, 🚕 Taxi, 💊 Pharmacy, 🏨 Hotel, 👨‍👩‍👧 Family Dinner, 🚂 Train Station
+- Cafe, Restaurant, Market, Taxi, Pharmacy, Hotel, Family Dinner, Train Station
 
-System prompts are scenario-specific, defined in `api/live-token.ts` via `buildConversationSystemInstruction()`.
+Scenarios are universal with cultural adaptations per language. System prompts are scenario-specific, defined in `api/live-token.ts` via `buildConversationSystemInstruction()`.
 
 ## Theming Pattern
 
@@ -336,7 +402,7 @@ Use CSS variables for colors that need to work in both light/dark modes:
 5 game modes in `FlashcardGame.tsx`:
 1. **Flashcard** - Simple flip cards, tap to reveal translation
 2. **Multiple Choice** - 4 options, pick the correct translation
-3. **Type It** - Type the translation, validated with diacritic normalization
+3. **Type It** - Type the translation, validated with language-aware diacritic normalization
 4. **AI Challenge** - Streak-based mastery system (5 correct = learned), multiple sub-modes
 5. **Conversation Practice** - Voice conversations with AI personas in curated scenarios (BETA)
 
@@ -347,6 +413,7 @@ Streak-based mastery tracked in `word_scores` table:
 - Word is "learned" when `correct_streak >= 5` (sets `learned_at` timestamp)
 - Once learned, status persists (no decay)
 - Mastery badges shown in Love Log: green checkmark = learned, amber = in progress
+- Progress is tracked per language
 
 ## API Cost Optimization Patterns
 
@@ -430,6 +497,7 @@ const prompt = vocab.slice(0, 30).join(', ');
 // GOOD: Fetch only what you need
 const { data: vocab } = await supabase.from('dictionary')
   .select('word, translation')
+  .eq('language_code', activeLanguage)
   .limit(30);
 ```
 
@@ -450,30 +518,30 @@ Tutors can create three types of challenges for their partner:
 2. **Quick Fire** - `CreateQuickFireChallenge.tsx` - Timed vocabulary challenge
 3. **Gift Words (Love Package)** - `WordRequestCreator.tsx` - Send new words for partner to learn
 
-### Unified Word Entry UX (Phase 8.10)
-All three challenge creators share the same Polish-first word entry flow:
-1. Enter Polish word/phrase in text input
-2. Click "✨ Generate" button to get AI translation
-3. AI returns: corrected Polish, English translation, pronunciation, word type
+### Unified Word Entry UX
+All three challenge creators share the same target-language-first word entry flow:
+1. Enter word/phrase in target language in text input
+2. Click "Generate" button to get AI translation
+3. AI returns: corrected word, English translation, pronunciation, word type
 4. User can edit the translation if needed
 5. Click "Add" to add word to challenge/package
 6. Words appear in list below with remove option
 
 **Key files:**
-- `api/validate-word.ts` - AI validation endpoint (Polish-only or Polish+English)
+- `api/validate-word.ts` - AI validation endpoint (target language only or with English)
 - `components/CreateQuizChallenge.tsx`
 - `components/CreateQuickFireChallenge.tsx`
 - `components/WordRequestCreator.tsx`
 
 ### API Pattern for Word Validation
 ```typescript
-// Polish-only (generate mode)
+// Target language only (generate mode)
 POST /api/validate-word
-{ polish: "cześć" }
-// Returns: { word: "cześć", translation: "hi / hello / bye", pronunciation: "cheshch", ... }
+{ word: "hola", languageCode: "es" }
+// Returns: { word: "hola", translation: "hello", pronunciation: "oh-lah", ... }
 
-// Polish + English (validate mode)
+// With English (validate mode)
 POST /api/validate-word
-{ polish: "cześć", english: "hello" }
+{ word: "hola", english: "hello", languageCode: "es" }
 // Returns: validated/corrected versions
 ```
