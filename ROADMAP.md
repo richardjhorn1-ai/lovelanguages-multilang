@@ -147,8 +147,8 @@ Manual testing of user journeys across all languages.
 - **Milestone celebrations** - "They learned 100 words!" notifications
 - **Achievement badges** - Gamification rewards
 - **Surprise suggestions** - Contextual romantic phrase recommendations
-- **Language pairs beyond English** - e.g., Spanish -> French
 - **RTL language support** - Arabic, Hebrew
+- **Asian languages** - Japanese, Korean, Mandarin (different grammar systems)
 
 ---
 

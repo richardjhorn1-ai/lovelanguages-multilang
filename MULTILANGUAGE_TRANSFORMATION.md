@@ -496,7 +496,7 @@ export const SCENARIOS: ScenarioConfig[] = [
 
 ## API Endpoint Changes
 
-### Pattern: Language from Request or User Profile
+### Pattern: Both Native and Target Language from Request
 
 ```typescript
 // api/chat.ts - Example pattern
@@ -505,36 +505,45 @@ import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { buildCupidSystemPrompt } from '../utils/prompt-templates';
 
 export default async function handler(req, res) {
-  // Get language from request body or default from profile
-  const languageCode = req.body.languageCode || 'pl';
-  const lang = LANGUAGE_CONFIGS[languageCode];
+  // Get BOTH languages from request body or default from profile
+  const targetLanguage = req.body.targetLanguage || 'pl';
+  const nativeLanguage = req.body.nativeLanguage || 'en';
 
-  if (!lang) {
-    return res.status(400).json({ error: `Unsupported language: ${languageCode}` });
+  const target = LANGUAGE_CONFIGS[targetLanguage];
+  const native = LANGUAGE_CONFIGS[nativeLanguage];
+
+  if (!target) {
+    return res.status(400).json({ error: `Unsupported target language: ${targetLanguage}` });
+  }
+  if (!native) {
+    return res.status(400).json({ error: `Unsupported native language: ${nativeLanguage}` });
   }
 
-  const systemPrompt = buildCupidSystemPrompt(languageCode, req.body.mode);
+  // Prompt uses BOTH languages - AI explains in native, teaches target
+  const systemPrompt = buildCupidSystemPrompt(targetLanguage, nativeLanguage, req.body.mode);
 
   // ... rest of handler
 }
 ```
 
-### Endpoints Requiring Language Parameter
+### Endpoints Requiring Language Parameters
+
+All endpoints need BOTH `targetLanguage` and `nativeLanguage`:
 
 | Endpoint | Change Required |
 |----------|----------------|
-| `/api/chat` | Add `languageCode` param, use prompt templates |
+| `/api/chat` | Add both language params, use prompt templates |
 | `/api/chat-stream` | Same as above |
-| `/api/live-token` | Build language-specific voice instructions |
-| `/api/gladia-token` | Use language config for codes |
-| `/api/validate-word` | Use language-specific validation rules |
+| `/api/live-token` | Build language-specific voice instructions (both languages) |
+| `/api/gladia-token` | Use target for transcription, native for translation |
+| `/api/validate-word` | Validate target word, return native translation |
 | `/api/validate-answer` | Language-aware diacritic/synonym handling |
-| `/api/analyze-history` | Extract vocab for specified language |
-| `/api/polish-transcript` | Rename to `/api/process-transcript` |
-| `/api/generate-level-test` | Use language-specific examples |
-| `/api/tts` | Use language config for voice |
-| `/api/create-challenge` | Store language_code with challenge |
-| `/api/create-word-request` | Store language_code |
+| `/api/analyze-history` | Extract vocab with native translations |
+| `/api/polish-transcript` | Rename to `/api/process-transcript`, use both languages |
+| `/api/generate-level-test` | Use target language examples, native explanations |
+| `/api/tts` | Use target language config for voice |
+| `/api/create-challenge` | Store both language codes with challenge |
+| `/api/create-word-request` | Store both language codes |
 
 ---
 
@@ -638,7 +647,7 @@ CREATE TABLE user_languages (
 
 2. **Grammar Complexity** - Some languages (Japanese, Korean, Arabic) have very different grammar structures. Start with European languages that share similar patterns?
 
-3. **Right-to-Left Languages** - Arabic, Hebrew would need RTL UI support. Include in initial 15 or defer?
+3. **Right-to-Left Languages** - Arabic, Hebrew would need RTL UI support. Include in initial 18 or defer?
 
 4. **Character Sets** - Cyrillic (Russian, Ukrainian) and Greek need special keyboard input handling.
 

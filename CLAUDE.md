@@ -56,11 +56,11 @@ const systemPrompt = buildCupidSystemPrompt(targetLanguage, nativeLanguage, mode
 ```
 
 ### Prompt Templates (`utils/prompt-templates.ts`)
-AI prompts are language-agnostic templates:
+AI prompts are language-agnostic templates that accept BOTH native and target language:
 ```typescript
-buildCupidSystemPrompt(languageCode: string, mode: ChatMode): string
-buildValidationPrompt(languageCode: string): string
-buildVocabularyExtractionPrompt(languageCode: string): string
+buildCupidSystemPrompt(targetLanguage: string, nativeLanguage: string, mode: ChatMode): string
+buildValidationPrompt(targetLanguage: string, nativeLanguage: string): string
+buildVocabularyExtractionPrompt(targetLanguage: string, nativeLanguage: string): string
 ```
 
 ## Architecture
@@ -160,9 +160,9 @@ Browser → `/api/live-token` (gets ephemeral token) → Gemini Live WebSocket
 - System instructions are built from language-specific templates
 
 ### Listen Mode Architecture (Gladia)
-Browser → `/api/gladia-token` → Gladia WebSocket (Source Language → English transcription)
+Browser → `/api/gladia-token` → Gladia WebSocket (Target Language → Native Language transcription)
 - Passive transcription mode - AI listens but doesn't speak
-- Language codes from user's `active_language` profile setting
+- Language codes from user's `active_language` (target) and `native_language` profile settings
 - Translation arrives as separate WebSocket messages (merged in `gladia-session.ts`)
 - Speaker diarization NOT supported for live streaming API
 
@@ -532,26 +532,31 @@ Tutors can create three types of challenges for their partner:
 All three challenge creators share the same target-language-first word entry flow:
 1. Enter word/phrase in target language in text input
 2. Click "Generate" button to get AI translation
-3. AI returns: corrected word, English translation, pronunciation, word type
+3. AI returns: corrected word, native language translation, pronunciation, word type
 4. User can edit the translation if needed
 5. Click "Add" to add word to challenge/package
 6. Words appear in list below with remove option
 
 **Key files:**
-- `api/validate-word.ts` - AI validation endpoint (target language only or with English)
+- `api/validate-word.ts` - AI validation endpoint (target language + native language)
 - `components/CreateQuizChallenge.tsx`
 - `components/CreateQuickFireChallenge.tsx`
 - `components/WordRequestCreator.tsx`
 
 ### API Pattern for Word Validation
 ```typescript
-// Target language only (generate mode)
+// Target language only (generate mode) - returns translation in user's native language
 POST /api/validate-word
-{ word: "hola", languageCode: "es" }
+{ word: "hola", targetLanguage: "es", nativeLanguage: "en" }
 // Returns: { word: "hola", translation: "hello", pronunciation: "oh-lah", ... }
 
-// With English (validate mode)
+// Spanish speaker learning Polish:
 POST /api/validate-word
-{ word: "hola", english: "hello", languageCode: "es" }
+{ word: "cześć", targetLanguage: "pl", nativeLanguage: "es" }
+// Returns: { word: "cześć", translation: "hola", pronunciation: "cheshch", ... }
+
+// With provided translation (validate mode)
+POST /api/validate-word
+{ word: "hola", translation: "hello", targetLanguage: "es", nativeLanguage: "en" }
 // Returns: validated/corrected versions
 ```
