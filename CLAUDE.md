@@ -6,7 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Love Languages: Multi-Language Learning for Couples - A language learning app built with React, Supabase, and Google Gemini. Helps couples learn each other's languages through AI coaching, vocabulary tracking, and gamified learning.
 
-**Supported Languages:** 15+ languages including Spanish, French, Italian, Portuguese, Romanian, German, Dutch, Swedish, Norwegian, Danish, Polish, Czech, Russian, Ukrainian, Greek, Hungarian, Turkish.
+**18 Supported Languages:** English, Spanish, French, Italian, Portuguese, Romanian, German, Dutch, Swedish, Norwegian, Danish, Polish, Czech, Russian, Ukrainian, Greek, Hungarian, Turkish.
+
+Any language can be your **native** language (AI explains in this) or **target** language (what you're learning).
 
 **Key Architecture Document:** `MULTILANGUAGE_TRANSFORMATION.md` - The central source of truth for multi-language architecture.
 
@@ -30,21 +32,27 @@ Each supported language has a configuration defining:
 - Transcription/voice mode support
 
 ### Database Model
-- `profiles.active_language` - User's current learning language
-- `profiles.languages` - Array of unlocked language codes
-- `profiles.native_language` - User's native language (usually 'en')
-- All data tables (`dictionary`, `word_scores`, `chats`, etc.) have `language_code` column
+- `profiles.native_language` - User's mother tongue (AI explains in this language)
+- `profiles.active_language` - User's current target/learning language
+- `profiles.languages` - Array of unlocked target language codes
+- All data tables (`dictionary`, `word_scores`, `chats`, etc.) have `language_code` column for target language
 
 ### API Pattern
-All API endpoints accept `languageCode` parameter:
+All API endpoints accept language parameters:
 ```typescript
-// Request
+// Request - includes both native and target language
 POST /api/chat
-{ languageCode: 'es', mode: 'learn', message: '...' }
+{
+  targetLanguage: 'pl',    // Learning Polish
+  nativeLanguage: 'es',    // Spanish speaker
+  mode: 'learn',
+  message: '...'
+}
 
-// The endpoint uses language config for prompts, validation rules, etc.
-const lang = LANGUAGE_CONFIGS[languageCode];
-const systemPrompt = buildCupidSystemPrompt(languageCode, mode);
+// The endpoint uses language configs for prompts, validation rules, etc.
+const target = LANGUAGE_CONFIGS[targetLanguage];
+const native = LANGUAGE_CONFIGS[nativeLanguage];
+const systemPrompt = buildCupidSystemPrompt(targetLanguage, nativeLanguage, mode);
 ```
 
 ### Prompt Templates (`utils/prompt-templates.ts`)
@@ -320,10 +328,12 @@ Main tabs (Chat, Log, Play, Progress) stay mounted for session lifetime via `Per
 
 ## AI Persona: "Cupid"
 
-- English-first explanations with target language examples
-- Every target language word must have English translation: `Hola (Hello)`, `Bonjour (Hello)`
+- **Native language first** - AI explains in the user's native language (not always English!)
+- Every target language word must have native language translation:
+  - English speaker learning Polish: `Cześć (Hello)`
+  - Spanish speaker learning Polish: `Cześć (Hola)`
 - Use **asterisks** for target language words, [brackets] for pronunciation
-- Persona is consistent across all languages - only the language taught changes
+- Persona is consistent across all languages - only the languages change
 - See README.md for full system prompt blueprint
 
 ## Database (Supabase)
