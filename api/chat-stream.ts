@@ -1,9 +1,22 @@
 import { GoogleGenAI } from "@google/genai";
-import { setStreamingCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
-import { extractLanguages, type LanguageParams } from '../utils/language-helpers.js';
-import { buildCupidSystemPrompt, getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
+import {
+  setStreamingCorsHeaders,
+  verifyAuth,
+  createServiceClient,
+  requireSubscription,
+  checkRateLimit,
+  incrementUsage,
+  RATE_LIMITS
+} from '../utils/api-middleware.js';
+import { extractLanguages } from '../utils/language-helpers.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
-import { buildVocabularySchema } from '../utils/schema-builders.js';
+
+// Input validation limits (match chat.ts exactly)
+const MAX_PROMPT_LENGTH = 10000;
+const MAX_MESSAGES = 50;
+const MAX_MESSAGE_LENGTH = 5000;
+const MAX_USERLOG_ITEMS = 50;
+const MAX_USERLOG_ITEM_LENGTH = 200;
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {
@@ -135,6 +148,32 @@ export default async function handler(req: any, res: any) {
     return res.end();
   }
 
+  // Create Supabase client for subscription/rate-limit checks
+  const supabase = createServiceClient();
+  if (!supabase) {
+    res.write(`data: ${JSON.stringify({ error: 'Server configuration error' })}\n\n`);
+    return res.end();
+  }
+
+  // Block free users - subscription required
+  const sub = await requireSubscription(supabase, auth.userId);
+  if (!sub.allowed) {
+    res.write(`data: ${JSON.stringify({ error: sub.error })}\n\n`);
+    return res.end();
+  }
+
+  // Check rate limit (sub.plan guaranteed 'standard' | 'unlimited' after requireSubscription)
+  const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as 'standard' | 'unlimited', { failClosed: true });
+  if (!limit.allowed) {
+    res.write(`data: ${JSON.stringify({
+      error: limit.error,
+      remaining: limit.remaining,
+      limit: limit.limit,
+      resetAt: limit.resetAt
+    })}\n\n`);
+    return res.end();
+  }
+
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     res.write(`data: ${JSON.stringify({ error: 'API key missing' })}\n\n`);
@@ -152,28 +191,50 @@ export default async function handler(req: any, res: any) {
     // Extract language parameters (defaults to Polish/English for backward compatibility)
     const { targetLanguage, nativeLanguage } = extractLanguages(body);
 
+    // Validate prompt length
+    if (prompt && typeof prompt === 'string' && prompt.length > MAX_PROMPT_LENGTH) {
+      res.write(`data: ${JSON.stringify({ error: `Prompt too long. Maximum ${MAX_PROMPT_LENGTH} characters.` })}\n\n`);
+      return res.end();
+    }
+
     if (!prompt) {
       res.write(`data: ${JSON.stringify({ error: 'No prompt provided' })}\n\n`);
       return res.end();
     }
 
     const ai = new GoogleGenAI({ apiKey });
-    const systemInstruction = buildSystemInstruction(mode, userLog, targetLanguage, nativeLanguage);
+
+    // Sanitize userLog array
+    const sanitizedUserLog = Array.isArray(userLog)
+      ? userLog
+          .slice(0, MAX_USERLOG_ITEMS)
+          .map(item => typeof item === 'string' ? item.substring(0, MAX_USERLOG_ITEM_LENGTH) : '')
+          .filter(item => item.length > 0)
+      : [];
+
+    const systemInstruction = buildSystemInstruction(mode, sanitizedUserLog, targetLanguage, nativeLanguage);
 
     // Build multi-turn conversation contents
     const contents: any[] = [];
 
-    // Add conversation history (last 50 messages for context)
-    if (messages && Array.isArray(messages) && messages.length > 0) {
-      messages.slice(-50).forEach((msg: any) => {
-        if (msg.content) {
-          contents.push({
-            role: msg.role === 'model' ? 'model' : 'user',
-            parts: [{ text: msg.content }]
-          });
-        }
-      });
-    }
+    // Sanitize and add conversation history (limit count and message length)
+    const sanitizedMessages = Array.isArray(messages)
+      ? messages.slice(-MAX_MESSAGES).map((msg: any) => ({
+          ...msg,
+          content: typeof msg.content === 'string'
+            ? msg.content.substring(0, MAX_MESSAGE_LENGTH)
+            : ''
+        }))
+      : [];
+
+    sanitizedMessages.forEach((msg: any) => {
+      if (msg.content) {
+        contents.push({
+          role: msg.role === 'model' ? 'model' : 'user',
+          parts: [{ text: msg.content }]
+        });
+      }
+    });
 
     // Add current user message
     contents.push({ role: 'user', parts: [{ text: prompt }] });
@@ -221,6 +282,10 @@ export default async function handler(req: any, res: any) {
 
     // Send completion event with full sanitized text
     res.write(`data: ${JSON.stringify({ type: 'done', fullText: sanitizeOutput(fullText) })}\n\n`);
+
+    // Increment usage after successful response (non-blocking)
+    incrementUsage(supabase, auth.userId, RATE_LIMITS.chat.type);
+
     res.end();
 
   } catch (error: any) {

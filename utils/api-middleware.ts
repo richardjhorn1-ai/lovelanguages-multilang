@@ -420,7 +420,8 @@ export async function checkRateLimit(
   supabase: SupabaseClient,
   userId: string,
   limitKey: RateLimitKey,
-  plan: SubscriptionPlan
+  plan: SubscriptionPlan,
+  options?: { failClosed?: boolean }
 ): Promise<RateLimitResult> {
   const config = RATE_LIMITS[limitKey];
   const monthlyLimit = config.monthly[plan];
@@ -449,7 +450,13 @@ export async function checkRateLimit(
 
   if (error) {
     console.error('[api-middleware] Failed to check usage:', error.message);
-    // On error, allow the request (fail open for better UX)
+    // Fail-closed for expensive operations, fail-open for better UX on others
+    if (options?.failClosed) {
+      return {
+        allowed: false,
+        error: 'Unable to verify usage limits. Please try again.'
+      };
+    }
     return { allowed: true };
   }
 

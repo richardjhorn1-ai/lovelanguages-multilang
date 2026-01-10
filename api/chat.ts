@@ -199,7 +199,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Check rate limit for chat endpoint (sub.plan is guaranteed to be 'standard' or 'unlimited' after requireSubscription)
-    const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as 'standard' | 'unlimited');
+    const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as 'standard' | 'unlimited', { failClosed: true });
     if (!limit.allowed) {
       return res.status(429).json({
         error: limit.error,
