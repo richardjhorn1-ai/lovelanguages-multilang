@@ -861,6 +861,1255 @@ const verbWords: DictionaryWord[] = [
 ];
 
 // -----------------------------------------------------------------------------
+// NUMBERS
+// -----------------------------------------------------------------------------
+const numberWords: DictionaryWord[] = [
+  {
+    slug: "jeden",
+    polish: "jeden",
+    english: "one",
+    pronunciation: "YEH-den",
+    wordType: "noun",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jeden pocałunek.", english: "One kiss." },
+      { polish: "Mam jedną siostrę.", english: "I have one sister." },
+      { polish: "Jeszcze jeden raz.", english: "One more time." }
+    ],
+    relatedWords: ["dwa", "trzy", "pierwszy"],
+    tags: ["numbers", "essential"]
+  },
+  {
+    slug: "dwa",
+    polish: "dwa",
+    english: "two",
+    pronunciation: "dvah",
+    wordType: "noun",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Dwa bilety, proszę.", english: "Two tickets, please." },
+      { polish: "Mamy dwoje dzieci.", english: "We have two children." },
+      { polish: "Dwa lata razem!", english: "Two years together!" }
+    ],
+    relatedWords: ["jeden", "trzy", "drugi"],
+    tags: ["numbers", "essential"]
+  },
+  {
+    slug: "trzy",
+    polish: "trzy",
+    english: "three",
+    pronunciation: "tshi",
+    wordType: "noun",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Trzy słowa: kocham cię.", english: "Three words: I love you." },
+      { polish: "Za trzy dni.", english: "In three days." },
+      { polish: "O trzeciej.", english: "At three o'clock." }
+    ],
+    relatedWords: ["dwa", "cztery", "trzeci"],
+    tags: ["numbers", "essential"]
+  },
+  {
+    slug: "pięć",
+    polish: "pięć",
+    english: "five",
+    pronunciation: "pyench",
+    wordType: "noun",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Pięć minut.", english: "Five minutes." },
+      { polish: "Mam pięć lat.", english: "I'm five years old." },
+      { polish: "Piątka!", english: "High five!" }
+    ],
+    relatedWords: ["cztery", "sześć", "piąty"],
+    tags: ["numbers", "essential"]
+  },
+  {
+    slug: "dziesięć",
+    polish: "dziesięć",
+    english: "ten",
+    pronunciation: "JEH-shench",
+    wordType: "noun",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Dziesięć złotych.", english: "Ten zloty." },
+      { polish: "Za dziesięć minut.", english: "In ten minutes." },
+      { polish: "Dziesięć lat razem!", english: "Ten years together!" }
+    ],
+    relatedWords: ["pięć", "dwadzieścia", "dziesiąty"],
+    tags: ["numbers", "essential"]
+  },
+  {
+    slug: "sto",
+    polish: "sto",
+    english: "one hundred",
+    pronunciation: "stoh",
+    wordType: "noun",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Sto lat!", english: "Happy birthday! (lit. 100 years)" },
+      { polish: "Sto procent.", english: "One hundred percent." },
+      { polish: "Kocham cię na sto procent.", english: "I love you 100 percent." }
+    ],
+    relatedWords: ["dziesięć", "tysiąc"],
+    tags: ["numbers", "essential", "celebrations"],
+    culturalNote: "'Sto lat' is sung at birthdays and means 'may you live 100 years' - like 'Happy Birthday'!"
+  },
+];
+
+// -----------------------------------------------------------------------------
+// TIME & DAYS
+// -----------------------------------------------------------------------------
+const timeWords: DictionaryWord[] = [
+  {
+    slug: "dzisiaj",
+    polish: "dzisiaj",
+    english: "today",
+    pronunciation: "JEE-shay",
+    wordType: "adverb",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Co robimy dzisiaj?", english: "What are we doing today?" },
+      { polish: "Dzisiaj jest piękny dzień.", english: "Today is a beautiful day." },
+      { polish: "Kocham cię dzisiaj i zawsze.", english: "I love you today and always." }
+    ],
+    relatedWords: ["jutro", "wczoraj", "teraz"],
+    tags: ["time", "essential"]
+  },
+  {
+    slug: "jutro",
+    polish: "jutro",
+    english: "tomorrow",
+    pronunciation: "YOO-tro",
+    wordType: "adverb",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Do jutra!", english: "See you tomorrow!" },
+      { polish: "Jutro idziemy na randkę.", english: "Tomorrow we're going on a date." },
+      { polish: "Jutro będzie lepiej.", english: "Tomorrow will be better." }
+    ],
+    relatedWords: ["dzisiaj", "wczoraj", "pojutrze"],
+    tags: ["time", "essential"]
+  },
+  {
+    slug: "wczoraj",
+    polish: "wczoraj",
+    english: "yesterday",
+    pronunciation: "FCHO-ray",
+    wordType: "adverb",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Wczoraj było cudownie.", english: "Yesterday was wonderful." },
+      { polish: "Co robiłeś wczoraj?", english: "What did you do yesterday?" },
+      { polish: "Wczoraj się poznaliśmy.", english: "We met yesterday." }
+    ],
+    relatedWords: ["dzisiaj", "jutro", "przedwczoraj"],
+    tags: ["time", "essential"]
+  },
+  {
+    slug: "teraz",
+    polish: "teraz",
+    english: "now",
+    pronunciation: "TEH-raz",
+    wordType: "adverb",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Przytul mnie teraz.", english: "Hug me now." },
+      { polish: "Co robisz teraz?", english: "What are you doing now?" },
+      { polish: "Teraz albo nigdy!", english: "Now or never!" }
+    ],
+    relatedWords: ["dzisiaj", "później", "zaraz"],
+    tags: ["time", "essential"]
+  },
+  {
+    slug: "zawsze",
+    polish: "zawsze",
+    english: "always",
+    pronunciation: "ZAV-sheh",
+    wordType: "adverb",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Będę cię kochać zawsze.", english: "I will love you always." },
+      { polish: "Zawsze przy tobie.", english: "Always by your side." },
+      { polish: "Zawsze myślę o tobie.", english: "I always think about you." }
+    ],
+    relatedWords: ["nigdy", "często", "czasami"],
+    tags: ["time", "romance", "essential"]
+  },
+  {
+    slug: "nigdy",
+    polish: "nigdy",
+    english: "never",
+    pronunciation: "NEEG-di",
+    wordType: "adverb",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Nigdy cię nie zostawię.", english: "I will never leave you." },
+      { polish: "Nigdy nie mów nigdy.", english: "Never say never." },
+      { polish: "Nigdy się nie poddam.", english: "I will never give up." }
+    ],
+    relatedWords: ["zawsze", "czasami", "kiedyś"],
+    tags: ["time", "essential"]
+  },
+  {
+    slug: "poniedziałek",
+    polish: "poniedziałek",
+    english: "Monday",
+    pronunciation: "po-nyeh-JAH-wek",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "W poniedziałek idziemy do kina.", english: "On Monday we're going to the cinema." },
+      { polish: "Nie lubię poniedziałków.", english: "I don't like Mondays." },
+      { polish: "Do poniedziałku!", english: "See you Monday!" }
+    ],
+    relatedWords: ["wtorek", "weekend", "tydzień"],
+    tags: ["time", "days"]
+  },
+  {
+    slug: "weekend",
+    polish: "weekend",
+    english: "weekend",
+    pronunciation: "VEE-kend",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Co robimy w weekend?", english: "What are we doing this weekend?" },
+      { polish: "Miłego weekendu!", english: "Have a nice weekend!" },
+      { polish: "Weekend tylko dla nas.", english: "Weekend just for us." }
+    ],
+    relatedWords: ["sobota", "niedziela", "tydzień"],
+    tags: ["time", "essential"]
+  },
+];
+
+// -----------------------------------------------------------------------------
+// EMOTIONS & FEELINGS
+// -----------------------------------------------------------------------------
+const emotionWords: DictionaryWord[] = [
+  {
+    slug: "szczęśliwy",
+    polish: "szczęśliwy",
+    english: "happy",
+    pronunciation: "shchen-SHLEE-vi",
+    wordType: "adjective",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jestem taki szczęśliwy z tobą.", english: "I'm so happy with you." },
+      { polish: "Szczęśliwego Nowego Roku!", english: "Happy New Year!" },
+      { polish: "Przy tobie jestem szczęśliwa.", english: "I'm happy with you. (female)" }
+    ],
+    adjectiveForms: {
+      masculine: "szczęśliwy",
+      feminine: "szczęśliwa",
+      neuter: "szczęśliwe",
+      plural: "szczęśliwi"
+    },
+    relatedWords: ["radosny", "smutny", "zadowolony"],
+    tags: ["emotions", "essential", "adjective"]
+  },
+  {
+    slug: "smutny",
+    polish: "smutny",
+    english: "sad",
+    pronunciation: "SMOOT-ni",
+    wordType: "adjective",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Dlaczego jesteś smutna?", english: "Why are you sad? (to female)" },
+      { polish: "Nie bądź smutny.", english: "Don't be sad." },
+      { polish: "Smutne bez ciebie.", english: "It's sad without you." }
+    ],
+    adjectiveForms: {
+      masculine: "smutny",
+      feminine: "smutna",
+      neuter: "smutne",
+      plural: "smutni"
+    },
+    relatedWords: ["szczęśliwy", "płakać", "tęsknić"],
+    tags: ["emotions", "essential", "adjective"]
+  },
+  {
+    slug: "zmęczony",
+    polish: "zmęczony",
+    english: "tired",
+    pronunciation: "zmeh-CHO-ni",
+    wordType: "adjective",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jestem zmęczony.", english: "I'm tired." },
+      { polish: "Wyglądasz na zmęczoną.", english: "You look tired. (to female)" },
+      { polish: "Zmęczeni, ale szczęśliwi.", english: "Tired but happy." }
+    ],
+    adjectiveForms: {
+      masculine: "zmęczony",
+      feminine: "zmęczona",
+      neuter: "zmęczone",
+      plural: "zmęczeni"
+    },
+    relatedWords: ["śpiący", "odpoczywać", "spać"],
+    tags: ["emotions", "essential", "adjective"]
+  },
+  {
+    slug: "głodny",
+    polish: "głodny",
+    english: "hungry",
+    pronunciation: "GWOD-ni",
+    wordType: "adjective",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jestem głodny.", english: "I'm hungry." },
+      { polish: "Jesteś głodna?", english: "Are you hungry? (to female)" },
+      { polish: "Głodny jak wilk!", english: "Hungry as a wolf!" }
+    ],
+    adjectiveForms: {
+      masculine: "głodny",
+      feminine: "głodna",
+      neuter: "głodne",
+      plural: "głodni"
+    },
+    relatedWords: ["jeść", "jedzenie", "obiad"],
+    tags: ["emotions", "essential", "adjective", "food"]
+  },
+  {
+    slug: "zły",
+    polish: "zły",
+    english: "angry / bad",
+    pronunciation: "zwi",
+    wordType: "adjective",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Nie bądź zły.", english: "Don't be angry." },
+      { polish: "Przepraszam, jeśli jesteś zła.", english: "Sorry if you're angry. (to female)" },
+      { polish: "To był zły pomysł.", english: "That was a bad idea." }
+    ],
+    adjectiveForms: {
+      masculine: "zły",
+      feminine: "zła",
+      neuter: "złe",
+      plural: "źli"
+    },
+    relatedWords: ["dobry", "smutny", "przepraszam"],
+    tags: ["emotions", "essential", "adjective"]
+  },
+  {
+    slug: "podekscytowany",
+    polish: "podekscytowany",
+    english: "excited",
+    pronunciation: "po-dek-si-to-VA-ni",
+    wordType: "adjective",
+    difficulty: "intermediate",
+    examples: [
+      { polish: "Jestem podekscytowany naszą podróżą!", english: "I'm excited about our trip!" },
+      { polish: "Tak podekscytowana!", english: "So excited! (female)" },
+      { polish: "Podekscytowani ślubem.", english: "Excited about the wedding." }
+    ],
+    adjectiveForms: {
+      masculine: "podekscytowany",
+      feminine: "podekscytowana",
+      neuter: "podekscytowane",
+      plural: "podekscytowani"
+    },
+    relatedWords: ["szczęśliwy", "radosny", "cieszyć-się"],
+    tags: ["emotions", "adjective"]
+  },
+];
+
+// -----------------------------------------------------------------------------
+// TRAVEL & PLACES
+// -----------------------------------------------------------------------------
+const travelWords: DictionaryWord[] = [
+  {
+    slug: "podróż",
+    polish: "podróż",
+    english: "journey / trip",
+    pronunciation: "POD-roosh",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Nasza podróż do Polski.", english: "Our trip to Poland." },
+      { polish: "Szczęśliwej podróży!", english: "Have a good trip!" },
+      { polish: "Podróż poślubna.", english: "Honeymoon." }
+    ],
+    relatedWords: ["samolot", "pociąg", "wakacje"],
+    tags: ["travel", "essential", "noun"]
+  },
+  {
+    slug: "samolot",
+    polish: "samolot",
+    english: "airplane",
+    pronunciation: "sa-MO-lot",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Nasz samolot odlatuje o 10.", english: "Our plane departs at 10." },
+      { polish: "Pierwszy raz lecę samolotem.", english: "First time flying on a plane." },
+      { polish: "Samolot do Warszawy.", english: "Plane to Warsaw." }
+    ],
+    relatedWords: ["lotnisko", "lot", "podróż"],
+    tags: ["travel", "noun"]
+  },
+  {
+    slug: "pociąg",
+    polish: "pociąg",
+    english: "train",
+    pronunciation: "PO-chonk",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jedziemy pociągiem do Krakowa.", english: "We're taking the train to Krakow." },
+      { polish: "O której odjeżdża pociąg?", english: "What time does the train leave?" },
+      { polish: "Pociąg się spóźnia.", english: "The train is delayed." }
+    ],
+    relatedWords: ["dworzec", "bilet", "podróż"],
+    tags: ["travel", "noun"]
+  },
+  {
+    slug: "hotel",
+    polish: "hotel",
+    english: "hotel",
+    pronunciation: "HO-tel",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Zarezerwowałem hotel.", english: "I booked a hotel." },
+      { polish: "Nasz hotel jest blisko plaży.", english: "Our hotel is near the beach." },
+      { polish: "Hotel z widokiem na morze.", english: "Hotel with a sea view." }
+    ],
+    relatedWords: ["pokój", "rezerwacja", "nocleg"],
+    tags: ["travel", "noun"]
+  },
+  {
+    slug: "plaża",
+    polish: "plaża",
+    english: "beach",
+    pronunciation: "PLA-zha",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Idziemy na plażę?", english: "Shall we go to the beach?" },
+      { polish: "Romantyczny spacer po plaży.", english: "Romantic walk on the beach." },
+      { polish: "Plaża w Sopocie jest piękna.", english: "The beach in Sopot is beautiful." }
+    ],
+    relatedWords: ["morze", "słońce", "wakacje"],
+    tags: ["travel", "noun", "romance"]
+  },
+  {
+    slug: "miasto",
+    polish: "miasto",
+    english: "city / town",
+    pronunciation: "MYAS-to",
+    wordType: "noun",
+    gender: "neuter",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Warszawa to piękne miasto.", english: "Warsaw is a beautiful city." },
+      { polish: "Zwiedzamy stare miasto.", english: "We're visiting the old town." },
+      { polish: "W jakim mieście mieszkasz?", english: "What city do you live in?" }
+    ],
+    relatedWords: ["wieś", "centrum", "ulica"],
+    tags: ["travel", "places", "noun"]
+  },
+  {
+    slug: "restauracja",
+    polish: "restauracja",
+    english: "restaurant",
+    pronunciation: "res-tau-RATS-ya",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Zarezerwowałem stolik w restauracji.", english: "I booked a table at the restaurant." },
+      { polish: "Znam dobrą polską restaurację.", english: "I know a good Polish restaurant." },
+      { polish: "Kolacja w restauracji.", english: "Dinner at a restaurant." }
+    ],
+    relatedWords: ["jedzenie", "kelner", "menu"],
+    tags: ["travel", "food", "noun"]
+  },
+  {
+    slug: "Polska",
+    polish: "Polska",
+    english: "Poland",
+    pronunciation: "POL-ska",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jedziemy do Polski!", english: "We're going to Poland!" },
+      { polish: "Polska jest piękna.", english: "Poland is beautiful." },
+      { polish: "Mój partner jest z Polski.", english: "My partner is from Poland." }
+    ],
+    relatedWords: ["Warszawa", "Kraków", "polski"],
+    tags: ["travel", "places", "essential"],
+    culturalNote: "Poland offers incredible history, food, and hospitality. Must-visit cities include Warsaw, Krakow, and Gdańsk."
+  },
+  {
+    slug: "Warszawa",
+    polish: "Warszawa",
+    english: "Warsaw",
+    pronunciation: "var-SHA-va",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Mieszkam w Warszawie.", english: "I live in Warsaw." },
+      { polish: "Warszawa to stolica Polski.", english: "Warsaw is the capital of Poland." },
+      { polish: "Lecimy do Warszawy.", english: "We're flying to Warsaw." }
+    ],
+    relatedWords: ["Polska", "Kraków", "miasto"],
+    tags: ["travel", "places"]
+  },
+  {
+    slug: "Kraków",
+    polish: "Kraków",
+    english: "Krakow",
+    pronunciation: "KRA-koof",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Kraków jest bardzo romantyczny.", english: "Krakow is very romantic." },
+      { polish: "Stare miasto w Krakowie.", english: "The old town in Krakow." },
+      { polish: "Musimy odwiedzić Kraków!", english: "We have to visit Krakow!" }
+    ],
+    relatedWords: ["Polska", "Warszawa", "miasto"],
+    tags: ["travel", "places"],
+    culturalNote: "Krakow is Poland's most romantic city, with beautiful architecture, amazing food, and the famous Wawel Castle."
+  },
+];
+
+// -----------------------------------------------------------------------------
+// BODY PARTS (useful for compliments!)
+// -----------------------------------------------------------------------------
+const bodyWords: DictionaryWord[] = [
+  {
+    slug: "oczy",
+    polish: "oczy",
+    english: "eyes",
+    pronunciation: "O-chi",
+    wordType: "noun",
+    gender: "non-masculine-personal",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Masz piękne oczy.", english: "You have beautiful eyes." },
+      { polish: "Twoje oczy są jak gwiazdy.", english: "Your eyes are like stars." },
+      { polish: "Nie mogę oderwać od ciebie oczu.", english: "I can't take my eyes off you." }
+    ],
+    relatedWords: ["twarz", "piękny", "patrzeć"],
+    tags: ["body", "romance", "compliments", "noun"]
+  },
+  {
+    slug: "uśmiech",
+    polish: "uśmiech",
+    english: "smile",
+    pronunciation: "OO-shmyeh",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Kocham twój uśmiech.", english: "I love your smile." },
+      { polish: "Masz piękny uśmiech.", english: "You have a beautiful smile." },
+      { polish: "Uśmiechnij się do mnie.", english: "Smile at me." }
+    ],
+    relatedWords: ["usta", "śmiech", "szczęśliwy"],
+    tags: ["body", "romance", "compliments", "noun"]
+  },
+  {
+    slug: "włosy",
+    polish: "włosy",
+    english: "hair",
+    pronunciation: "VWO-si",
+    wordType: "noun",
+    gender: "non-masculine-personal",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Masz piękne włosy.", english: "You have beautiful hair." },
+      { polish: "Lubię twoje włosy.", english: "I like your hair." },
+      { polish: "Mogę dotknąć twoich włosów?", english: "Can I touch your hair?" }
+    ],
+    relatedWords: ["głowa", "twarz", "piękny"],
+    tags: ["body", "compliments", "noun"]
+  },
+  {
+    slug: "ręka",
+    polish: "ręka",
+    english: "hand / arm",
+    pronunciation: "REN-ka",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Trzymaj mnie za rękę.", english: "Hold my hand." },
+      { polish: "Chcę trzymać cię za rękę.", english: "I want to hold your hand." },
+      { polish: "Podaj mi rękę.", english: "Give me your hand." }
+    ],
+    relatedWords: ["dłoń", "palec", "trzymać"],
+    tags: ["body", "romance", "noun"]
+  },
+  {
+    slug: "usta",
+    polish: "usta",
+    english: "lips / mouth",
+    pronunciation: "OOS-ta",
+    wordType: "noun",
+    gender: "non-masculine-personal",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Masz piękne usta.", english: "You have beautiful lips." },
+      { polish: "Chcę całować twoje usta.", english: "I want to kiss your lips." },
+      { polish: "Uśmiech na ustach.", english: "A smile on your lips." }
+    ],
+    relatedWords: ["całować", "uśmiech", "twarz"],
+    tags: ["body", "romance", "noun"]
+  },
+];
+
+// -----------------------------------------------------------------------------
+// MORE ROMANCE & COMPLIMENTS
+// -----------------------------------------------------------------------------
+const moreRomanceWords: DictionaryWord[] = [
+  {
+    slug: "randka",
+    polish: "randka",
+    english: "date (romantic)",
+    pronunciation: "RAND-ka",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Chodźmy na randkę.", english: "Let's go on a date." },
+      { polish: "Nasza pierwsza randka.", english: "Our first date." },
+      { polish: "To była idealna randka.", english: "It was a perfect date." }
+    ],
+    relatedWords: ["kino", "restauracja", "miłość"],
+    tags: ["romance", "noun", "essential"]
+  },
+  {
+    slug: "związek",
+    polish: "związek",
+    english: "relationship",
+    pronunciation: "ZVYON-zek",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jesteśmy w związku.", english: "We're in a relationship." },
+      { polish: "Nasz związek jest silny.", english: "Our relationship is strong." },
+      { polish: "Poważny związek.", english: "Serious relationship." }
+    ],
+    relatedWords: ["miłość", "partner", "zakochany"],
+    tags: ["romance", "noun", "essential"]
+  },
+  {
+    slug: "narzeczony",
+    polish: "narzeczony",
+    english: "fiancé",
+    pronunciation: "na-zhe-CHO-ni",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "To jest mój narzeczony.", english: "This is my fiancé." },
+      { polish: "Zostań moim narzeczonym.", english: "Be my fiancé." },
+      { polish: "Mój narzeczony jest Polakiem.", english: "My fiancé is Polish." }
+    ],
+    relatedWords: ["narzeczona", "ślub", "zaręczyny"],
+    tags: ["romance", "wedding", "noun"]
+  },
+  {
+    slug: "narzeczona",
+    polish: "narzeczona",
+    english: "fiancée",
+    pronunciation: "na-zhe-CHO-na",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "To jest moja narzeczona.", english: "This is my fiancée." },
+      { polish: "Moja narzeczona jest Polką.", english: "My fiancée is Polish." },
+      { polish: "Kocham moją narzeczoną.", english: "I love my fiancée." }
+    ],
+    relatedWords: ["narzeczony", "ślub", "zaręczyny"],
+    tags: ["romance", "wedding", "noun"]
+  },
+  {
+    slug: "pierścionek",
+    polish: "pierścionek",
+    english: "ring",
+    pronunciation: "pyer-SHCHO-nek",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Pierścionek zaręczynowy.", english: "Engagement ring." },
+      { polish: "Podoba ci się pierścionek?", english: "Do you like the ring?" },
+      { polish: "Kupiłem pierścionek.", english: "I bought a ring." }
+    ],
+    relatedWords: ["zaręczyny", "ślub", "biżuteria"],
+    tags: ["romance", "wedding", "noun"]
+  },
+  {
+    slug: "oświadczyny",
+    polish: "oświadczyny",
+    english: "marriage proposal",
+    pronunciation: "o-shvyad-CHI-ni",
+    wordType: "noun",
+    gender: "non-masculine-personal",
+    difficulty: "intermediate",
+    examples: [
+      { polish: "Planuję oświadczyny.", english: "I'm planning a proposal." },
+      { polish: "Romantyczne oświadczyny.", english: "Romantic proposal." },
+      { polish: "Powiedziała tak na oświadczyny!", english: "She said yes to the proposal!" }
+    ],
+    relatedWords: ["pierścionek", "ślub", "zaręczyny"],
+    tags: ["romance", "wedding", "noun"],
+    culturalNote: "In Poland, proposals are often elaborate and romantic. Many happen at special locations or during family gatherings."
+  },
+  {
+    slug: "wesele",
+    polish: "wesele",
+    english: "wedding reception / wedding party",
+    pronunciation: "veh-SEH-leh",
+    wordType: "noun",
+    gender: "neuter",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Polskie wesele trwa dwa dni!", english: "Polish wedding reception lasts two days!" },
+      { polish: "Zapraszamy na wesele.", english: "We invite you to the wedding reception." },
+      { polish: "Tańczyliśmy całą noc na weselu.", english: "We danced all night at the wedding." }
+    ],
+    relatedWords: ["ślub", "taniec", "muzyka"],
+    tags: ["romance", "wedding", "noun", "culture"],
+    culturalNote: "Polish weddings (wesele) are legendary - they often last 2-3 days with lots of food, vodka, dancing, and traditional games!"
+  },
+  {
+    slug: "cudowny",
+    polish: "cudowny",
+    english: "wonderful / amazing",
+    pronunciation: "tsoo-DOV-ni",
+    wordType: "adjective",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jesteś cudowna.", english: "You are wonderful. (to female)" },
+      { polish: "To był cudowny wieczór.", english: "It was a wonderful evening." },
+      { polish: "Cudownie jest z tobą.", english: "It's wonderful to be with you." }
+    ],
+    adjectiveForms: {
+      masculine: "cudowny",
+      feminine: "cudowna",
+      neuter: "cudowne",
+      plural: "cudowni"
+    },
+    relatedWords: ["wspaniały", "piękny", "fantastyczny"],
+    tags: ["romance", "compliments", "adjective"]
+  },
+  {
+    slug: "wspaniały",
+    polish: "wspaniały",
+    english: "wonderful / magnificent",
+    pronunciation: "vspa-NIA-wi",
+    wordType: "adjective",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jesteś wspaniała.", english: "You are wonderful. (to female)" },
+      { polish: "Wspaniały pomysł!", english: "Wonderful idea!" },
+      { polish: "Masz wspaniałą rodzinę.", english: "You have a wonderful family." }
+    ],
+    adjectiveForms: {
+      masculine: "wspaniały",
+      feminine: "wspaniała",
+      neuter: "wspaniałe",
+      plural: "wspaniali"
+    },
+    relatedWords: ["cudowny", "piękny", "świetny"],
+    tags: ["romance", "compliments", "adjective"]
+  },
+  {
+    slug: "kwiaty",
+    polish: "kwiaty",
+    english: "flowers",
+    pronunciation: "KVYA-ti",
+    wordType: "noun",
+    gender: "non-masculine-personal",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Kupiłem ci kwiaty.", english: "I bought you flowers." },
+      { polish: "Piękne kwiaty!", english: "Beautiful flowers!" },
+      { polish: "Róże to romantyczne kwiaty.", english: "Roses are romantic flowers." }
+    ],
+    relatedWords: ["róża", "bukiet", "prezent"],
+    tags: ["romance", "noun", "gifts"],
+    culturalNote: "In Poland, always give an odd number of flowers (1, 3, 5, etc.) - even numbers are for funerals!"
+  },
+  {
+    slug: "prezent",
+    polish: "prezent",
+    english: "gift / present",
+    pronunciation: "PRE-zent",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Mam dla ciebie prezent.", english: "I have a gift for you." },
+      { polish: "Dziękuję za prezent!", english: "Thank you for the gift!" },
+      { polish: "Prezent na urodziny.", english: "Birthday present." }
+    ],
+    relatedWords: ["kwiaty", "niespodzianka", "urodziny"],
+    tags: ["romance", "noun", "gifts", "essential"]
+  },
+];
+
+// -----------------------------------------------------------------------------
+// MORE FAMILY
+// -----------------------------------------------------------------------------
+const moreFamilyWords: DictionaryWord[] = [
+  {
+    slug: "brat",
+    polish: "brat",
+    english: "brother",
+    pronunciation: "braht",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Mam starszego brata.", english: "I have an older brother." },
+      { polish: "Mój brat mieszka w Krakowie.", english: "My brother lives in Krakow." },
+      { polish: "To mój brat.", english: "This is my brother." }
+    ],
+    relatedWords: ["siostra", "rodzina", "rodzeństwo"],
+    tags: ["family", "noun", "essential"]
+  },
+  {
+    slug: "siostra",
+    polish: "siostra",
+    english: "sister",
+    pronunciation: "SHOS-tra",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Mam młodszą siostrę.", english: "I have a younger sister." },
+      { polish: "Moja siostra jest podobna do mamy.", english: "My sister is similar to mom." },
+      { polish: "Kocham moją siostrę.", english: "I love my sister." }
+    ],
+    relatedWords: ["brat", "rodzina", "rodzeństwo"],
+    tags: ["family", "noun", "essential"]
+  },
+  {
+    slug: "babcia",
+    polish: "babcia",
+    english: "grandmother / grandma",
+    pronunciation: "BAB-cha",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Babcia robi najlepsze pierogi.", english: "Grandma makes the best pierogi." },
+      { polish: "Odwiedzamy babcię w niedzielę.", english: "We're visiting grandma on Sunday." },
+      { polish: "Kocham babcię.", english: "I love grandma." }
+    ],
+    relatedWords: ["dziadek", "rodzina", "wnuk"],
+    tags: ["family", "noun", "essential"],
+    culturalNote: "Polish grandmothers (babcie) are famous for their cooking and hospitality. Expect to be fed constantly!"
+  },
+  {
+    slug: "dziadek",
+    polish: "dziadek",
+    english: "grandfather / grandpa",
+    pronunciation: "JA-dek",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Dziadek opowiada historie.", english: "Grandpa tells stories." },
+      { polish: "Mój dziadek jest z Polski.", english: "My grandfather is from Poland." },
+      { polish: "Dziadek i babcia.", english: "Grandpa and grandma." }
+    ],
+    relatedWords: ["babcia", "rodzina", "wnuk"],
+    tags: ["family", "noun", "essential"]
+  },
+  {
+    slug: "dziecko",
+    polish: "dziecko",
+    english: "child",
+    pronunciation: "JETS-ko",
+    wordType: "noun",
+    gender: "neuter",
+    plural: "dzieci",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Mamy dwoje dzieci.", english: "We have two children." },
+      { polish: "Chcemy mieć dzieci.", english: "We want to have children." },
+      { polish: "Nasze dziecko.", english: "Our child." }
+    ],
+    relatedWords: ["syn", "córka", "rodzina"],
+    tags: ["family", "noun", "essential"]
+  },
+  {
+    slug: "syn",
+    polish: "syn",
+    english: "son",
+    pronunciation: "sin",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Mam syna.", english: "I have a son." },
+      { polish: "Nasz syn ma trzy lata.", english: "Our son is three years old." },
+      { polish: "Syn i córka.", english: "Son and daughter." }
+    ],
+    relatedWords: ["córka", "dziecko", "rodzina"],
+    tags: ["family", "noun"]
+  },
+  {
+    slug: "córka",
+    polish: "córka",
+    english: "daughter",
+    pronunciation: "TSOOR-ka",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Mam córkę.", english: "I have a daughter." },
+      { polish: "Nasza córka jest piękna.", english: "Our daughter is beautiful." },
+      { polish: "Córka mojego brata.", english: "My brother's daughter." }
+    ],
+    relatedWords: ["syn", "dziecko", "rodzina"],
+    tags: ["family", "noun"]
+  },
+];
+
+// -----------------------------------------------------------------------------
+// MORE FOOD
+// -----------------------------------------------------------------------------
+const moreFoodWords: DictionaryWord[] = [
+  {
+    slug: "kawa",
+    polish: "kawa",
+    english: "coffee",
+    pronunciation: "KA-va",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Piję kawę rano.", english: "I drink coffee in the morning." },
+      { polish: "Dwie kawy, proszę.", english: "Two coffees, please." },
+      { polish: "Chodźmy na kawę.", english: "Let's go for coffee." }
+    ],
+    relatedWords: ["herbata", "mleko", "cukier"],
+    tags: ["food", "drinks", "essential", "noun"]
+  },
+  {
+    slug: "herbata",
+    polish: "herbata",
+    english: "tea",
+    pronunciation: "her-BA-ta",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Herbatę z cytryną, proszę.", english: "Tea with lemon, please." },
+      { polish: "Pijesz herbatę?", english: "Do you drink tea?" },
+      { polish: "Herbata z miodem.", english: "Tea with honey." }
+    ],
+    relatedWords: ["kawa", "woda", "pić"],
+    tags: ["food", "drinks", "noun"]
+  },
+  {
+    slug: "piwo",
+    polish: "piwo",
+    english: "beer",
+    pronunciation: "PEE-vo",
+    wordType: "noun",
+    gender: "neuter",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Jedno piwo, proszę.", english: "One beer, please." },
+      { polish: "Polskie piwo jest dobre.", english: "Polish beer is good." },
+      { polish: "Piwo czy wino?", english: "Beer or wine?" }
+    ],
+    relatedWords: ["wino", "wódka", "pić"],
+    tags: ["food", "drinks", "noun"]
+  },
+  {
+    slug: "chleb",
+    polish: "chleb",
+    english: "bread",
+    pronunciation: "hlep",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Świeży chleb.", english: "Fresh bread." },
+      { polish: "Chleb z masłem.", english: "Bread with butter." },
+      { polish: "Kup chleb, proszę.", english: "Buy bread, please." }
+    ],
+    relatedWords: ["masło", "śniadanie", "piekarnia"],
+    tags: ["food", "essential", "noun"]
+  },
+  {
+    slug: "obiad",
+    polish: "obiad",
+    english: "lunch / dinner (main meal)",
+    pronunciation: "O-byad",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Co na obiad?", english: "What's for lunch/dinner?" },
+      { polish: "Obiad jest gotowy!", english: "Dinner is ready!" },
+      { polish: "Zjemy razem obiad.", english: "Let's eat dinner together." }
+    ],
+    relatedWords: ["śniadanie", "kolacja", "jeść"],
+    tags: ["food", "essential", "noun"],
+    culturalNote: "In Poland, 'obiad' is the main meal of the day, traditionally eaten in the early afternoon (2-4 PM)."
+  },
+  {
+    slug: "śniadanie",
+    polish: "śniadanie",
+    english: "breakfast",
+    pronunciation: "shnya-DA-nyeh",
+    wordType: "noun",
+    gender: "neuter",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Śniadanie w łóżku.", english: "Breakfast in bed." },
+      { polish: "Co jesz na śniadanie?", english: "What do you eat for breakfast?" },
+      { polish: "Zrobiłem ci śniadanie.", english: "I made you breakfast." }
+    ],
+    relatedWords: ["obiad", "kolacja", "jeść"],
+    tags: ["food", "essential", "noun", "romance"]
+  },
+  {
+    slug: "kolacja",
+    polish: "kolacja",
+    english: "supper / dinner (evening meal)",
+    pronunciation: "ko-LATS-ya",
+    wordType: "noun",
+    gender: "feminine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Romantyczna kolacja.", english: "Romantic dinner." },
+      { polish: "Kolacja przy świecach.", english: "Candlelit dinner." },
+      { polish: "Zapraszam cię na kolację.", english: "I invite you to dinner." }
+    ],
+    relatedWords: ["obiad", "śniadanie", "restauracja"],
+    tags: ["food", "essential", "noun", "romance"]
+  },
+  {
+    slug: "bigos",
+    polish: "bigos",
+    english: "hunter's stew",
+    pronunciation: "BEE-gos",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Bigos to tradycyjne polskie danie.", english: "Bigos is a traditional Polish dish." },
+      { polish: "Babcia robi najlepszy bigos.", english: "Grandma makes the best bigos." },
+      { polish: "Bigos smakuje lepiej następnego dnia.", english: "Bigos tastes better the next day." }
+    ],
+    relatedWords: ["pierogi", "żurek", "kuchnia-polska"],
+    tags: ["food", "polish-cuisine", "noun"],
+    culturalNote: "Bigos is called 'hunter's stew' - a hearty dish of sauerkraut, various meats, and sausage. It gets better each time it's reheated!"
+  },
+  {
+    slug: "żurek",
+    polish: "żurek",
+    english: "sour rye soup",
+    pronunciation: "ZHOO-rek",
+    wordType: "noun",
+    gender: "masculine",
+    difficulty: "intermediate",
+    examples: [
+      { polish: "Żurek z jajkiem i kiełbasą.", english: "Sour rye soup with egg and sausage." },
+      { polish: "Na Wielkanoc jemy żurek.", english: "We eat żurek at Easter." },
+      { polish: "Spróbuj żurek - to jest pyszne!", english: "Try żurek - it's delicious!" }
+    ],
+    relatedWords: ["zupa", "pierogi", "bigos"],
+    tags: ["food", "polish-cuisine", "noun"],
+    culturalNote: "Żurek is a sour soup made from fermented rye flour - a traditional Polish Easter dish often served in a bread bowl!"
+  },
+];
+
+// -----------------------------------------------------------------------------
+// COMMON USEFUL PHRASES
+// -----------------------------------------------------------------------------
+const phraseWords: DictionaryWord[] = [
+  {
+    slug: "jak-się-masz",
+    polish: "jak się masz?",
+    english: "how are you?",
+    pronunciation: "yak sheh mash",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Cześć! Jak się masz?", english: "Hi! How are you?" },
+      { polish: "Jak się masz, kochanie?", english: "How are you, darling?" },
+      { polish: "Jak się macie?", english: "How are you? (plural/formal)" }
+    ],
+    relatedWords: ["cześć", "dobrze", "dziękuję"],
+    tags: ["phrases", "greetings", "essential"]
+  },
+  {
+    slug: "dobrze",
+    polish: "dobrze",
+    english: "good / well / okay",
+    pronunciation: "DOB-zheh",
+    wordType: "adverb",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Wszystko dobrze.", english: "Everything's fine." },
+      { polish: "Dobrze, zgadzam się.", english: "Okay, I agree." },
+      { polish: "Mam się dobrze.", english: "I'm doing well." }
+    ],
+    relatedWords: ["źle", "świetnie", "super"],
+    tags: ["essential", "adverb"]
+  },
+  {
+    slug: "nie-ma-za-co",
+    polish: "nie ma za co",
+    english: "you're welcome / don't mention it",
+    pronunciation: "nyeh ma za tso",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Dziękuję! - Nie ma za co.", english: "Thank you! - You're welcome." },
+      { polish: "Nie ma za co, kochanie.", english: "You're welcome, darling." }
+    ],
+    relatedWords: ["dziękuję", "proszę"],
+    tags: ["phrases", "polite", "essential"]
+  },
+  {
+    slug: "na-zdrowie",
+    polish: "na zdrowie",
+    english: "cheers / bless you",
+    pronunciation: "na ZDRO-vyeh",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Na zdrowie! (raising glass)", english: "Cheers!" },
+      { polish: "Na zdrowie! (after sneeze)", english: "Bless you!" },
+      { polish: "Na nasze zdrowie!", english: "To our health!" }
+    ],
+    relatedWords: ["wino", "piwo", "toast"],
+    tags: ["phrases", "essential", "celebrations"],
+    culturalNote: "In Poland, 'na zdrowie' is used both when toasting (like 'cheers!') and when someone sneezes (like 'bless you!')."
+  },
+  {
+    slug: "kocham-cię",
+    polish: "kocham cię",
+    english: "I love you",
+    pronunciation: "KO-ham cheh",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Kocham cię najbardziej.", english: "I love you the most." },
+      { polish: "Kocham cię na zawsze.", english: "I love you forever." },
+      { polish: "Też cię kocham.", english: "I love you too." }
+    ],
+    relatedWords: ["miłość", "kochanie", "serce"],
+    tags: ["phrases", "romance", "essential"],
+    culturalNote: "In Polish, 'kocham cię' is reserved for deep, romantic love - not said casually like in some cultures."
+  },
+  {
+    slug: "tęsknię-za-tobą",
+    polish: "tęsknię za tobą",
+    english: "I miss you",
+    pronunciation: "TENSK-nyeh za TO-bom",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Bardzo tęsknię za tobą.", english: "I miss you very much." },
+      { polish: "Tęsknię za tobą każdego dnia.", english: "I miss you every day." },
+      { polish: "Też za tobą tęsknię.", english: "I miss you too." }
+    ],
+    relatedWords: ["tęsknię", "kocham-cię", "miłość"],
+    tags: ["phrases", "romance", "essential", "long-distance"]
+  },
+  {
+    slug: "wszystkiego-najlepszego",
+    polish: "wszystkiego najlepszego",
+    english: "all the best / happy birthday",
+    pronunciation: "fshist-KYE-go nay-LEP-sheh-go",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Wszystkiego najlepszego z okazji urodzin!", english: "Happy birthday!" },
+      { polish: "Wszystkiego najlepszego!", english: "All the best!" },
+      { polish: "Wszystkiego najlepszego z okazji imienin!", english: "Happy name day!" }
+    ],
+    relatedWords: ["urodziny", "imieniny", "sto-lat"],
+    tags: ["phrases", "celebrations", "essential"]
+  },
+  {
+    slug: "miłego-dnia",
+    polish: "miłego dnia",
+    english: "have a nice day",
+    pronunciation: "MEE-weh-go DNYA",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Miłego dnia, kochanie!", english: "Have a nice day, darling!" },
+      { polish: "Do zobaczenia! Miłego dnia!", english: "See you! Have a nice day!" }
+    ],
+    relatedWords: ["dzień-dobry", "do-widzenia"],
+    tags: ["phrases", "greetings", "essential"]
+  },
+  {
+    slug: "do-zobaczenia",
+    polish: "do zobaczenia",
+    english: "see you / goodbye",
+    pronunciation: "do zo-ba-CHE-nya",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Do zobaczenia jutro!", english: "See you tomorrow!" },
+      { polish: "Do zobaczenia wkrótce.", english: "See you soon." },
+      { polish: "Pa! Do zobaczenia!", english: "Bye! See you!" }
+    ],
+    relatedWords: ["cześć", "pa", "do-widzenia"],
+    tags: ["phrases", "greetings", "essential"]
+  },
+  {
+    slug: "gdzie-jest",
+    polish: "gdzie jest...?",
+    english: "where is...?",
+    pronunciation: "g-JEH yest",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Gdzie jest toaleta?", english: "Where is the bathroom?" },
+      { polish: "Gdzie jest dworzec?", english: "Where is the train station?" },
+      { polish: "Gdzie jest moja kawa?", english: "Where is my coffee?" }
+    ],
+    relatedWords: ["tutaj", "tam", "blisko"],
+    tags: ["phrases", "travel", "essential"]
+  },
+  {
+    slug: "ile-to-kosztuje",
+    polish: "ile to kosztuje?",
+    english: "how much does it cost?",
+    pronunciation: "EE-leh to kosh-TOO-yeh",
+    wordType: "phrase",
+    difficulty: "beginner",
+    examples: [
+      { polish: "Przepraszam, ile to kosztuje?", english: "Excuse me, how much does this cost?" },
+      { polish: "Ile kosztują te kwiaty?", english: "How much do these flowers cost?" }
+    ],
+    relatedWords: ["pieniądze", "złoty", "drogi"],
+    tags: ["phrases", "shopping", "travel", "essential"]
+  },
+];
+
+// -----------------------------------------------------------------------------
 // COMBINE ALL WORDS
 // -----------------------------------------------------------------------------
 export const polishDictionary: DictionaryWord[] = [
@@ -869,6 +2118,15 @@ export const polishDictionary: DictionaryWord[] = [
   ...familyWords,
   ...foodWords,
   ...verbWords,
+  ...numberWords,
+  ...timeWords,
+  ...emotionWords,
+  ...travelWords,
+  ...bodyWords,
+  ...moreRomanceWords,
+  ...moreFamilyWords,
+  ...moreFoodWords,
+  ...phraseWords,
 ];
 
 // Helper function to get word by slug
