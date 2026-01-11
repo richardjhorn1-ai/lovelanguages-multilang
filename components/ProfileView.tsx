@@ -609,7 +609,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
             <div className="space-y-2">
               <a
-                href="/#/learn"
+                href="/learn"
                 className="flex items-center gap-3 p-4 rounded-xl border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all group"
               >
                 <span className="text-xl">📖</span>
