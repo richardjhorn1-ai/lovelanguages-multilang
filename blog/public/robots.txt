@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Sitemap (Astro-generated, includes all blog articles)
 Sitemap: https://lovelanguages.xyz/sitemap-index.xml

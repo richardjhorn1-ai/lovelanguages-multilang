@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
 
-# Main app sitemap
-Sitemap: https://lovelanguages.xyz/sitemap.xml
-
-# Blog sitemap (Astro-generated)
-Sitemap: https://lovelanguages.xyz/learn/sitemap-index.xml
+# Sitemap (Astro-generated, includes all blog articles)
+Sitemap: https://lovelanguages.xyz/sitemap-index.xml
