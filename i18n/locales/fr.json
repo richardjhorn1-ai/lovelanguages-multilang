@@ -1,0 +1,1817 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Soumettre",
+    "delete": "Supprimer",
+    "edit": "Modifier"
+  },
+  "nav": {
+    "chat": "Chat",
+    "log": "Journal d'amour",
+    "play": "Jouer",
+    "progress": "Progrès",
+    "notifications": "Notifications",
+    "noNotifications": "Pas encore de notifications",
+    "newCount": "{{count}} nouveau",
+    "allCaughtUp": "Tu es à jour !",
+    "viewProfile": "Voir le profil",
+    "myProgress": "Mes progrès",
+    "reportBug": "Signaler un bug",
+    "helpGuide": "Aide et guide",
+    "signOut": "Se déconnecter"
+  },
+  "chat": {
+    "sidebar": {
+      "newSession": "Nouvelle session",
+      "collapse": "Réduire la barre latérale",
+      "expand": "Agrandir la barre latérale",
+      "conversations": "Conversations",
+      "noConversations": "Pas encore de conversations",
+      "startSession": "Commence une nouvelle session ci-dessus",
+      "items": "{{count}} élément",
+      "items_other": "{{count}} éléments"
+    },
+    "modes": {
+      "coach": "Coach",
+      "ask": "demander",
+      "learn": "apprendre"
+    },
+    "status": {
+      "listening": "Écoute en cours",
+      "speaking": "Parle",
+      "connecting": "Connexion"
+    },
+    "input": {
+      "askPlaceholder": "Demande n'importe quoi à Cupid...",
+      "learnPlaceholder": "Prêt pour ta prochaine leçon ?",
+      "tutorPlaceholder": "Comment peux-tu aider ton partenaire aujourd'hui ?",
+      "listeningPlaceholder": "Écoute en cours...",
+      "speakingPlaceholder": "Cupid parle...",
+      "connectingPlaceholder": "Connexion..."
+    },
+    "session": {
+      "deleteConfirm": "Es-tu sûr de vouloir supprimer cette session ?",
+      "longConversation": "Cette conversation devient longue !",
+      "startFresh": "Recommencer"
+    },
+    "listen": {
+      "title": "Écouter",
+      "beta": "BÊTA",
+      "recording": "Enregistrement",
+      "stop": "Arrêter",
+      "stopSave": "Arrêter et sauvegarder",
+      "sessionLabel": "Session d'écoute",
+      "listeningFor": "Écoute du {{language}} en cours...",
+      "modeTooltip": "Mode écoute - Capture de vraies conversations en {{language}}",
+      "deleteConfirm": "Es-tu sûr de vouloir supprimer cette session d'écoute ?",
+      "bookmarkAdd": "Marquer cette phrase",
+      "bookmarkRemove": "Retirer le marque-page",
+      "bookmarked": "{{count}} phrase marquée",
+      "bookmarked_other": "{{count}} phrases marquées",
+      "improving": "Amélioration de la transcription avec l'IA...",
+      "wordsAdded": "Mots ajoutés au Journal d'amour",
+      "extractWords": "Extraire les mots",
+      "newSession": "Nouvelle session",
+      "backToChats": "Retour aux chats"
+    },
+    "listenPrompt": {
+      "title": "Prêt à écouter ?",
+      "description": "Capture de vraies conversations en {{language}} avec transcription et traduction en direct.",
+      "contextLabel": "Qu'écoutes-tu ?",
+      "contextOptional": "(optionnel)",
+      "contextPlaceholder": "ex. Dîner chez mamie, émission de télé...",
+      "contextHint": "Tu peux le nommer plus tard si tu préfères",
+      "cancel": "Annuler",
+      "start": "Commencer l'écoute"
+    },
+    "wordExtractor": {
+      "title": "Extraire les mots",
+      "found": "{{count}} mots trouvés",
+      "selected": "{{count}} sélectionné(s)",
+      "analyzing": "Analyse de la transcription...",
+      "extracting": "Extraction du vocabulaire...",
+      "cancel": "Annuler",
+      "addWords": "Ajouter {{count}} mots",
+      "adding": "Ajout en cours..."
+    },
+    "errors": {
+      "addWordsFailed": "Échec de l'ajout des mots : {{message}}",
+      "addWordsError": "Échec de l'ajout des mots. Vérifie la console pour plus de détails."
+    },
+    "blocks": {
+      "cultureNote": "Note culturelle",
+      "loveGoal": "Objectif d'amour"
+    }
+  },
+  "progress": {
+    "level": {
+      "current": "Niveau actuel",
+      "partner": "Niveau de {{name}}",
+      "totalXp": "XP total",
+      "xp": "XP",
+      "progressTo": "Progression vers {{level}}",
+      "xpToNext": "{{xp}} XP pour atteindre {{level}}",
+      "maxLevel": "Niveau maximum",
+      "max": "Max",
+      "reachedMax": "Tu as atteint le niveau maximum !",
+      "takeTest": "Passer le test de niveau",
+      "practiceTest": "Test de niveau pratique"
+    },
+    "previousTests": {
+      "title": "Pratiquer les niveaux précédents",
+      "previousAttempts": "Tentatives précédentes",
+      "viewAttempts": "Voir les tentatives précédentes"
+    },
+    "motivation": {
+      "title": "Ma motivation",
+      "learningFor": "J'apprends pour"
+    },
+    "stats": {
+      "title": "Stats du Journal d'amour",
+      "total": "Total",
+      "mastered": "Maîtrisés",
+      "review": "À réviser",
+      "nouns": "Noms",
+      "verbs": "Verbes",
+      "adjectives": "Adjectifs",
+      "phrases": "Expressions",
+      "words": "Mots"
+    },
+    "gameHistory": {
+      "title": "Historique des jeux"
+    },
+    "journey": {
+      "title": "Parcours d'apprentissage",
+      "journalEntries": "Entrées du journal",
+      "newEntry": "Nouvelle entrée",
+      "new": "Nouveau",
+      "analyzing": "Analyse...",
+      "noEntries": "Pas encore d'entrées.",
+      "clickNew": "Clique sur « Nouvelle entrée » pour commencer !",
+      "clickNewShort": "Clique sur « Nouveau » pour commencer !",
+      "startJourney": "Commence ton parcours d'apprentissage en cliquant sur « Nouvelle entrée »",
+      "selectEntry": "Sélectionne une entrée à afficher",
+      "wordsXp": "{{words}} mots • {{xp}} XP"
+    },
+    "summary": {
+      "words": "Mots",
+      "youCanSay": "Tu sais maintenant dire",
+      "topics": "Sujets",
+      "grammar": "Grammaire",
+      "upNext": "À suivre",
+      "answerInsights": "Analyse des réponses",
+      "diacritics": "Accents",
+      "synonyms": "Synonymes",
+      "typosOk": "Fautes de frappe OK",
+      "diacriticTip": "Astuce : Tu connais les mots ! Essaie de configurer un clavier {{language}} pour les caractères spéciaux",
+      "synonymTip": "Bel éventail de vocabulaire - tu utilises beaucoup d'alternatives valides !"
+    },
+    "quickActions": {
+      "practice": "Pratiquer",
+      "practiceDesc": "Flashcards et quiz",
+      "loveLog": "Journal d'amour",
+      "loveLogDesc": "Ton vocabulaire"
+    },
+    "testResults": {
+      "title": "Résultats du test",
+      "correct": "correct",
+      "yourAnswers": "Tes réponses",
+      "yourAnswer": "Ta réponse : {{answer}}",
+      "correctAnswer": "Correct : {{answer}}",
+      "tryAgain": "Réessayer"
+    },
+    "tutor": {
+      "yourPartner": "Ton partenaire",
+      "phrasesForTonight": "Expressions pour ce soir",
+      "recentlyLearned": "Appris récemment",
+      "wordsToPractice": "Mots à pratiquer ensemble",
+      "noWeakSpots": "Pas de points faibles - il/elle se débrouille super bien !",
+      "misses": "{{count}} erreur",
+      "misses_other": "{{count}} erreurs",
+      "quizThem": "Quiz →",
+      "playTogether": "Jouer ensemble",
+      "playTogetherDesc": "Quiz et activités",
+      "theirVocabulary": "Son vocabulaire",
+      "browseLoveLog": "Parcourir le journal",
+      "useItTonight": "{{word}} - utilise-le ce soir !",
+      "tryInConversation": "Essaie de l'utiliser dans une conversation",
+      "complimentThem": "Fais-lui un compliment avec ça !",
+      "whisperBeforeBed": "Murmure-le avant de dormir",
+      "iLoveYouVeryMuch": "Je t'aime très fort"
+    },
+    "encouragement": {
+      "wordsMastered": "{{count}} mots maîtrisés ! C'est l'heure d'un rendez-vous de célébration !",
+      "wordsNeedWork": "Seulement {{count}} mots à revoir - tu peux les tester ce soir !",
+      "milestone": "{{count}} mots dans son vocabulaire - célèbre cette étape !",
+      "justLearned": "Il/Elle vient d'apprendre « {{word}} » - utilise-le dans la conversation aujourd'hui !"
+    },
+    "levelThemes": {
+      "firstWords": "Premiers mots d'amour",
+      "checkingIn": "Prendre des nouvelles",
+      "feelings": "Sentiments",
+      "dailyLife": "Vie quotidienne",
+      "preferences": "Préférences",
+      "makingPlans": "Faire des plans",
+      "tellingStories": "Raconter des histoires",
+      "deeperFeelings": "Sentiments profonds",
+      "complexConversations": "Conversations complexes",
+      "futureDreams": "Rêves d'avenir",
+      "problemSolving": "Résolution de problèmes",
+      "culturalNuance": "Nuances culturelles",
+      "advancedExpression": "Expression avancée",
+      "nativeFluency": "Fluidité native",
+      "expertLevel": "Niveau expert",
+      "culturalMastery": "Maîtrise culturelle",
+      "completeMastery": "Maîtrise complète",
+      "practice": "Pratique"
+    }
+  },
+  "play": {
+    "loading": "Chargement du module de pratique...",
+    "title": "Pratique",
+    "beta": "Bêta",
+    "tabs": {
+      "games": "Jeux",
+      "loveNotes": "Notes d'amour",
+      "gamesDesc": "Pratique ton vocabulaire avec différents modes de jeu",
+      "loveNotesDesc": "Défis et cadeaux de {{partner}}"
+    },
+    "empty": {
+      "noWords": "Pas encore de mots",
+      "noWordsDesc": "Apprends d'abord des mots dans le Chat, puis reviens pratiquer !",
+      "needMore": "Il faut plus de mots",
+      "needMoreDesc": "Le choix multiple nécessite au moins 4 mots. Tu en as {{count}}.",
+      "tryFlashcards": "Essaie les Flashcards"
+    },
+    "games": {
+      "flashcards": "Flashcards",
+      "flashcardsDesc": "Retourne les cartes pour voir les traductions",
+      "multiChoice": "Choix multiple",
+      "multiChoiceDesc": "Choisis la bonne traduction",
+      "typeIt": "Écris-le",
+      "typeItDesc": "Tape la traduction toi-même",
+      "quickFire": "Feu rapide",
+      "quickFireDesc": "Défi de 60 secondes",
+      "aiChallenge": "Défi IA",
+      "aiChallengeDesc": "Sélection intelligente des mots",
+      "conversation": "Conversation",
+      "conversationDesc": "Parle avec l'IA en {{language}}",
+      "verbMastery": "Maîtrise des verbes",
+      "verbMasteryVerbs": "{{count}} verbes",
+      "learnVerbsFirst": "Apprends d'abord des verbes"
+    },
+    "directions": {
+      "targetToNative": "{{target}} → {{native}}",
+      "nativeToTarget": "{{native}} → {{target}}"
+    },
+    "flashcard": {
+      "word": "MOT EN {{language}}",
+      "translation": "TRADUCTION",
+      "tapToReveal": "Touche pour révéler",
+      "hard": "Difficile",
+      "gotIt": "Je l'ai !"
+    },
+    "typeIt": {
+      "hint": "Indice :",
+      "hintShown": "Indice affiché",
+      "showHint": "Afficher l'indice",
+      "correct": "Correct !",
+      "notQuite": "Pas tout à fait",
+      "correctAnswer": "Bonne réponse :",
+      "typeIn": "Tape en {{language}}...",
+      "next": "Suivant",
+      "check": "Vérifier"
+    },
+    "quickFire": {
+      "title": "Feu rapide !",
+      "description": "Traduis autant de mots que possible en 60 secondes !",
+      "wordsAvailable": "{{count}} mots disponibles",
+      "upTo20": "Jusqu'à 20 mots aléatoires par tour",
+      "start": "Commencer !",
+      "needAtLeast5": "Il faut au moins 5 mots pour jouer au Feu rapide",
+      "typeTranslation": "Tape la traduction..."
+    },
+    "aiChallenge": {
+      "chooseMode": "Choisis le mode de défi",
+      "length": "Durée",
+      "all": "Tous",
+      "qs": "Q",
+      "generatingPhrases": "Génération d'expressions romantiques...",
+      "startChallenge": "Commencer le défi",
+      "modes": {
+        "weakest": "Mots les plus faibles",
+        "weakestDesc": "Concentre-toi sur les mots difficiles",
+        "gauntlet": "Gauntlet mixte",
+        "gauntletDesc": "Mélange aléatoire de tous les types",
+        "romantic": "Expressions romantiques",
+        "romanticDesc": "Douces expressions en {{language}}",
+        "leastPracticed": "Moins pratiqués",
+        "leastPracticedDesc": "Mots que tu n'as pas vus récemment",
+        "reviewMastered": "Réviser les maîtrisés",
+        "reviewMasteredDesc": "Pratique les mots appris"
+      }
+    },
+    "verbMastery": {
+      "title": "Maîtrise des verbes",
+      "practiceCount": "Pratique la conjugaison de {{count}} verbes",
+      "selectTense": "Sélectionne le temps",
+      "presentTense": "Présent",
+      "pastTense": "Passé",
+      "futureTense": "Futur",
+      "verbsAvailable": "{{count}} verbes disponibles",
+      "noVerbsWithTense": "Pas encore de verbes avec ce temps",
+      "noVerbsAlert": "Aucun verbe trouvé avec les conjugaisons au {{tense}}. Apprends d'abord plus de verbes !",
+      "conjugateVerb": "Conjugue le verbe",
+      "forPronoun": "Pour le pronom",
+      "typeConjugation": "Tape la forme conjuguée...",
+      "checkAnswer": "Vérifier la réponse",
+      "nextQuestion": "Question suivante",
+      "seeResults": "Voir les résultats",
+      "backToGames": "← Retour aux jeux"
+    },
+    "session": {
+      "yourPartner": "Ton partenaire"
+    }
+  },
+  "profile": {
+    "roles": {
+      "student": "Apprend le {{language}}",
+      "tutor": "Coach linguistique"
+    },
+    "partner": {
+      "title": "Ton partenaire",
+      "unlink": "Dissocier"
+    },
+    "customisation": {
+      "title": "Personnalisation",
+      "subtitle": "Paramètres visuels",
+      "accentColor": "Couleur d'accent",
+      "darkMode": "Mode sombre",
+      "fontSize": "Taille de police",
+      "answerChecking": "Vérification des réponses",
+      "smartMode": "Mode intelligent",
+      "strictMode": "Mode strict",
+      "smartModeDesc": "L'IA accepte les synonymes, fautes de frappe et variations",
+      "strictModeDesc": "Réponses exactes uniquement (en ignorant les accents)",
+      "preview": "Aperçu",
+      "previewText": "<strong>Kocham cię</strong> signifie « Je t'aime » en {{language}}"
+    },
+    "advanced": {
+      "title": "Préférences avancées",
+      "subtitle": "Modifie tes réponses d'inscription",
+      "yourName": "Ton nom",
+      "partnerName": "Nom du partenaire",
+      "learnerName": "Nom de l'apprenant",
+      "relationshipVibe": "Ambiance de la relation",
+      "learningReason": "Pourquoi apprends-tu le {{language}} ?",
+      "motivationPlaceholder": "Ta motivation...",
+      "dailyTime": "Temps quotidien",
+      "preferredTime": "Moment préféré",
+      "biggestChallenge": "Plus grand défi",
+      "firstGoal": "Premier objectif",
+      "goalPlaceholder": "Que veux-tu accomplir ?",
+      "relationshipType": "Type de relation",
+      "languageConnection": "Connexion avec le {{language}}",
+      "howYouLearned": "Comment as-tu appris le {{language}}",
+      "dreamPhrase": "Phrase de rêve",
+      "dreamPhrasePlaceholder": "Que veux-tu l'entendre dire ?",
+      "teachingStyle": "Style d'enseignement",
+      "select": "Sélectionner..."
+    },
+    "originOptions": {
+      "grewUp": "J'ai grandi là-bas",
+      "family": "De ma famille",
+      "school": "Études formelles",
+      "self": "Autodidacte"
+    },
+    "styleOptions": {
+      "patient": "Patient et doux",
+      "playful": "Ludique et amusant",
+      "structured": "Structuré",
+      "immersive": "Immersif"
+    },
+    "buttons": {
+      "saving": "Enregistrement...",
+      "saved": "Enregistré !",
+      "saveChanges": "Enregistrer les modifications",
+      "signOut": "Se déconnecter"
+    }
+  },
+  "loveLog": {
+    "title": "Journal d'amour",
+    "titleFull": "Le Journal d'amour",
+    "search": "Rechercher...",
+    "searchWords": "Rechercher des mots...",
+    "wordsCount": "{{count}} mots",
+
+    "sync": {
+      "scanChats": "Scanner les chats",
+      "scanTooltip": "Scanner l'historique des chats pour nouveau vocabulaire",
+      "allSynced": "Tout est synchronisé !",
+      "errorFetching": "Erreur lors de la récupération des messages",
+      "noNewWords": "Aucun nouveau mot trouvé",
+      "newWords": "+{{count}} nouveau mot !",
+      "newWords_other": "+{{count}} nouveaux mots !",
+      "syncError": "Erreur de synchronisation"
+    },
+
+    "filters": {
+      "all": "Tout",
+      "noun": "Nom",
+      "verb": "Verbe",
+      "adjective": "Adjectif",
+      "phrase": "Expression",
+      "gifts": "Cadeaux"
+    },
+
+    "card": {
+      "gift": "Cadeau",
+      "giftFrom": "Cadeau de {{name}}",
+      "yourPartner": "ton partenaire",
+      "mastered": "Maîtrisé !",
+      "streakProgress": "{{current}}/{{target}} corrects d'affilée",
+      "tapForDetails": "touche pour les détails",
+      "example": "Exemple",
+      "noExample": "Pas d'exemple disponible.",
+      "conjugations": "Conjugaisons",
+      "forms": "Formes"
+    },
+
+    "modal": {
+      "present": "Présent",
+      "past": "Passé",
+      "future": "Futur",
+      "tenseLocked": "Le {{tense}} est verrouillé",
+      "unlockTense": "Débloquer le {{tense}}",
+      "unlocked": "Débloqué le {{date}}"
+    },
+
+    "unlock": {
+      "title": "Débloquer le {{tense}} ?",
+      "descriptionBefore": "Prêt à apprendre à dire",
+      "descriptionAfter": "au {{tense}} ?",
+      "pastNote": "Tu verras les formes masculine et féminine.",
+      "notYet": "Pas encore",
+      "unlockNow": "Débloquer maintenant",
+      "unlocking": "Déblocage..."
+    },
+
+    "pronouns": {
+      "singular1": "(je)",
+      "singular2": "(tu)",
+      "singular3": "(il/elle)",
+      "plural1": "(nous)",
+      "plural2": "(vous)",
+      "plural3": "(ils/elles)"
+    },
+
+    "tableHeaders": {
+      "person": "Personne",
+      "masculine": "Masc.",
+      "feminine": "Fém."
+    },
+
+    "nounForms": {
+      "gender": "Genre",
+      "singular": "Singulier",
+      "plural": "Pluriel"
+    },
+
+    "adjectiveForms": {
+      "title": "Formes de genre",
+      "masculine": "Masculin",
+      "feminine": "Féminin",
+      "neuter": "Neutre",
+      "plural": "Pluriel"
+    }
+  },
+
+  "onboarding": {
+    "step": {
+      "back": "Retour",
+      "counter": "{{current}} sur {{total}}",
+      "quitTitle": "Quitter l'inscription",
+      "continue": "Continuer",
+      "skipForNow": "Passer pour l'instant"
+    },
+
+    "name": {
+      "title": "Comment Cupid doit-il t'appeler ?",
+      "subtitle": "Ton nom aide à personnaliser ce voyage.",
+      "placeholder": "Ton nom"
+    },
+
+    "partnerName": {
+      "studentTitle": "Pour qui apprends-tu le {{language}}, {{name}} ?",
+      "tutorTitle": "Qui aides-tu à apprendre le {{language}}, {{name}} ?",
+      "studentSubtitle": "C'est la personne que tu vas surprendre avec tes nouvelles compétences.",
+      "tutorSubtitle": "C'est la personne que tu vas guider à travers le {{language}}.",
+      "placeholder": "Son nom"
+    },
+
+    "validation": {
+      "title": "Comment devons-nous vérifier tes réponses ?",
+      "subtitle": "Choisis le niveau d'indulgence de l'application lors de la correction.",
+      "changeInSettings": "Tu peux changer cela à tout moment dans les Paramètres",
+      "smart": {
+        "label": "Mode intelligent",
+        "tag": "Recommandé",
+        "description": "L'IA comprend ce que tu veux dire",
+        "detail1": "Accepte les synonymes (« joli » = « beau »)",
+        "detail2": "Pardonne les fautes de frappe mineures",
+        "detail3": "Permet les variations d'articles (« le chien » vs « chien »)",
+        "detail4": "Reconnaît les traductions alternatives"
+      },
+      "strict": {
+        "label": "Mode strict",
+        "tag": "Avancé",
+        "description": "Réponses exactes uniquement",
+        "detail1": "Doit correspondre exactement (en ignorant les accents)",
+        "detail2": "Idéal pour les apprenants avancés",
+        "detail3": "Développe la précision et l'exactitude",
+        "detail4": "Expérience de flashcard traditionnelle"
+      }
+    },
+
+    "plan": {
+      "title": "Choisis ton plan, {{name}}",
+      "subtitle": "Commence ton apprentissage du {{language}} aujourd'hui",
+      "monthly": "Mensuel",
+      "yearly": "Annuel",
+      "discount": "70 % de réduction",
+      "popular": "Populaire",
+      "perMonth": "/mois",
+      "perYear": "/an",
+      "monthlyEquivalent": "{{price}} $/mois",
+      "moreFeatures": "+{{count}} fonctionnalités de plus",
+      "continueWith": "Continuer avec {{plan}}",
+      "aPlan": "un plan",
+      "trustSignal": "Paiement sécurisé via Stripe. Annulation à tout moment.",
+      "standard": {
+        "name": "Standard",
+        "tagline": "Parfait pour commencer",
+        "feature1": "2 000 mots dans le Journal d'amour",
+        "feature2": "60 min de chat vocal/mois",
+        "feature3": "30 min de Mode écoute/mois",
+        "feature4": "Tous les scénarios de conversation",
+        "feature5": "Invitation partenaire"
+      },
+      "unlimited": {
+        "name": "Illimité",
+        "tagline": "Pour les apprenants dévoués",
+        "feature1": "Tout illimité",
+        "feature2": "Chat vocal illimité",
+        "feature3": "Mode écoute illimité",
+        "feature4": "Tous les scénarios de conversation",
+        "feature5": "Pass cadeau pour un autre couple (annuel)"
+      }
+    },
+
+    "student": {
+      "start": {
+        "title": "Prêt à commencer, {{name}} ?",
+        "subtitle": "Ton voyage pour parler la langue de {{partnerName}} commence maintenant.",
+        "accessTitle": "Ce à quoi tu auras accès :",
+        "feature1": "Conversations IA avec Cupid",
+        "feature2": "Ton Journal d'amour pour suivre le vocabulaire",
+        "feature3": "Jeux pour pratiquer et maîtriser les mots",
+        "feature4": "Suivi des progrès et tests de niveau",
+        "button": "C'est parti ! 🚀"
+      },
+
+      "vibe": {
+        "title": "Un mot pour ta relation avec {{name}}",
+        "subtitle": "Choisis l'ambiance qui te correspond le mieux.",
+        "passionate": "Passionné",
+        "playful": "Joueur",
+        "growing": "En évolution",
+        "forever": "Pour toujours",
+        "longDistance": "À distance",
+        "newLove": "Nouvel amour"
+      },
+
+      "time": {
+        "title": "Combien de temps peux-tu consacrer quotidiennement ?",
+        "subtitle": "Même les petits moments s'additionnent pour de grands progrès.",
+        "quick": "Un bisou rapide",
+        "quickDesc": "5 minutes",
+        "coffee": "Un café ensemble",
+        "coffeeDesc": "10 minutes",
+        "walk": "Une longue promenade",
+        "walkDesc": "20+ minutes"
+      },
+
+      "when": {
+        "title": "Quand préfères-tu pratiquer ?",
+        "subtitle": "Nous te rappellerons au moment parfait.",
+        "morning": "Matin",
+        "afternoon": "Après-midi",
+        "evening": "Soir",
+        "whenever": "N'importe quand"
+      },
+
+      "photo": {
+        "title": "Ajoute ta photo",
+        "subtitleWithPhoto": "Tu es superbe ! Elle apparaîtra sur ton profil.",
+        "subtitleNoPhoto": "Une photo aide à personnaliser ton profil."
+      },
+
+      "why": {
+        "title": "Pourquoi veux-tu apprendre le {{language}} pour {{name}} ?",
+        "subtitle": "Cela devient ton rappel personnel tout au long de ton parcours.",
+        "placeholder": "Je veux les surprendre quand on visitera leur famille... Je veux murmurer des mots doux... Je veux comprendre leur monde..."
+      },
+
+      "fear": {
+        "title": "Quelle est ta plus grande peur concernant l'apprentissage du {{language}} ?",
+        "subtitle": "Tout le monde en a une. Affrontons la tienne ensemble.",
+        "pronunciation": "Prononciation",
+        "pronunciationDesc": "Sonner mal ou ridicule",
+        "grammar": "Règles de grammaire",
+        "grammarDesc": "Cas, conjugaisons, genre",
+        "silly": "Avoir l'air ridicule",
+        "sillyDesc": "Faire des erreurs devant les autres",
+        "forgetting": "Tout oublier",
+        "forgettingDesc": "Apprendre mais ne pas retenir"
+      },
+
+      "prior": {
+        "title": "As-tu déjà essayé d'apprendre le {{language}} avant ?",
+        "subtitle": "Cela nous aide à commencer au bon endroit.",
+        "yes": "Oui, un peu",
+        "beginner": "Débutant complet"
+      },
+
+      "goal": {
+        "title": "Quel est ton premier objectif ?",
+        "subtitle": "Un but à atteindre avec {{name}}",
+        "love": "Dire « Je t'aime » parfaitement",
+        "phrases": "Apprendre 10 expressions romantiques",
+        "surprise": "Les surprendre avec un salut en {{language}}",
+        "custom": "Définir mon propre objectif",
+        "customPlaceholder": "ex. « Commander en {{language}} dans leur restaurant préféré »"
+      },
+
+      "learnHello": {
+        "title": "Apprenons ton premier mot !",
+        "subtitle": "Dis bonjour à {{name}} en {{language}}",
+        "listen": "Écouter",
+        "tip": "💡 Ton premier mot en {{language}} !",
+        "gotIt": "Compris !",
+        "listenFirst": "Écoute d'abord"
+      },
+
+      "learnLove": {
+        "title": "Maintenant, la phrase la plus importante...",
+        "subtitle": "Celle que {{name}} n'oubliera jamais",
+        "hearIt": "L'entendre",
+        "listenAgain": "Écouter encore",
+        "proTip": "<strong>Astuce :</strong> Entraîne-toi à dire cette phrase à {{name}} - il/elle adorera t'entendre la dire en {{language}} !",
+        "ready": "Je suis prêt !",
+        "listenFirst": "Écoute d'abord"
+      },
+
+      "tryIt": {
+        "title": "Essaie de le dire !",
+        "subtitle": "Ne t'inquiète pas, tu es le seul à t'entendre.",
+        "listening": "Écoute en cours... Touche pour arrêter",
+        "success": "Incroyable ! Tu l'as dit ! 🎉",
+        "practiceLater": "Je pratiquerai plus tard"
+      },
+
+      "celebration": {
+        "title": "Tu l'as fait !",
+        "subtitle": "Tu viens d'apprendre ton premier {{language}} !",
+        "partnerReaction": "{{name}} va adorer.",
+        "xpEarned": "+10 XP",
+        "firstXp": "Tes premiers points d'expérience !",
+        "wordsLearned": "Mots que tu viens d'apprendre :",
+        "keepGoing": "Continue !"
+      }
+    },
+
+    "tutor": {
+      "start": {
+        "title": "Prêt à être le guide de {{learnerName}}, {{userName}} ?",
+        "subtitle": "Ta langue est un cadeau. Partageons-la avec amour.",
+        "toolkitTitle": "Ta boîte à outils de tuteur :",
+        "feature1": "Demande des conseils d'enseignement à Cupid",
+        "feature2": "Suis les progrès de {{learnerName}}",
+        "feature3": "Envoie des cadeaux de mots pour les surprendre",
+        "feature4": "Lie les comptes pour voir leur parcours",
+        "button": "Commençons à aider {{learnerName}} ! 🎯"
+      },
+
+      "relation": {
+        "title": "Quelle est ta relation avec {{name}} ?",
+        "subtitle": "Cela nous aide à personnaliser ton expérience d'enseignement",
+        "partner": "Partenaire",
+        "spouse": "Conjoint(e)",
+        "friend": "Ami(e)",
+        "family": "Famille"
+      },
+
+      "connection": {
+        "title": "Quel est ton lien avec le {{language}} ?",
+        "subtitle": "Aide-nous à comprendre ton parcours linguistique",
+        "native": "Locuteur natif",
+        "nativeDesc": "Né(e) et élevé(e) en parlant {{language}}",
+        "heritage": "Locuteur d'héritage",
+        "heritageDesc": "Famille parlant {{language}}",
+        "fluent": "Locuteur courant",
+        "fluentDesc": "A appris et maîtrisé le {{language}}",
+        "bilingual": "Bilingue",
+        "bilingualDesc": "A grandi en parlant {{language}} et une autre langue"
+      },
+
+      "origin": {
+        "title": "Comment as-tu appris le {{language}} ?",
+        "subtitle": "Ton parcours nous aide à suggérer des approches d'enseignement",
+        "country": "J'ai grandi là-bas",
+        "family": "De ma famille",
+        "school": "Études formelles",
+        "self": "Autodidacte"
+      },
+
+      "dreamPhrase": {
+        "title": "Moment de rêve 💭",
+        "subtitle": "Quelle est la première chose que tu veux entendre {{name}} dire en {{language}} ?",
+        "placeholder": "ex. « Je t'aime » ou « Bonjour »",
+        "note": "Cela devient votre premier objectif d'enseignement ensemble"
+      },
+
+      "style": {
+        "title": "Ton style d'enseignement ?",
+        "subtitle": "Comment aides-tu naturellement quelqu'un à apprendre ?",
+        "patient": "Patient et doux",
+        "patientDesc": "Lentement mais sûrement",
+        "playful": "Ludique et amusant",
+        "playfulDesc": "Apprendre par les jeux et l'humour",
+        "structured": "Structuré",
+        "structuredDesc": "Leçons organisées avec des objectifs clairs",
+        "immersive": "Immersif",
+        "immersiveDesc": "Se lancer et apprendre en faisant"
+      },
+
+      "preview": {
+        "title": "Ta boîte à outils d'enseignement",
+        "subtitle": "Voici ce que tu peux faire pour {{name}}",
+        "coachMode": "Mode Coach",
+        "coachModeDesc": "Obtiens des conseils personnalisés pour aider {{name}} basés sur ses progrès et difficultés",
+        "progressTracking": "Suivi des progrès",
+        "progressTrackingDesc": "Vois quels mots {{name}} a maîtrisés et où il/elle a besoin d'aide",
+        "wordGifts": "Cadeaux de mots",
+        "wordGiftsDesc": "Envoie des mots et expressions spéciaux au journal d'apprentissage de {{name}}",
+        "button": "Super !"
+      }
+    }
+  },
+
+  "levelTest": {
+    "preparing": "Préparation de ton test",
+    "generatingQuestions": "Génération des questions basées sur ton niveau...",
+    "oops": "Oups !",
+    "backToProgress": "Retour aux progrès",
+    "levelUpTest": "Test de niveau supérieur",
+    "questions": "Questions",
+    "passThreshold": "Seuil de réussite",
+    "timeLimit": "Limite de temps",
+    "none": "Aucune",
+    "startTest": "Commencer le test",
+    "congratulations": "Félicitations !",
+    "keepPracticing": "Continue à pratiquer !",
+    "advancedTo": "Tu as atteint {{level}} !",
+    "passedTest": "Tu as réussi le test !",
+    "scoreNeeded": "Tu as obtenu {{score}} %. Il faut 80 % pour réussir.",
+    "correctAnswers": "Bonnes réponses",
+    "tryAgain": "Réessayer",
+    "viewDetailed": "Voir les résultats détaillés dans Progrès",
+    "questionTypes": {
+      "multipleChoice": "Choix multiple",
+      "fillBlank": "Remplir le blanc",
+      "translation": "Traduction"
+    },
+    "coreConcept": "Concept clé",
+    "typeMissing": "Tape le mot manquant...",
+    "typeTranslation": "Tape ta traduction...",
+    "back": "Retour",
+    "submitting": "Soumission...",
+    "submitTest": "Soumettre le test",
+    "next": "Suivant"
+  },
+
+  "tutorGames": {
+    "playTogether": "Jouer ensemble",
+    "sendChallenge": "Envoyer un défi",
+    "playNow": "Jouer maintenant",
+    "sendDescription": "Envoie des défis que {{name}} pourra relever plus tard",
+    "playDescription": "Pratique ensemble maintenant",
+    "startNow": "Commencer",
+
+    "local": {
+      "quiz": "Quiz {{name}}",
+      "quizDesc": "Quiz de flashcards ensemble",
+      "quickFire": "Feu rapide",
+      "quickFireDesc": "Défi de 60 secondes",
+      "multipleChoice": "Choix multiple",
+      "multipleChoiceDesc": "Choisis la bonne réponse",
+      "typeIt": "Écris-le",
+      "typeItDesc": "Tape la traduction",
+      "needWords": "{{name}} a besoin d'au moins 4 mots dans son vocabulaire pour jouer"
+    },
+
+    "send": {
+      "doYouRemember": "Tu te souviens ?",
+      "quizPartner": "Quiz {{name}} sur son vocabulaire",
+      "createQuiz": "Créer un quiz",
+      "quickFire": "Feu rapide",
+      "timedChallenge": "Défi de vocabulaire chronométré",
+      "createChallenge": "Créer un défi",
+      "giftWords": "Offrir des mots",
+      "sendWords": "Envoie des mots à {{name}} pour apprendre",
+      "sendGift": "Envoyer le cadeau"
+    },
+
+    "pending": {
+      "waitingFor": "En attente de {{name}}",
+      "words": "{{count}} mots",
+      "sent": "Envoyé le {{date}}",
+      "pending": "En attente"
+    },
+
+    "gifts": {
+      "title": "Cadeaux de mots envoyés",
+      "word": "{{count}} mot",
+      "word_other": "{{count}} mots",
+      "topic": "Sujet : {{topic}}",
+      "custom": "Mots personnalisés",
+      "xpMultiplier": "{{multiplier}}x XP"
+    },
+
+    "results": {
+      "title": "Résultats récents",
+      "completed": "Terminé le {{date}}"
+    },
+
+    "empty": {
+      "noChallenges": "Pas encore de défis",
+      "createFirst": "Crée ton premier défi pour {{name}} !"
+    },
+
+    "flashcard": {
+      "targetWord": "{{language}}",
+      "nativeWord": "{{language}}",
+      "tapToReveal": "Touche pour révéler",
+      "hard": "Difficile",
+      "gotIt": "Je l'ai !"
+    },
+
+    "direction": {
+      "label": "{{target}} → {{native}}"
+    },
+
+    "quickFireGame": {
+      "title": "Feu rapide !",
+      "description": "Traduis autant de mots que possible en 60 secondes !",
+      "cancel": "Annuler",
+      "start": "Commencer !",
+      "typeTranslation": "Tape la traduction..."
+    },
+
+    "typeItGame": {
+      "correct": "Correct !",
+      "notQuite": "Pas tout à fait",
+      "correctAnswer": "Bonne réponse : {{answer}}",
+      "typeIn": "Tape en {{language}}...",
+      "next": "Suivant",
+      "check": "Vérifier"
+    },
+
+    "gameOver": {
+      "greatJob": "Excellent travail !",
+      "keepPracticing": "Continue à pratiquer !",
+      "correct": "{{correct}} sur {{total}} correct(s)",
+      "practicedTogether": "Avez-vous pratiqué ensemble ?",
+      "saveDescription": "Enregistre cette session dans l'historique d'apprentissage de {{name}} pour suivre ses progrès.",
+      "saveToProgress": "Enregistrer dans les progrès de {{name}}",
+      "saving": "Enregistrement...",
+      "savedSuccess": "Enregistré dans l'historique de {{name}} !",
+      "autoSaving": "Enregistrement automatique dans les progrès de {{name}}...",
+      "done": "Terminé",
+      "playAgain": "Rejouer"
+    },
+
+    "saveDialog": {
+      "title": "Enregistrer dans les progrès de {{name}} ?",
+      "howItWorks": "Comment ça marche :",
+      "detail1": "Les résultats du jeu sont enregistrés dans l'historique d'apprentissage de {{name}}",
+      "detail2": "Ses scores de mots seront mis à jour (séries, maîtrise)",
+      "detail3": "Parfait quand vous pratiquez ensemble !",
+      "willUpdate": "Cela mettra à jour les scores de mots et l'historique d'apprentissage de {{name}}.",
+      "remember": "Toujours enregistrer dans les progrès de {{name}}",
+      "notNow": "Pas maintenant",
+      "save": "Enregistrer"
+    }
+  },
+
+  "gameResults": {
+    "greatJob": "Excellent travail !",
+    "sessionResults": "Résultats de la session :",
+    "correct": "Correct",
+    "missed": "Manqué",
+    "showDetails": "Afficher les détails",
+    "hideDetails": "Masquer les détails",
+    "done": "Terminé",
+    "playAgain": "Rejouer"
+  },
+
+  "conversationPractice": {
+    "states": {
+      "listening": "Écoute en cours...",
+      "speaking": "Parle...",
+      "connecting": "Connexion...",
+      "error": "Erreur",
+      "disconnected": "Déconnecté"
+    },
+    "end": "Fin",
+    "startingConversation": "Démarrage de la conversation...",
+    "tryAgain": "Réessayer",
+    "speakIn": "Parle en {{language}}...",
+    "aiSpeaking": "L'IA parle...",
+    "conversationEnded": "Conversation terminée"
+  },
+
+  "scenarioSelector": {
+    "title": "Pratique de conversation",
+    "subtitle": "Choisis un scénario",
+    "beta": "Bêta",
+    "difficulty": {
+      "beginner": "débutant",
+      "intermediate": "intermédiaire",
+      "advanced": "avancé"
+    },
+    "createOwn": "Crée le tien",
+    "createOwnDesc": "Décris n'importe quel scénario que tu veux pratiquer",
+    "backToScenarios": "Retour aux scénarios",
+    "customScenario": "Scénario personnalisé",
+    "customScenarioName": "Scénario personnalisé",
+    "describeScenario": "Décris la situation que tu veux pratiquer",
+    "customPlaceholder": "ex. Je suis dans une boulangerie et j'essaie d'acheter du pain et de demander les ingrédients...",
+    "startPractice": "Commencer la pratique",
+    "footerInfo": "L'IA parlera en {{targetLanguage}} par défaut. Si tu as des difficultés, elle t'aidera en {{nativeLanguage}}.",
+    "customPersona": "Tu es une personne {{language}} sympathique qui aide quelqu'un à pratiquer le {{language}}. Tu es patient(e), encourageant(e) et tu adaptes ton langage à son niveau."
+  },
+
+  "challengeCreator": {
+    "common": {
+      "addNewWords": "Ajouter de nouveaux mots",
+      "enterTargetLanguage": "Entre du {{language}} et l'IA générera la traduction.",
+      "enterWordPlaceholder": "Entre un mot ou une expression en {{language}}...",
+      "generating": "Génération...",
+      "generate": "Générer",
+      "clear": "Effacer",
+      "editTranslation": "Modifier la traduction...",
+      "add": "Ajouter",
+      "cancel": "Annuler",
+      "creating": "Création...",
+      "searchWords": "Rechercher des mots...",
+      "sending": "Envoi...",
+      "sendChallenge": "Envoyer le défi",
+      "failedGenerateTranslation": "Échec de la génération de la traduction",
+      "failedCreateChallenge": "Échec de la création du défi",
+      "needMinWords": "Il faut au moins 5 mots pour le défi !"
+    },
+
+    "quiz": {
+      "title": "Créer un quiz",
+      "subtitle": "Sélectionne des mots que {{name}} pourra pratiquer",
+      "titleLabel": "Titre du quiz (optionnel)",
+      "titlePlaceholder": "Quiz pour {{name}}",
+      "teachNewWords": "Apprends de nouveaux mots à {{name}} ! {{instruction}}",
+      "questionTypes": "Types de questions",
+      "types": {
+        "multipleChoice": "Choix multiple",
+        "typeAnswer": "Taper la réponse",
+        "flashcards": "Flashcards"
+      },
+      "selectExisting": "Sélectionner des mots existants ({{count}}/20)",
+      "selectAll": "Tout sélectionner",
+      "noWordsYet": "{{name}} n'a pas encore appris de mots !",
+      "addWordsToStart": "Ajoute de nouveaux mots ci-dessus pour commencer."
+    },
+
+    "quickFire": {
+      "title": "Feu rapide",
+      "subtitle": "Défi chronométré pour {{name}}",
+      "titleLabel": "Titre du défi",
+      "titlePlaceholder": "Défi Feu rapide",
+      "difficulty": "Difficulté",
+      "difficultyLevels": {
+        "easy": "Facile",
+        "medium": "Moyen",
+        "hard": "Difficile"
+      },
+      "difficultyDesc": {
+        "easy": "Rythme détendu, beaucoup de temps",
+        "medium": "Défi équilibré",
+        "hard": "Course contre la montre !"
+      },
+      "targetWords": "Mots cibles : {{count}}",
+      "wordsMin": "5 mots",
+      "wordsMax": "20 mots",
+      "pickSpecific": "Choisir des mots spécifiques ({{count}} sélectionnés)",
+      "weakWordIndicator": "🔴 = mot faible (difficultés avec celui-ci)",
+      "wordSelection": "Sélection des mots :",
+      "newWordsCount": "Nouveaux mots :",
+      "manuallyPicked": "Choisis manuellement :",
+      "autoFill": "Remplissage auto (mots faibles d'abord) :",
+      "total": "Total :",
+      "target": "cible",
+      "timeInfo": "{{name}} aura {{time}} secondes pour traduire les mots.",
+      "averageTime": "Moyenne : {{time}}s par mot",
+      "needMoreWords": "Il faut au moins 5 mots au total pour créer un défi !"
+    },
+
+    "lovePackage": {
+      "title": "Paquet d'amour",
+      "subtitle": "Envoie des mots à {{name}}",
+      "packageCount": "Paquet d'amour ({{count}} mot)",
+      "packageCount_other": "Paquet d'amour ({{count}} mots)",
+      "hasData": "+données",
+      "xpBonus": "{{name}} gagne 2x XP en apprenant ces mots !",
+      "corrected": "Corrigé : {{note}}",
+      "sendLovePackage": "Envoyer le paquet d'amour",
+      "alreadyInPackage": "Ce mot est déjà dans ton paquet !",
+      "alreadyInLoveLog": "« {{word}} » est déjà dans le Journal d'amour de {{name}} !"
+    }
+  },
+
+  "challengePlayer": {
+    "common": {
+      "later": "Plus tard",
+      "done": "Terminé",
+      "calculatingScore": "Calcul de ton score...",
+      "showDetails": "Afficher les détails ({{count}})",
+      "xpEarned": "+{{xp}} XP gagnés !"
+    },
+
+    "results": {
+      "perfect": "Parfait !",
+      "perfectScore": "Score parfait !",
+      "lightningFast": "Rapide comme l'éclair !",
+      "greatJob": "Excellent travail !",
+      "keepPracticing": "Continue à pratiquer !"
+    },
+
+    "quiz": {
+      "startDescription": "{{name}} veut te tester sur {{count}} mots !",
+      "startInstructions": "Réponds aux questions sur les mots en {{language}} que tu as appris. Réponds correctement pour construire ta série !",
+      "startButton": "Commencer le quiz",
+      "questionProgress": "Question {{current}} sur {{total}}",
+      "resultScore": "Tu as eu {{correct}} sur {{total}} correct(s)",
+      "flashcard": {
+        "prompt": "Que signifie ceci ?",
+        "showAnswer": "Afficher la réponse",
+        "didYouGetIt": "As-tu trouvé ?",
+        "no": "Non",
+        "yes": "Oui"
+      },
+      "multipleChoice": {
+        "prompt": "Traduis ce mot :"
+      },
+      "typeIt": {
+        "prompt": "Tape la traduction :",
+        "placeholder": "Tape ta réponse...",
+        "submit": "Soumettre"
+      }
+    },
+
+    "quickFire": {
+      "title": "Feu rapide !",
+      "startDescription": "{{name}} te défie de traduire {{count}} mots en {{time}} secondes !",
+      "difficulty": {
+        "easy": "Mode facile",
+        "medium": "Mode moyen",
+        "hard": "Mode difficile"
+      },
+      "timePerWord": "{{time}}s par mot",
+      "startButton": "Commencer !",
+      "getReady": "Prépare-toi !",
+      "resultScore": "{{correct}}/{{total}} correct(s) en {{time}}s",
+      "timeBonus": "(Bonus de temps !)",
+      "quitChallenge": "Quitter le défi",
+      "typePlaceholder": "Tape la traduction..."
+    }
+  },
+
+  "roleSelection": {
+    "loading": "Préparation en cours...",
+    "confirmHeader": "Juste pour être sûr...",
+    "confirmSubtitle": "Touche pour confirmer ou changer de rôle",
+    "welcomeHeader": "Bienvenue sur Love Languages !",
+    "welcomeSubtitle": "Comment vas-tu utiliser l'application ?",
+    "student": {
+      "title": "J'apprends le {{language}}",
+      "subtitle": "Pour mon partenaire qui parle {{language}}",
+      "confirmMessage": "Tu apprends le {{language}} par amour !",
+      "confirmSubtext": "Prêt à surprendre ton partenaire avec tes nouvelles compétences ?"
+    },
+    "tutor": {
+      "title": "J'enseigne le {{language}}",
+      "subtitle": "J'aide mon partenaire à apprendre",
+      "confirmMessage": "Tu es le/la pro du {{language}} !",
+      "confirmSubtext": "Prêt à aider ton partenaire à tomber amoureux de ta langue ?"
+    },
+    "settingUp": "Configuration...",
+    "letsGo": "C'est moi ! Allons-y",
+    "chooseRole": "Choisis ton rôle pour continuer"
+  },
+
+  "subscription": {
+    "common": {
+      "monthly": "Mensuel",
+      "yearly": "Annuel",
+      "mo": "mois",
+      "yr": "an",
+      "discount": "70 % de réduction",
+      "savePercent": "Économise {{percent}} %",
+      "perMonth": "/mois",
+      "perYear": "/an",
+      "billedAnnually": "{{price}} $/mois facturé annuellement",
+      "loading": "Chargement...",
+      "processing": "Traitement...",
+      "opening": "Ouverture...",
+      "popular": "Populaire",
+      "mostPopular": "Le plus populaire",
+      "currentPlan": "Plan actuel",
+      "securePayment": "Paiement sécurisé via Stripe. Annulation à tout moment.",
+      "cancelAnytime": "Annulation à tout moment. Paiement sécurisé via Stripe.",
+      "questionsEmail": "Des questions ? Écris-nous à",
+      "friend": "Ami",
+      "copy": "Copier"
+    },
+
+    "plans": {
+      "standard": "Standard",
+      "unlimited": "Illimité",
+      "none": "Aucun"
+    },
+
+    "features": {
+      "wordsLimit": "{{limit}} mots dans le Journal d'amour",
+      "unlimitedWords": "Mots illimités",
+      "voiceMinutes": "{{minutes}} min de chat vocal/mois",
+      "unlimitedVoice": "Chat vocal illimité",
+      "listenMinutes": "{{minutes}} min de Mode écoute/mois",
+      "unlimitedListen": "Mode écoute illimité",
+      "unlimitedChallenges": "Défis IA illimités",
+      "allScenarios": "Tous les scénarios de conversation",
+      "allScenariosCount": "Les {{count}} scénarios de conversation",
+      "partnerInvite": "Invitation partenaire",
+      "giftPass": "Pass cadeau pour un autre couple (annuel)",
+      "unlimitedEverything": "Tout illimité"
+    },
+
+    "manager": {
+      "couplePass": "Pass couple",
+      "freeAccess": "Accès gratuit de {{name}}",
+      "yourPartner": "ton partenaire",
+      "plan": "Plan :",
+      "status": "Statut :",
+      "validUntil": "Valide jusqu'au :",
+      "renews": "Renouvellement :",
+      "ends": "Fin :",
+      "askPartner": "Pour gérer cet abonnement, demande à {{name}}.",
+      "noSubscription": "Pas d'abonnement",
+      "subscribeToUnlock": "Abonne-toi pour débloquer toutes les fonctionnalités",
+      "yourSubscription": "Ton abonnement",
+      "planLabel": "Plan {{plan}}",
+      "partnerFreeAccess": "{{name}} a un accès gratuit grâce à toi",
+      "cancelWarning": "Si tu annules ton abonnement, {{name}} perdra aussi son accès.",
+      "manageSubscription": "Gérer l'abonnement",
+      "continueToManage": "Continuer vers la gestion"
+    },
+
+    "required": {
+      "title": "Encore une étape, {{name}} !",
+      "subtitle": "Termine ton abonnement pour commencer à apprendre le {{language}} ensemble",
+      "taglineStandard": "Parfait pour commencer",
+      "taglineUnlimited": "Pour les apprenants dévoués",
+      "subscribeTo": "S'abonner à {{plan}}",
+      "logoutOption": "Se déconnecter et utiliser un autre compte",
+      "signOutOption": "Se déconnecter et utiliser un autre compte"
+    },
+
+    "pricing": {
+      "title": "Apprends le {{language}} par amour",
+      "subtitle": "Choisis le plan qui correspond à ton parcours d'apprentissage",
+      "save70": "Économise 70 %",
+      "wordsInLoveLog": "{{limit}} mots dans le Journal d'amour",
+      "voiceChatPerMonth": "{{minutes}} min de chat vocal/mois",
+      "listenModePerMonth": "{{minutes}} min de Mode écoute/mois",
+      "unlimitedChallenges": "Défis IA illimités",
+      "allScenarios": "Les 8 scénarios de conversation",
+      "partnerInvite": "Invitation partenaire",
+      "unlimitedWords": "Mots illimités",
+      "unlimitedVoiceChat": "Chat vocal illimité",
+      "unlimitedListenMode": "Mode écoute illimité",
+      "giftPass": "Pass cadeau pour un autre couple (annuel)",
+      "youreOnPlan": "Tu es sur le plan {{plan}}",
+      "currentPlanBanner": "Tu es sur le plan {{plan}}",
+      "mostPopular": "Le plus populaire",
+      "billedAnnually": "{{price}} $/mois facturé annuellement",
+      "currentPlan": "Plan actuel",
+      "processing": "Traitement...",
+      "getPlan": "Choisir {{plan}}",
+      "yourGiftPasses": "Tes pass cadeaux",
+      "shareGiftPasses": "Partage ces codes avec un autre couple pour leur offrir un an de Standard gratuit !",
+      "giftPasses": "Tes pass cadeaux",
+      "giftPassDescription": "Partage ces codes avec un autre couple pour leur offrir un an de Standard gratuit !",
+      "cancelAnytime": "Annulation à tout moment. Paiement sécurisé via Stripe.",
+      "questionsEmail": "Des questions ? Écris-nous à",
+      "copy": "Copier"
+    },
+
+    "errors": {
+      "loginRequired": "Connecte-toi pour t'abonner",
+      "loginAgain": "Reconnecte-toi",
+      "failedLoadPricing": "Échec du chargement des tarifs. Réessaie.",
+      "pricingUnavailable": "Tarifs non disponibles. Contacte le support.",
+      "failedCheckout": "Échec du lancement du paiement",
+      "failedPortal": "Échec de l'ouverture de la gestion d'abonnement",
+      "somethingWrong": "Une erreur s'est produite"
+    }
+  },
+
+  "pendingChallenges": {
+    "yourPartner": "Ton partenaire",
+    "sentYouSomething": "{{name}} t'a envoyé quelque chose !",
+    "sentYouThings": "{{name}} t'a envoyé {{count}} choses !",
+    "challengeCount": "{{count}} défi",
+    "challengeCount_plural": "{{count}} défis",
+    "wordGiftCount": "{{count}} cadeau de mots",
+    "wordGiftCount_plural": "{{count}} cadeaux de mots",
+    "wordsCount": "{{count}} mots",
+    "quiz": "Quiz",
+    "quickFire": "Feu rapide",
+    "wordGift": "Cadeau de mots",
+    "play": "Jouer",
+    "learn": "Apprendre",
+    "xpBonus": "Bonus {{multiplier}}x XP"
+  },
+
+  "invite": {
+    "title": "Invite ton partenaire",
+    "subtitle": "Ton abonnement inclut un accès gratuit pour ton partenaire !",
+    "shareLinkLabel": "Partage ce lien avec ton partenaire :",
+    "copied": "Copié !",
+    "copy": "Copier",
+    "expiresIn": "Expire dans {{days}} jours",
+    "expiresTomorrow": "Expire demain",
+    "expired": "Expiré",
+    "howItWorks": "Comment ça marche :",
+    "step1": "Partage le lien avec ton partenaire",
+    "step2": "Il/Elle s'inscrit ou se connecte",
+    "step3": "Il/Elle obtient un accès gratuit via ton abonnement !",
+    "generateButton": "Générer un lien d'invitation",
+    "generating": "Génération..."
+  },
+
+  "helpGuide": {
+    "title": "Ton guide",
+    "subtitle": "Love Languages",
+    "contents": "Sommaire",
+    "quickTips": "Astuces rapides",
+    "backToContents": "Retour au sommaire",
+    "footer": "Fait avec amour pour les couples qui apprennent ensemble",
+    "sections": {
+      "gettingStarted": {
+        "title": "Pour commencer",
+        "intro": "Love Languages t'aide à apprendre le {{language}} à travers le prisme de ta relation. Chaque mot que tu apprends est un cadeau d'amour.",
+        "cupidTitle": "Ton compagnon IA : Cupid",
+        "cupidDescription": "Cupid est ton guide chaleureux et encourageant. Il t'aidera à apprendre du vocabulaire, pratiquer la prononciation et trouver les mots parfaits pour exprimer ton amour.",
+        "rolesTitle": "Étudiant vs Tuteur",
+        "studentRole": "Les étudiants apprennent le {{language}} - Cupid t'enseigne directement",
+        "tutorRole": "Les tuteurs aident leur partenaire à apprendre - Cupid donne des conseils d'enseignement"
+      },
+      "chatModes": {
+        "title": "Modes de chat",
+        "askTitle": "Mode Demander",
+        "askSubtitle": "(Étudiants)",
+        "askDescription": "Questions rapides, apprentissage décontracté. Parfait pour :",
+        "askExample1": "« Comment dit-on 'je t'aime' ? »",
+        "askExample2": "« C'est quoi une phrase romantique ? »",
+        "askExample3": "« Comment prononce-t-on ça ? »",
+        "learnTitle": "Mode Apprendre",
+        "learnSubtitle": "(Étudiants)",
+        "learnDescription": "Leçons structurées avec tableaux et exercices. Utilise pour :",
+        "learnExample1": "Pratique de conjugaison",
+        "learnExample2": "Explications de grammaire",
+        "learnExample3": "Leçons de vocabulaire",
+        "coachTitle": "Mode Coach",
+        "coachSubtitle": "(Tuteurs)",
+        "coachDescription": "Ton assistant d'enseignement tout-en-un :",
+        "coachExample1": "Conseils d'enseignement et explications grammaticales",
+        "coachExample2": "Suggestions personnalisées basées sur les progrès du partenaire",
+        "coachExample3": "Recommandations de nouveau vocabulaire pour développer leurs compétences"
+      },
+      "vocabulary": {
+        "title": "Construire son vocabulaire",
+        "intro": "Les mots de tes conversations sont automatiquement sauvegardés dans ton Journal d'amour.",
+        "syncTitle": "Bouton de synchronisation",
+        "syncDescription": "Clique sur synchroniser dans le Journal d'amour pour extraire les nouveaux mots des chats récents",
+        "masteryTitle": "Niveaux de maîtrise",
+        "masteryDescription": "Pratique les mots dans les jeux pour augmenter la maîtrise de 0 à 5 étoiles",
+        "tenseTitle": "Déblocage des temps",
+        "tenseDescription": "Apprends les temps passé/futur dans le chat pour les débloquer dans tes entrées de verbes"
+      },
+      "games": {
+        "title": "Jouer aux jeux",
+        "intro": "Les jeux t'aident à pratiquer et mémoriser le vocabulaire. Chaque bonne réponse augmente la maîtrise !",
+        "flashcards": "Flashcards",
+        "flashcardsDescription": "Cartes à retourner classiques - vois le {{language}}, rappelle le {{native}}",
+        "multipleChoice": "Choix multiple",
+        "multipleChoiceDescription": "Choisis la bonne traduction parmi 4 options",
+        "typeIt": "Écris-le",
+        "typeItDescription": "Tape le mot en {{language}} - teste l'orthographe et la mémoire",
+        "aiChallenge": "Défi IA",
+        "aiChallengeDescription": "Cupid génère des défis uniques avec tes mots"
+      },
+      "progress": {
+        "title": "Suivre les progrès",
+        "xpTitle": "XP et niveaux",
+        "xpDescription": "Gagne des XP en chattant, jouant et maîtrisant des mots. Progresse à travers 18 niveaux répartis en 6 paliers !",
+        "tiersTitle": "Paliers de niveau",
+        "beginner": "Débutant 1-3",
+        "elementary": "Élémentaire 1-3",
+        "conversational": "Conversationnel 1-3",
+        "proficient": "Compétent 1-3",
+        "fluent": "Courant 1-3",
+        "master": "Maître 1-3",
+        "testsNote": "Passe les tests de niveau pour prouver tes compétences et progresser plus vite !"
+      }
+    },
+    "tips": {
+      "verbsQuestion": "Quelle est la meilleure façon d'apprendre les verbes ?",
+      "verbsAnswer": "Utilise le mode Apprendre et demande des tableaux de conjugaison. Pratique les 6 personnes (je, tu, il/elle, nous, vous, ils/elles) ensemble.",
+      "partnerQuestion": "Comment pratiquer avec mon partenaire ?",
+      "partnerAnswer": "Utilise les phrases apprises dans les conversations quotidiennes. Même les simples salutations comptent ! Créez des défis l'un pour l'autre dans la section Jouer.",
+      "progressQuestion": "À quelle vitesse puis-je progresser ?",
+      "progressAnswer": "15-20 minutes de pratique quotidienne font des merveilles. La régularité bat le bourrage de crâne !",
+      "forgetQuestion": "Et si j'oublie un mot ?",
+      "forgetAnswer": "Joue aux jeux - ils font automatiquement ressurgir les mots difficiles. La répétition espacée aide à les ancrer."
+    }
+  },
+
+  "bugReport": {
+    "title": "Signaler un bug",
+    "subtitle": "Aide-nous à améliorer Love Languages",
+    "severity": {
+      "label": "Quelle est la gravité de ce problème ?",
+      "low": "Faible",
+      "lowDescription": "Problème mineur, cosmétique",
+      "medium": "Moyen",
+      "mediumDescription": "Affecte l'utilisabilité",
+      "high": "Élevé",
+      "highDescription": "Fonctionnalité majeure cassée",
+      "critical": "Critique",
+      "criticalDescription": "Application inutilisable"
+    },
+    "titleLabel": "Qu'est-ce qui ne va pas ?",
+    "titlePlaceholder": "Brève description du problème",
+    "detailsLabel": "Détails",
+    "detailsPlaceholder": "Que faisais-tu quand c'est arrivé ? Qu'attendais-tu qu'il se passe ?",
+    "autoCaptureNote": "Nous inclurons automatiquement ta page actuelle, les infos du navigateur et l'état de l'application pour nous aider à enquêter.",
+    "errors": {
+      "fillRequired": "Remplis tous les champs obligatoires",
+      "signIn": "Connecte-toi pour soumettre un rapport de bug",
+      "failed": "Échec de la soumission. Réessaie."
+    },
+    "cancel": "Annuler",
+    "submit": "Envoyer le rapport",
+    "submitting": "Envoi...",
+    "success": {
+      "title": "Merci !",
+      "message": "Ton rapport de bug a été soumis. Nous allons l'examiner et travailler sur une correction.",
+      "close": "Fermer"
+    }
+  },
+
+  "wordGift": {
+    "intro": {
+      "title": "Cadeau de {{name}} !",
+      "subtitle": "Il/Elle veut que tu apprennes {{count}} mot spécial",
+      "subtitle_plural": "Il/Elle veut que tu apprennes {{count}} mots spéciaux",
+      "topic": "Sujet :",
+      "xpBonus": "Gagne {{multiplier}}x XP pour ces mots !",
+      "later": "Plus tard",
+      "openGift": "Ouvrir le cadeau"
+    },
+    "card": {
+      "wordOf": "Mot {{current}} sur {{total}}",
+      "targetLanguage": "{{language}}",
+      "nativeLanguage": "{{language}}",
+      "tapToFlip": "Touche pour retourner",
+      "back": "Retour",
+      "next": "Suivant",
+      "addToLoveLog": "Ajouter au Journal d'amour"
+    },
+    "result": {
+      "title": "Mots appris !",
+      "wordsAdded": "{{count}} nouveau mot ajouté à ton Journal d'amour",
+      "wordsAdded_plural": "{{count}} nouveaux mots ajoutés à ton Journal d'amour",
+      "words": "Mots :",
+      "completion": "Complétion :",
+      "giftFrom": "Cadeau de {{name}}",
+      "done": "Terminé"
+    },
+    "loading": "Ajout des mots à ton Journal d'amour...",
+    "error": {
+      "title": "Oups !",
+      "close": "Fermer",
+      "tryAgain": "Réessayer"
+    },
+    "errors": {
+      "failed": "Échec de la complétion. Réessaie.",
+      "network": "Erreur réseau. Vérifie ta connexion et réessaie."
+    }
+  },
+
+  "chatSuggestions": {
+    "student": {
+      "askTitle": "Demande n'importe quoi à Cupid",
+      "learnTitle": "Prêt pour une leçon ?",
+      "subtitle": "Chaque mot que tu apprends te rapproche de lui/elle"
+    },
+    "tutor": {
+      "coachTitle": "Coache ton partenaire",
+      "subtitle": "Conseils d'enseignement et suggestions personnalisées"
+    },
+    "tryAsking": "Essaie de demander...",
+    "suggestions": {
+      "student": {
+        "ask": {
+          "s1": "Comment dit-on « je t'aime » en {{language}} ?",
+          "s2": "Apprends-moi un joli compliment",
+          "s3": "C'est quoi une phrase romantique pour ce soir ?"
+        },
+        "learn": {
+          "s1": "Commence une leçon sur les salutations",
+          "s2": "Apprends-moi les conjugaisons des verbes",
+          "s3": "Pratique le vocabulaire de la nourriture"
+        }
+      },
+      "tutor": {
+        "coach": {
+          "s1": "Comment expliquer simplement les cas en {{language}} ?",
+          "s2": "Quels nouveaux mots devrais-je lui apprendre ?",
+          "s3": "Suggère une phrase romantique pour ce soir"
+        }
+      }
+    }
+  },
+
+  "newWords": {
+    "added": "{{count}} nouveau mot ajouté",
+    "added_other": "{{count}} nouveaux mots ajoutés",
+    "viewAll": "Voir tout dans le Journal d'amour"
+  },
+
+  "avatar": {
+    "clickToUpload": "Clique pour télécharger",
+    "clickToChange": "Clique pour changer",
+    "adjustPhoto": "Ajuster la photo",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "uploading": "Téléchargement...",
+    "errors": {
+      "invalidType": "Télécharge une image JPG, PNG, WebP ou GIF",
+      "tooLarge": "L'image doit faire moins de 5 Mo",
+      "readFailed": "Échec de la lecture du fichier image",
+      "cropRequired": "Ajuste la zone de recadrage",
+      "uploadFailed": "Échec du téléchargement de l'image"
+    }
+  },
+
+  "joinInvite": {
+    "validating": "Validation de l'invitation...",
+    "invalidInvite": "Invitation invalide",
+    "goToHomepage": "Aller à la page d'accueil",
+    "linking": "Liaison de vos comptes...",
+    "joinJourney": "{{name}} veut que tu rejoignes son parcours d'apprentissage du {{language}} !",
+    "learningToConnect": "Il/Elle apprend le {{language}} pour se connecter avec toi à un niveau plus profond. En tant que coach linguistique, tu vas :",
+    "trackProgress": "Suivre ses progrès",
+    "trackProgressDesc": "Vois quels mots il/elle a appris et où il/elle a besoin d'aide",
+    "conversationStarters": "Obtenir des amorces de conversation",
+    "conversationStartersDesc": "L'IA suggère des phrases en {{language}} à utiliser ensemble basées sur son vocabulaire",
+    "encourageCelebrate": "Encourager et célébrer",
+    "encourageCelebrateDesc": "Aide-le/la à rester motivé(e) et célébrez les étapes ensemble",
+    "join": "Rejoindre {{name}}",
+    "createAccount": "Crée ton compte pour devenir son coach",
+    "signInToConnect": "Connecte-toi pour te connecter",
+    "emailLabel": "Adresse e-mail",
+    "passwordLabel": "Mot de passe",
+    "connecting": "Connexion...",
+    "joinAsCoach": "Rejoindre en tant que coach",
+    "signInConnect": "Se connecter et connecter",
+    "alreadyHaveAccount": "Tu as déjà un compte ? Connecte-toi",
+    "noAccount": "Pas de compte ? Inscris-toi",
+    "checkEmail": "Vérifie ton e-mail pour la confirmation, puis connecte-toi !",
+    "yourPartner": "Ton partenaire"
+  },
+
+  "gameHistory": {
+    "loading": "Chargement...",
+    "noHistory": "Pas encore d'historique de jeu",
+    "noHistoryDesc": "Joue à des jeux pour voir tes progrès ici !",
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "gameModes": {
+      "flashcards": "Flashcards",
+      "multiple_choice": "Choix multiple",
+      "type_it": "Écris-le",
+      "quick_fire": "Feu rapide",
+      "ai_challenge": "Défi IA"
+    },
+    "smartAccepted": "Accepté intelligemment",
+    "missedWords": "Mots manqués",
+    "missed": "{{count}} manqué(s)",
+    "youSaid": "Tu as dit :",
+    "correct": "Correct :",
+    "practiceWords": "Pratiquer ces {{count}} mots",
+    "perfectScore": "Score parfait ! Aucun mot manqué."
+  },
+
+  "usage": {
+    "title": "Utilisation mensuelle",
+    "unlimitedPlan": "Plan illimité",
+    "noLimits": "Pas de limites d'utilisation - apprends autant que tu veux !",
+    "words": "Mots",
+    "voiceMin": "Min vocal",
+    "listenMin": "Min écoute",
+    "vocabulary": "Vocabulaire",
+    "voiceChat": "Chat vocal",
+    "listenMode": "Mode écoute",
+    "upgradePrompt": "À court ? Passe à Illimité pour aucune limite !",
+    "resetsMonthly": "L'utilisation se réinitialise le 1er de chaque mois"
+  },
+
+  "inviteLink": {
+    "title": "Lien d'invitation magique",
+    "subtitle": "Partage avec ton partenaire pour te connecter instantanément",
+    "generate": "Générer un lien d'invitation",
+    "generating": "Génération...",
+    "yourLink": "Ton lien d'invitation :",
+    "copied": "Copié dans le presse-papiers !",
+    "copyLink": "Copier le lien",
+    "expired": "Expiré",
+    "expiresTomorrow": "Expire demain",
+    "expiresIn": "Expire dans {{days}} jours",
+    "newLink": "Nouveau lien",
+    "description": "Quand ton partenaire clique sur ce lien, il/elle sera invité(e) à te rejoindre en tant que coach linguistique !"
+  },
+
+  "breakup": {
+    "warning": {
+      "title": "Mettre fin à votre parcours d'apprentissage ensemble ?",
+      "whatHappens": "Ce qui se passe :",
+      "consequence1": "Vos comptes seront dissociés",
+      "consequence2": "Vous ne verrez plus les progrès de l'autre",
+      "consequence3Granter": "{{name}} perdra son accès gratuit",
+      "consequence3Grantee": "Tu perdras ton accès gratuit",
+      "consequence4": "Ton vocabulaire et tes progrès restent avec toi",
+      "stayTogether": "Rester ensemble",
+      "continue": "Continuer"
+    },
+    "confirm": {
+      "title": "Es-tu sûr(e) ?",
+      "typeGoodbye": "Tape « adieu » pour confirmer",
+      "placeholder": "Tape adieu...",
+      "goBack": "Retour",
+      "itsOver": "C'est fini"
+    },
+    "processing": "Séparation en cours...",
+    "complete": {
+      "title": "Comptes dissociés",
+      "messageGranter": "Ton abonnement continue. Tu peux inviter quelqu'un d'autre à tout moment.",
+      "messageGrantee": "Prends soin de toi. Tu auras besoin de ton propre abonnement pour continuer à apprendre."
+    }
+  },
+
+  "gameShowcase": {
+    "studentHeadline": {
+      "part1": "Oh, et si tu veux apprendre ",
+      "highlight": "de façon traditionnelle aussi",
+      "part2": "..."
+    },
+    "tutorHeadline": {
+      "playTogether": "Jouez ensemble",
+      "middle": ", ou envoie-lui des ",
+      "challenges": "défis",
+      "end": " à relever en solo..."
+    },
+    "studentSubtext": "On fait ça incroyablement bien.",
+    "tutorSubtext": "Spoiler : tu vas vouloir jouer aussi.",
+    "modes": {
+      "flashcard": "Flashcard",
+      "multipleChoice": "Choix multiple",
+      "typeIt": "Écris-le",
+      "quickFire": "Feu rapide"
+    },
+    "mobileShort": {
+      "multi": "Multi",
+      "quick": "Rapide"
+    }
+  },
+
+  "demoFlashcard": {
+    "tapToReveal": "Touche pour révéler",
+    "hard": "Difficile",
+    "gotIt": "Je l'ai !"
+  },
+
+  "demoTypeIt": {
+    "correct": "Correct !",
+    "notQuite": "Pas tout à fait",
+    "answer": "Réponse :",
+    "typeIn": "Tape en {{language}}...",
+    "next": "Suivant",
+    "check": "Vérifier"
+  },
+
+  "demoQuickFire": {
+    "title": "Feu rapide !",
+    "instructions": "Tape les traductions le plus vite possible !",
+    "start": "Commencer",
+    "submit": "Soumettre",
+    "typeIn": "Tape en {{language}}...",
+    "perfect": "Parfait !",
+    "greatJob": "Excellent travail !",
+    "keepPracticing": "Continue à pratiquer !",
+    "timesUp": "Temps écoulé !"
+  },
+
+  "hero": {
+    "toggle": {
+      "learn": "Apprendre",
+      "teach": "Enseigner"
+    },
+    "login": {
+      "emailLabel": "Adresse e-mail",
+      "emailPlaceholder": "toi@amour.com",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "••••••••",
+      "entering": "Connexion...",
+      "alreadyHaveAccount": "Tu as déjà un compte ? Connecte-toi",
+      "newHere": "Nouveau ici ? Crée un compte",
+      "checkEmail": "Vérifie ton e-mail pour la confirmation !"
+    },
+    "legal": {
+      "terms": "Conditions",
+      "termsOfService": "Conditions d'utilisation",
+      "privacy": "Confidentialité",
+      "privacyPolicy": "Politique de confidentialité"
+    },
+    "student": {
+      "section1": {
+        "headline": "Oublie l'ennuyeux. Apprends les mots qui comptent—ceux qui le/la font sourire.",
+        "highlight1": "mots qui comptent",
+        "highlight2": "le/la font sourire",
+        "subhead": "Ceux qu'il/elle n'utilise qu'avec les gens qu'il/elle aime.",
+        "copy": "Leurs blagues entre vous. Leurs expressions familiales. La façon dont il/elle dit « je t'aime » quand personne n'écoute.",
+        "copyHighlight1": "blagues entre vous",
+        "copyHighlight2": "expressions familiales",
+        "copyHighlight3": "je t'aime",
+        "underline": "La façon dont il/elle dit « je t'aime » quand personne n'écoute"
+      },
+      "section2": {
+        "headline": "Il y a une conversation dont tu ne fais pas partie. Pas encore.",
+        "highlight1": "Pas encore",
+        "copy": "Les blagues où tu souris sans comprendre. Les histoires de famille qui perdent quelque chose en traduction. C'est l'heure de vraiment comprendre.",
+        "copyHighlight1": "histoires de famille",
+        "copyHighlight2": "vraiment comprendre",
+        "underline": "C'est l'heure de vraiment comprendre"
+      },
+      "section3": {
+        "headline": "Tu n'apprends pas une langue. Tu l'apprends lui/elle.",
+        "highlight1": "l'apprends lui/elle",
+        "copy": "Ses mots. Ses blagues. Sa façon de te taquiner avec amour. Fait pour ceux qui sont là pour l'amour, pas les notes.",
+        "copyHighlight1": "Ses mots",
+        "copyHighlight2": "Ses blagues",
+        "copyHighlight3": "l'amour",
+        "underline": "Fait pour ceux qui sont là pour l'amour"
+      },
+      "section4": {
+        "headline": "Apprendre sa langue = flirter avec des étapes en plus.",
+        "highlight1": "flirter",
+        "copy": "Ce n'est pas l'école. Il n'y a pas de test. Juste toi, qui te montres pour lui/elle d'une toute nouvelle façon. Plutôt romantique, en fait.",
+        "copyHighlight1": "te montres pour lui/elle",
+        "copyHighlight2": "romantique",
+        "underline": "Plutôt romantique, en fait"
+      },
+      "section5": {
+        "headline": "Le moment où tu fais rire sa famille ? Perfection.",
+        "highlight1": "sa famille rire",
+        "highlight2": "Perfection",
+        "copy": "La première fois que tu comprends vraiment la blague. Le premier « je t'aime » dans sa langue qui sonne juste. Le moment où sa mère commence à te parler directement dans leur langue. Ça arrive.",
+        "copyHighlight1": "je t'aime",
+        "copyHighlight2": "mère",
+        "copyHighlight3": "Ça arrive",
+        "underline": "Ça arrive"
+      },
+      "section6": {
+        "headline": "Apprenez ensemble. Aimez-vous ensemble. Riez ensemble.",
+        "highlight1": "ensemble",
+        "highlight2": "Aimez-vous",
+        "highlight3": "Riez",
+        "copy": "Il/Elle t'enverra des mots importants. Te défiera à des jeux. Se moquera de ta prononciation (avec amour). Ce n'est pas étudier seul—c'est construire votre petit monde ensemble.",
+        "copyHighlight1": "mots importants",
+        "copyHighlight2": "votre petit monde",
+        "underline": "construire votre petit monde ensemble"
+      },
+      "context1": { "header": "Prêt à le/la rencontrer ?", "cta": "Commencer à apprendre", "subtext": "2 minutes pour ton premier mot." },
+      "context2": { "header": "On est là pour toi", "cta": "Commencer à apprendre", "subtext": "Fini les rires forcés." },
+      "context3": { "header": "Fait pour les amoureux", "cta": "Commencer le parcours", "subtext": "Pas des touristes. De la famille." },
+      "context4": { "header": "Joue à ta façon", "cta": "Explorer les jeux", "subtext": "Flashcards, défis et plus." },
+      "context5": { "header": "Fais que ça compte", "cta": "Commencer le parcours", "subtext": "Chaque mot compte." },
+      "context6": { "header": "Réalise-le", "cta": "Commencer", "subtext": "Ce moment arrive." },
+      "context7": { "header": "Commencez ensemble", "cta": "Créer votre monde", "subtext": "Il/Elle t'attend." }
+    },
+    "tutor": {
+      "section1": {
+        "headline": "Il/Elle t'aime. Maintenant aide-le/la à aimer ta langue aussi.",
+        "highlight1": "t'aime",
+        "highlight2": "ta langue",
+        "copy": "Tes mots. Tes blagues. Ta façon de jurer quand tu te cognes l'orteil. Il y a tout un toi qu'il/elle n'a pas encore rencontré—un tout nouveau toi. Laisse-le/la entrer.",
+        "copyHighlight1": "Tes mots",
+        "copyHighlight2": "Tes blagues",
+        "copyHighlight3": "un tout nouveau toi",
+        "copyHighlight4": "Laisse-le/la entrer",
+        "underline": "Laisse-le/la entrer"
+      },
+      "section2": {
+        "headline": "Tu as essayé d'expliquer. Il/Elle a essayé d'acquiescer. Réglons ça.",
+        "highlight1": "expliquer",
+        "highlight2": "acquiescer",
+        "highlight3": "Réglons ça",
+        "copy": "Les choses que tu dis quand tu es vraiment content(e). Ou vraiment agacé(e). Les mots qui sont comme chez toi. Il/Elle veut comprendre tout de toi—pas juste la version traduite.",
+        "copyHighlight1": "vraiment content(e)",
+        "copyHighlight2": "vraiment agacé(e)",
+        "copyHighlight3": "tout de toi",
+        "underline": "pas juste la version traduite"
+      },
+      "section3": {
+        "headline": "Chaque mot que tu partages est un pont.",
+        "highlight1": "pont",
+        "copy": "Partage des mots. Crée des défis. Célébrez les victoires ensemble. L'appli gère l'ennuyeux—toi, tu n'as qu'à être le/la plus fun.",
+        "copyHighlight1": "Partage des mots",
+        "copyHighlight2": "Crée des défis",
+        "copyHighlight3": "Célébrez les victoires",
+        "copyHighlight4": "le/la plus fun",
+        "underline": "toi, tu n'as qu'à être le/la plus fun"
+      },
+      "section4": {
+        "headline": "Envoie un mot. Lance un jeu. Regarde-le/la progresser.",
+        "highlight1": "jeu",
+        "highlight2": "progresser",
+        "copy": "Défie-le/la sur l'expression préférée de ta mère. Quiz avant le dîner. Célèbre quand il/elle réussit. C'est du temps de couple déguisé en apprentissage—et c'est vraiment amusant.",
+        "copyHighlight1": "expression préférée de ta mère",
+        "copyHighlight2": "temps de couple",
+        "copyHighlight3": "vraiment amusant",
+        "underline": "C'est du temps de couple déguisé en apprentissage"
+      },
+      "section5": {
+        "headline": "Le moment où il/elle te surprend avec une phrase que tu n'as jamais enseignée ? Magique.",
+        "highlight1": "te surprend",
+        "highlight2": "Magique",
+        "copy": "Quand il/elle fait une blague et que ta famille rit vraiment. Quand ta mère commence à lui parler directement dans ta langue. Quand il/elle sort une phrase qui te laisse bouche bée. C'est toi qui as fait ça.",
+        "copyHighlight1": "famille rit vraiment",
+        "copyHighlight2": "mère",
+        "copyHighlight3": "C'est toi qui as fait ça"
+      },
+      "section6": {
+        "headline": "Enseignez ensemble. Jouez ensemble. Tombez encore plus amoureux.",
+        "highlight1": "ensemble",
+        "highlight2": "amoureux",
+        "copy": "C'est comme ça que tu partages qui tu es vraiment. Mot par mot. Jeu par jeu. Rire après rire. Et il/elle tombe amoureux de tout ça.",
+        "copyHighlight1": "qui tu es vraiment",
+        "copyHighlight2": "tombe amoureux",
+        "underline": "Et il/elle tombe amoureux de tout ça"
+      },
+      "context1": { "header": "Partage ton monde", "cta": "Commencer à guider", "subtext": "Deviens son guide linguistique." },
+      "context2": { "header": "Laisse-le/la entrer", "cta": "Commencer à guider", "subtext": "Certaines choses s'apprennent mieux." },
+      "context3": { "header": "Enseigne avec amour", "cta": "Commencer", "subtext": "Pas des leçons. Des lettres d'amour." },
+      "context4": { "header": "Défie-le/la", "cta": "Envoyer un défi", "subtext": "Jeux, défis, surprises." },
+      "context5": { "header": "Regarde-le/la s'épanouir", "cta": "Commencer à envoyer", "subtext": "Un mot à la fois." },
+      "context6": { "header": "Ouvre la porte", "cta": "Commencer", "subtext": "Ce moment arrive." },
+      "context7": { "header": "Grandissez ensemble", "cta": "Devenir son guide", "subtext": "Il/Elle est prêt(e) pour toi." }
+    }
+  }
+}

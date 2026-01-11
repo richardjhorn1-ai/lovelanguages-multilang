@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ExtractedWord } from '../services/gemini';
 import { ICONS } from '../constants';
 
@@ -9,6 +10,7 @@ interface NewWordsNotificationProps {
 }
 
 const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onClose }) => {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const navigate = useNavigate();
 
@@ -35,7 +37,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onCl
             </div>
           </div>
           <span className="text-sm font-bold text-[var(--text-primary)]">
-            {words.length} new word{words.length > 1 ? 's' : ''} added
+            {t('newWords.added', { count: words.length })}
           </span>
           <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="ml-auto text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
             <ICONS.X className="w-4 h-4" />
@@ -68,7 +70,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onCl
               onClick={() => { navigate('/log'); onClose(); }}
               className="w-full py-2 text-[10px] font-bold uppercase tracking-wider text-[var(--accent-color)] hover:opacity-80 transition-colors"
             >
-              View all in Love Log →
+              {t('newWords.viewAll')} →
             </button>
           </div>
         </div>

@@ -17,39 +17,35 @@ function getLevelName(level: number): string {
 }
 
 // Fetch user's learning context (vocabulary, weak spots, stats)
-async function fetchLearnerContext(supabase: any, userId: string) {
-  // Parallel fetch: vocabulary and scores
-  const [vocabResult, scoresResult, profileResult] = await Promise.all([
+async function fetchLearnerContext(supabase: any, userId: string, targetLanguage: string) {
+  // Parallel fetch: vocabulary and scores (filtered by language)
+  const [vocabResult, scoresResult] = await Promise.all([
     supabase
       .from('dictionary')
       .select('word, translation, word_type')
       .eq('user_id', userId)
+      .eq('language_code', targetLanguage)
       .order('unlocked_at', { ascending: false })
       .limit(100),
     supabase
-      .from('scores')
-      .select('word_id, success_count, fail_count, learned_at, last_practiced, dictionary:word_id(word, translation)')
-      .eq('user_id', userId),
-    supabase
-      .from('profiles')
-      .select('full_name, xp, level, partner_name, linked_user_id')
-      .eq('id', userId)
-      .single()
+      .from('word_scores')
+      .select('word_id, correct_count, incorrect_count, learned_at, last_practiced, dictionary:word_id(word, translation)')
+      .eq('user_id', userId)
+      .eq('language_code', targetLanguage)
   ]);
 
   const vocabulary = vocabResult.data || [];
   const scores = scoresResult.data || [];
-  const profile = profileResult.data;
 
   // Calculate weak spots (words with failures, sorted by fail count)
   const weakSpots = scores
-    .filter((s: any) => s.fail_count > 0)
-    .sort((a: any, b: any) => b.fail_count - a.fail_count)
+    .filter((s: any) => s.incorrect_count > 0)
+    .sort((a: any, b: any) => b.incorrect_count - a.incorrect_count)
     .slice(0, 10)
     .map((s: any) => ({
       word: s.dictionary?.word || 'unknown',
       translation: s.dictionary?.translation || '',
-      failCount: s.fail_count
+      failCount: s.incorrect_count
     }));
 
   // Calculate mastered count
@@ -71,7 +67,6 @@ async function fetchLearnerContext(supabase: any, userId: string) {
     : null;
 
   return {
-    profile,
     vocabulary: vocabulary.map((v: any) => ({
       word: v.word,
       translation: v.translation,
@@ -112,13 +107,22 @@ export default async function handler(req: any, res: any) {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
     const bootedAt = new Date().toISOString();
 
-    // Fetch user's own context
-    const userContext = await fetchLearnerContext(supabase, auth.userId);
-    const profile = userContext.profile;
+    // First fetch profile to get language settings
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('full_name, xp, level, partner_name, linked_user_id, role, active_language, native_language')
+      .eq('id', auth.userId)
+      .single();
 
-    if (!profile) {
+    if (profileError || !profile) {
       return res.status(404).json({ error: 'Profile not found' });
     }
+
+    const targetLanguage = profile.active_language || 'pl';
+    const nativeLanguage = profile.native_language || 'en';
+
+    // Fetch user's learning context with language filter
+    const userContext = await fetchLearnerContext(supabase, auth.userId, targetLanguage);
 
     const isStudent = profile.role !== 'tutor';
 
@@ -131,6 +135,8 @@ export default async function handler(req: any, res: any) {
       bootedAt,
       level: getLevelName(profile.level || 1),
       xp: profile.xp || 0,
+      targetLanguage,
+      nativeLanguage,
       vocabulary: userContext.vocabulary,
       weakSpots: userContext.weakSpots,
       recentWords: userContext.recentWords,
@@ -157,9 +163,18 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // Fetch partner's context
-    const partnerContext = await fetchLearnerContext(supabase, profile.linked_user_id);
-    const partnerProfile = partnerContext.profile;
+    // Fetch partner's profile first to get their language settings
+    const { data: partnerProfile } = await supabase
+      .from('profiles')
+      .select('full_name, xp, level, active_language, native_language')
+      .eq('id', profile.linked_user_id)
+      .single();
+
+    const partnerTargetLanguage = partnerProfile?.active_language || 'pl';
+    const partnerNativeLanguage = partnerProfile?.native_language || 'en';
+
+    // Fetch partner's learning context with their language
+    const partnerContext = await fetchLearnerContext(supabase, profile.linked_user_id, partnerTargetLanguage);
 
     return res.status(200).json({
       success: true,
@@ -176,6 +191,8 @@ export default async function handler(req: any, res: any) {
           name: partnerProfile?.full_name || 'Partner',
           level: getLevelName(partnerProfile?.level || 1),
           xp: partnerProfile?.xp || 0,
+          targetLanguage: partnerTargetLanguage,
+          nativeLanguage: partnerNativeLanguage,
           vocabulary: partnerContext.vocabulary,
           weakSpots: partnerContext.weakSpots,
           recentWords: partnerContext.recentWords,

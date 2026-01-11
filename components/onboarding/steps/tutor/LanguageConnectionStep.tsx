@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
-import { ICONS } from '../../../../constants';
+import { useLanguage } from '../../../../context/LanguageContext';
 
-interface PolishConnectionStepProps {
+interface LanguageConnectionStepProps {
   currentStep: number;
   totalSteps: number;
   initialValue?: string;
@@ -11,14 +12,7 @@ interface PolishConnectionStepProps {
   accentColor?: string;
 }
 
-const CONNECTION_OPTIONS = [
-  { id: 'native', label: 'Native speaker', description: 'Born and raised in Poland', emoji: '🇵🇱' },
-  { id: 'heritage', label: 'Heritage speaker', description: 'Polish family background', emoji: '🏠' },
-  { id: 'fluent', label: 'Fluent speaker', description: 'Learned and mastered Polish', emoji: '📚' },
-  { id: 'bilingual', label: 'Bilingual', description: 'Grew up speaking Polish and another language', emoji: '🗣️' },
-];
-
-export const PolishConnectionStep: React.FC<PolishConnectionStepProps> = ({
+export const LanguageConnectionStep: React.FC<LanguageConnectionStepProps> = ({
   currentStep,
   totalSteps,
   initialValue = '',
@@ -26,7 +20,16 @@ export const PolishConnectionStep: React.FC<PolishConnectionStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState(initialValue);
+  const { targetName, targetFlag } = useLanguage();
+
+  const CONNECTION_OPTIONS = [
+    { id: 'native', label: t('onboarding.tutor.connection.native'), description: t('onboarding.tutor.connection.nativeDesc', { language: targetName }), emoji: targetFlag },
+    { id: 'heritage', label: t('onboarding.tutor.connection.heritage'), description: t('onboarding.tutor.connection.heritageDesc', { language: targetName }), emoji: '🏠' },
+    { id: 'fluent', label: t('onboarding.tutor.connection.fluent'), description: t('onboarding.tutor.connection.fluentDesc', { language: targetName }), emoji: '📚' },
+    { id: 'bilingual', label: t('onboarding.tutor.connection.bilingual'), description: t('onboarding.tutor.connection.bilingualDesc', { language: targetName }), emoji: '🗣️' },
+  ];
 
   return (
     <OnboardingStep
@@ -37,13 +40,13 @@ export const PolishConnectionStep: React.FC<PolishConnectionStepProps> = ({
     >
       <div className="text-center mb-8">
         <div className="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-6">
-          <span className="text-3xl">🇵🇱</span>
+          <span className="text-3xl">{targetFlag}</span>
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          What's your connection to Polish?
+          {t('onboarding.tutor.connection.title', { language: targetName })}
         </h1>
         <p className="text-gray-500">
-          Help us understand your language background
+          {t('onboarding.tutor.connection.subtitle')}
         </p>
       </div>
 

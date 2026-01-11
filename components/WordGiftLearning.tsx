@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { WordRequest, WordSuggestion } from '../types';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface WordGiftLearningProps {
   wordRequest: WordRequest;
@@ -16,6 +18,8 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   onClose,
   onComplete
 }) => {
+  const { t } = useTranslation();
+  const { targetName, nativeName } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [completing, setCompleting] = useState(false);
@@ -47,11 +51,11 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
           detail: { count: data.wordsAdded, source: 'word-gift' }
         }));
       } else {
-        setError(data.error || 'Failed to complete. Please try again.');
+        setError(data.error || t('wordGift.errors.failed'));
       }
     } catch (err) {
       console.error('Error completing word request:', err);
-      setError('Network error. Please check your connection and try again.');
+      setError(t('wordGift.errors.network'));
     }
     setCompleting(false);
   };
@@ -76,15 +80,15 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
           <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[var(--accent-light)] to-amber-100/50 rounded-full flex items-center justify-center text-3xl md:text-4xl mx-auto mb-3 md:mb-4 animate-bounce">
             🎁
           </div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">Gift from {partnerName}!</h2>
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">{t('wordGift.intro.title', { name: partnerName })}</h2>
           <p className="text-[var(--text-secondary)] text-sm md:text-base mb-4 md:mb-6">
-            They want you to learn {words.length} special word{words.length > 1 ? 's' : ''}
+            {t('wordGift.intro.subtitle', { count: words.length })}
           </p>
 
           {wordRequest.request_type === 'ai_topic' && (
             <div className="bg-[var(--accent-light)] p-3 md:p-4 rounded-xl md:rounded-2xl mb-3 md:mb-4">
               <p className="text-xs md:text-sm text-[var(--text-secondary)]">
-                <span className="font-bold text-[var(--text-primary)]">Topic:</span> {wordRequest.input_text}
+                <span className="font-bold text-[var(--text-primary)]">{t('wordGift.intro.topic')}</span> {wordRequest.input_text}
               </p>
             </div>
           )}
@@ -93,7 +97,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             <div className="flex items-center justify-center gap-2">
               <span className="text-xl md:text-2xl">✨</span>
               <p className="text-xs md:text-sm font-bold text-[var(--text-primary)]">
-                Earn <span className="text-[var(--accent-color)]">{wordRequest.xp_multiplier}x XP</span> for these words!
+                {t('wordGift.intro.xpBonus', { multiplier: wordRequest.xp_multiplier })}
               </p>
               <span className="text-xl md:text-2xl">✨</span>
             </div>
@@ -104,13 +108,13 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
               onClick={onClose}
               className="flex-1 px-4 md:px-6 py-3 md:py-4 text-[var(--text-secondary)] font-bold rounded-xl hover:bg-[var(--bg-primary)] transition-colors text-sm md:text-base"
             >
-              Later
+              {t('wordGift.intro.later')}
             </button>
             <button
               onClick={() => setShowIntro(false)}
               className="flex-1 px-4 md:px-6 py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 transition-colors text-sm md:text-base"
             >
-              Open Gift
+              {t('wordGift.intro.openGift')}
             </button>
           </div>
         </div>
@@ -132,9 +136,9 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             </div>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">Words Learned!</h2>
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">{t('wordGift.result.title')}</h2>
           <p className="text-[var(--text-secondary)] text-sm md:text-base mb-4 md:mb-6">
-            {result.wordsAdded} new word{result.wordsAdded > 1 ? 's' : ''} added to your Love Log
+            {t('wordGift.result.wordsAdded', { count: result.wordsAdded })}
           </p>
 
           <div className="bg-[var(--accent-light)] p-4 md:p-6 rounded-xl md:rounded-2xl mb-4 md:mb-6 border border-[var(--accent-border)]">
@@ -142,21 +146,21 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
               +{result.xpEarned} XP
             </p>
             <div className="text-[10px] md:text-xs text-[var(--text-secondary)] space-y-1">
-              <p>Words: {result.breakdown?.wordsXp || 0} XP ({wordRequest.xp_multiplier}x bonus)</p>
-              <p>Completion: +{result.breakdown?.completionBonus || 5} XP</p>
+              <p>{t('wordGift.result.words')} {result.breakdown?.wordsXp || 0} XP ({wordRequest.xp_multiplier}x)</p>
+              <p>{t('wordGift.result.completion')} +{result.breakdown?.completionBonus || 5} XP</p>
             </div>
           </div>
 
           <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-4 md:mb-6 flex items-center justify-center gap-2">
             <ICONS.Heart className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--accent-color)] fill-[var(--accent-color)]" />
-            Gift from {result.giftedBy || partnerName}
+            {t('wordGift.result.giftFrom', { name: result.giftedBy || partnerName })}
           </p>
 
           <button
             onClick={() => { onComplete(); }}
             className="w-full px-4 md:px-6 py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 transition-colors text-sm md:text-base"
           >
-            Done
+            {t('wordGift.result.done')}
           </button>
         </div>
       </div>
@@ -173,7 +177,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
-          <p className="text-[var(--text-secondary)]">Adding words to your Love Log...</p>
+          <p className="text-[var(--text-secondary)]">{t('wordGift.loading')}</p>
         </div>
       </div>
     );
@@ -187,7 +191,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
           <div className="w-16 h-16 md:w-20 md:h-20 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center text-3xl md:text-4xl mx-auto mb-3 md:mb-4">
             😔
           </div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">Oops!</h2>
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">{t('wordGift.error.title')}</h2>
           <p className="text-[var(--text-secondary)] text-sm md:text-base mb-4 md:mb-6">
             {error}
           </p>
@@ -196,7 +200,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
               onClick={onClose}
               className="flex-1 px-4 md:px-6 py-3 md:py-4 text-[var(--text-secondary)] font-bold rounded-xl hover:bg-[var(--bg-primary)] transition-colors text-sm md:text-base"
             >
-              Close
+              {t('common.close')}
             </button>
             <button
               onClick={() => {
@@ -205,7 +209,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
               }}
               className="flex-1 px-4 md:px-6 py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 transition-colors text-sm md:text-base"
             >
-              Try Again
+              {t('wordGift.error.tryAgain')}
             </button>
           </div>
         </div>
@@ -223,7 +227,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             <div className="flex items-center gap-2">
               <span className="text-base md:text-lg">🎁</span>
               <span className="text-xs md:text-sm font-bold text-[var(--text-secondary)]">
-                Word {currentIndex + 1} of {words.length}
+                {t('wordGift.card.wordOf', { current: currentIndex + 1, total: words.length })}
               </span>
             </div>
             <button onClick={onClose} className="p-1.5 md:p-2 hover:bg-[var(--bg-primary)] rounded-lg md:rounded-xl">
@@ -247,19 +251,19 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
             <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${
               flipped ? 'rotate-y-180' : ''
             }`}>
-              {/* Front - Polish Word */}
+              {/* Front - Target Language Word */}
               <div className="absolute inset-0 bg-[var(--accent-light)] p-6 md:p-8 rounded-xl md:rounded-2xl border border-[var(--accent-border)] text-center flex flex-col items-center justify-center backface-hidden">
-                <p className="text-[10px] md:text-xs font-bold text-[var(--accent-color)] uppercase tracking-wider mb-1.5 md:mb-2">Polish</p>
+                <p className="text-[10px] md:text-xs font-bold text-[var(--accent-color)] uppercase tracking-wider mb-1.5 md:mb-2">{t('wordGift.card.targetLanguage', { language: targetName })}</p>
                 <p className="text-2xl md:text-3xl font-black text-[var(--text-primary)] mb-1.5 md:mb-2">{currentWord?.word}</p>
                 {currentWord?.pronunciation && (
                   <p className="text-xs md:text-sm text-[var(--text-secondary)] italic">[{currentWord.pronunciation}]</p>
                 )}
-                <p className="text-[10px] md:text-xs text-[var(--text-secondary)] mt-3 md:mt-4 animate-pulse">Tap to flip</p>
+                <p className="text-[10px] md:text-xs text-[var(--text-secondary)] mt-3 md:mt-4 animate-pulse">{t('wordGift.card.tapToFlip')}</p>
               </div>
 
               {/* Back - Translation */}
               <div className="absolute inset-0 bg-[var(--bg-primary)] p-6 md:p-8 rounded-xl md:rounded-2xl border border-[var(--border-color)] text-center flex flex-col items-center justify-center backface-hidden rotate-y-180">
-                <p className="text-[10px] md:text-xs font-bold text-[var(--accent-color)] uppercase tracking-wider mb-1.5 md:mb-2">English</p>
+                <p className="text-[10px] md:text-xs font-bold text-[var(--accent-color)] uppercase tracking-wider mb-1.5 md:mb-2">{t('wordGift.card.nativeLanguage', { language: nativeName })}</p>
                 <p className="text-2xl md:text-3xl font-black text-[var(--text-primary)] mb-1.5 md:mb-2">{currentWord?.translation}</p>
                 {currentWord?.context && (
                   <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-2">{currentWord.context}</p>
@@ -285,7 +289,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
                 }}
                 className="flex-1 px-4 md:px-6 py-3 md:py-4 text-[var(--text-secondary)] font-bold rounded-xl hover:bg-[var(--bg-primary)] transition-colors flex items-center justify-center gap-1.5 md:gap-2 text-sm md:text-base"
               >
-                <ICONS.ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" /> Back
+                <ICONS.ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" /> {t('wordGift.card.back')}
               </button>
             )}
             <button
@@ -293,9 +297,9 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
               className="flex-1 px-4 md:px-6 py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 transition-colors flex items-center justify-center gap-1.5 md:gap-2 text-sm md:text-base"
             >
               {currentIndex < words.length - 1 ? (
-                <>Next <ICONS.ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" /></>
+                <>{t('wordGift.card.next')} <ICONS.ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" /></>
               ) : (
-                <>Add to Love Log <ICONS.Heart className="w-3.5 h-3.5 md:w-4 md:h-4" /></>
+                <>{t('wordGift.card.addToLoveLog')} <ICONS.Heart className="w-3.5 h-3.5 md:w-4 md:h-4" /></>
               )}
             </button>
           </div>

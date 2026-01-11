@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 
 interface ValidationModeStepProps {
@@ -10,37 +11,6 @@ interface ValidationModeStepProps {
   accentColor?: string;
 }
 
-const VALIDATION_OPTIONS = [
-  {
-    id: 'smart',
-    value: true,
-    emoji: '🧠',
-    label: 'Smart Mode',
-    tag: 'Recommended',
-    description: 'AI understands what you mean',
-    details: [
-      'Accepts synonyms ("pretty" = "beautiful")',
-      'Forgives minor typos',
-      'Allows article variations ("the dog" vs "dog")',
-      'Recognizes alternate translations'
-    ]
-  },
-  {
-    id: 'strict',
-    value: false,
-    emoji: '🎯',
-    label: 'Strict Mode',
-    tag: 'Advanced',
-    description: 'Exact answers only',
-    details: [
-      'Must match exactly (ignoring accents)',
-      'Best for advanced learners',
-      'Builds precision and accuracy',
-      'Traditional flashcard experience'
-    ]
-  }
-];
-
 export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
   currentStep,
   totalSteps,
@@ -49,7 +19,40 @@ export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState<boolean | null>(initialValue);
+
+  // Options array inside component to access t()
+  const validationOptions = [
+    {
+      id: 'smart',
+      value: true,
+      emoji: '🧠',
+      label: t('onboarding.validation.smart.label'),
+      tag: t('onboarding.validation.smart.tag'),
+      description: t('onboarding.validation.smart.description'),
+      details: [
+        t('onboarding.validation.smart.detail1'),
+        t('onboarding.validation.smart.detail2'),
+        t('onboarding.validation.smart.detail3'),
+        t('onboarding.validation.smart.detail4')
+      ]
+    },
+    {
+      id: 'strict',
+      value: false,
+      emoji: '🎯',
+      label: t('onboarding.validation.strict.label'),
+      tag: t('onboarding.validation.strict.tag'),
+      description: t('onboarding.validation.strict.description'),
+      details: [
+        t('onboarding.validation.strict.detail1'),
+        t('onboarding.validation.strict.detail2'),
+        t('onboarding.validation.strict.detail3'),
+        t('onboarding.validation.strict.detail4')
+      ]
+    }
+  ];
 
   return (
     <OnboardingStep
@@ -60,15 +63,15 @@ export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
     >
       <div className="text-center mb-6">
         <h1 className="text-2xl md:text-3xl font-black text-gray-800 mb-3 font-header">
-          How should we check your answers?
+          {t('onboarding.validation.title')}
         </h1>
         <p className="text-gray-500 text-sm md:text-base">
-          Choose how forgiving the app should be when grading.
+          {t('onboarding.validation.subtitle')}
         </p>
       </div>
 
       <div className="space-y-4 mb-6">
-        {VALIDATION_OPTIONS.map((option) => (
+        {validationOptions.map((option) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.value)}
@@ -123,7 +126,7 @@ export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
       </div>
 
       <p className="text-center text-xs text-gray-400 mb-4">
-        You can change this anytime in Settings
+        {t('onboarding.validation.changeInSettings')}
       </p>
 
       <NextButton

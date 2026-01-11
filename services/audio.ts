@@ -1,9 +1,10 @@
 /**
- * Audio utilities for Polish text-to-speech
+ * Audio utilities for multi-language text-to-speech
  * Uses Google Cloud TTS via API with browser fallback
  */
 
 import { supabase } from './supabase';
+import { LANGUAGE_CONFIGS } from '../constants/language-config';
 
 // Current audio element for playback control
 let currentAudio: HTMLAudioElement | null = null;
@@ -13,16 +14,23 @@ export const isSpeechSupported = (): boolean => {
   return 'speechSynthesis' in window;
 };
 
-// Get available Polish voices (for fallback)
-export const getPolishVoices = (): SpeechSynthesisVoice[] => {
+// Get available voices for a language (for fallback)
+export const getVoicesForLanguage = (languageCode: string): SpeechSynthesisVoice[] => {
   if (!isSpeechSupported()) return [];
+  const config = LANGUAGE_CONFIGS[languageCode];
+  const ttsCode = config?.ttsCode || languageCode;
   return speechSynthesis.getVoices().filter(voice =>
-    voice.lang.startsWith('pl')
+    voice.lang.startsWith(ttsCode.split('-')[0])
   );
 };
 
-// Fallback: Browser Web Speech API
-const fallbackSpeakPolish = (text: string, rate: number = 0.85): void => {
+// Legacy: Get available Polish voices (for backward compatibility)
+export const getPolishVoices = (): SpeechSynthesisVoice[] => {
+  return getVoicesForLanguage('pl');
+};
+
+// Fallback: Browser Web Speech API (language-aware)
+const fallbackSpeak = (text: string, languageCode: string = 'pl', rate: number = 0.85): void => {
   if (!isSpeechSupported()) {
     console.warn('[audio] Speech synthesis not supported');
     return;
@@ -30,18 +38,26 @@ const fallbackSpeakPolish = (text: string, rate: number = 0.85): void => {
 
   speechSynthesis.cancel();
 
+  const config = LANGUAGE_CONFIGS[languageCode];
+  const ttsCode = config?.ttsCode || `${languageCode}-${languageCode.toUpperCase()}`;
+
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'pl-PL';
+  utterance.lang = ttsCode;
   utterance.rate = rate;
 
-  const polishVoices = getPolishVoices();
-  if (polishVoices.length > 0) {
-    const preferredVoice = polishVoices.find(v => v.name.toLowerCase().includes('female'))
-      || polishVoices[0];
+  const voices = getVoicesForLanguage(languageCode);
+  if (voices.length > 0) {
+    const preferredVoice = voices.find(v => v.name.toLowerCase().includes('female'))
+      || voices[0];
     utterance.voice = preferredVoice;
   }
 
   speechSynthesis.speak(utterance);
+};
+
+// Legacy fallback for Polish (backward compatibility)
+const fallbackSpeakPolish = (text: string, rate: number = 0.85): void => {
+  fallbackSpeak(text, 'pl', rate);
 };
 
 // Get auth headers for API calls
@@ -90,10 +106,10 @@ function playAudio(url?: string, base64Data?: string): Promise<void> {
 }
 
 /**
- * Speak a Polish word or phrase using Google Cloud TTS
+ * Speak text in any supported language using Google Cloud TTS
  * Falls back to browser TTS if API fails
  */
-export const speakPolish = async (text: string, rate: number = 0.85): Promise<void> => {
+export const speak = async (text: string, languageCode: string = 'pl', rate: number = 0.85): Promise<void> => {
   if (!text || !text.trim()) {
     console.warn('[audio] Empty text provided');
     return;
@@ -104,19 +120,19 @@ export const speakPolish = async (text: string, rate: number = 0.85): Promise<vo
 
     // Check if user is authenticated
     if (!headers.Authorization || headers.Authorization === 'Bearer ') {
-      fallbackSpeakPolish(text, rate);
+      fallbackSpeak(text, languageCode, rate);
       return;
     }
 
     const response = await fetch('/api/tts', {
       method: 'POST',
       headers,
-      body: JSON.stringify({ text: text.trim() })
+      body: JSON.stringify({ text: text.trim(), languageCode })
     });
 
     if (!response.ok) {
       console.warn('[audio] TTS API error:', response.status);
-      fallbackSpeakPolish(text, rate);
+      fallbackSpeak(text, languageCode, rate);
       return;
     }
 
@@ -128,13 +144,21 @@ export const speakPolish = async (text: string, rate: number = 0.85): Promise<vo
     } else if (data.audioData) {
       await playAudio(undefined, data.audioData);
     } else {
-      fallbackSpeakPolish(text, rate);
+      fallbackSpeak(text, languageCode, rate);
     }
 
   } catch (error) {
     console.warn('[audio] TTS failed, using fallback:', error);
-    fallbackSpeakPolish(text, rate);
+    fallbackSpeak(text, languageCode, rate);
   }
+};
+
+/**
+ * Legacy: Speak Polish text (backward compatibility)
+ * Use speak(text, languageCode) for multi-language support
+ */
+export const speakPolish = async (text: string, rate: number = 0.85): Promise<void> => {
+  return speak(text, 'pl', rate);
 };
 
 // Stop any ongoing speech

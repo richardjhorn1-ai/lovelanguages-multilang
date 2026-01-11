@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Profile, TestQuestion } from '../types';
 import { geminiService } from '../services/gemini';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface LevelTestProps {
   profile: Profile;
@@ -12,6 +14,7 @@ interface LevelTestProps {
 type TestState = 'loading' | 'ready' | 'in_progress' | 'submitting' | 'results';
 
 const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -36,6 +39,9 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
   const levelInfo = getLevelFromXP(profile.xp || 0);
   const tierColor = getTierColor(levelInfo.tier);
 
+  // Language
+  const { languageParams } = useLanguage();
+
   useEffect(() => {
     // Check if levels are provided in URL params
     const from = searchParams.get('from') || levelInfo.displayName;
@@ -56,7 +62,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
     setState('loading');
     setError(null);
 
-    const result = await geminiService.generateLevelTest(from, to);
+    const result = await geminiService.generateLevelTest(from, to, languageParams);
 
     if (!result.success || !result.data) {
       setError(result.error || 'Failed to generate test');
@@ -105,7 +111,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
       userAnswer
     }));
 
-    const result = await geminiService.submitLevelTest(testId, answerArray);
+    const result = await geminiService.submitLevelTest(testId, answerArray, languageParams);
 
     if (!result.success || !result.data) {
       setError(result.error || 'Failed to submit test');
@@ -129,8 +135,8 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
             <ICONS.Sparkles className="w-8 h-8 text-[var(--accent-color)] animate-pulse" />
           </div>
-          <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">Preparing Your Test</h2>
-          <p className="text-[var(--text-secondary)] text-sm">Generating questions based on your level...</p>
+          <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">{t('levelTest.preparing')}</h2>
+          <p className="text-[var(--text-secondary)] text-sm">{t('levelTest.generatingQuestions')}</p>
         </div>
       </div>
     );
@@ -145,13 +151,13 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
               <ICONS.X className="w-8 h-8 text-red-400" />
             </div>
-            <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">Oops!</h2>
+            <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">{t('levelTest.oops')}</h2>
             <p className="text-[var(--text-secondary)] text-sm mb-6">{error}</p>
             <button
               onClick={() => navigate('/progress')}
               className="bg-[var(--bg-primary)] text-[var(--text-primary)] px-6 py-3 rounded-xl font-bold text-sm"
             >
-              Back to Progress
+              {t('levelTest.backToProgress')}
             </button>
           </div>
         </div>
@@ -168,22 +174,22 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             <ICONS.Star className="w-10 h-10" style={{ color: tierColor }} />
           </div>
 
-          <p className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-2">Level Up Test</p>
+          <p className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-2">{t('levelTest.levelUpTest')}</p>
           <h2 className="text-2xl font-black text-[var(--text-primary)] mb-1">{themeName}</h2>
           <p className="text-sm text-[var(--text-secondary)] mb-6">{fromLevel} → {toLevel}</p>
 
           <div className="bg-[var(--bg-primary)] rounded-2xl p-4 mb-6 text-left">
             <div className="flex justify-between text-sm mb-2">
-              <span className="text-[var(--text-secondary)]">Questions</span>
+              <span className="text-[var(--text-secondary)]">{t('levelTest.questions')}</span>
               <span className="font-bold text-[var(--text-primary)]">{questions.length}</span>
             </div>
             <div className="flex justify-between text-sm mb-2">
-              <span className="text-[var(--text-secondary)]">Pass threshold</span>
+              <span className="text-[var(--text-secondary)]">{t('levelTest.passThreshold')}</span>
               <span className="font-bold text-[var(--text-primary)]">80%</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-[var(--text-secondary)]">Time limit</span>
-              <span className="font-bold text-[var(--text-primary)]">None</span>
+              <span className="text-[var(--text-secondary)]">{t('levelTest.timeLimit')}</span>
+              <span className="font-bold text-[var(--text-primary)]">{t('levelTest.none')}</span>
             </div>
           </div>
 
@@ -192,7 +198,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             className="w-full py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest shadow-lg transition-all active:scale-95"
             style={{ backgroundColor: tierColor }}
           >
-            Start Test
+            {t('levelTest.startTest')}
           </button>
         </div>
       </div>
@@ -219,15 +225,15 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
           </div>
 
           <h2 className="text-3xl font-black text-[var(--text-primary)] mb-2">
-            {passed ? 'Congratulations!' : 'Keep Practicing!'}
+            {passed ? t('levelTest.congratulations') : t('levelTest.keepPracticing')}
           </h2>
 
           <p className="text-[var(--text-secondary)] mb-6">
             {passed
               ? results.newLevel
-                ? `You've advanced to ${results.newLevel}!`
-                : 'You passed the test!'
-              : `You scored ${results.score}%. You need 80% to pass.`}
+                ? t('levelTest.advancedTo', { level: results.newLevel })
+                : t('levelTest.passedTest')
+              : t('levelTest.scoreNeeded', { score: results.score })}
           </p>
 
           {/* Show warning if level update failed */}
@@ -243,7 +249,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
           <div className="bg-[var(--bg-primary)] rounded-2xl p-4 mb-6">
             <div className="flex justify-between text-sm">
-              <span className="text-[var(--text-secondary)]">Correct answers</span>
+              <span className="text-[var(--text-secondary)]">{t('levelTest.correctAnswers')}</span>
               <span className="font-bold text-[var(--text-primary)]">{results.correctAnswers} / {results.totalQuestions}</span>
             </div>
           </div>
@@ -253,7 +259,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
               onClick={() => navigate('/progress')}
               className="flex-1 py-4 rounded-2xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] text-sm"
             >
-              Back to Progress
+              {t('levelTest.backToProgress')}
             </button>
             {!passed && (
               <button
@@ -261,7 +267,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
                 className="flex-1 py-4 rounded-2xl font-bold text-white text-sm"
                 style={{ backgroundColor: tierColor }}
               >
-                Try Again
+                {t('levelTest.tryAgain')}
               </button>
             )}
           </div>
@@ -272,7 +278,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             className="mt-6 text-sm text-[var(--text-secondary)] hover:text-[var(--text-secondary)] transition-colors flex items-center justify-center gap-2 w-full"
           >
             <ICONS.List className="w-4 h-4" />
-            View detailed results on Progress
+            {t('levelTest.viewDetailed')}
             <ICONS.ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -317,13 +323,13 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
                 className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full"
                 style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
               >
-                {currentQuestion?.type === 'multiple_choice' && 'Multiple Choice'}
-                {currentQuestion?.type === 'fill_blank' && 'Fill in the Blank'}
-                {currentQuestion?.type === 'translation' && 'Translation'}
+                {currentQuestion?.type === 'multiple_choice' && t('levelTest.questionTypes.multipleChoice')}
+                {currentQuestion?.type === 'fill_blank' && t('levelTest.questionTypes.fillBlank')}
+                {currentQuestion?.type === 'translation' && t('levelTest.questionTypes.translation')}
               </span>
               {currentQuestion?.isCore && (
                 <span className="text-[9px] font-bold text-[var(--text-secondary)] uppercase tracking-widest">
-                  Core Concept
+                  {t('levelTest.coreConcept')}
                 </span>
               )}
             </div>
@@ -366,8 +372,8 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
                   onChange={(e) => handleAnswer(e.target.value)}
                   placeholder={
                     currentQuestion.type === 'fill_blank'
-                      ? 'Type the missing word...'
-                      : 'Type your translation...'
+                      ? t('levelTest.typeMissing')
+                      : t('levelTest.typeTranslation')
                   }
                   className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none text-lg font-medium bg-[var(--bg-primary)] text-[var(--text-primary)]"
                   autoFocus
@@ -382,7 +388,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
                   onClick={prevQuestion}
                   className="px-6 py-3 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] text-sm"
                 >
-                  Back
+                  {t('levelTest.back')}
                 </button>
               )}
               <button
@@ -392,11 +398,11 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
                 style={{ backgroundColor: tierColor }}
               >
                 {state === 'submitting' ? (
-                  'Submitting...'
+                  t('levelTest.submitting')
                 ) : currentIndex === questions.length - 1 ? (
-                  'Submit Test'
+                  t('levelTest.submitTest')
                 ) : (
-                  'Next'
+                  t('levelTest.next')
                 )}
               </button>
             </div>

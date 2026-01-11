@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, OnboardingData } from '../types';
 import { ICONS } from '../constants';
@@ -9,6 +10,8 @@ import InvitePartnerSection from './InvitePartnerSection';
 import BreakupModal from './BreakupModal';
 import AvatarUpload from './AvatarUpload';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import {
   AccentColor,
   DarkModeStyle,
@@ -45,6 +48,9 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const [showBreakupModal, setShowBreakupModal] = useState(false);
 
   const { theme, setAccentColor, setDarkMode, setFontSize, accentHex, isDark } = useTheme();
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'your language';
 
   // Am I the payer (not receiving inherited subscription)?
   const isPayer = !profile.subscription_granted_by;
@@ -156,8 +162,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
           <div className="py-2 px-6 rounded-xl inline-block" style={{ backgroundColor: `${accentHex}15` }}>
             <p className="text-[10px] font-black uppercase tracking-tighter" style={{ color: accentHex }}>
               {profile.role === 'student'
-                ? "Learning Polish"
-                : "Language Coach"}
+                ? t('profile.roles.student', { language: targetName })
+                : t('profile.roles.tutor')}
             </p>
           </div>
         </div>
@@ -193,13 +199,13 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             <h3 className="text-[11px] font-black mb-6 flex items-center justify-between text-[var(--text-secondary)] uppercase tracking-[0.2em]">
               <span className="flex items-center gap-2">
                 <ICONS.Heart style={{ color: accentHex }} className="w-4 h-4" />
-                Your Partner
+                {t('profile.partner.title')}
               </span>
               <button
                 onClick={() => setShowBreakupModal(true)}
                 className="text-red-400 hover:text-red-500 text-[10px] font-bold normal-case tracking-normal transition-colors"
               >
-                Unlink
+                {t('profile.partner.unlink')}
               </button>
             </h3>
             <div
@@ -237,8 +243,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <span className="text-xl">🎨</span>
               </div>
               <div className="text-left">
-                <h3 className="font-bold text-[var(--text-primary)]">Customisation</h3>
-                <p className="text-xs text-[var(--text-secondary)]">Visual settings</p>
+                <h3 className="font-bold text-[var(--text-primary)]">{t('profile.customisation.title')}</h3>
+                <p className="text-xs text-[var(--text-secondary)]">{t('profile.customisation.subtitle')}</p>
               </div>
             </div>
             <ICONS.ChevronDown className={`w-5 h-5 text-[var(--text-secondary)] transition-transform ${showCustomisation ? 'rotate-180' : ''}`} />
@@ -248,7 +254,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             <div className="px-6 pb-6 space-y-6 border-t border-[var(--border-color)] pt-4">
               {/* Accent Color */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">Accent Color</label>
+                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.accentColor')}</label>
                 <div className="flex gap-3">
                   {(Object.keys(ACCENT_COLORS) as AccentColor[]).map((color) => (
                     <button
@@ -271,7 +277,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Dark Mode */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">Dark Mode</label>
+                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.darkMode')}</label>
                 <div className="grid grid-cols-2 gap-2">
                   {(Object.keys(DARK_MODE_STYLES) as DarkModeStyle[]).map((style) => (
                     <button
@@ -297,7 +303,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Font Size */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">Font Size</label>
+                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontSize')}</label>
                 <div className="flex gap-2">
                   {(Object.keys(FONT_SIZES) as FontSize[]).map((size) => (
                     <button
@@ -323,7 +329,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Answer Validation Mode */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">Answer Checking</label>
+                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.answerChecking')}</label>
                 <button
                   onClick={toggleSmartValidation}
                   disabled={savingValidation}
@@ -337,12 +343,12 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     <span className="text-2xl">{smartValidation ? '🧠' : '🎯'}</span>
                     <div className="text-left">
                       <p className="font-bold text-[var(--text-primary)]">
-                        {smartValidation ? 'Smart Mode' : 'Strict Mode'}
+                        {smartValidation ? t('profile.customisation.smartMode') : t('profile.customisation.strictMode')}
                       </p>
                       <p className="text-xs text-[var(--text-secondary)]">
                         {smartValidation
-                          ? 'AI accepts synonyms, typos & variations'
-                          : 'Exact answers only (ignoring accents)'}
+                          ? t('profile.customisation.smartModeDesc')
+                          : t('profile.customisation.strictModeDesc')}
                       </p>
                     </div>
                   </div>
@@ -363,10 +369,13 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Preview */}
               <div className="p-4 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)]">
-                <p className="text-xs text-[var(--text-secondary)] uppercase tracking-wider mb-2">Preview</p>
-                <p className="text-[var(--text-primary)]">
-                  <strong>Kocham cię</strong> means "I love you" in Polish
-                </p>
+                <p className="text-xs text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.customisation.preview')}</p>
+                <p
+                  className="text-[var(--text-primary)]"
+                  dangerouslySetInnerHTML={{
+                    __html: t('profile.customisation.previewText', { language: targetName })
+                  }}
+                />
               </div>
             </div>
           )}
@@ -383,8 +392,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <ICONS.Settings className="w-5 h-5 text-[var(--text-secondary)]" />
               </div>
               <div className="text-left">
-                <h3 className="font-bold text-[var(--text-primary)]">Advanced Preferences</h3>
-                <p className="text-xs text-[var(--text-secondary)]">Edit your onboarding answers</p>
+                <h3 className="font-bold text-[var(--text-primary)]">{t('profile.advanced.title')}</h3>
+                <p className="text-xs text-[var(--text-secondary)]">{t('profile.advanced.subtitle')}</p>
               </div>
             </div>
             <ICONS.ChevronDown className={`w-5 h-5 text-[var(--text-secondary)] transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
@@ -394,7 +403,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             <div className="px-6 pb-6 space-y-4 border-t border-[var(--border-color)] pt-4">
               {/* Common fields */}
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Your Name</label>
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.yourName')}</label>
                 <input
                   type="text"
                   value={editData.userName || ''}
@@ -407,7 +416,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <>
                   {/* Student-specific fields */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Partner's Name</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.partnerName')}</label>
                     <input
                       type="text"
                       value={editData.partnerName || ''}
@@ -417,73 +426,73 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Relationship Vibe</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.relationshipVibe')}</label>
                     <select
                       value={editData.relationshipVibe || ''}
                       onChange={(e) => updateField('relationshipVibe', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
                     >
-                      <option value="">Select...</option>
+                      <option value="">{t('profile.advanced.select')}</option>
                       {VIBE_OPTIONS.map(v => <option key={v} value={v}>{v}</option>)}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Why are you learning Polish?</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.learningReason', { language: targetName })}</label>
                     <textarea
                       value={editData.learningReason || ''}
                       onChange={(e) => updateField('learningReason', e.target.value)}
                       rows={3}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none resize-none"
-                      placeholder="Your motivation..."
+                      placeholder={t('profile.advanced.motivationPlaceholder')}
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Daily Time</label>
+                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.dailyTime')}</label>
                       <select
                         value={editData.dailyTime || ''}
                         onChange={(e) => updateField('dailyTime', e.target.value)}
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
                       >
-                        <option value="">Select...</option>
-                        {TIME_OPTIONS.map(t => <option key={t} value={t}>{t}</option>)}
+                        <option value="">{t('profile.advanced.select')}</option>
+                        {TIME_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Preferred Time</label>
+                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.preferredTime')}</label>
                       <select
                         value={editData.preferredTime || ''}
                         onChange={(e) => updateField('preferredTime', e.target.value)}
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
                       >
-                        <option value="">Select...</option>
+                        <option value="">{t('profile.advanced.select')}</option>
                         {WHEN_OPTIONS.map(w => <option key={w} value={w}>{w}</option>)}
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Biggest Challenge</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.biggestChallenge')}</label>
                     <select
                       value={editData.biggestFear || ''}
                       onChange={(e) => updateField('biggestFear', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
                     >
-                      <option value="">Select...</option>
+                      <option value="">{t('profile.advanced.select')}</option>
                       {FEAR_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">First Goal</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.firstGoal')}</label>
                     <input
                       type="text"
                       value={editData.firstGoal || ''}
                       onChange={(e) => updateField('firstGoal', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none"
-                      placeholder="What do you want to achieve?"
+                      placeholder={t('profile.advanced.goalPlaceholder')}
                     />
                   </div>
                 </>
@@ -491,7 +500,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <>
                   {/* Tutor-specific fields */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Learner's Name</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.learnerName')}</label>
                     <input
                       type="text"
                       value={editData.learnerName || ''}
@@ -501,67 +510,67 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Relationship Type</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.relationshipType')}</label>
                     <select
                       value={editData.relationshipType || ''}
                       onChange={(e) => updateField('relationshipType', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
                     >
-                      <option value="">Select...</option>
+                      <option value="">{t('profile.advanced.select')}</option>
                       {RELATION_OPTIONS.map(r => <option key={r} value={r} className="capitalize">{r.charAt(0).toUpperCase() + r.slice(1)}</option>)}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Polish Connection</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.languageConnection', { language: targetName })}</label>
                     <select
                       value={editData.polishConnection || ''}
                       onChange={(e) => updateField('polishConnection', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
                     >
-                      <option value="">Select...</option>
+                      <option value="">{t('profile.advanced.select')}</option>
                       {CONNECTION_OPTIONS.map(c => <option key={c} value={c} className="capitalize">{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">How You Learned Polish</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.howYouLearned', { language: targetName })}</label>
                     <select
                       value={editData.polishOrigin || ''}
                       onChange={(e) => updateField('polishOrigin', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
                     >
-                      <option value="">Select...</option>
-                      <option value="poland">Grew up in Poland</option>
-                      <option value="family">From family</option>
-                      <option value="school">Studied formally</option>
-                      <option value="self">Self-taught</option>
+                      <option value="">{t('profile.advanced.select')}</option>
+                      <option value="poland">{t('profile.originOptions.grewUp')}</option>
+                      <option value="family">{t('profile.originOptions.family')}</option>
+                      <option value="school">{t('profile.originOptions.school')}</option>
+                      <option value="self">{t('profile.originOptions.self')}</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Dream Phrase</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.dreamPhrase')}</label>
                     <input
                       type="text"
                       value={editData.dreamPhrase || ''}
                       onChange={(e) => updateField('dreamPhrase', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none"
-                      placeholder="What do you want to hear them say?"
+                      placeholder={t('profile.advanced.dreamPhrasePlaceholder')}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Teaching Style</label>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.teachingStyle')}</label>
                     <select
                       value={editData.teachingStyle || ''}
                       onChange={(e) => updateField('teachingStyle', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
                     >
-                      <option value="">Select...</option>
-                      <option value="patient">Patient & Gentle</option>
-                      <option value="playful">Playful & Fun</option>
-                      <option value="structured">Structured</option>
-                      <option value="immersive">Immersive</option>
+                      <option value="">{t('profile.advanced.select')}</option>
+                      <option value="patient">{t('profile.styleOptions.patient')}</option>
+                      <option value="playful">{t('profile.styleOptions.playful')}</option>
+                      <option value="structured">{t('profile.styleOptions.structured')}</option>
+                      <option value="immersive">{t('profile.styleOptions.immersive')}</option>
                     </select>
                   </div>
                 </>
@@ -579,7 +588,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       : 'bg-teal-500 hover:bg-teal-600'
                 } disabled:opacity-50`}
               >
-                {saving ? 'Saving...' : saved ? 'Saved!' : 'Save Changes'}
+                {saving ? t('profile.buttons.saving') : saved ? t('profile.buttons.saved') : t('profile.buttons.saveChanges')}
               </button>
             </div>
           )}
@@ -589,7 +598,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
           onClick={() => supabase.auth.signOut({ scope: 'local' })}
           className="w-full py-6 text-[var(--text-secondary)] text-[10px] font-black hover:opacity-70 transition-all uppercase tracking-[0.3em]"
         >
-          Sign Out
+          {t('profile.buttons.signOut')}
         </button>
       </div>
 

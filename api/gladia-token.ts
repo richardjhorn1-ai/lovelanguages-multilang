@@ -7,6 +7,7 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { extractLanguages, getProfileLanguages } from '../utils/language-helpers.js';
 
 export default async function handler(req: any, res: any) {
   // Handle CORS
@@ -47,6 +48,26 @@ export default async function handler(req: any, res: any) {
       });
     }
 
+    // Parse request body
+    let body = req.body;
+    if (typeof body === 'string' && body.length > 0) {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        return res.status(400).json({ error: 'Invalid JSON format' });
+      }
+    }
+
+    // Extract language parameters (defaults to Polish/English for backward compatibility)
+    let { targetLanguage, nativeLanguage } = extractLanguages(body || {});
+
+    // If not provided in body, fall back to user's profile
+    if (!body?.targetLanguage || !body?.nativeLanguage) {
+      const profileLangs = await getProfileLanguages(supabase, auth.userId);
+      targetLanguage = body?.targetLanguage || profileLangs.targetLanguage;
+      nativeLanguage = body?.nativeLanguage || profileLangs.nativeLanguage;
+    }
+
     // Get Gladia API key from environment
     const gladiaApiKey = process.env.GLADIA_API_KEY;
 
@@ -70,18 +91,18 @@ export default async function handler(req: any, res: any) {
         bit_depth: 16,
         channels: 1,
 
-        // Language configuration for Polish and English with code switching
+        // Language configuration - detect both target and native language with code switching
         language_config: {
-          languages: ['pl', 'en'],  // Detect both Polish and English
-          code_switching: true,      // Allow switching between languages mid-conversation
+          languages: [targetLanguage, nativeLanguage],  // Dynamic language pair
+          code_switching: true,  // Allow switching between languages mid-conversation
         },
 
         // Real-time processing options
         realtime_processing: {
-          // Enable translation to English
+          // Enable translation to native language
           translation: true,
           translation_config: {
-            target_languages: ['en'],
+            target_languages: [nativeLanguage],  // Translate to native language
           },
         },
 
@@ -114,7 +135,7 @@ export default async function handler(req: any, res: any) {
 
     const gladiaSession = await gladiaResponse.json();
 
-    console.log(`[gladia-token] Created Gladia session ${gladiaSession.id} for user ${auth.userId.substring(0, 8)}...`);
+    console.log(`[gladia-token] Created Gladia session ${gladiaSession.id} for user ${auth.userId.substring(0, 8)}... (${targetLanguage}→${nativeLanguage})`);
 
     // Increment usage after success
     incrementUsage(supabase, auth.userId, RATE_LIMITS.gladiaToken.type);

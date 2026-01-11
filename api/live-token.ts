@@ -8,6 +8,8 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { extractLanguages } from '../utils/language-helpers.js';
+import { getLanguageConfig, getLanguageName } from '../constants/language-config.js';
 
 // Conversation scenario interface
 interface ConversationScenario {
@@ -19,9 +21,17 @@ interface ConversationScenario {
 }
 
 // Build conversation practice system instruction
-function buildConversationSystemInstruction(scenario: ConversationScenario, userName: string): string {
+function buildConversationSystemInstruction(
+  scenario: ConversationScenario,
+  userName: string,
+  targetLanguage: string,
+  nativeLanguage: string
+): string {
+  const targetName = getLanguageName(targetLanguage);
+  const nativeName = getLanguageName(nativeLanguage);
+
   return `
-You are playing the role described below in a Polish language practice conversation.
+You are playing the role described below in a ${targetName} language practice conversation.
 
 ## Your Role
 ${scenario.persona}
@@ -31,54 +41,66 @@ ${scenario.context}
 
 ## CRITICAL RULES - FOLLOW EXACTLY:
 
-1. **SPEAK ONLY IN POLISH** - This is the most important rule. Default to Polish for everything.
+1. **SPEAK ONLY IN ${targetName.toUpperCase()}** - This is the most important rule. Default to ${targetName} for everything.
 
 2. **STAY IN CHARACTER** - You are ${scenario.name}. Do not break character unless the user is completely stuck.
 
 3. **KEEP RESPONSES SHORT** - Use 1-3 sentences maximum. This is a conversation, not a lecture.
 
-4. **ADJUST TO USER'S LEVEL** - This scenario is marked as ${scenario.difficulty}. Keep your Polish appropriate:
+4. **ADJUST TO USER'S LEVEL** - This scenario is marked as ${scenario.difficulty}. Keep your ${targetName} appropriate:
    ${scenario.difficulty === 'beginner' ? '- Use simple vocabulary, present tense, basic sentences' : ''}
    ${scenario.difficulty === 'intermediate' ? '- Use varied vocabulary, past/future tenses, natural expressions' : ''}
-   ${scenario.difficulty === 'advanced' ? '- Use complex grammar, idioms, and natural conversational Polish' : ''}
+   ${scenario.difficulty === 'advanced' ? `- Use complex grammar, idioms, and natural conversational ${targetName}` : ''}
 
 5. **HELP WHEN NEEDED** - If the user struggles significantly (seems stuck for 2+ attempts):
-   - First: Rephrase your Polish more simply
-   - Second: Offer a gentle hint in English, then return to Polish immediately
+   - First: Rephrase your ${targetName} more simply
+   - Second: Offer a gentle hint in ${nativeName}, then return to ${targetName} immediately
    - Never make them feel bad about mistakes
 
-6. **BE ENCOURAGING** - The user's name is ${userName}. They are learning Polish to connect with someone they love. Be patient and supportive.
+6. **BE ENCOURAGING** - The user's name is ${userName}. They are learning ${targetName} to connect with someone they love. Be patient and supportive.
 
 7. **NATURAL CONVERSATION** - Respond naturally to what they say. Ask follow-up questions. React to their answers.
 
 8. **SPOKEN AUDIO OUTPUT** - You are speaking out loud:
    - Do NOT include any text formatting, markdown, or styling
-   - Just speak naturally in Polish
+   - Just speak naturally in ${targetName}
    - Keep it conversational
 
 ## START THE CONVERSATION
-Begin speaking in Polish, appropriate to your role. Start with a greeting and opening question/statement.
+Begin speaking in ${targetName}, appropriate to your role. Start with a greeting and opening question/statement.
 `;
 }
 
 // Voice system instructions per mode
-function buildVoiceSystemInstruction(mode: string, userLog: string[]): string {
+function buildVoiceSystemInstruction(
+  mode: string,
+  userLog: string[],
+  targetLanguage: string,
+  nativeLanguage: string
+): string {
+  const targetConfig = getLanguageConfig(targetLanguage);
+  const targetName = getLanguageName(targetLanguage);
+  const nativeName = getLanguageName(nativeLanguage);
+
+  // Get example phrase from language config
+  const iLoveYouExample = targetConfig?.examples.iLoveYou || 'I love you';
+
   const COMMON = `
-You are "Cupid" - a warm, encouraging Polish language companion helping someone learn their partner's native language.
+You are "Cupid" - a warm, encouraging ${targetName} language companion helping someone learn their partner's native language.
 Every word they learn is a gift of love.
 
-VOICE INTERACTION RULES - ENGLISH FIRST:
-- ALWAYS speak primarily in English - this is a beginner-friendly conversation
-- Explain concepts and context in English first, then introduce Polish words/phrases
-- Pattern: English explanation → Polish word → pronunciation tip
+VOICE INTERACTION RULES - ${nativeName.toUpperCase()} FIRST:
+- ALWAYS speak primarily in ${nativeName} - this is a beginner-friendly conversation
+- Explain concepts and context in ${nativeName} first, then introduce ${targetName} words/phrases
+- Pattern: ${nativeName} explanation → ${targetName} word → pronunciation tip
 - Keep responses concise for voice (2-4 sentences max)
 - Be encouraging and supportive
 
 IMPORTANT - SPOKEN AUDIO OUTPUT:
 - You are speaking out loud - do NOT include any text formatting, markdown, HTML, or styling
 - NEVER output asterisks, brackets, CSS codes, or HTML tags
-- Just speak naturally - say the Polish word, then the pronunciation, then the meaning
-- Example of what to SAY: "The word is kocham, pronounced KOH-ham, meaning I love"
+- Just speak naturally - say the ${targetName} word, then the pronunciation, then the meaning
+- Example of what to SAY: "The word is ${iLoveYouExample}, meaning I love you"
 - Keep it conversational and natural for spoken audio
 `;
 
@@ -87,12 +109,12 @@ IMPORTANT - SPOKEN AUDIO OUTPUT:
 ${COMMON}
 MODE: ASK - Casual Voice Chat
 
-You are a supportive friend having a natural conversation IN ENGLISH with Polish sprinkled in.
-- Speak naturally in English, introducing Polish words as they come up
+You are a supportive friend having a natural conversation IN ${nativeName.toUpperCase()} with ${targetName} sprinkled in.
+- Speak naturally in ${nativeName}, introducing ${targetName} words as they come up
 - Keep responses SHORT (2-3 sentences)
-- When teaching a Polish word: explain in English first, then say the Polish clearly
+- When teaching a ${targetName} word: explain in ${nativeName} first, then say the ${targetName} clearly
 - Use encouraging phrases: "Perfect!", "You're getting it!", "Try it again!"
-- When they attempt Polish, gently correct if needed
+- When they attempt ${targetName}, gently correct if needed
 - Ask follow-up questions to keep the conversation flowing
 
 Known vocabulary: [${userLog.slice(0, 20).join(', ')}]
@@ -101,15 +123,15 @@ Known vocabulary: [${userLog.slice(0, 20).join(', ')}]
 ${COMMON}
 MODE: LEARN - Voice Lesson
 
-You are a patient, clear Polish teacher - speaking primarily in English.
-- Explain concepts in English first, then introduce Polish
-- Say the English meaning, pause briefly, then the Polish word with pronunciation
+You are a patient, clear ${targetName} teacher - speaking primarily in ${nativeName}.
+- Explain concepts in ${nativeName} first, then introduce ${targetName}
+- Say the ${nativeName} meaning, pause briefly, then the ${targetName} word with pronunciation
 - Give pronunciation guidance for each word
 - Ask them to repeat after you
 - Provide gentle corrections and encouragement
 - Speak at a measured, learnable pace
 
-VERBS: Present one conjugation at a time, not all six at once.
+VERBS: Present one conjugation at a time, not all at once.
 
 Known vocabulary: [${userLog.slice(0, 20).join(', ')}]
 `
@@ -174,6 +196,9 @@ export default async function handler(req: any, res: any) {
 
     const { mode = 'ask', userLog = [], conversationScenario, userName = 'Friend' } = body || {};
 
+    // Extract language parameters (defaults to Polish/English for backward compatibility)
+    const { targetLanguage, nativeLanguage } = extractLanguages(body);
+
     // Input validation to prevent prompt injection and cost/latency abuse
     const MAX_USERNAME_LENGTH = 50;
     const MAX_USERLOG_ITEMS = 30;
@@ -213,10 +238,20 @@ export default async function handler(req: any, res: any) {
 
     if (mode === 'conversation' && sanitizedScenario) {
       // Conversation practice mode - use scenario-specific prompt (with sanitized inputs)
-      systemInstruction = buildConversationSystemInstruction(sanitizedScenario, sanitizedUserName);
+      systemInstruction = buildConversationSystemInstruction(
+        sanitizedScenario,
+        sanitizedUserName,
+        targetLanguage,
+        nativeLanguage
+      );
     } else {
       // Regular voice mode (with sanitized inputs)
-      systemInstruction = buildVoiceSystemInstruction(mode, sanitizedUserLog);
+      systemInstruction = buildVoiceSystemInstruction(
+        mode,
+        sanitizedUserLog,
+        targetLanguage,
+        nativeLanguage
+      );
     }
     // Use the only model that supports Live API (BidiGenerateContent)
     const model = 'gemini-2.5-flash-native-audio-preview-12-2025';

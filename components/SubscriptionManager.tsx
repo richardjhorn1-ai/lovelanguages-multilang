@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 
 interface SubscriptionManagerProps {
@@ -19,6 +20,8 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
   const [showWarning, setShowWarning] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const { t } = useTranslation();
+
   const isInherited = !!profile.subscription_granted_by;
   const hasPartner = !!profile.linked_user_id;
   const isPayer = profile.stripe_customer_id && !isInherited;
@@ -34,9 +37,9 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
 
   const getPlanDisplay = (plan: string | null) => {
     switch (plan) {
-      case 'standard': return 'Standard';
-      case 'unlimited': return 'Unlimited';
-      default: return 'None';
+      case 'standard': return t('subscription.plans.standard');
+      case 'unlimited': return t('subscription.plans.unlimited');
+      default: return t('subscription.plans.none');
     }
   };
 
@@ -93,25 +96,25 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
         <div className="flex items-center gap-3 mb-4">
           <span className="text-3xl">💕</span>
           <div>
-            <h3 className="font-bold text-[var(--text-primary)]">Couple Pass</h3>
+            <h3 className="font-bold text-[var(--text-primary)]">{t('subscription.manager.couplePass')}</h3>
             <p className="text-sm text-[var(--text-secondary)]">
-              Free access from {partnerName || 'your partner'}
+              {t('subscription.manager.freeAccess', { name: partnerName || t('subscription.manager.yourPartner') })}
             </p>
           </div>
         </div>
 
         <div className="text-sm text-[var(--text-secondary)] space-y-1">
           <p>
-            Plan: <strong className="text-[var(--text-primary)]">{getPlanDisplay(profile.subscription_plan)}</strong>
+            {t('subscription.manager.plan')} <strong className="text-[var(--text-primary)]">{getPlanDisplay(profile.subscription_plan)}</strong>
           </p>
           <p>
-            Status: <strong className={getStatusColor(profile.subscription_status)}>
+            {t('subscription.manager.status')} <strong className={getStatusColor(profile.subscription_status)}>
               {profile.subscription_status || 'Active'}
             </strong>
           </p>
           {profile.subscription_ends_at && (
             <p>
-              Valid until: <strong className="text-[var(--text-primary)]">
+              {t('subscription.manager.validUntil')} <strong className="text-[var(--text-primary)]">
                 {formatDate(profile.subscription_ends_at)}
               </strong>
             </p>
@@ -119,7 +122,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
         </div>
 
         <p className="text-xs text-[var(--text-secondary)] mt-4 italic border-t border-[var(--border-color)] pt-4">
-          To manage this subscription, ask {partnerName || 'your partner'}.
+          {t('subscription.manager.askPartner', { name: partnerName || t('subscription.manager.yourPartner') })}
         </p>
       </div>
     );
@@ -132,9 +135,9 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
         <div className="flex items-center gap-3 mb-4">
           <span className="text-3xl">💳</span>
           <div>
-            <h3 className="font-bold text-[var(--text-primary)]">No Subscription</h3>
+            <h3 className="font-bold text-[var(--text-primary)]">{t('subscription.manager.noSubscription')}</h3>
             <p className="text-sm text-[var(--text-secondary)]">
-              Subscribe to unlock all features
+              {t('subscription.manager.subscribeToUnlock')}
             </p>
           </div>
         </div>
@@ -148,22 +151,22 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
       <div className="flex items-center gap-3 mb-4">
         <span className="text-3xl">💳</span>
         <div>
-          <h3 className="font-bold text-[var(--text-primary)]">Your Subscription</h3>
+          <h3 className="font-bold text-[var(--text-primary)]">{t('subscription.manager.yourSubscription')}</h3>
           <p className="text-sm text-[var(--text-secondary)]">
-            {getPlanDisplay(profile.subscription_plan)} plan
+            {t('subscription.manager.planLabel', { plan: getPlanDisplay(profile.subscription_plan) })}
           </p>
         </div>
       </div>
 
       <div className="text-sm text-[var(--text-secondary)] space-y-1 mb-4">
         <p>
-          Status: <strong className={getStatusColor(profile.subscription_status)}>
+          {t('subscription.manager.status')} <strong className={getStatusColor(profile.subscription_status)}>
             {profile.subscription_status}
           </strong>
         </p>
         {profile.subscription_ends_at && (
           <p>
-            {profile.subscription_status === 'canceled' ? 'Ends' : 'Renews'}:{' '}
+            {profile.subscription_status === 'canceled' ? t('subscription.manager.ends') : t('subscription.manager.renews')}{' '}
             <strong className="text-[var(--text-primary)]">
               {formatDate(profile.subscription_ends_at)}
             </strong>
@@ -171,7 +174,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
         )}
         {hasPartner && (
           <p className="mt-2 pt-2 border-t border-[var(--border-color)]">
-            <span className="text-pink-500">💕</span> {partnerName || 'Your partner'} has free access through you
+            <span className="text-pink-500">💕</span> {t('subscription.manager.partnerFreeAccess', { name: partnerName || t('subscription.manager.yourPartner') })}
           </p>
         )}
       </div>
@@ -185,7 +188,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
       {showWarning && hasPartner && (
         <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 mb-4">
           <p className="text-amber-800 dark:text-amber-200 text-sm font-medium">
-            If you cancel your subscription, <strong>{partnerName || 'your partner'}</strong> will also lose access.
+            {t('subscription.manager.cancelWarning', { name: partnerName || t('subscription.manager.yourPartner') })}
           </p>
         </div>
       )}
@@ -198,12 +201,12 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
         {loading ? (
           <span className="flex items-center justify-center gap-2">
             <span className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-            Opening...
+            {t('subscription.common.opening')}
           </span>
         ) : showWarning ? (
-          'Continue to Manage'
+          t('subscription.manager.continueToManage')
         ) : (
-          'Manage Subscription'
+          t('subscription.manager.manageSubscription')
         )}
       </button>
     </div>

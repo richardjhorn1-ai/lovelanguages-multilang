@@ -313,7 +313,7 @@ export const RATE_LIMITS = {
   validateWord: { type: 'word_validations', monthly: { standard: 2000, unlimited: null } },
   validateAnswer: { type: 'answer_validations', monthly: { standard: 3000, unlimited: null } },
   analyzeHistory: { type: 'history_analysis', monthly: { standard: 500, unlimited: null } },
-  polishTranscript: { type: 'transcript_polish', monthly: { standard: 200, unlimited: null } },
+  processTranscript: { type: 'transcript_process', monthly: { standard: 200, unlimited: null } },
   generateLevelTest: { type: 'level_tests', monthly: { standard: 50, unlimited: null } },
   submitLevelTest: { type: 'level_test_submissions', monthly: { standard: 100, unlimited: null } },
   createChallenge: { type: 'challenge_creations', monthly: { standard: 200, unlimited: null } },

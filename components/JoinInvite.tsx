@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface InviterInfo {
   name: string;
@@ -9,6 +11,8 @@ interface InviterInfo {
 }
 
 const JoinInvite: React.FC = () => {
+  const { t } = useTranslation();
+  const { targetName } = useLanguage();
   const { token } = useParams<{ token: string }>();
   const navigate = useNavigate();
 
@@ -96,7 +100,7 @@ const JoinInvite: React.FC = () => {
 
         // Check if email confirmation is required
         if (signUpData.user && !signUpData.session) {
-          setAuthMessage('Check your email for confirmation, then sign in!');
+          setAuthMessage(t('joinInvite.checkEmail'));
           setIsSignUp(false);
           setAuthLoading(false);
           return;
@@ -170,7 +174,7 @@ const JoinInvite: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]">
         <div className="text-center">
           <div className="animate-bounce text-6xl mb-4">💕</div>
-          <p className="text-[var(--accent-color)] font-bold animate-pulse">Validating invite...</p>
+          <p className="text-[var(--accent-color)] font-bold animate-pulse">{t('joinInvite.validating')}</p>
         </div>
       </div>
     );
@@ -184,13 +188,13 @@ const JoinInvite: React.FC = () => {
           <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
             <ICONS.X className="w-8 h-8 text-red-500" />
           </div>
-          <h2 className="text-2xl font-black text-gray-800 mb-3">Invalid Invite</h2>
+          <h2 className="text-2xl font-black text-gray-800 mb-3">{t('joinInvite.invalidInvite')}</h2>
           <p className="text-gray-500 mb-8">{error}</p>
           <button
             onClick={() => navigate('/')}
             className="bg-[var(--accent-color)] text-white px-8 py-4 rounded-2xl font-bold shadow-lg"
           >
-            Go to Homepage
+            {t('joinInvite.goToHomepage')}
           </button>
         </div>
       </div>
@@ -203,7 +207,7 @@ const JoinInvite: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]">
         <div className="text-center">
           <div className="animate-pulse text-6xl mb-4">🔗</div>
-          <p className="text-[var(--accent-color)] font-bold animate-pulse">Linking your accounts...</p>
+          <p className="text-[var(--accent-color)] font-bold animate-pulse">{t('joinInvite.linking')}</p>
         </div>
       </div>
     );
@@ -223,11 +227,11 @@ const JoinInvite: React.FC = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6 text-[#292F36]">
-            {inviter?.name || 'Your partner'} wants you to join their Polish learning journey!
+            {t('joinInvite.joinJourney', { name: inviter?.name || t('joinInvite.yourPartner'), language: targetName })}
           </h2>
 
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            They're learning Polish to connect with you on a deeper level. As their language coach, you'll:
+            {t('joinInvite.learningToConnect', { language: targetName })}
           </p>
 
           <div className="space-y-4 mb-8">
@@ -236,8 +240,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.TrendingUp className="w-5 h-5 text-[var(--accent-color)]" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">Track Their Progress</p>
-                <p className="text-sm text-gray-500">See what words they've learned and where they need help</p>
+                <p className="font-bold text-gray-800">{t('joinInvite.trackProgress')}</p>
+                <p className="text-sm text-gray-500">{t('joinInvite.trackProgressDesc')}</p>
               </div>
             </div>
 
@@ -246,8 +250,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.MessageCircle className="w-5 h-5 text-teal-500" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">Get Conversation Starters</p>
-                <p className="text-sm text-gray-500">AI suggests Polish phrases to use together based on their vocabulary</p>
+                <p className="font-bold text-gray-800">{t('joinInvite.conversationStarters')}</p>
+                <p className="text-sm text-gray-500">{t('joinInvite.conversationStartersDesc', { language: targetName })}</p>
               </div>
             </div>
 
@@ -256,8 +260,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.Heart className="w-5 h-5 text-amber-500" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">Encourage & Celebrate</p>
-                <p className="text-sm text-gray-500">Help them stay motivated and celebrate milestones together</p>
+                <p className="font-bold text-gray-800">{t('joinInvite.encourageCelebrate')}</p>
+                <p className="text-sm text-gray-500">{t('joinInvite.encourageCelebrateDesc')}</p>
               </div>
             </div>
           </div>
@@ -274,17 +278,17 @@ const JoinInvite: React.FC = () => {
               {inviter?.name?.[0]?.toUpperCase() || '?'}
             </div>
             <h3 className="text-2xl font-black text-[#292F36] mb-2">
-              Join {inviter?.name}
+              {t('joinInvite.join', { name: inviter?.name })}
             </h3>
             <p className="text-gray-400 text-sm font-medium">
-              {isSignUp ? 'Create your account to become their coach' : 'Sign in to connect'}
+              {isSignUp ? t('joinInvite.createAccount') : t('joinInvite.signInToConnect')}
             </p>
           </div>
 
           <form onSubmit={handleAuth} className="space-y-4">
             <div>
               <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-2 ml-1">
-                Email Address
+                {t('joinInvite.emailLabel')}
               </label>
               <input
                 type="email"
@@ -298,7 +302,7 @@ const JoinInvite: React.FC = () => {
 
             <div>
               <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-2 ml-1">
-                Password
+                {t('joinInvite.passwordLabel')}
               </label>
               <input
                 type="password"
@@ -316,7 +320,7 @@ const JoinInvite: React.FC = () => {
               disabled={authLoading}
               className="w-full bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white font-black py-5 rounded-[2rem] shadow-xl shadow-[var(--accent-shadow)] transition-all active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.2em] mt-4"
             >
-              {authLoading ? 'Connecting...' : (isSignUp ? 'Join as Coach' : 'Sign In & Connect')}
+              {authLoading ? t('joinInvite.connecting') : (isSignUp ? t('joinInvite.joinAsCoach') : t('joinInvite.signInConnect'))}
             </button>
           </form>
 
@@ -335,7 +339,7 @@ const JoinInvite: React.FC = () => {
               onClick={() => setIsSignUp(!isSignUp)}
               className="text-[var(--accent-color)] text-xs font-black uppercase tracking-widest hover:text-[var(--accent-color)] transition-all"
             >
-              {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
+              {isSignUp ? t('joinInvite.alreadyHaveAccount') : t('joinInvite.noAccount')}
             </button>
           </div>
         </div>

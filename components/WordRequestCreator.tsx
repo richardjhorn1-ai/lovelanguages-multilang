@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, WordSuggestion, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface WordRequestCreatorProps {
   profile: Profile;
@@ -29,17 +31,21 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
   const [generatedWord, setGeneratedWord] = useState<{ polish: string; english: string; pronunciation?: string } | null>(null);
   const [generating, setGenerating] = useState(false);
 
+  // Language & i18n
+  const { t } = useTranslation();
+  const { languageParams, targetName } = useLanguage();
+
   const generateTranslation = async () => {
     if (!newPolish.trim()) return;
 
     // Check if already added or in Love Log first
     const lowerWord = newPolish.trim().toLowerCase();
     if (selectedWords.some(w => w.word.toLowerCase() === lowerWord)) {
-      alert('This word is already in your package!');
+      alert(t('challengeCreator.lovePackage.alreadyInPackage'));
       return;
     }
     if (partnerVocab.some(w => w.word.toLowerCase() === lowerWord)) {
-      alert(`"${newPolish}" is already in ${partnerName}'s Love Log!`);
+      alert(t('challengeCreator.lovePackage.alreadyInLoveLog', { word: newPolish, name: partnerName }));
       return;
     }
 
@@ -52,14 +58,14 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ polish: newPolish.trim() })
+        body: JSON.stringify({ polish: newPolish.trim(), ...languageParams })
       });
 
       const data = await response.json();
       if (data.success && data.validated) {
         // Check if the corrected word is in Love Log
         if (partnerVocab.some(w => w.word.toLowerCase() === data.validated.word.toLowerCase())) {
-          alert(`"${data.validated.word}" is already in ${partnerName}'s Love Log!`);
+          alert(t('challengeCreator.lovePackage.alreadyInLoveLog', { word: data.validated.word, name: partnerName }));
           setGenerating(false);
           return;
         }
@@ -77,11 +83,11 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           setTimeout(() => setLastCorrection(null), 4000);
         }
       } else {
-        alert(data.error || 'Failed to generate translation');
+        alert(data.error || t('challengeCreator.lovePackage.failedGenerate'));
       }
     } catch (error) {
       console.error('Error generating translation:', error);
-      alert('Failed to generate translation');
+      alert(t('challengeCreator.lovePackage.failedGenerate'));
     }
     setGenerating(false);
   };
@@ -95,7 +101,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
       return;
     }
     if (partnerVocab.some(w => w.word.toLowerCase() === lowerWord)) {
-      alert(`"${newPolish}" is already in ${partnerName}'s Love Log!`);
+      alert(t('challengeCreator.lovePackage.alreadyInLoveLog', { word: newPolish, name: partnerName }));
       return;
     }
 
@@ -113,7 +119,8 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
         },
         body: JSON.stringify({
           polish: newPolish.trim(),
-          english: newEnglish.trim()
+          english: newEnglish.trim(),
+          ...languageParams
         })
       });
 
@@ -124,7 +131,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
 
         // Check if the corrected word is already in Love Log
         if (partnerVocab.some(w => w.word.toLowerCase() === validated.word.toLowerCase())) {
-          alert(`"${validated.word}" is already in ${partnerName}'s Love Log!`);
+          alert(t('challengeCreator.lovePackage.alreadyInLoveLog', { word: validated.word, name: partnerName }));
           setValidating(false);
           return;
         }
@@ -185,7 +192,8 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           requestType: 'ai_topic',
           inputText: 'Love Package',
           selectedWords: selectedWords.map(w => ({ ...w, selected: true })),
-          xpMultiplier: 2 // Fixed 2x bonus
+          xpMultiplier: 2, // Fixed 2x bonus
+          ...languageParams
         })
       });
 
@@ -193,11 +201,11 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
       if (data.success) {
         onCreated();
       } else {
-        alert(data.error || 'Failed to send gift');
+        alert(data.error || t('challengeCreator.lovePackage.failedSend'));
       }
     } catch (error) {
       console.error('Error sending gift:', error);
-      alert('Failed to send gift');
+      alert(t('challengeCreator.lovePackage.failedSend'));
     }
     setSending(false);
   };
@@ -212,8 +220,8 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
               🎁
             </div>
             <div>
-              <h2 className="font-black text-[var(--text-primary)]">Love Package</h2>
-              <p className="text-xs text-[var(--text-secondary)]">Send words to {partnerName}</p>
+              <h2 className="font-black text-[var(--text-primary)]">{t('challengeCreator.lovePackage.title')}</h2>
+              <p className="text-xs text-[var(--text-secondary)]">{t('challengeCreator.lovePackage.subtitle', { name: partnerName })}</p>
             </div>
           </div>
           <button
@@ -230,10 +238,10 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
             <div className="flex items-center gap-2 mb-3">
               <ICONS.Plus className="w-4 h-4 text-[var(--accent-color)]" />
-              <p className="font-bold text-[var(--text-primary)] text-sm">Add New Words</p>
+              <p className="font-bold text-[var(--text-primary)] text-sm">{t('challengeCreator.common.addNewWords')}</p>
             </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">
-              Enter Polish and AI will generate the translation.
+              {t('challengeCreator.common.enterTargetLanguage', { language: targetName })}
             </p>
 
             {/* Step 1: Polish input with Generate button */}
@@ -248,7 +256,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                     setNewEnglish('');
                   }
                 }}
-                placeholder="Enter Polish word or phrase..."
+                placeholder={t('challengeCreator.common.enterWordPlaceholder', { language: targetName })}
                 className="flex-1 p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                 onKeyDown={e => e.key === 'Enter' && newPolish.trim() && !generatedWord && generateTranslation()}
                 disabled={generating || validating}
@@ -263,12 +271,12 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                   {generating ? (
                     <>
                       <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span className="hidden sm:inline">Generating...</span>
+                      <span className="hidden sm:inline">{t('challengeCreator.common.generating')}</span>
                     </>
                   ) : (
                     <>
                       <span>✨</span>
-                      <span className="hidden sm:inline">Generate</span>
+                      <span className="hidden sm:inline">{t('challengeCreator.common.generate')}</span>
                     </>
                   )}
                 </button>
@@ -280,7 +288,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                   }}
                   className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-xl font-bold text-sm transition-colors"
                 >
-                  Clear
+                  {t('challengeCreator.common.clear')}
                 </button>
               )}
             </div>
@@ -302,7 +310,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                         type="text"
                         value={newEnglish}
                         onChange={e => setNewEnglish(e.target.value)}
-                        placeholder="Edit translation..."
+                        placeholder={t('challengeCreator.common.editTranslation')}
                         className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                         onKeyDown={e => e.key === 'Enter' && newEnglish && addWord()}
                         disabled={validating}
@@ -319,7 +327,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                     ) : (
                       <>
                         <ICONS.Check className="w-4 h-4" />
-                        Add
+                        {t('challengeCreator.common.add')}
                       </>
                     )}
                   </button>
@@ -332,7 +340,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
               <div className="p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded-lg">
                 <p className="text-xs text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
                   <ICONS.Sparkles className="w-3 h-3" />
-                  <span>Corrected: {lastCorrection}</span>
+                  <span>{t('challengeCreator.lovePackage.corrected', { note: lastCorrection })}</span>
                 </p>
               </div>
             )}
@@ -342,7 +350,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           {selectedWords.length > 0 && (
             <div className="bg-[var(--bg-primary)] rounded-2xl p-4">
               <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
-                Love Package ({selectedWords.length} word{selectedWords.length !== 1 ? 's' : ''})
+                {t('challengeCreator.lovePackage.packageCount', { count: selectedWords.length })}
               </p>
               <div className="space-y-2 max-h-40 overflow-y-auto">
                 {selectedWords.map((word, index) => {
@@ -361,8 +369,8 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                             </span>
                           )}
                           {hasContext && (
-                            <span className="text-[10px] px-1.5 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded font-medium shrink-0" title="Has conjugations/forms">
-                              +data
+                            <span className="text-[10px] px-1.5 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded font-medium shrink-0" title={t('challengeCreator.lovePackage.hasFormsTitle')}>
+                              {t('challengeCreator.lovePackage.plusData')}
                             </span>
                           )}
                         </div>

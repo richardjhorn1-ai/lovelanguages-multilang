@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile } from '../types';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface SubscriptionRequiredProps {
   profile: Profile;
@@ -14,34 +16,37 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const { t } = useTranslation();
+  const { targetName } = useLanguage();
+
   const plans = [
     {
       id: 'standard' as const,
-      name: 'Standard',
+      name: t('subscription.plans.standard'),
       monthlyPrice: 19,
       yearlyPrice: 69,
-      tagline: 'Perfect for getting started',
+      tagline: t('subscription.required.taglineStandard'),
       features: [
-        '2,000 words in Love Log',
-        '60 min voice chat/month',
-        '30 min Listen Mode/month',
-        'All conversation scenarios',
-        'Partner invite',
+        t('subscription.features.wordsLimit', { limit: '2,000' }),
+        t('subscription.features.voiceMinutes', { minutes: 60 }),
+        t('subscription.features.listenMinutes', { minutes: 30 }),
+        t('subscription.features.allScenarios'),
+        t('subscription.features.partnerInvite'),
       ],
     },
     {
       id: 'unlimited' as const,
-      name: 'Unlimited',
+      name: t('subscription.plans.unlimited'),
       monthlyPrice: 39,
       yearlyPrice: 139,
-      tagline: 'For dedicated learners',
+      tagline: t('subscription.required.taglineUnlimited'),
       popular: true,
       features: [
-        'Unlimited everything',
-        'Unlimited voice chat',
-        'Unlimited Listen Mode',
-        'All conversation scenarios',
-        'Gift pass for another couple (yearly)',
+        t('subscription.features.unlimitedEverything'),
+        t('subscription.features.unlimitedVoice'),
+        t('subscription.features.unlimitedListen'),
+        t('subscription.features.allScenarios'),
+        t('subscription.features.giftPass'),
       ],
     },
   ];
@@ -55,7 +60,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       const token = session.data.session?.access_token;
 
       if (!token) {
-        setError('Please log in again');
+        setError(t('subscription.errors.loginAgain'));
         setLoading(false);
         return;
       }
@@ -66,7 +71,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       });
 
       if (!statusResponse.ok) {
-        setError('Failed to load pricing. Please try again.');
+        setError(t('subscription.errors.failedLoadPricing'));
         setLoading(false);
         return;
       }
@@ -83,7 +88,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       }
 
       if (!priceId) {
-        setError('Pricing not available. Please contact support.');
+        setError(t('subscription.errors.pricingUnavailable'));
         setLoading(false);
         return;
       }
@@ -107,11 +112,11 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       if (checkoutData.url) {
         window.location.href = checkoutData.url;
       } else {
-        setError(checkoutData.error || 'Failed to start checkout');
+        setError(checkoutData.error || t('subscription.errors.failedCheckout'));
         setLoading(false);
       }
     } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+      setError(err.message || t('subscription.errors.somethingWrong'));
       setLoading(false);
     }
   };
@@ -129,10 +134,10 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">💕</div>
           <h1 className="text-3xl font-black text-gray-800 mb-2 font-header">
-            One more step, {profile.full_name || 'Friend'}!
+            {t('subscription.required.title', { name: profile.full_name || t('subscription.common.friend') })}
           </h1>
           <p className="text-gray-600">
-            Complete your subscription to start learning Polish together
+            {t('subscription.required.subtitle', { language: targetName })}
           </p>
         </div>
 
@@ -145,7 +150,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                 billingPeriod === 'monthly' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500'
               }`}
             >
-              Monthly
+              {t('subscription.common.monthly')}
             </button>
             <button
               onClick={() => setBillingPeriod('yearly')}
@@ -153,9 +158,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                 billingPeriod === 'yearly' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500'
               }`}
             >
-              Yearly
+              {t('subscription.common.yearly')}
               <span className="text-xs px-2 py-0.5 rounded-full bg-green-500 text-white">
-                70% off
+                {t('subscription.common.discount')}
               </span>
             </button>
           </div>
@@ -179,7 +184,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
               >
                 {plan.popular && (
                   <span className="absolute -top-2 right-4 px-3 py-0.5 rounded-full text-xs font-bold text-white bg-rose-500">
-                    Popular
+                    {t('subscription.common.popular')}
                   </span>
                 )}
 
@@ -207,11 +212,11 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                   <div className="text-right flex-shrink-0">
                     <div className="text-2xl font-bold text-gray-900">${price}</div>
                     <div className="text-xs text-gray-500">
-                      /{billingPeriod === 'monthly' ? 'mo' : 'yr'}
+                      /{billingPeriod === 'monthly' ? t('subscription.common.mo') : t('subscription.common.yr')}
                     </div>
                     {billingPeriod === 'yearly' && (
                       <div className="text-xs text-green-600 mt-1">
-                        ${(price / 12).toFixed(0)}/mo
+                        ${(price / 12).toFixed(0)}/{t('subscription.common.mo')}
                       </div>
                     )}
                   </div>
@@ -237,16 +242,16 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
           {loading ? (
             <span className="flex items-center justify-center gap-2">
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              Loading...
+              {t('subscription.common.loading')}
             </span>
           ) : (
-            `Subscribe to ${selectedPlan === 'standard' ? 'Standard' : 'Unlimited'}`
+            t('subscription.required.subscribeTo', { plan: selectedPlan === 'standard' ? t('subscription.plans.standard') : t('subscription.plans.unlimited') })
           )}
         </button>
 
         {/* Trust signals */}
         <p className="text-center text-xs text-gray-400 mt-4">
-          Secure payment via Stripe. Cancel anytime.
+          {t('subscription.common.securePayment')}
         </p>
 
         {/* Logout option */}
@@ -255,7 +260,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
             onClick={handleLogout}
             className="text-sm text-gray-400 hover:text-gray-600 underline"
           >
-            Sign out and use a different account
+            {t('subscription.required.signOutOption')}
           </button>
         </div>
       </div>

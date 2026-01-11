@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { DemoWord, generateMCOptions, DEMO_WORDS } from './demoData';
+import { DemoWord, generateMCOptions } from './demoData';
 
 interface DemoMultipleChoiceProps {
   word: DemoWord;
   accentColor: string;
   onComplete: (correct: boolean) => void;
+  targetName: string;
+  nativeName: string;
+  allWords: DemoWord[];
 }
 
 export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
   word,
   accentColor,
   onComplete,
+  targetName,
+  nativeName,
+  allWords,
 }) => {
   const [options, setOptions] = useState<string[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
   useEffect(() => {
-    setOptions(generateMCOptions(word.translation, DEMO_WORDS, true));
+    setOptions(generateMCOptions(word.translation, allWords, true));
     setSelected(null);
     setShowFeedback(false);
-  }, [word]);
+  }, [word, allWords]);
 
   const handleSelect = (option: string) => {
     if (showFeedback) return;
@@ -44,7 +50,7 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
         className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4"
         style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
       >
-        Polish → English
+        {targetName} → {nativeName}
       </span>
 
       <h3 className="text-2xl font-black text-[#1a1a2e] mb-6 text-center">

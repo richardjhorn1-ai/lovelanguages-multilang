@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface NewWord {
   polish: string;
@@ -35,6 +37,10 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
   const [newEnglish, setNewEnglish] = useState('');
   const [generatedWord, setGeneratedWord] = useState<{ polish: string; english: string; pronunciation?: string; wasValidated?: boolean } | null>(null);
   const [generating, setGenerating] = useState(false);
+
+  // Language & i18n
+  const { t } = useTranslation();
+  const { languageParams, targetName } = useLanguage();
 
   const filteredVocab = partnerVocab.filter(word =>
     word.word.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -82,7 +88,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ polish: newPolish.trim() })
+        body: JSON.stringify({ polish: newPolish.trim(), ...languageParams })
       });
 
       const data = await response.json();
@@ -96,11 +102,11 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
         // Pre-fill the english field for editing
         setNewEnglish(data.validated.translation);
       } else {
-        alert(data.error || 'Failed to generate translation');
+        alert(data.error || t('challengeCreator.common.failedGenerateTranslation'));
       }
     } catch (error) {
       console.error('Error generating translation:', error);
-      alert('Failed to generate translation');
+      alert(t('challengeCreator.common.failedGenerateTranslation'));
     }
     setGenerating(false);
   };
@@ -138,7 +144,8 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
             questionTypes: Array.from(questionTypes)
           },
           wordIds: Array.from(selectedWords),
-          newWords: newWords.length > 0 ? newWords : undefined
+          newWords: newWords.length > 0 ? newWords : undefined,
+          ...languageParams
         })
       });
 
@@ -146,11 +153,11 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
       if (data.success) {
         onCreated();
       } else {
-        alert(data.error || 'Failed to create challenge');
+        alert(data.error || t('challengeCreator.common.failedCreateChallenge'));
       }
     } catch (error) {
       console.error('Error creating quiz:', error);
-      alert('Failed to create challenge');
+      alert(t('challengeCreator.common.failedCreateChallenge'));
     }
     setCreating(false);
   };
@@ -161,8 +168,8 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
         {/* Header */}
         <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-black text-[var(--text-primary)]">Create Quiz</h2>
-            <p className="text-sm text-[var(--text-secondary)]">Select words for {partnerName} to practice</p>
+            <h2 className="text-xl font-black text-[var(--text-primary)]">{t('challengeCreator.quiz.title')}</h2>
+            <p className="text-sm text-[var(--text-secondary)]">{t('challengeCreator.quiz.subtitle', { name: partnerName })}</p>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors">
             <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -175,13 +182,13 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           {/* Title Input */}
           <div>
             <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
-              Quiz Title (optional)
+              {t('challengeCreator.quiz.titleLabel')}
             </label>
             <input
               type="text"
               value={title}
               onChange={e => setTitle(e.target.value)}
-              placeholder={`Quiz for ${partnerName}`}
+              placeholder={t('challengeCreator.quiz.titlePlaceholder', { name: partnerName })}
               className="w-full p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
             />
           </div>
@@ -190,10 +197,10 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
             <div className="flex items-center gap-2 mb-3">
               <ICONS.Plus className="w-4 h-4 text-[var(--accent-color)]" />
-              <p className="font-bold text-[var(--text-primary)] text-sm">Add New Words</p>
+              <p className="font-bold text-[var(--text-primary)] text-sm">{t('challengeCreator.common.addNewWords')}</p>
             </div>
             <p className="text-xs text-[var(--text-secondary)] mb-3">
-              Teach {partnerName} new words! Enter Polish and AI will generate the translation.
+              {t('challengeCreator.quiz.teachNewWords', { name: partnerName, instruction: t('challengeCreator.common.enterTargetLanguage', { language: targetName }) })}
             </p>
 
             {/* Step 1: Enter Polish word */}
@@ -209,7 +216,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                     setNewEnglish('');
                   }
                 }}
-                placeholder="Enter Polish word or phrase..."
+                placeholder={t('challengeCreator.common.enterWordPlaceholder', { language: targetName })}
                 className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                 onKeyDown={e => e.key === 'Enter' && newPolish.trim() && !generatedWord && generateTranslation()}
               />
@@ -222,12 +229,12 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                   {generating ? (
                     <>
                       <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      Generating...
+                      {t('challengeCreator.common.generating')}
                     </>
                   ) : (
                     <>
                       <span>✨</span>
-                      Generate
+                      {t('challengeCreator.common.generate')}
                     </>
                   )}
                 </button>
@@ -239,7 +246,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                   }}
                   className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-lg font-bold text-sm transition-colors"
                 >
-                  Clear
+                  {t('challengeCreator.common.clear')}
                 </button>
               )}
             </div>
@@ -261,7 +268,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                         type="text"
                         value={newEnglish}
                         onChange={e => setNewEnglish(e.target.value)}
-                        placeholder="Edit translation..."
+                        placeholder={t('challengeCreator.common.editTranslation')}
                         className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                         onKeyDown={e => e.key === 'Enter' && newEnglish && addNewWord()}
                       />
@@ -273,7 +280,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                     className="px-3 py-2 bg-green-500 text-white rounded-lg font-bold text-sm hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
                   >
                     <ICONS.Check className="w-4 h-4" />
-                    Add
+                    {t('challengeCreator.common.add')}
                   </button>
                 </div>
               </div>
@@ -305,13 +312,13 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           {/* Question Types */}
           <div>
             <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
-              Question Types
+              {t('challengeCreator.quiz.questionTypes')}
             </label>
             <div className="flex flex-wrap gap-2">
               {[
-                { id: 'multiple_choice', label: 'Multiple Choice', icon: '🔘' },
-                { id: 'type_it', label: 'Type Answer', icon: '⌨️' },
-                { id: 'flashcard', label: 'Flashcards', icon: '🃏' }
+                { id: 'multiple_choice', label: t('challengeCreator.quiz.multipleChoice'), icon: '🔘' },
+                { id: 'type_it', label: t('challengeCreator.quiz.typeAnswer'), icon: '⌨️' },
+                { id: 'flashcard', label: t('challengeCreator.quiz.flashcards'), icon: '🃏' }
               ].map(type => (
                 <button
                   key={type.id}
@@ -333,21 +340,21 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           <div>
             <div className="flex items-center justify-between mb-3">
               <label className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
-                Select Existing Words ({selectedWords.size}/20)
+                {t('challengeCreator.quiz.selectExistingWords', { count: selectedWords.size, max: 20 })}
               </label>
               <div className="flex gap-2">
                 <button
                   onClick={selectAll}
                   className="text-xs text-[var(--accent-color)] font-bold hover:underline"
                 >
-                  Select All
+                  {t('challengeCreator.quiz.selectAll')}
                 </button>
                 <span className="text-[var(--text-secondary)]">|</span>
                 <button
                   onClick={clearSelection}
                   className="text-xs text-[var(--text-secondary)] font-bold hover:underline"
                 >
-                  Clear
+                  {t('challengeCreator.common.clear')}
                 </button>
               </div>
             </div>
@@ -358,7 +365,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                 type="text"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
-                placeholder="Search words..."
+                placeholder={t('challengeCreator.common.searchWords')}
                 className="w-full p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
               />
             </div>
@@ -383,8 +390,8 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 
             {partnerVocab.length === 0 && (
               <div className="text-center py-8 text-[var(--text-secondary)]">
-                <p className="font-bold">{partnerName} hasn't learned any words yet!</p>
-                <p className="text-sm">Add new words above to get started.</p>
+                <p className="font-bold">{t('challengeCreator.quiz.noWordsYet', { name: partnerName })}</p>
+                <p className="text-sm">{t('challengeCreator.quiz.addNewWordsHint')}</p>
               </div>
             )}
           </div>
@@ -396,7 +403,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
             onClick={onClose}
             className="px-6 py-3 text-[var(--text-secondary)] font-bold text-sm hover:bg-[var(--bg-card)] rounded-xl transition-colors"
           >
-            Cancel
+            {t('challengeCreator.common.cancel')}
           </button>
           <button
             onClick={handleCreate}
@@ -406,12 +413,12 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
             {creating ? (
               <>
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                Creating...
+                {t('challengeCreator.common.creating')}
               </>
             ) : (
               <>
                 <ICONS.Play className="w-4 h-4" />
-                Send Challenge
+                {t('challengeCreator.common.sendChallenge')}
               </>
             )}
           </button>

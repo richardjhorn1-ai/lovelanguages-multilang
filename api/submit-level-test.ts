@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 import {
   setCorsHeaders,
   verifyAuth,
@@ -9,6 +9,8 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { buildAnswerValidationPrompt } from '../utils/prompt-templates.js';
+import { buildBatchValidationSchema } from '../utils/schema-builders.js';
 
 // Inline constant to avoid module resolution issues in Vercel serverless
 const PASS_THRESHOLD = 80;
@@ -26,7 +28,7 @@ interface ValidationResult {
 interface AnswerToValidate {
   userAnswer: string;
   correctAnswer: string;
-  polishWord?: string;
+  targetWord?: string;
 }
 
 function fastMatch(userAnswer: string, correctAnswer: string): boolean {
@@ -40,6 +42,8 @@ function fastMatch(userAnswer: string, correctAnswer: string): boolean {
 
 async function batchSmartValidate(
   answers: AnswerToValidate[],
+  targetLanguage: string,
+  nativeLanguage: string,
   apiKey?: string
 ): Promise<ValidationResult[]> {
   const results: ValidationResult[] = [];
@@ -68,46 +72,24 @@ async function batchSmartValidate(
   try {
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
     const answersText = needsAiValidation.map((item, i) =>
-      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.polishWord ? ` | Polish: "${item.polishWord}"` : ''}`
+      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.targetWord ? ` | Target word: "${item.targetWord}"` : ''}`
     ).join('\n');
 
-    const prompt = `You are validating answers for a Polish language learning app.
+    const basePrompt = buildAnswerValidationPrompt(targetLanguage, nativeLanguage);
+    const prompt = `${basePrompt}
 
-Validate these ${needsAiValidation.length} answers:
+## ANSWERS TO VALIDATE (${needsAiValidation.length} total)
 
 ${answersText}
 
-For EACH answer, ACCEPT if ANY apply:
-- Exact match (ignoring case)
-- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię)
-- Valid synonym (pretty=beautiful, hi=hello)
-- Article variation (the dog=dog)
-- Minor typo (1-2 chars off)
-- Alternate valid translation
-
-REJECT if:
-- Completely different meaning
-- Wrong language
-- Major spelling error (3+ chars wrong)
-
-Return a JSON array with ${needsAiValidation.length} results in order.`;
+Return validation results for each answer.`;
 
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
-              explanation: { type: Type.STRING, description: "Brief explanation" }
-            },
-            required: ["accepted", "explanation"]
-          }
-        }
+        responseSchema: buildBatchValidationSchema()
       }
     });
 
@@ -207,6 +189,10 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Test already completed' });
     }
 
+    // Get languages from test record (set during generation)
+    const targetLanguage = test.language_code || 'pl';
+    const nativeLanguage = test.native_language || 'en';
+
     // Grade the answers using BATCH smart validation (one Gemini call for all answers)
     const questions = test.questions as any[];
     const answersMap = new Map<string, string>();
@@ -216,11 +202,15 @@ export default async function handler(req: any, res: any) {
     const validationInputs = questions.map((q: any) => ({
       userAnswer: answersMap.get(q.id) || '',
       correctAnswer: q.correctAnswer,
-      polishWord: q.polish
+      targetWord: q.targetText
     }));
 
     // ONE Gemini call for ALL answers (instead of N calls)
-    const validationResults = await batchSmartValidate(validationInputs);
+    const validationResults = await batchSmartValidate(
+      validationInputs,
+      targetLanguage,
+      nativeLanguage
+    );
 
     // Build a map of results by index for easy lookup
     const resultMap = new Map<number, ValidationResult>();

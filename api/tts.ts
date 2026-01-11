@@ -9,6 +9,7 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { getTTSLangCode, getTTSVoice } from '../constants/language-config.js';
 
 // Generate hash for cache key - includes userId to prevent cross-user cache sharing
 function generateCacheKey(text: string, userId: string): string {
@@ -26,7 +27,7 @@ export function buildCacheLogContext(sanitizedText: string) {
 }
 
 // Google Cloud TTS API
-async function synthesizeSpeech(text: string, apiKey: string): Promise<Buffer> {
+async function synthesizeSpeech(text: string, apiKey: string, languageCode: string): Promise<Buffer> {
   const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`;
 
   const response = await fetch(url, {
@@ -37,8 +38,8 @@ async function synthesizeSpeech(text: string, apiKey: string): Promise<Buffer> {
     body: JSON.stringify({
       input: { text },
       voice: {
-        languageCode: 'pl-PL',
-        name: 'pl-PL-Standard-A', // Female Polish voice
+        languageCode: getTTSLangCode(languageCode),  // Dynamic: 'pl-PL', 'es-ES', etc.
+        name: getTTSVoice(languageCode),             // Dynamic: 'pl-PL-Standard-A', etc.
       },
       audioConfig: {
         audioEncoding: 'MP3',
@@ -118,7 +119,10 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    const { text } = body || {};
+    const { text, languageCode } = body || {};
+
+    // Default to Polish for backward compatibility
+    const targetLanguage = languageCode || 'pl';
 
     if (!text || typeof text !== 'string') {
       return res.status(400).json({ error: 'Text is required' });
@@ -132,7 +136,7 @@ export default async function handler(req: any, res: any) {
 
     // Generate cache key with user_id to prevent cross-user cache sharing
     const cacheKey = generateCacheKey(sanitizedText, auth.userId);
-    const fileName = `pl/${cacheKey}.mp3`;
+    const fileName = `${targetLanguage}/${cacheKey}.mp3`;
 
     // Check if cached audio exists
     const { data: existingFile } = await supabase.storage
@@ -153,7 +157,7 @@ export default async function handler(req: any, res: any) {
     // Track usage for new TTS generation (not cache hits)
     incrementUsage(supabase, auth.userId, RATE_LIMITS.tts.type);
 
-    const audioBuffer = await synthesizeSpeech(sanitizedText, apiKey);
+    const audioBuffer = await synthesizeSpeech(sanitizedText, apiKey, targetLanguage);
 
     // Upload to Supabase Storage
     const { error: uploadError } = await supabase.storage

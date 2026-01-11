@@ -1,10 +1,14 @@
 import { createClient } from '@supabase/supabase-js';
 import { GoogleGenAI, Type } from "@google/genai";
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { getLanguageName, getLanguageConfig } from '../constants/language-config.js';
+import { buildVocabularySchema } from '../utils/schema-builders.js';
 
 // BATCH enrich multiple words in ONE Gemini call (not N+1)
 async function batchEnrichWordContexts(
-  words: Array<{ word: string; translation: string; wordType: string }>
+  words: Array<{ word: string; translation: string; wordType: string }>,
+  targetLanguage: string,
+  nativeLanguage: string
 ): Promise<any[]> {
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
   if (!apiKey) {
@@ -18,78 +22,49 @@ async function batchEnrichWordContexts(
   }
 
   const ai = new GoogleGenAI({ apiKey });
+  const targetName = getLanguageName(targetLanguage);
+  const nativeName = getLanguageName(nativeLanguage);
+  const targetConfig = getLanguageConfig(targetLanguage);
+
+  // Get grammar features for this language
+  const hasConjugation = targetConfig?.grammar?.hasConjugation || false;
+  const conjugationPersons = targetConfig?.grammar?.conjugationPersons || ['I', 'you', 'he/she', 'we', 'you (pl)', 'they'];
+  const hasGender = targetConfig?.grammar?.hasGender || false;
+  const genderTypes = targetConfig?.grammar?.genderTypes || [];
 
   // Build batch prompt with all words
   const wordsText = words.map((w, i) =>
     `${i + 1}. Word: "${w.word}" | Translation: "${w.translation}" | Type: "${w.wordType}"`
   ).join('\n');
 
+  // Build grammar-specific instructions
+  let grammarInstructions = '';
+  if (hasConjugation) {
+    grammarInstructions += `- For VERBS: conjugations.present with persons: ${conjugationPersons.join(', ')}\n`;
+  }
+  if (hasGender) {
+    grammarInstructions += `- For NOUNS: gender (${genderTypes.join('/')}) and plural form\n`;
+    grammarInstructions += `- For ADJECTIVES: adjectiveForms with ${genderTypes.join(', ')}, plural\n`;
+  }
+
   try {
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: `Generate rich learning context for these ${words.length} Polish words/phrases.
+      contents: `Generate rich learning context for these ${words.length} ${targetName} words/phrases.
 This is for a romantic language learning app. Make it useful and heartfelt.
 
 ${wordsText}
 
 For EACH word, provide:
-- original: A sample sentence using the word
+- original: A sample sentence using the word in ${targetName}
 - root: Root/base form
 - proTip: Brief usage tip (max 60 chars)
-- examples: 5 example sentences with English translations in parentheses
-- For VERBS: conjugations.present with ja, ty, onOna, my, wy, oni
-- For NOUNS: gender (masculine/feminine/neuter) and plural form
-- For ADJECTIVES: adjectiveForms with masculine, feminine, neuter, plural
-
+- examples: 5 example sentences in ${targetName} with ${nativeName} translations in parentheses
+${grammarInstructions}
 Return a JSON array with ${words.length} objects in the same order as the input.`,
       config: {
         responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              original: { type: Type.STRING, description: "A sample sentence using this word" },
-              root: { type: Type.STRING, description: "Root/base form of the word" },
-              proTip: { type: Type.STRING, description: "Brief usage tip (max 60 chars)" },
-              examples: {
-                type: Type.ARRAY,
-                items: { type: Type.STRING },
-                description: "5 example sentences with English translations in parentheses"
-              },
-              conjugations: {
-                type: Type.OBJECT,
-                description: "Only for verbs - present tense conjugations",
-                properties: {
-                  present: {
-                    type: Type.OBJECT,
-                    properties: {
-                      ja: { type: Type.STRING },
-                      ty: { type: Type.STRING },
-                      onOna: { type: Type.STRING },
-                      my: { type: Type.STRING },
-                      wy: { type: Type.STRING },
-                      oni: { type: Type.STRING }
-                    }
-                  }
-                }
-              },
-              gender: { type: Type.STRING, enum: ["masculine", "feminine", "neuter"] },
-              plural: { type: Type.STRING, description: "Plural form for nouns" },
-              adjectiveForms: {
-                type: Type.OBJECT,
-                description: "Only for adjectives",
-                properties: {
-                  masculine: { type: Type.STRING },
-                  feminine: { type: Type.STRING },
-                  neuter: { type: Type.STRING },
-                  plural: { type: Type.STRING }
-                }
-              }
-            },
-            required: ["original", "root", "proTip", "examples"]
-          }
-        }
+        responseSchema: buildVocabularySchema(targetLanguage)
       }
     });
 
@@ -163,6 +138,18 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Already completed' });
     }
 
+    // Get language from word request (set during creation)
+    const targetLanguage = wordRequest.language_code || 'pl';
+
+    // Get student's native language from profile
+    const { data: studentLang } = await supabase
+      .from('profiles')
+      .select('native_language')
+      .eq('id', auth.userId)
+      .single();
+
+    const nativeLanguage = studentLang?.native_language || 'en';
+
     const selectedWords = wordRequest.selected_words || [];
     const xpMultiplier = wordRequest.xp_multiplier || 2.0;
 
@@ -187,12 +174,13 @@ export default async function handler(req: any, res: any) {
       wordType: w.word_type || 'phrase'
     }));
 
-    const enrichedContexts = await batchEnrichWordContexts(wordsToEnrich);
+    const enrichedContexts = await batchEnrichWordContexts(wordsToEnrich, targetLanguage, nativeLanguage);
 
     // Step 2: Prepare all dictionary entries for batch upsert
     const now = new Date().toISOString();
     const dictionaryEntries = selectedWords.map((word: any, index: number) => ({
       user_id: auth.userId,
+      language_code: targetLanguage,
       word: word.word.toLowerCase().trim(),
       translation: word.translation,
       word_type: word.word_type || 'phrase',
@@ -205,7 +193,7 @@ export default async function handler(req: any, res: any) {
     const { data: insertedWords, error: dictError } = await supabase
       .from('dictionary')
       .upsert(dictionaryEntries, {
-        onConflict: 'user_id,word',
+        onConflict: 'user_id,word,language_code',
         ignoreDuplicates: false
       })
       .select();

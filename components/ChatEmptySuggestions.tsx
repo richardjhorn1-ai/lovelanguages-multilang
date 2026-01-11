@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChatMode } from '../types';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface Props {
   mode: ChatMode;
@@ -13,30 +15,33 @@ interface Suggestion {
   icon: keyof typeof ICONS;
 }
 
-const SUGGESTIONS: Record<string, Record<string, Suggestion[]>> = {
-  student: {
-    ask: [
-      { text: "How do I say 'I love you' in Polish?", icon: 'Heart' },
-      { text: "Teach me a sweet compliment", icon: 'Sparkles' },
-      { text: "What's a romantic phrase for tonight?", icon: 'Moon' },
-    ],
-    learn: [
-      { text: "Start a lesson on greetings", icon: 'MessageCircle' },
-      { text: "Teach me verb conjugations", icon: 'BookOpen' },
-      { text: "Practice food vocabulary", icon: 'Coffee' },
-    ],
-  },
-  tutor: {
-    // Tutors only have Coach mode - combines teaching tips + partner context
-    coach: [
-      { text: "How do I explain Polish cases simply?", icon: 'HelpCircle' },
-      { text: "What new words should I teach them?", icon: 'Sparkles' },
-      { text: "Suggest a romantic phrase for tonight", icon: 'Heart' },
-    ],
-  },
-};
-
 export const ChatEmptySuggestions: React.FC<Props> = ({ mode, role, onSuggestionClick }) => {
+  const { t } = useTranslation();
+  const { targetName } = useLanguage();
+
+  const SUGGESTIONS: Record<string, Record<string, Suggestion[]>> = {
+    student: {
+      ask: [
+        { text: t('chatSuggestions.suggestions.student.ask.s1', { language: targetName }), icon: 'Heart' },
+        { text: t('chatSuggestions.suggestions.student.ask.s2'), icon: 'Sparkles' },
+        { text: t('chatSuggestions.suggestions.student.ask.s3'), icon: 'Moon' },
+      ],
+      learn: [
+        { text: t('chatSuggestions.suggestions.student.learn.s1'), icon: 'MessageCircle' },
+        { text: t('chatSuggestions.suggestions.student.learn.s2'), icon: 'BookOpen' },
+        { text: t('chatSuggestions.suggestions.student.learn.s3'), icon: 'Coffee' },
+      ],
+    },
+    tutor: {
+      // Tutors only have Coach mode - combines teaching tips + partner context
+      coach: [
+        { text: t('chatSuggestions.suggestions.tutor.coach.s1', { language: targetName }), icon: 'HelpCircle' },
+        { text: t('chatSuggestions.suggestions.tutor.coach.s2'), icon: 'Sparkles' },
+        { text: t('chatSuggestions.suggestions.tutor.coach.s3'), icon: 'Heart' },
+      ],
+    },
+  };
+
   const suggestions = SUGGESTIONS[role]?.[mode] || SUGGESTIONS.student.ask;
 
   return (
@@ -47,21 +52,21 @@ export const ChatEmptySuggestions: React.FC<Props> = ({ mode, role, onSuggestion
         </div>
         <h3 className="text-base md:text-xl font-bold font-header text-[var(--text-primary)] mb-1 md:mb-2">
           {role === 'student'
-            ? (mode === 'ask' ? 'Ask Cupid anything' : 'Ready for a lesson?')
-            : 'Coach your partner'
+            ? (mode === 'ask' ? t('chatSuggestions.student.askTitle') : t('chatSuggestions.student.learnTitle'))
+            : t('chatSuggestions.tutor.coachTitle')
           }
         </h3>
         <p className="text-xs md:text-sm text-[var(--text-secondary)] max-w-xs mx-auto">
           {role === 'student'
-            ? 'Every word you learn brings you closer together'
-            : 'Teaching tips and personalized suggestions'
+            ? t('chatSuggestions.student.subtitle')
+            : t('chatSuggestions.tutor.subtitle')
           }
         </p>
       </div>
 
       <div className="w-full max-w-md space-y-2 md:space-y-3">
         <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] text-center mb-2 md:mb-4">
-          Try asking...
+          {t('chatSuggestions.tryAsking')}
         </p>
         {suggestions.map((suggestion, index) => {
           const Icon = ICONS[suggestion.icon];

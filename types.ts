@@ -19,6 +19,10 @@ export interface Profile {
   font_size?: 'small' | 'medium' | 'large';
   // Answer validation mode
   smart_validation?: boolean; // true = AI-powered (accepts synonyms, typos), false = strict matching
+  // Multi-language support
+  active_language?: string;    // Current target language code (e.g., 'pl', 'es')
+  native_language?: string;    // User's native language code (e.g., 'en', 'es')
+  languages?: string[];        // All unlocked target language codes
   // Subscription
   subscription_plan?: 'none' | 'standard' | 'unlimited';
   subscription_status?: 'active' | 'inactive' | 'past_due' | 'canceled';
@@ -47,10 +51,14 @@ export interface OnboardingData {
   // Tutor fields
   learnerName?: string;
   relationshipType?: string;     // Partner, Spouse, Friend, Family
-  polishConnection?: string;     // Native, Heritage, Fluent, Bilingual
-  polishOrigin?: string;
+  languageConnection?: string;   // Native, Heritage, Fluent, Bilingual
+  languageOrigin?: string;       // Country/region of origin
   traditionsToShare?: string[];
-  familyPolishFrequency?: string;
+  familyLanguageFrequency?: string;  // How often language is spoken in family
+  // LEGACY: Polish-specific field names (backward compatibility)
+  // TODO: Remove after ML-4 onboarding refactor
+  polishConnection?: string;
+  polishOrigin?: string;
   dreamPhrase?: string;          // What they want learner to say first
   dreamHear?: string;            // What they want learner to say (legacy)
   teachingPriority?: string;
@@ -70,12 +78,12 @@ export type Gender = 'masculine' | 'feminine' | 'neuter';
 
 // Conjugation table for present tense (no gender)
 export interface PresentTenseConjugation {
-  ja: string;      // I
-  ty: string;      // you (singular)
-  onOna: string;   // he/she
-  my: string;      // we
-  wy: string;      // you (plural)
-  oni: string;     // they
+  first_singular: string;   // I (ja, yo, ich, etc.)
+  second_singular: string;  // you singular (ty, tú, du, etc.)
+  third_singular: string;   // he/she/it (on/ona, él/ella, er/sie, etc.)
+  first_plural: string;     // we (my, nosotros, wir, etc.)
+  second_plural: string;    // you plural (wy, vosotros, ihr, etc.)
+  third_plural: string;     // they (oni, ellos, sie, etc.)
 }
 
 // Conjugation with gender variants (for past tense)
@@ -87,23 +95,23 @@ export interface GenderedConjugation {
 // Past tense with gender support
 export interface PastTenseConjugation {
   unlockedAt: string;  // ISO timestamp when unlocked
-  ja: GenderedConjugation;      // byłem/byłam
-  ty: GenderedConjugation;      // byłeś/byłaś
-  onOna: { masculine: string; feminine: string; neuter: string };  // był/była/było
-  my: GenderedConjugation;      // byliśmy/byłyśmy
-  wy: GenderedConjugation;      // byliście/byłyście
-  oni: GenderedConjugation;     // byli/były
+  first_singular: GenderedConjugation;
+  second_singular: GenderedConjugation;
+  third_singular: { masculine: string; feminine: string; neuter: string };
+  first_plural: GenderedConjugation;
+  second_plural: GenderedConjugation;
+  third_plural: GenderedConjugation;
 }
 
 // Future tense (can be simple or compound depending on aspect)
 export interface FutureTenseConjugation {
   unlockedAt: string;  // ISO timestamp when unlocked
-  ja: string;
-  ty: string;
-  onOna: string;
-  my: string;
-  wy: string;
-  oni: string;
+  first_singular: string;
+  second_singular: string;
+  third_singular: string;
+  first_plural: string;
+  second_plural: string;
+  third_plural: string;
 }
 
 // Full verb conjugations with unlock tracking
@@ -148,6 +156,9 @@ export interface DictionaryEntry {
 }
 
 export type ChatMode = 'ask' | 'learn' | 'coach';
+
+// Translation direction for games (language-agnostic)
+export type TranslationDirection = 'target_to_native' | 'native_to_target';
 
 export type LiveSessionState = 'disconnected' | 'connecting' | 'listening' | 'speaking' | 'error';
 
@@ -290,8 +301,10 @@ export interface AIChallengeModeInfo {
 
 export interface RomanticPhrase {
   id: string;
-  polish: string;
-  english: string;
+  word: string;                  // Word/phrase in target language
+  translation: string;           // Translation in native language
+  targetLanguageCode?: string;   // e.g., 'pl', 'es'
+  nativeLanguageCode?: string;   // e.g., 'en', 'es'
   context?: string;
   difficulty: 'beginner' | 'intermediate' | 'advanced';
 }
@@ -506,9 +519,9 @@ export interface ExtractedWord {
   examples?: string[];
   proTip?: string;
   conjugations?: {
-    present?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
-    past?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
-    future?: { ja?: string; ty?: string; onOna?: string; my?: string; wy?: string; oni?: string };
+    present?: { first_singular?: string; second_singular?: string; third_singular?: string; first_plural?: string; second_plural?: string; third_plural?: string };
+    past?: { first_singular?: string; second_singular?: string; third_singular?: string; first_plural?: string; second_plural?: string; third_plural?: string };
+    future?: { first_singular?: string; second_singular?: string; third_singular?: string; first_plural?: string; second_plural?: string; third_plural?: string };
   };
   adjectiveForms?: { masculine?: string; feminine?: string; neuter?: string; plural?: string };
   gender?: string;
@@ -532,6 +545,10 @@ export interface SessionContext {
   name: string;
   partnerName: string | null;
   bootedAt: string;  // ISO timestamp for cache invalidation
+
+  // Language settings
+  targetLanguage: string;      // Current target language code
+  nativeLanguage: string;      // User's native language code
 
   // Student-specific (or learner data for tutors)
   level: string;
@@ -569,6 +586,8 @@ export interface SessionContext {
     name: string;
     level: string;
     xp: number;
+    targetLanguage?: string;
+    nativeLanguage?: string;
     vocabulary: Array<{ word: string; translation: string }>;
     weakSpots: Array<{ word: string; translation: string; failCount: number }>;
     recentWords: Array<{ word: string; translation: string }>;

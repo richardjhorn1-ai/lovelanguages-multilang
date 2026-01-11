@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
@@ -37,6 +38,7 @@ const GAME_MODE_INFO: Record<string, { name: string; icon: string; color: string
 };
 
 const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
+  const { t } = useTranslation();
   const [sessions, setSessions] = useState<GameSession[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedSession, setExpandedSession] = useState<string | null>(null);
@@ -45,6 +47,15 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
 
   const levelInfo = getLevelFromXP(xp);
   const tierColor = getTierColor(levelInfo.tier);
+
+  // Get localized game mode names
+  const getGameModeName = (mode: string): string => {
+    const modeKey = mode as keyof typeof GAME_MODE_INFO;
+    if (modeKey in GAME_MODE_INFO) {
+      return t(`gameHistory.gameModes.${mode}`);
+    }
+    return mode;
+  };
 
   useEffect(() => {
     fetchHistory();
@@ -113,9 +124,9 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
     yesterday.setDate(yesterday.getDate() - 1);
 
     if (date.toDateString() === today.toDateString()) {
-      return 'Today';
+      return t('gameHistory.today');
     } else if (date.toDateString() === yesterday.toDateString()) {
-      return 'Yesterday';
+      return t('gameHistory.yesterday');
     } else {
       return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
     }
@@ -173,8 +184,8 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
     return (
       <div className="text-center py-8">
         <div className="text-4xl mb-3">📊</div>
-        <p className="text-[var(--text-secondary)] font-medium">No game history yet</p>
-        <p className="text-sm text-[var(--text-secondary)] mt-1">Play some games to see your progress here!</p>
+        <p className="text-[var(--text-secondary)] font-medium">{t('gameHistory.noHistory')}</p>
+        <p className="text-sm text-[var(--text-secondary)] mt-1">{t('gameHistory.noHistoryDesc')}</p>
       </div>
     );
   }
@@ -192,10 +203,11 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
           <div className="space-y-3">
             {dateSessions.map(session => {
               const modeInfo = GAME_MODE_INFO[session.game_mode] || {
-                name: session.game_mode,
+                name: getGameModeName(session.game_mode),
                 icon: '🎮',
                 color: 'text-[var(--text-primary)]'
               };
+              const modeName = getGameModeName(session.game_mode);
               const total = session.correct_count + session.incorrect_count;
               const percentage = total > 0 ? Math.round((session.correct_count / total) * 100) : 0;
               const isExpanded = expandedSession === session.id;
@@ -218,7 +230,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <span className={`font-bold ${modeInfo.color}`}>
-                            {modeInfo.name}
+                            {modeName}
                           </span>
                           <span className="text-lg font-black" style={{ color: tierColor }}>
                             {percentage}%
@@ -232,7 +244,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                       </div>
                       {session.wrong_answer_count > 0 && (
                         <span className="text-xs font-bold px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full">
-                          {session.wrong_answer_count} missed
+                          {t('gameHistory.missed', { count: session.wrong_answer_count })}
                         </span>
                       )}
                       <ICONS.ChevronDown
@@ -249,7 +261,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                           <div className="w-1.5 h-1.5 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                           <div className="w-1.5 h-1.5 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                         </div>
-                        Loading...
+                        {t('gameHistory.loading')}
                       </div>
                     </div>
                   )}
@@ -265,7 +277,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                         return (
                           <div className="pt-3 space-y-2 mb-4">
                             <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-widest mb-2">
-                              Smart Accepted
+                              {t('gameHistory.smartAccepted')}
                             </p>
                             {smartAccepted.map((answer, idx) => (
                               <div
@@ -296,7 +308,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                       {wrongAnswers.length > 0 && (
                       <div className="pt-3 space-y-2">
                         <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-widest mb-2">
-                          Missed Words
+                          {t('gameHistory.missedWords')}
                         </p>
                         {wrongAnswers.map((answer, idx) => {
                           const showExplanation = answer.explanation && answer.explanation !== 'Exact match' && answer.explanation !== 'No match (strict mode)';
@@ -315,11 +327,11 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                                 <p className="text-xs text-[var(--text-secondary)]">
                                   {answer.user_answer ? (
                                     <>
-                                      You said: <span className="text-red-500">{answer.user_answer}</span>
+                                      {t('gameHistory.youSaid')} <span className="text-red-500">{answer.user_answer}</span>
                                       {' · '}
                                     </>
                                   ) : null}
-                                  Correct: <span className="text-green-600 dark:text-green-400 font-medium">{answer.correct_answer}</span>
+                                  {t('gameHistory.correct')} <span className="text-green-600 dark:text-green-400 font-medium">{answer.correct_answer}</span>
                                 </p>
                                 {showExplanation && (
                                   <p className="text-[10px] text-red-500/70 italic mt-0.5">
@@ -336,7 +348,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                             onClick={() => handlePracticeWrongWords(session.id)}
                             className="w-full mt-3 py-3 bg-[var(--accent-light)] text-[var(--accent-color)] rounded-xl font-bold text-sm hover:bg-[var(--accent-color)] hover:text-white transition-colors"
                           >
-                            Practice These {wrongAnswers.length} Words
+                            {t('gameHistory.practiceWords', { count: wrongAnswers.length })}
                           </button>
                         )}
                       </div>
@@ -347,7 +359,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                         <div className="pt-3 text-center py-4">
                           <div className="text-3xl mb-2">🎉</div>
                           <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-                            Perfect score! No missed words.
+                            {t('gameHistory.perfectScore')}
                           </p>
                         </div>
                       )}

@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 import {
   setCorsHeaders,
   verifyAuth,
@@ -9,6 +9,8 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { buildAnswerValidationPrompt } from '../utils/prompt-templates.js';
+import { buildBatchValidationSchema } from '../utils/schema-builders.js';
 
 // ============================================================================
 // INLINE VALIDATION (Vercel serverless can't import from ../services/)
@@ -23,7 +25,7 @@ interface ValidationResult {
 interface AnswerToValidate {
   userAnswer: string;
   correctAnswer: string;
-  polishWord?: string;
+  targetWord?: string;
 }
 
 function fastMatch(userAnswer: string, correctAnswer: string): boolean {
@@ -37,6 +39,8 @@ function fastMatch(userAnswer: string, correctAnswer: string): boolean {
 
 async function batchSmartValidate(
   answers: AnswerToValidate[],
+  targetLanguage: string,
+  nativeLanguage: string,
   apiKey?: string
 ): Promise<ValidationResult[]> {
   const results: ValidationResult[] = [];
@@ -65,46 +69,24 @@ async function batchSmartValidate(
   try {
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
     const answersText = needsAiValidation.map((item, i) =>
-      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.polishWord ? ` | Polish: "${item.polishWord}"` : ''}`
+      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.targetWord ? ` | Target word: "${item.targetWord}"` : ''}`
     ).join('\n');
 
-    const prompt = `You are validating answers for a Polish language learning app.
+    const basePrompt = buildAnswerValidationPrompt(targetLanguage, nativeLanguage);
+    const prompt = `${basePrompt}
 
-Validate these ${needsAiValidation.length} answers:
+## ANSWERS TO VALIDATE (${needsAiValidation.length} total)
 
 ${answersText}
 
-For EACH answer, ACCEPT if ANY apply:
-- Exact match (ignoring case)
-- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię)
-- Valid synonym (pretty=beautiful, hi=hello)
-- Article variation (the dog=dog)
-- Minor typo (1-2 chars off)
-- Alternate valid translation
-
-REJECT if:
-- Completely different meaning
-- Wrong language
-- Major spelling error (3+ chars wrong)
-
-Return a JSON array with ${needsAiValidation.length} results in order.`;
+Return validation results for each answer.`;
 
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: prompt,
       config: {
         responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
-              explanation: { type: Type.STRING, description: "Brief explanation" }
-            },
-            required: ["accepted", "explanation"]
-          }
-        }
+        responseSchema: buildBatchValidationSchema()
       }
     });
 
@@ -193,6 +175,18 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Challenge already completed' });
     }
 
+    // Get language settings from challenge and student profile
+    const targetLanguage = challenge.language_code || 'pl';
+
+    // Fetch student's native language for validation prompts
+    const { data: studentProfile } = await supabase
+      .from('profiles')
+      .select('native_language')
+      .eq('id', auth.userId)
+      .single();
+
+    const nativeLanguage = studentProfile?.native_language || 'en';
+
     // Grade the answers using BATCH smart validation (one Gemini call for all answers)
     const wordsData = challenge.words_data || [];
 
@@ -202,12 +196,16 @@ export default async function handler(req: any, res: any) {
       return {
         userAnswer: answer.userAnswer || '',
         correctAnswer: word?.translation || '',
-        polishWord: word?.word
+        targetWord: word?.word
       };
     });
 
     // ONE Gemini call for ALL answers (instead of N calls)
-    const validationResults = await batchSmartValidate(validationInputs);
+    const validationResults = await batchSmartValidate(
+      validationInputs,
+      targetLanguage,
+      nativeLanguage
+    );
 
     // Build a map of results by index for easy lookup
     const resultMap = new Map<number, ValidationResult>();
@@ -272,9 +270,10 @@ export default async function handler(req: any, res: any) {
     if (wordIdsToUpdate.length > 0) {
       // Step 2: Fetch ALL existing scores in ONE query
       const { data: existingScores } = await supabase
-        .from('scores')
-        .select('word_id, success_count, fail_count, correct_streak, learned_at')
+        .from('word_scores')
+        .select('word_id, correct_streak, total_attempts, correct_attempts, learned_at, language_code')
         .eq('user_id', auth.userId)
+        .eq('language_code', targetLanguage)
         .in('word_id', wordIdsToUpdate);
 
       // Build a map for quick lookup
@@ -289,27 +288,28 @@ export default async function handler(req: any, res: any) {
           if (!word?.id) return null;
 
           const existing = scoreMap.get(word.id);
-          const newSuccessCount = (existing?.success_count || 0) + (answer.isCorrect ? 1 : 0);
-          const newFailCount = (existing?.fail_count || 0) + (answer.isCorrect ? 0 : 1);
+          const newTotalAttempts = (existing?.total_attempts || 0) + 1;
+          const newCorrectAttempts = (existing?.correct_attempts || 0) + (answer.isCorrect ? 1 : 0);
           const newStreak = answer.isCorrect ? (existing?.correct_streak || 0) + 1 : 0;
           const isLearned = newStreak >= 5;
 
           return {
             user_id: auth.userId,
             word_id: word.id,
-            success_count: newSuccessCount,
-            fail_count: newFailCount,
+            language_code: targetLanguage,
+            total_attempts: newTotalAttempts,
+            correct_attempts: newCorrectAttempts,
             correct_streak: newStreak,
             learned_at: isLearned && !existing?.learned_at ? now : existing?.learned_at || null,
-            last_practiced: now
+            updated_at: now
           };
         })
         .filter((s): s is NonNullable<typeof s> => s !== null);
 
       // Step 4: Batch upsert ALL scores in ONE query
       if (scoreUpserts.length > 0) {
-        await supabase.from('scores').upsert(scoreUpserts, {
-          onConflict: 'user_id,word_id'
+        await supabase.from('word_scores').upsert(scoreUpserts, {
+          onConflict: 'user_id,word_id,language_code'
         });
       }
     }

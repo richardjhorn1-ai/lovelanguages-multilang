@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import AvatarUpload from '../../../AvatarUpload';
 
@@ -23,6 +24,7 @@ export const PhotoStep: React.FC<PhotoStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [uploadedUrl, setUploadedUrl] = useState<string | null>(initialValue ?? null);
 
   const handleUploadComplete = (url: string) => {
@@ -50,12 +52,12 @@ export const PhotoStep: React.FC<PhotoStepProps> = ({
         </div>
 
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          Add your photo
+          {t('onboarding.student.photo.title')}
         </h1>
         <p className="text-gray-500 mb-2">
           {uploadedUrl
-            ? "Looking good! This will appear on your profile."
-            : "A photo helps make your profile feel more personal."
+            ? t('onboarding.student.photo.subtitleWithPhoto')
+            : t('onboarding.student.photo.subtitleNoPhoto')
           }
         </p>
       </div>
@@ -65,7 +67,7 @@ export const PhotoStep: React.FC<PhotoStepProps> = ({
           onClick={() => onNext(uploadedUrl)}
           accentColor={accentColor}
         >
-          {uploadedUrl ? 'Continue' : 'Skip for now'}
+          {uploadedUrl ? t('onboarding.step.continue') : t('onboarding.step.skipForNow')}
         </NextButton>
       </div>
     </OnboardingStep>

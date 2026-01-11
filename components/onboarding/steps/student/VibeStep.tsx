@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 
 interface VibeStepProps {
@@ -11,15 +12,6 @@ interface VibeStepProps {
   accentColor?: string;
 }
 
-const VIBES = [
-  { id: 'passionate', emoji: '🔥', label: 'Passionate' },
-  { id: 'playful', emoji: '😜', label: 'Playful' },
-  { id: 'growing', emoji: '🌱', label: 'Growing' },
-  { id: 'forever', emoji: '💍', label: 'Forever' },
-  { id: 'longdistance', emoji: '🌍', label: 'Long-distance' },
-  { id: 'newlove', emoji: '🦋', label: 'New love' },
-];
-
 export const VibeStep: React.FC<VibeStepProps> = ({
   currentStep,
   totalSteps,
@@ -29,7 +21,18 @@ export const VibeStep: React.FC<VibeStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState(initialValue);
+
+  // Vibes array inside component to access t()
+  const vibes = [
+    { id: 'passionate', emoji: '🔥', label: t('onboarding.student.vibe.passionate') },
+    { id: 'playful', emoji: '😜', label: t('onboarding.student.vibe.playful') },
+    { id: 'growing', emoji: '🌱', label: t('onboarding.student.vibe.growing') },
+    { id: 'forever', emoji: '💍', label: t('onboarding.student.vibe.forever') },
+    { id: 'longdistance', emoji: '🌍', label: t('onboarding.student.vibe.longDistance') },
+    { id: 'newlove', emoji: '🦋', label: t('onboarding.student.vibe.newLove') },
+  ];
 
   return (
     <OnboardingStep
@@ -40,15 +43,15 @@ export const VibeStep: React.FC<VibeStepProps> = ({
     >
       <div className="text-center mb-10">
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          One word for your relationship with {partnerName}
+          {t('onboarding.student.vibe.title', { name: partnerName })}
         </h1>
         <p className="text-gray-500">
-          Pick the vibe that feels most true.
+          {t('onboarding.student.vibe.subtitle')}
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-8">
-        {VIBES.map((vibe) => (
+        {vibes.map((vibe) => (
           <button
             key={vibe.id}
             onClick={() => setSelected(vibe.id)}

@@ -1,9 +1,13 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import type { TFunction } from 'i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 import { DEFAULT_THEME, applyTheme } from '../services/theme';
 import { GameShowcase } from './hero/GameShowcase';
+import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES, LanguageCode } from '../constants/language-config';
 
 type HeroRole = 'student' | 'tutor';
 
@@ -617,52 +621,8 @@ const InteractiveHearts: React.FC<{
   );
 };
 
-// Romantic Polish-English word pairs for the particle effect
-const WORD_PAIRS = [
-  // Terms of endearment
-  { polish: 'kocham', english: 'I love' },
-  { polish: 'kochanie', english: 'darling' },
-  { polish: 'skarbie', english: 'treasure' },
-  { polish: 'słonko', english: 'sunshine' },
-  { polish: 'kotku', english: 'kitten' },
-  { polish: 'misiu', english: 'teddy bear' },
-  { polish: 'złotko', english: 'sweetheart' },
-  { polish: 'aniołku', english: 'little angel' },
-  // Love & feelings
-  { polish: 'miłość', english: 'love' },
-  { polish: 'serce', english: 'heart' },
-  { polish: 'szczęście', english: 'happiness' },
-  { polish: 'radość', english: 'joy' },
-  { polish: 'marzenie', english: 'dream' },
-  { polish: 'nadzieja', english: 'hope' },
-  { polish: 'uśmiech', english: 'smile' },
-  { polish: 'przytulenie', english: 'hug' },
-  { polish: 'pocałunek', english: 'kiss' },
-  // Together
-  { polish: 'razem', english: 'together' },
-  { polish: 'zawsze', english: 'always' },
-  { polish: 'na zawsze', english: 'forever' },
-  { polish: 'my', english: 'we' },
-  { polish: 'nas', english: 'us' },
-  // Possessive
-  { polish: 'moje', english: 'mine' },
-  { polish: 'twoje', english: 'yours' },
-  { polish: 'nasze', english: 'ours' },
-  // Descriptive
-  { polish: 'piękny', english: 'beautiful' },
-  { polish: 'cudowny', english: 'wonderful' },
-  { polish: 'wspaniały', english: 'amazing' },
-  { polish: 'uroczy', english: 'charming' },
-  { polish: 'słodki', english: 'sweet' },
-  // Phrases
-  { polish: 'kocham cię', english: 'I love you' },
-  { polish: 'jesteś mój', english: "you're mine" },
-  { polish: 'mój świat', english: 'my world' },
-  { polish: 'dla ciebie', english: 'for you' },
-  { polish: 'tylko ty', english: 'only you' },
-  { polish: 'tęsknię', english: 'I miss you' },
-  { polish: 'bądź ze mną', english: 'be with me' },
-];
+// Word pairs for the particle effect are now generated dynamically in WordParticleEffect
+// using useLanguage() and LANGUAGE_CONFIGS for multi-language support
 
 // Particle for word effect
 interface WordParticle {
@@ -679,21 +639,21 @@ interface WordParticle {
 }
 
 // Animation states
-type WordEventState = 'spawning' | 'showing_polish' | 'transforming' | 'showing_english' | 'forming_heart' | 'floating' | 'done';
+type WordEventState = 'spawning' | 'showing_word' | 'transforming' | 'showing_translation' | 'forming_heart' | 'floating' | 'done';
 
 // Word event - one word animation sequence
 interface WordEvent {
   id: number;
-  polishWord: string;
-  englishWord: string;
+  word: string;
+  translation: string;
   particles: WordParticle[];
   state: WordEventState;
   stateStartTime: number;
   centerX: number;
   centerY: number;
   rotation: number; // Rotation angle in radians
-  polishPositions: { x: number; y: number }[];
-  englishPositions: { x: number; y: number }[];
+  wordPositions: { x: number; y: number }[];
+  translationPositions: { x: number; y: number }[];
   heartPositions: { x: number; y: number }[];
   floatY: number;
   opacity: number;
@@ -703,12 +663,34 @@ interface WordEvent {
 const WordParticleEffect: React.FC<{
   accentColor: string;
   containerRef: React.RefObject<HTMLDivElement>;
-}> = ({ accentColor, containerRef }) => {
+  targetLanguage?: string;
+  nativeLanguage?: string;
+}> = ({ accentColor, containerRef, targetLanguage = 'pl', nativeLanguage = 'en' }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const eventsRef = useRef<WordEvent[]>([]);
   const animationRef = useRef<number>();
   const lastSpawnRef = useRef<number>(0);
   const eventIdRef = useRef<number>(0);
+
+  // Get language configs for the selected languages
+  const targetConfig = LANGUAGE_CONFIGS[targetLanguage];
+  const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage];
+
+  // Build word pairs dynamically based on selected language settings
+  const wordPairs = useMemo(() => {
+    const pairs = [
+      { word: targetConfig?.examples.hello || 'Hello', translation: nativeConfig?.examples.hello || 'Hello' },
+      { word: targetConfig?.examples.iLoveYou || 'I love you', translation: nativeConfig?.examples.iLoveYou || 'I love you' },
+      { word: targetConfig?.examples.thankYou || 'Thank you', translation: nativeConfig?.examples.thankYou || 'Thank you' },
+    ];
+    const emojis = [
+      { word: '\u2764\uFE0F', translation: '\uD83D\uDC95' },
+      { word: '\uD83D\uDC97', translation: '\uD83D\uDC96' },
+      { word: '\u2728', translation: '\uD83D\uDCAB' },
+      { word: '\uD83D\uDC8B', translation: '\uD83D\uDE18' },
+    ];
+    return [...pairs, ...emojis];
+  }, [targetConfig, nativeConfig]);
 
   // Convert text to particle positions using offscreen canvas
   const getTextParticlePositions = (
@@ -810,9 +792,10 @@ const WordParticleEffect: React.FC<{
   const spawnWordEvent = (
     canvasWidth: number,
     canvasHeight: number,
-    existingEvents: WordEvent[]
+    existingEvents: WordEvent[],
+    pairs: { word: string; translation: string }[]
   ): WordEvent => {
-    const pair = WORD_PAIRS[Math.floor(Math.random() * WORD_PAIRS.length)];
+    const pair = pairs[Math.floor(Math.random() * pairs.length)];
 
     // Generate candidate position at edges - avoid center text area
     const generatePosition = (): { x: number; y: number } => {
@@ -890,27 +873,27 @@ const WordParticleEffect: React.FC<{
     // Font size for clear readability
     const fontSize = 32;
 
-    const polishPositions = getTextParticlePositions(pair.polish, centerX, centerY, fontSize, rotation);
-    const englishPositions = getTextParticlePositions(pair.english, centerX, centerY, fontSize, rotation);
+    const wordPositions = getTextParticlePositions(pair.word, centerX, centerY, fontSize, rotation);
+    const translationPositions = getTextParticlePositions(pair.translation, centerX, centerY, fontSize, rotation);
 
     // Use the exact particle count needed to resolve text clearly
     // Heart scales to fit that number of particles nicely
-    const particleCount = Math.max(polishPositions.length, englishPositions.length);
+    const particleCount = Math.max(wordPositions.length, translationPositions.length);
     // Scale heart based on particle count: more particles = larger heart
     // sqrt scaling keeps particle density consistent
     const heartScale = Math.sqrt(particleCount / 80) * 2.5;
     const heartPositions = getHeartPositions(centerX, centerY, heartScale, particleCount);
 
     // Extend smaller arrays by repeating positions
-    while (polishPositions.length < particleCount) {
-      polishPositions.push(polishPositions[Math.floor(Math.random() * polishPositions.length)]);
+    while (wordPositions.length < particleCount) {
+      wordPositions.push(wordPositions[Math.floor(Math.random() * wordPositions.length)]);
     }
-    while (englishPositions.length < particleCount) {
-      englishPositions.push(englishPositions[Math.floor(Math.random() * englishPositions.length)]);
+    while (translationPositions.length < particleCount) {
+      translationPositions.push(translationPositions[Math.floor(Math.random() * translationPositions.length)]);
     }
 
     // Create particles starting scattered - smaller particles
-    const particles: WordParticle[] = polishPositions.slice(0, particleCount).map((pos, i) => ({
+    const particles: WordParticle[] = wordPositions.slice(0, particleCount).map((pos, i) => ({
       x: pos.x + (Math.random() - 0.5) * 100,
       y: pos.y + (Math.random() - 0.5) * 100,
       originX: pos.x,
@@ -925,16 +908,16 @@ const WordParticleEffect: React.FC<{
 
     return {
       id: eventIdRef.current++,
-      polishWord: pair.polish,
-      englishWord: pair.english,
+      word: pair.word,
+      translation: pair.translation,
       particles,
       state: 'spawning',
       stateStartTime: Date.now(),
       centerX,
       centerY,
       rotation,
-      polishPositions: polishPositions.slice(0, particleCount),
-      englishPositions: englishPositions.slice(0, particleCount),
+      wordPositions: wordPositions.slice(0, particleCount),
+      translationPositions: translationPositions.slice(0, particleCount),
       heartPositions,
       floatY: 0,
       opacity: 1,
@@ -963,9 +946,9 @@ const WordParticleEffect: React.FC<{
     const SPAWN_INTERVAL = 6000; // New word every 6 seconds
     const MAX_ACTIVE_EVENTS = 3; // Allow multiple words at once
     const SPAWNING_DURATION = 1500;
-    const SHOWING_POLISH_DURATION = 2000;
+    const SHOWING_WORD_DURATION = 2000;
     const TRANSFORMING_DURATION = 1500;
-    const SHOWING_ENGLISH_DURATION = 2000;
+    const SHOWING_TRANSLATION_DURATION = 2000;
     const FORMING_HEART_DURATION = 2000;
     const FLOATING_DURATION = 4000;
 
@@ -987,7 +970,7 @@ const WordParticleEffect: React.FC<{
       // Spawn new events periodically (allow multiple active)
       const activeEvents = eventsRef.current.filter(e => e.state !== 'done');
       if (activeEvents.length < MAX_ACTIVE_EVENTS && now - lastSpawnRef.current > SPAWN_INTERVAL) {
-        eventsRef.current.push(spawnWordEvent(canvas.width, canvas.height, eventsRef.current));
+        eventsRef.current.push(spawnWordEvent(canvas.width, canvas.height, eventsRef.current, wordPairs));
         lastSpawnRef.current = now;
       }
 
@@ -1002,30 +985,30 @@ const WordParticleEffect: React.FC<{
             const ease = 1 - Math.pow(1 - progress, 3); // Ease out cubic
 
             event.particles.forEach((p, i) => {
-              const target = event.polishPositions[i];
+              const target = event.wordPositions[i];
               p.x += (target.x - p.x) * 0.08;
               p.y += (target.y - p.y) * 0.08;
               p.alpha = ease * 0.45; // Slightly visible
             });
 
             if (progress >= 1) {
-              event.state = 'showing_polish';
+              event.state = 'showing_word';
               event.stateStartTime = now;
             }
             break;
           }
 
-          case 'showing_polish': {
+          case 'showing_word': {
             // Gentle breathing effect
             const breathe = Math.sin(elapsed * 0.003) * 0.05;
             event.particles.forEach((p, i) => {
-              const target = event.polishPositions[i];
+              const target = event.wordPositions[i];
               p.x += (target.x - p.x) * 0.1;
               p.y += (target.y - p.y) * 0.1;
               p.alpha = 0.4 + breathe; // Slightly visible
             });
 
-            if (elapsed > SHOWING_POLISH_DURATION) {
+            if (elapsed > SHOWING_WORD_DURATION) {
               event.state = 'transforming';
               event.stateStartTime = now;
             }
@@ -1039,8 +1022,8 @@ const WordParticleEffect: React.FC<{
               : 1 - Math.pow(-2 * progress + 2, 3) / 2; // Ease in-out cubic
 
             event.particles.forEach((p, i) => {
-              const from = event.polishPositions[i];
-              const to = event.englishPositions[i];
+              const from = event.wordPositions[i];
+              const to = event.translationPositions[i];
 
               // Spiral motion during transform
               const spiralRadius = Math.sin(progress * Math.PI) * 30;
@@ -1058,22 +1041,22 @@ const WordParticleEffect: React.FC<{
             });
 
             if (progress >= 1) {
-              event.state = 'showing_english';
+              event.state = 'showing_translation';
               event.stateStartTime = now;
             }
             break;
           }
 
-          case 'showing_english': {
+          case 'showing_translation': {
             const breathe = Math.sin(elapsed * 0.003) * 0.05;
             event.particles.forEach((p, i) => {
-              const target = event.englishPositions[i];
+              const target = event.translationPositions[i];
               p.x += (target.x - p.x) * 0.1;
               p.y += (target.y - p.y) * 0.1;
               p.alpha = 0.4 + breathe; // Slightly visible
             });
 
-            if (elapsed > SHOWING_ENGLISH_DURATION) {
+            if (elapsed > SHOWING_TRANSLATION_DURATION) {
               event.state = 'forming_heart';
               event.stateStartTime = now;
             }
@@ -1085,7 +1068,7 @@ const WordParticleEffect: React.FC<{
             const ease = 1 - Math.pow(1 - progress, 4); // Ease out quart
 
             event.particles.forEach((p, i) => {
-              const from = event.englishPositions[i];
+              const from = event.translationPositions[i];
               const to = event.heartPositions[i % event.heartPositions.length];
 
               // Inward spiral
@@ -1163,7 +1146,7 @@ const WordParticleEffect: React.FC<{
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [accentColor, containerRef]);
+  }, [accentColor, containerRef, wordPairs]);
 
   return (
     <canvas
@@ -1184,116 +1167,116 @@ interface SectionContent {
   underlinedPhrase?: string; // Phrase to underline
 }
 
-// Section content for both arcs
-const STUDENT_SECTIONS: SectionContent[] = [
+// Section content for both arcs - functions that use t() for translations
+const getStudentSections = (t: TFunction): SectionContent[] => [
   {
-    headline: "Skip the boring stuff. Learn the words that matter—the ones that make them smile.",
-    headlineHighlights: ["words that matter", "make them smile"],
-    subhead: "The ones they only use with people they love.",
-    copy: "Their inside jokes. Their family phrases. The way they say 'I love you' when nobody's listening.",
-    copyHighlights: ["inside jokes", "family phrases", "I love you"],
-    underlinedPhrase: "The way they say 'I love you' when nobody's listening",
+    headline: t('hero.student.section1.headline'),
+    headlineHighlights: [t('hero.student.section1.highlight1'), t('hero.student.section1.highlight2')],
+    subhead: t('hero.student.section1.subhead'),
+    copy: t('hero.student.section1.copy'),
+    copyHighlights: [t('hero.student.section1.copyHighlight1'), t('hero.student.section1.copyHighlight2'), t('hero.student.section1.copyHighlight3')],
+    underlinedPhrase: t('hero.student.section1.underline'),
   },
   {
-    headline: "There's a conversation you're not part of. Yet.",
-    headlineHighlights: ["Yet"],
-    copy: "The jokes you smile through without getting. The family stories that lose something in translation. Time to actually get it.",
-    copyHighlights: ["family stories", "actually get it"],
-    underlinedPhrase: "Time to actually get it",
+    headline: t('hero.student.section2.headline'),
+    headlineHighlights: [t('hero.student.section2.highlight1')],
+    copy: t('hero.student.section2.copy'),
+    copyHighlights: [t('hero.student.section2.copyHighlight1'), t('hero.student.section2.copyHighlight2')],
+    underlinedPhrase: t('hero.student.section2.underline'),
   },
   {
-    headline: "You're not learning Polish. You're learning them.",
-    headlineHighlights: ["learning them"],
-    copy: "Their words. Their jokes. Their way of roasting you lovingly. Built for people who are in it for love, not grades.",
-    copyHighlights: ["Their words", "Their jokes", "love"],
-    underlinedPhrase: "Built for people who are in it for love",
+    headline: t('hero.student.section3.headline'),
+    headlineHighlights: [t('hero.student.section3.highlight1')],
+    copy: t('hero.student.section3.copy'),
+    copyHighlights: [t('hero.student.section3.copyHighlight1'), t('hero.student.section3.copyHighlight2'), t('hero.student.section3.copyHighlight3')],
+    underlinedPhrase: t('hero.student.section3.underline'),
   },
   {
-    headline: "Learning Polish = flirting with extra steps.",
-    headlineHighlights: ["flirting"],
-    copy: "This isn't school. There's no test. Just you, showing up for them in a whole new way. Pretty romantic, honestly.",
-    copyHighlights: ["showing up for them", "romantic"],
-    underlinedPhrase: "Pretty romantic, honestly",
+    headline: t('hero.student.section4.headline'),
+    headlineHighlights: [t('hero.student.section4.highlight1')],
+    copy: t('hero.student.section4.copy'),
+    copyHighlights: [t('hero.student.section4.copyHighlight1'), t('hero.student.section4.copyHighlight2')],
+    underlinedPhrase: t('hero.student.section4.underline'),
   },
   {
-    headline: "The moment you make their family laugh? Chef's kiss.",
-    headlineHighlights: ["their family laugh", "Chef's kiss"],
-    copy: "The first time you actually get the joke. The first 'kocham cię' that doesn't sound like a sneeze. The moment their mom starts speaking Polish directly to you. It's coming.",
-    copyHighlights: ["kocham cię", "mom", "It's coming"],
-    underlinedPhrase: "It's coming",
+    headline: t('hero.student.section5.headline'),
+    headlineHighlights: [t('hero.student.section5.highlight1'), t('hero.student.section5.highlight2')],
+    copy: t('hero.student.section5.copy'),
+    copyHighlights: [t('hero.student.section5.copyHighlight1'), t('hero.student.section5.copyHighlight2'), t('hero.student.section5.copyHighlight3')],
+    underlinedPhrase: t('hero.student.section5.underline'),
   },
   {
-    headline: "Learn together. Love together. Laugh together.",
-    headlineHighlights: ["together", "Love", "Laugh"],
-    copy: "They'll send you words that matter. Challenge you to games. Roast your pronunciation (lovingly). This isn't studying alone—it's building your own little world together.",
-    copyHighlights: ["words that matter", "your own little world"],
-    underlinedPhrase: "building your own little world together",
+    headline: t('hero.student.section6.headline'),
+    headlineHighlights: [t('hero.student.section6.highlight1'), t('hero.student.section6.highlight2'), t('hero.student.section6.highlight3')],
+    copy: t('hero.student.section6.copy'),
+    copyHighlights: [t('hero.student.section6.copyHighlight1'), t('hero.student.section6.copyHighlight2')],
+    underlinedPhrase: t('hero.student.section6.underline'),
   },
 ];
 
-const TUTOR_SECTIONS: SectionContent[] = [
+const getTutorSections = (t: TFunction): SectionContent[] => [
   {
-    headline: "They love you. Now help them love your language too.",
-    headlineHighlights: ["love", "your language"],
-    copy: "Your words. Your jokes. The way you curse when you stub your toe. There's a whole you they haven't met yet—the Polish you. Let them in.",
-    copyHighlights: ["Your words", "Your jokes", "the Polish you", "Let them in"],
-    underlinedPhrase: "Let them in",
+    headline: t('hero.tutor.section1.headline'),
+    headlineHighlights: [t('hero.tutor.section1.highlight1'), t('hero.tutor.section1.highlight2')],
+    copy: t('hero.tutor.section1.copy'),
+    copyHighlights: [t('hero.tutor.section1.copyHighlight1'), t('hero.tutor.section1.copyHighlight2'), t('hero.tutor.section1.copyHighlight3'), t('hero.tutor.section1.copyHighlight4')],
+    underlinedPhrase: t('hero.tutor.section1.underline'),
   },
   {
-    headline: "You've tried explaining. They've tried nodding. Let's fix this.",
-    headlineHighlights: ["explaining", "nodding", "fix this"],
-    copy: "The things you say when you're really happy. Or really annoyed. The words that feel like home. They want to understand all of you—not just the translated version.",
-    copyHighlights: ["really happy", "really annoyed", "all of you"],
-    underlinedPhrase: "not just the translated version",
+    headline: t('hero.tutor.section2.headline'),
+    headlineHighlights: [t('hero.tutor.section2.highlight1'), t('hero.tutor.section2.highlight2'), t('hero.tutor.section2.highlight3')],
+    copy: t('hero.tutor.section2.copy'),
+    copyHighlights: [t('hero.tutor.section2.copyHighlight1'), t('hero.tutor.section2.copyHighlight2'), t('hero.tutor.section2.copyHighlight3')],
+    underlinedPhrase: t('hero.tutor.section2.underline'),
   },
   {
-    headline: "Every word you share is a bridge.",
-    headlineHighlights: ["bridge"],
-    copy: "Share words. Create challenges. Celebrate wins together. The app handles the boring stuff—you just get to be the fun one.",
-    copyHighlights: ["Share words", "Create challenges", "Celebrate wins", "the fun one"],
-    underlinedPhrase: "you just get to be the fun one",
+    headline: t('hero.tutor.section3.headline'),
+    headlineHighlights: [t('hero.tutor.section3.highlight1')],
+    copy: t('hero.tutor.section3.copy'),
+    copyHighlights: [t('hero.tutor.section3.copyHighlight1'), t('hero.tutor.section3.copyHighlight2'), t('hero.tutor.section3.copyHighlight3'), t('hero.tutor.section3.copyHighlight4')],
+    underlinedPhrase: t('hero.tutor.section3.underline'),
   },
   {
-    headline: "Send a word. Start a game. Watch them grow.",
-    headlineHighlights: ["game", "grow"],
-    copy: "Challenge them to your mom's favorite phrase. Quiz them before dinner. Celebrate when they nail it. This is couples time disguised as learning—and it's actually fun.",
-    copyHighlights: ["mom's favorite phrase", "couples time", "actually fun"],
-    underlinedPhrase: "This is couples time disguised as learning",
+    headline: t('hero.tutor.section4.headline'),
+    headlineHighlights: [t('hero.tutor.section4.highlight1'), t('hero.tutor.section4.highlight2')],
+    copy: t('hero.tutor.section4.copy'),
+    copyHighlights: [t('hero.tutor.section4.copyHighlight1'), t('hero.tutor.section4.copyHighlight2'), t('hero.tutor.section4.copyHighlight3')],
+    underlinedPhrase: t('hero.tutor.section4.underline'),
   },
   {
-    headline: "The moment they surprise you with a phrase you never taught them? Magic.",
-    headlineHighlights: ["surprise you", "Magic"],
-    copy: "When they crack a joke and your family actually laughs. When your mom starts speaking Polish to them directly. When they drop a phrase that makes your jaw drop. You made that happen.",
-    copyHighlights: ["family actually laughs", "mom", "You made that happen"],
+    headline: t('hero.tutor.section5.headline'),
+    headlineHighlights: [t('hero.tutor.section5.highlight1'), t('hero.tutor.section5.highlight2')],
+    copy: t('hero.tutor.section5.copy'),
+    copyHighlights: [t('hero.tutor.section5.copyHighlight1'), t('hero.tutor.section5.copyHighlight2'), t('hero.tutor.section5.copyHighlight3')],
   },
   {
-    headline: "Teach together. Play together. Fall deeper in love.",
-    headlineHighlights: ["together", "love"],
-    copy: "This is how you share who you really are. Word by word. Game by game. Laugh by laugh. And they get to fall in love with all of it.",
-    copyHighlights: ["who you really are", "fall in love"],
-    underlinedPhrase: "And they get to fall in love with all of it",
+    headline: t('hero.tutor.section6.headline'),
+    headlineHighlights: [t('hero.tutor.section6.highlight1'), t('hero.tutor.section6.highlight2')],
+    copy: t('hero.tutor.section6.copy'),
+    copyHighlights: [t('hero.tutor.section6.copyHighlight1'), t('hero.tutor.section6.copyHighlight2')],
+    underlinedPhrase: t('hero.tutor.section6.underline'),
   },
 ];
 
 // Context-aware login form content (7 items: sections 0-2, GameShowcase, sections 3-5)
-const STUDENT_CONTEXTS = [
-  { header: "Ready to meet them?", cta: "Start learning", subtext: "2 minutes to your first word." },
-  { header: "We've got you", cta: "Start learning", subtext: "No more fake laughing." },
-  { header: "Built for lovers", cta: "Begin your journey", subtext: "Not tourists. Family." },
-  { header: "Play your way", cta: "Explore games", subtext: "Flashcards, challenges, and more." },
-  { header: "Make it count", cta: "Begin your journey", subtext: "Every word matters." },
-  { header: "Make it happen", cta: "Start now", subtext: "That moment is coming." },
-  { header: "Start together", cta: "Create your world", subtext: "They're waiting for you." },
+const getStudentContexts = (t: TFunction) => [
+  { header: t('hero.student.context1.header'), cta: t('hero.student.context1.cta'), subtext: t('hero.student.context1.subtext') },
+  { header: t('hero.student.context2.header'), cta: t('hero.student.context2.cta'), subtext: t('hero.student.context2.subtext') },
+  { header: t('hero.student.context3.header'), cta: t('hero.student.context3.cta'), subtext: t('hero.student.context3.subtext') },
+  { header: t('hero.student.context4.header'), cta: t('hero.student.context4.cta'), subtext: t('hero.student.context4.subtext') },
+  { header: t('hero.student.context5.header'), cta: t('hero.student.context5.cta'), subtext: t('hero.student.context5.subtext') },
+  { header: t('hero.student.context6.header'), cta: t('hero.student.context6.cta'), subtext: t('hero.student.context6.subtext') },
+  { header: t('hero.student.context7.header'), cta: t('hero.student.context7.cta'), subtext: t('hero.student.context7.subtext') },
 ];
 
-const TUTOR_CONTEXTS = [
-  { header: "Share your world", cta: "Start guiding", subtext: "Become their Polish connection." },
-  { header: "Let them in", cta: "Start guiding", subtext: "Some things translate better when learned." },
-  { header: "Teach with love", cta: "Begin", subtext: "Not lessons. Love letters." },
-  { header: "Challenge them", cta: "Send a challenge", subtext: "Games, challenges, surprises." },
-  { header: "Watch them bloom", cta: "Start sending", subtext: "One word at a time." },
-  { header: "Open the door", cta: "Start now", subtext: "That moment is coming." },
-  { header: "Grow together", cta: "Become their guide", subtext: "They're ready for you." },
+const getTutorContexts = (t: TFunction) => [
+  { header: t('hero.tutor.context1.header'), cta: t('hero.tutor.context1.cta'), subtext: t('hero.tutor.context1.subtext') },
+  { header: t('hero.tutor.context2.header'), cta: t('hero.tutor.context2.cta'), subtext: t('hero.tutor.context2.subtext') },
+  { header: t('hero.tutor.context3.header'), cta: t('hero.tutor.context3.cta'), subtext: t('hero.tutor.context3.subtext') },
+  { header: t('hero.tutor.context4.header'), cta: t('hero.tutor.context4.cta'), subtext: t('hero.tutor.context4.subtext') },
+  { header: t('hero.tutor.context5.header'), cta: t('hero.tutor.context5.cta'), subtext: t('hero.tutor.context5.subtext') },
+  { header: t('hero.tutor.context6.header'), cta: t('hero.tutor.context6.cta'), subtext: t('hero.tutor.context6.subtext') },
+  { header: t('hero.tutor.context7.header'), cta: t('hero.tutor.context7.cta'), subtext: t('hero.tutor.context7.subtext') },
 ];
 
 // Section component
@@ -1372,6 +1355,7 @@ const LoginForm: React.FC<{
   message: string;
   onSubmit: (e: React.FormEvent) => void;
 }> = ({ context, isStudent, email, setEmail, password, setPassword, loading, isSignUp, setIsSignUp, message, onSubmit }) => {
+  const { t } = useTranslation();
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
   const accentHover = isStudent ? BRAND.primaryHover : BRAND.tealHover;
   const accentShadow = isStudent ? BRAND.shadow : BRAND.tealShadow;
@@ -1394,7 +1378,7 @@ const LoginForm: React.FC<{
       <form onSubmit={onSubmit} className="space-y-5">
         <div>
           <label className="block text-[11px] font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: '#9ca3af' }}>
-            Email Address
+            {t('hero.login.emailLabel')}
           </label>
           <input
             type="email"
@@ -1405,12 +1389,12 @@ const LoginForm: React.FC<{
             style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
             onFocus={(e) => e.target.style.borderColor = accentColor}
             onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
-            placeholder="you@love.com"
+            placeholder={t('hero.login.emailPlaceholder')}
           />
         </div>
         <div>
           <label className="block text-[11px] font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: '#9ca3af' }}>
-            Password
+            {t('hero.login.passwordLabel')}
           </label>
           <input
             type="password"
@@ -1422,7 +1406,7 @@ const LoginForm: React.FC<{
             style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
             onFocus={(e) => e.target.style.borderColor = accentColor}
             onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
-            placeholder="••••••••"
+            placeholder={t('hero.login.passwordPlaceholder')}
           />
         </div>
 
@@ -1434,7 +1418,7 @@ const LoginForm: React.FC<{
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
         >
-          {loading ? 'Entering...' : context.cta}
+          {loading ? t('hero.login.entering') : context.cta}
         </button>
       </form>
 
@@ -1450,7 +1434,7 @@ const LoginForm: React.FC<{
           className="text-sm font-black uppercase tracking-widest transition-all hover:opacity-70"
           style={{ color: accentColor }}
         >
-          {isSignUp ? 'Already have an account? Sign in' : "New here? Create an account"}
+          {isSignUp ? t('hero.login.alreadyHaveAccount') : t('hero.login.newHere')}
         </button>
       </div>
     </div>
@@ -1520,8 +1504,129 @@ const MobileSection: React.FC<{
   );
 };
 
+// Step type for language selection flow
+type SelectionStep = 'native' | 'target' | 'marketing';
+
+// Popular languages shown first (rest hidden behind "Show all")
+const POPULAR_LANGUAGES = ['en', 'es', 'fr', 'de', 'pl', 'it', 'pt', 'nl'];
+
+// Language selector grid component
+const LanguageGrid: React.FC<{
+  onSelect: (code: string) => void;
+  selectedCode?: string | null;
+  excludeCode?: string | null;
+  isStudent: boolean;
+  title: string;
+  subtitle: string;
+  onBack?: () => void;
+  showBackButton?: boolean;
+}> = ({ onSelect, selectedCode, excludeCode, isStudent, title, subtitle, onBack, showBackButton }) => {
+  const { t } = useTranslation();
+  const [showAll, setShowAll] = useState(false);
+  const accentColor = isStudent ? BRAND.primary : BRAND.teal;
+  const accentShadow = isStudent ? BRAND.shadow : BRAND.tealShadow;
+
+  // Filter out excluded language
+  const availableLanguages = Object.values(LANGUAGE_CONFIGS).filter(
+    lang => lang.code !== excludeCode
+  );
+
+  // Split into popular and other
+  const popularLanguages = availableLanguages.filter(lang => POPULAR_LANGUAGES.includes(lang.code));
+  const otherLanguages = availableLanguages.filter(lang => !POPULAR_LANGUAGES.includes(lang.code));
+
+  const displayedLanguages = showAll ? availableLanguages : popularLanguages;
+
+  return (
+    <div className="w-full max-w-lg mx-auto">
+      {showBackButton && onBack && (
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 mb-6 text-sm font-bold transition-all hover:opacity-70"
+          style={{ color: accentColor }}
+        >
+          <ICONS.ChevronLeft className="w-4 h-4" />
+          {t('hero.languageSelector.back')}
+        </button>
+      )}
+
+      <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: '#1a1a2e' }}>
+        {title}
+      </h2>
+      <p className="text-base mb-8 font-medium" style={{ color: '#6b7280' }}>
+        {subtitle}
+      </p>
+
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+        {displayedLanguages.map(lang => (
+          <button
+            key={lang.code}
+            onClick={() => onSelect(lang.code)}
+            className="flex flex-col items-center gap-2 p-4 rounded-2xl border-2 transition-all duration-200 hover:scale-105"
+            style={{
+              borderColor: selectedCode === lang.code ? accentColor : '#e5e7eb',
+              backgroundColor: selectedCode === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
+              boxShadow: selectedCode === lang.code ? `0 4px 12px ${accentShadow}, 0 0 0 2px ${accentColor}` : 'none',
+            }}
+          >
+            <span className="text-3xl">{lang.flag}</span>
+            <span className="text-xs font-bold text-gray-700">{lang.nativeName}</span>
+          </button>
+        ))}
+      </div>
+
+      {otherLanguages.length > 0 && (
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="mt-6 w-full py-3 text-sm font-bold transition-all hover:opacity-70"
+          style={{ color: accentColor }}
+        >
+          {showAll ? t('hero.languageSelector.showLess') : t('hero.languageSelector.showAll')}
+        </button>
+      )}
+    </div>
+  );
+};
+
+// Language indicator for marketing step
+const LanguageIndicator: React.FC<{
+  nativeCode: string;
+  targetCode: string;
+  onChangeClick: () => void;
+  isStudent: boolean;
+}> = ({ nativeCode, targetCode, onChangeClick, isStudent }) => {
+  const { t } = useTranslation();
+  const nativeConfig = LANGUAGE_CONFIGS[nativeCode];
+  const targetConfig = LANGUAGE_CONFIGS[targetCode];
+  const accentColor = isStudent ? BRAND.primary : BRAND.teal;
+
+  return (
+    <div className="flex items-center justify-center gap-4 mt-8 p-4 rounded-2xl bg-white/50">
+      <div className="flex items-center gap-2">
+        <span className="text-xl">{nativeConfig?.flag}</span>
+        <span className="text-sm font-bold text-gray-700">{nativeConfig?.nativeName}</span>
+      </div>
+      <span className="text-gray-400">→</span>
+      <div className="flex items-center gap-2">
+        <span className="text-xl">{targetConfig?.flag}</span>
+        <span className="text-sm font-bold text-gray-700">{targetConfig?.nativeName}</span>
+      </div>
+      <button
+        onClick={onChangeClick}
+        className="ml-2 text-xs font-bold transition-all hover:opacity-70"
+        style={{ color: accentColor }}
+      >
+        {t('hero.languageSelector.change')}
+      </button>
+    </div>
+  );
+};
+
 // Main Hero component
 const Hero: React.FC = () => {
+  const { t, i18n } = useTranslation();
+  const { targetLang } = useParams<{ targetLang?: string }>();
+
   // Inject animation styles once
   useEffect(() => {
     const styleId = 'hero-animations';
@@ -1544,6 +1649,152 @@ const Hero: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set([0]));
   const scrollRef = useRef<HTMLDivElement>(null);
   const mobileCarouselRef = useRef<HTMLDivElement>(null);
+  const mobileStepCarouselRef = useRef<HTMLDivElement>(null);
+
+  // Language selection state
+  const [currentStep, setCurrentStep] = useState<SelectionStep>('native');
+  const [nativeLanguage, setNativeLanguage] = useState<string | null>(null);
+  const [selectedTargetLanguage, setSelectedTargetLanguage] = useState<string | null>(null);
+  const [stepTransition, setStepTransition] = useState<'entering' | 'exiting' | null>(null);
+
+  // Initialize from localStorage, URL param, and browser language
+  useEffect(() => {
+    const savedNative = localStorage.getItem('preferredLanguage');
+    const savedTarget = localStorage.getItem('preferredTargetLanguage');
+
+    // URL param takes priority for target language
+    const urlTarget = targetLang && (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(targetLang) ? targetLang : null;
+
+    // Browser language for first-time visitors
+    const browserLang = navigator.language.split('-')[0];
+    const validBrowserLang = (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(browserLang) ? browserLang : 'en';
+
+    // Set native language
+    if (savedNative && (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(savedNative)) {
+      setNativeLanguage(savedNative);
+      i18n.changeLanguage(savedNative);
+    } else if (validBrowserLang) {
+      // Don't set native language yet, but prepare the UI in browser language
+      i18n.changeLanguage(validBrowserLang);
+    }
+
+    // Set target language
+    if (urlTarget) {
+      setSelectedTargetLanguage(urlTarget);
+      localStorage.setItem('preferredTargetLanguage', urlTarget);
+    } else if (savedTarget && (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(savedTarget)) {
+      setSelectedTargetLanguage(savedTarget);
+    }
+
+    // Determine starting step
+    if (savedNative && (savedTarget || urlTarget)) {
+      // Return visitor with both languages OR native + URL target
+      setCurrentStep('marketing');
+    } else if (savedNative) {
+      // Has native but no target
+      setCurrentStep('target');
+    } else if (urlTarget) {
+      // URL target preset but no native yet
+      setCurrentStep('native');
+    }
+    // Otherwise start at 'native' (default)
+  }, [targetLang, i18n]);
+
+  // Handler for native language selection
+  const handleNativeSelect = async (code: string) => {
+    // Animate out
+    setStepTransition('exiting');
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    setNativeLanguage(code);
+    i18n.changeLanguage(code);
+    localStorage.setItem('preferredLanguage', code);
+
+    // If target is already set (from URL or localStorage), go to marketing
+    if (selectedTargetLanguage) {
+      setCurrentStep('marketing');
+    } else {
+      setCurrentStep('target');
+    }
+
+    // Animate in
+    setStepTransition('entering');
+    setTimeout(() => setStepTransition(null), 200);
+
+    // Mobile: auto-scroll to next step
+    if (mobileStepCarouselRef.current) {
+      const stepWidth = mobileStepCarouselRef.current.clientWidth;
+      mobileStepCarouselRef.current.scrollTo({
+        left: stepWidth * (selectedTargetLanguage ? 2 : 1),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handler for target language selection
+  const handleTargetSelect = async (code: string) => {
+    // Animate out
+    setStepTransition('exiting');
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    setSelectedTargetLanguage(code);
+    localStorage.setItem('preferredTargetLanguage', code);
+    setCurrentStep('marketing');
+
+    // Animate in
+    setStepTransition('entering');
+    setTimeout(() => setStepTransition(null), 200);
+
+    // Mobile: auto-scroll to marketing step
+    if (mobileStepCarouselRef.current) {
+      const stepWidth = mobileStepCarouselRef.current.clientWidth;
+      mobileStepCarouselRef.current.scrollTo({
+        left: stepWidth * 2,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handler to go back to language selection
+  const handleChangeLanguages = () => {
+    setCurrentStep('native');
+    // Reset scroll position
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    if (mobileStepCarouselRef.current) {
+      mobileStepCarouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+  };
+
+  // Handler to go back one step
+  const handleBack = () => {
+    if (currentStep === 'target') {
+      setCurrentStep('native');
+      if (mobileStepCarouselRef.current) {
+        mobileStepCarouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      }
+    } else if (currentStep === 'marketing') {
+      setCurrentStep('target');
+      if (mobileStepCarouselRef.current) {
+        const stepWidth = mobileStepCarouselRef.current.clientWidth;
+        mobileStepCarouselRef.current.scrollTo({ left: stepWidth, behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Track mobile step carousel scroll
+  const handleMobileStepScroll = () => {
+    const carousel = mobileStepCarouselRef.current;
+    if (!carousel) return;
+    const scrollLeft = carousel.scrollLeft;
+    const stepWidth = carousel.clientWidth;
+    const step = Math.round(scrollLeft / stepWidth);
+    const steps: SelectionStep[] = ['native', 'target', 'marketing'];
+    if (steps[step] && steps[step] !== currentStep) {
+      setCurrentStep(steps[step]);
+    }
+  };
 
   // Intersection Observer to track visible section
   useEffect(() => {
@@ -1627,13 +1878,13 @@ const Hero: React.FC = () => {
       : await supabase.auth.signInWithPassword({ email, password });
 
     if (error) setMessage(error.message);
-    else if (isSignUp) setMessage('Check your email for confirmation!');
+    else if (isSignUp) setMessage(t('hero.login.checkEmail'));
 
     setLoading(false);
   };
 
-  const sections = selectedRole === 'student' ? STUDENT_SECTIONS : TUTOR_SECTIONS;
-  const contexts = selectedRole === 'student' ? STUDENT_CONTEXTS : TUTOR_CONTEXTS;
+  const sections = selectedRole === 'student' ? getStudentSections(t) : getTutorSections(t);
+  const contexts = selectedRole === 'student' ? getStudentContexts(t) : getTutorContexts(t);
   const currentContext = contexts[activeSection] || contexts[0];
   const isStudent = selectedRole === 'student';
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
@@ -1664,7 +1915,7 @@ const Hero: React.FC = () => {
               }
             >
               <ICONS.Heart className="w-4 h-4" style={{ color: isStudent ? '#ffffff' : '#4b5563', fill: isStudent ? '#ffffff' : 'none' }} />
-              <span>Learn</span>
+              <span>{t('hero.toggle.learn')}</span>
             </button>
             <button
               onClick={() => { setSelectedRole('tutor'); setActiveSection(0); }}
@@ -1675,56 +1926,162 @@ const Hero: React.FC = () => {
               }
             >
               <ICONS.Sparkles className="w-4 h-4" style={{ color: !isStudent ? '#ffffff' : '#4b5563' }} />
-              <span>Teach</span>
+              <span>{t('hero.toggle.teach')}</span>
             </button>
           </div>
         </div>
 
-        {/* Middle: Horizontal Swipe Carousel (~55% of remaining space) */}
+        {/* Middle: 3-Step Horizontal Swipe Carousel */}
         <div className="flex-1 relative overflow-hidden min-h-0">
-          {/* Floating hearts background - 60% fewer on mobile (word particles desktop only) */}
+          {/* Floating hearts background */}
           <InteractiveHearts
             accentColor={accentColor}
-            activeSection={activeSection}
-            containerRef={mobileCarouselRef as React.RefObject<HTMLDivElement>}
+            activeSection={currentStep === 'marketing' ? activeSection : 0}
+            containerRef={mobileStepCarouselRef as React.RefObject<HTMLDivElement>}
             isMobile={true}
           />
 
-          {/* Swipeable sections - horizontal only, no vertical scroll */}
+          {/* 3-Step swipeable carousel */}
           <div
-            ref={mobileCarouselRef}
+            ref={mobileStepCarouselRef}
             className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory h-full hide-scrollbar"
-            onScroll={handleMobileCarouselScroll}
+            onScroll={handleMobileStepScroll}
             style={{ scrollBehavior: 'smooth' }}
           >
-            {/* Sections 0-2 */}
-            {sections.slice(0, 3).map((section, i) => (
-              <MobileSection
-                key={`mobile-${selectedRole}-${i}`}
-                {...section}
-                index={i}
-                isStudent={isStudent}
-                showLogo={i === 0}
-              />
-            ))}
-
-            {/* Section 3: GameShowcase */}
-            <div
-              data-section={3}
-              className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center items-center px-4"
-            >
-              <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} isMobile={true} />
+            {/* Step 1: Native Language Selection */}
+            <div className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center px-6 py-4 overflow-y-auto">
+              {/* Logo */}
+              <div className="flex items-center gap-2 mb-4">
+                <div
+                  className="p-2 rounded-xl shadow-lg"
+                  style={{ backgroundColor: accentColor, boxShadow: `0 8px 16px -4px ${accentShadow}` }}
+                >
+                  <ICONS.Heart className="text-white fill-white w-5 h-5" />
+                </div>
+                <h1 className="text-xl font-black font-header tracking-tight" style={{ color: accentColor }}>
+                  Love Languages
+                </h1>
+              </div>
+              <h2 className="text-xl font-black mb-2" style={{ color: '#1a1a2e' }}>
+                {t('hero.languageSelector.nativeTitle')}
+              </h2>
+              <p className="text-sm mb-4 font-medium" style={{ color: '#6b7280' }}>
+                {t('hero.languageSelector.nativeSubtitle')}
+              </p>
+              <div className="grid grid-cols-4 gap-2">
+                {Object.values(LANGUAGE_CONFIGS).slice(0, 12).map(lang => (
+                  <button
+                    key={lang.code}
+                    onClick={() => handleNativeSelect(lang.code)}
+                    className="flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all"
+                    style={{
+                      borderColor: nativeLanguage === lang.code ? accentColor : '#e5e7eb',
+                      backgroundColor: nativeLanguage === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
+                      boxShadow: nativeLanguage === lang.code ? `0 0 0 2px ${accentColor}` : 'none',
+                    }}
+                  >
+                    <span className="text-xl">{lang.flag}</span>
+                    <span className="text-[10px] font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {/* Sections 4-6 */}
-            {sections.slice(3).map((section, i) => (
-              <MobileSection
-                key={`mobile-${selectedRole}-${i + 4}`}
-                {...section}
-                index={i + 4}
-                isStudent={isStudent}
-              />
-            ))}
+            {/* Step 2: Target Language Selection */}
+            <div className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center px-6 py-4 overflow-y-auto">
+              <button
+                onClick={handleBack}
+                className="flex items-center gap-1 mb-4 text-sm font-bold"
+                style={{ color: accentColor }}
+              >
+                <ICONS.ChevronLeft className="w-4 h-4" />
+                {t('hero.languageSelector.back')}
+              </button>
+              <h2 className="text-xl font-black mb-2" style={{ color: '#1a1a2e' }}>
+                {t('hero.languageSelector.targetTitle')}
+              </h2>
+              <p className="text-sm mb-4 font-medium" style={{ color: '#6b7280' }}>
+                {t('hero.languageSelector.targetSubtitle')}
+              </p>
+              <div className="grid grid-cols-4 gap-2">
+                {Object.values(LANGUAGE_CONFIGS)
+                  .filter(lang => lang.code !== nativeLanguage)
+                  .slice(0, 12)
+                  .map(lang => (
+                    <button
+                      key={lang.code}
+                      onClick={() => handleTargetSelect(lang.code)}
+                      className="flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all"
+                      style={{
+                        borderColor: selectedTargetLanguage === lang.code ? accentColor : '#e5e7eb',
+                        backgroundColor: selectedTargetLanguage === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
+                        boxShadow: selectedTargetLanguage === lang.code ? `0 0 0 2px ${accentColor}` : 'none',
+                      }}
+                    >
+                      <span className="text-xl">{lang.flag}</span>
+                      <span className="text-[10px] font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+
+            {/* Step 3: Marketing Content (nested carousel) */}
+            <div className="flex-shrink-0 w-full h-full snap-start relative">
+              {/* Marketing content carousel */}
+              <div
+                ref={mobileCarouselRef}
+                className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory h-full hide-scrollbar"
+                onScroll={handleMobileCarouselScroll}
+                style={{ scrollBehavior: 'smooth' }}
+              >
+                {/* Sections 0-2 */}
+                {sections.slice(0, 3).map((section, i) => (
+                  <MobileSection
+                    key={`mobile-${selectedRole}-${i}`}
+                    {...section}
+                    index={i}
+                    isStudent={isStudent}
+                    showLogo={i === 0}
+                  />
+                ))}
+
+                {/* Section 3: GameShowcase */}
+                <div
+                  data-section={3}
+                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center items-center px-4"
+                >
+                  <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} isMobile={true} />
+                </div>
+
+                {/* Sections 4-6 */}
+                {sections.slice(3).map((section, i) => (
+                  <MobileSection
+                    key={`mobile-${selectedRole}-${i + 4}`}
+                    {...section}
+                    index={i + 4}
+                    isStudent={isStudent}
+                  />
+                ))}
+              </div>
+
+              {/* Language indicator overlay at bottom */}
+              {nativeLanguage && selectedTargetLanguage && (
+                <div className="absolute bottom-2 left-4 right-4 z-10">
+                  <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-white/80 backdrop-blur-sm">
+                    <span className="text-lg">{LANGUAGE_CONFIGS[nativeLanguage]?.flag}</span>
+                    <span className="text-gray-400 text-sm">→</span>
+                    <span className="text-lg">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.flag}</span>
+                    <button
+                      onClick={handleChangeLanguages}
+                      className="ml-2 text-xs font-bold"
+                      style={{ color: accentColor }}
+                    >
+                      {t('hero.languageSelector.change')}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -1735,17 +2092,20 @@ const Hero: React.FC = () => {
         >
           <ICONS.Heart className="absolute -bottom-16 -right-16 w-48 h-48 opacity-[0.03] pointer-events-none" style={{ color: accentColor }} />
 
-          {/* Progress dots at TOP of login section */}
+          {/* Progress dots at TOP of login section - 3 steps */}
           <div className="flex justify-center gap-2 mb-4">
-            {Array.from({ length: 7 }).map((_, i) => (
+            {(['native', 'target', 'marketing'] as SelectionStep[]).map((step, i) => (
               <button
-                key={i}
-                onClick={() => scrollToMobileSection(i)}
+                key={step}
+                onClick={() => {
+                  const stepWidth = mobileStepCarouselRef.current?.clientWidth || 0;
+                  mobileStepCarouselRef.current?.scrollTo({ left: i * stepWidth, behavior: 'smooth' });
+                }}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === activeSection ? 'scale-150' : 'opacity-40'
+                  currentStep === step ? 'scale-150' : 'opacity-40'
                 }`}
                 style={{ backgroundColor: accentColor }}
-                aria-label={`Go to section ${i + 1}`}
+                aria-label={`Go to step ${i + 1}`}
               />
             ))}
           </div>
@@ -1774,7 +2134,7 @@ const Hero: React.FC = () => {
                 style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
                 onFocus={(e) => e.target.style.borderColor = accentColor}
                 onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
-                placeholder="you@love.com"
+                placeholder={t('hero.login.emailPlaceholder')}
               />
               <input
                 type="password"
@@ -1786,7 +2146,7 @@ const Hero: React.FC = () => {
                 style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
                 onFocus={(e) => e.target.style.borderColor = accentColor}
                 onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
-                placeholder="••••••••"
+                placeholder={t('hero.login.passwordPlaceholder')}
               />
 
               <button
@@ -1795,7 +2155,7 @@ const Hero: React.FC = () => {
                 className="w-full text-white font-black py-3 rounded-2xl shadow-xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.15em]"
                 style={{ backgroundColor: accentColor, boxShadow: `0 15px 30px -8px ${accentShadow}` }}
               >
-                {loading ? 'Entering...' : currentContext.cta}
+                {loading ? t('hero.login.entering') : currentContext.cta}
               </button>
             </form>
 
@@ -1811,15 +2171,15 @@ const Hero: React.FC = () => {
                 className="text-xs font-bold transition-all hover:opacity-70"
                 style={{ color: accentColor }}
               >
-                {isSignUp ? 'Already have an account? Sign in' : "New here? Create an account"}
+                {isSignUp ? t('hero.login.alreadyHaveAccount') : t('hero.login.newHere')}
               </button>
             </div>
 
             {/* Legal links */}
             <div className="mt-4 flex justify-center gap-4 text-xs" style={{ color: '#9ca3af' }}>
-              <a href="#/terms" className="hover:underline">Terms</a>
+              <a href="#/terms" className="hover:underline">{t('hero.legal.terms')}</a>
               <span>|</span>
-              <a href="#/privacy" className="hover:underline">Privacy</a>
+              <a href="#/privacy" className="hover:underline">{t('hero.legal.privacy')}</a>
             </div>
           </div>
         </div>
@@ -1827,19 +2187,25 @@ const Hero: React.FC = () => {
 
       {/* Desktop: Split screen layout */}
       <div className="hidden md:flex flex-row flex-1">
-        {/* Left: Scrollable sections with background effects */}
+        {/* Left: Step-based content with background effects */}
         <div
           ref={scrollRef}
-          className="flex-1 overflow-y-auto snap-y snap-mandatory h-screen relative hide-scrollbar"
+          className={`flex-1 h-screen relative hide-scrollbar ${
+            currentStep === 'marketing' ? 'overflow-y-auto snap-y snap-mandatory' : 'overflow-hidden flex items-center justify-center'
+          }`}
           style={{ scrollBehavior: 'smooth' }}
         >
-          {/* Sticky effects container - stays visible while scrolling */}
-          <div className="sticky top-0 h-screen w-full pointer-events-none" style={{ marginBottom: '-100vh' }}>
-            {/* Word particle effect - background layer */}
-            <WordParticleEffect
-              accentColor={accentColor}
-              containerRef={scrollRef as React.RefObject<HTMLDivElement>}
-            />
+          {/* Background effects container */}
+          <div className="absolute inset-0 pointer-events-none">
+            {/* Word particle effect - only show when languages are selected */}
+            {currentStep === 'marketing' && nativeLanguage && selectedTargetLanguage && (
+              <WordParticleEffect
+                accentColor={accentColor}
+                containerRef={scrollRef as React.RefObject<HTMLDivElement>}
+                targetLanguage={selectedTargetLanguage}
+                nativeLanguage={nativeLanguage}
+              />
+            )}
             {/* Interactive floating hearts */}
             <InteractiveHearts
               accentColor={accentColor}
@@ -1848,30 +2214,98 @@ const Hero: React.FC = () => {
             />
           </div>
 
-          {/* First 3 sections (indices 0, 1, 2) */}
-          {sections.slice(0, 3).map((section, i) => (
-            <Section
-              key={`desktop-${selectedRole}-${i}`}
-              {...section}
-              index={i}
-              isStudent={isStudent}
-              isVisible={visibleSections.has(i)}
-            />
-          ))}
+          {/* Step 1: Native Language Selection */}
+          {currentStep === 'native' && (
+            <div
+              className={`relative z-10 px-8 md:px-16 transition-all duration-300 ${
+                stepTransition === 'exiting' ? 'opacity-0 translate-x-[-20px]' :
+                stepTransition === 'entering' ? 'opacity-0 translate-x-[20px]' : 'opacity-100'
+              }`}
+            >
+              {/* Logo */}
+              <div className="flex items-center gap-3 mb-10">
+                <div
+                  className="p-2.5 rounded-xl shadow-lg"
+                  style={{ backgroundColor: accentColor, boxShadow: `0 10px 20px -5px ${accentShadow}` }}
+                >
+                  <ICONS.Heart className="text-white fill-white w-6 h-6" />
+                </div>
+                <h1 className="text-2xl font-black font-header tracking-tight" style={{ color: accentColor }}>
+                  Love Languages
+                </h1>
+              </div>
+              <LanguageGrid
+                onSelect={handleNativeSelect}
+                selectedCode={nativeLanguage}
+                isStudent={isStudent}
+                title={t('hero.languageSelector.nativeTitle')}
+                subtitle={t('hero.languageSelector.nativeSubtitle')}
+              />
+            </div>
+          )}
 
-          {/* Game Showcase - section index 3 */}
-          <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} />
+          {/* Step 2: Target Language Selection */}
+          {currentStep === 'target' && (
+            <div
+              className={`relative z-10 px-8 md:px-16 transition-all duration-300 ${
+                stepTransition === 'exiting' ? 'opacity-0 translate-x-[-20px]' :
+                stepTransition === 'entering' ? 'opacity-0 translate-x-[20px]' : 'opacity-100'
+              }`}
+            >
+              <LanguageGrid
+                onSelect={handleTargetSelect}
+                selectedCode={selectedTargetLanguage}
+                excludeCode={nativeLanguage}
+                isStudent={isStudent}
+                title={t('hero.languageSelector.targetTitle')}
+                subtitle={t('hero.languageSelector.targetSubtitle')}
+                onBack={handleBack}
+                showBackButton={true}
+              />
+            </div>
+          )}
 
-          {/* Remaining sections (indices 4, 5, 6) */}
-          {sections.slice(3).map((section, i) => (
-            <Section
-              key={`desktop-${selectedRole}-${i + 4}`}
-              {...section}
-              index={i + 4}
-              isStudent={isStudent}
-              isVisible={visibleSections.has(i + 4)}
-            />
-          ))}
+          {/* Step 3: Marketing Content */}
+          {currentStep === 'marketing' && (
+            <>
+              {/* First 3 sections (indices 0, 1, 2) */}
+              {sections.slice(0, 3).map((section, i) => (
+                <Section
+                  key={`desktop-${selectedRole}-${i}`}
+                  {...section}
+                  index={i}
+                  isStudent={isStudent}
+                  isVisible={visibleSections.has(i)}
+                />
+              ))}
+
+              {/* Game Showcase - section index 3 */}
+              <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} />
+
+              {/* Remaining sections (indices 4, 5, 6) */}
+              {sections.slice(3).map((section, i) => (
+                <Section
+                  key={`desktop-${selectedRole}-${i + 4}`}
+                  {...section}
+                  index={i + 4}
+                  isStudent={isStudent}
+                  isVisible={visibleSections.has(i + 4)}
+                />
+              ))}
+
+              {/* Language indicator at bottom of last section */}
+              {nativeLanguage && selectedTargetLanguage && (
+                <div className="px-8 md:px-16 lg:px-24 pb-20">
+                  <LanguageIndicator
+                    nativeCode={nativeLanguage}
+                    targetCode={selectedTargetLanguage}
+                    onChangeClick={handleChangeLanguages}
+                    isStudent={isStudent}
+                  />
+                </div>
+              )}
+            </>
+          )}
         </div>
 
         {/* Right: Sticky panel with toggle + login form */}
@@ -1884,25 +2318,47 @@ const Hero: React.FC = () => {
             style={{ color: accentColor }}
           />
 
-          {/* Section indicator dots (7 total: 3 sections + GameShowcase + 3 sections) */}
-          <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2">
-            {Array.from({ length: 7 }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  const section = scrollRef.current?.querySelector(`[data-section="${i}"]`);
-                  section?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === activeSection
-                    ? 'scale-150'
-                    : 'opacity-30 hover:opacity-60'
-                }`}
-                style={{ backgroundColor: accentColor }}
-                aria-label={`Go to section ${i + 1}`}
-              />
-            ))}
-          </div>
+          {/* Section indicator dots - only show when in marketing mode */}
+          {currentStep === 'marketing' ? (
+            <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2">
+              {Array.from({ length: 7 }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    const section = scrollRef.current?.querySelector(`[data-section="${i}"]`);
+                    section?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    i === activeSection
+                      ? 'scale-150'
+                      : 'opacity-30 hover:opacity-60'
+                  }`}
+                  style={{ backgroundColor: accentColor }}
+                  aria-label={`Go to section ${i + 1}`}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2">
+              {(['native', 'target', 'marketing'] as SelectionStep[]).map((step, i) => (
+                <button
+                  key={step}
+                  onClick={() => {
+                    if (step === 'native') setCurrentStep('native');
+                    else if (step === 'target' && nativeLanguage) setCurrentStep('target');
+                    else if (step === 'marketing' && nativeLanguage && selectedTargetLanguage) setCurrentStep('marketing');
+                  }}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    currentStep === step
+                      ? 'scale-150'
+                      : 'opacity-30 hover:opacity-60'
+                  }`}
+                  style={{ backgroundColor: accentColor }}
+                  aria-label={`Go to step ${i + 1}`}
+                />
+              ))}
+            </div>
+          )}
 
           {/* Toggle above login form */}
           <div className="flex gap-3 mb-8">
@@ -1915,7 +2371,7 @@ const Hero: React.FC = () => {
               }
             >
               <ICONS.Heart className="w-5 h-5" style={{ color: isStudent ? '#ffffff' : '#9ca3af', fill: isStudent ? '#ffffff' : 'none' }} />
-              <span className="font-bold text-sm">Learn</span>
+              <span className="font-bold text-sm">{t('hero.toggle.learn')}</span>
             </button>
             <button
               onClick={() => { setSelectedRole('tutor'); setActiveSection(0); scrollRef.current?.scrollTo({ top: 0 }); }}
@@ -1926,7 +2382,7 @@ const Hero: React.FC = () => {
               }
             >
               <ICONS.Sparkles className="w-5 h-5" style={{ color: !isStudent ? '#ffffff' : '#9ca3af' }} />
-              <span className="font-bold text-sm">Teach</span>
+              <span className="font-bold text-sm">{t('hero.toggle.teach')}</span>
             </button>
           </div>
 
@@ -1946,9 +2402,9 @@ const Hero: React.FC = () => {
 
           {/* Legal links */}
           <div className="mt-8 flex justify-center gap-6 text-sm" style={{ color: '#9ca3af' }}>
-            <a href="#/terms" className="hover:underline">Terms of Service</a>
+            <a href="#/terms" className="hover:underline">{t('hero.legal.termsOfService')}</a>
             <span>|</span>
-            <a href="#/privacy" className="hover:underline">Privacy Policy</a>
+            <a href="#/privacy" className="hover:underline">{t('hero.legal.privacyPolicy')}</a>
           </div>
         </div>
       </div>

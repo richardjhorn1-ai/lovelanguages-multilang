@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { ICONS } from '../constants';
 
 interface SubscriptionStatus {
@@ -36,6 +38,8 @@ interface PricingPageProps {
 
 const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
   const { accentHex, isDark } = useTheme();
+  const { t } = useTranslation();
+  const { targetName } = useLanguage();
   const [status, setStatus] = useState<SubscriptionStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null);
@@ -80,7 +84,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
       const token = session.data.session?.access_token;
 
       if (!token) {
-        setError('Please log in to subscribe');
+        setError(t('subscription.errors.loginAgain'));
         return;
       }
 
@@ -96,7 +100,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to create checkout session');
+        throw new Error(data.error || t('subscription.errors.failedCheckout'));
       }
 
       // Redirect to Stripe Checkout
@@ -104,7 +108,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
         window.location.href = data.url;
       }
     } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+      setError(err.message || t('subscription.errors.somethingWrong'));
     } finally {
       setCheckoutLoading(null);
     }
@@ -141,36 +145,36 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
   const plans = [
     {
       id: 'standard',
-      name: 'Standard',
+      name: t('subscription.plans.standard'),
       monthlyPrice: 19,
       yearlyPrice: 69,
       monthlyPriceId: status?.prices?.standardMonthly,
       yearlyPriceId: status?.prices?.standardYearly,
       features: [
-        '2,000 words in Love Log',
-        '60 min voice chat/month',
-        '30 min Listen Mode/month',
-        'Unlimited AI challenges',
-        'All 8 conversation scenarios',
-        'Partner invite',
+        t('subscription.pricing.wordsInLoveLog', { limit: '2,000' }),
+        t('subscription.pricing.voiceChatPerMonth', { minutes: 60 }),
+        t('subscription.pricing.listenModePerMonth', { minutes: 30 }),
+        t('subscription.pricing.unlimitedChallenges'),
+        t('subscription.pricing.allScenarios'),
+        t('subscription.pricing.partnerInvite'),
       ],
       popular: false,
     },
     {
       id: 'unlimited',
-      name: 'Unlimited',
+      name: t('subscription.plans.unlimited'),
       monthlyPrice: 39,
       yearlyPrice: 139,
       monthlyPriceId: status?.prices?.unlimitedMonthly,
       yearlyPriceId: status?.prices?.unlimitedYearly,
       features: [
-        'Unlimited words',
-        'Unlimited voice chat',
-        'Unlimited Listen Mode',
-        'Unlimited AI challenges',
-        'All 8 conversation scenarios',
-        'Partner invite',
-        'Gift pass for another couple (yearly)',
+        t('subscription.pricing.unlimitedWords'),
+        t('subscription.pricing.unlimitedVoiceChat'),
+        t('subscription.pricing.unlimitedListenMode'),
+        t('subscription.pricing.unlimitedChallenges'),
+        t('subscription.pricing.allScenarios'),
+        t('subscription.pricing.partnerInvite'),
+        t('subscription.pricing.giftPass'),
       ],
       popular: true,
     },
@@ -200,10 +204,10 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
           )}
 
           <h1 className="text-3xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
-            Learn Polish for Love
+            {t('subscription.pricing.title', { language: targetName })}
           </h1>
           <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-            Choose the plan that fits your learning journey
+            {t('subscription.pricing.subtitle')}
           </p>
 
           {/* Billing Toggle */}
@@ -218,7 +222,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
                 color: billingPeriod === 'monthly' ? '#fff' : 'var(--text-secondary)',
               }}
             >
-              Monthly
+              {t('subscription.common.monthly')}
             </button>
             <button
               onClick={() => setBillingPeriod('yearly')}
@@ -230,9 +234,9 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
                 color: billingPeriod === 'yearly' ? '#fff' : 'var(--text-secondary)',
               }}
             >
-              Yearly
+              {t('subscription.common.yearly')}
               <span className="text-xs px-2 py-0.5 rounded-full bg-green-500 text-white">
-                Save 70%
+                {t('subscription.pricing.save70')}
               </span>
             </button>
           </div>
@@ -248,7 +252,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
             }}
           >
             <p style={{ color: 'var(--text-primary)' }}>
-              You're on the <strong className="capitalize">{currentPlan}</strong> plan
+              {t('subscription.pricing.youreOnPlan', { plan: currentPlan })}
               {status?.subscription?.period && ` (${status.subscription.period})`}
             </p>
             <button
@@ -256,7 +260,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
               className="mt-2 text-sm underline"
               style={{ color: accentHex }}
             >
-              Manage subscription
+              {t('subscription.manager.manageSubscription')}
             </button>
           </div>
         )}
@@ -294,7 +298,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
                     className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-sm font-medium text-white"
                     style={{ background: accentHex }}
                   >
-                    Most Popular
+                    {t('subscription.pricing.mostPopular')}
                   </div>
                 )}
 
@@ -308,12 +312,12 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
                       ${price}
                     </span>
                     <span style={{ color: 'var(--text-secondary)' }}>
-                      /{billingPeriod === 'monthly' ? 'mo' : 'yr'}
+                      /{billingPeriod === 'monthly' ? t('subscription.common.mo') : t('subscription.common.yr')}
                     </span>
                   </div>
                   {billingPeriod === 'yearly' && (
                     <p className="text-sm mt-1 text-green-600 dark:text-green-400">
-                      ${(price / 12).toFixed(2)}/mo billed annually
+                      {t('subscription.pricing.billedAnnually', { price: (price / 12).toFixed(2) })}
                     </p>
                   )}
                 </div>
@@ -341,7 +345,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
                       color: 'var(--text-secondary)',
                     }}
                   >
-                    Current Plan
+                    {t('subscription.pricing.currentPlan')}
                   </button>
                 ) : (
                   <button
@@ -357,10 +361,10 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
                     {isLoading ? (
                       <>
                         <div className="w-4 h-4 border-2 border-t-transparent rounded-full animate-spin" />
-                        Processing...
+                        {t('subscription.pricing.processing')}
                       </>
                     ) : (
-                      `Get ${plan.name}`
+                      t('subscription.pricing.getPlan', { plan: plan.name })
                     )}
                   </button>
                 )}
@@ -374,10 +378,10 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
           <div className="mt-12 p-6 rounded-2xl" style={{ background: 'var(--bg-card)' }}>
             <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
               <ICONS.Gift className="w-5 h-5" style={{ color: accentHex }} />
-              Your Gift Passes
+              {t('subscription.pricing.yourGiftPasses')}
             </h3>
             <p className="mb-4" style={{ color: 'var(--text-secondary)' }}>
-              Share these codes with another couple to give them a free year of Standard!
+              {t('subscription.pricing.shareGiftPasses')}
             </p>
             <div className="space-y-3">
               {status.giftPasses.map((pass) => (
@@ -394,7 +398,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
                     className="px-3 py-1 rounded-lg text-sm"
                     style={{ background: `${accentHex}20`, color: accentHex }}
                   >
-                    Copy
+                    {t('subscription.common.copy')}
                   </button>
                 </div>
               ))}
@@ -405,10 +409,10 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
         {/* FAQ or Trust Signals */}
         <div className="mt-12 text-center" style={{ color: 'var(--text-secondary)' }}>
           <p className="text-sm">
-            Cancel anytime. Secure payment via Stripe.
+            {t('subscription.pricing.cancelAnytime')}
           </p>
           <p className="text-sm mt-2">
-            Questions? Email us at{' '}
+            {t('subscription.pricing.questionsEmail')}{' '}
             <a href="mailto:support@lovelanguages.xyz" style={{ color: accentHex }}>
               support@lovelanguages.xyz
             </a>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { TutorChallenge, QuizConfig } from '../types';
 import { ICONS } from '../constants';
 import { shuffleArray } from '../utils/array';
+import { useLanguage } from '../context/LanguageContext';
 
 interface PlayQuizChallengeProps {
   challenge: TutorChallenge;
@@ -77,6 +79,9 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   const [finished, setFinished] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [submitting, setSubmitting] = useState(false);
+
+  const { t } = useTranslation();
+  const { targetName } = useLanguage();
 
   useEffect(() => {
     if (started) {
@@ -215,13 +220,12 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           <div className="text-5xl md:text-6xl mb-3 md:mb-4">🎯</div>
           <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">{challenge.title}</h2>
           <p className="text-[var(--text-secondary)] text-sm md:text-base mb-4 md:mb-6">
-            {partnerName} wants to quiz you on {challenge.words_data?.length || 0} words!
+            {t('challengePlayer.quiz.startDescription', { name: partnerName, count: challenge.words_data?.length || 0 })}
           </p>
 
           <div className="bg-[var(--accent-light)] p-3 md:p-4 rounded-xl md:rounded-2xl mb-4 md:mb-6">
             <p className="text-xs md:text-sm text-[var(--text-secondary)]">
-              Answer questions about Polish words you've learned.
-              Get them right to build your streak!
+              {t('challengePlayer.quiz.startInstructions', { language: targetName })}
             </p>
           </div>
 
@@ -230,13 +234,13 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
               onClick={onClose}
               className="flex-1 px-4 md:px-6 py-3 md:py-4 text-[var(--text-secondary)] font-bold rounded-xl hover:bg-[var(--bg-primary)] transition-colors text-sm md:text-base"
             >
-              Later
+              {t('challengePlayer.common.later')}
             </button>
             <button
               onClick={handleStart}
               className="flex-1 px-4 md:px-6 py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 transition-colors text-sm md:text-base"
             >
-              Start Quiz
+              {t('challengePlayer.quiz.startButton')}
             </button>
           </div>
         </div>
@@ -259,17 +263,21 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
         <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
           <div className="text-5xl md:text-6xl mb-3 md:mb-4">{isPerfect ? '🏆' : result.score >= 70 ? '🎉' : '💪'}</div>
           <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">
-            {isPerfect ? 'Perfect!' : result.score >= 70 ? 'Great Job!' : 'Keep Practicing!'}
+            {isPerfect
+              ? t('challengePlayer.results.perfect')
+              : result.score >= 70
+                ? t('challengePlayer.results.greatJob')
+                : t('challengePlayer.results.keepPracticing')}
           </h2>
           <p className="text-[var(--text-secondary)] text-sm md:text-base mb-4 md:mb-6">
-            You got {result.correct_answers} out of {result.total_questions} correct
+            {t('challengePlayer.quiz.resultScore', { correct: result.correct_answers, total: result.total_questions })}
           </p>
 
           <div className="text-4xl md:text-5xl font-black text-[var(--accent-color)] mb-2">{result.score}%</div>
 
           <div className="bg-[var(--accent-light)] p-3 md:p-4 rounded-xl md:rounded-2xl mb-4 md:mb-6 border border-[var(--accent-border)]">
             <p className="text-xs md:text-sm font-bold text-[var(--text-primary)]">
-              +{result.xp_earned} XP earned!
+              {t('challengePlayer.common.xpEarned', { xp: result.xp_earned })}
             </p>
           </div>
 
@@ -278,7 +286,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             <div className="mb-4 md:mb-6">
               <details className="text-left">
                 <summary className="cursor-pointer text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-center">
-                  Show details ({answersWithExplanations.length})
+                  {t('challengePlayer.common.showDetails', { count: answersWithExplanations.length })}
                 </summary>
                 <div className="mt-3 space-y-2 max-h-48 overflow-y-auto">
                   {answersWithExplanations.map((answer, idx) => (
@@ -309,7 +317,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             onClick={() => { onComplete(); }}
             className="w-full px-4 md:px-6 py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 transition-colors text-sm md:text-base"
           >
-            Done
+            {t('challengePlayer.common.done')}
           </button>
         </div>
       </div>
@@ -326,7 +334,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
-          <p className="text-[var(--text-secondary)]">Calculating your score...</p>
+          <p className="text-[var(--text-secondary)]">{t('challengePlayer.common.calculatingScore')}</p>
         </div>
       </div>
     );
@@ -340,7 +348,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
         <div className="p-3 md:p-4 border-b border-[var(--border-color)]">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs md:text-sm font-bold text-[var(--text-secondary)]">
-              Question {currentIndex + 1} of {questions.length}
+              {t('challengePlayer.quiz.questionProgress', { current: currentIndex + 1, total: questions.length })}
             </span>
             <button onClick={onClose} className="p-1.5 md:p-2 hover:bg-[var(--bg-primary)] rounded-lg md:rounded-xl">
               <ICONS.X className="w-4 h-4 text-[var(--text-secondary)]" />
@@ -359,7 +367,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           {currentQuestion?.type === 'flashcard' ? (
             // Flashcard Mode
             <div className="text-center">
-              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4">What does this mean?</p>
+              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quiz.flashcard.prompt')}</p>
               <div className="bg-[var(--accent-light)] p-6 md:p-8 rounded-xl md:rounded-2xl mb-4 md:mb-6">
                 <p className="text-2xl md:text-3xl font-black text-[var(--accent-color)]">{currentQuestion.word}</p>
               </div>
@@ -369,26 +377,26 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
                   onClick={() => setShowAnswer(true)}
                   className="w-full py-3 md:py-4 bg-[var(--bg-primary)] text-[var(--text-secondary)] font-bold rounded-xl hover:opacity-80 transition-colors text-sm md:text-base"
                 >
-                  Show Answer
+                  {t('challengePlayer.quiz.flashcard.showAnswer')}
                 </button>
               ) : (
                 <>
                   <div className="bg-green-100 dark:bg-green-900/30 p-3 md:p-4 rounded-xl md:rounded-2xl mb-3 md:mb-4">
                     <p className="text-lg md:text-xl font-bold text-green-600 dark:text-green-400">{currentQuestion.translation}</p>
                   </div>
-                  <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4">Did you get it right?</p>
+                  <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quiz.flashcard.didYouGetIt')}</p>
                   <div className="flex gap-2 md:gap-3">
                     <button
                       onClick={() => handleAnswer(currentQuestion.translation, false)}
                       className="flex-1 py-3 md:py-4 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 font-bold rounded-xl hover:opacity-80 transition-colors text-sm md:text-base"
                     >
-                      No
+                      {t('challengePlayer.quiz.flashcard.no')}
                     </button>
                     <button
                       onClick={() => handleAnswer(currentQuestion.translation, true)}
                       className="flex-1 py-3 md:py-4 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 font-bold rounded-xl hover:opacity-80 transition-colors text-sm md:text-base"
                     >
-                      Yes
+                      {t('challengePlayer.quiz.flashcard.yes')}
                     </button>
                   </div>
                 </>
@@ -397,7 +405,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           ) : currentQuestion?.type === 'multiple_choice' ? (
             // Multiple Choice Mode
             <div>
-              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4 text-center">Translate this word:</p>
+              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4 text-center">{t('challengePlayer.quiz.multipleChoice.prompt')}</p>
               <div className="bg-[var(--accent-light)] p-4 md:p-6 rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center">
                 <p className="text-2xl md:text-3xl font-black text-[var(--accent-color)]">{currentQuestion.word}</p>
               </div>
@@ -427,7 +435,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           ) : (
             // Type It Mode
             <div>
-              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4 text-center">Type the translation:</p>
+              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4 text-center">{t('challengePlayer.quiz.typeIt.prompt')}</p>
               <div className="bg-[var(--accent-light)] p-4 md:p-6 rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center">
                 <p className="text-2xl md:text-3xl font-black text-[var(--accent-color)]">{currentQuestion?.word}</p>
               </div>
@@ -441,7 +449,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
                     handleAnswer(userInput);
                   }
                 }}
-                placeholder="Type your answer..."
+                placeholder={t('challengePlayer.quiz.typeIt.placeholder')}
                 autoFocus
                 className="w-full p-3 md:p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-base md:text-lg font-bold focus:outline-none focus:border-[var(--accent-color)] mb-3 md:mb-4 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
               />
@@ -451,7 +459,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
                 disabled={!userInput.trim()}
                 className="w-full py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 disabled:opacity-50 transition-colors text-sm md:text-base"
               >
-                Submit
+                {t('challengePlayer.quiz.typeIt.submit')}
               </button>
             </div>
           )}

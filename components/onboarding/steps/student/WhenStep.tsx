@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 
 interface WhenStepProps {
@@ -10,13 +11,6 @@ interface WhenStepProps {
   accentColor?: string;
 }
 
-const WHEN_OPTIONS = [
-  { id: 'morning', emoji: '🌅', label: 'Morning' },
-  { id: 'afternoon', emoji: '☀️', label: 'Afternoon' },
-  { id: 'evening', emoji: '🌙', label: 'Evening' },
-  { id: 'whenever', emoji: '🎲', label: 'Whenever' },
-];
-
 export const WhenStep: React.FC<WhenStepProps> = ({
   currentStep,
   totalSteps,
@@ -25,7 +19,16 @@ export const WhenStep: React.FC<WhenStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState(initialValue);
+
+  // When options array inside component to access t()
+  const whenOptions = [
+    { id: 'morning', emoji: '🌅', label: t('onboarding.student.when.morning') },
+    { id: 'afternoon', emoji: '☀️', label: t('onboarding.student.when.afternoon') },
+    { id: 'evening', emoji: '🌙', label: t('onboarding.student.when.evening') },
+    { id: 'whenever', emoji: '🎲', label: t('onboarding.student.when.whenever') },
+  ];
 
   return (
     <OnboardingStep
@@ -36,15 +39,15 @@ export const WhenStep: React.FC<WhenStepProps> = ({
     >
       <div className="text-center mb-10">
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          When do you prefer to practice?
+          {t('onboarding.student.when.title')}
         </h1>
         <p className="text-gray-500">
-          We'll remind you at the perfect moment.
+          {t('onboarding.student.when.subtitle')}
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-8">
-        {WHEN_OPTIONS.map((option) => (
+        {whenOptions.map((option) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}

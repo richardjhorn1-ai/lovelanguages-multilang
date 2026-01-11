@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface GoalStepProps {
   currentStep: number;
@@ -12,13 +15,6 @@ interface GoalStepProps {
   accentColor?: string;
 }
 
-const GOAL_OPTIONS = [
-  { id: 'love', label: 'Say "I love you" perfectly', emoji: '💕' },
-  { id: 'phrases', label: 'Learn 10 romantic phrases', emoji: '💬' },
-  { id: 'surprise', label: 'Surprise them with a Polish greeting', emoji: '🎁' },
-  { id: 'custom', label: 'Set my own goal', emoji: '✏️' },
-];
-
 export const GoalStep: React.FC<GoalStepProps> = ({
   currentStep,
   totalSteps,
@@ -28,6 +24,18 @@ export const GoalStep: React.FC<GoalStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
+
+  // Goal options array inside component to access t()
+  const goalOptions = [
+    { id: 'love', label: t('onboarding.student.goal.love'), emoji: '💕' },
+    { id: 'phrases', label: t('onboarding.student.goal.phrases'), emoji: '💬' },
+    { id: 'surprise', label: t('onboarding.student.goal.surprise', { language: targetName }), emoji: '🎁' },
+    { id: 'custom', label: t('onboarding.student.goal.custom'), emoji: '✏️' },
+  ];
+
   const [selected, setSelected] = useState(initialValue || '');
   const [customGoal, setCustomGoal] = useState('');
 
@@ -35,7 +43,7 @@ export const GoalStep: React.FC<GoalStepProps> = ({
     if (selected === 'custom' && customGoal.trim()) {
       onNext(customGoal.trim());
     } else if (selected && selected !== 'custom') {
-      const option = GOAL_OPTIONS.find(o => o.id === selected);
+      const option = goalOptions.find(o => o.id === selected);
       onNext(option?.label || selected);
     }
   };
@@ -57,15 +65,15 @@ export const GoalStep: React.FC<GoalStepProps> = ({
           <ICONS.Target className="w-8 h-8" style={{ color: accentColor }} />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          What's your first milestone?
+          {t('onboarding.student.goal.title')}
         </h1>
         <p className="text-gray-500">
-          A goal to work toward with {partnerName}
+          {t('onboarding.student.goal.subtitle', { name: partnerName })}
         </p>
       </div>
 
       <div className="space-y-3 mb-6">
-        {GOAL_OPTIONS.map((option) => (
+        {goalOptions.map((option) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}
@@ -96,7 +104,7 @@ export const GoalStep: React.FC<GoalStepProps> = ({
             type="text"
             value={customGoal}
             onChange={(e) => setCustomGoal(e.target.value)}
-            placeholder={`e.g., "Order in Polish at their favorite restaurant"`}
+            placeholder={t('onboarding.student.goal.customPlaceholder', { language: targetName })}
             autoFocus
             className="w-full px-5 py-4 rounded-xl bg-white border-2 border-gray-100 focus:outline-none text-gray-800 placeholder:text-gray-300 transition-all"
             style={{ '--tw-ring-color': accentColor } as React.CSSProperties}

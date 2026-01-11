@@ -64,6 +64,21 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
+    // Fetch student's language settings
+    const { data: studentProfile, error: studentError } = await supabase
+      .from('profiles')
+      .select('active_language, native_language')
+      .eq('id', profile.linked_user_id)
+      .single();
+
+    if (studentError || !studentProfile) {
+      return res.status(404).json({ error: 'Student profile not found' });
+    }
+
+    // Use student's language settings (with Polish/English fallback for backward compatibility)
+    const targetLanguage = studentProfile.active_language || 'pl';
+    const nativeLanguage = studentProfile.native_language || 'en';
+
     const { challengeType, title, config, wordIds, newWords } = req.body;
 
     if (!challengeType || !config) {
@@ -77,24 +92,32 @@ export default async function handler(req: any, res: any) {
         .from('dictionary')
         .select('id, word, translation, word_type')
         .in('id', wordIds)
-        .eq('user_id', profile.linked_user_id);
+        .eq('user_id', profile.linked_user_id)
+        .eq('language_code', targetLanguage);
 
       wordsData = words || [];
     }
 
     // Handle new words added by tutor
     if (newWords && Array.isArray(newWords) && newWords.length > 0) {
-      const newWordEntries = newWords.map((w: { polish: string; english: string }) => ({
-        user_id: profile.linked_user_id,
-        word: w.polish.toLowerCase().trim(),
-        translation: w.english.trim(),
-        word_type: 'other',
-        importance: 3,
-        context: `Added by ${profile.full_name} in challenge`,
-        root_word: w.polish.toLowerCase().trim(),
-        examples: [],
-        pro_tip: ''
-      }));
+      // Support both new format {word, translation} and legacy format {polish, english}
+      const newWordEntries = newWords.map((w: { word?: string; translation?: string; polish?: string; english?: string }) => {
+        const wordText = (w.word || w.polish || '').toLowerCase().trim();
+        const translationText = (w.translation || w.english || '').trim();
+
+        return {
+          user_id: profile.linked_user_id,
+          language_code: targetLanguage,
+          word: wordText,
+          translation: translationText,
+          word_type: 'other',
+          importance: 3,
+          context: `Added by ${profile.full_name} in challenge`,
+          root_word: wordText,
+          examples: [],
+          pro_tip: ''
+        };
+      });
 
       const { data: insertedWords, error: insertError } = await supabase
         .from('dictionary')
@@ -112,11 +135,13 @@ export default async function handler(req: any, res: any) {
     if (config.aiSuggestedWeakWords) {
       // Auto-select weak words based on scores
       const { data: weakWords } = await supabase
-        .from('scores')
-        .select('word_id, fail_count, success_count, dictionary:word_id(id, word, translation, word_type)')
+        .from('word_scores')
+        .select('word_id, correct_streak, total_attempts, dictionary:word_id(id, word, translation, word_type)')
         .eq('user_id', profile.linked_user_id)
-        .gt('fail_count', 0)
-        .order('fail_count', { ascending: false })
+        .eq('language_code', targetLanguage)
+        .lt('correct_streak', 5)
+        .gt('total_attempts', 0)
+        .order('correct_streak', { ascending: true })
         .limit(config.wordCount || 10);
 
       wordsData = (weakWords || [])
@@ -135,6 +160,7 @@ export default async function handler(req: any, res: any) {
       .insert({
         tutor_id: auth.userId,
         student_id: profile.linked_user_id,
+        language_code: targetLanguage,
         challenge_type: challengeType,
         title: title || `${challengeType} Challenge`,
         config,

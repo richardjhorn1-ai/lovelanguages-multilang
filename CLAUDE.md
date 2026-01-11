@@ -59,8 +59,31 @@ const systemPrompt = buildCupidSystemPrompt(targetLanguage, nativeLanguage, mode
 AI prompts are language-agnostic templates that accept BOTH native and target language:
 ```typescript
 buildCupidSystemPrompt(targetLanguage: string, nativeLanguage: string, mode: ChatMode): string
-buildValidationPrompt(targetLanguage: string, nativeLanguage: string): string
+buildWordValidationPrompt(targetLanguage: string, nativeLanguage: string): string
 buildVocabularyExtractionPrompt(targetLanguage: string, nativeLanguage: string): string
+buildVoiceSystemPrompt(targetLanguage: string, nativeLanguage: string, mode: string): string
+buildConversationScenarioPrompt(targetLanguage: string, scenario: object, userName: string): string
+// + 5 more template functions
+```
+
+### Schema Builders (`utils/schema-builders.ts`)
+Dynamic JSON schemas for Gemini responses based on language grammar:
+```typescript
+buildVocabularySchema(languageCode: string): object      // Full extraction schema
+buildConjugationSchema(languageCode: string): object     // Verb conjugation (language-specific persons)
+buildLightweightSchema(): object                         // Quick validation
+buildLevelTestSchema(): object                           // Test generation
+// + 9 more schema builders
+```
+
+### Language Helpers (`utils/language-helpers.ts`)
+API utilities for extracting and validating language parameters:
+```typescript
+extractLanguages(body: any): LanguageParams              // From request body
+getProfileLanguages(supabase, userId): Promise<LanguageParams>  // From user profile
+validateLanguageCode(code: string): boolean              // Check if supported
+DEFAULT_LANGUAGES: { targetLanguage: 'pl', nativeLanguage: 'en' }  // Backward compat
+// + 9 more helper functions
 ```
 
 ## Architecture

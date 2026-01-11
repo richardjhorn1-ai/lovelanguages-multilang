@@ -4,7 +4,11 @@ import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-d
 import { supabase } from './services/supabase';
 import { Profile } from './types';
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
+import './i18n';
+import { useI18nSync } from './hooks/useI18nSync';
 import Hero from './components/Hero';
+import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
 import ChatArea from './components/ChatArea';
 import LoveLog from './components/LoveLog';
@@ -66,6 +70,12 @@ const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({
       )}
     </>
   );
+};
+
+// Wrapper component that syncs i18n with native language (must be inside LanguageProvider)
+const I18nSyncWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  useI18nSync();
+  return <>{children}</>;
 };
 
 // Success toast component
@@ -221,8 +231,10 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider userId={profile?.id}>
-      <HashRouter>
-        <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+      <LanguageProvider profile={profile}>
+        <I18nSyncWrapper>
+        <HashRouter>
+          <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
           {/* Success toast */}
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
@@ -234,6 +246,16 @@ const App: React.FC = () => {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/learn" element={<BlogIndex />} />
             <Route path="/learn/:slug" element={<BlogArticle />} />
+
+            {/* Target language route - /pl, /es, /fr, etc. */}
+            <Route path="/:targetLang" element={
+              session && profile ? (
+                // Authenticated users go to main app
+                <Navigate to="/" />
+              ) : (
+                <Hero />
+              )
+            } />
 
             {/* All other routes */}
             <Route path="*" element={
@@ -277,7 +299,9 @@ const App: React.FC = () => {
             } />
           </Routes>
         </div>
-      </HashRouter>
+        </HashRouter>
+        </I18nSyncWrapper>
+      </LanguageProvider>
     </ThemeProvider>
   );
 };

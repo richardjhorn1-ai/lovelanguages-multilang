@@ -2,6 +2,7 @@ import { GoogleGenAI, Session } from '@google/genai';
 import { supabase } from './supabase';
 import { AudioRecorder, AudioPlayer, checkAudioSupport } from './audio-utils';
 import { ChatMode } from '../types';
+import { LANGUAGE_CONFIGS } from '../constants/language-config';
 
 export type LiveSessionState = 'disconnected' | 'connecting' | 'listening' | 'speaking' | 'error';
 
@@ -19,6 +20,8 @@ export interface LiveSessionConfig {
   userLog?: string[];
   conversationScenario?: ConversationScenario;
   userName?: string;
+  targetLanguage?: string;
+  nativeLanguage?: string;
   onTranscript?: (role: 'user' | 'model', text: string, isFinal: boolean) => void;
   onStateChange?: (state: LiveSessionState) => void;
   onError?: (error: Error) => void;
@@ -84,7 +87,9 @@ export class LiveSession {
           mode: this.config.mode,
           userLog: this.config.userLog || [],
           conversationScenario: this.config.conversationScenario,
-          userName: this.config.userName
+          userName: this.config.userName,
+          targetLanguage: this.config.targetLanguage,
+          nativeLanguage: this.config.nativeLanguage
         })
       });
 
@@ -161,7 +166,7 @@ export class LiveSession {
           this.session.sendClientContent({
             turns: [{
               role: 'user',
-              parts: [{ text: '[The customer has just arrived. Begin the conversation in Polish as instructed in your role.]' }]
+              parts: [{ text: `[The customer has just arrived. Begin the conversation in ${LANGUAGE_CONFIGS[this.config.targetLanguage || 'pl']?.name || 'the target language'} as instructed in your role.]` }]
             }],
             turnComplete: true
           });

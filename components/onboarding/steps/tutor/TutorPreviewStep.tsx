@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
@@ -19,6 +20,8 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+
   return (
     <OnboardingStep
       currentStep={currentStep}
@@ -31,10 +34,10 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
           <ICONS.Sparkles className="w-8 h-8 text-white" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          Your teaching toolkit
+          {t('onboarding.tutor.preview.title')}
         </h1>
         <p className="text-gray-500">
-          Here's what you can do for {learnerName}
+          {t('onboarding.tutor.preview.subtitle', { name: learnerName })}
         </p>
       </div>
 
@@ -44,8 +47,8 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
             <ICONS.MessageCircle className="w-5 h-5 text-[var(--accent-color)]" />
           </div>
           <div>
-            <h3 className="font-bold text-gray-800">Coach Mode</h3>
-            <p className="text-sm text-gray-500">Get personalized tips on helping {learnerName} based on their progress and struggles</p>
+            <h3 className="font-bold text-gray-800">{t('onboarding.tutor.preview.coachMode')}</h3>
+            <p className="text-sm text-gray-500">{t('onboarding.tutor.preview.coachModeDesc', { name: learnerName })}</p>
           </div>
         </div>
 
@@ -54,8 +57,8 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
             <ICONS.TrendingUp className="w-5 h-5 text-amber-500" />
           </div>
           <div>
-            <h3 className="font-bold text-gray-800">Progress Tracking</h3>
-            <p className="text-sm text-gray-500">See which words {learnerName} has mastered and where they need help</p>
+            <h3 className="font-bold text-gray-800">{t('onboarding.tutor.preview.progressTracking')}</h3>
+            <p className="text-sm text-gray-500">{t('onboarding.tutor.preview.progressTrackingDesc', { name: learnerName })}</p>
           </div>
         </div>
 
@@ -64,14 +67,14 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
             <ICONS.Gift className="w-5 h-5 text-purple-500" />
           </div>
           <div>
-            <h3 className="font-bold text-gray-800">Word Gifts</h3>
-            <p className="text-sm text-gray-500">Send special words and phrases to {learnerName}'s learning log</p>
+            <h3 className="font-bold text-gray-800">{t('onboarding.tutor.preview.wordGifts')}</h3>
+            <p className="text-sm text-gray-500">{t('onboarding.tutor.preview.wordGiftsDesc', { name: learnerName })}</p>
           </div>
         </div>
       </div>
 
       <NextButton onClick={onNext} accentColor={accentColor}>
-        Sounds great!
+        {t('onboarding.tutor.preview.button')}
       </NextButton>
     </OnboardingStep>
   );

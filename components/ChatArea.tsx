@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService, Attachment, ExtractedWord, SessionContext } from '../services/gemini';
 import { LiveSession, LiveSessionState } from '../services/live-session';
@@ -7,6 +8,7 @@ import { GladiaSession, GladiaState, TranscriptChunk } from '../services/gladia-
 import { Profile, Chat, Message, ChatMode, WordType } from '../types';
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import NewWordsNotification from './NewWordsNotification';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
 
@@ -102,11 +104,11 @@ const parseMarkdown = (text: string) => {
     .replace(/\n/g, '<br />');
 };
 
-const CultureCard: React.FC<{ title: string; content: string }> = ({ title, content }) => (
+const CultureCard: React.FC<{ title: string; content: string; t: (key: string) => string }> = ({ title, content, t }) => (
   <div className="my-4 overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--accent-light)] to-[var(--bg-card)] border border-[var(--accent-border)] shadow-sm w-full">
     <div className="bg-[var(--accent-light)] px-4 py-2 border-b border-[var(--accent-border)] flex items-center gap-2">
       <ICONS.Sparkles className="w-4 h-4 text-[var(--accent-color)]" />
-      <h3 className="text-xs font-black uppercase tracking-widest text-[var(--accent-color)]">{title || "Culture Note"}</h3>
+      <h3 className="text-xs font-black uppercase tracking-widest text-[var(--accent-color)]">{title || t('chat.blocks.cultureNote')}</h3>
     </div>
     <div className="p-4 text-sm text-[var(--text-secondary)] leading-relaxed">
       <div dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
@@ -114,10 +116,10 @@ const CultureCard: React.FC<{ title: string; content: string }> = ({ title, cont
   </div>
 );
 
-const DrillCard: React.FC<{ content: string }> = ({ content }) => (
+const DrillCard: React.FC<{ content: string; t: (key: string) => string }> = ({ content, t }) => (
   <div className="my-4 rounded-2xl border-2 border-dashed border-teal-200 dark:border-teal-700 bg-teal-50/50 dark:bg-teal-900/20 p-1 relative w-full">
     <div className="absolute -top-3 left-4 bg-teal-100 dark:bg-teal-800 text-teal-600 dark:text-teal-300 text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-teal-200 dark:border-teal-700">
-      Love Goal
+      {t('chat.blocks.loveGoal')}
     </div>
     <div className="p-4 text-sm text-[var(--text-primary)] font-medium">
       <div dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
@@ -148,11 +150,11 @@ const GrammarTable: React.FC<{ content: string }> = ({ content }) => {
   );
 };
 
-const RichMessageRenderer: React.FC<{ content: string }> = ({ content }) => {
+const RichMessageRenderer: React.FC<{ content: string; t: (key: string) => string }> = ({ content, t }) => {
   const parts = content.split(/(:::\s*[a-z]+.*)/i);
   let currentBlockType = 'text';
   let currentBlockTitle = '';
-  
+
   return (
     <div className="space-y-2 w-full break-words">
       {parts.map((part, index) => {
@@ -163,17 +165,17 @@ const RichMessageRenderer: React.FC<{ content: string }> = ({ content }) => {
           currentBlockType = match[1].toLowerCase();
           const titleMatch = match[2].match(/\[(.*?)\]/);
           currentBlockTitle = titleMatch ? titleMatch[1] : '';
-          return null; 
+          return null;
         }
         if (trimmed === ':::') { currentBlockType = 'text'; return null; }
         if (currentBlockType === 'culture' || currentBlockType === 'slang') {
           const type = currentBlockType;
-          currentBlockType = 'text'; 
-          return <CultureCard key={index} title={currentBlockTitle || type} content={trimmed} />;
+          currentBlockType = 'text';
+          return <CultureCard key={index} title={currentBlockTitle || type} content={trimmed} t={t} />;
         }
         if (currentBlockType === 'drill') {
           currentBlockType = 'text';
-          return <DrillCard key={index} content={trimmed} />;
+          return <DrillCard key={index} content={trimmed} t={t} />;
         }
         if (currentBlockType === 'table') {
           currentBlockType = 'text';
@@ -190,6 +192,7 @@ interface ChatAreaProps {
 }
 
 const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
+  const { t } = useTranslation();
   const [chats, setChats] = useState<Chat[]>([]);
   const [activeChat, setActiveChat] = useState<Chat | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -219,6 +222,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Theme
   const { accentHex } = useTheme();
+
+  // Language
+  const { languageParams, targetLanguage, nativeLanguage, targetFlag, targetName, nativeFlag } = useLanguage();
 
   // Track voice session messages for post-session extraction
   const voiceSessionStartIdx = useRef<number>(0);
@@ -339,7 +345,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const deleteChat = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this session?")) return;
+    if (!confirm(t('chat.session.deleteConfirm'))) return;
     const { error } = await supabase.from('chats').delete().eq('id', id);
     if (!error) {
         setChats(prev => prev.filter(c => c.id !== id));
@@ -442,7 +448,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         currentAttachments,
         userWords,
         messageHistory,
-        sessionContextRef.current
+        sessionContextRef.current,
+        languageParams
       );
       replyText = result.replyText;
       newWords = result.newWords;
@@ -453,12 +460,14 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         mode,
         userWords,
         (chunk) => setStreamingText(prev => prev + chunk),
-        messageHistory
+        messageHistory,
+        languageParams
       );
       // Extract words after streaming completes
       const extracted = await geminiService.analyzeHistory(
         [...messageHistory, { role: 'user', content: userMessage }, { role: 'model', content: replyText }],
-        userWords
+        userWords,
+        languageParams
       );
       newWords = extracted;
     }
@@ -496,6 +505,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     liveSessionRef.current = new LiveSession({
         mode: mode,
         userLog: messages.map(m => m.content),
+        targetLanguage: targetLanguage,
+        nativeLanguage: nativeLanguage,
         onTranscript: async (role, text, isFinal) => {
             if (role === 'user') setLiveUserText(text);
             else setLiveModelText(text);
@@ -576,7 +587,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         // Analyze the voice transcripts
         const harvested = await geminiService.analyzeHistory(
           voiceMessages.map(m => ({ role: m.role, content: m.content })),
-          knownWords
+          knownWords,
+          languageParams
         );
 
         console.log(`Extracted ${harvested.length} words from voice session`);
@@ -712,6 +724,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         onClose: () => {
           // Session closed - handled by stopListening
         },
+        targetLanguage,
+        nativeLanguage,
       });
 
       await gladiaRef.current.connect();
@@ -770,7 +784,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) return;
 
-      const response = await fetch('/api/polish-transcript', {
+      const response = await fetch('/api/process-transcript', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -784,7 +798,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             language: e.language,
             timestamp: e.timestamp
           })),
-          contextLabel: contextLabel
+          contextLabel: contextLabel,
+          ...languageParams
         })
       });
 
@@ -856,7 +871,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       // Format transcript as messages for the analyze-history API
       const messages = listenEntries
-        .filter(e => e.language === 'pl' || e.english) // Focus on Polish content
+        .filter(e => e.language === targetLanguage || e.english) // Focus on target language content
         .map(e => ({
           role: 'assistant',
           content: e.english
@@ -881,7 +896,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${session.access_token}`
         },
-        body: JSON.stringify({ messages, currentWords })
+        body: JSON.stringify({ messages, currentWords, ...languageParams })
       });
 
       if (response.ok) {
@@ -942,7 +957,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       if (error) {
         console.error('Supabase error adding words:', error);
-        alert(`Failed to add words: ${error.message}`);
+        alert(t('chat.errors.addWordsFailed', { message: error.message }));
       } else {
         console.log('Words added successfully:', data);
         setShowWordExtractor(false);
@@ -957,7 +972,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       }
     } catch (err) {
       console.error('Failed to add words:', err);
-      alert('Failed to add words. Check console for details.');
+      alert(t('chat.errors.addWordsError'));
     } finally {
       setIsAddingWords(false);
     }
@@ -984,7 +999,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Delete a listen session
   const deleteListenSession = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this listen session?")) return;
+    if (!confirm(t('chat.listen.deleteConfirm'))) return;
     const { error } = await supabase.from('listen_sessions').delete().eq('id', id);
     if (!error) {
       setListenSessions(prev => prev.filter(s => s.id !== id));
@@ -1021,19 +1036,19 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               onClick={() => createNewChat(mode)}
               className="w-10 h-10 text-white rounded-xl font-bold shadow-sm flex items-center justify-center transition-all"
               style={{ backgroundColor: accentHex }}
-              title="New Session"
+              title={t('chat.sidebar.newSession')}
             >
               <ICONS.Plus className="w-5 h-5" />
             </button>
           ) : (
             <>
               <button onClick={() => createNewChat(mode)} className="flex-1 text-white rounded-xl py-2.5 font-bold text-sm shadow-sm flex items-center justify-center gap-2 transition-all" style={{ backgroundColor: accentHex }}>
-                <ICONS.Plus className="w-4 h-4" /> New Session
+                <ICONS.Plus className="w-4 h-4" /> {t('chat.sidebar.newSession')}
               </button>
               <button
                 onClick={() => setIsSidebarCollapsed(true)}
                 className="p-2 rounded-xl hover:bg-[var(--bg-primary)] transition-all text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-                title="Collapse sidebar"
+                title={t('chat.sidebar.collapse')}
               >
                 <ICONS.ChevronLeft className="w-5 h-5" />
               </button>
@@ -1130,7 +1145,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               <button
                 onClick={() => setIsSidebarCollapsed(false)}
                 className="hidden lg:flex w-10 h-10 rounded-xl hover:bg-[var(--bg-primary)] transition-all text-[var(--text-secondary)] hover:text-[var(--text-primary)] items-center justify-center"
-                title="Expand sidebar"
+                title={t('chat.sidebar.expand')}
               >
                 <ICONS.ChevronRight className="w-5 h-5" />
               </button>
@@ -1139,12 +1154,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {profile.role === 'tutor' ? (
                 // Tutors see single Coach mode (always context-aware)
                 <div className="px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest bg-[var(--bg-card)] text-teal-500 shadow-sm">
-                  Coach
+                  {t('chat.modes.coach')}
                 </div>
               ) : (
                 // Students see Ask/Learn modes
                 (['ask', 'learn'] as ChatMode[]).map(m => (
-                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-[var(--bg-card)] shadow-sm' : 'text-[var(--text-secondary)]'}`} style={mode === m ? { color: accentHex } : {}}>{m}</button>
+                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-[var(--bg-card)] shadow-sm' : 'text-[var(--text-secondary)]'}`} style={mode === m ? { color: accentHex } : {}}>{t(`chat.modes.${m}`)}</button>
                 ))
               )}
             </div>
@@ -1156,25 +1171,25 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-xs font-bold text-red-600 dark:text-red-400">
-                  Recording {formatListenDuration(listenDuration)}
+                  {t('chat.listen.recording')} {formatListenDuration(listenDuration)}
                 </span>
               </div>
               <button
                 onClick={stopListening}
                 className="px-3 py-1.5 rounded-lg bg-red-500 text-white text-xs font-bold hover:bg-red-600 transition-colors"
               >
-                Stop
+                {t('chat.listen.stop')}
               </button>
             </div>
           ) : (
             <button
               onClick={() => setShowListenPrompt(true)}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] hover:bg-[var(--accent-light)] transition-all text-[var(--text-secondary)] hover:text-[var(--accent-color)]"
-              title="Listen Mode - Capture real Polish conversations"
+              title={t('chat.listen.modeTooltip', { language: targetName })}
             >
               <span>👂</span>
-              <span className="text-xs font-bold hidden sm:inline">Listen</span>
-              <span className="text-[8px] px-1 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded font-bold">BETA</span>
+              <span className="text-xs font-bold hidden sm:inline">{t('chat.listen.title')}</span>
+              <span className="text-[8px] px-1 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded font-bold">{t('chat.listen.beta')}</span>
             </button>
           )}
         </div>
@@ -1190,7 +1205,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
                     <span>👂</span>
                     <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                      {activeListenSession.context_label || 'Listen Session'}
+                      {activeListenSession.context_label || t('chat.listen.sessionLabel')}
                     </span>
                     <span className="text-xs text-blue-500">
                       {formatListenDuration(activeListenSession.duration_seconds)}
@@ -1204,7 +1219,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 <div className="h-full flex items-center justify-center text-[var(--text-secondary)] text-sm">
                   <div className="text-center">
                     <ICONS.Mic className="w-8 h-8 mx-auto mb-2 animate-pulse" style={{ color: accentHex }} />
-                    <p>Listening for Polish speech...</p>
+                    <p>{t('chat.listen.listeningFor', { language: targetName })}</p>
                     {listenError && (
                       <p className="text-red-500 text-xs mt-2">{listenError}</p>
                     )}
@@ -1226,7 +1241,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         {entry.english && (
                           <div className="mt-1.5 ml-4 pl-3 border-l-2 border-[var(--accent-color)]/30">
                             <p className="text-[var(--text-secondary)] text-sm">
-                              🇬🇧 {entry.english}
+                              {nativeFlag} {entry.english}
                             </p>
                           </div>
                         )}
@@ -1239,7 +1254,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                               ? 'bg-amber-200 dark:bg-amber-800/50 text-amber-600 dark:text-amber-400'
                               : 'hover:bg-white/50 dark:hover:bg-black/20 text-[var(--text-secondary)]'
                           }`}
-                          title={entry.isBookmarked ? 'Remove bookmark' : 'Bookmark this phrase'}
+                          title={entry.isBookmarked ? t('chat.listen.bookmarkRemove') : t('chat.listen.bookmarkAdd')}
                         >
                           <ICONS.Star className={`w-4 h-4 ${entry.isBookmarked ? 'fill-current' : ''}`} />
                         </button>
@@ -1273,7 +1288,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 <div className="text-center py-2">
                   <span className="inline-flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400">
                     <ICONS.Star className="w-3 h-3 fill-current" />
-                    {listenBookmarkedCount} phrase{listenBookmarkedCount !== 1 ? 's' : ''} bookmarked
+                    {t('chat.listen.bookmarked', { count: listenBookmarkedCount })}
                   </span>
                 </div>
               )}
@@ -1293,7 +1308,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
                   <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm ${m.role === 'user' ? 'text-white rounded-tr-sm md:rounded-tr-none font-medium' : 'bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
-                    {m.role === 'user' ? <p className="text-xs md:text-sm leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} />}
+                    {m.role === 'user' ? <p className="text-xs md:text-sm leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} t={t} />}
                   </div>
                 </div>
               ))}
@@ -1302,7 +1317,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {messages.length >= 50 && (
                 <div className="flex justify-center py-4">
                   <div className="flex items-center gap-3 px-4 py-3 bg-[var(--accent-light)] border border-[var(--accent-border)] rounded-xl text-sm">
-                    <span className="text-[var(--text-secondary)]">This conversation is getting long!</span>
+                    <span className="text-[var(--text-secondary)]">{t('chat.session.longConversation')}</span>
                     <button
                       onClick={async () => {
                         const { data } = await supabase.from('chats').insert({ user_id: profile.id, title: 'New Session', mode }).select().single();
@@ -1311,7 +1326,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                       className="px-3 py-1.5 rounded-lg font-medium text-white transition-colors"
                       style={{ backgroundColor: accentHex }}
                     >
-                      Start Fresh
+                      {t('chat.session.startFresh')}
                     </button>
                   </div>
                 </div>
@@ -1321,7 +1336,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {streamingText && (
                 <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
                   <div className="max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none">
-                    <RichMessageRenderer content={streamingText} />
+                    <RichMessageRenderer content={streamingText} t={t} />
                     <span className="inline-block w-2 h-4 ml-1 animate-pulse rounded-sm" style={{ backgroundColor: accentHex }}></span>
                   </div>
                 </div>
@@ -1380,19 +1395,19 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                       <span className="w-1.5 h-1.5 rounded-full animate-bounce" style={{ backgroundColor: accentHex, animationDelay: '0.1s' }}></span>
                       <span className="w-1.5 h-1.5 rounded-full animate-bounce" style={{ backgroundColor: accentHex, animationDelay: '0.2s' }}></span>
                     </div>
-                    <span className="text-[10px] font-bold" style={{ color: accentHex }}>Listening</span>
+                    <span className="text-[10px] font-bold" style={{ color: accentHex }}>{t('chat.status.listening')}</span>
                   </>
                 )}
                 {liveState === 'speaking' && (
                   <>
                     <ICONS.Sparkles className="w-3 h-3 text-teal-500 animate-pulse" />
-                    <span className="text-[10px] font-bold text-teal-600">Speaking</span>
+                    <span className="text-[10px] font-bold text-teal-600">{t('chat.status.speaking')}</span>
                   </>
                 )}
                 {liveState === 'connecting' && (
                   <>
                     <div className="w-3 h-3 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
-                    <span className="text-[10px] font-bold text-amber-600">Connecting</span>
+                    <span className="text-[10px] font-bold text-amber-600">{t('chat.status.connecting')}</span>
                   </>
                 )}
               </div>
@@ -1469,7 +1484,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         value={input}
                         onChange={e => setInput(e.target.value)}
                         onKeyDown={e => e.key === 'Enter' && handleSend()}
-                        placeholder={isLive ? (liveState === 'listening' ? "Listening..." : liveState === 'speaking' ? "Cupid is speaking..." : "Connecting...") : (profile.role === 'tutor' ? "How can you help your partner today?" : mode === 'ask' ? "Ask Cupid anything..." : "Ready for your next lesson?")}
+                        placeholder={isLive ? (liveState === 'listening' ? t('chat.input.listeningPlaceholder') : liveState === 'speaking' ? t('chat.input.speakingPlaceholder') : t('chat.input.connectingPlaceholder')) : (profile.role === 'tutor' ? t('chat.input.tutorPlaceholder') : mode === 'ask' ? t('chat.input.askPlaceholder') : t('chat.input.learnPlaceholder'))}
                         disabled={isLive}
                         className="w-full bg-transparent border-none text-xs md:text-sm font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
                       />
@@ -1499,7 +1514,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     className="px-6 py-3 rounded-xl bg-red-500 text-white font-bold flex items-center justify-center gap-2 hover:bg-red-600 transition-colors"
                   >
                     <ICONS.Square className="w-5 h-5" />
-                    Stop & Save
+                    {t('chat.listen.stopSave')}
                   </button>
                 </div>
               ) : activeListenSession && (
@@ -1508,7 +1523,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                   {isPolishingTranscript && (
                     <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
                       <div className="w-4 h-4 border-2 border-[var(--accent-color)] border-t-transparent rounded-full animate-spin" />
-                      Improving transcript with AI...
+                      {t('chat.listen.improving')}
                     </div>
                   )}
 
@@ -1517,7 +1532,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     {activeListenSession && extractedSessionIds.has(activeListenSession.id) ? (
                       <div className="px-5 py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
                         <ICONS.Check className="w-4 h-4" />
-                        Words Added to Love Log
+                        {t('chat.listen.wordsAdded')}
                       </div>
                     ) : (
                       <button
@@ -1527,7 +1542,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         style={{ backgroundColor: accentHex }}
                       >
                         <ICONS.BookOpen className="w-4 h-4" />
-                        Extract Words
+                        {t('chat.listen.extractWords')}
                       </button>
                     )}
                     <button
@@ -1536,7 +1551,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                       style={{ borderColor: accentHex }}
                     >
                       <span>👂</span>
-                      New Session
+                      {t('chat.listen.newSession')}
                     </button>
                     <button
                       onClick={() => {
@@ -1546,7 +1561,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                       }}
                       className="px-5 py-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-secondary)] font-medium hover:opacity-80 transition-opacity"
                     >
-                      Back to Chats
+                      {t('chat.listen.backToChats')}
                     </button>
                   </div>
                 </div>
@@ -1581,7 +1596,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           <div className="flex items-center justify-between p-3 border-b border-[var(--border-color)]">
             <div className="flex items-center gap-2">
               <ICONS.MessageCircle className="w-5 h-5" style={{ color: accentHex }} />
-              <span className="text-sm font-bold text-[var(--text-primary)]">Conversations</span>
+              <span className="text-sm font-bold text-[var(--text-primary)]">{t('chat.sidebar.conversations')}</span>
             </div>
             <button
               onClick={() => setIsMobileSidebarOpen(false)}
@@ -1601,7 +1616,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               className="w-full text-white rounded-xl py-2.5 font-bold text-sm shadow-sm flex items-center justify-center gap-2 transition-all"
               style={{ backgroundColor: accentHex }}
             >
-              <ICONS.Plus className="w-4 h-4" /> New Session
+              <ICONS.Plus className="w-4 h-4" /> {t('chat.sidebar.newSession')}
             </button>
           </div>
 
@@ -1610,8 +1625,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             {sidebarItems.length === 0 ? (
               <div className="py-8 text-center">
                 <ICONS.MessageCircle className="w-8 h-8 mx-auto mb-2 text-[var(--text-secondary)] opacity-40" />
-                <p className="text-xs text-[var(--text-secondary)]">No conversations yet</p>
-                <p className="text-[10px] text-[var(--text-secondary)] mt-1">Start a new session above</p>
+                <p className="text-xs text-[var(--text-secondary)]">{t('chat.sidebar.noConversations')}</p>
+                <p className="text-[10px] text-[var(--text-secondary)] mt-1">{t('chat.sidebar.startSession')}</p>
               </div>
             ) : (
               sidebarItems.map(item => {
@@ -1653,7 +1668,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           {/* Footer */}
           <div className="p-3 border-t border-[var(--border-color)] text-center">
             <span className="text-[10px] text-[var(--text-secondary)]">
-              {sidebarItems.length} item{sidebarItems.length !== 1 ? 's' : ''}
+              {t('chat.sidebar.items', { count: sidebarItems.length })}
             </span>
           </div>
         </div>
@@ -1679,11 +1694,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     <ICONS.BookOpen className="w-6 h-6" style={{ color: accentHex }} />
                   </div>
                   <div>
-                    <h2 className="text-lg font-bold text-[var(--text-primary)]">Extract Words</h2>
+                    <h2 className="text-lg font-bold text-[var(--text-primary)]">{t('chat.wordExtractor.title')}</h2>
                     <p className="text-xs text-[var(--text-secondary)]">
                       {extractedWords.length > 0
-                        ? `${extractedWords.length} words found • ${selectedWords.size} selected`
-                        : 'Analyzing transcript...'}
+                        ? `${t('chat.wordExtractor.found', { count: extractedWords.length })} • ${t('chat.wordExtractor.selected', { count: selectedWords.size })}`
+                        : t('chat.wordExtractor.analyzing')}
                     </p>
                   </div>
                 </div>
@@ -1701,7 +1716,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {extractedWords.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-12 text-[var(--text-secondary)]">
                   <div className="w-8 h-8 border-2 border-[var(--accent-color)] border-t-transparent rounded-full animate-spin mb-4" />
-                  <p className="text-sm">Extracting vocabulary...</p>
+                  <p className="text-sm">{t('chat.wordExtractor.extracting')}</p>
                 </div>
               ) : (
                 <div className="space-y-2">
@@ -1754,7 +1769,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 onClick={() => setShowWordExtractor(false)}
                 className="flex-1 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-primary)] font-bold hover:opacity-80 transition-opacity"
               >
-                Cancel
+                {t('chat.wordExtractor.cancel')}
               </button>
               <button
                 onClick={addSelectedWordsToDictionary}
@@ -1765,12 +1780,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 {isAddingWords ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Adding...
+                    {t('chat.wordExtractor.adding')}
                   </>
                 ) : (
                   <>
                     <ICONS.Plus className="w-4 h-4" />
-                    Add {selectedWords.size} Words
+                    {t('chat.wordExtractor.addWords', { count: selectedWords.size })}
                   </>
                 )}
               </button>
@@ -1787,24 +1802,24 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               <span className="text-4xl">👂</span>
             </div>
 
-            <h2 className="text-xl font-bold text-[var(--text-primary)] mb-2">Ready to Listen?</h2>
+            <h2 className="text-xl font-bold text-[var(--text-primary)] mb-2">{t('chat.listenPrompt.title')}</h2>
             <p className="text-sm text-[var(--text-secondary)] mb-6">
-              Capture real Polish conversations with live transcription and translation.
+              {t('chat.listenPrompt.description', { language: targetName })}
             </p>
 
             <div className="mb-6">
               <label className="block text-sm font-medium text-[var(--text-secondary)] mb-2 text-left">
-                What are you listening to? <span className="opacity-60">(optional)</span>
+                {t('chat.listenPrompt.contextLabel')} <span className="opacity-60">{t('chat.listenPrompt.contextOptional')}</span>
               </label>
               <input
                 type="text"
                 value={listenContextLabel}
                 onChange={(e) => setListenContextLabel(e.target.value)}
-                placeholder="e.g., Dinner at Babcia's, TV show..."
+                placeholder={t('chat.listenPrompt.contextPlaceholder')}
                 className="w-full p-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]"
               />
               <p className="text-xs text-[var(--text-secondary)] mt-1 text-left opacity-60">
-                You can name it later if you prefer
+                {t('chat.listenPrompt.contextHint')}
               </p>
             </div>
 
@@ -1823,7 +1838,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 }}
                 className="flex-1 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-primary)] font-bold hover:opacity-80 transition-opacity"
               >
-                Cancel
+                {t('chat.listenPrompt.cancel')}
               </button>
               <button
                 onClick={startListening}
@@ -1831,13 +1846,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 style={{ backgroundColor: accentHex }}
               >
                 <ICONS.Mic className="w-5 h-5" />
-                Start Listening
+                {t('chat.listenPrompt.start')}
               </button>
             </div>
 
             <p className="text-[10px] text-[var(--text-secondary)] mt-4 flex items-center justify-center gap-1">
               <span className="px-1.5 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded font-bold">
-                BETA
+                {t('chat.listen.beta')}
               </span>
             </p>
           </div>

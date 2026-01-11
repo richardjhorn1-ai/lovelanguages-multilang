@@ -1,15 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { DemoWord, DEMO_WORDS } from './demoData';
+import { useTranslation } from 'react-i18next';
+import { DemoWord } from './demoData';
 
 interface DemoQuickFireProps {
   accentColor: string;
   onComplete: (correct: boolean) => void;
+  targetName: string;
+  nativeName: string;
+  words: DemoWord[];
 }
 
 export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
   accentColor,
   onComplete,
+  targetName,
+  nativeName,
+  words: allWords,
 }) => {
+  const { t } = useTranslation();
   const [gameState, setGameState] = useState<'ready' | 'countdown' | 'playing' | 'feedback'>('ready');
   const [countdown, setCountdown] = useState(3);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -21,7 +29,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Use a subset of words for quick fire
-  const words = DEMO_WORDS.slice(0, 4);
+  const words = allWords.slice(0, 4);
   const currentWord = words[currentWordIndex];
 
   // Countdown effect
@@ -114,16 +122,16 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
           >
             <span className="text-3xl">⚡</span>
           </div>
-          <h3 className="text-xl font-black text-[#1a1a2e] mb-2">Quick Fire!</h3>
+          <h3 className="text-xl font-black text-[#1a1a2e] mb-2">{t('demoQuickFire.title')}</h3>
           <p className="text-sm text-gray-500 mb-6">
-            Type translations as fast as you can!
+            {t('demoQuickFire.instructions')}
           </p>
           <button
             onClick={handleStart}
             className="px-8 py-3 rounded-xl font-black text-white text-sm uppercase tracking-widest transition-all active:scale-95"
             style={{ backgroundColor: accentColor }}
           >
-            Start
+            {t('demoQuickFire.start')}
           </button>
         </div>
       )}
@@ -160,7 +168,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
             }`}
           >
             <span className="text-[9px] font-black uppercase tracking-widest text-gray-400 block mb-1">
-              Polish
+              {targetName}
             </span>
             <h3 className="text-2xl font-black text-[#1a1a2e]">{currentWord.word}</h3>
           </div>
@@ -172,7 +180,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Type in English..."
+            placeholder={t('demoQuickFire.typeIn', { language: nativeName })}
             className="w-full p-3 rounded-xl border-2 focus:outline-none text-base font-medium text-center"
             style={{
               borderColor: lastCorrect === true ? '#4ade80' : lastCorrect === false ? '#f87171' : accentColor,
@@ -189,7 +197,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
             className="w-full mt-4 py-3 rounded-xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50 transition-all active:scale-[0.98]"
             style={{ backgroundColor: accentColor }}
           >
-            Submit
+            {t('demoQuickFire.submit')}
           </button>
         </div>
       )}
@@ -204,9 +212,9 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
             {score}/{totalAnswered}
           </div>
           <p className="text-lg font-bold text-[#1a1a2e]">
-            {score === totalAnswered ? 'Perfect!' : score > totalAnswered / 2 ? 'Great job!' : 'Keep practicing!'}
+            {score === totalAnswered ? t('demoQuickFire.perfect') : score > totalAnswered / 2 ? t('demoQuickFire.greatJob') : t('demoQuickFire.keepPracticing')}
           </p>
-          <p className="text-sm text-gray-400 mt-2">Time's up!</p>
+          <p className="text-sm text-gray-400 mt-2">{t('demoQuickFire.timesUp')}</p>
         </div>
       )}
     </div>

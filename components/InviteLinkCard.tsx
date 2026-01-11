@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, InviteToken } from '../types';
 import { ICONS } from '../constants';
@@ -8,6 +9,7 @@ interface InviteLinkCardProps {
 }
 
 const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
+  const { t } = useTranslation();
   const [inviteLink, setInviteLink] = useState<string | null>(null);
   const [expiresAt, setExpiresAt] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -102,9 +104,9 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
     const now = new Date();
     const diffDays = Math.ceil((date.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 
-    if (diffDays <= 0) return 'Expired';
-    if (diffDays === 1) return 'Expires tomorrow';
-    return `Expires in ${diffDays} days`;
+    if (diffDays <= 0) return t('inviteLink.expired');
+    if (diffDays === 1) return t('inviteLink.expiresTomorrow');
+    return t('inviteLink.expiresIn', { days: diffDays });
   };
 
   const regenerateLink = async () => {
@@ -121,8 +123,8 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
           <ICONS.Link className="w-5 h-5 text-[var(--accent-color)]" />
         </div>
         <div>
-          <h3 className="text-sm font-black text-gray-800">Magic Invite Link</h3>
-          <p className="text-[10px] text-gray-400 font-medium">Share with your partner to connect instantly</p>
+          <h3 className="text-sm font-black text-gray-800">{t('inviteLink.title')}</h3>
+          <p className="text-[10px] text-gray-400 font-medium">{t('inviteLink.subtitle')}</p>
         </div>
       </div>
 
@@ -141,12 +143,12 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
           {loading ? (
             <>
               <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              Generating...
+              {t('inviteLink.generating')}
             </>
           ) : (
             <>
               <ICONS.Sparkles className="w-4 h-4" />
-              Generate Invite Link
+              {t('inviteLink.generate')}
             </>
           )}
         </button>
@@ -155,7 +157,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
           {/* Link display */}
           <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-3">
             <div className="flex-1 truncate">
-              <p className="text-xs text-gray-400 font-medium mb-1">Your invite link:</p>
+              <p className="text-xs text-gray-400 font-medium mb-1">{t('inviteLink.yourLink')}</p>
               <p className="text-sm font-mono text-gray-600 truncate">{inviteLink}</p>
             </div>
           </div>
@@ -172,12 +174,12 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
             {copied ? (
               <>
                 <ICONS.Check className="w-4 h-4" />
-                Copied to Clipboard!
+                {t('inviteLink.copied')}
               </>
             ) : (
               <>
                 <ICONS.Copy className="w-4 h-4" />
-                Copy Link
+                {t('inviteLink.copyLink')}
               </>
             )}
           </button>
@@ -193,14 +195,14 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
               className="text-[var(--accent-color)] font-bold hover:text-[var(--accent-hover)] transition-colors flex items-center gap-1"
             >
               <ICONS.RefreshCw className="w-3 h-3" />
-              New Link
+              {t('inviteLink.newLink')}
             </button>
           </div>
 
           {/* How it works */}
           <div className="pt-4 border-t border-gray-100">
             <p className="text-[10px] text-gray-400 font-medium text-center">
-              When your partner clicks this link, they'll be invited to join as your language coach!
+              {t('inviteLink.description')}
             </p>
           </div>
         </div>

@@ -11,7 +11,7 @@ export interface LevelTheme {
   name: string;
   description: string;
   concepts: string[];
-  polishExamples: string[];
+  examples: string[];  // Reference examples (may be in any language)
 }
 
 // Tier definitions with XP ranges
@@ -87,7 +87,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'yes',
       'no'
     ],
-    polishExamples: [
+    examples: [
       'cześć',
       'kocham cię',
       'dzień dobry',
@@ -111,7 +111,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'everything okay?',
       'how was your day?'
     ],
-    polishExamples: [
+    examples: [
       'jak się masz?',
       'wszystko w porządku?',
       'co się stało?',
@@ -135,7 +135,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       "I'm sad",
       'I feel good'
     ],
-    polishExamples: [
+    examples: [
       'jestem szczęśliwy/szczęśliwa',
       'jestem zmęczony/zmęczona',
       'jestem głodny/głodna',
@@ -159,7 +159,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       "I'm leaving",
       "I'll be back"
     ],
-    polishExamples: [
+    examples: [
       'jedzmy',
       'idę do pracy',
       'jestem w domu',
@@ -183,7 +183,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'I would like...',
       'what do you want?'
     ],
-    polishExamples: [
+    examples: [
       'lubię...',
       'chcę...',
       'czy chcesz...?',
@@ -207,7 +207,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'this weekend',
       "what time?"
     ],
-    polishExamples: [
+    examples: [
       'kiedy?',
       'gdzie?',
       'jutro',
@@ -231,7 +231,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'then...',
       'after that...'
     ],
-    polishExamples: [
+    examples: [
       'wczoraj',
       'co się stało?',
       'poszedłem/poszłam do...',
@@ -255,7 +255,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'my heart',
       'my love'
     ],
-    polishExamples: [
+    examples: [
       'jesteś dla mnie wszystkim',
       'bardzo cię kocham',
       'nie wyobrażam sobie życia bez ciebie',
@@ -279,7 +279,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'I believe...',
       'it depends on...'
     ],
-    polishExamples: [
+    examples: [
       'myślę, że...',
       'moim zdaniem...',
       'zgadzam się',
@@ -303,7 +303,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'someday',
       'when we...'
     ],
-    polishExamples: [
+    examples: [
       'pewnego dnia będziemy...',
       'marzę o...',
       'nasza przyszłość',
@@ -327,7 +327,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       "let's figure it out",
       'together we can...'
     ],
-    polishExamples: [
+    examples: [
       'porozmawiajmy o...',
       'rozumiem',
       'słyszę cię',
@@ -351,7 +351,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'regional expressions',
       'slang (careful!)'
     ],
-    polishExamples: [
+    examples: [
       'nie ma sprawy',
       'trzymaj się',
       'Pan/Pani vs ty',
@@ -375,7 +375,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'formal writing',
       'professional communication'
     ],
-    polishExamples: [
+    examples: [
       'gdybym mógł/mogła...',
       'jeśli by to było możliwe...',
       'załóżmy, że...',
@@ -399,7 +399,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'storytelling mastery',
       'emotional depth'
     ],
-    polishExamples: [
+    examples: [
       'dowcipy i żarty',
       'gra słów',
       'wiersze',
@@ -423,7 +423,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'linguistic analysis',
       'translation expertise'
     ],
-    polishExamples: [
+    examples: [
       'archaizmy',
       'gwary regionalne',
       'żargon zawodowy',
@@ -447,7 +447,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'social commentary',
       'generational perspectives'
     ],
-    polishExamples: [
+    examples: [
       'odniesienia historyczne',
       'aluzje literackie',
       'symbole kulturowe',
@@ -471,7 +471,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
       'bridge cultures',
       'share your journey'
     ],
-    polishExamples: [
+    examples: [
       'nauczanie innych',
       'tworzenie treści',
       'profesjonalne tłumaczenia',

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
@@ -11,13 +12,6 @@ interface TeachingStyleStepProps {
   accentColor?: string;
 }
 
-const STYLE_OPTIONS = [
-  { id: 'patient', label: 'Patient & Gentle', description: 'Slow and steady wins the race', emoji: '🐢' },
-  { id: 'playful', label: 'Playful & Fun', description: 'Learning through games and humor', emoji: '🎮' },
-  { id: 'structured', label: 'Structured', description: 'Organized lessons with clear goals', emoji: '📋' },
-  { id: 'immersive', label: 'Immersive', description: 'Dive in and learn by doing', emoji: '🏊' },
-];
-
 export const TeachingStyleStep: React.FC<TeachingStyleStepProps> = ({
   currentStep,
   totalSteps,
@@ -26,6 +20,16 @@ export const TeachingStyleStep: React.FC<TeachingStyleStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+
+  // Style options inside component to access t()
+  const styleOptions = [
+    { id: 'patient', label: t('onboarding.tutor.style.patient'), description: t('onboarding.tutor.style.patientDesc'), emoji: '🐢' },
+    { id: 'playful', label: t('onboarding.tutor.style.playful'), description: t('onboarding.tutor.style.playfulDesc'), emoji: '🎮' },
+    { id: 'structured', label: t('onboarding.tutor.style.structured'), description: t('onboarding.tutor.style.structuredDesc'), emoji: '📋' },
+    { id: 'immersive', label: t('onboarding.tutor.style.immersive'), description: t('onboarding.tutor.style.immersiveDesc'), emoji: '🏊' },
+  ];
+
   const [selected, setSelected] = useState(initialValue);
 
   return (
@@ -40,15 +44,15 @@ export const TeachingStyleStep: React.FC<TeachingStyleStepProps> = ({
           <ICONS.Sparkles className="w-8 h-8 text-rose-500" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          Your teaching style?
+          {t('onboarding.tutor.style.title')}
         </h1>
         <p className="text-gray-500">
-          How do you naturally help someone learn?
+          {t('onboarding.tutor.style.subtitle')}
         </p>
       </div>
 
       <div className="space-y-3 mb-6">
-        {STYLE_OPTIONS.map((option) => (
+        {styleOptions.map((option) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}

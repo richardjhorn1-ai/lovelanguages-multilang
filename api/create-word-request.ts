@@ -1,15 +1,24 @@
 import { createClient } from '@supabase/supabase-js';
 import { GoogleGenAI, Type } from "@google/genai";
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { getLanguageName } from '../constants/language-config.js';
 
 // Get AI suggestions for a topic - lightweight preview data only
 // Full grammatical data (conjugations, examples, etc.) is generated later
 // in complete-word-request.ts when the student actually accepts the words
-async function getTopicSuggestions(topic: string, count: number = 10, excludeWords: string[] = []): Promise<any[]> {
+async function getTopicSuggestions(
+  topic: string,
+  count: number = 10,
+  excludeWords: string[] = [],
+  targetLanguage: string = 'pl',
+  nativeLanguage: string = 'en'
+): Promise<any[]> {
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
   if (!apiKey) return [];
 
   const ai = new GoogleGenAI({ apiKey });
+  const targetName = getLanguageName(targetLanguage);
+  const nativeName = getLanguageName(nativeLanguage);
 
   // Build exclusion instruction if there are words to exclude
   const exclusionText = excludeWords.length > 0
@@ -18,9 +27,9 @@ async function getTopicSuggestions(topic: string, count: number = 10, excludeWor
 
   const result = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
-    contents: `Generate ${count} Polish vocabulary words/phrases related to the topic: "${topic}"
+    contents: `Generate ${count} ${targetName} vocabulary words/phrases related to the topic: "${topic}"
 
-For a romantic couple learning Polish together. The words should be practical and useful for everyday communication.${exclusionText}
+For a romantic couple where one partner is learning ${targetName}. The words should be practical and useful for everyday communication.${exclusionText}
 
 Return ONLY the JSON array with basic word info for preview.`,
     config: {
@@ -32,10 +41,10 @@ Return ONLY the JSON array with basic word info for preview.`,
         items: {
           type: Type.OBJECT,
           properties: {
-            word: { type: Type.STRING, description: "Polish word or phrase" },
-            translation: { type: Type.STRING, description: "English translation" },
+            word: { type: Type.STRING, description: `${targetName} word or phrase` },
+            translation: { type: Type.STRING, description: `${nativeName} translation` },
             word_type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
-            pronunciation: { type: Type.STRING, description: "Pronunciation guide in English" }
+            pronunciation: { type: Type.STRING, description: "Pronunciation guide" }
           },
           required: ["word", "translation", "word_type", "pronunciation"]
         }
@@ -100,6 +109,16 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
+    // Fetch student's language settings for word generation
+    const { data: studentProfile } = await supabase
+      .from('profiles')
+      .select('active_language, native_language')
+      .eq('id', profile.linked_user_id)
+      .single();
+
+    const targetLanguage = studentProfile?.active_language || 'pl';
+    const nativeLanguage = studentProfile?.native_language || 'en';
+
     const { requestType, inputText, selectedWords, xpMultiplier, dryRun, excludeWords, count } = req.body;
 
     if (!requestType || !inputText) {
@@ -113,7 +132,7 @@ export default async function handler(req: any, res: any) {
     if (requestType === 'ai_topic') {
       const wordCount = count || 10;
       const wordsToExclude = excludeWords || [];
-      aiSuggestions = await getTopicSuggestions(inputText, wordCount, wordsToExclude);
+      aiSuggestions = await getTopicSuggestions(inputText, wordCount, wordsToExclude, targetLanguage, nativeLanguage);
 
       // If dryRun, just return suggestions without creating a word request
       if (dryRun) {
@@ -148,6 +167,7 @@ export default async function handler(req: any, res: any) {
       .insert({
         tutor_id: auth.userId,
         student_id: profile.linked_user_id,
+        language_code: targetLanguage,
         request_type: requestType,
         input_text: inputText,
         ai_suggestions: aiSuggestions,

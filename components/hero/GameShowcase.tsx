@@ -1,9 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { DEMO_WORDS, shuffleArray } from './demoData';
+import { useTranslation } from 'react-i18next';
+import { getDemoWords, shuffleArray } from './demoData';
 import { DemoFlashcard } from './DemoFlashcard';
 import { DemoMultipleChoice } from './DemoMultipleChoice';
 import { DemoTypeIt } from './DemoTypeIt';
 import { DemoQuickFire } from './DemoQuickFire';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface GameShowcaseProps {
   isStudent: boolean;
@@ -21,11 +23,16 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
   sectionIndex,
   isMobile = false,
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage, nativeLanguage, targetName, nativeName } = useLanguage();
   const [currentMode, setCurrentMode] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
 
-  // Shuffle words for variety
-  const deck = useMemo(() => shuffleArray(DEMO_WORDS).slice(0, 6), []);
+  // Generate demo words based on language and shuffle for variety
+  const deck = useMemo(
+    () => shuffleArray(getDemoWords(targetLanguage, nativeLanguage)).slice(0, 6),
+    [targetLanguage, nativeLanguage]
+  );
 
   const handleComplete = (_correct: boolean) => {
     if (questionIndex < 1) {
@@ -54,35 +61,51 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
   // Copy based on student/tutor with highlights
   const studentHeadline = (
     <>
-      Oh, and if you want to learn{' '}
+      {t('gameShowcase.studentHeadline.part1')}
       <span className="relative inline">
-        <span style={{ color: accentColor }}>the traditional way too</span>
+        <span style={{ color: accentColor }}>{t('gameShowcase.studentHeadline.highlight')}</span>
         <span
           className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
           style={{ backgroundColor: accentColor, opacity: 0.5 }}
         />
       </span>
-      ...
+      {t('gameShowcase.studentHeadline.part2')}
     </>
   );
 
   const tutorHeadline = (
     <>
-      <span style={{ color: accentColor }}>Play together</span>, or send them{' '}
+      <span style={{ color: accentColor }}>{t('gameShowcase.tutorHeadline.playTogether')}</span>
+      {t('gameShowcase.tutorHeadline.middle')}
       <span className="relative inline">
-        <span style={{ color: accentColor }}>challenges</span>
+        <span style={{ color: accentColor }}>{t('gameShowcase.tutorHeadline.challenges')}</span>
         <span
           className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
           style={{ backgroundColor: accentColor, opacity: 0.5 }}
         />
-      </span>{' '}
-      to tackle solo...
+      </span>
+      {t('gameShowcase.tutorHeadline.end')}
     </>
   );
 
   const subtext = isStudent
-    ? "We do that amazingly."
-    : "Spoiler: you'll want to play too.";
+    ? t('gameShowcase.studentSubtext')
+    : t('gameShowcase.tutorSubtext');
+
+  // Helper to get mode display name
+  const getModeDisplayName = (mode: typeof MODES[number], short = false): string => {
+    if (short) {
+      if (mode === 'Multiple Choice') return t('gameShowcase.mobileShort.multi');
+      if (mode === 'Quick Fire') return t('gameShowcase.mobileShort.quick');
+    }
+    switch (mode) {
+      case 'Flashcard': return t('gameShowcase.modes.flashcard');
+      case 'Multiple Choice': return t('gameShowcase.modes.multipleChoice');
+      case 'Type It': return t('gameShowcase.modes.typeIt');
+      case 'Quick Fire': return t('gameShowcase.modes.quickFire');
+      default: return mode;
+    }
+  };
 
   // Mobile compact layout - fits within carousel card without vertical scroll
   if (isMobile) {
@@ -118,7 +141,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
                 }`}
                 style={i === currentMode ? { backgroundColor: accentColor } : {}}
               >
-                {mode === 'Multiple Choice' ? 'Multi' : mode === 'Quick Fire' ? 'Quick' : mode}
+                {getModeDisplayName(mode, true)}
               </button>
             ))}
           </div>
@@ -154,6 +177,8 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
               word={currentWord}
               accentColor={accentColor}
               onComplete={handleComplete}
+              targetName={targetName}
+              nativeName={nativeName}
             />
           )}
           {currentMode === 1 && (
@@ -161,6 +186,9 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
               word={currentWord}
               accentColor={accentColor}
               onComplete={handleComplete}
+              targetName={targetName}
+              nativeName={nativeName}
+              allWords={deck}
             />
           )}
           {currentMode === 2 && (
@@ -168,12 +196,17 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
               word={currentWord}
               accentColor={accentColor}
               onComplete={handleComplete}
+              targetName={targetName}
+              nativeName={nativeName}
             />
           )}
           {currentMode === 3 && (
             <DemoQuickFire
               accentColor={accentColor}
               onComplete={handleComplete}
+              targetName={targetName}
+              nativeName={nativeName}
+              words={deck}
             />
           )}
         </div>
@@ -233,7 +266,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
                 }`}
                 style={i === currentMode ? { backgroundColor: accentColor } : {}}
               >
-                {mode}
+                {getModeDisplayName(mode)}
               </button>
             ))}
           </div>
@@ -269,6 +302,8 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
               word={currentWord}
               accentColor={accentColor}
               onComplete={handleComplete}
+              targetName={targetName}
+              nativeName={nativeName}
             />
           )}
           {currentMode === 1 && (
@@ -276,6 +311,9 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
               word={currentWord}
               accentColor={accentColor}
               onComplete={handleComplete}
+              targetName={targetName}
+              nativeName={nativeName}
+              allWords={deck}
             />
           )}
           {currentMode === 2 && (
@@ -283,12 +321,17 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
               word={currentWord}
               accentColor={accentColor}
               onComplete={handleComplete}
+              targetName={targetName}
+              nativeName={nativeName}
             />
           )}
           {currentMode === 3 && (
             <DemoQuickFire
               accentColor={accentColor}
               onComplete={handleComplete}
+              targetName={targetName}
+              nativeName={nativeName}
+              words={deck}
             />
           )}
         </div>
