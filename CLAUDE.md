@@ -118,6 +118,21 @@ DEFAULT_LANGUAGES: { targetLanguage: 'pl', nativeLanguage: 'en' }  // Backward c
 - `services/gladia-session.ts` - WebSocket Listen Mode with Gladia transcription API
 - `services/supabase.ts` - Database client
 
+### Blog (Astro Static Site)
+Separate Astro project for SEO blog content at `/blog/`:
+- **URL**: `/learn` (static HTML, NOT `/#/learn`)
+- **Articles**: 74 MDX files in `blog/src/content/articles/`
+- **Build**: `npm run build` runs both Vite + Astro, copies `blog/dist/*` into main `dist/`
+- **Pages**: `/learn`, `/learn/:slug`, `/dictionary`, `/tools`, `/compare`
+
+Key files:
+- `blog/astro.config.mjs` - Astro config (static output, sitemap)
+- `blog/src/content/articles/*.mdx` - Blog articles
+- `blog/src/pages/learn/` - Article listing and detail pages
+- `blog/src/components/` - Blog-specific components (Navigation, SEO, CTA)
+
+**Note**: The React app uses HashRouter (`/#/`). Blog routes are static HTML served directly by Vercel rewrites in `vercel.json`.
+
 ### User Roles
 The app distinguishes between two roles (`UserRole` in `types.ts`):
 - **Students**: Learn their target language, have Ask/Learn chat modes, play games, track vocabulary
@@ -404,6 +419,7 @@ All game components must implement both paths consistently using the user's `act
 - `README.md` - AI persona and feature overview
 - `ROADMAP.md` - Product phases and progress tracking
 - `TROUBLESHOOTING.md` - 36+ solved issues with detailed solutions (check here first for common errors)
+- `SEO_STATUS.md` - Blog SEO work tracking (74 articles)
 - `docs/AI_INTEGRATION_GUIDE.md` - Gemini API implementation
 - `docs/FORMATTING.md` - Markdown rendering pipeline
 - `docs/SYSTEM_PROMPTS.md` - AI prompt documentation and modification guide
