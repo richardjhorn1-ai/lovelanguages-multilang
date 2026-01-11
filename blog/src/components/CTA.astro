@@ -2,20 +2,28 @@
 interface Props {
   text?: string;
   buttonText?: string;
+  showSocialProof?: boolean;
 }
 
 const {
-  text = "Ready to start learning Polish with your partner?",
-  buttonText = "Start Learning Free"
+  text = "Ready to learn Polish together?",
+  buttonText = "Start Your Journey",
+  showSocialProof = true
 } = Astro.props;
 ---
 
 <div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
-  <h3 class="text-2xl font-bold font-header mb-4">{text}</h3>
+  <h3 class="text-2xl font-bold font-header mb-3">{text}</h3>
+  <p class="text-white/90 mb-5 text-lg">AI coaching, voice practice, and games designed for couples.</p>
   <a
     href="/"
-    class="inline-block bg-white text-accent font-bold px-8 py-3 rounded-full hover:shadow-lg transition-shadow"
+    class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
   >
     {buttonText} →
   </a>
+  {showSocialProof && (
+    <p class="mt-4 text-white/80 text-sm">
+      Join couples learning Polish across 30+ countries
+    </p>
+  )}
 </div>

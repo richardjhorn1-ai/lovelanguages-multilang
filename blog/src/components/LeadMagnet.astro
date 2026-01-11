@@ -1,0 +1,52 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+}
+
+const {
+  title = "Get Our Polish Phrasebook",
+  description = "50 essential Polish phrases for couples - pronunciation guides, romantic expressions, and conversation starters. Delivered to your inbox.",
+  buttonText = "Send Me the Guide"
+} = Astro.props;
+---
+
+<div class="my-12 bg-white border-2 border-accent/20 rounded-2xl p-8 relative overflow-hidden">
+  <!-- Decorative element -->
+  <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-pink-100 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+
+  <div class="relative">
+    <div class="flex items-start gap-4 mb-6">
+      <div class="text-4xl">📚</div>
+      <div>
+        <h3 class="text-xl font-bold font-header text-gray-900 mb-2">{title}</h3>
+        <p class="text-gray-600">{description}</p>
+      </div>
+    </div>
+
+    <form
+      class="flex flex-col sm:flex-row gap-3"
+      action="https://lovelanguages.xyz/api/lead-magnet"
+      method="POST"
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="your@email.com"
+        required
+        class="flex-1 px-4 py-3 rounded-xl border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all"
+      />
+      <button
+        type="submit"
+        class="px-6 py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-colors whitespace-nowrap"
+      >
+        {buttonText} →
+      </button>
+    </form>
+
+    <p class="text-xs text-gray-500 mt-3">
+      No spam, ever. Unsubscribe anytime.
+    </p>
+  </div>
+</div>
