@@ -1,5 +1,6 @@
 ---
 import SEO from '../components/SEO.astro';
+import Navigation from '../components/Navigation.astro';
 
 interface Props {
   title: string;
@@ -12,9 +13,10 @@ interface Props {
     section?: string;
     tags?: string[];
   };
+  hideNavigation?: boolean;  // Some pages have custom headers
 }
 
-const { title, description, image, article } = Astro.props;
+const { title, description, image, article, hideNavigation = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -37,6 +39,8 @@ const { title, description, image, article } = Astro.props;
   />
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased" style="font-family: 'Outfit', sans-serif;">
+  {!hideNavigation && <Navigation />}
+  <slot name="head" />
   <slot />
 </body>
 </html>
