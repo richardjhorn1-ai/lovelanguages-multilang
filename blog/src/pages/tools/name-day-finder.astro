@@ -1,0 +1,401 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { polishNameDays, nameDayFacts, formatNameDayDate } from '../../data/polish-name-days';
+
+// Get today's names
+const today = new Date();
+const todayKey = `${today.getMonth() + 1}-${today.getDate()}`;
+const todaysNames = polishNameDays[todayKey] || [];
+
+// JSON-LD for the tool page
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Polish Name Day Finder",
+  "description": "Find when your Polish name day (imieniny) is celebrated. Enter any Polish name to discover its traditional celebration date.",
+  "url": "https://lovelanguages.xyz/tools/name-day-finder",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+
+// Pass data to client-side
+const nameDaysJson = JSON.stringify(polishNameDays);
+---
+
+<BaseLayout
+  title="Polish Name Day Finder - When Is Your Imieniny?"
+  description="Find when your Polish name day (imieniny) is celebrated. Enter any Polish name to discover its traditional celebration date and learn about this beautiful Polish tradition."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+      <div class="text-center">
+        <a href="/" class="inline-flex items-center gap-2 text-accent font-bold font-header text-xl mb-4 hover:opacity-80">
+          <img src="/favicon.svg" alt="" class="w-6 h-6" />
+          Love Languages
+        </a>
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Polish Name Day Finder
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Discover when your Polish name day (imieniny) is celebrated. A beloved tradition where each day honors specific names!
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Tool Section -->
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Search Card -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 mb-8">
+      <div class="max-w-xl mx-auto">
+        <label for="name-input" class="block text-lg font-bold text-gray-900 mb-3">
+          Enter a Polish name:
+        </label>
+        <div class="flex gap-3">
+          <input
+            type="text"
+            id="name-input"
+            placeholder="e.g., Anna, Jan, Katarzyna..."
+            class="flex-1 px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-lg"
+            autocomplete="off"
+          />
+          <button
+            id="search-btn"
+            type="button"
+            class="px-6 py-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-colors whitespace-nowrap"
+          >
+            Find Date
+          </button>
+        </div>
+
+        <!-- Results Area -->
+        <div id="results" class="mt-6 hidden">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Suggestions -->
+        <div id="suggestions" class="mt-4">
+          <p class="text-sm text-gray-500 mb-2">Popular names to try:</p>
+          <div class="flex flex-wrap gap-2">
+            {['Anna', 'Jan', 'Maria', 'Piotr', 'Katarzyna', 'Tomasz', 'Ewa', 'Andrzej'].map(name => (
+              <button
+                type="button"
+                class="suggestion-btn px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-accent/10 hover:text-accent transition-colors"
+                data-name={name}
+              >
+                {name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Today's Names -->
+    <div class="bg-gradient-to-r from-accent/5 to-pink-50 rounded-2xl p-6 md:p-8 mb-8">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl">📅</span>
+        <h2 class="text-2xl font-bold font-header text-gray-900">Today's Name Days</h2>
+      </div>
+      <p class="text-gray-600 mb-4">
+        Today ({formatNameDayDate(todayKey)}), we celebrate:
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {todaysNames.map(name => (
+          <span class="px-4 py-2 bg-white rounded-full font-bold text-accent shadow-sm">
+            {name}
+          </span>
+        ))}
+      </div>
+      <p class="mt-4 text-sm text-gray-500">
+        Know someone with these names? Wish them "Wszystkiego najlepszego!" (All the best!)
+      </p>
+    </div>
+
+    <!-- Cultural Info -->
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <h3 class="text-xl font-bold font-header text-gray-900 mb-3 flex items-center gap-2">
+          <span class="text-2xl">🇵🇱</span> What is Imieniny?
+        </h3>
+        <p class="text-gray-600">
+          In Poland, <strong class="text-accent">imieniny</strong> (name days) are a beloved tradition where each day of the year is associated with specific names. Many Poles celebrate their name day as much as - or even more than - their birthday!
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <h3 class="text-xl font-bold font-header text-gray-900 mb-3 flex items-center gap-2">
+          <span class="text-2xl">🎁</span> How to Celebrate
+        </h3>
+        <p class="text-gray-600">
+          Bring flowers, sweets, or a small gift. Say <strong class="text-accent">"Wszystkiego najlepszego z okazji imienin!"</strong> (All the best on your name day!) It's common to celebrate with cake at work or a small family gathering.
+        </p>
+      </div>
+    </div>
+
+    <!-- Did You Know Section -->
+    <div class="bg-white rounded-2xl p-6 shadow-sm mb-8">
+      <h3 class="text-xl font-bold font-header text-gray-900 mb-4 flex items-center gap-2">
+        <span class="text-2xl">💡</span> Did You Know?
+      </h3>
+      <ul class="space-y-3">
+        {nameDayFacts.slice(0, 5).map(fact => (
+          <li class="flex items-start gap-3 text-gray-600">
+            <span class="text-accent mt-1">♥</span>
+            <span>{fact}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
+        Learn Polish Together With Your Partner
+      </h2>
+      <p class="text-white/90 mb-6 text-lg">
+        Discover more Polish traditions, practice pronunciation, and master the language of love.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Learning Polish →
+      </a>
+      <p class="mt-4 text-white/80 text-sm">
+        Join couples learning Polish across 30+ countries
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
+
+<script define:vars={{ nameDaysJson }}>
+  // Parse the name days data
+  const nameDays = JSON.parse(nameDaysJson);
+
+  // Build reverse index (name -> dates)
+  const nameToDate = new Map();
+  for (const [date, names] of Object.entries(nameDays)) {
+    for (const name of names) {
+      const normalizedName = name.toLowerCase();
+      if (!nameToDate.has(normalizedName)) {
+        nameToDate.set(normalizedName, []);
+      }
+      nameToDate.get(normalizedName).push({ date, originalName: name });
+    }
+  }
+
+  // Format date nicely
+  function formatDate(dateKey) {
+    const [month, day] = dateKey.split('-').map(Number);
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return `${months[month - 1]} ${day}`;
+  }
+
+  // Calculate days until next occurrence
+  function getDaysUntil(dateKey) {
+    const [month, day] = dateKey.split('-').map(Number);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const currentYear = today.getFullYear();
+
+    let targetDate = new Date(currentYear, month - 1, day);
+    if (targetDate < today) {
+      targetDate = new Date(currentYear + 1, month - 1, day);
+    }
+
+    const diffTime = targetDate.getTime() - today.getTime();
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  }
+
+  // Find name and display results
+  function findNameDay(searchName) {
+    const resultsDiv = document.getElementById('results');
+    const normalizedSearch = searchName.trim().toLowerCase();
+
+    if (!normalizedSearch) {
+      resultsDiv.classList.add('hidden');
+      return;
+    }
+
+    // Find exact or partial matches
+    let matches = [];
+
+    // Exact match first
+    if (nameToDate.has(normalizedSearch)) {
+      const dateInfos = nameToDate.get(normalizedSearch);
+      matches = dateInfos.map(info => ({
+        name: info.originalName,
+        date: info.date,
+        formatted: formatDate(info.date),
+        daysUntil: getDaysUntil(info.date)
+      }));
+    }
+
+    // If no exact match, try partial matching
+    if (matches.length === 0) {
+      for (const [name, dateInfos] of nameToDate.entries()) {
+        if (name.includes(normalizedSearch) || normalizedSearch.includes(name)) {
+          for (const info of dateInfos) {
+            matches.push({
+              name: info.originalName,
+              date: info.date,
+              formatted: formatDate(info.date),
+              daysUntil: getDaysUntil(info.date)
+            });
+          }
+        }
+      }
+    }
+
+    // Display results
+    if (matches.length > 0) {
+      // Sort by days until next occurrence
+      matches.sort((a, b) => a.daysUntil - b.daysUntil);
+
+      // Remove duplicates
+      const seen = new Set();
+      matches = matches.filter(m => {
+        const key = `${m.name}-${m.date}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+
+      const nextMatch = matches[0];
+      const isToday = nextMatch.daysUntil === 0;
+
+      let html = `
+        <div class="bg-gradient-to-r from-accent/10 to-pink-50 rounded-xl p-6 text-center">
+          <div class="text-5xl mb-3">${isToday ? '🎉' : '📅'}</div>
+          <h3 class="text-2xl font-bold font-header text-gray-900 mb-2">
+            ${nextMatch.name}'s Name Day
+          </h3>
+          <p class="text-xl text-accent font-bold mb-2">
+            ${nextMatch.formatted}
+          </p>
+          <p class="text-gray-600">
+            ${isToday
+              ? "That's today! Wszystkiego najlepszego! 🎂"
+              : nextMatch.daysUntil === 1
+                ? "That's tomorrow!"
+                : `${nextMatch.daysUntil} days from now`
+            }
+          </p>
+      `;
+
+      // If multiple dates for this name
+      if (matches.length > 1) {
+        html += `
+          <div class="mt-4 pt-4 border-t border-accent/20">
+            <p class="text-sm text-gray-500 mb-2">Other dates for similar names:</p>
+            <div class="flex flex-wrap justify-center gap-2">
+              ${matches.slice(1, 5).map(m => `
+                <span class="px-3 py-1 bg-white rounded-full text-sm text-gray-700">
+                  ${m.name}: ${m.formatted}
+                </span>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      html += `
+          <div class="mt-4 pt-4 border-t border-accent/20">
+            <p class="text-sm text-gray-500">
+              Wish them: <strong class="text-accent">"Wszystkiego najlepszego z okazji imienin!"</strong>
+              <br><span class="text-xs">(All the best on your name day!)</span>
+            </p>
+          </div>
+        </div>
+      `;
+
+      resultsDiv.innerHTML = html;
+      resultsDiv.classList.remove('hidden');
+    } else {
+      resultsDiv.innerHTML = `
+        <div class="bg-gray-50 rounded-xl p-6 text-center">
+          <div class="text-4xl mb-3">🤔</div>
+          <p class="text-gray-600">
+            No Polish name day found for "<strong>${searchName}</strong>".
+            <br><span class="text-sm">Try a traditional Polish name like Anna, Jan, or Katarzyna.</span>
+          </p>
+        </div>
+      `;
+      resultsDiv.classList.remove('hidden');
+    }
+  }
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('name-input');
+    const searchBtn = document.getElementById('search-btn');
+    const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+
+    // Search button click
+    searchBtn.addEventListener('click', () => {
+      findNameDay(input.value);
+    });
+
+    // Enter key
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        findNameDay(input.value);
+      }
+    });
+
+    // Suggestion buttons
+    suggestionBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        input.value = name;
+        findNameDay(name);
+      });
+    });
+
+    // Auto-search as user types (debounced)
+    let timeout;
+    input.addEventListener('input', () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        if (input.value.length >= 2) {
+          findNameDay(input.value);
+        }
+      }, 300);
+    });
+  });
+</script>

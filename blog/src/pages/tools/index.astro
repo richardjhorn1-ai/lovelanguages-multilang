@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const tools = [
+  {
+    title: "Polish Name Day Finder",
+    description: "Find when your Polish name day (imieniny) is celebrated. Discover this beautiful Polish tradition!",
+    href: "/tools/name-day-finder",
+    icon: "📅",
+    badge: "Free"
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Free Polish Learning Tools",
+  "description": "Free interactive tools to help you learn Polish language and culture.",
+  "url": "https://lovelanguages.xyz/tools",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+---
+
+<BaseLayout
+  title="Free Polish Learning Tools"
+  description="Free interactive tools to help you learn Polish language and culture. Name day finder, pronunciation helpers, and more."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Header -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+      <div class="text-center">
+        <a href="/" class="inline-flex items-center gap-2 text-accent font-bold font-header text-xl mb-4 hover:opacity-80">
+          <img src="/favicon.svg" alt="" class="w-6 h-6" />
+          Love Languages
+        </a>
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Free Polish Learning Tools
+        </h1>
+        <p class="text-xl text-gray-600">
+          Interactive tools to help you and your partner learn Polish together
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tools Grid -->
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-2 gap-6">
+      {tools.map(tool => (
+        <a
+          href={tool.href}
+          class="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all p-6 border border-gray-100 hover:border-accent/30"
+        >
+          <div class="flex items-start gap-4">
+            <div class="text-4xl">{tool.icon}</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <h2 class="text-xl font-bold font-header text-gray-900 group-hover:text-accent transition-colors">
+                  {tool.title}
+                </h2>
+                {tool.badge && (
+                  <span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded-full">
+                    {tool.badge}
+                  </span>
+                )}
+              </div>
+              <p class="text-gray-600">{tool.description}</p>
+              <span class="inline-block mt-3 text-accent font-medium group-hover:translate-x-1 transition-transform">
+                Try it now →
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+
+      <!-- Coming Soon Placeholder -->
+      <div class="bg-gray-50 rounded-2xl p-6 border border-dashed border-gray-300">
+        <div class="flex items-start gap-4 opacity-60">
+          <div class="text-4xl">🔮</div>
+          <div>
+            <h2 class="text-xl font-bold font-header text-gray-700 mb-2">
+              More Tools Coming Soon
+            </h2>
+            <p class="text-gray-500">
+              Pronunciation checker, vocabulary quiz builder, and more!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
+        Ready for the Full Experience?
+      </h2>
+      <p class="text-white/90 mb-6 text-lg">
+        Get AI coaching, voice practice, games, and personalized lessons.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Learning Polish →
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>

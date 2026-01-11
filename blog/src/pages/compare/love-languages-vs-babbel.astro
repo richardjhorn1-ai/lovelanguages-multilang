@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const comparison = {
+  features: [
+    {
+      name: "Polish Specialization",
+      loveLanguages: { value: "Polish-only focus", highlight: true },
+      competitor: { value: "Polish is 1 of 14 languages", highlight: false }
+    },
+    {
+      name: "Learning Together",
+      loveLanguages: { value: "Couple-focused features", highlight: true },
+      competitor: { value: "Individual subscriptions", highlight: false }
+    },
+    {
+      name: "AI Tutor",
+      loveLanguages: { value: "Advanced AI conversations", highlight: true },
+      competitor: { value: "Scripted lessons", highlight: false }
+    },
+    {
+      name: "Voice Practice",
+      loveLanguages: { value: "Real-time AI voice chat", highlight: true },
+      competitor: { value: "Speech recognition drills", highlight: false }
+    },
+    {
+      name: "Content Style",
+      loveLanguages: { value: "Romantic & practical Polish", highlight: true },
+      competitor: { value: "Business & travel focused", highlight: false }
+    },
+    {
+      name: "Cultural Learning",
+      loveLanguages: { value: "Deep Polish traditions", highlight: true },
+      competitor: { value: "Culture notes in lessons", highlight: false }
+    },
+    {
+      name: "Personalization",
+      loveLanguages: { value: "AI adapts to your level", highlight: true },
+      competitor: { value: "Fixed curriculum", highlight: false }
+    },
+    {
+      name: "Partner Integration",
+      loveLanguages: { value: "Tutor mode, challenges, word gifts", highlight: true },
+      competitor: { value: "No partner features", highlight: false }
+    }
+  ]
+};
+
+const faqs = [
+  {
+    question: "Is Babbel good for learning Polish?",
+    answer: "Babbel offers a structured Polish course created by linguists, making it solid for grammar and vocabulary building. However, their Polish content is less extensive than major languages like Spanish or German. For couples wanting to learn together or practice real conversations, Love Languages provides more tailored features."
+  },
+  {
+    question: "What's the difference between Babbel and Love Languages for Polish?",
+    answer: "Babbel uses a traditional course structure with lessons designed for individual learners. Love Languages is built specifically for couples learning Polish together, with AI-powered conversations, partner challenges, and romantic/practical vocabulary you'll actually use with your Polish partner or their family."
+  },
+  {
+    question: "Which is more expensive: Babbel or Love Languages?",
+    answer: "Both are premium apps without free tiers. Babbel offers various subscription lengths. Love Languages provides specialized Polish learning with AI features that adapt to your progress. If Polish is your primary goal and you're learning with a partner, Love Languages offers better value for couples."
+  },
+  {
+    question: "Can I switch from Babbel to Love Languages?",
+    answer: "Yes! Many users switch when they realize they need more conversational practice than Babbel provides. Love Languages focuses on actually speaking Polish through AI conversations, which is perfect after building vocabulary foundations with apps like Babbel."
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Love Languages vs Babbel for Polish",
+  "description": "Compare Love Languages and Babbel for learning Polish. See which app is better for couples learning Polish together.",
+  "url": "https://lovelanguages.xyz/compare/love-languages-vs-babbel"
+};
+---
+
+<BaseLayout
+  title="Love Languages vs Babbel for Polish - Honest Comparison 2024"
+  description="Compare Love Languages and Babbel for learning Polish. See features, pricing, and which app is better for couples learning Polish together."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-5xl mx-auto px-4 py-12 md:py-16">
+      <div class="text-center">
+        <a href="/" class="inline-flex items-center gap-2 text-accent font-bold font-header text-xl mb-4 hover:opacity-80">
+          <img src="/favicon.svg" alt="" class="w-6 h-6" />
+          Love Languages
+        </a>
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Love Languages vs Babbel
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          An honest comparison for couples learning Polish. Which premium app will get you speaking Polish faster?
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quick Summary -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-accent">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/favicon.svg" alt="" class="w-10 h-10" />
+          <div>
+            <h2 class="text-xl font-bold font-header text-gray-900">Love Languages</h2>
+            <p class="text-sm text-accent font-medium">Best for couples</p>
+          </div>
+        </div>
+        <ul class="space-y-2 text-gray-600">
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Polish-only specialization</li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Built for couples</li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> AI conversation partner</li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Personalized to your level</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white text-xl font-bold">B</div>
+          <div>
+            <h2 class="text-xl font-bold font-header text-gray-900">Babbel</h2>
+            <p class="text-sm text-gray-500 font-medium">Best for structured learning</p>
+          </div>
+        </div>
+        <ul class="space-y-2 text-gray-600">
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Expert-designed curriculum</li>
+          <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Clear lesson progression</li>
+          <li class="flex items-center gap-2"><span class="text-yellow-500">~</span> Limited Polish content</li>
+          <li class="flex items-center gap-2"><span class="text-red-400">✗</span> No couple features</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Comparison Table -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold font-header text-gray-900 mb-6 text-center">Feature Comparison</h2>
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="text-left p-4 font-bold text-gray-700">Feature</th>
+              <th class="text-center p-4 font-bold text-accent">Love Languages</th>
+              <th class="text-center p-4 font-bold text-gray-700">Babbel</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparison.features.map((feature, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td class="p-4 font-medium text-gray-900">{feature.name}</td>
+                <td class={`p-4 text-center ${feature.loveLanguages.highlight ? 'text-accent font-bold' : 'text-gray-600'}`}>
+                  {feature.loveLanguages.value}
+                </td>
+                <td class={`p-4 text-center ${feature.competitor.highlight ? 'text-orange-600 font-bold' : 'text-gray-600'}`}>
+                  {feature.competitor.value}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to Choose Which -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gradient-to-br from-accent/10 to-pink-50 rounded-2xl p-6">
+        <h3 class="text-xl font-bold font-header text-gray-900 mb-4 flex items-center gap-2">
+          <span class="text-2xl">💕</span> Choose Love Languages if...
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">♥</span>
+            <span>You're learning Polish with your partner</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">♥</span>
+            <span>You want real conversations, not just exercises</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">♥</span>
+            <span>You need romantic vocabulary for your relationship</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">♥</span>
+            <span>You want AI that adapts to how you learn</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-accent mt-1">♥</span>
+            <span>You're preparing to meet your partner's family</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-6">
+        <h3 class="text-xl font-bold font-header text-gray-900 mb-4 flex items-center gap-2">
+          <span class="text-2xl">📚</span> Choose Babbel if...
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex items-start gap-2">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>You prefer traditional structured courses</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>You want a fixed curriculum with clear progression</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>You're learning for business or travel</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>You prefer solo learning with set lessons</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>You want lifetime access with a one-time payment</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-3xl mx-auto px-4 py-8">
+    <FAQ items={faqs} />
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-5xl mx-auto px-4 py-12">
+    <div class="bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
+        Ready to Learn Polish Together?
+      </h2>
+      <p class="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
+        Join couples learning Polish with AI coaching, voice practice, and games designed for learning together.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Learning Polish →
+      </a>
+      <p class="mt-4 text-white/80 text-sm">
+        Join couples learning Polish across 30+ countries
+      </p>
+    </div>
+  </section>
+
+  <!-- Other Comparisons -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <h2 class="text-xl font-bold font-header text-gray-900 mb-4 text-center">Other Comparisons</h2>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="/compare/love-languages-vs-duolingo" class="px-4 py-2 bg-gray-100 rounded-full text-gray-700 hover:bg-accent/10 hover:text-accent transition-colors">
+        Love Languages vs Duolingo
+      </a>
+      <a href="/compare" class="px-4 py-2 bg-gray-100 rounded-full text-gray-700 hover:bg-accent/10 hover:text-accent transition-colors">
+        All Comparisons
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/compare" class="hover:text-accent">Compare</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
