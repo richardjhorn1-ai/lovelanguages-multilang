@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { polishDictionary, getAllTags, getWordsByTag } from '../../data/polish-dictionary';
+
+// Group words alphabetically
+const wordsByLetter = polishDictionary.reduce((acc, word) => {
+  const letter = word.polish.charAt(0).toUpperCase();
+  if (!acc[letter]) acc[letter] = [];
+  acc[letter].push(word);
+  return acc;
+}, {} as Record<string, typeof polishDictionary>);
+
+// Sort letters
+const sortedLetters = Object.keys(wordsByLetter).sort((a, b) => a.localeCompare(b, 'pl'));
+
+// Get all tags for filtering
+const allTags = getAllTags();
+
+// Featured categories
+const featuredCategories = [
+  { tag: 'romance', label: 'Romance & Love', icon: '💕', color: 'from-pink-500 to-rose-500' },
+  { tag: 'essential', label: 'Essential Words', icon: '⭐', color: 'from-amber-500 to-orange-500' },
+  { tag: 'family', label: 'Family', icon: '👨‍👩‍👧', color: 'from-blue-500 to-cyan-500' },
+  { tag: 'food', label: 'Food & Drink', icon: '🍽️', color: 'from-green-500 to-emerald-500' },
+];
+
+// JSON-LD
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Polish Dictionary for Couples",
+  "description": "Learn Polish vocabulary with pronunciation, examples, and cultural notes. Perfect for couples learning Polish together.",
+  "url": "https://lovelanguages.xyz/dictionary",
+  "hasDefinedTerm": polishDictionary.slice(0, 50).map(word => ({
+    "@type": "DefinedTerm",
+    "name": word.polish,
+    "description": word.english,
+    "url": `https://lovelanguages.xyz/dictionary/${word.slug}`
+  }))
+};
+---
+
+<BaseLayout
+  title="Polish Dictionary - Learn Polish Words with Pronunciation & Examples"
+  description={`Browse ${polishDictionary.length}+ Polish words with pronunciation guides, example sentences, and cultural notes. Perfect for couples learning Polish together.`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Polish Dictionary
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          {polishDictionary.length}+ essential Polish words with pronunciation, examples, and cultural notes for couples learning together.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Search -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+      <div class="max-w-xl mx-auto">
+        <label for="search" class="block text-lg font-bold text-gray-900 mb-3">
+          Search for a word:
+        </label>
+        <div class="relative">
+          <input
+            type="text"
+            id="search"
+            placeholder="Type Polish or English..."
+            class="w-full px-4 py-3 pl-12 rounded-xl border-2 border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-lg"
+          />
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <div id="search-results" class="mt-4 hidden">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Categories -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold font-header text-gray-900 mb-6">Browse by Category</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {featuredCategories.map(cat => {
+          const words = getWordsByTag(cat.tag);
+          return (
+            <a
+              href={`#${cat.tag}`}
+              class={`group relative overflow-hidden rounded-2xl p-6 text-white bg-gradient-to-br ${cat.color} hover:shadow-lg transition-shadow`}
+              data-category={cat.tag}
+            >
+              <div class="text-4xl mb-2">{cat.icon}</div>
+              <h3 class="font-bold text-lg mb-1">{cat.label}</h3>
+              <p class="text-white/80 text-sm">{words.length} words</p>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Word Stats -->
+    <div class="bg-gradient-to-r from-accent/5 to-pink-50 rounded-2xl p-6 mb-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div>
+          <p class="text-3xl font-bold text-accent">{polishDictionary.length}</p>
+          <p class="text-gray-600">Total Words</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-accent">{polishDictionary.filter(w => w.wordType === 'verb').length}</p>
+          <p class="text-gray-600">Verbs</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-accent">{polishDictionary.filter(w => w.wordType === 'noun').length}</p>
+          <p class="text-gray-600">Nouns</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-accent">{polishDictionary.filter(w => w.conjugations).length}</p>
+          <p class="text-gray-600">With Conjugations</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alphabetical Index -->
+    <div class="bg-white rounded-2xl shadow-sm p-4 mb-8 sticky top-16 z-30">
+      <div class="flex flex-wrap gap-2 justify-center">
+        {sortedLetters.map(letter => (
+          <a
+            href={`#letter-${letter}`}
+            class="w-10 h-10 flex items-center justify-center rounded-lg font-bold text-gray-600 hover:bg-accent hover:text-white transition-colors"
+          >
+            {letter}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Word List by Letter -->
+    <div class="space-y-8" id="word-list">
+      {sortedLetters.map(letter => (
+        <section id={`letter-${letter}`} class="scroll-mt-32">
+          <h2 class="text-3xl font-black font-header text-accent mb-4 pb-2 border-b-2 border-accent/20">
+            {letter}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {wordsByLetter[letter].map(word => (
+              <a
+                href={`/dictionary/${word.slug}`}
+                class="word-card bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-accent/30"
+                data-polish={word.polish.toLowerCase()}
+                data-english={word.english.toLowerCase()}
+                data-tags={word.tags.join(' ')}
+              >
+                <div class="flex items-start justify-between">
+                  <div>
+                    <h3 class="text-lg font-bold text-gray-900">{word.polish}</h3>
+                    <p class="text-gray-600">{word.english}</p>
+                    <p class="text-sm text-gray-400 mt-1">{word.pronunciation}</p>
+                  </div>
+                  <span class="text-xs px-2 py-1 bg-gray-100 text-gray-500 rounded-full">
+                    {word.wordType}
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
+        Ready to Use These Words?
+      </h2>
+      <p class="text-white/90 mb-6 text-lg">
+        Practice pronunciation with AI and learn in context with your partner.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Learning Polish →
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12 mt-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/dictionary" class="hover:text-accent">Dictionary</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/compare" class="hover:text-accent">Compare</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
+
+<script>
+  // Client-side search
+  const searchInput = document.getElementById('search') as HTMLInputElement;
+  const searchResults = document.getElementById('search-results');
+  const wordCards = document.querySelectorAll('.word-card');
+  const wordList = document.getElementById('word-list');
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+
+    if (query.length < 2) {
+      searchResults?.classList.add('hidden');
+      wordCards.forEach(card => (card as HTMLElement).style.display = '');
+      return;
+    }
+
+    // Filter visible cards
+    let matchCount = 0;
+    wordCards.forEach(card => {
+      const polish = card.getAttribute('data-polish') || '';
+      const english = card.getAttribute('data-english') || '';
+      const matches = polish.includes(query) || english.includes(query);
+      (card as HTMLElement).style.display = matches ? '' : 'none';
+      if (matches) matchCount++;
+    });
+
+    // Show result count
+    if (searchResults) {
+      searchResults.classList.remove('hidden');
+      searchResults.innerHTML = `<p class="text-gray-600">Found ${matchCount} word${matchCount !== 1 ? 's' : ''} matching "${query}"</p>`;
+    }
+  });
+</script>

@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { polishDictionary, getWordBySlug, getRelatedWords, type DictionaryWord } from '../../data/polish-dictionary';
+
+export async function getStaticPaths() {
+  return polishDictionary.map(word => ({
+    params: { slug: word.slug },
+    props: { word }
+  }));
+}
+
+interface Props {
+  word: DictionaryWord;
+}
+
+const { word } = Astro.props;
+const relatedWords = getRelatedWords(word.relatedWords);
+
+// Word type display
+const wordTypeLabels: Record<string, string> = {
+  noun: 'Noun',
+  verb: 'Verb',
+  adjective: 'Adjective',
+  adverb: 'Adverb',
+  phrase: 'Phrase',
+  pronoun: 'Pronoun',
+  preposition: 'Preposition',
+  conjunction: 'Conjunction',
+  interjection: 'Interjection'
+};
+
+// Gender display
+const genderLabels: Record<string, string> = {
+  masculine: 'Masculine',
+  feminine: 'Feminine',
+  neuter: 'Neuter',
+  'masculine-personal': 'Masculine Personal',
+  'non-masculine-personal': 'Non-Masculine Personal'
+};
+
+// Difficulty colors
+const difficultyColors: Record<string, { bg: string; text: string }> = {
+  beginner: { bg: 'bg-green-100', text: 'text-green-700' },
+  intermediate: { bg: 'bg-yellow-100', text: 'text-yellow-700' },
+  advanced: { bg: 'bg-red-100', text: 'text-red-700' }
+};
+
+const difficulty = difficultyColors[word.difficulty];
+
+// JSON-LD Schema
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTerm",
+  "name": word.polish,
+  "description": `${word.polish} means "${word.english}" in Polish. Pronunciation: ${word.pronunciation}`,
+  "inDefinedTermSet": {
+    "@type": "DefinedTermSet",
+    "name": "Polish Dictionary for Couples",
+    "url": "https://lovelanguages.xyz/dictionary"
+  }
+};
+
+// Breadcrumb Schema
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lovelanguages.xyz" },
+    { "@type": "ListItem", "position": 2, "name": "Dictionary", "item": "https://lovelanguages.xyz/dictionary" },
+    { "@type": "ListItem", "position": 3, "name": word.polish, "item": `https://lovelanguages.xyz/dictionary/${word.slug}` }
+  ]
+};
+---
+
+<BaseLayout
+  title={`${word.polish} - Polish Word Meaning, Pronunciation & Examples`}
+  description={`Learn the Polish word "${word.polish}" meaning "${word.english}". Pronunciation: ${word.pronunciation}. Example sentences and usage for couples learning Polish together.`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+  <!-- Breadcrumb -->
+  <nav class="max-w-4xl mx-auto px-4 py-3 bg-gray-50">
+    <ol class="flex items-center gap-2 text-sm text-gray-500">
+      <li><a href="/" class="hover:text-accent">Home</a></li>
+      <li>/</li>
+      <li><a href="/dictionary" class="hover:text-accent">Dictionary</a></li>
+      <li>/</li>
+      <li class="text-gray-900">{word.polish}</li>
+    </ol>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Main Word Card -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 mb-8">
+      <!-- Header -->
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-2">
+            {word.polish}
+          </h1>
+          <p class="text-2xl text-gray-600">{word.english}</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class={`px-3 py-1 rounded-full text-sm font-bold ${difficulty.bg} ${difficulty.text}`}>
+            {word.difficulty}
+          </span>
+          <span class="px-3 py-1 rounded-full text-sm font-bold bg-accent/10 text-accent">
+            {wordTypeLabels[word.wordType]}
+          </span>
+          {word.gender && (
+            <span class="px-3 py-1 rounded-full text-sm font-bold bg-purple-100 text-purple-700">
+              {genderLabels[word.gender]}
+            </span>
+          )}
+        </div>
+      </div>
+
+      <!-- Pronunciation -->
+      <div class="bg-gradient-to-r from-accent/5 to-pink-50 rounded-xl p-4 mb-6">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🔊</span>
+          <div>
+            <p class="text-sm text-gray-500 mb-1">Pronunciation</p>
+            <p class="text-xl font-bold text-gray-900 font-mono">{word.pronunciation}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cultural Note -->
+      {word.culturalNote && (
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-4 mb-6">
+          <div class="flex items-start gap-3">
+            <span class="text-xl">💡</span>
+            <div>
+              <p class="font-bold text-amber-800 mb-1">Cultural Note</p>
+              <p class="text-amber-700">{word.culturalNote}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <!-- Examples -->
+      <div class="mb-6">
+        <h2 class="text-xl font-bold font-header text-gray-900 mb-4 flex items-center gap-2">
+          <span class="text-xl">📝</span> Example Sentences
+        </h2>
+        <div class="space-y-3">
+          {word.examples.map((example, i) => (
+            <div class="bg-gray-50 rounded-xl p-4">
+              <p class="text-lg font-medium text-gray-900 mb-1">{example.polish}</p>
+              <p class="text-gray-600">{example.english}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Conjugation Table (for verbs) -->
+      {word.conjugations && word.conjugations.length > 0 && (
+        <div class="mb-6">
+          <h2 class="text-xl font-bold font-header text-gray-900 mb-4 flex items-center gap-2">
+            <span class="text-xl">📊</span> Conjugation
+          </h2>
+          {word.conjugations.map(conj => (
+            <div class="mb-4">
+              <h3 class="font-bold text-gray-700 mb-2">{conj.tense} Tense</h3>
+              <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-xl overflow-hidden border border-gray-200">
+                  <thead class="bg-accent/10">
+                    <tr>
+                      <th class="px-4 py-2 text-left text-accent font-bold">Person</th>
+                      <th class="px-4 py-2 text-left text-accent font-bold">Polish</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {conj.forms.ja && (
+                      <tr class="border-t border-gray-100">
+                        <td class="px-4 py-2 text-gray-600">ja (I)</td>
+                        <td class="px-4 py-2 font-medium text-gray-900">{conj.forms.ja}</td>
+                      </tr>
+                    )}
+                    {conj.forms.ty && (
+                      <tr class="border-t border-gray-100">
+                        <td class="px-4 py-2 text-gray-600">ty (you)</td>
+                        <td class="px-4 py-2 font-medium text-gray-900">{conj.forms.ty}</td>
+                      </tr>
+                    )}
+                    {conj.forms.on_ona_ono && (
+                      <tr class="border-t border-gray-100">
+                        <td class="px-4 py-2 text-gray-600">on/ona/ono (he/she/it)</td>
+                        <td class="px-4 py-2 font-medium text-gray-900">{conj.forms.on_ona_ono}</td>
+                      </tr>
+                    )}
+                    {conj.forms.my && (
+                      <tr class="border-t border-gray-100">
+                        <td class="px-4 py-2 text-gray-600">my (we)</td>
+                        <td class="px-4 py-2 font-medium text-gray-900">{conj.forms.my}</td>
+                      </tr>
+                    )}
+                    {conj.forms.wy && (
+                      <tr class="border-t border-gray-100">
+                        <td class="px-4 py-2 text-gray-600">wy (you plural)</td>
+                        <td class="px-4 py-2 font-medium text-gray-900">{conj.forms.wy}</td>
+                      </tr>
+                    )}
+                    {conj.forms.oni_one && (
+                      <tr class="border-t border-gray-100">
+                        <td class="px-4 py-2 text-gray-600">oni/one (they)</td>
+                        <td class="px-4 py-2 font-medium text-gray-900">{conj.forms.oni_one}</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <!-- Adjective Forms -->
+      {word.adjectiveForms && (
+        <div class="mb-6">
+          <h2 class="text-xl font-bold font-header text-gray-900 mb-4 flex items-center gap-2">
+            <span class="text-xl">📊</span> Adjective Forms
+          </h2>
+          <div class="overflow-x-auto">
+            <table class="w-full bg-white rounded-xl overflow-hidden border border-gray-200">
+              <thead class="bg-accent/10">
+                <tr>
+                  <th class="px-4 py-2 text-left text-accent font-bold">Gender</th>
+                  <th class="px-4 py-2 text-left text-accent font-bold">Form</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-t border-gray-100">
+                  <td class="px-4 py-2 text-gray-600">Masculine</td>
+                  <td class="px-4 py-2 font-medium text-gray-900">{word.adjectiveForms.masculine}</td>
+                </tr>
+                <tr class="border-t border-gray-100">
+                  <td class="px-4 py-2 text-gray-600">Feminine</td>
+                  <td class="px-4 py-2 font-medium text-gray-900">{word.adjectiveForms.feminine}</td>
+                </tr>
+                <tr class="border-t border-gray-100">
+                  <td class="px-4 py-2 text-gray-600">Neuter</td>
+                  <td class="px-4 py-2 font-medium text-gray-900">{word.adjectiveForms.neuter}</td>
+                </tr>
+                <tr class="border-t border-gray-100">
+                  <td class="px-4 py-2 text-gray-600">Plural</td>
+                  <td class="px-4 py-2 font-medium text-gray-900">{word.adjectiveForms.plural}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2">
+        {word.tags.map(tag => (
+          <a
+            href={`/dictionary?tag=${tag}`}
+            class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-accent/10 hover:text-accent transition-colors"
+          >
+            #{tag}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Related Words -->
+    {relatedWords.length > 0 && (
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold font-header text-gray-900 mb-4">Related Words</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {relatedWords.map(related => (
+            <a
+              href={`/dictionary/${related.slug}`}
+              class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 hover:border-accent/30"
+            >
+              <p class="font-bold text-gray-900 mb-1">{related.polish}</p>
+              <p class="text-sm text-gray-500">{related.english}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
+        Want to Master Polish?
+      </h2>
+      <p class="text-white/90 mb-6 text-lg">
+        Learn {word.polish} and thousands more words with AI coaching designed for couples.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Learning Polish →
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12 mt-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/dictionary" class="hover:text-accent">Dictionary</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/compare" class="hover:text-accent">Compare</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
