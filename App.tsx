@@ -22,8 +22,6 @@ import SubscriptionRequired from './components/SubscriptionRequired';
 import RoleSelection from './components/RoleSelection';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
-import { BlogIndex } from './components/blog';
-import BlogArticle from './components/blog/BlogArticle';
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
@@ -244,8 +242,6 @@ const App: React.FC = () => {
             <Route path="/join/:token" element={<JoinInvite />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/learn" element={<BlogIndex />} />
-            <Route path="/learn/:slug" element={<BlogArticle />} />
 
             {/* Target language route - /pl, /es, /fr, etc. */}
             <Route path="/:targetLang" element={
