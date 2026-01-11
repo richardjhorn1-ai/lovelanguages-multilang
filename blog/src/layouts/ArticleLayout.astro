@@ -113,24 +113,8 @@ const breadcrumbJsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
   </Fragment>
 
-  <!-- Sticky Header -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100">
-    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/learn" class="flex items-center gap-2 text-gray-600 hover:text-accent transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        <span class="font-medium">All Articles</span>
-      </a>
-      <a href="/" class="flex items-center gap-2 text-accent font-bold font-header hover:opacity-80 transition-opacity">
-        <img src="/favicon.svg" alt="" class="w-6 h-6" />
-        Love Languages
-      </a>
-    </div>
-  </header>
-
   <!-- Breadcrumb -->
-  <nav class="max-w-3xl mx-auto px-4 py-4">
+  <nav class="max-w-3xl mx-auto px-4 py-3 bg-gray-50">
     <ol class="flex items-center gap-2 text-sm text-gray-500">
       <li><a href="/" class="hover:text-accent">Home</a></li>
       <li>/</li>

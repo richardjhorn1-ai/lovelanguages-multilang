@@ -60,12 +60,6 @@ export const polishNavigation: NavigationConfig = {
           description: 'Browse all Polish lessons'
         },
         {
-          label: 'Dictionary',
-          href: '/dictionary',
-          icon: '📕',
-          description: 'Polish words with pronunciation'
-        },
-        {
           label: 'Grammar',
           href: '/learn?category=grammar',
           icon: '📝',
@@ -76,6 +70,12 @@ export const polishNavigation: NavigationConfig = {
           href: '/learn?category=vocabulary',
           icon: '📚',
           description: 'Words and phrases for couples'
+        },
+        {
+          label: 'Phrases',
+          href: '/learn?category=phrases',
+          icon: '💬',
+          description: 'Romantic & everyday expressions'
         },
         {
           label: 'Culture',

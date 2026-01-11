@@ -1,0 +1,276 @@
+---
+import { navigation, type NavigationConfig } from '../data/navigation';
+
+interface Props {
+  currentPath?: string;
+  config?: NavigationConfig;
+}
+
+const { currentPath = '', config = navigation } = Astro.props;
+const { currentLanguage, availableLanguages, sections } = config;
+
+// Show language selector only when multiple languages are available
+const showLanguageSelector = availableLanguages.length > 1;
+---
+
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-sm">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 text-accent font-bold font-header text-xl hover:opacity-80 transition-opacity">
+        <img src="/favicon.svg" alt="" class="w-7 h-7" />
+        <span class="hidden sm:inline">Love Languages</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-1">
+        {sections.map((section) => (
+          section.items ? (
+            <!-- Dropdown -->
+            <div class="relative group">
+              <button
+                type="button"
+                class="nav-dropdown-trigger flex items-center gap-1 px-4 py-2 text-gray-700 font-medium hover:text-accent rounded-lg hover:bg-accent/5 transition-colors"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {section.label}
+                <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <!-- Dropdown Menu -->
+              <div class="nav-dropdown absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 min-w-[240px]">
+                  {section.items.map((item) => (
+                    <a
+                      href={item.href}
+                      class="flex items-start gap-3 px-4 py-3 hover:bg-accent/5 transition-colors"
+                    >
+                      {item.icon && <span class="text-xl mt-0.5">{item.icon}</span>}
+                      <div class="flex-1">
+                        <div class="flex items-center gap-2">
+                          <span class="font-medium text-gray-900">{item.label}</span>
+                          {item.badge && (
+                            <span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded-full">
+                              {item.badge}
+                            </span>
+                          )}
+                        </div>
+                        {item.description && (
+                          <p class="text-sm text-gray-500 mt-0.5">{item.description}</p>
+                        )}
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <!-- Direct Link -->
+            <a
+              href={section.href}
+              class="px-4 py-2 text-gray-700 font-medium hover:text-accent rounded-lg hover:bg-accent/5 transition-colors"
+            >
+              {section.label}
+            </a>
+          )
+        ))}
+
+        {/* Language Selector (shown when multiple languages available) */}
+        {showLanguageSelector && (
+          <div class="relative group ml-2">
+            <button
+              type="button"
+              class="nav-dropdown-trigger flex items-center gap-2 px-3 py-2 text-gray-700 font-medium hover:text-accent rounded-lg hover:bg-accent/5 transition-colors border border-gray-200"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="text-lg">{currentLanguage.flag}</span>
+              <span class="text-sm">{currentLanguage.code.toUpperCase()}</span>
+              <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="nav-dropdown absolute top-full right-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 min-w-[160px]">
+                {availableLanguages.map((lang) => (
+                  <a
+                    href={lang.href}
+                    class={`flex items-center gap-3 px-4 py-2 hover:bg-accent/5 transition-colors ${
+                      lang.code === currentLanguage.code ? 'bg-accent/5 text-accent' : 'text-gray-700'
+                    }`}
+                  >
+                    <span class="text-lg">{lang.flag}</span>
+                    <span class="font-medium">{lang.nativeName}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <!-- CTA Button -->
+        <a
+          href="/"
+          class="ml-4 px-5 py-2 bg-accent text-white font-bold rounded-full hover:bg-accent/90 hover:shadow-md transition-all text-sm"
+        >
+          Start Learning
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-gray-700 hover:text-accent hover:bg-accent/5 rounded-lg transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6 menu-open" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg class="w-6 h-6 menu-close hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-gray-100 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-4 space-y-2">
+      {sections.map((section) => (
+        section.items ? (
+          <div class="mobile-accordion">
+            <button
+              type="button"
+              class="mobile-accordion-trigger w-full flex items-center justify-between px-4 py-3 text-gray-900 font-medium hover:bg-accent/5 rounded-lg transition-colors"
+            >
+              <span>{section.label}</span>
+              <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="mobile-accordion-content hidden pl-4 pb-2">
+              {section.items.map((item) => (
+                <a
+                  href={item.href}
+                  class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-accent hover:bg-accent/5 rounded-lg transition-colors"
+                >
+                  {item.icon && <span class="text-lg">{item.icon}</span>}
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <span class="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-bold rounded-full">
+                      {item.badge}
+                    </span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a
+            href={section.href}
+            class="block px-4 py-3 text-gray-900 font-medium hover:text-accent hover:bg-accent/5 rounded-lg transition-colors"
+          >
+            {section.label}
+          </a>
+        )
+      ))}
+
+      {/* Mobile Language Selector */}
+      {showLanguageSelector && (
+        <div class="mobile-accordion border-t border-gray-100 pt-2 mt-2">
+          <button
+            type="button"
+            class="mobile-accordion-trigger w-full flex items-center justify-between px-4 py-3 text-gray-900 font-medium hover:bg-accent/5 rounded-lg transition-colors"
+          >
+            <span class="flex items-center gap-2">
+              <span class="text-lg">{currentLanguage.flag}</span>
+              <span>Language: {currentLanguage.nativeName}</span>
+            </span>
+            <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="mobile-accordion-content hidden pl-4 pb-2">
+            {availableLanguages.map((lang) => (
+              <a
+                href={lang.href}
+                class={`flex items-center gap-3 px-4 py-3 hover:bg-accent/5 rounded-lg transition-colors ${
+                  lang.code === currentLanguage.code ? 'text-accent font-medium' : 'text-gray-600'
+                }`}
+              >
+                <span class="text-lg">{lang.flag}</span>
+                <span>{lang.nativeName}</span>
+                {lang.code === currentLanguage.code && (
+                  <svg class="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Mobile CTA -->
+      <div class="pt-4 border-t border-gray-100">
+        <a
+          href="/"
+          class="block w-full px-6 py-3 bg-accent text-white font-bold rounded-xl text-center hover:bg-accent/90 transition-colors"
+        >
+          Start Learning Polish
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuOpen = mobileMenuBtn?.querySelector('.menu-open');
+  const menuClose = mobileMenuBtn?.querySelector('.menu-close');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('hidden') === false;
+    menuOpen?.classList.toggle('hidden', isOpen);
+    menuClose?.classList.toggle('hidden', !isOpen);
+    mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Mobile accordion toggles
+  document.querySelectorAll('.mobile-accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const accordion = trigger.closest('.mobile-accordion');
+      const content = accordion?.querySelector('.mobile-accordion-content');
+      const icon = trigger.querySelector('svg');
+
+      content?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate-180');
+    });
+  });
+
+  // Close mobile menu when clicking a link
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuOpen?.classList.remove('hidden');
+      menuClose?.classList.add('hidden');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  /* Ensure dropdowns stay visible when hovering */
+  .nav-dropdown {
+    transform: translateY(-4px);
+  }
+  .group:hover .nav-dropdown {
+    transform: translateY(0);
+  }
+</style>
