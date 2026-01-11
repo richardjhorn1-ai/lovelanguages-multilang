@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, DictionaryEntry, WordScore } from '../types';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface NewWord {
   polish: string;
@@ -42,10 +44,14 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
   const [generatedWord, setGeneratedWord] = useState<{ polish: string; english: string; pronunciation?: string } | null>(null);
   const [generating, setGenerating] = useState(false);
 
+  // Language & i18n
+  const { t } = useTranslation();
+  const { languageParams, targetName } = useLanguage();
+
   const difficultySettings = {
-    easy: { time: 90, desc: 'Relaxed pace, plenty of time' },
-    medium: { time: 60, desc: 'Balanced challenge' },
-    hard: { time: 30, desc: 'Race against the clock!' }
+    easy: { time: 90, desc: t('challengeCreator.quickFire.difficultyDesc.easy') },
+    medium: { time: 60, desc: t('challengeCreator.quickFire.difficultyDesc.medium') },
+    hard: { time: 30, desc: t('challengeCreator.quickFire.difficultyDesc.hard') }
   };
 
   // Sort vocab by priority (weak words first)
@@ -94,7 +100,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ polish: newPolish.trim() })
+        body: JSON.stringify({ polish: newPolish.trim(), ...languageParams })
       });
 
       const data = await response.json();
@@ -106,11 +112,11 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
         });
         setNewEnglish(data.validated.translation);
       } else {
-        alert(data.error || 'Failed to generate translation');
+        alert(data.error || t('challengeCreator.common.failedGenerateTranslation'));
       }
     } catch (error) {
       console.error('Error generating translation:', error);
-      alert('Failed to generate translation');
+      alert(t('challengeCreator.common.failedGenerateTranslation'));
     }
     setGenerating(false);
   };
@@ -141,7 +147,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
   const handleCreate = async () => {
     const totalSelected = manuallySelectedCount + autoFillCount;
     if (totalSelected < 5 && newWords.length === 0) {
-      alert(`Need at least 5 words for the challenge!`);
+      alert(t('challengeCreator.common.needMinWords'));
       return;
     }
 
@@ -169,7 +175,8 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
             difficulty
           },
           wordIds: allWordIds,
-          newWords: newWords.length > 0 ? newWords : undefined
+          newWords: newWords.length > 0 ? newWords : undefined,
+          ...languageParams
         })
       });
 
@@ -177,11 +184,11 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
       if (data.success) {
         onCreated();
       } else {
-        alert(data.error || 'Failed to create challenge');
+        alert(data.error || t('challengeCreator.common.failedCreateChallenge'));
       }
     } catch (error) {
       console.error('Error creating quick fire:', error);
-      alert('Failed to create challenge');
+      alert(t('challengeCreator.common.failedCreateChallenge'));
     }
     setCreating(false);
   };
@@ -195,9 +202,9 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
         <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
           <div>
             <h2 className="text-xl font-black text-[var(--text-primary)] flex items-center gap-2">
-              <span>⚡</span> Quick Fire
+              <span>⚡</span> {t('challengeCreator.quickFire.title')}
             </h2>
-            <p className="text-sm text-[var(--text-secondary)]">Timed challenge for {partnerName}</p>
+            <p className="text-sm text-[var(--text-secondary)]">{t('challengeCreator.quickFire.subtitle', { name: partnerName })}</p>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors">
             <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -210,13 +217,13 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           {/* Title Input */}
           <div>
             <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
-              Challenge Title
+              {t('challengeCreator.quickFire.titleLabel')}
             </label>
             <input
               type="text"
               value={title}
               onChange={e => setTitle(e.target.value)}
-              placeholder="Quick Fire Challenge"
+              placeholder={t('challengeCreator.quickFire.titlePlaceholder')}
               className="w-full p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
             />
           </div>
@@ -224,7 +231,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           {/* Difficulty Selection */}
           <div>
             <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
-              Difficulty
+              {t('challengeCreator.quickFire.difficulty')}
             </label>
             <div className="grid grid-cols-3 gap-2">
               {(['easy', 'medium', 'hard'] as const).map(diff => (
@@ -244,7 +251,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   <div className="text-2xl mb-1">
                     {diff === 'easy' ? '🌿' : diff === 'medium' ? '🔥' : '💥'}
                   </div>
-                  <p className="font-bold text-[var(--text-primary)] text-sm capitalize">{diff}</p>
+                  <p className="font-bold text-[var(--text-primary)] text-sm capitalize">{t(`challengeCreator.quickFire.difficultyLevels.${diff}`)}</p>
                   <p className="text-xs text-[var(--text-secondary)]">{difficultySettings[diff].time}s</p>
                 </button>
               ))}
@@ -254,7 +261,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           {/* Word Count */}
           <div>
             <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
-              Target Words: {wordCount}
+              {t('challengeCreator.quickFire.targetWords', { count: wordCount })}
             </label>
             <input
               type="range"
@@ -265,8 +272,8 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
               className="w-full h-2 bg-[var(--bg-primary)] rounded-lg appearance-none cursor-pointer accent-amber-500"
             />
             <div className="flex justify-between text-xs text-[var(--text-secondary)] mt-1">
-              <span>5 words</span>
-              <span>20 words</span>
+              <span>{t('challengeCreator.quickFire.minWords', { count: 5 })}</span>
+              <span>{t('challengeCreator.quickFire.maxWords', { count: 20 })}</span>
             </div>
           </div>
 
@@ -274,10 +281,10 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-2xl border border-amber-200 dark:border-amber-800">
             <div className="flex items-center gap-2 mb-3">
               <ICONS.Plus className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-              <p className="font-bold text-amber-800 dark:text-amber-200 text-sm">Add New Words</p>
+              <p className="font-bold text-amber-800 dark:text-amber-200 text-sm">{t('challengeCreator.common.addNewWords')}</p>
             </div>
             <p className="text-xs text-amber-700 dark:text-amber-300 mb-3">
-              Enter Polish and AI will generate the translation.
+              {t('challengeCreator.common.enterTargetLanguage', { language: targetName })}
             </p>
 
             {/* Step 1: Polish input with Generate button */}
@@ -292,7 +299,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                     setNewEnglish('');
                   }
                 }}
-                placeholder="Enter Polish word or phrase..."
+                placeholder={t('challengeCreator.common.enterWordPlaceholder', { language: targetName })}
                 className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                 onKeyDown={e => e.key === 'Enter' && newPolish.trim() && !generatedWord && generateTranslation()}
                 disabled={generating}
@@ -306,12 +313,12 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   {generating ? (
                     <>
                       <div className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span className="hidden sm:inline">Generating...</span>
+                      <span className="hidden sm:inline">{t('challengeCreator.common.generating')}</span>
                     </>
                   ) : (
                     <>
                       <span>✨</span>
-                      <span className="hidden sm:inline">Generate</span>
+                      <span className="hidden sm:inline">{t('challengeCreator.common.generate')}</span>
                     </>
                   )}
                 </button>
@@ -323,7 +330,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   }}
                   className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-lg font-bold text-sm transition-colors"
                 >
-                  Clear
+                  {t('challengeCreator.common.clear')}
                 </button>
               )}
             </div>
@@ -345,7 +352,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                         type="text"
                         value={newEnglish}
                         onChange={e => setNewEnglish(e.target.value)}
-                        placeholder="Edit translation..."
+                        placeholder={t('challengeCreator.common.editTranslation')}
                         className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                         onKeyDown={e => e.key === 'Enter' && newEnglish && addNewWord()}
                       />
@@ -357,7 +364,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                     className="px-3 py-2 bg-green-500 text-white rounded-lg font-bold text-sm hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
                   >
                     <ICONS.Check className="w-4 h-4" />
-                    Add
+                    {t('challengeCreator.common.add')}
                   </button>
                 </div>
               </div>
@@ -392,13 +399,13 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
             <div>
               <div className="flex items-center justify-between mb-3">
                 <label className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
-                  Pick Specific Words ({selectedWordIds.size} selected)
+                  {t('challengeCreator.quickFire.pickSpecificWords', { count: selectedWordIds.size })}
                 </label>
                 <button
                   onClick={() => setSelectedWordIds(new Set())}
                   className="text-xs text-[var(--text-secondary)] font-bold hover:underline"
                 >
-                  Clear
+                  {t('challengeCreator.common.clear')}
                 </button>
               </div>
 
@@ -408,7 +415,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   type="text"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  placeholder="Search words..."
+                  placeholder={t('challengeCreator.common.searchWords')}
                   className="w-full p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                 />
               </div>
@@ -438,7 +445,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                 })}
               </div>
               <p className="text-xs text-[var(--text-secondary)] mt-2">
-                🔴 = weak word (struggles with this)
+                {t('challengeCreator.quickFire.weakWordIndicator')}
               </p>
             </div>
           )}
@@ -446,16 +453,16 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           {/* Auto-fill Info */}
           <div className="bg-[var(--bg-primary)] p-4 rounded-2xl border border-[var(--border-color)]">
             <p className="text-sm text-[var(--text-secondary)]">
-              <span className="font-bold text-[var(--text-primary)]">Word Selection:</span>
+              <span className="font-bold text-[var(--text-primary)]">{t('challengeCreator.quickFire.wordSelectionLabel')}</span>
             </p>
             <ul className="text-xs text-[var(--text-secondary)] mt-2 space-y-1">
-              <li>• New words: <span className="font-bold text-amber-600">{newWords.length}</span></li>
-              <li>• Manually picked: <span className="font-bold text-amber-600">{selectedWordIds.size}</span></li>
+              <li>• {t('challengeCreator.quickFire.newWordsCount')}: <span className="font-bold text-amber-600">{newWords.length}</span></li>
+              <li>• {t('challengeCreator.quickFire.manuallyPicked')}: <span className="font-bold text-amber-600">{selectedWordIds.size}</span></li>
               {autoFillCount > 0 && (
-                <li>• Auto-fill (weak words first): <span className="font-bold text-amber-600">{Math.min(autoFillCount, partnerVocab.length - selectedWordIds.size)}</span></li>
+                <li>• {t('challengeCreator.quickFire.autoFill')}: <span className="font-bold text-amber-600">{Math.min(autoFillCount, partnerVocab.length - selectedWordIds.size)}</span></li>
               )}
               <li className="pt-1 border-t border-[var(--border-color)]">
-                Total: <span className="font-bold text-[var(--text-primary)]">{Math.min(wordCount, manuallySelectedCount + Math.min(autoFillCount, partnerVocab.length - selectedWordIds.size))}</span> / {wordCount} target
+                {t('challengeCreator.quickFire.totalCount')}: <span className="font-bold text-[var(--text-primary)]">{Math.min(wordCount, manuallySelectedCount + Math.min(autoFillCount, partnerVocab.length - selectedWordIds.size))}</span> / {wordCount} {t('challengeCreator.quickFire.target')}
               </li>
             </ul>
           </div>
@@ -463,17 +470,17 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           {/* Preview Stats */}
           <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-2xl border border-amber-200 dark:border-amber-800">
             <p className="text-sm text-amber-800 dark:text-amber-200">
-              <span className="font-bold">{partnerName}</span> will have <span className="font-bold text-amber-600 dark:text-amber-400">{timeLimit} seconds</span> to translate the words.
+              {t('challengeCreator.quickFire.previewStats', { name: partnerName, seconds: timeLimit })}
             </p>
             <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">
-              Average: {(timeLimit / Math.max(1, manuallySelectedCount + autoFillCount)).toFixed(1)}s per word
+              {t('challengeCreator.quickFire.averageTime', { time: (timeLimit / Math.max(1, manuallySelectedCount + autoFillCount)).toFixed(1) })}
             </p>
           </div>
 
           {!canCreate && (
             <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-200 dark:border-red-800">
               <p className="text-sm text-red-600 dark:text-red-400 font-bold">
-                Need at least 5 words total to create a challenge!
+                {t('challengeCreator.quickFire.needMinWords', { count: 5 })}
               </p>
             </div>
           )}
@@ -485,7 +492,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
             onClick={onClose}
             className="px-6 py-3 text-[var(--text-secondary)] font-bold text-sm hover:bg-[var(--bg-card)] rounded-xl transition-colors"
           >
-            Cancel
+            {t('challengeCreator.common.cancel')}
           </button>
           <button
             onClick={handleCreate}
@@ -495,12 +502,12 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
             {creating ? (
               <>
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                Creating...
+                {t('challengeCreator.common.creating')}
               </>
             ) : (
               <>
                 <span>⚡</span>
-                Send Challenge
+                {t('challengeCreator.common.sendChallenge')}
               </>
             )}
           </button>

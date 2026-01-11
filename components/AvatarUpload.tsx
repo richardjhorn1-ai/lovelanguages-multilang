@@ -1,4 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import Cropper, { Area } from 'react-easy-crop';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
@@ -83,6 +84,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
   onUploadComplete,
   editable = true
 }) => {
+  const { t } = useTranslation();
   // Display state
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -109,13 +111,13 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
     // Validate file type
     const validTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
     if (!validTypes.includes(file.type)) {
-      setError('Please upload a JPG, PNG, WebP, or GIF image');
+      setError(t('avatar.errors.invalidType'));
       return;
     }
 
     // Validate file size (5MB max - will be compressed after crop)
     if (file.size > 5 * 1024 * 1024) {
-      setError('Image must be less than 5MB');
+      setError(t('avatar.errors.tooLarge'));
       return;
     }
 
@@ -134,7 +136,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
       }
     };
     reader.onerror = () => {
-      setError('Failed to read image file');
+      setError(t('avatar.errors.readFailed'));
     };
     reader.readAsDataURL(file);
 
@@ -151,7 +153,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
   // Save crop - upload the cropped image
   const handleSaveCrop = async () => {
     if (!imageToCrop || !croppedAreaPixels) {
-      setError('Please adjust the crop area');
+      setError(t('avatar.errors.cropRequired'));
       return;
     }
 
@@ -205,7 +207,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
       onUploadComplete(urlWithTimestamp);
     } catch (err: any) {
       console.error('Avatar upload error:', err);
-      setError(err.message || 'Failed to upload image');
+      setError(err.message || t('avatar.errors.uploadFailed'));
     } finally {
       setUploading(false);
     }
@@ -281,7 +283,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
         {/* Helper text */}
         {editable && !error && (
           <p className="text-[var(--text-secondary)] text-xs text-center mt-2">
-            {uploading ? 'Uploading...' : currentAvatarUrl ? 'Click to change' : 'Click to upload'}
+            {uploading ? t('avatar.uploading') : currentAvatarUrl ? t('avatar.clickToChange') : t('avatar.clickToUpload')}
           </p>
         )}
       </div>
@@ -291,7 +293,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
         <div className="fixed inset-0 bg-black/90 z-50 flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between p-4 bg-black/50">
-            <h2 className="text-white font-bold text-lg">Adjust Photo</h2>
+            <h2 className="text-white font-bold text-lg">{t('avatar.adjustPhoto')}</h2>
             <button
               onClick={handleCancelCrop}
               className="text-white/70 hover:text-white p-2"
@@ -354,7 +356,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
                 className="flex-1 py-3 px-6 rounded-xl border-2 border-[var(--border-color)] text-[var(--text-secondary)] font-bold hover:bg-[var(--bg-primary)] transition-colors disabled:opacity-50"
                 type="button"
               >
-                Cancel
+                {t('avatar.cancel')}
               </button>
               <button
                 onClick={handleSaveCrop}
@@ -366,10 +368,10 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
                 {uploading ? (
                   <>
                     <ICONS.RefreshCw className="w-4 h-4 animate-spin" />
-                    Saving...
+                    {t('avatar.saving')}
                   </>
                 ) : (
-                  'Save'
+                  t('avatar.save')
                 )}
               </button>
             </div>

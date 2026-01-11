@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface CelebrationStepProps {
   currentStep: number;
@@ -18,6 +21,18 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage, nativeLanguage } = useLanguage();
+  const targetConfig = LANGUAGE_CONFIGS[targetLanguage];
+  const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage];
+  const targetName = targetConfig?.name || 'the language';
+
+  // Get dynamic words
+  const helloWord = targetConfig?.examples.hello || 'Hello';
+  const helloTranslation = nativeConfig?.examples.hello || 'Hello';
+  const lovePhrase = targetConfig?.examples.iLoveYou || 'I love you';
+  const loveTranslation = nativeConfig?.examples.iLoveYou || 'I love you';
+
   const [showConfetti, setShowConfetti] = useState(true);
   const [xpAnimated, setXpAnimated] = useState(false);
 
@@ -61,12 +76,12 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
         <div className="text-8xl mb-6 animate-bounce">🎉</div>
 
         <h1 className="text-3xl font-black text-gray-800 mb-4 font-header">
-          You did it!
+          {t('onboarding.student.celebration.title')}
         </h1>
 
         <p className="text-xl text-gray-600 mb-8">
-          You just learned your first Polish!<br />
-          <span style={{ color: accentColor }} className="font-bold">{partnerName}</span> is going to love this.
+          {t('onboarding.student.celebration.subtitle', { language: targetName })}<br />
+          <span style={{ color: accentColor }} className="font-bold">{t('onboarding.student.celebration.partnerReaction', { name: partnerName })}</span>
         </p>
 
         {/* XP Award */}
@@ -74,24 +89,24 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
           xpAnimated ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
         }`}>
           <span className="text-2xl">⭐</span>
-          <span className="font-black text-amber-700 text-lg">+10 XP</span>
+          <span className="font-black text-amber-700 text-lg">{t('onboarding.student.celebration.xpEarned')}</span>
         </div>
 
         <div className="mt-4 mb-8 text-gray-400 text-sm">
-          Your first experience points!
+          {t('onboarding.student.celebration.firstXp')}
         </div>
 
         {/* Words learned summary */}
         <div className="bg-gray-50 rounded-2xl p-6 mb-8">
-          <div className="text-sm text-gray-500 mb-3">Words you just learned:</div>
+          <div className="text-sm text-gray-500 mb-3">{t('onboarding.student.celebration.wordsLearned')}</div>
           <div className="flex justify-center gap-4">
             <div className="bg-white px-4 py-2 rounded-xl shadow-sm">
-              <span style={{ color: accentColor }} className="font-bold">Cześć</span>
-              <span className="text-gray-400 text-sm ml-2">Hello</span>
+              <span style={{ color: accentColor }} className="font-bold">{helloWord}</span>
+              <span className="text-gray-400 text-sm ml-2">{helloTranslation}</span>
             </div>
             <div className="bg-white px-4 py-2 rounded-xl shadow-sm">
-              <span style={{ color: accentColor }} className="font-bold">Kocham cię</span>
-              <span className="text-gray-400 text-sm ml-2">I love you</span>
+              <span style={{ color: accentColor }} className="font-bold">{lovePhrase}</span>
+              <span className="text-gray-400 text-sm ml-2">{loveTranslation}</span>
             </div>
           </div>
         </div>
@@ -100,7 +115,7 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
           onClick={onNext}
           accentColor={accentColor}
         >
-          Keep going!
+          {t('onboarding.student.celebration.keepGoing')}
         </NextButton>
       </div>
 

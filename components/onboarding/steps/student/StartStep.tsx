@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
@@ -19,6 +20,8 @@ export const StartStep: React.FC<StartStepProps> = ({
   onComplete,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+
   return (
     <OnboardingStep
       currentStep={currentStep}
@@ -32,42 +35,42 @@ export const StartStep: React.FC<StartStepProps> = ({
         </div>
 
         <h1 className="text-3xl font-black text-gray-800 mb-4 font-header">
-          Ready to begin, {userName}?
+          {t('onboarding.student.start.title', { name: userName })}
         </h1>
 
         <p className="text-xl text-gray-600 mb-8">
-          Your journey to speak {partnerName}'s language starts now.
+          {t('onboarding.student.start.subtitle', { partnerName })}
         </p>
 
         {/* What's unlocked */}
         <div className="bg-gray-50 rounded-2xl p-6 mb-8 text-left">
           <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">
-            What you'll have access to:
+            {t('onboarding.student.start.accessTitle')}
           </div>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
                 <ICONS.MessageCircle className="w-4 h-4 text-[var(--accent-color)]" />
               </div>
-              <span className="font-medium text-gray-700">AI conversations with Cupid</span>
+              <span className="font-medium text-gray-700">{t('onboarding.student.start.feature1')}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
                 <ICONS.Book className="w-4 h-4 text-amber-500" />
               </div>
-              <span className="font-medium text-gray-700">Your Love Log vocabulary tracker</span>
+              <span className="font-medium text-gray-700">{t('onboarding.student.start.feature2')}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
                 <ICONS.Play className="w-4 h-4 text-teal-500" />
               </div>
-              <span className="font-medium text-gray-700">Games to practice and master words</span>
+              <span className="font-medium text-gray-700">{t('onboarding.student.start.feature3')}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
                 <ICONS.TrendingUp className="w-4 h-4 text-purple-500" />
               </div>
-              <span className="font-medium text-gray-700">Progress tracking and level tests</span>
+              <span className="font-medium text-gray-700">{t('onboarding.student.start.feature4')}</span>
             </div>
           </div>
         </div>
@@ -76,7 +79,7 @@ export const StartStep: React.FC<StartStepProps> = ({
           onClick={onComplete}
           accentColor={accentColor}
         >
-          Let's go! 🚀
+          {t('onboarding.student.start.button')}
         </NextButton>
       </div>
     </OnboardingStep>

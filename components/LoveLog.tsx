@@ -1,11 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { speakPolish } from '../services/audio';
 import { geminiService } from '../services/gemini';
 import { Profile, DictionaryEntry, WordType, WordScore, GiftWord } from '../types';
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
+import { getConjugationPersons } from '../constants/language-config';
 
 interface LoveLogProps {
   profile: Profile;
@@ -34,7 +37,14 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   // Theme
   const { accentHex } = useTheme();
 
-  useEffect(() => { fetchEntries(); }, [profile]);
+  // Language
+  const { targetLanguage, languageParams } = useLanguage();
+  const { t } = useTranslation();
+
+  // Get dynamic pronouns for the target language
+  const pronouns = getConjugationPersons(targetLanguage);
+
+  useEffect(() => { fetchEntries(); }, [profile, targetLanguage]);
 
   // Listen for dictionary updates from other components (e.g., Listen Mode word extraction)
   useEffect(() => {
@@ -49,11 +59,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const fetchEntries = async () => {
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
 
-    // Fetch dictionary entries
+    // Fetch dictionary entries filtered by target language
     const { data } = await supabase
       .from('dictionary')
       .select('id, user_id, word, translation, word_type, importance, context, unlocked_at')
       .eq('user_id', targetUserId)
+      .eq('language_code', targetLanguage)
       .order('unlocked_at', { ascending: false });
 
     if (data) setEntries(data as DictionaryEntry[]);
@@ -107,7 +118,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         .order('created_at', { ascending: true });
 
       if (msgError) {
-        setSyncMessage('Error fetching messages');
+        setSyncMessage(t('loveLog.sync.errorFetching'));
         setIsSyncing(false);
         return;
       }
@@ -115,7 +126,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       const unharvested = messages?.filter(m => !m.vocabulary_harvested_at) || [];
 
       if (unharvested.length === 0) {
-        setSyncMessage('All synced!');
+        setSyncMessage(t('loveLog.sync.allSynced'));
         setTimeout(() => setSyncMessage(null), 3000);
         setIsSyncing(false);
         return;
@@ -218,15 +229,15 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       }
 
       setSyncMessage(totalNewWords > 0
-        ? `+${totalNewWords} new word${totalNewWords > 1 ? 's' : ''}!`
-        : 'No new words found'
+        ? t('loveLog.sync.newWords', { count: totalNewWords })
+        : t('loveLog.sync.noNewWords')
       );
       setTimeout(() => setSyncMessage(null), 3000);
       await fetchEntries();
 
     } catch (e: any) {
       console.error('Sync failed:', e);
-      setSyncMessage('Sync error');
+      setSyncMessage(t('loveLog.sync.syncError'));
     } finally {
       setIsSyncing(false);
     }
@@ -305,7 +316,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               <div className="bg-[var(--accent-color)] p-1.5 rounded-lg shadow-md">
                 <ICONS.Book className="text-white w-4 h-4" />
               </div>
-              <h2 className="text-base font-black text-[var(--text-primary)] font-header">Love Log</h2>
+              <h2 className="text-base font-black text-[var(--text-primary)] font-header">{t('loveLog.title')}</h2>
               <span className="text-[9px] font-bold text-[var(--text-secondary)] bg-[var(--bg-primary)] px-1.5 py-0.5 rounded-full">{entries.length}</span>
             </div>
             <div className="flex items-center gap-1.5">
@@ -321,7 +332,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 onClick={handleSync}
                 disabled={isSyncing}
                 className="p-2 bg-[var(--accent-light)] rounded-lg transition-all disabled:opacity-50"
-                title="Scan chat history for new vocabulary"
+                title={t('loveLog.sync.scanTooltip')}
               >
                 <ICONS.RefreshCw className={`w-4 h-4 text-[var(--accent-color)] ${isSyncing ? 'animate-spin' : ''}`} />
               </button>
@@ -337,7 +348,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                   type="text"
                   value={search}
                   onChange={e => setSearch(e.target.value)}
-                  placeholder="Search words..."
+                  placeholder={t('loveLog.searchWords')}
                   className="w-full pl-9 pr-4 py-2 bg-[var(--bg-primary)] rounded-xl text-xs font-bold border-none focus:ring-2 focus:ring-[var(--accent-border)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                   autoFocus
                 />
@@ -351,33 +362,33 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               <div className="bg-[var(--accent-color)] p-2 rounded-xl shadow-lg shadow-[var(--accent-shadow)]">
                 <ICONS.Book className="text-white w-5 h-5" />
               </div>
-              <h2 className="text-xl font-black text-[var(--text-primary)] font-header">The Love Log</h2>
+              <h2 className="text-xl font-black text-[var(--text-primary)] font-header">{t('loveLog.titleFull')}</h2>
             </div>
 
             <div className="flex items-center gap-3">
               <div className="relative w-64">
                 <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] w-3.5 h-3.5" />
-                <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search..." className="w-full pl-9 pr-4 py-2 bg-[var(--bg-primary)] rounded-xl text-xs font-bold border-none focus:ring-2 focus:ring-[var(--accent-border)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" />
+                <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder={t('loveLog.search')} className="w-full pl-9 pr-4 py-2 bg-[var(--bg-primary)] rounded-xl text-xs font-bold border-none focus:ring-2 focus:ring-[var(--accent-border)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" />
               </div>
               <button
                 onClick={handleSync}
                 disabled={isSyncing}
                 className="flex items-center gap-2 px-3 py-2 bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] rounded-xl transition-all disabled:opacity-50"
-                title="Scan your chat history for new vocabulary words"
+                title={t('loveLog.sync.scanTooltip')}
               >
                 <ICONS.RefreshCw className={`w-4 h-4 text-[var(--accent-color)] ${isSyncing ? 'animate-spin' : ''}`} />
                 <span className="text-[10px] font-bold text-[var(--accent-color)]">
-                  {syncMessage || 'Scan Chats'}
+                  {syncMessage || t('loveLog.sync.scanChats')}
                 </span>
               </button>
-              <span className="text-[10px] font-bold text-[var(--text-secondary)]">{entries.length} words</span>
+              <span className="text-[10px] font-bold text-[var(--text-secondary)]">{t('loveLog.wordsCount', { count: entries.length })}</span>
             </div>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto mt-2 md:mt-3 flex gap-1.5 md:gap-2 overflow-x-auto no-scrollbar pb-1">
-          {(['all', 'noun', 'verb', 'adjective', 'phrase'] as (WordType | 'all')[]).map(t => (
-            <button key={t} onClick={() => setFilter(t)} className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] border md:border-2 transition-all whitespace-nowrap ${filter === t ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md' : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)]'}`}>{t}s</button>
+          {(['all', 'noun', 'verb', 'adjective', 'phrase'] as (WordType | 'all')[]).map(f => (
+            <button key={f} onClick={() => setFilter(f)} className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] border md:border-2 transition-all whitespace-nowrap ${filter === f ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md' : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)]'}`}>{t(`loveLog.filters.${f}`)}s</button>
           ))}
           {giftedWordsMap.size > 0 && (
             <button
@@ -388,7 +399,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                   : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)]'
               }`}
             >
-              <ICONS.Heart className="w-2.5 h-2.5 md:w-3 md:h-3" /> Gifts
+              <ICONS.Heart className="w-2.5 h-2.5 md:w-3 md:h-3" /> {t('loveLog.filters.gifts')}
             </button>
           )}
         </div>
@@ -426,21 +437,21 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     {isGifted && (
                       <div
                         className="absolute top-2 md:top-3 left-2 md:left-3 flex items-center gap-0.5 md:gap-1 bg-[var(--accent-light)] px-1.5 md:px-2 py-0.5 md:py-1 rounded-full"
-                        title={`Gift from ${partnerName || 'your partner'}`}
+                        title={t('loveLog.card.giftFrom', { name: partnerName || t('loveLog.card.yourPartner') })}
                       >
                         <ICONS.Heart className="w-2.5 h-2.5 md:w-3 md:h-3 text-[var(--accent-color)] fill-[var(--accent-color)]" />
-                        <span className="text-[7px] md:text-[9px] font-bold text-[var(--accent-color)]">Gift</span>
+                        <span className="text-[7px] md:text-[9px] font-bold text-[var(--accent-color)]">{t('loveLog.card.gift')}</span>
                       </div>
                     )}
 
                     {/* Mastery Badge - top right corner */}
                     {isLearned && (
-                      <div className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center" title="Mastered!">
+                      <div className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center" title={t('loveLog.card.mastered')}>
                         <ICONS.Check className="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400" />
                       </div>
                     )}
                     {!isLearned && currentStreak > 0 && (
-                      <div className="absolute top-2 md:top-3 right-2 md:right-3 flex items-center gap-0.5 md:gap-1 bg-[var(--accent-light)] px-1.5 md:px-2 py-0.5 md:py-1 rounded-full" title={`${currentStreak}/${STREAK_TO_LEARN} correct in a row`}>
+                      <div className="absolute top-2 md:top-3 right-2 md:right-3 flex items-center gap-0.5 md:gap-1 bg-[var(--accent-light)] px-1.5 md:px-2 py-0.5 md:py-1 rounded-full" title={t('loveLog.card.streakProgress', { current: currentStreak, target: STREAK_TO_LEARN })}>
                         <span className="text-[8px] md:text-[10px] font-black text-[var(--accent-color)]">{currentStreak}/{STREAK_TO_LEARN}</span>
                         <ICONS.Zap className="w-2.5 h-2.5 md:w-3 md:h-3 text-[var(--accent-color)]" />
                       </div>
@@ -467,7 +478,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     </div>
 
                     {/* Flip hint */}
-                    <p className="text-[8px] md:text-[10px] text-[var(--text-secondary)] opacity-50 text-center">tap for details</p>
+                    <p className="text-[8px] md:text-[10px] text-[var(--text-secondary)] opacity-50 text-center">{t('loveLog.card.tapForDetails')}</p>
                   </div>
 
                   {/* === BACK === */}
@@ -489,7 +500,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     {/* Example sentence */}
                     <div className="flex-1 flex flex-col gap-2 min-h-0">
                       <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-bold uppercase tracking-wider opacity-60">Example</span>
+                        <span className="text-[9px] font-bold uppercase tracking-wider opacity-60">{t('loveLog.card.example')}</span>
                         {examples.length > 1 && (
                           <div className="flex items-center gap-1">
                             <button
@@ -518,7 +529,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       </div>
                       <div className="bg-white/10 rounded-xl p-3 border border-white/10">
                         <p className="text-[11px] leading-relaxed italic">
-                          "{examples[currentIdx] || "No example available."}"
+                          "{examples[currentIdx] || t('loveLog.card.noExample')}"
                         </p>
                       </div>
                     </div>
@@ -537,7 +548,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                         className="mt-2 py-2 bg-white/20 hover:bg-white/30 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
                       >
                         <ICONS.Book className="w-3 h-3" />
-                        {e.word_type === 'verb' ? 'Conjugations' : e.word_type === 'noun' ? 'Forms' : 'Forms'}
+                        {e.word_type === 'verb' ? t('loveLog.card.conjugations') : t('loveLog.card.forms')}
                       </button>
                     )}
                   </div>
@@ -613,7 +624,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                             }`}
                           >
                             {!isUnlocked && <ICONS.Lock className="w-3 h-3" />}
-                            {tense}
+                            {t(`loveLog.modal.${tense}`)}
                             {isUnlocked && !isPresent && <span className="text-green-500 text-[8px]">✓</span>}
                           </button>
                         );
@@ -631,13 +642,13 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                           <div className="text-center py-8">
                             <ICONS.Lock className="w-8 h-8 text-[var(--text-secondary)] mx-auto mb-3" />
                             <p className="text-[var(--text-secondary)] text-sm mb-4">
-                              {activeTenseTab === 'past' ? 'Past' : 'Future'} tense is locked
+                              {t('loveLog.modal.tenseLocked', { tense: t(`loveLog.modal.${activeTenseTab}`) })}
                             </p>
                             <button
                               onClick={() => setUnlockDialogTense(activeTenseTab as 'past' | 'future')}
                               className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-xl text-sm font-bold hover:bg-[var(--accent-hover)] transition-all"
                             >
-                              Unlock {activeTenseTab === 'past' ? 'Past' : 'Future'} Tense
+                              {t('loveLog.modal.unlockTense', { tense: t(`loveLog.modal.${activeTenseTab}`) })}
                             </button>
                           </div>
                         );
@@ -645,21 +656,22 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                       // Present tense - simple format
                       if (isPresent && tenseData) {
+                        const pronounLabels = [
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                        ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                             <table className="w-full text-sm">
                               <tbody className="divide-y divide-[var(--border-color)]">
-                                {[
-                                  { label: 'ja (I)', value: tenseData.ja },
-                                  { label: 'ty (you)', value: tenseData.ty },
-                                  { label: 'on/ona (he/she)', value: tenseData.onOna },
-                                  { label: 'my (we)', value: tenseData.my },
-                                  { label: 'wy (you pl.)', value: tenseData.wy },
-                                  { label: 'oni/one (they)', value: tenseData.oni }
-                                ].map(row => (
-                                  <tr key={row.label} className="hover:bg-[var(--border-color)]/30">
-                                    <td className="px-4 py-2 text-[var(--text-secondary)] text-xs">{row.label}</td>
-                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{row.value || '—'}</td>
+                                {pronounLabels.map(row => (
+                                  <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
+                                    <td className="px-4 py-2 text-[var(--text-secondary)] text-xs">{row.pronoun} {row.english}</td>
+                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{tenseData[row.key] || '—'}</td>
                                   </tr>
                                 ))}
                               </tbody>
@@ -670,40 +682,44 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                       // Past tense - with gender
                       if (activeTenseTab === 'past' && tenseData) {
+                        const pronounLabels = [
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                        ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                             <table className="w-full text-sm">
                               <thead>
                                 <tr className="bg-[var(--border-color)]/30">
-                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">Person</th>
-                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">Masc.</th>
-                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">Fem.</th>
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">{t('loveLog.tableHeaders.person')}</th>
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">{t('loveLog.tableHeaders.masculine')}</th>
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">{t('loveLog.tableHeaders.feminine')}</th>
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-[var(--border-color)]">
-                                {[
-                                  { label: 'ja (I)', data: tenseData.ja },
-                                  { label: 'ty (you)', data: tenseData.ty },
-                                  { label: 'on/ona', data: tenseData.onOna },
-                                  { label: 'my (we)', data: tenseData.my },
-                                  { label: 'wy (you pl.)', data: tenseData.wy },
-                                  { label: 'oni/one', data: tenseData.oni }
-                                ].map(row => (
-                                  <tr key={row.label} className="hover:bg-[var(--border-color)]/30">
-                                    <td className="px-3 py-2 text-[var(--text-secondary)] text-xs">{row.label}</td>
-                                    <td className="px-3 py-2 font-bold text-[var(--accent-color)] text-sm">
-                                      {typeof row.data === 'object' ? row.data?.masculine : row.data || '—'}
-                                    </td>
-                                    <td className="px-3 py-2 font-bold text-[var(--accent-color)] text-sm">
-                                      {typeof row.data === 'object' ? row.data?.feminine : '—'}
-                                    </td>
-                                  </tr>
-                                ))}
+                                {pronounLabels.map(row => {
+                                  const data = tenseData[row.key];
+                                  return (
+                                    <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
+                                      <td className="px-3 py-2 text-[var(--text-secondary)] text-xs">{row.pronoun} {row.english}</td>
+                                      <td className="px-3 py-2 font-bold text-[var(--accent-color)] text-sm">
+                                        {typeof data === 'object' ? data?.masculine : data || '—'}
+                                      </td>
+                                      <td className="px-3 py-2 font-bold text-[var(--accent-color)] text-sm">
+                                        {typeof data === 'object' ? data?.feminine : '—'}
+                                      </td>
+                                    </tr>
+                                  );
+                                })}
                               </tbody>
                             </table>
                             {tenseData.unlockedAt && (
                               <p className="text-[9px] text-[var(--text-secondary)] text-center py-2">
-                                Unlocked {new Date(tenseData.unlockedAt).toLocaleDateString()}
+                                {t('loveLog.modal.unlocked', { date: new Date(tenseData.unlockedAt).toLocaleDateString() })}
                               </p>
                             )}
                           </div>
@@ -712,28 +728,29 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                       // Future tense - simple format
                       if (activeTenseTab === 'future' && tenseData) {
+                        const pronounLabels = [
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                        ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                             <table className="w-full text-sm">
                               <tbody className="divide-y divide-[var(--border-color)]">
-                                {[
-                                  { label: 'ja (I)', value: tenseData.ja },
-                                  { label: 'ty (you)', value: tenseData.ty },
-                                  { label: 'on/ona (he/she)', value: tenseData.onOna },
-                                  { label: 'my (we)', value: tenseData.my },
-                                  { label: 'wy (you pl.)', value: tenseData.wy },
-                                  { label: 'oni/one (they)', value: tenseData.oni }
-                                ].map(row => (
-                                  <tr key={row.label} className="hover:bg-[var(--border-color)]/30">
-                                    <td className="px-4 py-2 text-[var(--text-secondary)] text-xs">{row.label}</td>
-                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{row.value || '—'}</td>
+                                {pronounLabels.map(row => (
+                                  <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
+                                    <td className="px-4 py-2 text-[var(--text-secondary)] text-xs">{row.pronoun} {row.english}</td>
+                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{tenseData[row.key] || '—'}</td>
                                   </tr>
                                 ))}
                               </tbody>
                             </table>
                             {tenseData.unlockedAt && (
                               <p className="text-[9px] text-[var(--text-secondary)] text-center py-2">
-                                Unlocked {new Date(tenseData.unlockedAt).toLocaleDateString()}
+                                {t('loveLog.modal.unlocked', { date: new Date(tenseData.unlockedAt).toLocaleDateString() })}
                               </p>
                             )}
                           </div>
@@ -752,11 +769,13 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               <ICONS.Lock className="w-8 h-8 text-[var(--accent-color)]" />
                             </div>
                             <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
-                              Unlock {unlockDialogTense === 'past' ? 'Past' : 'Future'} Tense?
+                              {t('loveLog.unlock.title', { tense: t(`loveLog.modal.${unlockDialogTense}`) })}
                             </h3>
                             <p className="text-[var(--text-secondary)] text-sm mb-6">
-                              Ready to learn how to say <strong className="text-[var(--accent-color)]">{entry.word}</strong> in the {unlockDialogTense} tense?
-                              {unlockDialogTense === 'past' && " You'll see both masculine and feminine forms."}
+                              {t('loveLog.unlock.descriptionBefore')}{' '}
+                              <strong className="text-[var(--accent-color)]">{entry.word}</strong>{' '}
+                              {t('loveLog.unlock.descriptionAfter', { tense: unlockDialogTense })}
+                              {unlockDialogTense === 'past' && ` ${t('loveLog.unlock.pastNote')}`}
                             </p>
                             <div className="flex gap-3">
                               <button
@@ -764,7 +783,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                 disabled={unlocking}
                                 className="flex-1 py-3 px-4 border-2 border-[var(--border-color)] text-[var(--text-secondary)] rounded-xl font-bold hover:bg-[var(--bg-primary)] transition-all disabled:opacity-50"
                               >
-                                Not Yet
+                                {t('loveLog.unlock.notYet')}
                               </button>
                               <button
                                 onClick={() => handleUnlockTense(entry, unlockDialogTense)}
@@ -774,10 +793,10 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                 {unlocking ? (
                                   <>
                                     <span className="animate-spin">⏳</span>
-                                    Unlocking...
+                                    {t('loveLog.unlock.unlocking')}
                                   </>
                                 ) : (
-                                  'Unlock Now'
+                                  t('loveLog.unlock.unlockNow')
                                 )}
                               </button>
                             </div>
@@ -796,17 +815,17 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                         <tbody className="divide-y divide-[var(--border-color)]">
                           {ctx.gender && (
                             <tr>
-                              <td className="py-2 text-[var(--text-secondary)] text-xs">Gender</td>
+                              <td className="py-2 text-[var(--text-secondary)] text-xs">{t('loveLog.nounForms.gender')}</td>
                               <td className="py-2 font-bold text-[var(--accent-color)] capitalize">{ctx.gender}</td>
                             </tr>
                           )}
                           <tr>
-                            <td className="py-2 text-[var(--text-secondary)] text-xs">Singular</td>
+                            <td className="py-2 text-[var(--text-secondary)] text-xs">{t('loveLog.nounForms.singular')}</td>
                             <td className="py-2 font-bold text-[var(--accent-color)]">{entry.word}</td>
                           </tr>
                           {ctx.plural && (
                             <tr>
-                              <td className="py-2 text-[var(--text-secondary)] text-xs">Plural</td>
+                              <td className="py-2 text-[var(--text-secondary)] text-xs">{t('loveLog.nounForms.plural')}</td>
                               <td className="py-2 font-bold text-[var(--accent-color)]">{ctx.plural}</td>
                             </tr>
                           )}
@@ -820,18 +839,18 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {entry.word_type === 'adjective' && ctx.adjectiveForms && (
                   <div className="space-y-4">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--accent-color)] mb-2">
-                      Gender Forms
+                      {t('loveLog.adjectiveForms.title')}
                     </h4>
                     <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                       <table className="w-full text-sm">
                         <tbody className="divide-y divide-[var(--border-color)]">
                           {[
-                            { label: 'Masculine', value: ctx.adjectiveForms.masculine },
-                            { label: 'Feminine', value: ctx.adjectiveForms.feminine },
-                            { label: 'Neuter', value: ctx.adjectiveForms.neuter },
-                            { label: 'Plural', value: ctx.adjectiveForms.plural }
+                            { label: t('loveLog.adjectiveForms.masculine'), value: ctx.adjectiveForms.masculine, key: 'masculine' },
+                            { label: t('loveLog.adjectiveForms.feminine'), value: ctx.adjectiveForms.feminine, key: 'feminine' },
+                            { label: t('loveLog.adjectiveForms.neuter'), value: ctx.adjectiveForms.neuter, key: 'neuter' },
+                            { label: t('loveLog.adjectiveForms.plural'), value: ctx.adjectiveForms.plural, key: 'plural' }
                           ].map(row => (
-                            <tr key={row.label} className="hover:bg-[var(--border-color)]/30">
+                            <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                               <td className="px-4 py-2 text-[var(--text-secondary)] text-xs">{row.label}</td>
                               <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{row.value || '—'}</td>
                             </tr>

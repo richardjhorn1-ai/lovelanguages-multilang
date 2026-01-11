@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
 import { LiveSession, LiveSessionState, ConversationScenario } from '../services/live-session';
 import ScenarioSelector from './ScenarioSelector';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ConversationPracticeProps {
   userName: string;
@@ -15,6 +17,8 @@ interface TranscriptEntry {
 }
 
 const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, onClose }) => {
+  const { t } = useTranslation();
+  const { targetName } = useLanguage();
   const [showSelector, setShowSelector] = useState(true);
   const [scenario, setScenario] = useState<ConversationScenario | null>(null);
   const [state, setState] = useState<LiveSessionState>('disconnected');
@@ -128,11 +132,11 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                   'bg-gray-400'
                 }`}></span>
                 <span className="text-xs text-[var(--text-secondary)]">
-                  {state === 'listening' ? 'Listening...' :
-                   state === 'speaking' ? 'Speaking...' :
-                   state === 'connecting' ? 'Connecting...' :
-                   state === 'error' ? 'Error' :
-                   'Disconnected'}
+                  {state === 'listening' ? t('conversationPractice.states.listening') :
+                   state === 'speaking' ? t('conversationPractice.states.speaking') :
+                   state === 'connecting' ? t('conversationPractice.states.connecting') :
+                   state === 'error' ? t('conversationPractice.states.error') :
+                   t('conversationPractice.states.disconnected')}
                 </span>
               </div>
             </div>
@@ -141,7 +145,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
             onClick={handleEnd}
             className="px-3 py-2 bg-red-500/10 text-red-500 font-bold text-xs rounded-xl hover:bg-red-500/20 transition-colors"
           >
-            End
+            {t('conversationPractice.end')}
           </button>
         </div>
 
@@ -155,7 +159,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                   <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                   <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 </div>
-                <p className="text-sm text-[var(--text-secondary)]">Starting conversation...</p>
+                <p className="text-sm text-[var(--text-secondary)]">{t('conversationPractice.startingConversation')}</p>
               </div>
             </div>
           )}
@@ -197,7 +201,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
               onClick={handleRetry}
               className="text-xs font-bold text-red-600 dark:text-red-400 hover:underline"
             >
-              Try Again
+              {t('conversationPractice.tryAgain')}
             </button>
           </div>
         )}
@@ -211,7 +215,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                   <div className="absolute inset-0 bg-purple-500/10 rounded-full animate-ping"></div>
                   <ICONS.Mic className="w-8 h-8 text-purple-500" />
                 </div>
-                <p className="text-sm text-[var(--text-secondary)]">Speak in Polish...</p>
+                <p className="text-sm text-[var(--text-secondary)]">{t('conversationPractice.speakIn', { language: targetName })}</p>
               </>
             )}
             {state === 'speaking' && (
@@ -224,11 +228,11 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                     <div className="w-1.5 h-7 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
                   </div>
                 </div>
-                <p className="text-sm text-[var(--text-secondary)]">AI is speaking...</p>
+                <p className="text-sm text-[var(--text-secondary)]">{t('conversationPractice.aiSpeaking')}</p>
               </>
             )}
             {state === 'disconnected' && !error && (
-              <p className="text-sm text-[var(--text-secondary)]">Conversation ended</p>
+              <p className="text-sm text-[var(--text-secondary)]">{t('conversationPractice.conversationEnded')}</p>
             )}
           </div>
         </div>

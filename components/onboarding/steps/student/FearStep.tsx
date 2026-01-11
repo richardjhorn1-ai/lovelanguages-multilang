@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface FearStepProps {
   currentStep: number;
@@ -10,13 +13,6 @@ interface FearStepProps {
   accentColor?: string;
 }
 
-const FEAR_OPTIONS = [
-  { id: 'pronunciation', emoji: '🗣️', label: 'Pronunciation', description: 'Sounding wrong or silly' },
-  { id: 'grammar', emoji: '📚', label: 'Grammar rules', description: 'Cases, conjugations, gender' },
-  { id: 'silly', emoji: '😅', label: 'Sounding silly', description: 'Making mistakes in front of others' },
-  { id: 'forgetting', emoji: '🧠', label: 'Forgetting everything', description: "Learning but not retaining" },
-];
-
 export const FearStep: React.FC<FearStepProps> = ({
   currentStep,
   totalSteps,
@@ -25,7 +21,18 @@ export const FearStep: React.FC<FearStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
   const [selected, setSelected] = useState(initialValue);
+
+  // Fear options array inside component to access t()
+  const fearOptions = [
+    { id: 'pronunciation', emoji: '🗣️', label: t('onboarding.student.fear.pronunciation'), description: t('onboarding.student.fear.pronunciationDesc') },
+    { id: 'grammar', emoji: '📚', label: t('onboarding.student.fear.grammar'), description: t('onboarding.student.fear.grammarDesc') },
+    { id: 'silly', emoji: '😅', label: t('onboarding.student.fear.silly'), description: t('onboarding.student.fear.sillyDesc') },
+    { id: 'forgetting', emoji: '🧠', label: t('onboarding.student.fear.forgetting'), description: t('onboarding.student.fear.forgettingDesc') },
+  ];
 
   return (
     <OnboardingStep
@@ -36,15 +43,15 @@ export const FearStep: React.FC<FearStepProps> = ({
     >
       <div className="text-center mb-8">
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          What's your biggest fear about learning Polish?
+          {t('onboarding.student.fear.title', { language: targetName })}
         </h1>
         <p className="text-gray-500">
-          Everyone has one. Let's tackle yours together.
+          {t('onboarding.student.fear.subtitle')}
         </p>
       </div>
 
       <div className="space-y-3 mb-8">
-        {FEAR_OPTIONS.map((option) => (
+        {fearOptions.map((option) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}

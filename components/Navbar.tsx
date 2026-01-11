@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
 import { Profile, Notification } from '../types';
 import { supabase } from '../services/supabase';
@@ -26,6 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   const navigate = useNavigate();
 
   const { accentHex, isDark } = useTheme();
+  const { t } = useTranslation();
 
   // Calculate level info from XP
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
@@ -157,10 +159,10 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   };
 
   const navItems = [
-    { path: '/', label: 'Chat', icon: ICONS.MessageCircle, hideOnMobile: false },
-    { path: '/log', label: 'Love Log', icon: ICONS.Book, hideOnMobile: false },
-    { path: '/play', label: 'Play', icon: ICONS.Play, hideOnMobile: false },
-    { path: '/progress', label: 'Progress', icon: ICONS.TrendingUp, hideOnMobile: true },
+    { path: '/', label: t('nav.chat'), icon: ICONS.MessageCircle, hideOnMobile: false },
+    { path: '/log', label: t('nav.log'), icon: ICONS.Book, hideOnMobile: false },
+    { path: '/play', label: t('nav.play'), icon: ICONS.Play, hideOnMobile: false },
+    { path: '/progress', label: t('nav.progress'), icon: ICONS.TrendingUp, hideOnMobile: true },
   ];
 
   return (
@@ -214,7 +216,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               setIsProfileDropdownOpen(false);
             }}
             className="hidden md:block p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-all"
-            title="Report a Bug"
+            title={t('nav.reportBug')}
           >
             <ICONS.Bug className="w-5 h-5 text-[var(--text-secondary)]" />
           </button>
@@ -227,7 +229,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               setIsProfileDropdownOpen(false);
             }}
             className="hidden md:block p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-all"
-            title="Help & Guide"
+            title={t('nav.helpGuide')}
           >
             <ICONS.HelpCircle className="w-5 h-5 text-[var(--text-secondary)]" />
           </button>
@@ -256,13 +258,13 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
             {isNotificationsOpen && (
               <div className="absolute right-0 mt-2 w-80 bg-[var(--bg-card)] rounded-2xl shadow-xl border border-[var(--border-color)] overflow-hidden z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
                 <div className="px-4 py-3 border-b border-[var(--border-color)] flex items-center justify-between">
-                  <span className="text-sm font-bold text-[var(--text-primary)]">Notifications</span>
+                  <span className="text-sm font-bold text-[var(--text-primary)]">{t('nav.notifications')}</span>
                   {unreadCount > 0 && (
                     <span
                       className="text-[10px] font-bold px-2 py-0.5 rounded-full"
                       style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
                     >
-                      {unreadCount} new
+                      {t('nav.newCount', { count: unreadCount })}
                     </span>
                   )}
                 </div>
@@ -271,7 +273,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   {notifications.length === 0 ? (
                     <div className="py-8 text-center">
                       <span className="text-2xl mb-2 block">🔔</span>
-                      <p className="text-sm text-[var(--text-secondary)]">No notifications yet</p>
+                      <p className="text-sm text-[var(--text-secondary)]">{t('nav.noNotifications')}</p>
                     </div>
                   ) : (
                     notifications.map(notification => (
@@ -379,7 +381,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.User className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
-                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">View Profile</span>
+                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">{t('nav.viewProfile')}</span>
                 {requestCount > 0 && (
                   <span
                     className="ml-auto text-[8px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded-full"
@@ -395,7 +397,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
-                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">My Progress</span>
+                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">{t('nav.myProgress')}</span>
               </button>
 
               <button
@@ -403,7 +405,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
-                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">Love Log</span>
+                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">{t('nav.log')}</span>
               </button>
 
               {/* Mobile-only: Help, Bug Report & Notifications (hidden on desktop where they have dedicated buttons) */}
@@ -416,7 +418,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
                 >
                   <ICONS.Bug className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
-                  <span className="text-xs font-medium text-[var(--text-primary)]">Report a Bug</span>
+                  <span className="text-xs font-medium text-[var(--text-primary)]">{t('nav.reportBug')}</span>
                 </button>
 
                 <button
@@ -427,7 +429,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
                 >
                   <ICONS.HelpCircle className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
-                  <span className="text-xs font-medium text-[var(--text-primary)]">Help & Guide</span>
+                  <span className="text-xs font-medium text-[var(--text-primary)]">{t('nav.helpGuide')}</span>
                 </button>
 
                 <button
@@ -438,7 +440,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
                 >
                   <ICONS.Bell className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
-                  <span className="text-xs font-medium text-[var(--text-primary)]">Notifications</span>
+                  <span className="text-xs font-medium text-[var(--text-primary)]">{t('nav.notifications')}</span>
                   {unreadCount > 0 && (
                     <span
                       className="ml-auto text-[8px] font-bold px-1.5 py-0.5 rounded-full"
@@ -459,7 +461,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-red-500/10 transition-colors text-red-500"
                 >
                   <ICONS.LogOut className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  <span className="text-xs md:text-sm font-medium">Sign Out</span>
+                  <span className="text-xs md:text-sm font-medium">{t('nav.signOut')}</span>
                 </button>
               </div>
             </div>
@@ -489,13 +491,13 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           <div className="flex items-center justify-between px-4 py-4 border-b border-[var(--border-color)]">
             <div className="flex items-center gap-2">
               <ICONS.Bell className="w-5 h-5" style={{ color: accentHex }} />
-              <span className="text-base font-bold text-[var(--text-primary)]">Notifications</span>
+              <span className="text-base font-bold text-[var(--text-primary)]">{t('nav.notifications')}</span>
               {unreadCount > 0 && (
                 <span
                   className="text-[10px] font-bold px-2 py-0.5 rounded-full"
                   style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
                 >
-                  {unreadCount} new
+                  {t('nav.newCount', { count: unreadCount })}
                 </span>
               )}
             </div>
@@ -511,8 +513,8 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
             {notifications.length === 0 ? (
               <div className="py-12 text-center">
                 <span className="text-3xl mb-3 block">🔔</span>
-                <p className="text-sm text-[var(--text-secondary)]">No notifications yet</p>
-                <p className="text-xs text-[var(--text-secondary)] mt-1">You're all caught up!</p>
+                <p className="text-sm text-[var(--text-secondary)]">{t('nav.noNotifications')}</p>
+                <p className="text-xs text-[var(--text-secondary)] mt-1">{t('nav.allCaughtUp')}</p>
               </div>
             ) : (
               notifications.map(notification => (

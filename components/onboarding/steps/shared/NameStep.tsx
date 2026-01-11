@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
@@ -19,6 +20,7 @@ export const NameStep: React.FC<NameStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [name, setName] = useState(initialValue);
 
   const handleSubmit = () => {
@@ -40,10 +42,10 @@ export const NameStep: React.FC<NameStepProps> = ({
           <ICONS.Heart className="w-8 h-8 text-[var(--accent-color)]" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          What should Cupid call you?
+          {t('onboarding.name.title')}
         </h1>
         <p className="text-gray-500">
-          Your name helps make this journey personal.
+          {t('onboarding.name.subtitle')}
         </p>
       </div>
 
@@ -52,7 +54,7 @@ export const NameStep: React.FC<NameStepProps> = ({
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
+          placeholder={t('onboarding.name.placeholder')}
           autoFocus
           className="w-full px-6 py-4 rounded-2xl bg-white border-2 border-gray-100 focus:border-[var(--accent-border)] focus:outline-none text-lg font-medium text-gray-800 placeholder:text-gray-300 transition-all"
           onKeyDown={(e) => e.key === 'Enter' && name.trim() && handleSubmit()}

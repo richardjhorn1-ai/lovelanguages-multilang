@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { TutorChallenge, QuickFireConfig } from '../types';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface PlayQuickFireChallengeProps {
   challenge: TutorChallenge;
@@ -75,6 +77,9 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
   const config = challenge.config as QuickFireConfig;
   const words = challenge.words_data || [];
+
+  const { t } = useTranslation();
+  const { targetName } = useLanguage();
 
   useEffect(() => {
     return () => {
@@ -213,9 +218,9 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
           <div className="text-5xl md:text-6xl mb-3 md:mb-4">⚡</div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">Quick Fire!</h2>
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">{t('challengePlayer.quickFire.title')}</h2>
           <p className="text-[var(--text-secondary)] text-sm md:text-base mb-4 md:mb-6">
-            {partnerName} challenges you to translate {words.length} words in {config.timeLimitSeconds} seconds!
+            {t('challengePlayer.quickFire.startDescription', { name: partnerName, count: words.length, time: config.timeLimitSeconds })}
           </p>
 
           <div className={`p-3 md:p-4 rounded-xl md:rounded-2xl mb-4 md:mb-6 ${
@@ -226,11 +231,14 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
               config.difficulty === 'easy' ? 'text-green-600 dark:text-green-400' :
               config.difficulty === 'hard' ? 'text-red-600 dark:text-red-400' : 'text-amber-600 dark:text-amber-400'
             }`}>
-              {config.difficulty === 'easy' ? '🌿 Easy Mode' :
-               config.difficulty === 'hard' ? '💥 Hard Mode' : '🔥 Medium Mode'}
+              {config.difficulty === 'easy'
+                ? `🌿 ${t('challengePlayer.quickFire.difficulty.easy')}`
+                : config.difficulty === 'hard'
+                  ? `💥 ${t('challengePlayer.quickFire.difficulty.hard')}`
+                  : `🔥 ${t('challengePlayer.quickFire.difficulty.medium')}`}
             </p>
             <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">
-              {(config.timeLimitSeconds / words.length).toFixed(1)}s per word
+              {t('challengePlayer.quickFire.timePerWord', { time: (config.timeLimitSeconds / words.length).toFixed(1) })}
             </p>
           </div>
 
@@ -239,13 +247,13 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
               onClick={onClose}
               className="flex-1 px-4 md:px-6 py-3 md:py-4 text-[var(--text-secondary)] font-bold rounded-xl hover:bg-[var(--bg-primary)] transition-colors text-sm md:text-base"
             >
-              Later
+              {t('challengePlayer.common.later')}
             </button>
             <button
               onClick={handleStart}
               className="flex-1 px-4 md:px-6 py-3 md:py-4 bg-amber-500 text-white font-bold rounded-xl hover:bg-amber-600 transition-colors text-sm md:text-base"
             >
-              Start!
+              {t('challengePlayer.quickFire.startButton')}
             </button>
           </div>
         </div>
@@ -258,7 +266,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
     return (
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
         <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md p-6 md:p-8 text-center">
-          <p className="text-[var(--text-secondary)] mb-3 md:mb-4">Get Ready!</p>
+          <p className="text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quickFire.getReady')}</p>
           <div className="text-7xl md:text-8xl font-black text-amber-500 animate-pulse">{countdown}</div>
         </div>
       </div>
@@ -282,21 +290,25 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
             {isPerfect && wasQuick ? '🏆' : isPerfect ? '🎉' : result.score >= 70 ? '⚡' : '💪'}
           </div>
           <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">
-            {isPerfect && wasQuick ? 'Lightning Fast!' :
-             isPerfect ? 'Perfect Score!' :
-             result.score >= 70 ? 'Great Job!' : 'Keep Practicing!'}
+            {isPerfect && wasQuick
+              ? t('challengePlayer.results.lightningFast')
+              : isPerfect
+                ? t('challengePlayer.results.perfectScore')
+                : result.score >= 70
+                  ? t('challengePlayer.results.greatJob')
+                  : t('challengePlayer.results.keepPracticing')}
           </h2>
 
           <div className="text-4xl md:text-5xl font-black text-amber-500 mb-2">{result.score}%</div>
 
           <p className="text-[var(--text-secondary)] text-sm md:text-base mb-3 md:mb-4">
-            {result.correct_answers}/{result.total_questions} correct in {result.timeSpent}s
+            {t('challengePlayer.quickFire.resultScore', { correct: result.correct_answers, total: result.total_questions, time: result.timeSpent })}
           </p>
 
           <div className="bg-amber-100 dark:bg-amber-900/30 p-3 md:p-4 rounded-xl md:rounded-2xl mb-4 md:mb-6 border border-amber-200 dark:border-amber-800">
             <p className="text-xs md:text-sm font-bold text-[var(--text-primary)]">
-              +{result.xp_earned} XP earned!
-              {wasQuick && <span className="text-amber-500"> (Time Bonus!)</span>}
+              {t('challengePlayer.common.xpEarned', { xp: result.xp_earned })}
+              {wasQuick && <span className="text-amber-500"> {t('challengePlayer.quickFire.timeBonus')}</span>}
             </p>
           </div>
 
@@ -305,7 +317,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
             <div className="mb-4 md:mb-6">
               <details className="text-left">
                 <summary className="cursor-pointer text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-center">
-                  Show details ({answersWithExplanations.length})
+                  {t('challengePlayer.common.showDetails', { count: answersWithExplanations.length })}
                 </summary>
                 <div className="mt-3 space-y-2 max-h-48 overflow-y-auto">
                   {answersWithExplanations.map((answer, idx) => (
@@ -336,7 +348,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
             onClick={() => { onComplete(); }}
             className="w-full px-4 md:px-6 py-3 md:py-4 bg-amber-500 text-white font-bold rounded-xl hover:bg-amber-600 transition-colors text-sm md:text-base"
           >
-            Done
+            {t('challengePlayer.common.done')}
           </button>
         </div>
       </div>
@@ -353,7 +365,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
-          <p className="text-[var(--text-secondary)]">Calculating your score...</p>
+          <p className="text-[var(--text-secondary)]">{t('challengePlayer.common.calculatingScore')}</p>
         </div>
       </div>
     );
@@ -387,7 +399,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
               onClose();
             }}
             className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors"
-            title="Quit challenge"
+            title={t('challengePlayer.quickFire.quitChallenge')}
           >
             <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
           </button>
@@ -417,7 +429,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
                 handleAnswer();
               }
             }}
-            placeholder="Type translation..."
+            placeholder={t('challengePlayer.quickFire.typePlaceholder')}
             autoFocus
             className="w-full p-3 md:p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-lg md:text-xl font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
           />

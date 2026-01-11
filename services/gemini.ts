@@ -49,14 +49,21 @@ export const geminiService = {
     mode: string,
     userWords: string[] = [],
     onChunk: (text: string) => void,
-    messageHistory: { role: string; content: string }[] = []
+    messageHistory: { role: string; content: string }[] = [],
+    languageParams?: { targetLanguage: string; nativeLanguage: string }
   ): Promise<string> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/chat-stream', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ prompt, mode, userLog: userWords, messages: messageHistory.slice(-50) })
+        body: JSON.stringify({
+          prompt,
+          mode,
+          userLog: userWords,
+          messages: messageHistory.slice(-50),
+          ...languageParams
+        })
       });
 
       if (response.status === 401) {
@@ -107,13 +114,17 @@ export const geminiService = {
     }
   },
 
-  async analyzeHistory(messages: {role: string, content: string}[], currentWords: string[]): Promise<ExtractedWord[]> {
+  async analyzeHistory(
+    messages: {role: string, content: string}[],
+    currentWords: string[],
+    languageParams?: { targetLanguage: string; nativeLanguage: string }
+  ): Promise<ExtractedWord[]> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/analyze-history', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ messages, currentWords })
+        body: JSON.stringify({ messages, currentWords, ...languageParams })
       });
 
       if (response.status === 401) {
@@ -139,7 +150,8 @@ export const geminiService = {
     images: Attachment[] = [],
     userWords: string[] = [],
     messageHistory: { role: string; content: string }[] = [],
-    sessionContext?: SessionContext | null
+    sessionContext?: SessionContext | null,
+    languageParams?: { targetLanguage: string; nativeLanguage: string }
   ): Promise<{ replyText: string; newWords: ExtractedWord[] }> {
     try {
       const headers = await getAuthHeaders();
@@ -152,7 +164,8 @@ export const geminiService = {
           images,
           userLog: userWords,
           messages: messageHistory.slice(-50),
-          sessionContext: sessionContext || undefined
+          sessionContext: sessionContext || undefined,
+          ...languageParams
         })
       });
 
@@ -249,13 +262,13 @@ export const geminiService = {
     }
   },
 
-  async generateLevelTest(fromLevel: string, toLevel: string): Promise<{ success: boolean; data?: any; error?: string }> {
+  async generateLevelTest(fromLevel: string, toLevel: string, languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/generate-level-test', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ fromLevel, toLevel })
+        body: JSON.stringify({ fromLevel, toLevel, ...languageParams })
       });
 
       if (response.status === 401) {
@@ -275,13 +288,13 @@ export const geminiService = {
     }
   },
 
-  async submitLevelTest(testId: string, answers: { questionId: string; userAnswer: string }[]): Promise<{ success: boolean; data?: any; error?: string }> {
+  async submitLevelTest(testId: string, answers: { questionId: string; userAnswer: string }[], languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/submit-level-test', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ testId, answers })
+        body: JSON.stringify({ testId, answers, ...languageParams })
       });
 
       if (response.status === 401) {
@@ -301,13 +314,13 @@ export const geminiService = {
     }
   },
 
-  async getProgressSummary(): Promise<{ success: boolean; data?: any; error?: string }> {
+  async getProgressSummary(languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/progress-summary', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ action: 'generate' })
+        body: JSON.stringify({ action: 'generate', ...languageParams })
       });
 
       if (response.status === 401) {
@@ -327,13 +340,13 @@ export const geminiService = {
     }
   },
 
-  async listProgressSummaries(): Promise<{ success: boolean; data?: any[]; error?: string }> {
+  async listProgressSummaries(languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any[]; error?: string }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/progress-summary', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ action: 'list' })
+        body: JSON.stringify({ action: 'list', ...languageParams })
       });
 
       if (response.status === 401) {
@@ -353,13 +366,13 @@ export const geminiService = {
     }
   },
 
-  async getProgressSummaryById(summaryId: string): Promise<{ success: boolean; data?: any; error?: string }> {
+  async getProgressSummaryById(summaryId: string, languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/progress-summary', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ action: 'get', summaryId })
+        body: JSON.stringify({ action: 'get', summaryId, ...languageParams })
       });
 
       if (response.status === 401) {

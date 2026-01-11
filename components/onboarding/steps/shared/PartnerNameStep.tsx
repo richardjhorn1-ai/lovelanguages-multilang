@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface PartnerNameStepProps {
   currentStep: number;
@@ -23,6 +26,9 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
   const [partnerName, setPartnerName] = useState(initialValue);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -50,13 +56,13 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
           {isStudent
-            ? `Who are you learning Polish for, ${userName}?`
-            : `Who are you helping learn Polish, ${userName}?`}
+            ? t('onboarding.partnerName.studentTitle', { language: targetName, name: userName })
+            : t('onboarding.partnerName.tutorTitle', { language: targetName, name: userName })}
         </h1>
         <p className="text-gray-500">
           {isStudent
-            ? "This is who you'll be surprising with your new skills."
-            : "This is who you'll be guiding through Polish."}
+            ? t('onboarding.partnerName.studentSubtitle')
+            : t('onboarding.partnerName.tutorSubtitle', { language: targetName })}
         </p>
       </div>
 
@@ -65,7 +71,7 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
           type="text"
           value={partnerName}
           onChange={(e) => setPartnerName(e.target.value)}
-          placeholder={isStudent ? "Their name" : "Their name"}
+          placeholder={t('onboarding.partnerName.placeholder')}
           autoFocus
           className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-lg font-medium text-gray-800 placeholder:text-gray-300 transition-all"
           style={{

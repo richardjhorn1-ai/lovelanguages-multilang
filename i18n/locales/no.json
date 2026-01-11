@@ -1,0 +1,1817 @@
+{
+  "common": {
+    "loading": "Laster...",
+    "error": "Noe gikk galt",
+    "save": "Lagre",
+    "cancel": "Avbryt",
+    "close": "Lukk",
+    "back": "Tilbake",
+    "next": "Neste",
+    "submit": "Send inn",
+    "delete": "Slett",
+    "edit": "Rediger"
+  },
+  "nav": {
+    "chat": "Chat",
+    "log": "Love Log",
+    "play": "Spill",
+    "progress": "Fremgang",
+    "notifications": "Varsler",
+    "noNotifications": "Ingen varsler ennå",
+    "newCount": "{{count}} nye",
+    "allCaughtUp": "Du er oppdatert!",
+    "viewProfile": "Vis profil",
+    "myProgress": "Min fremgang",
+    "reportBug": "Rapporter en feil",
+    "helpGuide": "Hjelp og guide",
+    "signOut": "Logg ut"
+  },
+  "chat": {
+    "sidebar": {
+      "newSession": "Ny økt",
+      "collapse": "Skjul sidefelt",
+      "expand": "Utvid sidefelt",
+      "conversations": "Samtaler",
+      "noConversations": "Ingen samtaler ennå",
+      "startSession": "Start en ny økt ovenfor",
+      "items": "{{count}} element",
+      "items_other": "{{count}} elementer"
+    },
+    "modes": {
+      "coach": "Coach",
+      "ask": "spør",
+      "learn": "lær"
+    },
+    "status": {
+      "listening": "Lytter",
+      "speaking": "Snakker",
+      "connecting": "Kobler til"
+    },
+    "input": {
+      "askPlaceholder": "Spør Cupid om hva som helst...",
+      "learnPlaceholder": "Klar for neste leksjon?",
+      "tutorPlaceholder": "Hvordan kan du hjelpe partneren din i dag?",
+      "listeningPlaceholder": "Lytter...",
+      "speakingPlaceholder": "Cupid snakker...",
+      "connectingPlaceholder": "Kobler til..."
+    },
+    "session": {
+      "deleteConfirm": "Er du sikker på at du vil slette denne økten?",
+      "longConversation": "Denne samtalen blir lang!",
+      "startFresh": "Start på nytt"
+    },
+    "listen": {
+      "title": "Lytt",
+      "beta": "BETA",
+      "recording": "Tar opp",
+      "stop": "Stopp",
+      "stopSave": "Stopp og lagre",
+      "sessionLabel": "Lytteøkt",
+      "listeningFor": "Lytter etter {{language}} tale...",
+      "modeTooltip": "Lyttemodus - Fang ekte {{language}} samtaler",
+      "deleteConfirm": "Er du sikker på at du vil slette denne lytteøkten?",
+      "bookmarkAdd": "Bokmerk denne frasen",
+      "bookmarkRemove": "Fjern bokmerke",
+      "bookmarked": "{{count}} frase bokmerket",
+      "bookmarked_other": "{{count}} fraser bokmerket",
+      "improving": "Forbedrer transkripsjon med AI...",
+      "wordsAdded": "Ord lagt til i Love Log",
+      "extractWords": "Trekk ut ord",
+      "newSession": "Ny økt",
+      "backToChats": "Tilbake til chatter"
+    },
+    "listenPrompt": {
+      "title": "Klar til å lytte?",
+      "description": "Fang ekte {{language}} samtaler med direktetranskripsjon og oversettelse.",
+      "contextLabel": "Hva lytter du til?",
+      "contextOptional": "(valgfritt)",
+      "contextPlaceholder": "f.eks. Middag hos bestemor, TV-serie...",
+      "contextHint": "Du kan navngi det senere hvis du foretrekker",
+      "cancel": "Avbryt",
+      "start": "Start å lytte"
+    },
+    "wordExtractor": {
+      "title": "Trekk ut ord",
+      "found": "{{count}} ord funnet",
+      "selected": "{{count}} valgt",
+      "analyzing": "Analyserer transkripsjon...",
+      "extracting": "Trekker ut ordforråd...",
+      "cancel": "Avbryt",
+      "addWords": "Legg til {{count}} ord",
+      "adding": "Legger til..."
+    },
+    "errors": {
+      "addWordsFailed": "Kunne ikke legge til ord: {{message}}",
+      "addWordsError": "Kunne ikke legge til ord. Sjekk konsollen for detaljer."
+    },
+    "blocks": {
+      "cultureNote": "Kulturell merknad",
+      "loveGoal": "Kjærlighetsmål"
+    }
+  },
+  "progress": {
+    "level": {
+      "current": "Nåværende nivå",
+      "partner": "{{name}}s nivå",
+      "totalXp": "Totalt XP",
+      "xp": "XP",
+      "progressTo": "Fremgang mot {{level}}",
+      "xpToNext": "{{xp}} XP til {{level}}",
+      "maxLevel": "Maksnivå",
+      "max": "Maks",
+      "reachedMax": "Du har nådd maksnivået!",
+      "takeTest": "Ta nivåtest",
+      "practiceTest": "Øvingstest"
+    },
+    "previousTests": {
+      "title": "Øv på tidligere nivåer",
+      "previousAttempts": "Tidligere forsøk",
+      "viewAttempts": "Vis tidligere forsøk"
+    },
+    "motivation": {
+      "title": "Min motivasjon",
+      "learningFor": "Lærer for"
+    },
+    "stats": {
+      "title": "Love Log statistikk",
+      "total": "Totalt",
+      "mastered": "Mestret",
+      "review": "Repetisjon",
+      "nouns": "Substantiv",
+      "verbs": "Verb",
+      "adjectives": "Adjektiv",
+      "phrases": "Fraser",
+      "words": "Ord"
+    },
+    "gameHistory": {
+      "title": "Spillhistorikk"
+    },
+    "journey": {
+      "title": "Læringsreise",
+      "journalEntries": "Dagboknotater",
+      "newEntry": "Nytt notat",
+      "new": "Ny",
+      "analyzing": "Analyserer...",
+      "noEntries": "Ingen notater ennå.",
+      "clickNew": "Klikk 'Nytt notat' for å starte!",
+      "clickNewShort": "Klikk 'Ny' for å starte!",
+      "startJourney": "Start læringsreisen din ved å klikke 'Nytt notat'",
+      "selectEntry": "Velg et notat å vise",
+      "wordsXp": "{{words}} ord • {{xp}} XP"
+    },
+    "summary": {
+      "words": "Ord",
+      "youCanSay": "Nå kan du si",
+      "topics": "Emner",
+      "grammar": "Grammatikk",
+      "upNext": "Neste",
+      "answerInsights": "Svarinnsikt",
+      "diacritics": "Diakritiske tegn",
+      "synonyms": "Synonymer",
+      "typosOk": "Skrivefeil OK",
+      "diacriticTip": "Tips: Du kan ordene! Prøv å sette opp et {{language}} tastatur for spesialtegn",
+      "synonymTip": "Bra ordforrådsbredde - du bruker mange gyldige alternativer!"
+    },
+    "quickActions": {
+      "practice": "Øv",
+      "practiceDesc": "Flashkort og spørrekonkurranser",
+      "loveLog": "Love Log",
+      "loveLogDesc": "Ditt ordforråd"
+    },
+    "testResults": {
+      "title": "Testresultater",
+      "correct": "riktig",
+      "yourAnswers": "Dine svar",
+      "yourAnswer": "Ditt svar: {{answer}}",
+      "correctAnswer": "Riktig: {{answer}}",
+      "tryAgain": "Prøv igjen"
+    },
+    "tutor": {
+      "yourPartner": "Din partner",
+      "phrasesForTonight": "Fraser for i kveld",
+      "recentlyLearned": "Nylig lært",
+      "wordsToPractice": "Ord å øve sammen",
+      "noWeakSpots": "Ingen svake punkter - det går kjempebra!",
+      "misses": "{{count}} bom",
+      "misses_other": "{{count}} bom",
+      "quizThem": "Test dem →",
+      "playTogether": "Spill sammen",
+      "playTogetherDesc": "Konkurranser og aktiviteter",
+      "theirVocabulary": "Deres ordforråd",
+      "browseLoveLog": "Bla i Love Log",
+      "useItTonight": "{{word}} - bruk det i kveld!",
+      "tryInConversation": "Prøv å bruke det i samtale",
+      "complimentThem": "Gi dem et kompliment med dette!",
+      "whisperBeforeBed": "Hvisk dette før leggetid",
+      "iLoveYouVeryMuch": "Jeg elsker deg veldig mye"
+    },
+    "encouragement": {
+      "wordsMastered": "{{count}} ord mestret! Tid for en feiring!",
+      "wordsNeedWork": "Bare {{count}} ord trenger arbeid - du kan teste dem i kveld!",
+      "milestone": "{{count}} ord i ordforrådet deres - feir denne milepælen!",
+      "justLearned": "De lærte akkurat '{{word}}' - bruk det i samtale i dag!"
+    },
+    "levelThemes": {
+      "firstWords": "Første kjærlighetsord",
+      "checkingIn": "Sjekke inn",
+      "feelings": "Følelser",
+      "dailyLife": "Dagligliv",
+      "preferences": "Preferanser",
+      "makingPlans": "Lage planer",
+      "tellingStories": "Fortelle historier",
+      "deeperFeelings": "Dypere følelser",
+      "complexConversations": "Komplekse samtaler",
+      "futureDreams": "Fremtidsdrømmer",
+      "problemSolving": "Problemløsning",
+      "culturalNuance": "Kulturelle nyanser",
+      "advancedExpression": "Avansert uttrykk",
+      "nativeFluency": "Morsmålsflyt",
+      "expertLevel": "Ekspertnivå",
+      "culturalMastery": "Kulturelt mesterskap",
+      "completeMastery": "Fullstendig mesterskap",
+      "practice": "Øving"
+    }
+  },
+  "play": {
+    "loading": "Laster øvingsmodul...",
+    "title": "Øv",
+    "beta": "Beta",
+    "tabs": {
+      "games": "Spill",
+      "loveNotes": "Kjærlighetsbrev",
+      "gamesDesc": "Øv ordforrådet ditt med forskjellige spillmoduser",
+      "loveNotesDesc": "Utfordringer og gaver fra {{partner}}"
+    },
+    "empty": {
+      "noWords": "Ingen ord ennå",
+      "noWordsDesc": "Lær noen ord i chatten først, så kom tilbake for å øve!",
+      "needMore": "Trenger flere ord",
+      "needMoreDesc": "Flervalg krever minst 4 ord. Du har {{count}}.",
+      "tryFlashcards": "Prøv flashkort i stedet"
+    },
+    "games": {
+      "flashcards": "Flashkort",
+      "flashcardsDesc": "Vend kort for å vise oversettelser",
+      "multiChoice": "Flervalg",
+      "multiChoiceDesc": "Velg riktig oversettelse",
+      "typeIt": "Skriv det",
+      "typeItDesc": "Skriv oversettelsen selv",
+      "quickFire": "Hurtigild",
+      "quickFireDesc": "60 sekunders utfordring",
+      "aiChallenge": "AI-utfordring",
+      "aiChallengeDesc": "Smart ordvalg",
+      "conversation": "Samtale",
+      "conversationDesc": "Snakk med AI på {{language}}",
+      "verbMastery": "Verbmesterskap",
+      "verbMasteryVerbs": "{{count}} verb",
+      "learnVerbsFirst": "Lær verb først"
+    },
+    "directions": {
+      "targetToNative": "{{target}} → {{native}}",
+      "nativeToTarget": "{{native}} → {{target}}"
+    },
+    "flashcard": {
+      "word": "{{language}} ORD",
+      "translation": "OVERSETTELSE",
+      "tapToReveal": "Trykk for å vise",
+      "hard": "Vanskelig",
+      "gotIt": "Fikk det!"
+    },
+    "typeIt": {
+      "hint": "Hint:",
+      "hintShown": "Hint vist",
+      "showHint": "Vis hint",
+      "correct": "Riktig!",
+      "notQuite": "Ikke helt",
+      "correctAnswer": "Riktig svar:",
+      "typeIn": "Skriv på {{language}}...",
+      "next": "Neste",
+      "check": "Sjekk"
+    },
+    "quickFire": {
+      "title": "Hurtigild!",
+      "description": "Oversett så mange ord du kan på 60 sekunder!",
+      "wordsAvailable": "{{count}} ord tilgjengelig",
+      "upTo20": "Opptil 20 tilfeldige ord per runde",
+      "start": "Start!",
+      "needAtLeast5": "Trenger minst 5 ord for å spille Hurtigild",
+      "typeTranslation": "Skriv oversettelse..."
+    },
+    "aiChallenge": {
+      "chooseMode": "Velg utfordringsmodus",
+      "length": "Lengde",
+      "all": "Alle",
+      "qs": "spm",
+      "generatingPhrases": "Genererer romantiske fraser...",
+      "startChallenge": "Start utfordring",
+      "modes": {
+        "weakest": "Svakeste ord",
+        "weakestDesc": "Fokuser på ord du sliter med",
+        "gauntlet": "Blandet utfordring",
+        "gauntletDesc": "Tilfeldig miks av alle typer",
+        "romantic": "Romantiske fraser",
+        "romanticDesc": "Søte uttrykk på {{language}}",
+        "leastPracticed": "Minst øvd",
+        "leastPracticedDesc": "Ord du ikke har sett på en stund",
+        "reviewMastered": "Repeter mestrede",
+        "reviewMasteredDesc": "Øv på lærte ord"
+      }
+    },
+    "verbMastery": {
+      "title": "Verbmesterskap",
+      "practiceCount": "Øv bøying av {{count}} verb",
+      "selectTense": "Velg tid",
+      "presentTense": "Presens",
+      "pastTense": "Preteritum",
+      "futureTense": "Futurum",
+      "verbsAvailable": "{{count}} verb tilgjengelig",
+      "noVerbsWithTense": "Ingen verb med denne tiden ennå",
+      "noVerbsAlert": "Ingen verb funnet med {{tense}}. Lær flere verb først!",
+      "conjugateVerb": "Bøy verbet",
+      "forPronoun": "For pronomenet",
+      "typeConjugation": "Skriv bøyd form...",
+      "checkAnswer": "Sjekk svar",
+      "nextQuestion": "Neste spørsmål",
+      "seeResults": "Se resultater",
+      "backToGames": "← Tilbake til spill"
+    },
+    "session": {
+      "yourPartner": "Din partner"
+    }
+  },
+  "profile": {
+    "roles": {
+      "student": "Lærer {{language}}",
+      "tutor": "Språkcoach"
+    },
+    "partner": {
+      "title": "Din partner",
+      "unlink": "Fjern kobling"
+    },
+    "customisation": {
+      "title": "Tilpasning",
+      "subtitle": "Visuelle innstillinger",
+      "accentColor": "Aksentfarge",
+      "darkMode": "Mørk modus",
+      "fontSize": "Skriftstørrelse",
+      "answerChecking": "Svarsjekking",
+      "smartMode": "Smart modus",
+      "strictMode": "Streng modus",
+      "smartModeDesc": "AI godtar synonymer, skrivefeil og variasjoner",
+      "strictModeDesc": "Kun eksakte svar (ignorerer aksenter)",
+      "preview": "Forhåndsvisning",
+      "previewText": "<strong>Kocham cię</strong> betyr 'Jeg elsker deg' på {{language}}"
+    },
+    "advanced": {
+      "title": "Avanserte innstillinger",
+      "subtitle": "Rediger introduksjonssvarene dine",
+      "yourName": "Ditt navn",
+      "partnerName": "Partners navn",
+      "learnerName": "Elevens navn",
+      "relationshipVibe": "Forholdsstemning",
+      "learningReason": "Hvorfor lærer du {{language}}?",
+      "motivationPlaceholder": "Din motivasjon...",
+      "dailyTime": "Daglig tid",
+      "preferredTime": "Foretrukket tid",
+      "biggestChallenge": "Største utfordring",
+      "firstGoal": "Første mål",
+      "goalPlaceholder": "Hva vil du oppnå?",
+      "relationshipType": "Forholdtype",
+      "languageConnection": "{{language}}-tilknytning",
+      "howYouLearned": "Hvordan du lærte {{language}}",
+      "dreamPhrase": "Drømmefrase",
+      "dreamPhrasePlaceholder": "Hva vil du høre dem si?",
+      "teachingStyle": "Undervisningsstil",
+      "select": "Velg..."
+    },
+    "originOptions": {
+      "grewUp": "Vokste opp der",
+      "family": "Fra familien",
+      "school": "Studerte formelt",
+      "self": "Selvlært"
+    },
+    "styleOptions": {
+      "patient": "Tålmodig og mild",
+      "playful": "Leken og morsom",
+      "structured": "Strukturert",
+      "immersive": "Fordypende"
+    },
+    "buttons": {
+      "saving": "Lagrer...",
+      "saved": "Lagret!",
+      "saveChanges": "Lagre endringer",
+      "signOut": "Logg ut"
+    }
+  },
+  "loveLog": {
+    "title": "Love Log",
+    "titleFull": "Love Log",
+    "search": "Søk...",
+    "searchWords": "Søk ord...",
+    "wordsCount": "{{count}} ord",
+
+    "sync": {
+      "scanChats": "Skann chatter",
+      "scanTooltip": "Skann chatthistorikk for nytt ordforråd",
+      "allSynced": "Alt synkronisert!",
+      "errorFetching": "Feil ved henting av meldinger",
+      "noNewWords": "Ingen nye ord funnet",
+      "newWords": "+{{count}} nytt ord!",
+      "newWords_other": "+{{count}} nye ord!",
+      "syncError": "Synkroniseringsfeil"
+    },
+
+    "filters": {
+      "all": "Alle",
+      "noun": "Substantiv",
+      "verb": "Verb",
+      "adjective": "Adjektiv",
+      "phrase": "Frase",
+      "gifts": "Gaver"
+    },
+
+    "card": {
+      "gift": "Gave",
+      "giftFrom": "Gave fra {{name}}",
+      "yourPartner": "partneren din",
+      "mastered": "Mestret!",
+      "streakProgress": "{{current}}/{{target}} riktig på rad",
+      "tapForDetails": "trykk for detaljer",
+      "example": "Eksempel",
+      "noExample": "Ingen eksempel tilgjengelig.",
+      "conjugations": "Bøyninger",
+      "forms": "Former"
+    },
+
+    "modal": {
+      "present": "Presens",
+      "past": "Preteritum",
+      "future": "Futurum",
+      "tenseLocked": "{{tense}} er låst",
+      "unlockTense": "Lås opp {{tense}}",
+      "unlocked": "Låst opp {{date}}"
+    },
+
+    "unlock": {
+      "title": "Lås opp {{tense}}?",
+      "descriptionBefore": "Klar til å lære å si",
+      "descriptionAfter": "i {{tense}}?",
+      "pastNote": "Du vil se både maskuline og feminine former.",
+      "notYet": "Ikke ennå",
+      "unlockNow": "Lås opp nå",
+      "unlocking": "Låser opp..."
+    },
+
+    "pronouns": {
+      "singular1": "(jeg)",
+      "singular2": "(du)",
+      "singular3": "(han/hun)",
+      "plural1": "(vi)",
+      "plural2": "(dere)",
+      "plural3": "(de)"
+    },
+
+    "tableHeaders": {
+      "person": "Person",
+      "masculine": "Mask.",
+      "feminine": "Fem."
+    },
+
+    "nounForms": {
+      "gender": "Kjønn",
+      "singular": "Entall",
+      "plural": "Flertall"
+    },
+
+    "adjectiveForms": {
+      "title": "Kjønnsformer",
+      "masculine": "Maskulin",
+      "feminine": "Feminin",
+      "neuter": "Nøytrum",
+      "plural": "Flertall"
+    }
+  },
+
+  "onboarding": {
+    "step": {
+      "back": "Tilbake",
+      "counter": "{{current}} av {{total}}",
+      "quitTitle": "Avslutt registrering",
+      "continue": "Fortsett",
+      "skipForNow": "Hopp over for nå"
+    },
+
+    "name": {
+      "title": "Hva skal Cupid kalle deg?",
+      "subtitle": "Navnet ditt hjelper til med å gjøre denne reisen personlig.",
+      "placeholder": "Ditt navn"
+    },
+
+    "partnerName": {
+      "studentTitle": "Hvem lærer du {{language}} for, {{name}}?",
+      "tutorTitle": "Hvem hjelper du med å lære {{language}}, {{name}}?",
+      "studentSubtitle": "Dette er den du vil overraske med dine nye ferdigheter.",
+      "tutorSubtitle": "Dette er den du vil guide gjennom {{language}}.",
+      "placeholder": "Deres navn"
+    },
+
+    "validation": {
+      "title": "Hvordan skal vi sjekke svarene dine?",
+      "subtitle": "Velg hvor tilgivende appen skal være ved karaktersetting.",
+      "changeInSettings": "Du kan endre dette når som helst i innstillingene",
+      "smart": {
+        "label": "Smart modus",
+        "tag": "Anbefalt",
+        "description": "AI forstår hva du mener",
+        "detail1": "Godtar synonymer ('vakker' = 'pen')",
+        "detail2": "Tilgir mindre skrivefeil",
+        "detail3": "Tillater artikkelvariasjoner ('hunden' vs 'en hund')",
+        "detail4": "Gjenkjenner alternative oversettelser"
+      },
+      "strict": {
+        "label": "Streng modus",
+        "tag": "Avansert",
+        "description": "Kun eksakte svar",
+        "detail1": "Må matche nøyaktig (ignorerer aksenter)",
+        "detail2": "Best for avanserte elever",
+        "detail3": "Bygger presisjon og nøyaktighet",
+        "detail4": "Tradisjonell flashkort-opplevelse"
+      }
+    },
+
+    "plan": {
+      "title": "Velg planen din, {{name}}",
+      "subtitle": "Start din {{language}}-læringsreise i dag",
+      "monthly": "Månedlig",
+      "yearly": "Årlig",
+      "discount": "70% rabatt",
+      "popular": "Populær",
+      "perMonth": "/mnd",
+      "perYear": "/år",
+      "monthlyEquivalent": "{{price}} kr/mnd",
+      "moreFeatures": "+{{count}} flere funksjoner",
+      "continueWith": "Fortsett med {{plan}}",
+      "aPlan": "en plan",
+      "trustSignal": "Sikker betaling via Stripe. Avslutt når som helst.",
+      "standard": {
+        "name": "Standard",
+        "tagline": "Perfekt for å komme i gang",
+        "feature1": "2 000 ord i Love Log",
+        "feature2": "60 min talechat/måned",
+        "feature3": "30 min lyttemodus/måned",
+        "feature4": "Alle samtalescenarier",
+        "feature5": "Partnerinvitasjon"
+      },
+      "unlimited": {
+        "name": "Ubegrenset",
+        "tagline": "For dedikerte elever",
+        "feature1": "Ubegrenset alt",
+        "feature2": "Ubegrenset talechat",
+        "feature3": "Ubegrenset lyttemodus",
+        "feature4": "Alle samtalescenarier",
+        "feature5": "Gavepass for et annet par (årlig)"
+      }
+    },
+
+    "student": {
+      "start": {
+        "title": "Klar til å starte, {{name}}?",
+        "subtitle": "Din reise for å snakke {{partnerName}}s språk starter nå.",
+        "accessTitle": "Hva du får tilgang til:",
+        "feature1": "AI-samtaler med Cupid",
+        "feature2": "Din Love Log-ordforrådfølger",
+        "feature3": "Spill for å øve og mestre ord",
+        "feature4": "Fremgangssporing og nivåtester",
+        "button": "La oss kjøre! 🚀"
+      },
+
+      "vibe": {
+        "title": "Ett ord for forholdet ditt med {{name}}",
+        "subtitle": "Velg følelsen som føles mest sann.",
+        "passionate": "Lidenskapelig",
+        "playful": "Leken",
+        "growing": "Voksende",
+        "forever": "For alltid",
+        "longDistance": "Langdistanse",
+        "newLove": "Ny kjærlighet"
+      },
+
+      "time": {
+        "title": "Hvor mye tid kan du bruke daglig?",
+        "subtitle": "Selv små øyeblikk gir stor fremgang.",
+        "quick": "Et raskt kyss",
+        "quickDesc": "5 minutter",
+        "coffee": "En kaffedate",
+        "coffeeDesc": "10 minutter",
+        "walk": "En lang tur",
+        "walkDesc": "20+ minutter"
+      },
+
+      "when": {
+        "title": "Når foretrekker du å øve?",
+        "subtitle": "Vi minner deg på det perfekte tidspunktet.",
+        "morning": "Morgen",
+        "afternoon": "Ettermiddag",
+        "evening": "Kveld",
+        "whenever": "Når som helst"
+      },
+
+      "photo": {
+        "title": "Legg til bildet ditt",
+        "subtitleWithPhoto": "Ser bra ut! Dette vises på profilen din.",
+        "subtitleNoPhoto": "Et bilde hjelper til med å gjøre profilen din mer personlig."
+      },
+
+      "why": {
+        "title": "Hvorfor vil du lære {{language}} for {{name}}?",
+        "subtitle": "Dette blir din personlige påminnelse på reisen din.",
+        "placeholder": "Jeg vil overraske dem når vi besøker familien deres... Jeg vil hviske søte ting... Jeg vil forstå verden deres..."
+      },
+
+      "fear": {
+        "title": "Hva er din største frykt med å lære {{language}}?",
+        "subtitle": "Alle har en. La oss takle din sammen.",
+        "pronunciation": "Uttale",
+        "pronunciationDesc": "Å høres feil eller dum ut",
+        "grammar": "Grammatikkregler",
+        "grammarDesc": "Kasus, bøyninger, kjønn",
+        "silly": "Høres dum ut",
+        "sillyDesc": "Gjøre feil foran andre",
+        "forgetting": "Glemme alt",
+        "forgettingDesc": "Lære, men ikke huske"
+      },
+
+      "prior": {
+        "title": "Har du prøvd å lære {{language}} før?",
+        "subtitle": "Dette hjelper oss å starte på riktig sted.",
+        "yes": "Ja, litt",
+        "beginner": "Komplett nybegynner"
+      },
+
+      "goal": {
+        "title": "Hva er din første milepæl?",
+        "subtitle": "Et mål å jobbe mot med {{name}}",
+        "love": "Si 'Jeg elsker deg' perfekt",
+        "phrases": "Lær 10 romantiske fraser",
+        "surprise": "Overrask dem med en {{language}} hilsen",
+        "custom": "Sett mitt eget mål",
+        "customPlaceholder": "f.eks. 'Bestille på {{language}} på favorittrestauranten deres'"
+      },
+
+      "learnHello": {
+        "title": "La oss lære ditt første ord!",
+        "subtitle": "Si hei til {{name}} på {{language}}",
+        "listen": "Lytt",
+        "tip": "💡 Ditt første ord på {{language}}!",
+        "gotIt": "Fikk det!",
+        "listenFirst": "Lytt først"
+      },
+
+      "learnLove": {
+        "title": "Nå, den viktigste frasen...",
+        "subtitle": "Den {{name}} aldri vil glemme",
+        "hearIt": "Hør det",
+        "listenAgain": "Lytt igjen",
+        "proTip": "<strong>Proffstips:</strong> Øv på å si denne frasen til {{name}} - de vil elske å høre deg si det på {{language}}!",
+        "ready": "Jeg er klar!",
+        "listenFirst": "Lytt først"
+      },
+
+      "tryIt": {
+        "title": "Prøv å si det!",
+        "subtitle": "Ikke bekymre deg, bare du kan høre deg selv.",
+        "listening": "Lytter... Trykk for å stoppe",
+        "success": "Fantastisk! Du sa det! 🎉",
+        "practiceLater": "Jeg øver senere"
+      },
+
+      "celebration": {
+        "title": "Du klarte det!",
+        "subtitle": "Du har nettopp lært dine første ord på {{language}}!",
+        "partnerReaction": "{{name}} kommer til å elske dette.",
+        "xpEarned": "+10 XP",
+        "firstXp": "Dine første erfaringspoeng!",
+        "wordsLearned": "Ord du nettopp lærte:",
+        "keepGoing": "Fortsett!"
+      }
+    },
+
+    "tutor": {
+      "start": {
+        "title": "Klar til å være {{learnerName}}s guide, {{userName}}?",
+        "subtitle": "Språket ditt er en gave. La oss dele det med kjærlighet.",
+        "toolkitTitle": "Din tutorverktøykasse:",
+        "feature1": "Spør Cupid om undervisningstips",
+        "feature2": "Følg {{learnerName}}s fremgang",
+        "feature3": "Send ordgaver for å overraske dem",
+        "feature4": "Koble kontoer for å se reisen deres",
+        "button": "Begynn å hjelpe {{learnerName}}! 🎯"
+      },
+
+      "relation": {
+        "title": "Hva er forholdet ditt til {{name}}?",
+        "subtitle": "Dette hjelper oss å tilpasse undervisningsopplevelsen din",
+        "partner": "Partner",
+        "spouse": "Ektefelle",
+        "friend": "Venn",
+        "family": "Familie"
+      },
+
+      "connection": {
+        "title": "Hva er din tilknytning til {{language}}?",
+        "subtitle": "Hjelp oss å forstå språkbakgrunnen din",
+        "native": "Morsmålstaler",
+        "nativeDesc": "Født og oppvokst med {{language}}",
+        "heritage": "Arvespråktaler",
+        "heritageDesc": "{{language}} familiebakgrunn",
+        "fluent": "Flytende taler",
+        "fluentDesc": "Lærte og mestret {{language}}",
+        "bilingual": "Tospråklig",
+        "bilingualDesc": "Vokste opp med {{language}} og et annet språk"
+      },
+
+      "origin": {
+        "title": "Hvordan lærte du {{language}}?",
+        "subtitle": "Din reise hjelper oss å foreslå undervisningsmetoder",
+        "country": "Vokste opp der",
+        "family": "Fra familien",
+        "school": "Studerte formelt",
+        "self": "Selvlært"
+      },
+
+      "dreamPhrase": {
+        "title": "Drømmeøyeblikk 💭",
+        "subtitle": "Hva er det første du vil høre {{name}} si på {{language}}?",
+        "placeholder": "f.eks. 'Jeg elsker deg' eller 'God morgen'",
+        "note": "Dette blir deres første felles undervisningsmål"
+      },
+
+      "style": {
+        "title": "Din undervisningsstil?",
+        "subtitle": "Hvordan hjelper du naturlig noen å lære?",
+        "patient": "Tålmodig og mild",
+        "patientDesc": "Sakte og jevnt vinner løpet",
+        "playful": "Leken og morsom",
+        "playfulDesc": "Læring gjennom spill og humor",
+        "structured": "Strukturert",
+        "structuredDesc": "Organiserte leksjoner med tydelige mål",
+        "immersive": "Fordypende",
+        "immersiveDesc": "Hopp inn og lær ved å gjøre"
+      },
+
+      "preview": {
+        "title": "Din undervisningsverktøykasse",
+        "subtitle": "Her er hva du kan gjøre for {{name}}",
+        "coachMode": "Coach-modus",
+        "coachModeDesc": "Få personlige tips om å hjelpe {{name}} basert på fremgangen og utfordringene deres",
+        "progressTracking": "Fremgangssporing",
+        "progressTrackingDesc": "Se hvilke ord {{name}} har mestret og hvor de trenger hjelp",
+        "wordGifts": "Ordgaver",
+        "wordGiftsDesc": "Send spesielle ord og fraser til {{name}}s læringslogg",
+        "button": "Høres bra ut!"
+      }
+    }
+  },
+
+  "levelTest": {
+    "preparing": "Forbereder testen din",
+    "generatingQuestions": "Genererer spørsmål basert på nivået ditt...",
+    "oops": "Oops!",
+    "backToProgress": "Tilbake til fremgang",
+    "levelUpTest": "Nivåoppgraderingstest",
+    "questions": "Spørsmål",
+    "passThreshold": "Bestått-terskel",
+    "timeLimit": "Tidsbegrensning",
+    "none": "Ingen",
+    "startTest": "Start test",
+    "congratulations": "Gratulerer!",
+    "keepPracticing": "Fortsett å øve!",
+    "advancedTo": "Du har avansert til {{level}}!",
+    "passedTest": "Du bestod testen!",
+    "scoreNeeded": "Du fikk {{score}}%. Du trenger 80% for å bestå.",
+    "correctAnswers": "Riktige svar",
+    "tryAgain": "Prøv igjen",
+    "viewDetailed": "Vis detaljerte resultater i Fremgang",
+    "questionTypes": {
+      "multipleChoice": "Flervalg",
+      "fillBlank": "Fyll inn blanke",
+      "translation": "Oversettelse"
+    },
+    "coreConcept": "Kjernekonsept",
+    "typeMissing": "Skriv det manglende ordet...",
+    "typeTranslation": "Skriv oversettelsen din...",
+    "back": "Tilbake",
+    "submitting": "Sender inn...",
+    "submitTest": "Send inn test",
+    "next": "Neste"
+  },
+
+  "tutorGames": {
+    "playTogether": "Spill sammen",
+    "sendChallenge": "Send utfordring",
+    "playNow": "Spill nå",
+    "sendDescription": "Send utfordringer for {{name}} å gjøre senere",
+    "playDescription": "Øv sammen akkurat nå",
+    "startNow": "Start nå",
+
+    "local": {
+      "quiz": "Test {{name}}",
+      "quizDesc": "Flashkort-quiz sammen",
+      "quickFire": "Hurtigild",
+      "quickFireDesc": "60 sekunders utfordring",
+      "multipleChoice": "Flervalg",
+      "multipleChoiceDesc": "Velg riktig svar",
+      "typeIt": "Skriv det",
+      "typeItDesc": "Skriv oversettelsen",
+      "needWords": "{{name}} trenger minst 4 ord i ordforrådet for å spille"
+    },
+
+    "send": {
+      "doYouRemember": "Husker du?",
+      "quizPartner": "Test {{name}} på ordforrådet deres",
+      "createQuiz": "Lag quiz",
+      "quickFire": "Hurtigild",
+      "timedChallenge": "Tidsbestemt ordforrådsutfordring",
+      "createChallenge": "Lag utfordring",
+      "giftWords": "Gi ord",
+      "sendWords": "Send ord for {{name}} å lære",
+      "sendGift": "Send gave"
+    },
+
+    "pending": {
+      "waitingFor": "Venter på {{name}}",
+      "words": "{{count}} ord",
+      "sent": "Sendt {{date}}",
+      "pending": "Ventende"
+    },
+
+    "gifts": {
+      "title": "Ordgaver sendt",
+      "word": "{{count}} ord",
+      "word_other": "{{count}} ord",
+      "topic": "Emne: {{topic}}",
+      "custom": "Egendefinerte ord",
+      "xpMultiplier": "{{multiplier}}x XP"
+    },
+
+    "results": {
+      "title": "Siste resultater",
+      "completed": "Fullført {{date}}"
+    },
+
+    "empty": {
+      "noChallenges": "Ingen utfordringer ennå",
+      "createFirst": "Lag din første utfordring for {{name}}!"
+    },
+
+    "flashcard": {
+      "targetWord": "{{language}}",
+      "nativeWord": "{{language}}",
+      "tapToReveal": "Trykk for å vise",
+      "hard": "Vanskelig",
+      "gotIt": "Fikk det!"
+    },
+
+    "direction": {
+      "label": "{{target}} → {{native}}"
+    },
+
+    "quickFireGame": {
+      "title": "Hurtigild!",
+      "description": "Oversett så mange ord du kan på 60 sekunder!",
+      "cancel": "Avbryt",
+      "start": "Start!",
+      "typeTranslation": "Skriv oversettelsen..."
+    },
+
+    "typeItGame": {
+      "correct": "Riktig!",
+      "notQuite": "Ikke helt",
+      "correctAnswer": "Riktig svar: {{answer}}",
+      "typeIn": "Skriv på {{language}}...",
+      "next": "Neste",
+      "check": "Sjekk"
+    },
+
+    "gameOver": {
+      "greatJob": "Bra jobbet!",
+      "keepPracticing": "Fortsett å øve!",
+      "correct": "{{correct}} av {{total}} riktig",
+      "practicedTogether": "Øvde dere sammen?",
+      "saveDescription": "Lagre denne økten til {{name}}s læringshistorikk for å følge fremgangen deres.",
+      "saveToProgress": "Lagre til {{name}}s fremgang",
+      "saving": "Lagrer...",
+      "savedSuccess": "Lagret til {{name}}s historikk!",
+      "autoSaving": "Autolagrer til {{name}}s fremgang...",
+      "done": "Ferdig",
+      "playAgain": "Spill igjen"
+    },
+
+    "saveDialog": {
+      "title": "Lagre til {{name}}s fremgang?",
+      "howItWorks": "Hvordan det fungerer:",
+      "detail1": "Spillresultater lagres til {{name}}s læringshistorikk",
+      "detail2": "Deres ordpoeng oppdateres (serier, mesterskap)",
+      "detail3": "Perfekt for når dere øver sammen!",
+      "willUpdate": "Dette oppdaterer {{name}}s ordpoeng og læringshistorikk.",
+      "remember": "Lagre alltid til {{name}}s fremgang",
+      "notNow": "Ikke nå",
+      "save": "Lagre"
+    }
+  },
+
+  "gameResults": {
+    "greatJob": "Bra jobbet!",
+    "sessionResults": "Øktresultater:",
+    "correct": "Riktig",
+    "missed": "Bommet",
+    "showDetails": "Vis detaljer",
+    "hideDetails": "Skjul detaljer",
+    "done": "Ferdig",
+    "playAgain": "Spill igjen"
+  },
+
+  "conversationPractice": {
+    "states": {
+      "listening": "Lytter...",
+      "speaking": "Snakker...",
+      "connecting": "Kobler til...",
+      "error": "Feil",
+      "disconnected": "Frakoblet"
+    },
+    "end": "Avslutt",
+    "startingConversation": "Starter samtale...",
+    "tryAgain": "Prøv igjen",
+    "speakIn": "Snakk på {{language}}...",
+    "aiSpeaking": "AI snakker...",
+    "conversationEnded": "Samtale avsluttet"
+  },
+
+  "scenarioSelector": {
+    "title": "Samtaleøving",
+    "subtitle": "Velg et scenario",
+    "beta": "Beta",
+    "difficulty": {
+      "beginner": "nybegynner",
+      "intermediate": "middels",
+      "advanced": "avansert"
+    },
+    "createOwn": "Lag ditt eget",
+    "createOwnDesc": "Beskriv hvilket scenario du vil øve",
+    "backToScenarios": "Tilbake til scenarier",
+    "customScenario": "Egendefinert scenario",
+    "customScenarioName": "Egendefinert scenario",
+    "describeScenario": "Beskriv situasjonen du vil øve",
+    "customPlaceholder": "f.eks. Jeg er på et bakeri og prøver å kjøpe brød og spørre om ingredienser...",
+    "startPractice": "Start øving",
+    "footerInfo": "AI snakker {{targetLanguage}} som standard. Hvis du sliter, hjelper den på {{nativeLanguage}}.",
+    "customPersona": "Du er en vennlig {{language}} person som hjelper noen å øve {{language}}. Du er tålmodig, oppmuntrende og tilpasser språket til deres nivå."
+  },
+
+  "challengeCreator": {
+    "common": {
+      "addNewWords": "Legg til nye ord",
+      "enterTargetLanguage": "Skriv på {{language}} og AI genererer oversettelsen.",
+      "enterWordPlaceholder": "Skriv {{language}} ord eller frase...",
+      "generating": "Genererer...",
+      "generate": "Generer",
+      "clear": "Tøm",
+      "editTranslation": "Rediger oversettelse...",
+      "add": "Legg til",
+      "cancel": "Avbryt",
+      "creating": "Lager...",
+      "searchWords": "Søk ord...",
+      "sending": "Sender...",
+      "sendChallenge": "Send utfordring",
+      "failedGenerateTranslation": "Kunne ikke generere oversettelse",
+      "failedCreateChallenge": "Kunne ikke lage utfordring",
+      "needMinWords": "Trenger minst 5 ord for utfordringen!"
+    },
+
+    "quiz": {
+      "title": "Lag quiz",
+      "subtitle": "Velg ord for {{name}} å øve",
+      "titleLabel": "Quiz-tittel (valgfritt)",
+      "titlePlaceholder": "Quiz for {{name}}",
+      "teachNewWords": "Lær {{name}} nye ord! {{instruction}}",
+      "questionTypes": "Spørsmålstyper",
+      "types": {
+        "multipleChoice": "Flervalg",
+        "typeAnswer": "Skriv svar",
+        "flashcards": "Flashkort"
+      },
+      "selectExisting": "Velg eksisterende ord ({{count}}/20)",
+      "selectAll": "Velg alle",
+      "noWordsYet": "{{name}} har ikke lært noen ord ennå!",
+      "addWordsToStart": "Legg til nye ord ovenfor for å komme i gang."
+    },
+
+    "quickFire": {
+      "title": "Hurtigild",
+      "subtitle": "Tidsbestemt utfordring for {{name}}",
+      "titleLabel": "Utfordringstittel",
+      "titlePlaceholder": "Hurtigild-utfordring",
+      "difficulty": "Vanskelighetsgrad",
+      "difficultyLevels": {
+        "easy": "Lett",
+        "medium": "Middels",
+        "hard": "Vanskelig"
+      },
+      "difficultyDesc": {
+        "easy": "Avslappet tempo, god tid",
+        "medium": "Balansert utfordring",
+        "hard": "Kappløp mot klokken!"
+      },
+      "targetWords": "Målord: {{count}}",
+      "wordsMin": "5 ord",
+      "wordsMax": "20 ord",
+      "pickSpecific": "Velg spesifikke ord ({{count}} valgt)",
+      "weakWordIndicator": "🔴 = svakt ord (sliter med dette)",
+      "wordSelection": "Ordvalg:",
+      "newWordsCount": "Nye ord:",
+      "manuallyPicked": "Manuelt valgt:",
+      "autoFill": "Autofyll (svake ord først):",
+      "total": "Totalt:",
+      "target": "mål",
+      "timeInfo": "{{name}} får {{time}} sekunder til å oversette ordene.",
+      "averageTime": "Gjennomsnitt: {{time}}s per ord",
+      "needMoreWords": "Trenger minst 5 ord totalt for å lage en utfordring!"
+    },
+
+    "lovePackage": {
+      "title": "Love Package",
+      "subtitle": "Send ord til {{name}}",
+      "packageCount": "Love Package ({{count}} ord)",
+      "packageCount_other": "Love Package ({{count}} ord)",
+      "hasData": "+data",
+      "xpBonus": "{{name}} tjener 2x XP for å lære disse ordene!",
+      "corrected": "Korrigert: {{note}}",
+      "sendLovePackage": "Send Love Package",
+      "alreadyInPackage": "Dette ordet er allerede i pakken din!",
+      "alreadyInLoveLog": "'{{word}}' er allerede i {{name}}s Love Log!"
+    }
+  },
+
+  "challengePlayer": {
+    "common": {
+      "later": "Senere",
+      "done": "Ferdig",
+      "calculatingScore": "Beregner poengsummen din...",
+      "showDetails": "Vis detaljer ({{count}})",
+      "xpEarned": "+{{xp}} XP tjent!"
+    },
+
+    "results": {
+      "perfect": "Perfekt!",
+      "perfectScore": "Perfekt poengsum!",
+      "lightningFast": "Lynrask!",
+      "greatJob": "Bra jobbet!",
+      "keepPracticing": "Fortsett å øve!"
+    },
+
+    "quiz": {
+      "startDescription": "{{name}} vil teste deg på {{count}} ord!",
+      "startInstructions": "Svar på spørsmål om {{language}}-ord du har lært. Svar riktig for å bygge serien din!",
+      "startButton": "Start quiz",
+      "questionProgress": "Spørsmål {{current}} av {{total}}",
+      "resultScore": "Du fikk {{correct}} av {{total}} riktig",
+      "flashcard": {
+        "prompt": "Hva betyr dette?",
+        "showAnswer": "Vis svar",
+        "didYouGetIt": "Fikk du det riktig?",
+        "no": "Nei",
+        "yes": "Ja"
+      },
+      "multipleChoice": {
+        "prompt": "Oversett dette ordet:"
+      },
+      "typeIt": {
+        "prompt": "Skriv oversettelsen:",
+        "placeholder": "Skriv svaret ditt...",
+        "submit": "Send inn"
+      }
+    },
+
+    "quickFire": {
+      "title": "Hurtigild!",
+      "startDescription": "{{name}} utfordrer deg til å oversette {{count}} ord på {{time}} sekunder!",
+      "difficulty": {
+        "easy": "Lett modus",
+        "medium": "Middels modus",
+        "hard": "Vanskelig modus"
+      },
+      "timePerWord": "{{time}}s per ord",
+      "startButton": "Start!",
+      "getReady": "Gjør deg klar!",
+      "resultScore": "{{correct}}/{{total}} riktig på {{time}}s",
+      "timeBonus": "(Tidsbonus!)",
+      "quitChallenge": "Avslutt utfordring",
+      "typePlaceholder": "Skriv oversettelse..."
+    }
+  },
+
+  "roleSelection": {
+    "loading": "Gjør alt klart...",
+    "confirmHeader": "Bare for å være sikker...",
+    "confirmSubtitle": "Trykk for å bekrefte eller bytte rolle",
+    "welcomeHeader": "Velkommen til Love Languages!",
+    "welcomeSubtitle": "Hvordan vil du bruke appen?",
+    "student": {
+      "title": "Jeg lærer {{language}}",
+      "subtitle": "For min {{language}}-talende partner",
+      "confirmMessage": "Du lærer {{language}} for kjærligheten!",
+      "confirmSubtext": "Klar til å overraske partneren din med dine nye ferdigheter?"
+    },
+    "tutor": {
+      "title": "Jeg underviser {{language}}",
+      "subtitle": "Hjelper partneren min å lære",
+      "confirmMessage": "Du er {{language}}-proffsen!",
+      "confirmSubtext": "Klar til å hjelpe partneren din å bli glad i språket ditt?"
+    },
+    "settingUp": "Setter opp...",
+    "letsGo": "Det er meg! La oss kjøre",
+    "chooseRole": "Velg rollen din for å fortsette"
+  },
+
+  "subscription": {
+    "common": {
+      "monthly": "Månedlig",
+      "yearly": "Årlig",
+      "mo": "mnd",
+      "yr": "år",
+      "discount": "70% rabatt",
+      "savePercent": "Spar {{percent}}%",
+      "perMonth": "/mnd",
+      "perYear": "/år",
+      "billedAnnually": "{{price}} kr/mnd fakturert årlig",
+      "loading": "Laster...",
+      "processing": "Behandler...",
+      "opening": "Åpner...",
+      "popular": "Populær",
+      "mostPopular": "Mest populær",
+      "currentPlan": "Nåværende plan",
+      "securePayment": "Sikker betaling via Stripe. Avslutt når som helst.",
+      "cancelAnytime": "Avslutt når som helst. Sikker betaling via Stripe.",
+      "questionsEmail": "Spørsmål? Send e-post til",
+      "friend": "Venn",
+      "copy": "Kopier"
+    },
+
+    "plans": {
+      "standard": "Standard",
+      "unlimited": "Ubegrenset",
+      "none": "Ingen"
+    },
+
+    "features": {
+      "wordsLimit": "{{limit}} ord i Love Log",
+      "unlimitedWords": "Ubegrensede ord",
+      "voiceMinutes": "{{minutes}} min talechat/måned",
+      "unlimitedVoice": "Ubegrenset talechat",
+      "listenMinutes": "{{minutes}} min lyttemodus/måned",
+      "unlimitedListen": "Ubegrenset lyttemodus",
+      "unlimitedChallenges": "Ubegrensede AI-utfordringer",
+      "allScenarios": "Alle samtalescenarier",
+      "allScenariosCount": "Alle {{count}} samtalescenarier",
+      "partnerInvite": "Partnerinvitasjon",
+      "giftPass": "Gavepass for et annet par (årlig)",
+      "unlimitedEverything": "Ubegrenset alt"
+    },
+
+    "manager": {
+      "couplePass": "Parpass",
+      "freeAccess": "Gratis tilgang fra {{name}}",
+      "yourPartner": "partneren din",
+      "plan": "Plan:",
+      "status": "Status:",
+      "validUntil": "Gyldig til:",
+      "renews": "Fornyes:",
+      "ends": "Slutter:",
+      "askPartner": "For å administrere dette abonnementet, spør {{name}}.",
+      "noSubscription": "Ingen abonnement",
+      "subscribeToUnlock": "Abonner for å låse opp alle funksjoner",
+      "yourSubscription": "Ditt abonnement",
+      "planLabel": "{{plan}}-plan",
+      "partnerFreeAccess": "{{name}} har gratis tilgang gjennom deg",
+      "cancelWarning": "Hvis du avslutter abonnementet, mister {{name}} også tilgang.",
+      "manageSubscription": "Administrer abonnement",
+      "continueToManage": "Fortsett til administrasjon"
+    },
+
+    "required": {
+      "title": "Ett steg til, {{name}}!",
+      "subtitle": "Fullfør abonnementet for å starte å lære {{language}} sammen",
+      "taglineStandard": "Perfekt for å komme i gang",
+      "taglineUnlimited": "For dedikerte elever",
+      "subscribeTo": "Abonner på {{plan}}",
+      "logoutOption": "Logg ut og bruk en annen konto",
+      "signOutOption": "Logg ut og bruk en annen konto"
+    },
+
+    "pricing": {
+      "title": "Lær {{language}} for kjærligheten",
+      "subtitle": "Velg planen som passer læringsreisen din",
+      "save70": "Spar 70%",
+      "wordsInLoveLog": "{{limit}} ord i Love Log",
+      "voiceChatPerMonth": "{{minutes}} min talechat/måned",
+      "listenModePerMonth": "{{minutes}} min lyttemodus/måned",
+      "unlimitedChallenges": "Ubegrensede AI-utfordringer",
+      "allScenarios": "Alle 8 samtalescenarier",
+      "partnerInvite": "Partnerinvitasjon",
+      "unlimitedWords": "Ubegrensede ord",
+      "unlimitedVoiceChat": "Ubegrenset talechat",
+      "unlimitedListenMode": "Ubegrenset lyttemodus",
+      "giftPass": "Gavepass for et annet par (årlig)",
+      "youreOnPlan": "Du har {{plan}}-planen",
+      "currentPlanBanner": "Du har {{plan}}-planen",
+      "mostPopular": "Mest populær",
+      "billedAnnually": "{{price}} kr/mnd fakturert årlig",
+      "currentPlan": "Nåværende plan",
+      "processing": "Behandler...",
+      "getPlan": "Få {{plan}}",
+      "yourGiftPasses": "Dine gavepass",
+      "shareGiftPasses": "Del disse kodene med et annet par for å gi dem et gratis år med Standard!",
+      "giftPasses": "Dine gavepass",
+      "giftPassDescription": "Del disse kodene med et annet par for å gi dem et gratis år med Standard!",
+      "cancelAnytime": "Avslutt når som helst. Sikker betaling via Stripe.",
+      "questionsEmail": "Spørsmål? Send e-post til",
+      "copy": "Kopier"
+    },
+
+    "errors": {
+      "loginRequired": "Logg inn for å abonnere",
+      "loginAgain": "Logg inn igjen",
+      "failedLoadPricing": "Kunne ikke laste priser. Prøv igjen.",
+      "pricingUnavailable": "Priser ikke tilgjengelig. Kontakt support.",
+      "failedCheckout": "Kunne ikke starte betaling",
+      "failedPortal": "Kunne ikke åpne abonnementsadministrasjon",
+      "somethingWrong": "Noe gikk galt"
+    }
+  },
+
+  "pendingChallenges": {
+    "yourPartner": "Din partner",
+    "sentYouSomething": "{{name}} sendte deg noe!",
+    "sentYouThings": "{{name}} sendte deg {{count}} ting!",
+    "challengeCount": "{{count}} utfordring",
+    "challengeCount_plural": "{{count}} utfordringer",
+    "wordGiftCount": "{{count}} ordgave",
+    "wordGiftCount_plural": "{{count}} ordgaver",
+    "wordsCount": "{{count}} ord",
+    "quiz": "Quiz",
+    "quickFire": "Hurtigild",
+    "wordGift": "Ordgave",
+    "play": "Spill",
+    "learn": "Lær",
+    "xpBonus": "{{multiplier}}x XP bonus"
+  },
+
+  "invite": {
+    "title": "Inviter partneren din",
+    "subtitle": "Abonnementet ditt inkluderer gratis tilgang for partneren din!",
+    "shareLinkLabel": "Del denne lenken med partneren din:",
+    "copied": "Kopiert!",
+    "copy": "Kopier",
+    "expiresIn": "Utløper om {{days}} dager",
+    "expiresTomorrow": "Utløper i morgen",
+    "expired": "Utløpt",
+    "howItWorks": "Slik fungerer det:",
+    "step1": "Del lenken med partneren din",
+    "step2": "De registrerer seg eller logger inn",
+    "step3": "De får gratis tilgang gjennom abonnementet ditt!",
+    "generateButton": "Generer invitasjonslenke",
+    "generating": "Genererer..."
+  },
+
+  "helpGuide": {
+    "title": "Din guide",
+    "subtitle": "Love Languages",
+    "contents": "Innhold",
+    "quickTips": "Raske tips",
+    "backToContents": "Tilbake til innhold",
+    "footer": "Laget med kjærlighet for par som lærer sammen",
+    "sections": {
+      "gettingStarted": {
+        "title": "Kom i gang",
+        "intro": "Love Languages hjelper deg å lære {{language}} gjennom forholdet deres. Hvert ord du lærer er en kjærlighetsgave.",
+        "cupidTitle": "Din AI-kompanjong: Cupid",
+        "cupidDescription": "Cupid er din varme, oppmuntrende guide. De hjelper deg å lære ordforråd, øve uttale og finne de perfekte ordene for å uttrykke kjærligheten din.",
+        "rolesTitle": "Elev vs Tutor",
+        "studentRole": "Elever lærer {{language}} - Cupid underviser deg direkte",
+        "tutorRole": "Tutorer hjelper partneren sin å lære - Cupid gir undervisningstips"
+      },
+      "chatModes": {
+        "title": "Chatmoduser",
+        "askTitle": "Spør-modus",
+        "askSubtitle": "(Elever)",
+        "askDescription": "Raske spørsmål, avslappet læring. Perfekt for:",
+        "askExample1": "'Hvordan sier jeg \"Jeg elsker deg\"?'",
+        "askExample2": "'Hva er en romantisk frase?'",
+        "askExample3": "'Hvordan uttaler man dette?'",
+        "learnTitle": "Lær-modus",
+        "learnSubtitle": "(Elever)",
+        "learnDescription": "Strukturerte leksjoner med tabeller og øvelser. Bruk for:",
+        "learnExample1": "Verbbøyingsøving",
+        "learnExample2": "Grammatikkforklaringer",
+        "learnExample3": "Ordforrrådsleksjoner",
+        "coachTitle": "Coach-modus",
+        "coachSubtitle": "(Tutorer)",
+        "coachDescription": "Din alt-i-ett-undervisningsassistent:",
+        "coachExample1": "Undervisningstips og grammatikkforklaringer",
+        "coachExample2": "Personlige forslag basert på partnerens fremgang",
+        "coachExample3": "Nye ordforrådsanbefalinger for å utvikle ferdighetene deres"
+      },
+      "vocabulary": {
+        "title": "Bygge ordforråd",
+        "intro": "Ord fra samtalene dine lagres automatisk i Love Log.",
+        "syncTitle": "Synkroniseringsknapp",
+        "syncDescription": "Klikk synkroniser i Love Log for å trekke ut nye ord fra nylige chatter",
+        "masteryTitle": "Mestringsnivåer",
+        "masteryDescription": "Øv ord i spill for å øke mestring fra 0-5 stjerner",
+        "tenseTitle": "Tidopplåsing",
+        "tenseDescription": "Lær fortid/fremtid i chat for å låse opp dem i verboppføringene dine"
+      },
+      "games": {
+        "title": "Spille spill",
+        "intro": "Spill hjelper deg å øve og huske ordforråd. Hvert riktig svar bygger mestring!",
+        "flashcards": "Flashkort",
+        "flashcardsDescription": "Klassiske vendekort - se {{language}}, husk {{native}}",
+        "multipleChoice": "Flervalg",
+        "multipleChoiceDescription": "Velg riktig oversettelse fra 4 alternativer",
+        "typeIt": "Skriv det",
+        "typeItDescription": "Skriv {{language}}-ordet - tester staving og hukommelse",
+        "aiChallenge": "AI-utfordring",
+        "aiChallengeDescription": "Cupid genererer unike utfordringer med ordene dine"
+      },
+      "progress": {
+        "title": "Følge fremgang",
+        "xpTitle": "XP og nivåer",
+        "xpDescription": "Tjen XP ved å chatte, spille spill og mestre ord. Avanserer gjennom 18 nivåer over 6 lag!",
+        "tiersTitle": "Nivålag",
+        "beginner": "Nybegynner 1-3",
+        "elementary": "Elementær 1-3",
+        "conversational": "Samtale 1-3",
+        "proficient": "Dyktig 1-3",
+        "fluent": "Flytende 1-3",
+        "master": "Mester 1-3",
+        "testsNote": "Ta nivåtester for å bevise ferdighetene dine og avansere raskere!"
+      }
+    },
+    "tips": {
+      "verbsQuestion": "Hva er den beste måten å lære verb?",
+      "verbsAnswer": "Bruk Lær-modus og be om bøyningstabeller. Øv alle 6 personer (jeg, du, han/hun, vi, dere, de) sammen.",
+      "partnerQuestion": "Hvordan øver jeg med partneren min?",
+      "partnerAnswer": "Bruk fraser du har lært i daglige samtaler. Selv enkle hilsener teller! Lag utfordringer for hverandre i Spill-seksjonen.",
+      "progressQuestion": "Hvor raskt kan jeg avansere?",
+      "progressAnswer": "15-20 minutter daglig øving gjør underverker. Konsistens slår intensitet!",
+      "forgetQuestion": "Hva om jeg glemmer et ord?",
+      "forgetAnswer": "Spill spill - de viser automatisk ord du sliter med igjen. Spredt repetisjon hjelper å låse dem."
+    }
+  },
+
+  "bugReport": {
+    "title": "Rapporter en feil",
+    "subtitle": "Hjelp oss å forbedre Love Languages",
+    "severity": {
+      "label": "Hvor alvorlig er problemet?",
+      "low": "Lav",
+      "lowDescription": "Mindre problem, kosmetisk",
+      "medium": "Middels",
+      "mediumDescription": "Påvirker brukervennlighet",
+      "high": "Høy",
+      "highDescription": "Viktig funksjon ødelagt",
+      "critical": "Kritisk",
+      "criticalDescription": "Appen ubrukelig"
+    },
+    "titleLabel": "Hva gikk galt?",
+    "titlePlaceholder": "Kort beskrivelse av problemet",
+    "detailsLabel": "Detaljer",
+    "detailsPlaceholder": "Hva gjorde du da det skjedde? Hva forventet du?",
+    "autoCaptureNote": "Vi inkluderer automatisk nåværende side, nettleserinfo og appstatus for å hjelpe oss undersøke.",
+    "errors": {
+      "fillRequired": "Fyll inn alle obligatoriske felt",
+      "signIn": "Logg inn for å sende feilrapport",
+      "failed": "Kunne ikke sende. Prøv igjen."
+    },
+    "cancel": "Avbryt",
+    "submit": "Send rapport",
+    "submitting": "Sender...",
+    "success": {
+      "title": "Takk!",
+      "message": "Feilrapporten din er sendt. Vi undersøker og jobber med en løsning.",
+      "close": "Lukk"
+    }
+  },
+
+  "wordGift": {
+    "intro": {
+      "title": "Gave fra {{name}}!",
+      "subtitle": "De vil at du skal lære {{count}} spesielt ord",
+      "subtitle_plural": "De vil at du skal lære {{count}} spesielle ord",
+      "topic": "Emne:",
+      "xpBonus": "Tjen {{multiplier}}x XP for disse ordene!",
+      "later": "Senere",
+      "openGift": "Åpne gave"
+    },
+    "card": {
+      "wordOf": "Ord {{current}} av {{total}}",
+      "targetLanguage": "{{language}}",
+      "nativeLanguage": "{{language}}",
+      "tapToFlip": "Trykk for å vende",
+      "back": "Tilbake",
+      "next": "Neste",
+      "addToLoveLog": "Legg til i Love Log"
+    },
+    "result": {
+      "title": "Ord lært!",
+      "wordsAdded": "{{count}} nytt ord lagt til i Love Log",
+      "wordsAdded_plural": "{{count}} nye ord lagt til i Love Log",
+      "words": "Ord:",
+      "completion": "Fullføring:",
+      "giftFrom": "Gave fra {{name}}",
+      "done": "Ferdig"
+    },
+    "loading": "Legger til ord i Love Log...",
+    "error": {
+      "title": "Oops!",
+      "close": "Lukk",
+      "tryAgain": "Prøv igjen"
+    },
+    "errors": {
+      "failed": "Kunne ikke fullføre. Prøv igjen.",
+      "network": "Nettverksfeil. Sjekk tilkoblingen og prøv igjen."
+    }
+  },
+
+  "chatSuggestions": {
+    "student": {
+      "askTitle": "Spør Cupid om hva som helst",
+      "learnTitle": "Klar for en leksjon?",
+      "subtitle": "Hvert ord du lærer bringer dere nærmere"
+    },
+    "tutor": {
+      "coachTitle": "Coach partneren din",
+      "subtitle": "Undervisningstips og personlige forslag"
+    },
+    "tryAsking": "Prøv å spørre...",
+    "suggestions": {
+      "student": {
+        "ask": {
+          "s1": "Hvordan sier jeg 'Jeg elsker deg' på {{language}}?",
+          "s2": "Lær meg et søtt kompliment",
+          "s3": "Hva er en romantisk frase for i kveld?"
+        },
+        "learn": {
+          "s1": "Start en leksjon om hilsener",
+          "s2": "Lær meg verbbøyninger",
+          "s3": "Øv matordforråd"
+        }
+      },
+      "tutor": {
+        "coach": {
+          "s1": "Hvordan forklarer jeg {{language}} kasus enkelt?",
+          "s2": "Hvilke nye ord skal jeg lære dem?",
+          "s3": "Foreslå en romantisk frase for i kveld"
+        }
+      }
+    }
+  },
+
+  "newWords": {
+    "added": "{{count}} nytt ord lagt til",
+    "added_other": "{{count}} nye ord lagt til",
+    "viewAll": "Vis alle i Love Log"
+  },
+
+  "avatar": {
+    "clickToUpload": "Klikk for å laste opp",
+    "clickToChange": "Klikk for å endre",
+    "adjustPhoto": "Juster foto",
+    "cancel": "Avbryt",
+    "save": "Lagre",
+    "saving": "Lagrer...",
+    "uploading": "Laster opp...",
+    "errors": {
+      "invalidType": "Last opp et JPG, PNG, WebP eller GIF-bilde",
+      "tooLarge": "Bildet må være mindre enn 5MB",
+      "readFailed": "Kunne ikke lese bildefil",
+      "cropRequired": "Juster beskjæringsområdet",
+      "uploadFailed": "Kunne ikke laste opp bilde"
+    }
+  },
+
+  "joinInvite": {
+    "validating": "Validerer invitasjon...",
+    "invalidInvite": "Ugyldig invitasjon",
+    "goToHomepage": "Gå til forsiden",
+    "linking": "Kobler kontoene deres...",
+    "joinJourney": "{{name}} vil at du skal bli med på deres {{language}}-læringsreise!",
+    "learningToConnect": "De lærer {{language}} for å koble seg med deg på et dypere nivå. Som deres språkcoach kan du:",
+    "trackProgress": "Følge fremgangen deres",
+    "trackProgressDesc": "Se hvilke ord de har lært og hvor de trenger hjelp",
+    "conversationStarters": "Få samtalestartere",
+    "conversationStartersDesc": "AI foreslår {{language}}-fraser å bruke sammen basert på ordforrådet deres",
+    "encourageCelebrate": "Oppmuntre og feire",
+    "encourageCelebrateDesc": "Hjelp dem å holde motivasjonen og feire milepæler sammen",
+    "join": "Bli med {{name}}",
+    "createAccount": "Opprett kontoen din for å bli deres coach",
+    "signInToConnect": "Logg inn for å koble til",
+    "emailLabel": "E-postadresse",
+    "passwordLabel": "Passord",
+    "connecting": "Kobler til...",
+    "joinAsCoach": "Bli med som coach",
+    "signInConnect": "Logg inn og koble til",
+    "alreadyHaveAccount": "Har du allerede en konto? Logg inn",
+    "noAccount": "Ingen konto? Registrer deg",
+    "checkEmail": "Sjekk e-posten for bekreftelse, logg deretter inn!",
+    "yourPartner": "Din partner"
+  },
+
+  "gameHistory": {
+    "loading": "Laster...",
+    "noHistory": "Ingen spillhistorikk ennå",
+    "noHistoryDesc": "Spill noen spill for å se fremgangen din her!",
+    "today": "I dag",
+    "yesterday": "I går",
+    "gameModes": {
+      "flashcards": "Flashkort",
+      "multiple_choice": "Flervalg",
+      "type_it": "Skriv det",
+      "quick_fire": "Hurtigild",
+      "ai_challenge": "AI-utfordring"
+    },
+    "smartAccepted": "Smart godkjent",
+    "missedWords": "Bomde ord",
+    "missed": "{{count}} bommet",
+    "youSaid": "Du sa:",
+    "correct": "Riktig:",
+    "practiceWords": "Øv disse {{count}} ordene",
+    "perfectScore": "Perfekt poengsum! Ingen bomde ord."
+  },
+
+  "usage": {
+    "title": "Månedlig bruk",
+    "unlimitedPlan": "Ubegrenset plan",
+    "noLimits": "Ingen bruksgrenser - lær så mye du vil!",
+    "words": "Ord",
+    "voiceMin": "Tale min",
+    "listenMin": "Lytte min",
+    "vocabulary": "Ordforråd",
+    "voiceChat": "Talechat",
+    "listenMode": "Lyttemodus",
+    "upgradePrompt": "Begynner å gå tom? Oppgrader til Ubegrenset for ingen grenser!",
+    "resetsMonthly": "Bruk nullstilles den 1. hver måned"
+  },
+
+  "inviteLink": {
+    "title": "Magisk invitasjonslenke",
+    "subtitle": "Del med partneren din for å koble til direkte",
+    "generate": "Generer invitasjonslenke",
+    "generating": "Genererer...",
+    "yourLink": "Din invitasjonslenke:",
+    "copied": "Kopiert til utklippstavlen!",
+    "copyLink": "Kopier lenke",
+    "expired": "Utløpt",
+    "expiresTomorrow": "Utløper i morgen",
+    "expiresIn": "Utløper om {{days}} dager",
+    "newLink": "Ny lenke",
+    "description": "Når partneren din klikker på denne lenken, blir de invitert til å bli med som din språkcoach!"
+  },
+
+  "breakup": {
+    "warning": {
+      "title": "Avslutte læringsreisen deres sammen?",
+      "whatHappens": "Hva som skjer:",
+      "consequence1": "Kontoene deres kobles fra",
+      "consequence2": "Dere ser ikke hverandres fremgang",
+      "consequence3Granter": "{{name}} mister sin gratis tilgang",
+      "consequence3Grantee": "Du mister din gratis tilgang",
+      "consequence4": "Ordforrådet og fremgangen din forblir hos deg",
+      "stayTogether": "Bli sammen",
+      "continue": "Fortsett"
+    },
+    "confirm": {
+      "title": "Er du sikker?",
+      "typeGoodbye": "Skriv 'ha det' for å bekrefte",
+      "placeholder": "Skriv ha det...",
+      "goBack": "Gå tilbake",
+      "itsOver": "Det er over"
+    },
+    "processing": "Skilles...",
+    "complete": {
+      "title": "Kontoer frakoblet",
+      "messageGranter": "Abonnementet ditt fortsetter. Du kan invitere noen nye når som helst.",
+      "messageGrantee": "Ta vare på deg. Du trenger et eget abonnement for å fortsette å lære."
+    }
+  },
+
+  "gameShowcase": {
+    "studentHeadline": {
+      "part1": "Å, og hvis du vil lære ",
+      "highlight": "på tradisjonell måte også",
+      "part2": "..."
+    },
+    "tutorHeadline": {
+      "playTogether": "Spill sammen",
+      "middle": ", eller send dem ",
+      "challenges": "utfordringer",
+      "end": " å takle alene..."
+    },
+    "studentSubtext": "Det gjør vi fantastisk.",
+    "tutorSubtext": "Spoiler: du kommer til å ville spille også.",
+    "modes": {
+      "flashcard": "Flashkort",
+      "multipleChoice": "Flervalg",
+      "typeIt": "Skriv det",
+      "quickFire": "Hurtigild"
+    },
+    "mobileShort": {
+      "multi": "Flervalg",
+      "quick": "Hurtig"
+    }
+  },
+
+  "demoFlashcard": {
+    "tapToReveal": "Trykk for å vise",
+    "hard": "Vanskelig",
+    "gotIt": "Fikk det!"
+  },
+
+  "demoTypeIt": {
+    "correct": "Riktig!",
+    "notQuite": "Ikke helt",
+    "answer": "Svar:",
+    "typeIn": "Skriv på {{language}}...",
+    "next": "Neste",
+    "check": "Sjekk"
+  },
+
+  "demoQuickFire": {
+    "title": "Hurtigild!",
+    "instructions": "Skriv oversettelser så fort du kan!",
+    "start": "Start",
+    "submit": "Send inn",
+    "typeIn": "Skriv på {{language}}...",
+    "perfect": "Perfekt!",
+    "greatJob": "Bra jobbet!",
+    "keepPracticing": "Fortsett å øve!",
+    "timesUp": "Tiden er ute!"
+  },
+
+  "hero": {
+    "toggle": {
+      "learn": "Lær",
+      "teach": "Undervis"
+    },
+    "login": {
+      "emailLabel": "E-postadresse",
+      "emailPlaceholder": "deg@kjærlighet.no",
+      "passwordLabel": "Passord",
+      "passwordPlaceholder": "••••••••",
+      "entering": "Logger inn...",
+      "alreadyHaveAccount": "Har du allerede en konto? Logg inn",
+      "newHere": "Ny her? Opprett en konto",
+      "checkEmail": "Sjekk e-posten for bekreftelse!"
+    },
+    "legal": {
+      "terms": "Vilkår",
+      "termsOfService": "Tjenestevilkår",
+      "privacy": "Personvern",
+      "privacyPolicy": "Personvernregler"
+    },
+    "student": {
+      "section1": {
+        "headline": "Hopp over det kjedelige. Lær ordene som betyr noe - de som får dem til å smile.",
+        "highlight1": "ordene som betyr noe",
+        "highlight2": "får dem til å smile",
+        "subhead": "De som de bare bruker med mennesker de elsker.",
+        "copy": "Deres interne vitser. Deres familiefraser. Måten de sier 'Jeg elsker deg' på når ingen lytter.",
+        "copyHighlight1": "interne vitser",
+        "copyHighlight2": "familiefraser",
+        "copyHighlight3": "Jeg elsker deg",
+        "underline": "Måten de sier 'Jeg elsker deg' på når ingen lytter"
+      },
+      "section2": {
+        "headline": "Det er en samtale du ikke er med i. Ennå.",
+        "highlight1": "Ennå",
+        "copy": "Vitsene du smiler av uten å forstå. Familiehistoriene som mister noe i oversettelsen. På tide å faktisk forstå.",
+        "copyHighlight1": "familiehistoriene",
+        "copyHighlight2": "faktisk forstå",
+        "underline": "På tide å faktisk forstå"
+      },
+      "section3": {
+        "headline": "Du lærer ikke et språk. Du lærer dem.",
+        "highlight1": "lærer dem",
+        "copy": "Deres ord. Deres vitser. Deres måte å erte deg kjærlig på. Bygget for mennesker som er her for kjærligheten, ikke karakterene.",
+        "copyHighlight1": "Deres ord",
+        "copyHighlight2": "Deres vitser",
+        "copyHighlight3": "kjærligheten",
+        "underline": "Bygget for mennesker som er her for kjærligheten"
+      },
+      "section4": {
+        "headline": "Å lære språket deres = flørt med ekstra steg.",
+        "highlight1": "flørt",
+        "copy": "Dette er ikke skole. Det er ingen prøve. Bare deg, som stiller opp for dem på en helt ny måte. Ganske romantisk, faktisk.",
+        "copyHighlight1": "stiller opp for dem",
+        "copyHighlight2": "romantisk",
+        "underline": "Ganske romantisk, faktisk"
+      },
+      "section5": {
+        "headline": "Øyeblikket du får familien deres til å le? Perfekt.",
+        "highlight1": "familien deres til å le",
+        "highlight2": "Perfekt",
+        "copy": "Første gang du faktisk skjønner vitsen. Det første 'Jeg elsker deg' på språket deres som høres helt riktig ut. Øyeblikket mammaen deres begynner å snakke direkte til deg på språket deres. Det kommer.",
+        "copyHighlight1": "Jeg elsker deg",
+        "copyHighlight2": "mammaen",
+        "copyHighlight3": "Det kommer",
+        "underline": "Det kommer"
+      },
+      "section6": {
+        "headline": "Lær sammen. Elsk sammen. Le sammen.",
+        "highlight1": "sammen",
+        "highlight2": "Elsk",
+        "highlight3": "Le",
+        "copy": "De sender deg ord som betyr noe. Utfordrer deg til spill. Erter uttalen din (kjærlig). Dette er ikke å studere alene - det er å bygge deres egen lille verden sammen.",
+        "copyHighlight1": "ord som betyr noe",
+        "copyHighlight2": "deres egen lille verden",
+        "underline": "bygge deres egen lille verden sammen"
+      },
+      "context1": { "header": "Klar til å møte dem?", "cta": "Start å lære", "subtext": "2 minutter til ditt første ord." },
+      "context2": { "header": "Vi har deg", "cta": "Start å lære", "subtext": "Ikke mer falsk latter." },
+      "context3": { "header": "Bygget for elskere", "cta": "Start reisen din", "subtext": "Ikke turister. Familie." },
+      "context4": { "header": "Spill din vei", "cta": "Utforsk spill", "subtext": "Flashkort, utfordringer og mer." },
+      "context5": { "header": "Gjør det telle", "cta": "Start reisen din", "subtext": "Hvert ord betyr noe." },
+      "context6": { "header": "Gjør det skje", "cta": "Start nå", "subtext": "Det øyeblikket kommer." },
+      "context7": { "header": "Start sammen", "cta": "Skap deres verden", "subtext": "De venter på deg." }
+    },
+    "tutor": {
+      "section1": {
+        "headline": "De elsker deg. Hjelp dem nå å elske språket ditt også.",
+        "highlight1": "elsker",
+        "highlight2": "språket ditt",
+        "copy": "Dine ord. Dine vitser. Måten du banner på når du støter tåa. Det er en hel deg de ikke har møtt ennå - en helt ny deg. Slipp dem inn.",
+        "copyHighlight1": "Dine ord",
+        "copyHighlight2": "Dine vitser",
+        "copyHighlight3": "en helt ny deg",
+        "copyHighlight4": "Slipp dem inn",
+        "underline": "Slipp dem inn"
+      },
+      "section2": {
+        "headline": "Du har prøvd å forklare. De har prøvd å nikke. La oss fikse dette.",
+        "highlight1": "forklare",
+        "highlight2": "nikke",
+        "highlight3": "fikse dette",
+        "copy": "Tingene du sier når du er veldig glad. Eller veldig irritert. Ordene som føles som hjem. De vil forstå hele deg - ikke bare den oversatte versjonen.",
+        "copyHighlight1": "veldig glad",
+        "copyHighlight2": "veldig irritert",
+        "copyHighlight3": "hele deg",
+        "underline": "ikke bare den oversatte versjonen"
+      },
+      "section3": {
+        "headline": "Hvert ord du deler er en bro.",
+        "highlight1": "bro",
+        "copy": "Del ord. Lag utfordringer. Feir seire sammen. Appen håndterer det kjedelige - du får bare være den morsomme.",
+        "copyHighlight1": "Del ord",
+        "copyHighlight2": "Lag utfordringer",
+        "copyHighlight3": "Feir seire",
+        "copyHighlight4": "den morsomme",
+        "underline": "du får bare være den morsomme"
+      },
+      "section4": {
+        "headline": "Send et ord. Start et spill. Se dem vokse.",
+        "highlight1": "spill",
+        "highlight2": "vokse",
+        "copy": "Utfordre dem på mammas favorittfrase. Quiz dem før middag. Feir når de klarer det. Dette er partid forkledd som læring - og det er faktisk gøy.",
+        "copyHighlight1": "mammas favorittfrase",
+        "copyHighlight2": "partid",
+        "copyHighlight3": "faktisk gøy",
+        "underline": "Dette er partid forkledd som læring"
+      },
+      "section5": {
+        "headline": "Øyeblikket de overrasker deg med en frase du aldri lærte dem? Magi.",
+        "highlight1": "overrasker deg",
+        "highlight2": "Magi",
+        "copy": "Når de drar en vits og familien din faktisk ler. Når mammaen din begynner å snakke direkte til dem på språket ditt. Når de slenger ut en frase som får kjeven din til å falle. Du gjorde det mulig.",
+        "copyHighlight1": "familien din faktisk ler",
+        "copyHighlight2": "mammaen",
+        "copyHighlight3": "Du gjorde det mulig"
+      },
+      "section6": {
+        "headline": "Undervis sammen. Spill sammen. Forelsk dere dypere.",
+        "highlight1": "sammen",
+        "highlight2": "Forelsk",
+        "copy": "Slik deler du hvem du virkelig er. Ord for ord. Spill for spill. Latter for latter. Og de får forelske seg i alt.",
+        "copyHighlight1": "hvem du virkelig er",
+        "copyHighlight2": "forelske seg",
+        "underline": "Og de får forelske seg i alt"
+      },
+      "context1": { "header": "Del din verden", "cta": "Start å guide", "subtext": "Bli deres språkguide." },
+      "context2": { "header": "Slipp dem inn", "cta": "Start å guide", "subtext": "Noen ting oversettes bedre når de læres." },
+      "context3": { "header": "Undervis med kjærlighet", "cta": "Start", "subtext": "Ikke leksjoner. Kjærlighetsbrev." },
+      "context4": { "header": "Utfordre dem", "cta": "Send en utfordring", "subtext": "Spill, utfordringer, overraskelser." },
+      "context5": { "header": "Se dem blomstre", "cta": "Start å sende", "subtext": "Ett ord om gangen." },
+      "context6": { "header": "Åpne døren", "cta": "Start nå", "subtext": "Det øyeblikket kommer." },
+      "context7": { "header": "Voks sammen", "cta": "Bli deres guide", "subtext": "De er klare for deg." }
+    }
+  }
+}

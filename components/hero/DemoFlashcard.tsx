@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { DemoWord } from './demoData';
 
 interface DemoFlashcardProps {
   word: DemoWord;
   accentColor: string;
   onComplete: (correct: boolean) => void;
+  targetName: string;
+  nativeName: string;
 }
 
 export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
   word,
   accentColor,
   onComplete,
+  targetName,
+  nativeName,
 }) => {
+  const { t } = useTranslation();
   const [isFlipped, setIsFlipped] = useState(false);
 
   // Reset flip state when word changes
@@ -53,11 +59,11 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
             className="text-[9px] uppercase tracking-widest font-black mb-6"
             style={{ color: accentColor }}
           >
-            POLISH
+            {targetName.toUpperCase()}
           </span>
           <h3 className="text-3xl font-black text-[#1a1a2e]">{word.word}</h3>
           <p className="mt-8 text-gray-400 text-[9px] uppercase font-black tracking-widest animate-pulse">
-            Tap to reveal
+            {t('demoFlashcard.tapToReveal')}
           </p>
         </div>
 
@@ -71,7 +77,7 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
           }}
         >
           <span className="text-[9px] uppercase tracking-widest text-white/60 font-black mb-6">
-            ENGLISH
+            {nativeName.toUpperCase()}
           </span>
           <h3 className="text-2xl font-black">{word.translation}</h3>
           <div className="mt-8 grid grid-cols-2 gap-2 w-full">
@@ -79,14 +85,14 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
               onClick={(e) => { e.stopPropagation(); handleResponse(false); }}
               className="bg-white/10 hover:bg-white/20 p-3 rounded-xl flex items-center justify-center gap-1 border border-white/20 text-[10px] font-black uppercase tracking-widest transition-colors"
             >
-              <span>✗</span> Hard
+              <span>✗</span> {t('demoFlashcard.hard')}
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); handleResponse(true); }}
               className="bg-white p-3 rounded-xl flex items-center justify-center gap-1 font-black uppercase tracking-widest text-[10px] shadow-lg transition-all active:scale-95"
               style={{ color: accentColor }}
             >
-              <span>✓</span> Got it!
+              <span>✓</span> {t('demoFlashcard.gotIt')}
             </button>
           </div>
         </div>

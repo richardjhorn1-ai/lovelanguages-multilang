@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface WhyStepProps {
   currentStep: number;
@@ -21,6 +24,9 @@ export const WhyStep: React.FC<WhyStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
   const [reason, setReason] = useState(initialValue);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -45,10 +51,10 @@ export const WhyStep: React.FC<WhyStepProps> = ({
           <ICONS.Sparkles className="w-8 h-8" style={{ color: accentColor }} />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          Why do you want to learn Polish for {partnerName}?
+          {t('onboarding.student.why.title', { language: targetName, name: partnerName })}
         </h1>
         <p className="text-gray-500">
-          This becomes your personal reminder on your journey.
+          {t('onboarding.student.why.subtitle')}
         </p>
       </div>
 
@@ -56,7 +62,7 @@ export const WhyStep: React.FC<WhyStepProps> = ({
         <textarea
           value={reason}
           onChange={(e) => setReason(e.target.value)}
-          placeholder="I want to surprise them when we visit their family... I want to whisper sweet nothings... I want to understand their world..."
+          placeholder={t('onboarding.student.why.placeholder')}
           autoFocus
           rows={4}
           className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-lg font-medium text-gray-800 placeholder:text-gray-300 transition-all resize-none"

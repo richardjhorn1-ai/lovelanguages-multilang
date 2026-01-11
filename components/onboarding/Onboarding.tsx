@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef, createContext } from 'react';
+import React, { useState, useEffect, useRef, createContext, useMemo } from 'react';
 import { supabase } from '../../services/supabase';
 import type { OnboardingData } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../constants/language-config';
 
 // Context for sharing onQuit across all step components
 export const OnboardingContext = createContext<{
@@ -30,36 +32,12 @@ import { StartStep } from './steps/student/StartStep';
 
 // Tutor steps
 import { RelationStep } from './steps/tutor/RelationStep';
-import { PolishConnectionStep } from './steps/tutor/PolishConnectionStep';
+import { LanguageConnectionStep } from './steps/tutor/LanguageConnectionStep';
 import { OriginStep } from './steps/tutor/OriginStep';
 import { DreamPhraseStep } from './steps/tutor/DreamPhraseStep';
 import { TeachingStyleStep } from './steps/tutor/TeachingStyleStep';
 import { TutorPreviewStep } from './steps/tutor/TutorPreviewStep';
 import { TutorStartStep } from './steps/tutor/TutorStartStep';
-
-// ============================================
-// Word Pairs for Particle Effect
-// ============================================
-const WORD_PAIRS = [
-  { polish: 'kocham', english: 'I love' },
-  { polish: 'kochanie', english: 'darling' },
-  { polish: 'skarbie', english: 'treasure' },
-  { polish: 'słonko', english: 'sunshine' },
-  { polish: 'miłość', english: 'love' },
-  { polish: 'serce', english: 'heart' },
-  { polish: 'szczęście', english: 'happiness' },
-  { polish: 'marzenie', english: 'dream' },
-  { polish: 'uśmiech', english: 'smile' },
-  { polish: 'pocałunek', english: 'kiss' },
-  { polish: 'razem', english: 'together' },
-  { polish: 'zawsze', english: 'always' },
-  { polish: 'na zawsze', english: 'forever' },
-  { polish: 'piękny', english: 'beautiful' },
-  { polish: 'cudowny', english: 'wonderful' },
-  { polish: 'kocham cię', english: 'I love you' },
-  { polish: 'mój świat', english: 'my world' },
-  { polish: 'dla ciebie', english: 'for you' },
-];
 
 // ============================================
 // Word Particle Types
@@ -77,20 +55,20 @@ interface WordParticle {
   speed: number;
 }
 
-type WordEventState = 'spawning' | 'showing_polish' | 'transforming' | 'showing_english' | 'forming_heart' | 'floating' | 'done';
+type WordEventState = 'spawning' | 'showing_word' | 'transforming' | 'showing_translation' | 'forming_heart' | 'floating' | 'done';
 
 interface WordEvent {
   id: number;
-  polishWord: string;
-  englishWord: string;
+  word: string;
+  translation: string;
   particles: WordParticle[];
   state: WordEventState;
   stateStartTime: number;
   centerX: number;
   centerY: number;
   rotation: number;
-  polishPositions: { x: number; y: number }[];
-  englishPositions: { x: number; y: number }[];
+  wordPositions: { x: number; y: number }[];
+  translationPositions: { x: number; y: number }[];
   heartPositions: { x: number; y: number }[];
   floatY: number;
   opacity: number;
@@ -109,6 +87,43 @@ const WordParticleBackground: React.FC<{
   const animationRef = useRef<number>(0);
   const lastSpawnRef = useRef<number>(0);
   const eventIdRef = useRef<number>(0);
+
+  // Get current language settings
+  const { targetLanguage, nativeLanguage } = useLanguage();
+  const targetConfig = LANGUAGE_CONFIGS[targetLanguage];
+  const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage];
+
+  // Build word pairs from language configs
+  const wordPairs = useMemo(() => {
+    // Core examples from language config
+    const pairs = [
+      {
+        word: targetConfig?.examples.hello || 'Hello',
+        translation: nativeConfig?.examples.hello || 'Hello'
+      },
+      {
+        word: targetConfig?.examples.iLoveYou || 'I love you',
+        translation: nativeConfig?.examples.iLoveYou || 'I love you'
+      },
+      {
+        word: targetConfig?.examples.thankYou || 'Thank you',
+        translation: nativeConfig?.examples.thankYou || 'Thank you'
+      },
+    ];
+
+    // Add some universal romantic concepts (emoji pairs for visual variety)
+    const romanticConcepts = [
+      { word: '❤️', translation: '💕' },
+      { word: '💗', translation: '💖' },
+      { word: '✨', translation: '💫' },
+      { word: '💋', translation: '😘' },
+      { word: '🌹', translation: '💐' },
+      { word: '💝', translation: '💞' },
+    ];
+
+    // Mix language examples with romantic emojis for visual variety
+    return [...pairs, ...romanticConcepts];
+  }, [targetConfig, nativeConfig]);
 
   // Progressive timing: faster as steps increase
   const progress = (currentStep - 1) / Math.max(totalSteps - 1, 1);
@@ -192,7 +207,7 @@ const WordParticleBackground: React.FC<{
 
   // Spawn word event at edge positions
   const spawnWordEvent = (canvasWidth: number, canvasHeight: number): WordEvent => {
-    const pair = WORD_PAIRS[Math.floor(Math.random() * WORD_PAIRS.length)];
+    const pair = wordPairs[Math.floor(Math.random() * wordPairs.length)];
 
     // Spawn at edges, avoiding center form area
     const edge = Math.floor(Math.random() * 4);
@@ -220,20 +235,20 @@ const WordParticleBackground: React.FC<{
     const rotation = (Math.random() - 0.5) * Math.PI * 0.6;
     const fontSize = 28;
 
-    const polishPositions = getTextParticlePositions(pair.polish, centerX, centerY, fontSize, rotation);
-    const englishPositions = getTextParticlePositions(pair.english, centerX, centerY, fontSize, rotation);
-    const particleCount = Math.max(polishPositions.length, englishPositions.length);
+    const wordPositions = getTextParticlePositions(pair.word, centerX, centerY, fontSize, rotation);
+    const translationPositions = getTextParticlePositions(pair.translation, centerX, centerY, fontSize, rotation);
+    const particleCount = Math.max(wordPositions.length, translationPositions.length);
     const heartScale = Math.sqrt(particleCount / 80) * 2.2;
     const heartPositions = getHeartPositions(centerX, centerY, heartScale, particleCount);
 
-    while (polishPositions.length < particleCount) {
-      polishPositions.push(polishPositions[Math.floor(Math.random() * polishPositions.length)]);
+    while (wordPositions.length < particleCount) {
+      wordPositions.push(wordPositions[Math.floor(Math.random() * wordPositions.length)]);
     }
-    while (englishPositions.length < particleCount) {
-      englishPositions.push(englishPositions[Math.floor(Math.random() * englishPositions.length)]);
+    while (translationPositions.length < particleCount) {
+      translationPositions.push(translationPositions[Math.floor(Math.random() * translationPositions.length)]);
     }
 
-    const particles: WordParticle[] = polishPositions.slice(0, particleCount).map((pos) => ({
+    const particles: WordParticle[] = wordPositions.slice(0, particleCount).map((pos) => ({
       x: pos.x + (Math.random() - 0.5) * 80,
       y: pos.y + (Math.random() - 0.5) * 80,
       originX: pos.x,
@@ -248,16 +263,16 @@ const WordParticleBackground: React.FC<{
 
     return {
       id: eventIdRef.current++,
-      polishWord: pair.polish,
-      englishWord: pair.english,
+      word: pair.word,
+      translation: pair.translation,
       particles,
       state: 'spawning',
       stateStartTime: Date.now(),
       centerX,
       centerY,
       rotation,
-      polishPositions: polishPositions.slice(0, particleCount),
-      englishPositions: englishPositions.slice(0, particleCount),
+      wordPositions: wordPositions.slice(0, particleCount),
+      translationPositions: translationPositions.slice(0, particleCount),
       heartPositions,
       floatY: 0,
       opacity: 1,
@@ -280,9 +295,9 @@ const WordParticleBackground: React.FC<{
 
     // Timing (scaled by timeScale for progressive speed)
     const SPAWNING = 1200 * timeScale;
-    const SHOWING_POLISH = 1800 * timeScale;
+    const SHOWING_WORD = 1800 * timeScale;
     const TRANSFORMING = 1200 * timeScale;
-    const SHOWING_ENGLISH = 1800 * timeScale;
+    const SHOWING_TRANSLATION = 1800 * timeScale;
     const FORMING_HEART = 1600 * timeScale;
     const FLOATING = 3000 * timeScale;
 
@@ -316,31 +331,31 @@ const WordParticleBackground: React.FC<{
             const prog = Math.min(elapsed / SPAWNING, 1);
             const ease = 1 - Math.pow(1 - prog, 3);
             event.particles.forEach((p, i) => {
-              const target = event.polishPositions[i];
+              const target = event.wordPositions[i];
               p.x += (target.x - p.x) * 0.08;
               p.y += (target.y - p.y) * 0.08;
               p.alpha = ease * 0.5;
             });
-            if (prog >= 1) { event.state = 'showing_polish'; event.stateStartTime = now; }
+            if (prog >= 1) { event.state = 'showing_word'; event.stateStartTime = now; }
             break;
           }
-          case 'showing_polish': {
+          case 'showing_word': {
             const breathe = Math.sin(elapsed * 0.003) * 0.05;
             event.particles.forEach((p, i) => {
-              const target = event.polishPositions[i];
+              const target = event.wordPositions[i];
               p.x += (target.x - p.x) * 0.1;
               p.y += (target.y - p.y) * 0.1;
               p.alpha = 0.45 + breathe;
             });
-            if (elapsed > SHOWING_POLISH) { event.state = 'transforming'; event.stateStartTime = now; }
+            if (elapsed > SHOWING_WORD) { event.state = 'transforming'; event.stateStartTime = now; }
             break;
           }
           case 'transforming': {
             const prog = Math.min(elapsed / TRANSFORMING, 1);
             const ease = prog < 0.5 ? 4 * prog * prog * prog : 1 - Math.pow(-2 * prog + 2, 3) / 2;
             event.particles.forEach((p, i) => {
-              const from = event.polishPositions[i];
-              const to = event.englishPositions[i];
+              const from = event.wordPositions[i];
+              const to = event.translationPositions[i];
               const spiralRadius = Math.sin(prog * Math.PI) * 25;
               const spiralAngle = p.angle + prog * Math.PI * 2;
               const baseX = from.x + (to.x - from.x) * ease;
@@ -351,25 +366,25 @@ const WordParticleBackground: React.FC<{
               p.y += (p.targetY - p.y) * 0.15;
               p.alpha = 0.4 + Math.sin(prog * Math.PI) * 0.15;
             });
-            if (prog >= 1) { event.state = 'showing_english'; event.stateStartTime = now; }
+            if (prog >= 1) { event.state = 'showing_translation'; event.stateStartTime = now; }
             break;
           }
-          case 'showing_english': {
+          case 'showing_translation': {
             const breathe = Math.sin(elapsed * 0.003) * 0.05;
             event.particles.forEach((p, i) => {
-              const target = event.englishPositions[i];
+              const target = event.translationPositions[i];
               p.x += (target.x - p.x) * 0.1;
               p.y += (target.y - p.y) * 0.1;
               p.alpha = 0.45 + breathe;
             });
-            if (elapsed > SHOWING_ENGLISH) { event.state = 'forming_heart'; event.stateStartTime = now; }
+            if (elapsed > SHOWING_TRANSLATION) { event.state = 'forming_heart'; event.stateStartTime = now; }
             break;
           }
           case 'forming_heart': {
             const prog = Math.min(elapsed / FORMING_HEART, 1);
             const ease = 1 - Math.pow(1 - prog, 4);
             event.particles.forEach((p, i) => {
-              const from = event.englishPositions[i];
+              const from = event.translationPositions[i];
               const to = event.heartPositions[i % event.heartPositions.length];
               const spiralRadius = (1 - prog) * 40;
               const spiralAngle = p.angle + prog * Math.PI * 3;
@@ -968,7 +983,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         );
       case 4:
         return (
-          <PolishConnectionStep
+          <LanguageConnectionStep
             currentStep={4}
             totalSteps={totalSteps}
             initialValue={data.polishConnection}

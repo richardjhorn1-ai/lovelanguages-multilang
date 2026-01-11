@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
 import { CONVERSATION_SCENARIOS, ConversationScenario } from '../constants/conversation-scenarios';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ScenarioSelectorProps {
   onSelect: (scenario: ConversationScenario) => void;
@@ -8,6 +10,8 @@ interface ScenarioSelectorProps {
 }
 
 const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }) => {
+  const { t } = useTranslation();
+  const { targetName, nativeName } = useLanguage();
   const [customTopic, setCustomTopic] = useState('');
   const [showCustom, setShowCustom] = useState(false);
 
@@ -22,10 +26,10 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
 
     const customScenario: ConversationScenario = {
       id: 'custom',
-      name: 'Custom Scenario',
+      name: t('scenarioSelector.customScenarioName'),
       icon: '✨',
       description: customTopic,
-      persona: `You are a friendly Polish person helping someone practice Polish. You are patient, encouraging, and adjust your language to their level.`,
+      persona: t('scenarioSelector.customPersona', { language: targetName }),
       context: customTopic,
       difficulty: 'intermediate'
     };
@@ -44,12 +48,12 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                 🎙️
               </div>
               <span className="absolute -top-1 -right-1 px-1.5 py-0.5 bg-amber-500 text-white text-[9px] font-black rounded-full uppercase">
-                Beta
+                {t('scenarioSelector.beta')}
               </span>
             </div>
             <div>
-              <h2 className="font-black text-[var(--text-primary)]">Conversation Practice</h2>
-              <p className="text-xs text-[var(--text-secondary)]">Choose a scenario</p>
+              <h2 className="font-black text-[var(--text-primary)]">{t('scenarioSelector.title')}</h2>
+              <p className="text-xs text-[var(--text-secondary)]">{t('scenarioSelector.subtitle')}</p>
             </div>
           </div>
           <button
@@ -79,7 +83,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                       <div className="flex items-center gap-2 mb-1">
                         <h3 className="font-bold text-[var(--text-primary)]">{scenario.name}</h3>
                         <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded-full ${difficultyColors[scenario.difficulty]}`}>
-                          {scenario.difficulty}
+                          {t(`scenarioSelector.difficulty.${scenario.difficulty}`)}
                         </span>
                       </div>
                       <p className="text-sm text-[var(--text-secondary)]">{scenario.description}</p>
@@ -99,8 +103,8 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                     ✨
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-purple-700 dark:text-purple-300">Create Your Own</h3>
-                    <p className="text-sm text-purple-600/70 dark:text-purple-400/70">Describe any scenario you want to practice</p>
+                    <h3 className="font-bold text-purple-700 dark:text-purple-300">{t('scenarioSelector.createOwn')}</h3>
+                    <p className="text-sm text-purple-600/70 dark:text-purple-400/70">{t('scenarioSelector.createOwnDesc')}</p>
                   </div>
                   <ICONS.ChevronRight className="w-5 h-5 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
@@ -115,19 +119,19 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                   className="flex items-center gap-1 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] mb-4"
                 >
                   <ICONS.ChevronLeft className="w-4 h-4" />
-                  Back to scenarios
+                  {t('scenarioSelector.backToScenarios')}
                 </button>
 
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-2">✨</div>
-                  <h3 className="font-black text-[var(--text-primary)]">Custom Scenario</h3>
-                  <p className="text-sm text-[var(--text-secondary)]">Describe the situation you want to practice</p>
+                  <h3 className="font-black text-[var(--text-primary)]">{t('scenarioSelector.customScenario')}</h3>
+                  <p className="text-sm text-[var(--text-secondary)]">{t('scenarioSelector.describeScenario')}</p>
                 </div>
 
                 <textarea
                   value={customTopic}
                   onChange={e => setCustomTopic(e.target.value)}
-                  placeholder="e.g., I'm at a bakery trying to buy bread and ask about ingredients..."
+                  placeholder={t('scenarioSelector.customPlaceholder')}
                   rows={4}
                   className="w-full p-4 border-2 border-[var(--border-color)] rounded-2xl text-sm focus:outline-none focus:border-purple-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] resize-none"
                   autoFocus
@@ -139,7 +143,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                   className="w-full mt-4 py-4 bg-purple-500 text-white font-bold rounded-2xl hover:bg-purple-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                 >
                   <ICONS.Play className="w-4 h-4" />
-                  Start Practice
+                  {t('scenarioSelector.startPractice')}
                 </button>
               </div>
             </>
@@ -149,7 +153,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
         {/* Footer Info */}
         <div className="p-4 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
           <p className="text-xs text-center text-[var(--text-secondary)]">
-            The AI will speak Polish by default. If you struggle, it will help in English.
+            {t('scenarioSelector.footerInfo', { targetLanguage: targetName, nativeLanguage: nativeName })}
           </p>
         </div>
       </div>

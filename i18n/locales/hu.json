@@ -1,0 +1,1817 @@
+{
+  "common": {
+    "loading": "Betöltés...",
+    "error": "Valami hiba történt",
+    "save": "Mentés",
+    "cancel": "Mégse",
+    "close": "Bezárás",
+    "back": "Vissza",
+    "next": "Következő",
+    "submit": "Beküldés",
+    "delete": "Törlés",
+    "edit": "Szerkesztés"
+  },
+  "nav": {
+    "chat": "Csevegés",
+    "log": "Love Log",
+    "play": "Játék",
+    "progress": "Haladás",
+    "notifications": "Értesítések",
+    "noNotifications": "Még nincsenek értesítések",
+    "newCount": "{{count}} új",
+    "allCaughtUp": "Mindent elolvastál!",
+    "viewProfile": "Profil megtekintése",
+    "myProgress": "Haladásom",
+    "reportBug": "Hiba jelentése",
+    "helpGuide": "Súgó és útmutató",
+    "signOut": "Kijelentkezés"
+  },
+  "chat": {
+    "sidebar": {
+      "newSession": "Új beszélgetés",
+      "collapse": "Oldalsáv összecsukása",
+      "expand": "Oldalsáv kinyitása",
+      "conversations": "Beszélgetések",
+      "noConversations": "Még nincsenek beszélgetések",
+      "startSession": "Kezdj egy új beszélgetést fent",
+      "items": "{{count}} elem",
+      "items_other": "{{count}} elem"
+    },
+    "modes": {
+      "coach": "Edző",
+      "ask": "kérdezz",
+      "learn": "tanulj"
+    },
+    "status": {
+      "listening": "Hallgat",
+      "speaking": "Beszél",
+      "connecting": "Csatlakozás"
+    },
+    "input": {
+      "askPlaceholder": "Kérdezz bármit Cupidtól...",
+      "learnPlaceholder": "Készen állsz a következő leckére?",
+      "tutorPlaceholder": "Hogyan segíthetsz ma a partnerednek?",
+      "listeningPlaceholder": "Hallgat...",
+      "speakingPlaceholder": "Cupid beszél...",
+      "connectingPlaceholder": "Csatlakozás..."
+    },
+    "session": {
+      "deleteConfirm": "Biztosan törölni szeretnéd ezt a beszélgetést?",
+      "longConversation": "Ez a beszélgetés már elég hosszú lett!",
+      "startFresh": "Kezdj újat"
+    },
+    "listen": {
+      "title": "Hallgatás",
+      "beta": "BÉTA",
+      "recording": "Felvétel",
+      "stop": "Leállítás",
+      "stopSave": "Leállítás és mentés",
+      "sessionLabel": "Hallgatási munkamenet",
+      "listeningFor": "{{language}} beszéd figyelése...",
+      "modeTooltip": "Hallgatás mód - Rögzíts valódi {{language}} beszélgetéseket",
+      "deleteConfirm": "Biztosan törölni szeretnéd ezt a hallgatási munkamenetet?",
+      "bookmarkAdd": "Kifejezés könyvjelzőzése",
+      "bookmarkRemove": "Könyvjelző eltávolítása",
+      "bookmarked": "{{count}} kifejezés könyvjelzőzve",
+      "bookmarked_other": "{{count}} kifejezés könyvjelzőzve",
+      "improving": "Átirat javítása AI-val...",
+      "wordsAdded": "Szavak hozzáadva a Love Log-hoz",
+      "extractWords": "Szavak kinyerése",
+      "newSession": "Új munkamenet",
+      "backToChats": "Vissza a csevegésekhez"
+    },
+    "listenPrompt": {
+      "title": "Készen állsz a hallgatásra?",
+      "description": "Rögzíts valódi {{language}} beszélgetéseket élő átírással és fordítással.",
+      "contextLabel": "Mit hallgatsz?",
+      "contextOptional": "(opcionális)",
+      "contextPlaceholder": "pl. Vacsora a nagymamánál, TV műsor...",
+      "contextHint": "Később is elnevezheted, ha szeretnéd",
+      "cancel": "Mégse",
+      "start": "Hallgatás indítása"
+    },
+    "wordExtractor": {
+      "title": "Szavak kinyerése",
+      "found": "{{count}} szó található",
+      "selected": "{{count}} kiválasztva",
+      "analyzing": "Átirat elemzése...",
+      "extracting": "Szókincs kinyerése...",
+      "cancel": "Mégse",
+      "addWords": "{{count}} szó hozzáadása",
+      "adding": "Hozzáadás..."
+    },
+    "errors": {
+      "addWordsFailed": "Nem sikerült hozzáadni a szavakat: {{message}}",
+      "addWordsError": "Nem sikerült hozzáadni a szavakat. Részletekért nézd meg a konzolt."
+    },
+    "blocks": {
+      "cultureNote": "Kulturális megjegyzés",
+      "loveGoal": "Szerelmi cél"
+    }
+  },
+  "progress": {
+    "level": {
+      "current": "Jelenlegi szint",
+      "partner": "{{name}} szintje",
+      "totalXp": "Összes XP",
+      "xp": "XP",
+      "progressTo": "Haladás a {{level}} szintig",
+      "xpToNext": "{{xp}} XP a {{level}} eléréséhez",
+      "maxLevel": "Maximális szint",
+      "max": "Max",
+      "reachedMax": "Elérted a maximális szintet!",
+      "takeTest": "Szintvizsga",
+      "practiceTest": "Gyakorló szintvizsga"
+    },
+    "previousTests": {
+      "title": "Korábbi szintek gyakorlása",
+      "previousAttempts": "Korábbi próbálkozások",
+      "viewAttempts": "Korábbi próbálkozások megtekintése"
+    },
+    "motivation": {
+      "title": "Motivációm",
+      "learningFor": "Tanulok érte:"
+    },
+    "stats": {
+      "title": "Love Log statisztikák",
+      "total": "Összes",
+      "mastered": "Elsajátított",
+      "review": "Ismétlés",
+      "nouns": "Főnevek",
+      "verbs": "Igék",
+      "adjectives": "Melléknevek",
+      "phrases": "Kifejezések",
+      "words": "Szavak"
+    },
+    "gameHistory": {
+      "title": "Játékelőzmények"
+    },
+    "journey": {
+      "title": "Tanulási út",
+      "journalEntries": "Naplóbejegyzések",
+      "newEntry": "Új bejegyzés",
+      "new": "Új",
+      "analyzing": "Elemzés...",
+      "noEntries": "Még nincsenek bejegyzések.",
+      "clickNew": "Kattints az \"Új bejegyzés\" gombra a kezdéshez!",
+      "clickNewShort": "Kattints az \"Új\" gombra a kezdéshez!",
+      "startJourney": "Kezdd el a tanulási utadat az 'Új bejegyzés' gombra kattintva",
+      "selectEntry": "Válassz egy bejegyzést a megtekintéshez",
+      "wordsXp": "{{words}} szó • {{xp}} XP"
+    },
+    "summary": {
+      "words": "Szavak",
+      "youCanSay": "Most már tudod mondani",
+      "topics": "Témák",
+      "grammar": "Nyelvtan",
+      "upNext": "Következő",
+      "answerInsights": "Válasz elemzések",
+      "diacritics": "Ékezetek",
+      "synonyms": "Szinonimák",
+      "typosOk": "Elírások OK",
+      "diacriticTip": "Tipp: Tudod a szavakat! Próbáld meg beállítani a {{language}} billentyűzetet a speciális karakterekhez",
+      "synonymTip": "Nagyszerű szókincs - sok érvényes alternatívát használsz!"
+    },
+    "quickActions": {
+      "practice": "Gyakorlás",
+      "practiceDesc": "Kártyák és kvízek",
+      "loveLog": "Love Log",
+      "loveLogDesc": "A szókincsed"
+    },
+    "testResults": {
+      "title": "Teszt eredmények",
+      "correct": "helyes",
+      "yourAnswers": "Válaszaid",
+      "yourAnswer": "A te válaszod: {{answer}}",
+      "correctAnswer": "Helyes: {{answer}}",
+      "tryAgain": "Próbáld újra"
+    },
+    "tutor": {
+      "yourPartner": "Partnered",
+      "phrasesForTonight": "Kifejezések mára estére",
+      "recentlyLearned": "Nemrég tanultak",
+      "wordsToPractice": "Szavak közös gyakorlásra",
+      "noWeakSpots": "Nincsenek gyenge pontok - remekül halad!",
+      "misses": "{{count}} hiba",
+      "misses_other": "{{count}} hiba",
+      "quizThem": "Kérdezd ki őket →",
+      "playTogether": "Játsszatok együtt",
+      "playTogetherDesc": "Kvízjátékok és feladatok",
+      "theirVocabulary": "Az ő szókincse",
+      "browseLoveLog": "Love Log böngészése",
+      "useItTonight": "{{word}} - használd ma este!",
+      "tryInConversation": "Próbáld használni beszélgetés közben",
+      "complimentThem": "Bókolj nekik ezzel!",
+      "whisperBeforeBed": "Súgd ezt lefekvés előtt",
+      "iLoveYouVeryMuch": "Nagyon szeretlek"
+    },
+    "encouragement": {
+      "wordsMastered": "{{count}} szót sajátítottál el! Ideje egy ünneplős randira!",
+      "wordsNeedWork": "Csak {{count}} szón kell még dolgozni - ma este kikérdezheted őket!",
+      "milestone": "{{count}} szó a szókincsében - ünnepeljétek ezt a mérföldkövet!",
+      "justLearned": "Most tanulta meg: \"{{word}}\" - használd ma beszélgetés közben!"
+    },
+    "levelThemes": {
+      "firstWords": "A szerelem első szavai",
+      "checkingIn": "Bejelentkezés",
+      "feelings": "Érzelmek",
+      "dailyLife": "Mindennapi élet",
+      "preferences": "Preferenciák",
+      "makingPlans": "Tervezés",
+      "tellingStories": "Mesélés",
+      "deeperFeelings": "Mélyebb érzelmek",
+      "complexConversations": "Összetett beszélgetések",
+      "futureDreams": "Jövőbeli álmok",
+      "problemSolving": "Problémamegoldás",
+      "culturalNuance": "Kulturális árnyalatok",
+      "advancedExpression": "Haladó kifejezésmód",
+      "nativeFluency": "Anyanyelvi folyékonyság",
+      "expertLevel": "Szakértői szint",
+      "culturalMastery": "Kulturális mesterség",
+      "completeMastery": "Teljes mesterség",
+      "practice": "Gyakorlás"
+    }
+  },
+  "play": {
+    "loading": "Gyakorló modul betöltése...",
+    "title": "Gyakorlás",
+    "beta": "Béta",
+    "tabs": {
+      "games": "Játékok",
+      "loveNotes": "Szerelmes üzenetek",
+      "gamesDesc": "Gyakorold a szókincsedet különböző játékmódokkal",
+      "loveNotesDesc": "Kihívások és ajándékok {{partner}}-tól"
+    },
+    "empty": {
+      "noWords": "Még nincsenek szavak",
+      "noWordsDesc": "Tanulj először néhány szót a Csevegésben, aztán gyere vissza gyakorolni!",
+      "needMore": "Több szó kell",
+      "needMoreDesc": "A feleletválasztós játékhoz legalább 4 szó kell. Neked {{count}} van.",
+      "tryFlashcards": "Próbáld inkább a kártyákat"
+    },
+    "games": {
+      "flashcards": "Kártyák",
+      "flashcardsDesc": "Lapozz kártyákat a fordítás felfedéséhez",
+      "multiChoice": "Feleletválasztós",
+      "multiChoiceDesc": "Válaszd ki a helyes fordítást",
+      "typeIt": "Írd be",
+      "typeItDesc": "Írd be magad a fordítást",
+      "quickFire": "Gyorstűz",
+      "quickFireDesc": "60 másodperces kihívás",
+      "aiChallenge": "AI kihívás",
+      "aiChallengeDesc": "Okos szóválasztás",
+      "conversation": "Beszélgetés",
+      "conversationDesc": "Beszélj az AI-val {{language}} nyelven",
+      "verbMastery": "Igeragozás",
+      "verbMasteryVerbs": "{{count}} ige",
+      "learnVerbsFirst": "Előbb tanulj igéket"
+    },
+    "directions": {
+      "targetToNative": "{{target}} → {{native}}",
+      "nativeToTarget": "{{native}} → {{target}}"
+    },
+    "flashcard": {
+      "word": "{{language}} SZÓ",
+      "translation": "FORDÍTÁS",
+      "tapToReveal": "Koppints a felfedéshez",
+      "hard": "Nehéz",
+      "gotIt": "Megvan!"
+    },
+    "typeIt": {
+      "hint": "Segítség:",
+      "hintShown": "Segítség megjelent",
+      "showHint": "Segítség mutatása",
+      "correct": "Helyes!",
+      "notQuite": "Nem egészen",
+      "correctAnswer": "Helyes válasz:",
+      "typeIn": "Írd be {{language}} nyelven...",
+      "next": "Következő",
+      "check": "Ellenőrzés"
+    },
+    "quickFire": {
+      "title": "Gyorstűz!",
+      "description": "Fordíts le minél több szót 60 másodperc alatt!",
+      "wordsAvailable": "{{count}} szó elérhető",
+      "upTo20": "Körönként maximum 20 véletlenszerű szó",
+      "start": "Rajt!",
+      "needAtLeast5": "Legalább 5 szó kell a Gyorstűz játékhoz",
+      "typeTranslation": "Írd be a fordítást..."
+    },
+    "aiChallenge": {
+      "chooseMode": "Válassz kihívás módot",
+      "length": "Hossz",
+      "all": "Mind",
+      "qs": "kérdés",
+      "generatingPhrases": "Romantikus kifejezések generálása...",
+      "startChallenge": "Kihívás indítása",
+      "modes": {
+        "weakest": "Leggyengébb szavak",
+        "weakestDesc": "Fókuszálj a nehéz szavakra",
+        "gauntlet": "Vegyes kihívás",
+        "gauntletDesc": "Véletlenszerű keverék mindenből",
+        "romantic": "Romantikus kifejezések",
+        "romanticDesc": "Édes kifejezések {{language}} nyelven",
+        "leastPracticed": "Legkevésbé gyakorolt",
+        "leastPracticedDesc": "Szavak, amiket régen láttál",
+        "reviewMastered": "Elsajátítottak áttekintése",
+        "reviewMasteredDesc": "Gyakorold a már tanult szavakat"
+      }
+    },
+    "verbMastery": {
+      "title": "Igeragozás mester",
+      "practiceCount": "Gyakorolj {{count}} ige ragozását",
+      "selectTense": "Válassz igeidőt",
+      "presentTense": "Jelen idő",
+      "pastTense": "Múlt idő",
+      "futureTense": "Jövő idő",
+      "verbsAvailable": "{{count}} ige elérhető",
+      "noVerbsWithTense": "Még nincsenek igék ezzel az igeidővel",
+      "noVerbsAlert": "Nem találtam igéket {{tense}} igeidejű ragozással. Tanulj először több igét!",
+      "conjugateVerb": "Ragozd az igét",
+      "forPronoun": "A névmáshoz",
+      "typeConjugation": "Írd be a ragozott alakot...",
+      "checkAnswer": "Válasz ellenőrzése",
+      "nextQuestion": "Következő kérdés",
+      "seeResults": "Eredmények",
+      "backToGames": "← Vissza a játékokhoz"
+    },
+    "session": {
+      "yourPartner": "Partnered"
+    }
+  },
+  "profile": {
+    "roles": {
+      "student": "{{language}} tanulása",
+      "tutor": "Nyelvi edző"
+    },
+    "partner": {
+      "title": "Partnered",
+      "unlink": "Szétkapcsolás"
+    },
+    "customisation": {
+      "title": "Testreszabás",
+      "subtitle": "Vizuális beállítások",
+      "accentColor": "Kiemelő szín",
+      "darkMode": "Sötét mód",
+      "fontSize": "Betűméret",
+      "answerChecking": "Válasz ellenőrzés",
+      "smartMode": "Okos mód",
+      "strictMode": "Szigorú mód",
+      "smartModeDesc": "Az AI elfogadja a szinonimákat, elírásokat és variációkat",
+      "strictModeDesc": "Csak pontos válaszok (ékezeteket figyelmen kívül hagyva)",
+      "preview": "Előnézet",
+      "previewText": "<strong>Kocham cię</strong> jelentése: \"Szeretlek\" {{language}} nyelven"
+    },
+    "advanced": {
+      "title": "Haladó beállítások",
+      "subtitle": "Szerkeszd a regisztrációs válaszaidat",
+      "yourName": "A neved",
+      "partnerName": "Partnered neve",
+      "learnerName": "Tanuló neve",
+      "relationshipVibe": "Kapcsolat hangulata",
+      "learningReason": "Miért tanulsz {{language}} nyelvet?",
+      "motivationPlaceholder": "A motivációd...",
+      "dailyTime": "Napi idő",
+      "preferredTime": "Előnyben részesített időpont",
+      "biggestChallenge": "Legnagyobb kihívás",
+      "firstGoal": "Első cél",
+      "goalPlaceholder": "Mit szeretnél elérni?",
+      "relationshipType": "Kapcsolat típusa",
+      "languageConnection": "{{language}} kapcsolat",
+      "howYouLearned": "Hogyan tanultad a {{language}} nyelvet",
+      "dreamPhrase": "Álom kifejezés",
+      "dreamPhrasePlaceholder": "Mit szeretnél hallani tőlük?",
+      "teachingStyle": "Tanítási stílus",
+      "select": "Válassz..."
+    },
+    "originOptions": {
+      "grewUp": "Ott nőttem fel",
+      "family": "Családtól",
+      "school": "Tanulmányoztam",
+      "self": "Önképzés"
+    },
+    "styleOptions": {
+      "patient": "Türelmes és kedves",
+      "playful": "Játékos és vidám",
+      "structured": "Strukturált",
+      "immersive": "Belevető"
+    },
+    "buttons": {
+      "saving": "Mentés...",
+      "saved": "Mentve!",
+      "saveChanges": "Változtatások mentése",
+      "signOut": "Kijelentkezés"
+    }
+  },
+  "loveLog": {
+    "title": "Love Log",
+    "titleFull": "A Love Log",
+    "search": "Keresés...",
+    "searchWords": "Szavak keresése...",
+    "wordsCount": "{{count}} szó",
+
+    "sync": {
+      "scanChats": "Csevegések átvizsgálása",
+      "scanTooltip": "Csevegési előzmények átvizsgálása új szókincsért",
+      "allSynced": "Minden szinkronizálva!",
+      "errorFetching": "Hiba az üzenetek lekérésekor",
+      "noNewWords": "Nem találtam új szavakat",
+      "newWords": "+{{count}} új szó!",
+      "newWords_other": "+{{count}} új szó!",
+      "syncError": "Szinkronizálási hiba"
+    },
+
+    "filters": {
+      "all": "Mind",
+      "noun": "Főnév",
+      "verb": "Ige",
+      "adjective": "Melléknév",
+      "phrase": "Kifejezés",
+      "gifts": "Ajándékok"
+    },
+
+    "card": {
+      "gift": "Ajándék",
+      "giftFrom": "Ajándék {{name}}-tól/-től",
+      "yourPartner": "a partnered",
+      "mastered": "Elsajátítva!",
+      "streakProgress": "{{current}}/{{target}} helyes egymás után",
+      "tapForDetails": "koppints a részletekért",
+      "example": "Példa",
+      "noExample": "Nincs elérhető példa.",
+      "conjugations": "Ragozások",
+      "forms": "Alakok"
+    },
+
+    "modal": {
+      "present": "Jelen",
+      "past": "Múlt",
+      "future": "Jövő",
+      "tenseLocked": "{{tense}} idő zárolva",
+      "unlockTense": "{{tense}} idő feloldása",
+      "unlocked": "Feloldva: {{date}}"
+    },
+
+    "unlock": {
+      "title": "{{tense}} idő feloldása?",
+      "descriptionBefore": "Készen állsz megtanulni, hogyan mondod",
+      "descriptionAfter": "{{tense}} időben?",
+      "pastNote": "Mind a hímnemű, mind a nőnemű alakokat látni fogod.",
+      "notYet": "Még nem",
+      "unlockNow": "Feloldás most",
+      "unlocking": "Feloldás..."
+    },
+
+    "pronouns": {
+      "singular1": "(én)",
+      "singular2": "(te)",
+      "singular3": "(ő)",
+      "plural1": "(mi)",
+      "plural2": "(ti)",
+      "plural3": "(ők)"
+    },
+
+    "tableHeaders": {
+      "person": "Személy",
+      "masculine": "Hímnem",
+      "feminine": "Nőnem"
+    },
+
+    "nounForms": {
+      "gender": "Nem",
+      "singular": "Egyes szám",
+      "plural": "Többes szám"
+    },
+
+    "adjectiveForms": {
+      "title": "Nemek szerinti alakok",
+      "masculine": "Hímnem",
+      "feminine": "Nőnem",
+      "neuter": "Semlegesnem",
+      "plural": "Többes szám"
+    }
+  },
+
+  "onboarding": {
+    "step": {
+      "back": "Vissza",
+      "counter": "{{current}} / {{total}}",
+      "quitTitle": "Regisztráció megszakítása",
+      "continue": "Tovább",
+      "skipForNow": "Kihagyom most"
+    },
+
+    "name": {
+      "title": "Hogyan szólítson Cupid?",
+      "subtitle": "A neved személyesebbé teszi ezt az utazást.",
+      "placeholder": "A neved"
+    },
+
+    "partnerName": {
+      "studentTitle": "Kiért tanulsz {{language}} nyelvet, {{name}}?",
+      "tutorTitle": "Kinek segítesz {{language}} nyelvet tanulni, {{name}}?",
+      "studentSubtitle": "Őt fogod meglepni az új tudásoddal.",
+      "tutorSubtitle": "Őt fogod végigkísérni a {{language}} nyelv tanulásán.",
+      "placeholder": "Az ő neve"
+    },
+
+    "validation": {
+      "title": "Hogyan ellenőrizzük a válaszaidat?",
+      "subtitle": "Válaszd ki, mennyire legyen megbocsátó az alkalmazás az értékelésnél.",
+      "changeInSettings": "Ezt bármikor megváltoztathatod a Beállításokban",
+      "smart": {
+        "label": "Okos mód",
+        "tag": "Ajánlott",
+        "description": "Az AI megérti, mire gondolsz",
+        "detail1": "Elfogadja a szinonimákat (\"szép\" = \"gyönyörű\")",
+        "detail2": "Megbocsátja az apró elírásokat",
+        "detail3": "Engedi a névelő variációkat (\"a kutya\" vs \"kutya\")",
+        "detail4": "Felismeri az alternatív fordításokat"
+      },
+      "strict": {
+        "label": "Szigorú mód",
+        "tag": "Haladó",
+        "description": "Csak pontos válaszok",
+        "detail1": "Pontosan egyeznie kell (ékezetek nélkül)",
+        "detail2": "Legjobb haladó tanulóknak",
+        "detail3": "Precizitást és pontosságot fejleszt",
+        "detail4": "Hagyományos kártya élmény"
+      }
+    },
+
+    "plan": {
+      "title": "Válaszd ki a terved, {{name}}",
+      "subtitle": "Kezdd el {{language}} tanulási utadat még ma",
+      "monthly": "Havi",
+      "yearly": "Éves",
+      "discount": "70% kedvezmény",
+      "popular": "Népszerű",
+      "perMonth": "/hó",
+      "perYear": "/év",
+      "monthlyEquivalent": "${{price}}/hó",
+      "moreFeatures": "+{{count}} további funkció",
+      "continueWith": "Folytatás {{plan}} csomaggal",
+      "aPlan": "egy csomag",
+      "trustSignal": "Biztonságos fizetés Stripe-on keresztül. Bármikor lemondható.",
+      "standard": {
+        "name": "Standard",
+        "tagline": "Tökéletes a kezdéshez",
+        "feature1": "2000 szó a Love Log-ban",
+        "feature2": "60 perc hangos csevegés/hó",
+        "feature3": "30 perc Hallgatás mód/hó",
+        "feature4": "Minden beszélgetési szituáció",
+        "feature5": "Partner meghívó"
+      },
+      "unlimited": {
+        "name": "Korlátlan",
+        "tagline": "Elkötelezett tanulóknak",
+        "feature1": "Korlátlan minden",
+        "feature2": "Korlátlan hangos csevegés",
+        "feature3": "Korlátlan Hallgatás mód",
+        "feature4": "Minden beszélgetési szituáció",
+        "feature5": "Ajándékbérlet egy másik párnak (éves)"
+      }
+    },
+
+    "student": {
+      "start": {
+        "title": "Készen állsz, {{name}}?",
+        "subtitle": "{{partnerName}} nyelvének megtanulása most kezdődik.",
+        "accessTitle": "Amihez hozzáférésed lesz:",
+        "feature1": "AI beszélgetések Cupiddal",
+        "feature2": "A Love Log szókincs nyomkövetőd",
+        "feature3": "Játékok a szavak gyakorlásához és elsajátításához",
+        "feature4": "Haladás követés és szintvizsgák",
+        "button": "Gyerünk!"
+      },
+
+      "vibe": {
+        "title": "Egy szó a kapcsolatotokról {{name}}-mal/-mel",
+        "subtitle": "Válaszd ki a legigazabb hangulatot.",
+        "passionate": "Szenvedélyes",
+        "playful": "Játékos",
+        "growing": "Fejlődő",
+        "forever": "Örök",
+        "longDistance": "Távkapcsolat",
+        "newLove": "Új szerelem"
+      },
+
+      "time": {
+        "title": "Mennyi időt tudsz naponta szánni rá?",
+        "subtitle": "A kis pillanatok is nagy haladást eredményeznek.",
+        "quick": "Egy gyors puszi",
+        "quickDesc": "5 perc",
+        "coffee": "Egy kávézás",
+        "coffeeDesc": "10 perc",
+        "walk": "Egy hosszú séta",
+        "walkDesc": "20+ perc"
+      },
+
+      "when": {
+        "title": "Mikor szoktál legszívesebben gyakorolni?",
+        "subtitle": "A tökéletes pillanatban emlékeztetni fogunk.",
+        "morning": "Reggel",
+        "afternoon": "Délután",
+        "evening": "Este",
+        "whenever": "Bármikor"
+      },
+
+      "photo": {
+        "title": "Fénykép hozzáadása",
+        "subtitleWithPhoto": "Jól nézel ki! Ez fog megjelenni a profilodon.",
+        "subtitleNoPhoto": "Egy fénykép személyesebbé teszi a profilodat."
+      },
+
+      "why": {
+        "title": "Miért akarod megtanulni {{name}} miatt a {{language}} nyelvet?",
+        "subtitle": "Ez lesz a személyes emlékeztetőd az utad során.",
+        "placeholder": "Meg akarom lepni, amikor meglátogatjuk a családját... Édes szavakat akarok suttogni... Meg akarom érteni a világát..."
+      },
+
+      "fear": {
+        "title": "Mi a legnagyobb félelmed a {{language}} tanulásával kapcsolatban?",
+        "subtitle": "Mindenkinek van. Küzdjük le együtt a tiédet.",
+        "pronunciation": "Kiejtés",
+        "pronunciationDesc": "Rosszul vagy nevetségesen hangzani",
+        "grammar": "Nyelvtani szabályok",
+        "grammarDesc": "Esetek, ragozások, nemek",
+        "silly": "Nevetségesen hangzani",
+        "sillyDesc": "Hibázni mások előtt",
+        "forgetting": "Mindent elfelejteni",
+        "forgettingDesc": "Tanulni, de nem megjegyezni"
+      },
+
+      "prior": {
+        "title": "Próbáltad már tanulni a {{language}} nyelvet?",
+        "subtitle": "Ez segít a megfelelő szinten kezdeni.",
+        "yes": "Igen, egy kicsit",
+        "beginner": "Teljesen kezdő"
+      },
+
+      "goal": {
+        "title": "Mi az első mérföldkő?",
+        "subtitle": "Egy cél, amin {{name}}-mal/-mel együtt dolgozhatsz",
+        "love": "Tökéletesen mondani: \"Szeretlek\"",
+        "phrases": "Megtanulni 10 romantikus kifejezést",
+        "surprise": "Meglepni őt egy {{language}} köszöntéssel",
+        "custom": "Saját cél beállítása",
+        "customPlaceholder": "pl. \"{{language}} nyelven rendelni a kedvenc éttermében\""
+      },
+
+      "learnHello": {
+        "title": "Tanuld meg az első szavadat!",
+        "subtitle": "Köszönj {{name}}-nak/-nek {{language}} nyelven",
+        "listen": "Hallgat",
+        "tip": "Az első szavad {{language}} nyelven!",
+        "gotIt": "Megvan!",
+        "listenFirst": "Először hallgasd meg"
+      },
+
+      "learnLove": {
+        "title": "Most pedig a legfontosabb kifejezés...",
+        "subtitle": "Amit {{name}} soha nem fog elfelejteni",
+        "hearIt": "Hallgasd meg",
+        "listenAgain": "Hallgasd meg újra",
+        "proTip": "<strong>Profi tipp:</strong> Gyakorold ezt a kifejezést {{name}}-nak/-nek mondani - imádni fogja, ha {{language}} nyelven hallják tőled!",
+        "ready": "Készen állok!",
+        "listenFirst": "Először hallgasd meg"
+      },
+
+      "tryIt": {
+        "title": "Próbáld ki mondani!",
+        "subtitle": "Ne aggódj, csak te hallod magad.",
+        "listening": "Hallgat... Koppints a leállításhoz",
+        "success": "Fantasztikus! Kimondtad!",
+        "practiceLater": "Később gyakorlom"
+      },
+
+      "celebration": {
+        "title": "Sikerült!",
+        "subtitle": "Megtanultad az első {{language}} szavaidat!",
+        "partnerReaction": "{{name}} imádni fogja.",
+        "xpEarned": "+10 XP",
+        "firstXp": "Az első tapasztalati pontjaid!",
+        "wordsLearned": "Szavak, amiket megtanultál:",
+        "keepGoing": "Folytasd!"
+      }
+    },
+
+    "tutor": {
+      "start": {
+        "title": "Készen állsz, hogy {{learnerName}} útmutatója legyél, {{userName}}?",
+        "subtitle": "A nyelved egy ajándék. Osszuk meg szeretettel.",
+        "toolkitTitle": "A tutori eszköztárad:",
+        "feature1": "Kérj tanítási tippeket Cupidtól",
+        "feature2": "Kövesd {{learnerName}} haladását",
+        "feature3": "Küldj szóajándékokat meglepetésként",
+        "feature4": "Kapcsold össze a fiókjaitokat, hogy lásd az útjukat",
+        "button": "Kezdjük el segíteni {{learnerName}}-t!"
+      },
+
+      "relation": {
+        "title": "Milyen kapcsolatban vagy {{name}}-mal/-mel?",
+        "subtitle": "Ez segít személyre szabni a tanítási élményt",
+        "partner": "Partner",
+        "spouse": "Házastárs",
+        "friend": "Barát",
+        "family": "Család"
+      },
+
+      "connection": {
+        "title": "Mi a kapcsolatod a {{language}} nyelvvel?",
+        "subtitle": "Segíts megérteni a nyelvi hátteredet",
+        "native": "Anyanyelvi beszélő",
+        "nativeDesc": "{{language}} nyelven születtem és nevelkedtem",
+        "heritage": "Örökségi beszélő",
+        "heritageDesc": "{{language}} családi háttér",
+        "fluent": "Folyékonyan beszélő",
+        "fluentDesc": "Megtanultam és elsajátítottam a {{language}} nyelvet",
+        "bilingual": "Kétnyelvű",
+        "bilingualDesc": "{{language}} nyelven és egy másik nyelven nevelkedtem"
+      },
+
+      "origin": {
+        "title": "Hogyan tanultad meg a {{language}} nyelvet?",
+        "subtitle": "Az utad segít javaslatokat tenni a tanítási megközelítésre",
+        "country": "Ott nőttem fel",
+        "family": "Családtól",
+        "school": "Tanulmányoztam",
+        "self": "Önképzés"
+      },
+
+      "dreamPhrase": {
+        "title": "Álom pillanat",
+        "subtitle": "Mi az első dolog, amit szeretnél hallani {{name}}-tól/-től {{language}} nyelven?",
+        "placeholder": "pl. \"Szeretlek\" vagy \"Jó reggelt\"",
+        "note": "Ez lesz az első közös tanítási célotok"
+      },
+
+      "style": {
+        "title": "A tanítási stílusod?",
+        "subtitle": "Hogyan segítesz természetesen valakinek tanulni?",
+        "patient": "Türelmes és kedves",
+        "patientDesc": "Lassan és biztosan nyerjük a versenyt",
+        "playful": "Játékos és vidám",
+        "playfulDesc": "Tanulás játékokkal és humorral",
+        "structured": "Strukturált",
+        "structuredDesc": "Szervezett leckék világos célokkal",
+        "immersive": "Belevető",
+        "immersiveDesc": "Ugorj fejest és tanulj csinálás közben"
+      },
+
+      "preview": {
+        "title": "A tanítási eszköztárad",
+        "subtitle": "Íme, mit tehetsz {{name}}-ért",
+        "coachMode": "Edző mód",
+        "coachModeDesc": "Személyre szabott tippek {{name}} segítéséhez a haladásuk és nehézségeik alapján",
+        "progressTracking": "Haladás követés",
+        "progressTrackingDesc": "Lásd, mely szavakat sajátította el {{name}} és hol van szüksége segítségre",
+        "wordGifts": "Szóajándékok",
+        "wordGiftsDesc": "Küldj különleges szavakat és kifejezéseket {{name}} tanulási naplójába",
+        "button": "Remekül hangzik!"
+      }
+    }
+  },
+
+  "levelTest": {
+    "preparing": "Teszt előkészítése",
+    "generatingQuestions": "Kérdések generálása a szinted alapján...",
+    "oops": "Hoppá!",
+    "backToProgress": "Vissza a haladáshoz",
+    "levelUpTest": "Szintlépő teszt",
+    "questions": "Kérdések",
+    "passThreshold": "Átmenő küszöb",
+    "timeLimit": "Időkorlát",
+    "none": "Nincs",
+    "startTest": "Teszt indítása",
+    "congratulations": "Gratulálok!",
+    "keepPracticing": "Gyakorolj tovább!",
+    "advancedTo": "Előreléptél a {{level}} szintre!",
+    "passedTest": "Átmentél a teszten!",
+    "scoreNeeded": "{{score}}%-ot értél el. 80% kell az átmenéshez.",
+    "correctAnswers": "Helyes válaszok",
+    "tryAgain": "Próbáld újra",
+    "viewDetailed": "Részletes eredmények megtekintése a Haladásban",
+    "questionTypes": {
+      "multipleChoice": "Feleletválasztós",
+      "fillBlank": "Hiányzó rész kitöltése",
+      "translation": "Fordítás"
+    },
+    "coreConcept": "Alapfogalom",
+    "typeMissing": "Írd be a hiányzó szót...",
+    "typeTranslation": "Írd be a fordítást...",
+    "back": "Vissza",
+    "submitting": "Beküldés...",
+    "submitTest": "Teszt beküldése",
+    "next": "Következő"
+  },
+
+  "tutorGames": {
+    "playTogether": "Játsszatok együtt",
+    "sendChallenge": "Kihívás küldése",
+    "playNow": "Játék most",
+    "sendDescription": "Küldj kihívásokat, amiket {{name}} később teljesíthet",
+    "playDescription": "Gyakoroljatok együtt most",
+    "startNow": "Kezdés most",
+
+    "local": {
+      "quiz": "{{name}} kikérdezése",
+      "quizDesc": "Kártya kvíz együtt",
+      "quickFire": "Gyorstűz",
+      "quickFireDesc": "60 másodperces kihívás",
+      "multipleChoice": "Feleletválasztós",
+      "multipleChoiceDesc": "Válaszd a helyes választ",
+      "typeIt": "Írd be",
+      "typeItDesc": "Írd be a fordítást",
+      "needWords": "{{name}}-nak legalább 4 szó kell a szókincsében a játékhoz"
+    },
+
+    "send": {
+      "doYouRemember": "Emlékszel rá?",
+      "quizPartner": "Kérdezd ki {{name}}-t a szókincséből",
+      "createQuiz": "Kvíz létrehozása",
+      "quickFire": "Gyorstűz",
+      "timedChallenge": "Időre menő szókincs kihívás",
+      "createChallenge": "Kihívás létrehozása",
+      "giftWords": "Szóajándék",
+      "sendWords": "Küldj szavakat {{name}}-nak tanulásra",
+      "sendGift": "Ajándék küldése"
+    },
+
+    "pending": {
+      "waitingFor": "Várakozás {{name}}-ra/-re",
+      "words": "{{count}} szó",
+      "sent": "Elküldve: {{date}}",
+      "pending": "Függőben"
+    },
+
+    "gifts": {
+      "title": "Elküldött szóajándékok",
+      "word": "{{count}} szó",
+      "word_other": "{{count}} szó",
+      "topic": "Téma: {{topic}}",
+      "custom": "Egyéni szavak",
+      "xpMultiplier": "{{multiplier}}x XP"
+    },
+
+    "results": {
+      "title": "Legutóbbi eredmények",
+      "completed": "Teljesítve: {{date}}"
+    },
+
+    "empty": {
+      "noChallenges": "Még nincsenek kihívások",
+      "createFirst": "Készítsd el az első kihívást {{name}}-nak!"
+    },
+
+    "flashcard": {
+      "targetWord": "{{language}}",
+      "nativeWord": "{{language}}",
+      "tapToReveal": "Koppints a felfedéshez",
+      "hard": "Nehéz",
+      "gotIt": "Megvan!"
+    },
+
+    "direction": {
+      "label": "{{target}} → {{native}}"
+    },
+
+    "quickFireGame": {
+      "title": "Gyorstűz!",
+      "description": "Fordíts le minél több szót 60 másodperc alatt!",
+      "cancel": "Mégse",
+      "start": "Rajt!",
+      "typeTranslation": "Írd be a fordítást..."
+    },
+
+    "typeItGame": {
+      "correct": "Helyes!",
+      "notQuite": "Nem egészen",
+      "correctAnswer": "Helyes válasz: {{answer}}",
+      "typeIn": "Írd be {{language}} nyelven...",
+      "next": "Következő",
+      "check": "Ellenőrzés"
+    },
+
+    "gameOver": {
+      "greatJob": "Szép munka!",
+      "keepPracticing": "Gyakorolj tovább!",
+      "correct": "{{correct}} / {{total}} helyes",
+      "practicedTogether": "Együtt gyakoroltatok?",
+      "saveDescription": "Mentsd el ezt a munkamenetet {{name}} tanulási előzményeibe a haladás követéséhez.",
+      "saveToProgress": "Mentés {{name}} haladásába",
+      "saving": "Mentés...",
+      "savedSuccess": "Mentve {{name}} előzményeibe!",
+      "autoSaving": "Automatikus mentés {{name}} haladásába...",
+      "done": "Kész",
+      "playAgain": "Újra játék"
+    },
+
+    "saveDialog": {
+      "title": "Mentés {{name}} haladásába?",
+      "howItWorks": "Hogyan működik:",
+      "detail1": "A játék eredmények mentésre kerülnek {{name}} tanulási előzményeibe",
+      "detail2": "A szó pontszámok frissülnek (sorozatok, elsajátítás)",
+      "detail3": "Tökéletes, amikor együtt gyakoroltok!",
+      "willUpdate": "Ez frissíti {{name}} szó pontszámait és tanulási előzményeit.",
+      "remember": "Mindig mentés {{name}} haladásába",
+      "notNow": "Most nem",
+      "save": "Mentés"
+    }
+  },
+
+  "gameResults": {
+    "greatJob": "Szép munka!",
+    "sessionResults": "Munkamenet eredmények:",
+    "correct": "Helyes",
+    "missed": "Hibázott",
+    "showDetails": "Részletek mutatása",
+    "hideDetails": "Részletek elrejtése",
+    "done": "Kész",
+    "playAgain": "Újra játék"
+  },
+
+  "conversationPractice": {
+    "states": {
+      "listening": "Hallgat...",
+      "speaking": "Beszél...",
+      "connecting": "Csatlakozás...",
+      "error": "Hiba",
+      "disconnected": "Szétkapcsolt"
+    },
+    "end": "Befejezés",
+    "startingConversation": "Beszélgetés indítása...",
+    "tryAgain": "Próbáld újra",
+    "speakIn": "Beszélj {{language}} nyelven...",
+    "aiSpeaking": "Az AI beszél...",
+    "conversationEnded": "Beszélgetés véget ért"
+  },
+
+  "scenarioSelector": {
+    "title": "Beszélgetés gyakorlás",
+    "subtitle": "Válassz egy szituációt",
+    "beta": "Béta",
+    "difficulty": {
+      "beginner": "kezdő",
+      "intermediate": "középhaladó",
+      "advanced": "haladó"
+    },
+    "createOwn": "Saját készítése",
+    "createOwnDesc": "Írd le bármelyik szituációt, amit gyakorolni szeretnél",
+    "backToScenarios": "Vissza a szituációkhoz",
+    "customScenario": "Egyéni szituáció",
+    "customScenarioName": "Egyéni szituáció",
+    "describeScenario": "Írd le a szituációt, amit gyakorolni szeretnél",
+    "customPlaceholder": "pl. Egy pékségben vagyok és kenyeret szeretnék venni, és az összetevőkről kérdezek...",
+    "startPractice": "Gyakorlás indítása",
+    "footerInfo": "Az AI alapértelmezetten {{targetLanguage}} nyelven fog beszélni. Ha elakadsz, {{nativeLanguage}} nyelven fog segíteni.",
+    "customPersona": "Te egy barátságos {{language}} ember vagy, aki segít valakinek {{language}} nyelven gyakorolni. Türelmes, bátorító vagy, és a nyelvezetedet a szintjükhöz igazítod."
+  },
+
+  "challengeCreator": {
+    "common": {
+      "addNewWords": "Új szavak hozzáadása",
+      "enterTargetLanguage": "Írd be {{language}} nyelven, és az AI legenerálja a fordítást.",
+      "enterWordPlaceholder": "Írd be a {{language}} szót vagy kifejezést...",
+      "generating": "Generálás...",
+      "generate": "Generálás",
+      "clear": "Törlés",
+      "editTranslation": "Fordítás szerkesztése...",
+      "add": "Hozzáadás",
+      "cancel": "Mégse",
+      "creating": "Létrehozás...",
+      "searchWords": "Szavak keresése...",
+      "sending": "Küldés...",
+      "sendChallenge": "Kihívás küldése",
+      "failedGenerateTranslation": "Nem sikerült legenerálni a fordítást",
+      "failedCreateChallenge": "Nem sikerült létrehozni a kihívást",
+      "needMinWords": "Legalább 5 szó kell a kihíváshoz!"
+    },
+
+    "quiz": {
+      "title": "Kvíz létrehozása",
+      "subtitle": "Válassz szavakat {{name}}-nak gyakorlásra",
+      "titleLabel": "Kvíz címe (opcionális)",
+      "titlePlaceholder": "Kvíz {{name}}-nak",
+      "teachNewWords": "Taníts {{name}}-nak új szavakat! {{instruction}}",
+      "questionTypes": "Kérdés típusok",
+      "types": {
+        "multipleChoice": "Feleletválasztós",
+        "typeAnswer": "Válasz beírása",
+        "flashcards": "Kártyák"
+      },
+      "selectExisting": "Meglévő szavak kiválasztása ({{count}}/20)",
+      "selectAll": "Mind kiválasztása",
+      "noWordsYet": "{{name}} még nem tanult szavakat!",
+      "addWordsToStart": "Add hozzá az új szavakat fent a kezdéshez."
+    },
+
+    "quickFire": {
+      "title": "Gyorstűz",
+      "subtitle": "Időre menő kihívás {{name}}-nak",
+      "titleLabel": "Kihívás címe",
+      "titlePlaceholder": "Gyorstűz kihívás",
+      "difficulty": "Nehézség",
+      "difficultyLevels": {
+        "easy": "Könnyű",
+        "medium": "Közepes",
+        "hard": "Nehéz"
+      },
+      "difficultyDesc": {
+        "easy": "Laza tempó, rengeteg idő",
+        "medium": "Kiegyensúlyozott kihívás",
+        "hard": "Verseny az idővel!"
+      },
+      "targetWords": "Célszavak: {{count}}",
+      "wordsMin": "5 szó",
+      "wordsMax": "20 szó",
+      "pickSpecific": "Konkrét szavak kiválasztása ({{count}} kiválasztva)",
+      "weakWordIndicator": "= gyenge szó (ezzel küzd)",
+      "wordSelection": "Szó kiválasztás:",
+      "newWordsCount": "Új szavak:",
+      "manuallyPicked": "Kézzel kiválasztott:",
+      "autoFill": "Automatikus kitöltés (gyenge szavak először):",
+      "total": "Összesen:",
+      "target": "cél",
+      "timeInfo": "{{name}}-nak {{time}} másodperce lesz lefordítani a szavakat.",
+      "averageTime": "Átlag: {{time}} mp/szó",
+      "needMoreWords": "Legalább 5 szó kell összesen a kihívás létrehozásához!"
+    },
+
+    "lovePackage": {
+      "title": "Szerelmi csomag",
+      "subtitle": "Küldj szavakat {{name}}-nak",
+      "packageCount": "Szerelmi csomag ({{count}} szó)",
+      "packageCount_other": "Szerelmi csomag ({{count}} szó)",
+      "hasData": "+adat",
+      "xpBonus": "{{name}} 2x XP-t szerez ezeknek a szavaknak a megtanulásáért!",
+      "corrected": "Javítva: {{note}}",
+      "sendLovePackage": "Szerelmi csomag küldése",
+      "alreadyInPackage": "Ez a szó már benne van a csomagodban!",
+      "alreadyInLoveLog": "\"{{word}}\" már benne van {{name}} Love Log-jában!"
+    }
+  },
+
+  "challengePlayer": {
+    "common": {
+      "later": "Később",
+      "done": "Kész",
+      "calculatingScore": "Pontszám számítása...",
+      "showDetails": "Részletek mutatása ({{count}})",
+      "xpEarned": "+{{xp}} XP szerzett!"
+    },
+
+    "results": {
+      "perfect": "Tökéletes!",
+      "perfectScore": "Tökéletes pontszám!",
+      "lightningFast": "Villámgyors!",
+      "greatJob": "Szép munka!",
+      "keepPracticing": "Gyakorolj tovább!"
+    },
+
+    "quiz": {
+      "startDescription": "{{name}} kikérdez téged {{count}} szóból!",
+      "startInstructions": "Válaszolj kérdésekre {{language}} szavakról, amiket tanultál. Válaszolj helyesen a sorozat építéséhez!",
+      "startButton": "Kvíz indítása",
+      "questionProgress": "{{current}}. kérdés / {{total}}",
+      "resultScore": "{{correct}} / {{total}} helyes",
+      "flashcard": {
+        "prompt": "Mit jelent ez?",
+        "showAnswer": "Válasz mutatása",
+        "didYouGetIt": "Eltaláltad?",
+        "no": "Nem",
+        "yes": "Igen"
+      },
+      "multipleChoice": {
+        "prompt": "Fordítsd le ezt a szót:"
+      },
+      "typeIt": {
+        "prompt": "Írd be a fordítást:",
+        "placeholder": "Írd be a válaszod...",
+        "submit": "Beküldés"
+      }
+    },
+
+    "quickFire": {
+      "title": "Gyorstűz!",
+      "startDescription": "{{name}} kihív téged, hogy fordíts le {{count}} szót {{time}} másodperc alatt!",
+      "difficulty": {
+        "easy": "Könnyű mód",
+        "medium": "Közepes mód",
+        "hard": "Nehéz mód"
+      },
+      "timePerWord": "{{time}} mp/szó",
+      "startButton": "Rajt!",
+      "getReady": "Készülj!",
+      "resultScore": "{{correct}}/{{total}} helyes {{time}} mp alatt",
+      "timeBonus": "(Idő bónusz!)",
+      "quitChallenge": "Kihívás feladása",
+      "typePlaceholder": "Írd be a fordítást..."
+    }
+  },
+
+  "roleSelection": {
+    "loading": "Előkészítés...",
+    "confirmHeader": "Csak hogy biztos legyél...",
+    "confirmSubtitle": "Koppints a megerősítéshez vagy szerepváltáshoz",
+    "welcomeHeader": "Üdvözöl a Love Languages!",
+    "welcomeSubtitle": "Hogyan fogod használni az alkalmazást?",
+    "student": {
+      "title": "{{language}} nyelvet tanulok",
+      "subtitle": "A {{language}} anyanyelvű partneremért",
+      "confirmMessage": "{{language}} nyelvet tanulsz a szerelemért!",
+      "confirmSubtext": "Készen állsz meglepni a partnered az új tudásoddal?"
+    },
+    "tutor": {
+      "title": "{{language}} nyelvet tanítok",
+      "subtitle": "Segítek a partneremnek tanulni",
+      "confirmMessage": "Te vagy a {{language}} profi!",
+      "confirmSubtext": "Készen állsz segíteni a partnerednek beleszeretni a nyelvedbe?"
+    },
+    "settingUp": "Beállítás...",
+    "letsGo": "Ez vagyok én! Gyerünk",
+    "chooseRole": "Válaszd ki a szereped a folytatáshoz"
+  },
+
+  "subscription": {
+    "common": {
+      "monthly": "Havi",
+      "yearly": "Éves",
+      "mo": "hó",
+      "yr": "év",
+      "discount": "70% kedvezmény",
+      "savePercent": "{{percent}}% megtakarítás",
+      "perMonth": "/hó",
+      "perYear": "/év",
+      "billedAnnually": "${{price}}/hó évente számlázva",
+      "loading": "Betöltés...",
+      "processing": "Feldolgozás...",
+      "opening": "Megnyitás...",
+      "popular": "Népszerű",
+      "mostPopular": "Legnépszerűbb",
+      "currentPlan": "Jelenlegi csomag",
+      "securePayment": "Biztonságos fizetés Stripe-on keresztül. Bármikor lemondható.",
+      "cancelAnytime": "Bármikor lemondható. Biztonságos fizetés Stripe-on keresztül.",
+      "questionsEmail": "Kérdésed van? Írj nekünk:",
+      "friend": "Barát",
+      "copy": "Másolás"
+    },
+
+    "plans": {
+      "standard": "Standard",
+      "unlimited": "Korlátlan",
+      "none": "Nincs"
+    },
+
+    "features": {
+      "wordsLimit": "{{limit}} szó a Love Log-ban",
+      "unlimitedWords": "Korlátlan szó",
+      "voiceMinutes": "{{minutes}} perc hangos csevegés/hó",
+      "unlimitedVoice": "Korlátlan hangos csevegés",
+      "listenMinutes": "{{minutes}} perc Hallgatás mód/hó",
+      "unlimitedListen": "Korlátlan Hallgatás mód",
+      "unlimitedChallenges": "Korlátlan AI kihívások",
+      "allScenarios": "Minden beszélgetési szituáció",
+      "allScenariosCount": "Mind a {{count}} beszélgetési szituáció",
+      "partnerInvite": "Partner meghívó",
+      "giftPass": "Ajándékbérlet egy másik párnak (éves)",
+      "unlimitedEverything": "Korlátlan minden"
+    },
+
+    "manager": {
+      "couplePass": "Pár bérlet",
+      "freeAccess": "Ingyenes hozzáférés {{name}}-tól/-től",
+      "yourPartner": "a partnered",
+      "plan": "Csomag:",
+      "status": "Állapot:",
+      "validUntil": "Érvényes eddig:",
+      "renews": "Megújul:",
+      "ends": "Lejár:",
+      "askPartner": "Az előfizetés kezeléséhez kérd {{name}}-t.",
+      "noSubscription": "Nincs előfizetés",
+      "subscribeToUnlock": "Fizess elő az összes funkció feloldásához",
+      "yourSubscription": "Az előfizetésed",
+      "planLabel": "{{plan}} csomag",
+      "partnerFreeAccess": "{{name}}-nak ingyenes hozzáférése van általad",
+      "cancelWarning": "Ha lemondod az előfizetésedet, {{name}} is elveszíti a hozzáférését.",
+      "manageSubscription": "Előfizetés kezelése",
+      "continueToManage": "Folytatás a kezeléshez"
+    },
+
+    "required": {
+      "title": "Még egy lépés, {{name}}!",
+      "subtitle": "Fejezd be az előfizetésed, hogy elkezdhessétek együtt tanulni a {{language}} nyelvet",
+      "taglineStandard": "Tökéletes a kezdéshez",
+      "taglineUnlimited": "Elkötelezett tanulóknak",
+      "subscribeTo": "Előfizetés {{plan}} csomagra",
+      "logoutOption": "Kijelentkezés és másik fiók használata",
+      "signOutOption": "Kijelentkezés és másik fiók használata"
+    },
+
+    "pricing": {
+      "title": "Tanulj {{language}} nyelvet a szerelemért",
+      "subtitle": "Válaszd a tanulási utadhoz megfelelő csomagot",
+      "save70": "70% megtakarítás",
+      "wordsInLoveLog": "{{limit}} szó a Love Log-ban",
+      "voiceChatPerMonth": "{{minutes}} perc hangos csevegés/hó",
+      "listenModePerMonth": "{{minutes}} perc Hallgatás mód/hó",
+      "unlimitedChallenges": "Korlátlan AI kihívások",
+      "allScenarios": "Mind a 8 beszélgetési szituáció",
+      "partnerInvite": "Partner meghívó",
+      "unlimitedWords": "Korlátlan szó",
+      "unlimitedVoiceChat": "Korlátlan hangos csevegés",
+      "unlimitedListenMode": "Korlátlan Hallgatás mód",
+      "giftPass": "Ajándékbérlet egy másik párnak (éves)",
+      "youreOnPlan": "A {{plan}} csomagon vagy",
+      "currentPlanBanner": "A {{plan}} csomagon vagy",
+      "mostPopular": "Legnépszerűbb",
+      "billedAnnually": "${{price}}/hó évente számlázva",
+      "currentPlan": "Jelenlegi csomag",
+      "processing": "Feldolgozás...",
+      "getPlan": "{{plan}} csomag választása",
+      "yourGiftPasses": "Ajándékbérleteid",
+      "shareGiftPasses": "Oszd meg ezeket a kódokat egy másik párral, hogy ingyen kapják az egy éves Standard csomagot!",
+      "giftPasses": "Ajándékbérleteid",
+      "giftPassDescription": "Oszd meg ezeket a kódokat egy másik párral, hogy ingyen kapják az egy éves Standard csomagot!",
+      "cancelAnytime": "Bármikor lemondható. Biztonságos fizetés Stripe-on keresztül.",
+      "questionsEmail": "Kérdésed van? Írj nekünk:",
+      "copy": "Másolás"
+    },
+
+    "errors": {
+      "loginRequired": "Kérlek, jelentkezz be az előfizetéshez",
+      "loginAgain": "Kérlek, jelentkezz be újra",
+      "failedLoadPricing": "Nem sikerült betölteni az árakat. Kérlek, próbáld újra.",
+      "pricingUnavailable": "Az árak nem elérhetők. Kérlek, vedd fel a kapcsolatot az ügyfélszolgálattal.",
+      "failedCheckout": "Nem sikerült elindítani a fizetést",
+      "failedPortal": "Nem sikerült megnyitni az előfizetés-kezelést",
+      "somethingWrong": "Valami hiba történt"
+    }
+  },
+
+  "pendingChallenges": {
+    "yourPartner": "Partnered",
+    "sentYouSomething": "{{name}} küldött valamit!",
+    "sentYouThings": "{{name}} {{count}} dolgot küldött!",
+    "challengeCount": "{{count}} kihívás",
+    "challengeCount_plural": "{{count}} kihívás",
+    "wordGiftCount": "{{count}} szóajándék",
+    "wordGiftCount_plural": "{{count}} szóajándék",
+    "wordsCount": "{{count}} szó",
+    "quiz": "Kvíz",
+    "quickFire": "Gyorstűz",
+    "wordGift": "Szóajándék",
+    "play": "Játék",
+    "learn": "Tanulás",
+    "xpBonus": "{{multiplier}}x XP bónusz"
+  },
+
+  "invite": {
+    "title": "Hívd meg a partnered",
+    "subtitle": "Az előfizetésed ingyenes hozzáférést tartalmaz a partnered számára!",
+    "shareLinkLabel": "Oszd meg ezt a linket a partnereddel:",
+    "copied": "Másolva!",
+    "copy": "Másolás",
+    "expiresIn": "Lejár {{days}} nap múlva",
+    "expiresTomorrow": "Holnap lejár",
+    "expired": "Lejárt",
+    "howItWorks": "Hogyan működik:",
+    "step1": "Oszd meg a linket a partnereddel",
+    "step2": "Ők regisztrálnak vagy bejelentkeznek",
+    "step3": "Ingyenes hozzáférést kapnak az előfizetésed által!",
+    "generateButton": "Meghívó link generálása",
+    "generating": "Generálás..."
+  },
+
+  "helpGuide": {
+    "title": "Útmutatód",
+    "subtitle": "Love Languages",
+    "contents": "Tartalom",
+    "quickTips": "Gyors tippek",
+    "backToContents": "Vissza a tartalomhoz",
+    "footer": "Szeretettel készítve az együtt tanuló pároknak",
+    "sections": {
+      "gettingStarted": {
+        "title": "Első lépések",
+        "intro": "A Love Languages segít {{language}} nyelvet tanulni a kapcsolatod szemszögéből. Minden szó, amit tanulsz, a szeretet ajándéka.",
+        "cupidTitle": "AI társad: Cupid",
+        "cupidDescription": "Cupid a meleg, bátorító útmutatód. Segít neked szókincsét tanulni, kiejtést gyakorolni, és megtalálni a tökéletes szavakat a szereteted kifejezésére.",
+        "rolesTitle": "Tanuló vs Tutor",
+        "studentRole": "A tanulók {{language}} nyelvet tanulnak - Cupid közvetlenül tanít téged",
+        "tutorRole": "A tutorok segítenek a partnerüknek tanulni - Cupid tanítási tippeket ad"
+      },
+      "chatModes": {
+        "title": "Csevegési módok",
+        "askTitle": "Kérdezz mód",
+        "askSubtitle": "(Tanulók)",
+        "askDescription": "Gyors kérdések, könnyed tanulás. Tökéletes ehhez:",
+        "askExample1": "\"Hogyan mondom, hogy 'Szeretlek'?\"",
+        "askExample2": "\"Taníts egy romantikus kifejezést\"",
+        "askExample3": "\"Hogyan ejtem ezt ki?\"",
+        "learnTitle": "Tanulj mód",
+        "learnSubtitle": "(Tanulók)",
+        "learnDescription": "Strukturált leckék táblázatokkal és gyakorlatokkal. Használd ehhez:",
+        "learnExample1": "Igeragozás gyakorlás",
+        "learnExample2": "Nyelvtani magyarázatok",
+        "learnExample3": "Szókincsleckék",
+        "coachTitle": "Edző mód",
+        "coachSubtitle": "(Tutorok)",
+        "coachDescription": "Mindent egyben tanítási asszisztens:",
+        "coachExample1": "Tanítási tippek és nyelvtani magyarázatok",
+        "coachExample2": "Személyre szabott javaslatok a partner haladása alapján",
+        "coachExample3": "Új szókincs ajánlások a készségeik fejlesztéséhez"
+      },
+      "vocabulary": {
+        "title": "Szókincs építése",
+        "intro": "A beszélgetéseidből származó szavak automatikusan mentésre kerülnek a Love Log-odba.",
+        "syncTitle": "Szinkronizálás gomb",
+        "syncDescription": "Kattints a szinkronizálásra a Love Log-ban az új szavak kinyeréséhez a legutóbbi csevegésekből",
+        "masteryTitle": "Elsajátítási szintek",
+        "masteryDescription": "Gyakorold a szavakat játékokban az elsajátítás növeléséhez 0-5 csillagig",
+        "tenseTitle": "Igeidő feloldása",
+        "tenseDescription": "Tanulj meg múlt/jövő időt csevegésben, hogy feloldd őket az igék bejegyzéseiben"
+      },
+      "games": {
+        "title": "Játékok",
+        "intro": "A játékok segítenek gyakorolni és megjegyezni a szókincset. Minden helyes válasz növeli az elsajátítást!",
+        "flashcards": "Kártyák",
+        "flashcardsDescription": "Klasszikus lapozó kártyák - lásd {{language}} nyelven, emlékezz {{native}} nyelvre",
+        "multipleChoice": "Feleletválasztós",
+        "multipleChoiceDescription": "Válaszd ki a helyes fordítást 4 lehetőségből",
+        "typeIt": "Írd be",
+        "typeItDescription": "Írd be a {{language}} szót - teszteli a helyesírást és az emlékezést",
+        "aiChallenge": "AI kihívás",
+        "aiChallengeDescription": "Cupid egyedi kihívásokat generál a szavaiddal"
+      },
+      "progress": {
+        "title": "Haladás követése",
+        "xpTitle": "XP és szintek",
+        "xpDescription": "Szerezz XP-t csevegéssel, játékokkal és szavak elsajátításával. Haladj végig 18 szinten 6 szinten keresztül!",
+        "tiersTitle": "Szint kategóriák",
+        "beginner": "Kezdő 1-3",
+        "elementary": "Alapfokú 1-3",
+        "conversational": "Társalgási 1-3",
+        "proficient": "Jártas 1-3",
+        "fluent": "Folyékony 1-3",
+        "master": "Mester 1-3",
+        "testsNote": "Tegyél szintvizsgákat a tudásod bizonyításához és a gyorsabb előrelépéshez!"
+      }
+    },
+    "tips": {
+      "verbsQuestion": "Mi a legjobb módja az igék tanulásának?",
+      "verbsAnswer": "Használd a Tanulj módot és kérj ragozási táblázatokat. Gyakorold mind a 6 személyt (én, te, ő, mi, ti, ők) együtt.",
+      "partnerQuestion": "Hogyan gyakoroljak a partneremmel?",
+      "partnerAnswer": "Használd a tanult kifejezéseket a mindennapi beszélgetésekben. Még az egyszerű köszönések is számítanak! Készítsetek egymásnak kihívásokat a Játék részben.",
+      "progressQuestion": "Milyen gyorsan tudok haladni?",
+      "progressAnswer": "Napi 15-20 perc gyakorlás csodákat tesz. A következetesség fontosabb a magolás.",
+      "forgetQuestion": "Mi van, ha elfelejtek egy szót?",
+      "forgetAnswer": "Játssz játékokat - azok automatikusan előhozzák a nehéz szavakat. Az időszakos ismétlés segít rögzíteni őket."
+    }
+  },
+
+  "bugReport": {
+    "title": "Hiba jelentése",
+    "subtitle": "Segíts nekünk fejleszteni a Love Languages-t",
+    "severity": {
+      "label": "Mennyire súlyos ez a probléma?",
+      "low": "Alacsony",
+      "lowDescription": "Kisebb probléma, kozmetikai",
+      "medium": "Közepes",
+      "mediumDescription": "Befolyásolja a használhatóságot",
+      "high": "Magas",
+      "highDescription": "Fő funkció hibás",
+      "critical": "Kritikus",
+      "criticalDescription": "Az alkalmazás használhatatlan"
+    },
+    "titleLabel": "Mi romlott el?",
+    "titlePlaceholder": "A probléma rövid leírása",
+    "detailsLabel": "Részletek",
+    "detailsPlaceholder": "Mit csináltál, amikor ez történt? Mit vártál?",
+    "autoCaptureNote": "Automatikusan rögzítjük az aktuális oldaladat, böngésző információidat és az alkalmazás állapotát a vizsgálat segítéséhez.",
+    "errors": {
+      "fillRequired": "Kérlek, töltsd ki az összes kötelező mezőt",
+      "signIn": "Kérlek, jelentkezz be a hibajelentés beküldéséhez",
+      "failed": "Nem sikerült beküldeni. Kérlek, próbáld újra."
+    },
+    "cancel": "Mégse",
+    "submit": "Jelentés beküldése",
+    "submitting": "Beküldés...",
+    "success": {
+      "title": "Köszönjük!",
+      "message": "A hibajelentésed beküldésre került. Megvizsgáljuk és dolgozunk a javításon.",
+      "close": "Bezárás"
+    }
+  },
+
+  "wordGift": {
+    "intro": {
+      "title": "Ajándék {{name}}-tól/-től!",
+      "subtitle": "Szeretné, hogy megtanulj {{count}} különleges szót",
+      "subtitle_plural": "Szeretné, hogy megtanulj {{count}} különleges szót",
+      "topic": "Téma:",
+      "xpBonus": "{{multiplier}}x XP-t szerzel ezekért a szavakért!",
+      "later": "Később",
+      "openGift": "Ajándék megnyitása"
+    },
+    "card": {
+      "wordOf": "{{current}}. szó / {{total}}",
+      "targetLanguage": "{{language}}",
+      "nativeLanguage": "{{language}}",
+      "tapToFlip": "Koppints a megfordításhoz",
+      "back": "Vissza",
+      "next": "Következő",
+      "addToLoveLog": "Hozzáadás a Love Log-hoz"
+    },
+    "result": {
+      "title": "Szavak megtanulva!",
+      "wordsAdded": "{{count}} új szó hozzáadva a Love Log-odhoz",
+      "wordsAdded_plural": "{{count}} új szó hozzáadva a Love Log-odhoz",
+      "words": "Szavak:",
+      "completion": "Teljesítés:",
+      "giftFrom": "Ajándék {{name}}-tól/-től",
+      "done": "Kész"
+    },
+    "loading": "Szavak hozzáadása a Love Log-odhoz...",
+    "error": {
+      "title": "Hoppá!",
+      "close": "Bezárás",
+      "tryAgain": "Próbáld újra"
+    },
+    "errors": {
+      "failed": "Nem sikerült befejezni. Kérlek, próbáld újra.",
+      "network": "Hálózati hiba. Kérlek, ellenőrizd a kapcsolatot és próbáld újra."
+    }
+  },
+
+  "chatSuggestions": {
+    "student": {
+      "askTitle": "Kérdezz bármit Cupidtól",
+      "learnTitle": "Készen állsz egy leckére?",
+      "subtitle": "Minden szó, amit tanulsz, közelebb hoz titeket egymáshoz"
+    },
+    "tutor": {
+      "coachTitle": "Segítsd a partnered",
+      "subtitle": "Tanítási tippek és személyre szabott javaslatok"
+    },
+    "tryAsking": "Próbáld megkérdezni...",
+    "suggestions": {
+      "student": {
+        "ask": {
+          "s1": "Hogyan mondom, hogy 'Szeretlek' {{language}} nyelven?",
+          "s2": "Taníts egy édes bókot",
+          "s3": "Mi egy romantikus kifejezés mára estére?"
+        },
+        "learn": {
+          "s1": "Kezdj egy leckét a köszönésekről",
+          "s2": "Taníts igeragozásokat",
+          "s3": "Gyakoroljunk ételszókincset"
+        }
+      },
+      "tutor": {
+        "coach": {
+          "s1": "Hogyan magyarázzam el egyszerűen a {{language}} eseteket?",
+          "s2": "Milyen új szavakat tanítsak nekik?",
+          "s3": "Javasolj egy romantikus kifejezést mára estére"
+        }
+      }
+    }
+  },
+
+  "newWords": {
+    "added": "{{count}} új szó hozzáadva",
+    "added_other": "{{count}} új szó hozzáadva",
+    "viewAll": "Összes megtekintése a Love Log-ban"
+  },
+
+  "avatar": {
+    "clickToUpload": "Kattints a feltöltéshez",
+    "clickToChange": "Kattints a módosításhoz",
+    "adjustPhoto": "Fénykép igazítása",
+    "cancel": "Mégse",
+    "save": "Mentés",
+    "saving": "Mentés...",
+    "uploading": "Feltöltés...",
+    "errors": {
+      "invalidType": "Kérlek, tölts fel JPG, PNG, WebP vagy GIF képet",
+      "tooLarge": "A kép legfeljebb 5MB lehet",
+      "readFailed": "Nem sikerült beolvasni a képfájlt",
+      "cropRequired": "Kérlek, állítsd be a kivágási területet",
+      "uploadFailed": "Nem sikerült feltölteni a képet"
+    }
+  },
+
+  "joinInvite": {
+    "validating": "Meghívó ellenőrzése...",
+    "invalidInvite": "Érvénytelen meghívó",
+    "goToHomepage": "Ugrás a főoldalra",
+    "linking": "Fiókok összekapcsolása...",
+    "joinJourney": "{{name}} szeretné, hogy csatlakozz a {{language}} tanulási útjához!",
+    "learningToConnect": "{{language}} nyelvet tanul, hogy mélyebb szinten kapcsolódjon hozzád. Mint a nyelvi edzőjük:",
+    "trackProgress": "Haladás követése",
+    "trackProgressDesc": "Lásd, milyen szavakat tanultak meg és hol van szükségük segítségre",
+    "conversationStarters": "Beszélgetésindítók",
+    "conversationStartersDesc": "Az AI {{language}} kifejezéseket javasol közös használatra a szókincsük alapján",
+    "encourageCelebrate": "Bátorítás és ünneplés",
+    "encourageCelebrateDesc": "Segíts nekik motiváltnak maradni és ünnepeljétek együtt a mérföldköveket",
+    "join": "Csatlakozás {{name}}-hoz/-hez",
+    "createAccount": "Hozd létre a fiókodat, hogy az edzőjük legyél",
+    "signInToConnect": "Jelentkezz be a csatlakozáshoz",
+    "emailLabel": "E-mail cím",
+    "passwordLabel": "Jelszó",
+    "connecting": "Csatlakozás...",
+    "joinAsCoach": "Csatlakozás edzőként",
+    "signInConnect": "Bejelentkezés és csatlakozás",
+    "alreadyHaveAccount": "Már van fiókod? Jelentkezz be",
+    "noAccount": "Nincs fiókod? Regisztrálj",
+    "checkEmail": "Nézd meg az e-mailed a megerősítéshez, majd jelentkezz be!",
+    "yourPartner": "A partnered"
+  },
+
+  "gameHistory": {
+    "loading": "Betöltés...",
+    "noHistory": "Még nincs játékelőzmény",
+    "noHistoryDesc": "Játssz néhány játékot, hogy lásd itt a haladásod!",
+    "today": "Ma",
+    "yesterday": "Tegnap",
+    "gameModes": {
+      "flashcards": "Kártyák",
+      "multiple_choice": "Feleletválasztós",
+      "type_it": "Írd be",
+      "quick_fire": "Gyorstűz",
+      "ai_challenge": "AI kihívás"
+    },
+    "smartAccepted": "Okosan elfogadva",
+    "missedWords": "Hibás szavak",
+    "missed": "{{count}} hibás",
+    "youSaid": "Ezt mondtad:",
+    "correct": "Helyes:",
+    "practiceWords": "{{count}} szó gyakorlása",
+    "perfectScore": "Tökéletes pontszám! Nincs hibás szó."
+  },
+
+  "usage": {
+    "title": "Havi használat",
+    "unlimitedPlan": "Korlátlan csomag",
+    "noLimits": "Nincsenek korlátok - tanulj, amennyit csak akarsz!",
+    "words": "Szavak",
+    "voiceMin": "Hang perc",
+    "listenMin": "Hallgatás perc",
+    "vocabulary": "Szókincs",
+    "voiceChat": "Hangos csevegés",
+    "listenMode": "Hallgatás mód",
+    "upgradePrompt": "Fogytán van? Válts Korlátlanra a limitek nélkül!",
+    "resetsMonthly": "A használat minden hónap 1-jén visszaáll"
+  },
+
+  "inviteLink": {
+    "title": "Varázs meghívó link",
+    "subtitle": "Oszd meg a partnereddel az azonnali csatlakozáshoz",
+    "generate": "Meghívó link generálása",
+    "generating": "Generálás...",
+    "yourLink": "A meghívó linked:",
+    "copied": "Vágólapra másolva!",
+    "copyLink": "Link másolása",
+    "expired": "Lejárt",
+    "expiresTomorrow": "Holnap lejár",
+    "expiresIn": "Lejár {{days}} nap múlva",
+    "newLink": "Új link",
+    "description": "Amikor a partnered rákattint erre a linkre, meghívást kap, hogy csatlakozzon mint a nyelvi edződ!"
+  },
+
+  "breakup": {
+    "warning": {
+      "title": "Befejezed a közös tanulási utatokat?",
+      "whatHappens": "Mi történik:",
+      "consequence1": "A fiókjaitok szétkapcsolódnak",
+      "consequence2": "Nem látjátok egymás haladását",
+      "consequence3Granter": "{{name}} elveszíti az ingyenes hozzáférését",
+      "consequence3Grantee": "Elveszíted az ingyenes hozzáférésedet",
+      "consequence4": "A szókincsed és haladásod nálad marad",
+      "stayTogether": "Maradjunk együtt",
+      "continue": "Folytatás"
+    },
+    "confirm": {
+      "title": "Biztos vagy benne?",
+      "typeGoodbye": "Írd be: \"goodbye\" a megerősítéshez",
+      "placeholder": "Írd be: goodbye...",
+      "goBack": "Vissza",
+      "itsOver": "Vége"
+    },
+    "processing": "Elválás...",
+    "complete": {
+      "title": "Fiókok szétkapcsolva",
+      "messageGranter": "Az előfizetésed folytatódik. Bármikor meghívhatsz valakit újat.",
+      "messageGrantee": "Vigyázz magadra. Saját előfizetésre lesz szükséged a tanulás folytatásához."
+    }
+  },
+
+  "gameShowcase": {
+    "studentHeadline": {
+      "part1": "Ó, és ha szeretnél ",
+      "highlight": "hagyományosan is tanulni",
+      "part2": "..."
+    },
+    "tutorHeadline": {
+      "playTogether": "Játsszatok együtt",
+      "middle": ", vagy küldj nekik ",
+      "challenges": "kihívásokat",
+      "end": " egyedül megoldásra..."
+    },
+    "studentSubtext": "Azt is fantasztikusan csináljuk.",
+    "tutorSubtext": "Spoiler: te is játszani fogsz akarni.",
+    "modes": {
+      "flashcard": "Kártya",
+      "multipleChoice": "Feleletválasztós",
+      "typeIt": "Írd be",
+      "quickFire": "Gyorstűz"
+    },
+    "mobileShort": {
+      "multi": "Válasz",
+      "quick": "Gyors"
+    }
+  },
+
+  "demoFlashcard": {
+    "tapToReveal": "Koppints a felfedéshez",
+    "hard": "Nehéz",
+    "gotIt": "Megvan!"
+  },
+
+  "demoTypeIt": {
+    "correct": "Helyes!",
+    "notQuite": "Nem egészen",
+    "answer": "Válasz:",
+    "typeIn": "Írd be {{language}} nyelven...",
+    "next": "Következő",
+    "check": "Ellenőrzés"
+  },
+
+  "demoQuickFire": {
+    "title": "Gyorstűz!",
+    "instructions": "Írd be a fordításokat amilyen gyorsan csak tudod!",
+    "start": "Rajt",
+    "submit": "Beküldés",
+    "typeIn": "Írd be {{language}} nyelven...",
+    "perfect": "Tökéletes!",
+    "greatJob": "Szép munka!",
+    "keepPracticing": "Gyakorolj tovább!",
+    "timesUp": "Lejárt az idő!"
+  },
+
+  "hero": {
+    "toggle": {
+      "learn": "Tanulás",
+      "teach": "Tanítás"
+    },
+    "login": {
+      "emailLabel": "E-mail cím",
+      "emailPlaceholder": "te@love.com",
+      "passwordLabel": "Jelszó",
+      "passwordPlaceholder": "••••••••",
+      "entering": "Belépés...",
+      "alreadyHaveAccount": "Már van fiókod? Jelentkezz be",
+      "newHere": "Új vagy itt? Hozz létre fiókot",
+      "checkEmail": "Nézd meg az e-mailed a megerősítéshez!"
+    },
+    "legal": {
+      "terms": "Feltételek",
+      "termsOfService": "Szolgáltatási feltételek",
+      "privacy": "Adatvédelem",
+      "privacyPolicy": "Adatvédelmi irányelvek"
+    },
+    "student": {
+      "section1": {
+        "headline": "Hagyd ki az unalmast. Tanuld meg azokat a szavakat, amik számítanak - amiktől mosolyognak.",
+        "highlight1": "szavakat, amik számítanak",
+        "highlight2": "mosolyognak",
+        "subhead": "Amiket csak azokkal használnak, akiket szeretnek.",
+        "copy": "A belső poénjaik. A családi kifejezéseik. Ahogy azt mondják 'Szeretlek', amikor senki nem hallja.",
+        "copyHighlight1": "belső poénjaik",
+        "copyHighlight2": "családi kifejezéseik",
+        "copyHighlight3": "Szeretlek",
+        "underline": "Ahogy azt mondják 'Szeretlek', amikor senki nem hallja"
+      },
+      "section2": {
+        "headline": "Van egy beszélgetés, aminek nem vagy része. Még.",
+        "highlight1": "Még",
+        "copy": "A poénok, amikre csak mosolyogsz anélkül, hogy értenéd. A családi történetek, amik elvesznek a fordításban. Ideje tényleg megérteni.",
+        "copyHighlight1": "családi történetek",
+        "copyHighlight2": "tényleg megérteni",
+        "underline": "Ideje tényleg megérteni"
+      },
+      "section3": {
+        "headline": "Nem egy nyelvet tanulsz. Őket tanulod.",
+        "highlight1": "Őket tanulod",
+        "copy": "Az ő szavaik. Az ő poénjaik. Ahogy szeretettel ugratnak téged. Olyanoknak készült, akik a szerelemért csinálják, nem a jegyekért.",
+        "copyHighlight1": "Az ő szavaik",
+        "copyHighlight2": "Az ő poénjaik",
+        "copyHighlight3": "szerelemért",
+        "underline": "Olyanoknak készült, akik a szerelemért csinálják"
+      },
+      "section4": {
+        "headline": "A nyelvük tanulása = flörtölés extra lépésekkel.",
+        "highlight1": "flörtölés",
+        "copy": "Ez nem iskola. Nincs vizsga. Csak te, aki egy teljesen új módon vagy jelen értük. Elég romantikus, őszintén.",
+        "copyHighlight1": "jelen vagy értük",
+        "copyHighlight2": "romantikus",
+        "underline": "Elég romantikus, őszintén"
+      },
+      "section5": {
+        "headline": "Az a pillanat, amikor megnevetteted a családjukat? Szakács csókja.",
+        "highlight1": "a családjukat megnevetteted",
+        "highlight2": "Szakács csókja",
+        "copy": "Amikor először érted a poént. Az első 'Szeretlek' a nyelvükön, ami éppen jól hangzik. Az a pillanat, amikor az anyukájuk közvetlenül hozzád beszél a nyelvükön. Közeleg.",
+        "copyHighlight1": "Szeretlek",
+        "copyHighlight2": "anyukájuk",
+        "copyHighlight3": "Közeleg",
+        "underline": "Közeleg"
+      },
+      "section6": {
+        "headline": "Tanuljatok együtt. Szeressetek együtt. Nevessetek együtt.",
+        "highlight1": "együtt",
+        "highlight2": "Szeressetek",
+        "highlight3": "Nevessetek",
+        "copy": "Fontos szavakat küldenek neked. Játékokra hívnak ki. (Szeretettel) ugratják a kiejtésedet. Ez nem egyedül tanulás - ez a saját kis világotok építése.",
+        "copyHighlight1": "fontos szavakat",
+        "copyHighlight2": "saját kis világotok",
+        "underline": "a saját kis világotok építése"
+      },
+      "context1": { "header": "Készen állsz a találkozásra?", "cta": "Tanulás indítása", "subtext": "2 perc az első szavadig." },
+      "context2": { "header": "Segítünk", "cta": "Tanulás indítása", "subtext": "Nincs több színlelt nevetés." },
+      "context3": { "header": "Szerelmeseknek készült", "cta": "Kezdd el az utad", "subtext": "Nem turistáknak. Családnak." },
+      "context4": { "header": "Játssz a kedvedre", "cta": "Játékok felfedezése", "subtext": "Kártyák, kihívások és még több." },
+      "context5": { "header": "Legyen értelme", "cta": "Kezdd el az utad", "subtext": "Minden szó számít." },
+      "context6": { "header": "Valósítsd meg", "cta": "Kezdj most", "subtext": "Az a pillanat közeleg." },
+      "context7": { "header": "Kezdjétek együtt", "cta": "Teremtsétek meg a világotokat", "subtext": "Várnak rád." }
+    },
+    "tutor": {
+      "section1": {
+        "headline": "Szeretnek téged. Most segíts nekik megszeretni a nyelvedet is.",
+        "highlight1": "Szeretnek",
+        "highlight2": "a nyelvedet",
+        "copy": "A szavaid. A poénjaid. Ahogy káromkodsz, amikor beütöd a lábujjad. Van egy egész te, akit még nem ismernek - egy teljesen új te. Engedd be őket.",
+        "copyHighlight1": "A szavaid",
+        "copyHighlight2": "A poénjaid",
+        "copyHighlight3": "egy teljesen új te",
+        "copyHighlight4": "Engedd be őket",
+        "underline": "Engedd be őket"
+      },
+      "section2": {
+        "headline": "Próbáltad elmagyarázni. Ők próbáltak bólogatni. Oldjuk meg ezt.",
+        "highlight1": "elmagyarázni",
+        "highlight2": "bólogatni",
+        "highlight3": "Oldjuk meg",
+        "copy": "Amiket mondasz, amikor nagyon boldog vagy. Vagy nagyon mérges. A szavak, amik otthonnak tűnnek. Meg akarnak érteni téged teljesen - nem csak a lefordított verziót.",
+        "copyHighlight1": "nagyon boldog",
+        "copyHighlight2": "nagyon mérges",
+        "copyHighlight3": "téged teljesen",
+        "underline": "nem csak a lefordított verziót"
+      },
+      "section3": {
+        "headline": "Minden szó, amit megosztasz, egy híd.",
+        "highlight1": "híd",
+        "copy": "Ossz meg szavakat. Készíts kihívásokat. Ünnepeljétek együtt a győzelmeket. Az alkalmazás elintézi az unalmast - te csak a mókás lehetsz.",
+        "copyHighlight1": "Ossz meg szavakat",
+        "copyHighlight2": "Készíts kihívásokat",
+        "copyHighlight3": "Ünnepeljétek a győzelmeket",
+        "copyHighlight4": "a mókás",
+        "underline": "te csak a mókás lehetsz"
+      },
+      "section4": {
+        "headline": "Küldj egy szót. Indíts egy játékot. Nézd, ahogy fejlődnek.",
+        "highlight1": "játékot",
+        "highlight2": "fejlődnek",
+        "copy": "Hívd ki őket az anyukád kedvenc kifejezésére. Kérdezd ki őket vacsora előtt. Ünnepelj, amikor eltalálják. Ez párprogram, ami tanulásnak van álcázva - és tényleg szórakoztató.",
+        "copyHighlight1": "anyukád kedvenc kifejezésére",
+        "copyHighlight2": "párprogram",
+        "copyHighlight3": "tényleg szórakoztató",
+        "underline": "Ez párprogram, ami tanulásnak van álcázva"
+      },
+      "section5": {
+        "headline": "Az a pillanat, amikor meglepnek egy kifejezéssel, amit sosem tanítottál nekik? Varázslat.",
+        "highlight1": "meglepnek",
+        "highlight2": "Varázslat",
+        "copy": "Amikor mondanak egy poént és a családod tényleg nevet. Amikor az anyukád közvetlenül hozzájuk beszél a nyelveden. Amikor dobnak egy kifejezést, amitől leesik az állad. Te okoztad ezt.",
+        "copyHighlight1": "a családod tényleg nevet",
+        "copyHighlight2": "anyukád",
+        "copyHighlight3": "Te okoztad ezt"
+      },
+      "section6": {
+        "headline": "Tanítsatok együtt. Játsszatok együtt. Szeressetek még jobban.",
+        "highlight1": "együtt",
+        "highlight2": "Szeressetek",
+        "copy": "Így osztod meg, ki vagy valójában. Szóról szóra. Játékról játékra. Nevetésről nevetésre. És ők beleszerethetnek az egészbe.",
+        "copyHighlight1": "ki vagy valójában",
+        "copyHighlight2": "beleszerethetnek",
+        "underline": "És ők beleszerethetnek az egészbe"
+      },
+      "context1": { "header": "Oszd meg a világod", "cta": "Kezdj útmutatni", "subtext": "Legyél a nyelvi útmutatójuk." },
+      "context2": { "header": "Engedd be őket", "cta": "Kezdj útmutatni", "subtext": "Néhány dolog jobban fordítódik tanulás közben." },
+      "context3": { "header": "Taníts szeretettel", "cta": "Kezdés", "subtext": "Nem leckék. Szerelmes levelek." },
+      "context4": { "header": "Hívd ki őket", "cta": "Kihívás küldése", "subtext": "Játékok, kihívások, meglepetések." },
+      "context5": { "header": "Nézd, ahogy kibontakoznak", "cta": "Kezdj küldeni", "subtext": "Szóról szóra." },
+      "context6": { "header": "Nyisd ki az ajtót", "cta": "Kezdj most", "subtext": "Az a pillanat közeleg." },
+      "context7": { "header": "Fejlődjetek együtt", "cta": "Legyél az útmutatójuk", "subtext": "Készen állnak rád." }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
@@ -11,12 +12,6 @@ interface TimeStepProps {
   accentColor?: string;
 }
 
-const TIME_OPTIONS = [
-  { id: 'quick', emoji: '💋', label: 'A quick kiss', description: '5 minutes' },
-  { id: 'coffee', emoji: '☕', label: 'A coffee date', description: '10 minutes' },
-  { id: 'walk', emoji: '🚶', label: 'A long walk', description: '20+ minutes' },
-];
-
 export const TimeStep: React.FC<TimeStepProps> = ({
   currentStep,
   totalSteps,
@@ -25,7 +20,15 @@ export const TimeStep: React.FC<TimeStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState(initialValue);
+
+  // Time options array inside component to access t()
+  const timeOptions = [
+    { id: 'quick', emoji: '💋', label: t('onboarding.student.time.quick'), description: t('onboarding.student.time.quickDesc') },
+    { id: 'coffee', emoji: '☕', label: t('onboarding.student.time.coffee'), description: t('onboarding.student.time.coffeeDesc') },
+    { id: 'walk', emoji: '🚶', label: t('onboarding.student.time.walk'), description: t('onboarding.student.time.walkDesc') },
+  ];
 
   return (
     <OnboardingStep
@@ -42,15 +45,15 @@ export const TimeStep: React.FC<TimeStepProps> = ({
           <ICONS.Clock className="w-8 h-8" style={{ color: accentColor }} />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          How much time can you dedicate daily?
+          {t('onboarding.student.time.title')}
         </h1>
         <p className="text-gray-500">
-          Even small moments add up to big progress.
+          {t('onboarding.student.time.subtitle')}
         </p>
       </div>
 
       <div className="space-y-3 mb-8">
-        {TIME_OPTIONS.map((option) => (
+        {timeOptions.map((option) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}

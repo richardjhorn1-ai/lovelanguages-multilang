@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { useTheme } from '../context/ThemeContext';
 
@@ -22,6 +23,7 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
   const [expiresAt, setExpiresAt] = useState<string | null>(null);
 
   const { accentHex } = useTheme();
+  const { t } = useTranslation();
 
   // Check eligibility
   const isEligible =
@@ -118,9 +120,9 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
     const date = new Date(dateStr);
     const now = new Date();
     const daysLeft = Math.ceil((date.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-    if (daysLeft <= 0) return 'Expired';
-    if (daysLeft === 1) return 'Expires tomorrow';
-    return `Expires in ${daysLeft} days`;
+    if (daysLeft <= 0) return t('invite.expired');
+    if (daysLeft === 1) return t('invite.expiresTomorrow');
+    return t('invite.expiresIn', { days: daysLeft });
   };
 
   // Not eligible - don't show anything
@@ -139,9 +141,9 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
       <div className="flex items-center gap-3 mb-4">
         <span className="text-3xl">💕</span>
         <div>
-          <h3 className="font-bold text-[var(--text-primary)]">Invite Your Partner</h3>
+          <h3 className="font-bold text-[var(--text-primary)]">{t('invite.title')}</h3>
           <p className="text-sm text-[var(--text-secondary)]">
-            Your subscription includes free access for your partner!
+            {t('invite.subtitle')}
           </p>
         </div>
       </div>
@@ -155,7 +157,7 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
       {inviteLink ? (
         <div className="space-y-4">
           <div className="bg-white dark:bg-[var(--bg-primary)] rounded-xl p-4">
-            <p className="text-xs text-[var(--text-secondary)] mb-2">Share this link with your partner:</p>
+            <p className="text-xs text-[var(--text-secondary)] mb-2">{t('invite.shareLinkLabel')}</p>
             <div className="flex gap-2">
               <input
                 type="text"
@@ -168,7 +170,7 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
                 className="px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white"
                 style={{ backgroundColor: copied ? '#22c55e' : accentHex }}
               >
-                {copied ? 'Copied!' : 'Copy'}
+                {copied ? t('invite.copied') : t('invite.copy')}
               </button>
             </div>
             {expiresAt && (
@@ -179,11 +181,11 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
           </div>
 
           <div className="text-sm text-[var(--text-secondary)]">
-            <p className="font-medium mb-1">How it works:</p>
+            <p className="font-medium mb-1">{t('invite.howItWorks')}</p>
             <ol className="list-decimal list-inside space-y-1 text-xs">
-              <li>Share the link with your partner</li>
-              <li>They sign up or log in</li>
-              <li>They get free access through your subscription!</li>
+              <li>{t('invite.step1')}</li>
+              <li>{t('invite.step2')}</li>
+              <li>{t('invite.step3')}</li>
             </ol>
           </div>
         </div>
@@ -197,10 +199,10 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
           {loading ? (
             <span className="flex items-center justify-center gap-2">
               <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              Generating...
+              {t('invite.generating')}
             </span>
           ) : (
-            'Generate Invite Link'
+            t('invite.generateButton')
           )}
         </button>
       )}

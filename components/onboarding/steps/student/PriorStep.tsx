@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface PriorStepProps {
   currentStep: number;
@@ -18,6 +21,9 @@ export const PriorStep: React.FC<PriorStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
   const [hasTried, setHasTried] = useState<boolean | null>(
     initialValue === 'yes' ? true : initialValue === 'no' ? false : null
   );
@@ -36,10 +42,10 @@ export const PriorStep: React.FC<PriorStepProps> = ({
     >
       <div className="text-center mb-10">
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          Have you tried learning Polish before?
+          {t('onboarding.student.prior.title', { language: targetName })}
         </h1>
         <p className="text-gray-500">
-          This helps us start at the right place.
+          {t('onboarding.student.prior.subtitle')}
         </p>
       </div>
 
@@ -54,7 +60,7 @@ export const PriorStep: React.FC<PriorStepProps> = ({
         >
           <span className="text-3xl block mb-2">👍</span>
           <span className={`font-bold ${hasTried === true ? 'text-green-600' : 'text-gray-700'}`}>
-            Yes, a bit
+            {t('onboarding.student.prior.yes')}
           </span>
         </button>
         <button
@@ -74,7 +80,7 @@ export const PriorStep: React.FC<PriorStepProps> = ({
             className="font-bold"
             style={{ color: hasTried === false ? accentColor : '#374151' }}
           >
-            Complete beginner
+            {t('onboarding.student.prior.beginner')}
           </span>
         </button>
       </div>

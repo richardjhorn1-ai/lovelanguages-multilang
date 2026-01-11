@@ -34,6 +34,8 @@ export interface GladiaConfig {
   onStateChange: (state: GladiaState) => void;
   onError: (error: Error) => void;
   onClose?: () => void;
+  targetLanguage?: string;
+  nativeLanguage?: string;
 }
 
 // Debug mode - set to false to reduce console noise
@@ -97,7 +99,11 @@ export class GladiaSession {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${session.access_token}`
-        }
+        },
+        body: JSON.stringify({
+          targetLanguage: this.config.targetLanguage,
+          nativeLanguage: this.config.nativeLanguage
+        })
       });
 
       if (!tokenResponse.ok) {

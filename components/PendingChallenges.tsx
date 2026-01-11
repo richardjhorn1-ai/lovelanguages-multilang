@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, TutorChallenge, WordRequest } from '../types';
 import { ICONS } from '../constants';
@@ -12,9 +13,10 @@ interface PendingChallengesProps {
 }
 
 const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefresh }) => {
+  const { t } = useTranslation();
   const [challenges, setChallenges] = useState<TutorChallenge[]>([]);
   const [wordRequests, setWordRequests] = useState<WordRequest[]>([]);
-  const [partnerName, setPartnerName] = useState('Your Partner');
+  const [partnerName, setPartnerName] = useState(t('pendingChallenges.yourPartner'));
   const [loading, setLoading] = useState(true);
 
   // Active game states
@@ -97,12 +99,14 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
           </div>
           <div>
             <h3 className="font-black text-lg">
-              {partnerName} sent you {totalPending === 1 ? 'something' : `${totalPending} things`}!
+              {totalPending === 1
+                ? t('pendingChallenges.sentYouSomething', { name: partnerName })
+                : t('pendingChallenges.sentYouThings', { name: partnerName, count: totalPending })}
             </h3>
             <p className="text-white/80 text-sm">
-              {challenges.length > 0 && `${challenges.length} challenge${challenges.length > 1 ? 's' : ''}`}
+              {challenges.length > 0 && t('pendingChallenges.challengeCount', { count: challenges.length })}
               {challenges.length > 0 && wordRequests.length > 0 && ' & '}
-              {wordRequests.length > 0 && `${wordRequests.length} word gift${wordRequests.length > 1 ? 's' : ''}`}
+              {wordRequests.length > 0 && t('pendingChallenges.wordGiftCount', { count: wordRequests.length })}
             </p>
           </div>
         </div>
@@ -121,11 +125,11 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
               <div className="flex-1">
                 <p className="font-bold">{challenge.title}</p>
                 <p className="text-xs text-white/70">
-                  {challenge.words_data?.length || 0} words • {challenge.challenge_type === 'quiz' ? 'Quiz' : 'Quick Fire'}
+                  {t('pendingChallenges.wordsCount', { count: challenge.words_data?.length || 0 })} • {challenge.challenge_type === 'quiz' ? t('pendingChallenges.quiz') : t('pendingChallenges.quickFire')}
                 </p>
               </div>
               <div className="flex items-center gap-1 text-sm font-bold">
-                Play <ICONS.ChevronRight className="w-4 h-4" />
+                {t('pendingChallenges.play')} <ICONS.ChevronRight className="w-4 h-4" />
               </div>
             </button>
           ))}
@@ -140,13 +144,13 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
                 🎁
               </div>
               <div className="flex-1">
-                <p className="font-bold">Word Gift</p>
+                <p className="font-bold">{t('pendingChallenges.wordGift')}</p>
                 <p className="text-xs text-white/70">
-                  {request.selected_words?.length || 0} words • {request.xp_multiplier}x XP bonus
+                  {t('pendingChallenges.wordsCount', { count: request.selected_words?.length || 0 })} • {t('pendingChallenges.xpBonus', { multiplier: request.xp_multiplier })}
                 </p>
               </div>
               <div className="flex items-center gap-1 text-sm font-bold">
-                Learn <ICONS.ChevronRight className="w-4 h-4" />
+                {t('pendingChallenges.learn')} <ICONS.ChevronRight className="w-4 h-4" />
               </div>
             </button>
           ))}

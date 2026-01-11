@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../constants';
 import { OnboardingContext } from './Onboarding';
 
@@ -19,6 +20,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
   canGoBack = true,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   // Get onQuit from context - no prop drilling needed
   const { onQuit } = useContext(OnboardingContext);
   const progress = (currentStep / totalSteps) * 100;
@@ -51,7 +53,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
             className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors"
           >
             <ICONS.ChevronLeft className="w-5 h-5" />
-            <span className="text-sm font-medium">Back</span>
+            <span className="text-sm font-medium">{t('onboarding.step.back')}</span>
           </button>
         ) : (
           <div />
@@ -59,7 +61,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
 
         {/* Step counter */}
         <span className="text-xs font-bold text-gray-300 uppercase tracking-widest">
-          {currentStep} of {totalSteps}
+          {t('onboarding.step.counter', { current: currentStep, total: totalSteps })}
         </span>
 
         {/* Quit button */}
@@ -67,7 +69,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
           <button
             onClick={onQuit}
             className="text-gray-400 hover:text-gray-600 transition-colors p-1"
-            title="Quit signup"
+            title={t('onboarding.step.quitTitle')}
           >
             <ICONS.X className="w-5 h-5" />
           </button>
@@ -114,18 +116,23 @@ interface NextButtonProps {
 export const NextButton: React.FC<NextButtonProps> = ({
   onClick,
   disabled = false,
-  children = 'Continue',
+  children,
   accentColor = '#FF4761'
-}) => (
-  <button
-    onClick={onClick}
-    disabled={disabled}
-    className="w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg transition-all active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed"
-    style={{ backgroundColor: disabled ? '#ccc' : accentColor }}
-  >
-    {children}
-  </button>
-);
+}) => {
+  const { t } = useTranslation();
+  const buttonText = children || t('onboarding.step.continue');
+
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className="w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg transition-all active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed"
+      style={{ backgroundColor: disabled ? '#ccc' : accentColor }}
+    >
+      {buttonText}
+    </button>
+  );
+};
 
 // Skip button for optional steps
 interface SkipButtonProps {
@@ -135,12 +142,17 @@ interface SkipButtonProps {
 
 export const SkipButton: React.FC<SkipButtonProps> = ({
   onClick,
-  children = 'Skip for now'
-}) => (
-  <button
-    onClick={onClick}
-    className="mt-4 text-gray-400 text-sm font-medium hover:text-gray-600 transition-colors"
-  >
-    {children}
-  </button>
-);
+  children
+}) => {
+  const { t } = useTranslation();
+  const buttonText = children || t('onboarding.step.skipForNow');
+
+  return (
+    <button
+      onClick={onClick}
+      className="mt-4 text-gray-400 text-sm font-medium hover:text-gray-600 transition-colors"
+    >
+      {buttonText}
+    </button>
+  );
+};

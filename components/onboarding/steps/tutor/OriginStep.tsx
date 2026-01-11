@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface OriginStepProps {
   currentStep: number;
@@ -11,13 +14,6 @@ interface OriginStepProps {
   accentColor?: string;
 }
 
-const ORIGIN_OPTIONS = [
-  { id: 'poland', label: 'Grew up in Poland', emoji: '🏘️' },
-  { id: 'family', label: 'From family', emoji: '👨‍👩‍👧‍👦' },
-  { id: 'school', label: 'Studied formally', emoji: '🎓' },
-  { id: 'self', label: 'Self-taught', emoji: '📖' },
-];
-
 export const OriginStep: React.FC<OriginStepProps> = ({
   currentStep,
   totalSteps,
@@ -26,6 +22,18 @@ export const OriginStep: React.FC<OriginStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
+
+  // Origin options inside component to access t()
+  const originOptions = [
+    { id: 'country', label: t('onboarding.tutor.origin.country'), emoji: '🏘️' },
+    { id: 'family', label: t('onboarding.tutor.origin.family'), emoji: '👨‍👩‍👧‍👦' },
+    { id: 'school', label: t('onboarding.tutor.origin.school'), emoji: '🎓' },
+    { id: 'self', label: t('onboarding.tutor.origin.self'), emoji: '📖' },
+  ];
+
   const [selected, setSelected] = useState(initialValue);
 
   return (
@@ -40,15 +48,15 @@ export const OriginStep: React.FC<OriginStepProps> = ({
           <ICONS.Star className="w-8 h-8 text-rose-500" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          How did you learn Polish?
+          {t('onboarding.tutor.origin.title', { language: targetName })}
         </h1>
         <p className="text-gray-500">
-          Your journey helps us suggest teaching approaches
+          {t('onboarding.tutor.origin.subtitle')}
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-6">
-        {ORIGIN_OPTIONS.map((option) => (
+        {originOptions.map((option) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
@@ -12,13 +13,6 @@ interface RelationStepProps {
   accentColor?: string;
 }
 
-const RELATION_OPTIONS = [
-  { id: 'partner', label: 'Partner', emoji: '💑' },
-  { id: 'spouse', label: 'Spouse', emoji: '💍' },
-  { id: 'friend', label: 'Friend', emoji: '🤝' },
-  { id: 'family', label: 'Family', emoji: '👨‍👩‍👧' },
-];
-
 export const RelationStep: React.FC<RelationStepProps> = ({
   currentStep,
   totalSteps,
@@ -28,6 +22,16 @@ export const RelationStep: React.FC<RelationStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+
+  // Relation options inside component to access t()
+  const relationOptions = [
+    { id: 'partner', label: t('onboarding.tutor.relation.partner'), emoji: '💑' },
+    { id: 'spouse', label: t('onboarding.tutor.relation.spouse'), emoji: '💍' },
+    { id: 'friend', label: t('onboarding.tutor.relation.friend'), emoji: '🤝' },
+    { id: 'family', label: t('onboarding.tutor.relation.family'), emoji: '👨‍👩‍👧' },
+  ];
+
   const [selected, setSelected] = useState(initialValue);
 
   return (
@@ -42,15 +46,15 @@ export const RelationStep: React.FC<RelationStepProps> = ({
           <ICONS.Users className="w-8 h-8 text-rose-500" />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
-          What's your relationship with {learnerName}?
+          {t('onboarding.tutor.relation.title', { name: learnerName })}
         </h1>
         <p className="text-gray-500">
-          This helps us personalize your teaching experience
+          {t('onboarding.tutor.relation.subtitle')}
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 mb-6">
-        {RELATION_OPTIONS.map((option) => (
+        {relationOptions.map((option) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}

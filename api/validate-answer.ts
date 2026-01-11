@@ -1,4 +1,4 @@
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 import {
   setCorsHeaders,
   verifyAuth,
@@ -8,13 +8,20 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { extractLanguages } from '../utils/language-helpers.js';
+import { buildAnswerValidationPrompt } from '../utils/prompt-templates.js';
+import { getLanguageName } from '../constants/language-config.js';
 
 interface ValidateAnswerRequest {
   userAnswer: string;
   correctAnswer: string;
-  polishWord?: string;        // The Polish word being translated (for context)
-  wordType?: string;          // noun, verb, phrase, etc.
-  direction?: 'polish_to_english' | 'english_to_polish';
+  targetWord?: string;            // The word in target language being translated (for context)
+  wordType?: string;              // noun, verb, phrase, etc.
+  direction?: 'target_to_native' | 'native_to_target';
+  targetLanguage?: string;        // Target language code (e.g., 'pl', 'es')
+  nativeLanguage?: string;        // Native language code (e.g., 'en', 'es')
+  // Legacy support
+  polishWord?: string;            // @deprecated - use targetWord
 }
 
 interface ValidateAnswerResponse {
@@ -70,7 +77,14 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    const { userAnswer, correctAnswer, polishWord, wordType, direction } = req.body as ValidateAnswerRequest;
+    const body = req.body as ValidateAnswerRequest;
+    const { userAnswer, correctAnswer, wordType, direction } = body;
+
+    // Support both new field (targetWord) and legacy field (polishWord)
+    const targetWord = body.targetWord || body.polishWord;
+
+    // Extract language parameters (defaults to Polish/English for backward compatibility)
+    const { targetLanguage, nativeLanguage } = extractLanguages(body);
 
     if (!userAnswer || !correctAnswer) {
       return res.status(400).json({ error: 'userAnswer and correctAnswer are required' });
@@ -96,32 +110,26 @@ export default async function handler(req: any, res: any) {
 
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
 
-    const contextInfo = polishWord
-      ? `\nPolish word: "${polishWord}"${wordType ? ` (${wordType})` : ''}`
+    const targetName = getLanguageName(targetLanguage);
+    const nativeName = getLanguageName(nativeLanguage);
+
+    const contextInfo = targetWord
+      ? `\n${targetName} word: "${targetWord}"${wordType ? ` (${wordType})` : ''}`
       : '';
     const directionInfo = direction
-      ? `\nDirection: ${direction === 'polish_to_english' ? 'Polish → English' : 'English → Polish'}`
+      ? `\nDirection: ${direction === 'target_to_native' ? `${targetName} → ${nativeName}` : `${nativeName} → ${targetName}`}`
       : '';
 
-    const prompt = `You are validating answers for a Polish language learning app.
+    const basePrompt = buildAnswerValidationPrompt(targetLanguage, nativeLanguage);
+
+    const prompt = `${basePrompt}
+
+## ANSWER TO VALIDATE
 
 Expected: "${correctAnswer}"
 User typed: "${userAnswer}"${contextInfo}${directionInfo}
 
-ACCEPT if ANY apply:
-- Exact match (ignoring case)
-- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię, zolty=żółty)
-- Valid synonym (pretty=beautiful, hi=hello)
-- Article variation (the dog=dog, a cat=cat)
-- Minor typo (1-2 chars off)
-- Alternate valid translation (przepraszam=sorry OR excuse me)
-
-REJECT if:
-- Completely different meaning
-- Wrong language
-- Major spelling error (3+ chars wrong)
-
-Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
+Validate this single answer and return your result.`;
 
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -129,10 +137,10 @@ Return JSON: { "accepted": true/false, "explanation": "brief reason" }`;
       config: {
         responseMimeType: "application/json",
         responseSchema: {
-          type: Type.OBJECT,
+          type: "object",
           properties: {
-            accepted: { type: Type.BOOLEAN, description: "true if answer should be accepted" },
-            explanation: { type: Type.STRING, description: "Brief explanation of why accepted/rejected" }
+            accepted: { type: "boolean", description: "true if answer should be accepted" },
+            explanation: { type: "string", description: "Brief explanation of why accepted/rejected" }
           },
           required: ["accepted", "explanation"]
         }

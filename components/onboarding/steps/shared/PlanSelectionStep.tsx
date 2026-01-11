@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { supabase } from '../../../../services/supabase';
 import { ICONS } from '../../../../constants';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface PlanSelectionStepProps {
   currentStep: number;
@@ -27,6 +30,9 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'your language';
   const [selectedPlan, setSelectedPlan] = useState<'standard' | 'unlimited' | null>(null);
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('yearly');
   const [prices, setPrices] = useState<Prices | null>(null);
@@ -74,31 +80,31 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   const plans = [
     {
       id: 'standard' as const,
-      name: 'Standard',
+      name: t('onboarding.plan.standard.name'),
       monthlyPrice: 19,
       yearlyPrice: 69,
-      tagline: 'Perfect for getting started',
+      tagline: t('onboarding.plan.standard.tagline'),
       features: [
-        '2,000 words in Love Log',
-        '60 min voice chat/month',
-        '30 min Listen Mode/month',
-        'All conversation scenarios',
-        'Partner invite',
+        t('onboarding.plan.standard.feature1'),
+        t('onboarding.plan.standard.feature2'),
+        t('onboarding.plan.standard.feature3'),
+        t('onboarding.plan.standard.feature4'),
+        t('onboarding.plan.standard.feature5'),
       ],
     },
     {
       id: 'unlimited' as const,
-      name: 'Unlimited',
+      name: t('onboarding.plan.unlimited.name'),
       monthlyPrice: 39,
       yearlyPrice: 139,
-      tagline: 'For dedicated learners',
+      tagline: t('onboarding.plan.unlimited.tagline'),
       popular: true,
       features: [
-        'Unlimited everything',
-        'Unlimited voice chat',
-        'Unlimited Listen Mode',
-        'All conversation scenarios',
-        'Gift pass for another couple (yearly)',
+        t('onboarding.plan.unlimited.feature1'),
+        t('onboarding.plan.unlimited.feature2'),
+        t('onboarding.plan.unlimited.feature3'),
+        t('onboarding.plan.unlimited.feature4'),
+        t('onboarding.plan.unlimited.feature5'),
       ],
     },
   ];
@@ -130,10 +136,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
     >
       <div className="text-center mb-6">
         <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-          Choose your plan, {userName}
+          {t('onboarding.plan.title', { name: userName })}
         </h1>
         <p className="text-gray-600">
-          Start your Polish learning journey today
+          {t('onboarding.plan.subtitle', { language: targetName })}
         </p>
       </div>
 
@@ -146,7 +152,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
               billingPeriod === 'monthly' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500'
             }`}
           >
-            Monthly
+            {t('onboarding.plan.monthly')}
           </button>
           <button
             onClick={() => setBillingPeriod('yearly')}
@@ -154,9 +160,9 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
               billingPeriod === 'yearly' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500'
             }`}
           >
-            Yearly
+            {t('onboarding.plan.yearly')}
             <span className="text-xs px-2 py-0.5 rounded-full bg-green-500 text-white">
-              70% off
+              {t('onboarding.plan.discount')}
             </span>
           </button>
         </div>
@@ -188,7 +194,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                   className="absolute -top-2 right-4 px-3 py-0.5 rounded-full text-xs font-bold text-white"
                   style={{ background: accentColor }}
                 >
-                  Popular
+                  {t('onboarding.plan.popular')}
                 </span>
               )}
 
@@ -216,7 +222,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                     ))}
                     {plan.features.length > 3 && (
                       <li className="text-xs text-gray-400 pl-6">
-                        +{plan.features.length - 3} more features
+                        {t('onboarding.plan.moreFeatures', { count: plan.features.length - 3 })}
                       </li>
                     )}
                   </ul>
@@ -225,11 +231,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                 <div className="text-right flex-shrink-0">
                   <div className="text-2xl font-bold text-gray-900">${price}</div>
                   <div className="text-xs text-gray-500">
-                    /{billingPeriod === 'monthly' ? 'mo' : 'yr'}
+                    {billingPeriod === 'monthly' ? t('onboarding.plan.perMonth') : t('onboarding.plan.perYear')}
                   </div>
                   {billingPeriod === 'yearly' && (
                     <div className="text-xs text-green-600 mt-1">
-                      ${(price / 12).toFixed(0)}/mo
+                      {t('onboarding.plan.monthlyEquivalent', { price: (price / 12).toFixed(0) })}
                     </div>
                   )}
                 </div>
@@ -245,12 +251,12 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         disabled={!selectedPlan}
         accentColor={accentColor}
       >
-        Continue with {selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : 'a plan'}
+        {t('onboarding.plan.continueWith', { plan: selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : t('onboarding.plan.aPlan') })}
       </NextButton>
 
       {/* Trust signals */}
       <p className="text-center text-xs text-gray-400 mt-4">
-        Secure payment via Stripe. Cancel anytime.
+        {t('onboarding.plan.trustSignal')}
       </p>
     </OnboardingStep>
   );

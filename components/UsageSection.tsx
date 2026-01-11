@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
@@ -25,6 +26,7 @@ interface UsageSectionProps {
 }
 
 const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
+  const { t } = useTranslation();
   const { accentHex } = useTheme();
   const [usageData, setUsageData] = useState<UsageData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -104,7 +106,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
       <div className="bg-[var(--bg-card)] p-6 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
         <h3 className="text-[11px] font-black mb-4 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
           <ICONS.TrendingUp className="w-4 h-4" style={{ color: accentHex }} />
-          <span>Monthly Usage</span>
+          <span>{t('usage.title')}</span>
         </h3>
 
         <div
@@ -114,11 +116,11 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
           <div className="flex items-center justify-center gap-2 mb-1">
             <ICONS.Sparkles className="w-5 h-5" style={{ color: accentHex }} />
             <span className="font-black text-lg" style={{ color: accentHex }}>
-              Unlimited Plan
+              {t('usage.unlimitedPlan')}
             </span>
           </div>
           <p className="text-sm text-[var(--text-secondary)]">
-            No usage limits - learn as much as you want!
+            {t('usage.noLimits')}
           </p>
         </div>
 
@@ -128,19 +130,19 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
             <p className="text-lg font-black" style={{ color: 'var(--text-primary)' }}>
               {usageData.usage.wordsAdded}
             </p>
-            <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wide">Words</p>
+            <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wide">{t('usage.words')}</p>
           </div>
           <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--bg-primary)' }}>
             <p className="text-lg font-black" style={{ color: 'var(--text-primary)' }}>
               {usageData.usage.voiceMinutes}
             </p>
-            <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wide">Voice min</p>
+            <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wide">{t('usage.voiceMin')}</p>
           </div>
           <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--bg-primary)' }}>
             <p className="text-lg font-black" style={{ color: 'var(--text-primary)' }}>
               {usageData.usage.listenMinutes}
             </p>
-            <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wide">Listen min</p>
+            <p className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wide">{t('usage.listenMin')}</p>
           </div>
         </div>
       </div>
@@ -154,7 +156,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
     <div className="bg-[var(--bg-card)] p-6 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
       <h3 className="text-[11px] font-black mb-5 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
         <ICONS.TrendingUp className="w-4 h-4" style={{ color: accentHex }} />
-        <span>Monthly Usage</span>
+        <span>{t('usage.title')}</span>
       </h3>
 
       <div className="space-y-5">
@@ -164,7 +166,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <ICONS.Book className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
-                Vocabulary
+                {t('usage.vocabulary')}
               </span>
               <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>
                 {usage.wordsAdded.toLocaleString()} / {limits.wordLimit.toLocaleString()}
@@ -188,7 +190,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <ICONS.Mic className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
-                Voice Chat
+                {t('usage.voiceChat')}
               </span>
               <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>
                 {usage.voiceMinutes} / {limits.voiceMinutesPerMonth} min
@@ -212,7 +214,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <ICONS.Volume2 className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
-                Listen Mode
+                {t('usage.listenMode')}
               </span>
               <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>
                 {usage.listenMinutes} / {limits.listenMinutesPerMonth} min
@@ -240,14 +242,14 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
           style={{ backgroundColor: `${accentHex}10`, border: `1px solid ${accentHex}30` }}
         >
           <p className="text-sm font-bold" style={{ color: accentHex }}>
-            Running low? Upgrade to Unlimited for no limits!
+            {t('usage.upgradePrompt')}
           </p>
         </div>
       )}
 
       {/* Resets info */}
       <p className="mt-4 text-[10px] text-center" style={{ color: 'var(--text-secondary)' }}>
-        Usage resets on the 1st of each month
+        {t('usage.resetsMonthly')}
       </p>
     </div>
   );

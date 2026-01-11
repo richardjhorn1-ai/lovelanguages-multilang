@@ -1,6 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { getLanguageName, getLanguageConfig, getConjugationPersons } from '../constants/language-config.js';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers
@@ -43,145 +44,176 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ error: "Invalid tense. Must be 'past' or 'future'" });
   }
 
+  // Get Supabase client early to fetch word's language
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+  if (!supabaseUrl || !supabaseServiceKey) {
+    return res.status(500).json({ error: 'Server configuration error' });
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+  // Get word's language from dictionary entry
+  const { data: wordEntry, error: wordError } = await supabase
+    .from('dictionary')
+    .select('language_code')
+    .eq('id', wordId)
+    .eq('user_id', auth.userId)
+    .single();
+
+  if (wordError || !wordEntry) {
+    return res.status(404).json({ error: 'Word not found in your dictionary' });
+  }
+
+  const languageCode = wordEntry.language_code || 'pl';
+  const languageConfig = getLanguageConfig(languageCode);
+  const languageName = getLanguageName(languageCode);
+
+  // Check if language has conjugation
+  if (!languageConfig?.grammar?.hasConjugation) {
+    return res.status(400).json({
+      error: `${languageName} does not have verb conjugation. Tense unlocking is not available for this language.`
+    });
+  }
+
+  const persons = getConjugationPersons(languageCode);
+  const isSlavic = ['pl', 'cs', 'ru', 'uk'].includes(languageCode);
+
   try {
     const ai = new GoogleGenAI({ apiKey });
 
-    // Different prompts for past vs future tense
-    const prompt = tense === 'past'
-      ? `Give me the COMPLETE past tense conjugation of the Polish verb "${word}" (infinitive form).
+    // Build prompts based on language
+    let prompt: string;
 
-Polish past tense has GENDER variations. For each person, provide BOTH masculine and feminine forms.
+    if (tense === 'past') {
+      if (isSlavic) {
+        // Slavic languages have gendered past tense
+        prompt = `Give me the COMPLETE past tense conjugation of the ${languageName} verb "${word}" (infinitive form).
 
-Return a JSON object with this EXACT structure:
+${languageName} past tense has GENDER variations. For each person, provide BOTH masculine and feminine forms.
+
+Return a JSON object with this structure (using normalized keys):
 {
-  "ja": { "masculine": "...", "feminine": "..." },
-  "ty": { "masculine": "...", "feminine": "..." },
-  "onOna": { "masculine": "...", "feminine": "...", "neuter": "..." },
-  "my": { "masculine": "...", "feminine": "..." },
-  "wy": { "masculine": "...", "feminine": "..." },
-  "oni": { "masculine": "...", "feminine": "..." }
+  "first_singular": { "masculine": "...", "feminine": "..." },
+  "second_singular": { "masculine": "...", "feminine": "..." },
+  "third_singular": { "masculine": "...", "feminine": "...", "neuter": "..." },
+  "first_plural": { "masculine": "...", "feminine": "..." },
+  "second_plural": { "masculine": "...", "feminine": "..." },
+  "third_plural": { "masculine": "...", "feminine": "..." }
 }
 
-For onOna (he/she/it), include all three: masculine (on), feminine (ona), neuter (ono).
+The persons in ${languageName} are: ${persons.join(', ')}
+
+For third person singular, include all three: masculine, feminine, neuter.
 For other persons, include masculine and feminine variants.
 
-Example for "być" (to be):
+EVERY field must be filled. No nulls or empty strings.`;
+      } else {
+        // Non-Slavic languages - simpler past tense
+        prompt = `Give me the COMPLETE past tense conjugation of the ${languageName} verb "${word}" (infinitive form).
+
+Return a JSON object with this structure (using normalized keys):
 {
-  "ja": { "masculine": "byłem", "feminine": "byłam" },
-  "ty": { "masculine": "byłeś", "feminine": "byłaś" },
-  "onOna": { "masculine": "był", "feminine": "była", "neuter": "było" },
-  "my": { "masculine": "byliśmy", "feminine": "byłyśmy" },
-  "wy": { "masculine": "byliście", "feminine": "byłyście" },
-  "oni": { "masculine": "byli", "feminine": "były" }
+  "first_singular": "...",
+  "second_singular": "...",
+  "third_singular": "...",
+  "first_plural": "...",
+  "second_plural": "...",
+  "third_plural": "..."
 }
 
-EVERY field must be filled. No nulls or empty strings.`
-
-      : `Give me the COMPLETE future tense conjugation of the Polish verb "${word}" (infinitive form).
-
-For imperfective verbs, use the compound future (będę + infinitive or będę + past participle).
-For perfective verbs, use the simple future (conjugated form).
-
-Return a JSON object with this EXACT structure:
-{
-  "ja": "...",
-  "ty": "...",
-  "onOna": "...",
-  "my": "...",
-  "wy": "...",
-  "oni": "..."
-}
-
-Example for imperfective "robić" (to do/make):
-{
-  "ja": "będę robić",
-  "ty": "będziesz robić",
-  "onOna": "będzie robić",
-  "my": "będziemy robić",
-  "wy": "będziecie robić",
-  "oni": "będą robić"
-}
-
-Example for perfective "zrobić" (to do/make - completed):
-{
-  "ja": "zrobię",
-  "ty": "zrobisz",
-  "onOna": "zrobi",
-  "my": "zrobimy",
-  "wy": "zrobicie",
-  "oni": "zrobią"
-}
+The persons in ${languageName} are: ${persons.join(', ')}
+- first_singular = ${persons[0] || 'I'}
+- second_singular = ${persons[1] || 'you'}
+- third_singular = ${persons[2] || 'he/she/it'}
+- first_plural = ${persons[3] || 'we'}
+- second_plural = ${persons[4] || 'you (plural)'}
+- third_plural = ${persons[5] || 'they'}
 
 EVERY field must be filled. No nulls or empty strings.`;
+      }
+    } else {
+      // Future tense - similar structure for all languages
+      prompt = `Give me the COMPLETE future tense conjugation of the ${languageName} verb "${word}" (infinitive form).
 
-    const responseSchema = tense === 'past'
-      ? {
-          type: Type.OBJECT,
-          properties: {
-            ja: {
-              type: Type.OBJECT,
-              properties: {
-                masculine: { type: Type.STRING },
-                feminine: { type: Type.STRING }
-              },
-              required: ["masculine", "feminine"]
-            },
-            ty: {
-              type: Type.OBJECT,
-              properties: {
-                masculine: { type: Type.STRING },
-                feminine: { type: Type.STRING }
-              },
-              required: ["masculine", "feminine"]
-            },
-            onOna: {
-              type: Type.OBJECT,
-              properties: {
-                masculine: { type: Type.STRING },
-                feminine: { type: Type.STRING },
-                neuter: { type: Type.STRING }
-              },
-              required: ["masculine", "feminine", "neuter"]
-            },
-            my: {
-              type: Type.OBJECT,
-              properties: {
-                masculine: { type: Type.STRING },
-                feminine: { type: Type.STRING }
-              },
-              required: ["masculine", "feminine"]
-            },
-            wy: {
-              type: Type.OBJECT,
-              properties: {
-                masculine: { type: Type.STRING },
-                feminine: { type: Type.STRING }
-              },
-              required: ["masculine", "feminine"]
-            },
-            oni: {
-              type: Type.OBJECT,
-              properties: {
-                masculine: { type: Type.STRING },
-                feminine: { type: Type.STRING }
-              },
-              required: ["masculine", "feminine"]
-            }
-          },
-          required: ["ja", "ty", "onOna", "my", "wy", "oni"]
-        }
-      : {
-          type: Type.OBJECT,
-          properties: {
-            ja: { type: Type.STRING },
-            ty: { type: Type.STRING },
-            onOna: { type: Type.STRING },
-            my: { type: Type.STRING },
-            wy: { type: Type.STRING },
-            oni: { type: Type.STRING }
-          },
-          required: ["ja", "ty", "onOna", "my", "wy", "oni"]
-        };
+Return a JSON object with this structure (using normalized keys):
+{
+  "first_singular": "...",
+  "second_singular": "...",
+  "third_singular": "...",
+  "first_plural": "...",
+  "second_plural": "...",
+  "third_plural": "..."
+}
+
+The persons in ${languageName} are: ${persons.join(', ')}
+- first_singular = ${persons[0] || 'I'}
+- second_singular = ${persons[1] || 'you'}
+- third_singular = ${persons[2] || 'he/she/it'}
+- first_plural = ${persons[3] || 'we'}
+- second_plural = ${persons[4] || 'you (plural)'}
+- third_plural = ${persons[5] || 'they'}
+
+${isSlavic ? `For imperfective verbs, use the compound future. For perfective verbs, use the simple future.` : ''}
+
+EVERY field must be filled. No nulls or empty strings.`;
+    }
+
+    // Build response schema based on language and tense
+    const personSchema = {
+      first_singular: { type: Type.STRING },
+      second_singular: { type: Type.STRING },
+      third_singular: { type: Type.STRING },
+      first_plural: { type: Type.STRING },
+      second_plural: { type: Type.STRING },
+      third_plural: { type: Type.STRING }
+    };
+    const personKeys = ['first_singular', 'second_singular', 'third_singular', 'first_plural', 'second_plural', 'third_plural'];
+
+    let responseSchema: any;
+
+    if (tense === 'past' && isSlavic) {
+      // Slavic past tense with gender
+      const genderedPersonSchema = {
+        type: Type.OBJECT,
+        properties: {
+          masculine: { type: Type.STRING },
+          feminine: { type: Type.STRING }
+        },
+        required: ['masculine', 'feminine']
+      };
+
+      const thirdPersonSchema = {
+        type: Type.OBJECT,
+        properties: {
+          masculine: { type: Type.STRING },
+          feminine: { type: Type.STRING },
+          neuter: { type: Type.STRING }
+        },
+        required: ['masculine', 'feminine', 'neuter']
+      };
+
+      responseSchema = {
+        type: Type.OBJECT,
+        properties: {
+          first_singular: genderedPersonSchema,
+          second_singular: genderedPersonSchema,
+          third_singular: thirdPersonSchema,
+          first_plural: genderedPersonSchema,
+          second_plural: genderedPersonSchema,
+          third_plural: genderedPersonSchema
+        },
+        required: personKeys
+      };
+    } else {
+      // Simple conjugation (future, or non-Slavic past)
+      responseSchema = {
+        type: Type.OBJECT,
+        properties: personSchema,
+        required: personKeys
+      };
+    }
 
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -218,12 +250,7 @@ EVERY field must be filled. No nulls or empty strings.`;
       ...conjugationData
     };
 
-    // Update the database
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-    const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
-
-    // Fetch current context
+    // Fetch current context (word existence already verified above)
     const { data: entry, error: fetchError } = await supabase
       .from('dictionary')
       .select('context')
@@ -232,7 +259,7 @@ EVERY field must be filled. No nulls or empty strings.`;
       .single();
 
     if (fetchError || !entry) {
-      return res.status(404).json({ error: 'Word not found in your dictionary' });
+      return res.status(500).json({ error: 'Failed to fetch word context' });
     }
 
     // Parse and update context

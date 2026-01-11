@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton, SkipButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface TryItStepProps {
   currentStep: number;
@@ -17,6 +20,11 @@ export const TryItStep: React.FC<TryItStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
+  const { targetLanguage } = useLanguage();
+  const languageConfig = LANGUAGE_CONFIGS[targetLanguage];
+  const lovePhrase = languageConfig?.examples.iLoveYou || 'I love you';
+
   const [isRecording, setIsRecording] = useState(false);
   const [hasTried, setHasTried] = useState(false);
 
@@ -51,19 +59,16 @@ export const TryItStep: React.FC<TryItStepProps> = ({
       <div className="text-center mb-8">
         <div className="text-6xl mb-4">🎤</div>
         <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-          Try saying it!
+          {t('onboarding.student.tryIt.title')}
         </h1>
         <p className="text-gray-500">
-          Don't worry, only you can hear yourself.
+          {t('onboarding.student.tryIt.subtitle')}
         </p>
       </div>
 
       <div className="text-center mb-8">
         <div className="text-3xl font-black mb-2" style={{ color: accentColor }}>
-          Kocham cię
-        </div>
-        <div className="text-gray-400 text-lg">
-          [KOH-ham chyeh]
+          {lovePhrase}
         </div>
       </div>
 
@@ -88,13 +93,13 @@ export const TryItStep: React.FC<TryItStepProps> = ({
 
       {isRecording && (
         <div className="text-center text-gray-500 mb-6 animate-pulse">
-          Listening... Tap to stop
+          {t('onboarding.student.tryIt.listening')}
         </div>
       )}
 
       {hasTried && (
         <div className="text-center text-green-600 font-bold mb-6">
-          Amazing! You said it! 🎉
+          {t('onboarding.student.tryIt.success')}
         </div>
       )}
 
@@ -109,7 +114,7 @@ export const TryItStep: React.FC<TryItStepProps> = ({
       {!hasTried && (
         <div className="text-center">
           <SkipButton onClick={onNext}>
-            I'll practice later
+            {t('onboarding.student.tryIt.practiceLater')}
           </SkipButton>
         </div>
       )}

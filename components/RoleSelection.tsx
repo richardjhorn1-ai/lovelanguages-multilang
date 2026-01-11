@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { UserRole } from '../types';
 import { ICONS } from '../constants';
+import { useLanguage } from '../context/LanguageContext';
 
 interface RoleSelectionProps {
   userId: string;
@@ -12,6 +14,9 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
   const [selectedRole, setSelectedRole] = useState<UserRole | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+
+  const { t } = useTranslation();
+  const { targetName } = useLanguage();
 
   // Check for intended_role from Hero signup
   useEffect(() => {
@@ -59,7 +64,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
           <div className="text-6xl mb-4">💕</div>
           <div className="inline-flex items-center gap-2 text-gray-500">
             <div className="w-5 h-5 border-2 border-rose-400 border-t-transparent rounded-full animate-spin" />
-            Getting things ready...
+            {t('roleSelection.loading')}
           </div>
         </div>
       </div>
@@ -73,10 +78,10 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
   const roleContent = {
     student: {
       emoji: '📚',
-      title: "I'm Learning Polish",
-      subtitle: 'For my Polish-speaking partner',
-      confirmMessage: "You're learning Polish for love!",
-      confirmSubtext: "Ready to surprise your partner with your new skills?",
+      title: t('roleSelection.student.title', { language: targetName }),
+      subtitle: t('roleSelection.student.subtitle', { language: targetName }),
+      confirmMessage: t('roleSelection.student.confirmMessage', { language: targetName }),
+      confirmSubtext: t('roleSelection.student.confirmSubtext'),
       accentColor: '#FF4761',
       bgLight: 'bg-rose-50',
       bgAccent: 'bg-rose-100',
@@ -86,10 +91,10 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
     },
     tutor: {
       emoji: '🎓',
-      title: "I'm Teaching Polish",
-      subtitle: 'Helping my partner learn',
-      confirmMessage: "You're the Polish pro!",
-      confirmSubtext: "Ready to help your partner fall in love with your language?",
+      title: t('roleSelection.tutor.title', { language: targetName }),
+      subtitle: t('roleSelection.tutor.subtitle'),
+      confirmMessage: t('roleSelection.tutor.confirmMessage', { language: targetName }),
+      confirmSubtext: t('roleSelection.tutor.confirmSubtext'),
       accentColor: '#FF4761',
       bgLight: 'bg-rose-50',
       bgAccent: 'bg-rose-100',
@@ -108,19 +113,19 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
           {selectedRole ? (
             <>
               <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-                Just to make sure...
+                {t('roleSelection.confirmHeader')}
               </h1>
               <p className="text-gray-500">
-                Tap to confirm or switch your role
+                {t('roleSelection.confirmSubtitle')}
               </p>
             </>
           ) : (
             <>
               <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-                Welcome to Love Languages!
+                {t('roleSelection.welcomeHeader')}
               </h1>
               <p className="text-gray-500">
-                How will you be using the app?
+                {t('roleSelection.welcomeSubtitle')}
               </p>
             </>
           )}
@@ -206,10 +211,10 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
               {saving ? (
                 <span className="inline-flex items-center gap-2">
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Setting up...
+                  {t('roleSelection.settingUp')}
                 </span>
               ) : (
-                "That's me! Let's go"
+                t('roleSelection.letsGo')
               )}
             </button>
           </div>
@@ -218,7 +223,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
         {/* Fallback if nothing selected */}
         {!selectedRole && (
           <p className="text-center text-gray-400 text-sm">
-            Choose your role to continue
+            {t('roleSelection.chooseRole')}
           </p>
         )}
       </div>

@@ -9,6 +9,10 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { extractLanguages, type LanguageParams } from '../utils/language-helpers.js';
+import { buildCupidSystemPrompt, getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
+import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
+import { buildVocabularySchema } from '../utils/schema-builders.js';
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {
@@ -75,7 +79,7 @@ async function getUserProfile(userId: string): Promise<UserProfile> {
 }
 
 // Fetch partner's learning context for coach mode
-async function getPartnerContext(userId: string): Promise<PartnerContext | null> {
+async function getPartnerContext(userId: string, targetLanguage: string): Promise<PartnerContext | null> {
   const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
@@ -103,23 +107,24 @@ async function getPartnerContext(userId: string): Promise<PartnerContext | null>
     .eq('id', learnerId)
     .single();
 
-  // Get learner's vocabulary (limit to recent 50 - we only use ~30 in prompts)
+  // Get learner's vocabulary for the specific language (limit to recent 50 - we only use ~30 in prompts)
   const { data: vocabulary } = await supabase
     .from('dictionary')
     .select('word, translation')  // Only need these fields for prompt context
     .eq('user_id', learnerId)
+    .eq('language_code', targetLanguage)  // Filter by target language
     .order('unlocked_at', { ascending: false })
     .limit(50);
 
-  // Get learner's scores for weak spots
+  // Get learner's scores for weak spots (filter by language via dictionary join)
   const { data: scores } = await supabase
     .from('scores')
-    .select('word_id, success_count, fail_count, learned_at, dictionary:word_id(word, translation)')
+    .select('word_id, success_count, fail_count, learned_at, dictionary:word_id(word, translation, language_code)')
     .eq('user_id', learnerId);
 
-  // Calculate weak spots (words with failures)
+  // Calculate weak spots (words with failures, filtered by language)
   const weakSpots = (scores || [])
-    .filter((s: any) => s.fail_count > 0)
+    .filter((s: any) => s.fail_count > 0 && s.dictionary?.language_code === targetLanguage)
     .sort((a: any, b: any) => b.fail_count - a.fail_count)
     .slice(0, 10)
     .map((s: any) => ({
@@ -231,6 +236,13 @@ export default async function handler(req: any, res: any) {
 
     const { prompt, mode = 'ask', userLog = [], action, images, messages = [], sessionContext } = body;
 
+    // Extract language parameters (defaults to Polish/English for backward compatibility)
+    const { targetLanguage, nativeLanguage } = extractLanguages(body);
+    const targetConfig = getLanguageConfig(targetLanguage);
+    const nativeConfig = getLanguageConfig(nativeLanguage);
+    const targetName = getLanguageName(targetLanguage);
+    const nativeName = getLanguageName(nativeLanguage);
+
     // Input validation to prevent API cost abuse and potential DoS
     const MAX_PROMPT_LENGTH = 10000;
     const MAX_MESSAGES = 50;
@@ -269,13 +281,38 @@ export default async function handler(req: any, res: any) {
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `Generate a short (2-3 word) romantic or cute title for a Polish learning session starting with: "${prompt}"`,
+        contents: `Generate a short (2-3 word) romantic or cute title for a ${targetName} learning session starting with: "${prompt}"`,
       });
       return res.status(200).json({ title: response.text?.replace(/"/g, '').trim() || "New Session" });
     }
 
+    // Build dynamic vocabulary extraction instructions based on target language grammar
+    const conjugationPersons = getConjugationPersons(targetLanguage);
+    const hasGender = targetConfig?.grammar.hasGender || false;
+    const genderTypes = targetConfig?.grammar.genderTypes || [];
+    const hasConjugation = targetConfig?.grammar.hasConjugation || false;
+
+    // Build conjugation example if language has conjugation
+    const conjugationExample = hasConjugation && conjugationPersons.length >= 6
+      ? `{ present: { first_singular: "...", second_singular: "...", third_singular: "...", first_plural: "...", second_plural: "...", third_plural: "..." } }
+  Person labels for ${targetName}: ${conjugationPersons.join(', ')}`
+      : 'This language has minimal conjugation - include base form only';
+
+    // Build gender instruction if language has grammatical gender
+    const genderInstruction = hasGender
+      ? `- MUST include "gender": "${genderTypes.join('" | "')}"
+- MUST include "plural": the plural form`
+      : '- Include "plural" form if applicable';
+
+    // Build adjective forms instruction
+    const adjectiveInstruction = hasGender
+      ? `- MUST include "adjectiveForms" with gender forms:
+  { ${genderTypes.map(g => `${g}: "..."`).join(', ')}, plural: "..." }
+- EVERY field MUST be filled - no nulls or empty strings`
+      : '- Include base form and plural if applicable';
+
     const COMMON_INSTRUCTIONS = `
-You are "Cupid" - a warm, encouraging Polish language companion helping someone learn their partner's native language. Every word they learn is a gift of love.
+You are "Cupid" - a warm, encouraging ${targetName} language companion helping someone learn their partner's native language. Every word they learn is a gift of love.
 
 CONTEXT AWARENESS:
 You can see the recent conversation history. Use it to:
@@ -288,17 +325,17 @@ CORE PRINCIPLES:
 - You are NOT flirty with the user - you ENCOURAGE them to be romantic with their partner
 - Celebrate every small win enthusiastically
 - Connect vocabulary to relationship moments
-- Always explain Polish in English first, then show Polish with (translation in brackets)
+- Always explain ${targetName} in ${nativeName} first, then show ${targetName} with (translation in brackets)
 
 LANGUAGE RULES:
-- Polish text ALWAYS followed by (English translation)
+- ${targetName} text ALWAYS followed by (${nativeName} translation)
 - Never dump multiple concepts - one thing at a time
 - Include pronunciation hints for tricky words
 
 FORMATTING - YOU MUST FOLLOW THIS EXACTLY:
-- Polish words go inside **double asterisks**: **kocham**, **Dzień dobry**
-- Pronunciation goes in [square brackets]: [KOH-ham], [jen DOH-bri]
-- Complete example: **Dzień dobry** [jen DOH-bri] means "good morning"
+- ${targetName} words go inside **double asterisks**: **word**, **phrase**
+- Pronunciation goes in [square brackets]: [pronunciation guide]
+- Complete example: **${targetConfig?.examples.hello || 'Hello'}** [pronunciation] means "${nativeConfig?.examples.hello || 'Hello'}"
 - Output ONLY plain text with markdown - nothing else
 
 VOCABULARY EXTRACTION - THIS IS MANDATORY FOR EVERY RESPONSE:
@@ -306,29 +343,26 @@ VOCABULARY EXTRACTION - THIS IS MANDATORY FOR EVERY RESPONSE:
 You MUST populate the newWords array with COMPLETE data. Incomplete entries are NOT acceptable.
 
 === FOR VERBS ===
-- Use INFINITIVE form as "word" (e.g., "jeść" not "jem")
+- Use INFINITIVE form as "word"
 - type: "verb"
-- ONLY extract PRESENT TENSE conjugations with ALL 6 persons:
-  { present: { ja: "jem", ty: "jesz", onOna: "je", my: "jemy", wy: "jecie", oni: "jedzą" } }
-- EVERY field (ja, ty, onOna, my, wy, oni) MUST be filled - no nulls or empty strings
-- DO NOT include past or future tenses - users unlock those separately when ready
-- Include 5 example sentences in Polish with English translations in parentheses
+${hasConjugation ? `- ONLY extract PRESENT TENSE conjugations with ALL persons:
+  ${conjugationExample}
+- EVERY field MUST be filled - no nulls or empty strings
+- DO NOT include past or future tenses - users unlock those separately when ready` : '- Include base/infinitive form'}
+- Include 5 example sentences in ${targetName} with ${nativeName} translations in parentheses
 - proTip: romantic/practical usage tip (max 60 chars)
 
 === FOR NOUNS ===
 - Use singular nominative as "word"
 - type: "noun"
-- MUST include "gender": "masculine" | "feminine" | "neuter"
-- MUST include "plural": the plural form (e.g., word: "kot", plural: "koty")
+${genderInstruction}
 - Include 5 example sentences
 - proTip: usage tip
 
 === FOR ADJECTIVES ===
-- Use masculine form as "word"
+- Use base form as "word"
 - type: "adjective"
-- MUST include "adjectiveForms" with ALL 4 forms:
-  { masculine: "dobry", feminine: "dobra", neuter: "dobre", plural: "dobrzy" }
-- EVERY field MUST be filled - no nulls or empty strings
+${adjectiveInstruction}
 - Include 5 example sentences
 - proTip: usage tip
 
@@ -339,17 +373,17 @@ You MUST populate the newWords array with COMPLETE data. Incomplete entries are 
 
 === EXAMPLES FIELD ===
 EVERY word MUST have exactly 5 examples. Format each as:
-"Kocham cię bardzo. (I love you very much.)"
+"${targetName} sentence. (${nativeName} translation.)"
 
 === VALIDATION CHECKLIST ===
 Before returning, verify:
-[ ] Every verb has conjugations.present with ALL 6 persons filled (NO past/future - those are unlocked later)
-[ ] Every noun has gender AND plural
-[ ] Every adjective has adjectiveForms with ALL 4 forms filled
+${hasConjugation ? `[ ] Every verb has conjugations.present with ALL persons filled (NO past/future - those are unlocked later)` : '[ ] Every verb has base form'}
+${hasGender ? `[ ] Every noun has gender AND plural` : '[ ] Every noun has plural if applicable'}
+${hasGender ? `[ ] Every adjective has adjectiveForms with ALL gender forms filled` : '[ ] Every adjective has base form'}
 [ ] Every word has exactly 5 examples
 [ ] Every word has a proTip
 
-DO NOT return incomplete data. If unsure of a conjugation, look it up - Polish grammar is consistent.
+DO NOT return incomplete data. If unsure of a form, look it up - ${targetName} grammar is consistent.
 `;
 
     const MODE_DEFINITIONS = {
@@ -361,20 +395,20 @@ You are texting a friend. Be BRIEF and natural.
 CRITICAL RULES:
 - Maximum 2-3 sentences
 - NEVER repeat the same word/phrase twice
-- Give the Polish word ONCE with pronunciation, then move on
+- Give the ${targetName} word ONCE with pronunciation, then move on
 - End with a quick follow-up question
 
 FORMAT TEMPLATE:
-"[Polish word] ([pronunciation]) means [meaning]. [One romantic tip]. [Follow-up question]?"
+"[${targetName} word] ([pronunciation]) means [meaning]. [One romantic tip]. [Follow-up question]?"
 
 EXAMPLE:
-User: "How do I say good morning?"
-Good: "Dzień dobry (jen DOH-bri)! Whisper it to them before they open their eyes. Want the casual evening version?"
-Bad: "You can say good morning by saying Dzień dobry (Good morning)..." ← TOO REPETITIVE
+User: "How do I say hello?"
+Good: "${targetConfig?.examples.hello || 'Hello'} [pronunciation]! Whisper it to them when you wake up. Want the evening version?"
+Bad: "You can say hello by saying ${targetConfig?.examples.hello || 'Hello'} (Hello)..." ← TOO REPETITIVE
 
 BANNED:
 - Tables, bullet points, numbered lists
-- Repeating the English translation multiple times
+- Repeating the ${nativeName} translation multiple times
 - Long explanations
 - Saying "you can say X by saying X"
 `,
@@ -386,8 +420,8 @@ You MUST use special markdown syntax. This is NON-NEGOTIABLE.
 Known vocabulary: [${sanitizedUserLog.slice(0, 30).join(', ')}]
 
 VERB TEACHING RULE:
-When teaching ANY verb, ALWAYS show ALL 6 conjugations (I, You, He/She, We, You plural, They).
-This is essential - never show partial conjugations.
+${hasConjugation ? `When teaching ANY verb, ALWAYS show ALL ${conjugationPersons.length} conjugations (${conjugationPersons.join(', ')}).
+This is essential - never show partial conjugations.` : `Show the base/infinitive form and any key variations.`}
 
 YOUR RESPONSE MUST CONTAIN THESE EXACT PATTERNS:
 
@@ -404,23 +438,23 @@ Your challenge text here
 :::
 
 COMPLETE EXAMPLE FOR VERB TEACHING:
-"Let's master 'kochać' (to love) - the most important verb!
+"Let's master 'to love' - the most important verb in any language!
 
 ::: table
-Person | Polish | Pronunciation
+Person | ${targetName} | Pronunciation
 ---|---|---
-I | kocham | KOH-ham
-You (singular) | kochasz | KOH-hash
-He/She/It | kocha | KOH-ha
-We | kochamy | koh-HA-mih
-You (plural) | kochacie | koh-HA-chyeh
-They | kochają | koh-HA-yohng
+${conjugationPersons[0] || 'I'} | [I form] | [pronunciation]
+${conjugationPersons[1] || 'You'} | [You form] | [pronunciation]
+${conjugationPersons[2] || 'He/She/It'} | [He/She form] | [pronunciation]
+${conjugationPersons[3] || 'We'} | [We form] | [pronunciation]
+${conjugationPersons[4] || 'You (pl)'} | [You plural form] | [pronunciation]
+${conjugationPersons[5] || 'They'} | [They form] | [pronunciation]
 :::
 
-Try whispering 'Kochamy się' (We love each other) while hugging.
+Try whispering 'We love each other' in ${targetName} while hugging.
 
 ::: drill
-Tonight's challenge: Say 'Kocham cię' while looking into their eyes.
+Tonight's challenge: Say '${targetConfig?.examples.iLoveYou || 'I love you'}' while looking into their eyes.
 :::
 
 Want me to show you the past and future tenses too?"
@@ -430,7 +464,7 @@ ALWAYS END WITH A FOLLOW-UP QUESTION offering to teach related content (other te
 VALIDATION:
 [ ] Table has "::: table" and ":::" markers
 [ ] Drill has "::: drill" and ":::" markers
-[ ] Verbs show ALL 6 conjugations
+${hasConjugation ? `[ ] Verbs show ALL ${conjugationPersons.length} conjugations` : `[ ] Verbs show base form and key variations`}
 [ ] Ends with follow-up question
 
 If you write a table WITHOUT "::: markers, IT WILL NOT RENDER.
@@ -461,7 +495,7 @@ Keep responses warm and encouraging!
       return `
 ### MODE: COACH - Tutor's Assistant
 
-You are a warm, helpful assistant for a Polish speaker who is helping their English-speaking partner (${context.learnerName}) learn Polish.
+You are a warm, helpful assistant for a ${nativeName} speaker who is helping their ${nativeName}-speaking partner (${context.learnerName}) learn ${targetName}.
 
 === ${context.learnerName.toUpperCase()}'S PROGRESS (use naturally, don't over-reference) ===
 - Total words: ${context.stats.totalWords} | Mastered: ${context.stats.masteredCount} | Level: ${context.stats.level}
@@ -471,11 +505,11 @@ You are a warm, helpful assistant for a Polish speaker who is helping their Engl
 
 === YOUR TWO ROLES ===
 
-**1. TEACHING HELPER** - Answer questions about Polish:
+**1. TEACHING HELPER** - Answer questions about ${targetName}:
 - How to explain grammar concepts simply
 - Pronunciation tips they can share
 - Fun practice activities for couples
-- Polish culture and context
+- ${targetName} culture and context
 
 **2. CONTEXT-AWARE COACH** - Use ${context.learnerName}'s progress when helpful:
 - Suggest phrases using words they already know
@@ -485,28 +519,28 @@ You are a warm, helpful assistant for a Polish speaker who is helping their Engl
 
 === RESPONSE GUIDELINES ===
 - Keep responses concise (2-4 sentences)
-- Polish words in **bold** with [pronunciation]
+- ${targetName} words in **bold** with [pronunciation]
 - Be practical - suggestions they can use tonight
 - DON'T force partner data into every response
 - When they ask general questions, answer directly
 - When they ask about their partner, use the context data
 
 === GROWING VOCABULARY ===
-Actively suggest NEW Polish words ${context.learnerName} hasn't learned yet! Expand their vocabulary by:
+Actively suggest NEW ${targetName} words ${context.learnerName} hasn't learned yet! Expand their vocabulary by:
 - Teaching new words related to ones they know
 - Suggesting romantic phrases they haven't tried
 - Building on their current level with slightly more advanced vocabulary
 
 === EXAMPLES ===
 
-User: "How do I explain Polish cases?"
-Good: "Start simple! Cases are like 'word costumes' that change based on a word's job. Try: '**Kot** (cat) becomes **kota** when you DO something to the cat.' Practice with objects around the room - point and conjugate together!"
+User: "How do I explain ${targetName} grammar?"
+Good: "Start simple! ${targetConfig?.grammar.hasCases ? `Cases are like 'word costumes' that change based on a word's job. Practice with objects around the room - point and decline together!` : targetConfig?.grammar.hasGender ? `Grammatical gender is like giving every noun a personality. Practice by grouping objects by gender!` : `Focus on common patterns first. Practice with everyday objects and phrases!`}"
 
 User: "What can I say to them tonight?"
-Good: "Since ${context.learnerName} knows **piękny**, try '**Jesteś piękna**' [YES-tesh PYEN-kna] - 'You are beautiful'. For something NEW, teach them **tęsknię za tobą** [TENSH-nyeh zah TOH-boh] - 'I miss you' - perfect for bedtime whispers!"
+Good: "Since ${context.learnerName} knows some vocabulary, suggest something romantic! Try teaching them '${targetConfig?.examples.iLoveYou || 'I love you'}' - perfect for bedtime whispers. For something NEW, expand their romantic vocabulary with related phrases!"
 
 User: "They're frustrated with learning"
-Good: "I see **mówić** is tricky for them. Make it a game - you say 'Ja mówię', they repeat. Each correct answer = a kiss! Celebrate small wins. Want a fun 5-minute drill?"
+Good: "Make it a game - you say a word, they repeat. Each correct answer = a kiss! Celebrate small wins. Want a fun 5-minute drill?"
 
 === IMPORTANT ===
 - DO NOT extract vocabulary - you're helping the tutor, not the learner
@@ -549,7 +583,7 @@ Good: "I see **mówić** is tricky for them. Make it a game - you say 'Ja mówi�
       partnerName = userProfile.partnerName;
 
       if (userRole === 'tutor') {
-        partnerContext = await getPartnerContext(auth.userId);
+        partnerContext = await getPartnerContext(auth.userId, targetLanguage);
       }
     }
 
@@ -564,17 +598,17 @@ Good: "I see **mówić** is tricky for them. Make it a game - you say 'Ja mówi�
 
     // Generate personalized context for students (minimal - just partner name)
     const personalizedContext = partnerName && userRole === 'student'
-      ? `\nPERSONALIZATION:\nThe user is learning Polish for someone named ${partnerName}. Reference this person naturally in examples and encouragement (e.g., "Try saying this to ${partnerName} tonight!" or "Imagine ${partnerName}'s reaction when you say this!").\n`
+      ? `\nPERSONALIZATION:\nThe user is learning ${targetName} for someone named ${partnerName}. Reference this person naturally in examples and encouragement (e.g., "Try saying this to ${partnerName} tonight!" or "Imagine ${partnerName}'s reaction when you say this!").\n`
       : '';
 
     // Tutors use simplified instructions (no vocabulary extraction needed)
     const isTutorMode = userRole === 'tutor';
     const activeSystemInstruction = isTutorMode
-      ? `You are a warm, helpful assistant for a Polish speaker helping their partner learn Polish. Your responses should be encouraging and practical.
+      ? `You are a warm, helpful assistant for a ${nativeName} speaker helping their partner learn ${targetName}. Your responses should be encouraging and practical.
 
 FORMATTING:
-- Polish words go inside **double asterisks**: **kocham**, **Dzień dobry**
-- Pronunciation goes in [square brackets]: [KOH-ham]
+- ${targetName} words go inside **double asterisks**: **${targetConfig?.examples.iLoveYou || 'word'}**, **${targetConfig?.examples.hello || 'phrase'}**
+- Pronunciation goes in [square brackets]: [pronunciation]
 - Keep responses warm, conversational, and focused on helping the couple connect through language
 
 ${modePrompt}`
@@ -592,71 +626,13 @@ ${modePrompt}`;
     };
 
     // Full schema for student modes (ASK/LEARN) - vocabulary goes to Love Log
+    // Uses dynamic schema builder that adapts to target language grammar
+    const vocabSchema = buildVocabularySchema(targetLanguage);
     const studentModeSchema = {
       type: Type.OBJECT,
       properties: {
         replyText: { type: Type.STRING },
-        newWords: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              word: { type: Type.STRING },
-              translation: { type: Type.STRING },
-              type: { type: Type.STRING, enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"] },
-              importance: { type: Type.INTEGER },
-              context: { type: Type.STRING },
-              rootWord: { type: Type.STRING },
-              examples: {
-                type: Type.ARRAY,
-                items: { type: Type.STRING },
-                description: "REQUIRED: Exactly 5 example sentences. Format: 'Polish sentence. (English translation.)'"
-              },
-              proTip: { type: Type.STRING },
-              conjugations: {
-                type: Type.OBJECT,
-                description: "REQUIRED for verbs. Only present tense - past/future unlocked separately.",
-                properties: {
-                  present: {
-                    type: Type.OBJECT,
-                    description: "Present tense conjugations - ALL 6 fields required",
-                    properties: {
-                      ja: { type: Type.STRING, description: "I form - REQUIRED" },
-                      ty: { type: Type.STRING, description: "You (singular) form - REQUIRED" },
-                      onOna: { type: Type.STRING, description: "He/She/It form - REQUIRED" },
-                      my: { type: Type.STRING, description: "We form - REQUIRED" },
-                      wy: { type: Type.STRING, description: "You (plural) form - REQUIRED" },
-                      oni: { type: Type.STRING, description: "They form - REQUIRED" }
-                    },
-                    required: ["ja", "ty", "onOna", "my", "wy", "oni"]
-                  }
-                },
-                required: ["present"]
-              },
-              adjectiveForms: {
-                type: Type.OBJECT,
-                description: "REQUIRED for adjectives. All 4 gender forms must be provided.",
-                properties: {
-                  masculine: { type: Type.STRING, description: "Masculine form - REQUIRED" },
-                  feminine: { type: Type.STRING, description: "Feminine form - REQUIRED" },
-                  neuter: { type: Type.STRING, description: "Neuter form - REQUIRED" },
-                  plural: { type: Type.STRING, description: "Plural form - REQUIRED" }
-                },
-                required: ["masculine", "feminine", "neuter", "plural"]
-              },
-              gender: {
-                type: Type.STRING,
-                enum: ["masculine", "feminine", "neuter"],
-                description: "REQUIRED for nouns. Grammatical gender."
-              },
-              plural: {
-                type: Type.STRING,
-                description: "REQUIRED for nouns. The plural form of the word."
-              }
-            },
-            required: ["word", "translation", "type", "importance", "rootWord", "examples", "proTip"]
-          }
-        }
+        ...vocabSchema.properties  // Adds newWords array with language-specific structure
       },
       required: ["replyText", "newWords"]
     };

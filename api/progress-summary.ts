@@ -1,6 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { getLanguageName } from '../constants/language-config.js';
 
 // Get level display name from XP
 function getLevelDisplayName(xp: number): string {
@@ -124,12 +125,16 @@ export default async function handler(req: any, res: any) {
     const isIncremental = !!lastSummary;
     const sinceDate = lastSummary?.created_at || new Date(0).toISOString();
 
-    // STEP 2: Fetch profile (always needed)
+    // STEP 2: Fetch profile with language settings (always needed)
     const { data: profile } = await supabase
       .from('profiles')
-      .select('xp, level, full_name')
+      .select('xp, level, full_name, active_language, native_language')
       .eq('id', auth.userId)
       .single();
+
+    const targetLanguage = profile?.active_language || 'pl';
+    const nativeLanguage = profile?.native_language || 'en';
+    const targetName = getLanguageName(targetLanguage);
 
     // STEP 3: Incremental fetches - only data SINCE last summary
     // Vocabulary: only new words since last summary (or all if first summary, limited to 100)
@@ -137,6 +142,7 @@ export default async function handler(req: any, res: any) {
       .from('dictionary')
       .select('word, translation, word_type, context, unlocked_at')
       .eq('user_id', auth.userId)
+      .eq('language_code', targetLanguage)
       .order('unlocked_at', { ascending: false });
 
     if (isIncremental) {
@@ -150,7 +156,8 @@ export default async function handler(req: any, res: any) {
     const { count: totalWordCount } = await supabase
       .from('dictionary')
       .select('id', { count: 'exact', head: true })
-      .eq('user_id', auth.userId);
+      .eq('user_id', auth.userId)
+      .eq('language_code', targetLanguage);
 
     // Messages: only since last summary (or last 14 days if first)
     const messagesSinceDate = isIncremental ? sinceDate : (() => {
@@ -343,7 +350,7 @@ ${recentConversationText?.slice(0, 1000) || 'None'}
 ## Your Task
 Generate a SHORT, encouraging update (2-3 sentences) celebrating recent progress. Focus on NEW words and achievements only.`
 
-      : `You are a warm, encouraging language learning coach for a Polish language app for couples.
+      : `You are a warm, encouraging language learning coach for a ${targetName} language learning app for couples.
 
 ## User's Learning Data
 **Total Words:** ${totalWords}
@@ -378,7 +385,7 @@ Generate an encouraging, personalized progress summary. Focus on specific words 
           properties: {
             title: {
               type: Type.STRING,
-              description: 'A short, creative title for this journey entry (3-5 words, like "Mastering Kitchen Polish" or "Love Words Week")'
+              description: `A short, creative title for this journey entry (3-5 words, like "Mastering Kitchen ${targetName}" or "Love Words Week")`
             },
             summary: {
               type: Type.STRING,
@@ -419,14 +426,14 @@ Generate an encouraging, personalized progress summary. Focus on specific words 
       console.error('Failed to parse AI response:', text);
       // Return a default response
       parsed = {
-        title: totalWords > 0 ? 'Your Polish Journey' : 'Getting Started',
+        title: totalWords > 0 ? `Your ${targetName} Journey` : 'Getting Started',
         summary: totalWords > 0
-          ? `You've learned ${totalWords} Polish words so far - that's wonderful progress! Each word brings you closer to meaningful conversations with your partner.`
-          : "Your Polish journey is just beginning! Start chatting to learn your first words.",
+          ? `You've learned ${totalWords} ${targetName} words so far - that's wonderful progress! Each word brings you closer to meaningful conversations with your partner.`
+          : `Your ${targetName} journey is just beginning! Start chatting to learn your first words.`,
         topicsExplored: totalWords > 0 ? ['Basic vocabulary', 'Everyday phrases'] : ['Getting started'],
         grammarHighlights: totalWords > 0 ? ['Word recognition', 'Basic pronunciation'] : [],
         canNowSay: recentWords.slice(0, 3).map(w => w.translation) || [],
-        suggestions: ['Try learning greetings', 'Practice saying "I love you" in Polish']
+        suggestions: ['Try learning greetings', `Practice saying "I love you" in ${targetName}`]
       };
     }
 

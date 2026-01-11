@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
-import { speakPolish } from '../../../../services/audio';
+import { speak } from '../../../../services/audio';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface LearnLoveStepProps {
   currentStep: number;
@@ -20,10 +23,14 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [hasListened, setHasListened] = useState(false);
+  const { targetLanguage, nativeLanguage, targetName } = useLanguage();
+  const lovePhrase = LANGUAGE_CONFIGS[targetLanguage]?.examples.iLoveYou || 'I love you';
+  const loveTranslation = LANGUAGE_CONFIGS[nativeLanguage]?.examples.iLoveYou || 'I love you';
 
   const playAudio = () => {
-    speakPolish('Kocham cię');
+    speak(lovePhrase, targetLanguage);
     setHasListened(true);
   };
 
@@ -37,23 +44,20 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
       <div className="text-center mb-6">
         <div className="text-6xl mb-4">💕</div>
         <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-          Now, the most important phrase...
+          {t('onboarding.student.learnLove.title')}
         </h1>
         <p className="text-gray-500">
-          The one {partnerName} will never forget
+          {t('onboarding.student.learnLove.subtitle', { name: partnerName })}
         </p>
       </div>
 
       <div className="bg-gradient-to-br from-[var(--accent-light)] to-pink-50 rounded-3xl p-8 shadow-lg border border-[var(--accent-border)] mb-6">
         <div className="text-center">
-          <div className="text-4xl font-black mb-2" style={{ color: accentColor }}>
-            Kocham cię
-          </div>
-          <div className="text-gray-400 text-lg mb-4">
-            [KOH-ham chyeh]
+          <div className="text-4xl font-black mb-4" style={{ color: accentColor }}>
+            {lovePhrase}
           </div>
           <div className="text-gray-600 font-medium text-xl mb-6">
-            "I love you"
+            "{loveTranslation}"
           </div>
 
           <button
@@ -66,7 +70,7 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
           >
             <ICONS.Volume2 className={`w-6 h-6 ${hasListened ? 'text-[var(--accent-color)]' : 'text-white'}`} />
             <span className={`font-bold ${hasListened ? 'text-[var(--accent-text)]' : 'text-white'}`}>
-              {hasListened ? 'Listen again' : 'Hear it'}
+              {hasListened ? t('onboarding.student.learnLove.listenAgain') : t('onboarding.student.learnLove.hearIt')}
             </span>
           </button>
         </div>
@@ -75,10 +79,12 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
       <div className="bg-amber-50 rounded-2xl p-4 mb-6">
         <div className="flex gap-3">
           <span className="text-xl">💡</span>
-          <div className="text-sm text-amber-800">
-            <strong>Pro tip:</strong> The "ch" in "Kocham" is soft, like the "h" in "huge".
-            The "cię" sounds like "chyeh" - let it flow!
-          </div>
+          <div
+            className="text-sm text-amber-800"
+            dangerouslySetInnerHTML={{
+              __html: t('onboarding.student.learnLove.proTip', { name: partnerName, language: targetName })
+            }}
+          />
         </div>
       </div>
 
@@ -87,7 +93,7 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
         disabled={!hasListened}
         accentColor={accentColor}
       >
-        {hasListened ? 'I\'m ready!' : 'Listen first'}
+        {hasListened ? t('onboarding.student.learnLove.ready') : t('onboarding.student.learnLove.listenFirst')}
       </NextButton>
     </OnboardingStep>
   );

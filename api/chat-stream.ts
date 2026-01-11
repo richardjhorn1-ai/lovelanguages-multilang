@@ -1,5 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 import { setStreamingCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { extractLanguages, type LanguageParams } from '../utils/language-helpers.js';
+import { buildCupidSystemPrompt, getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
+import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
+import { buildVocabularySchema } from '../utils/schema-builders.js';
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {
@@ -38,10 +42,30 @@ function sanitizeOutput(text: string): string {
     .trim();
 }
 
-// Build system instruction based on mode
-function buildSystemInstruction(mode: string, userLog: string[]): string {
+// Build system instruction based on mode and language parameters
+function buildSystemInstruction(
+  mode: string,
+  userLog: string[],
+  targetLanguage: string,
+  nativeLanguage: string
+): string {
+  // Get language configs and names
+  const targetConfig = getLanguageConfig(targetLanguage);
+  const nativeConfig = getLanguageConfig(nativeLanguage);
+  const targetName = getLanguageName(targetLanguage);
+  const nativeName = getLanguageName(nativeLanguage);
+
+  // Get conjugation persons for verb rules (or fallback to English)
+  const conjugationPersons = getConjugationPersons(targetLanguage);
+  const hasConjugation = targetConfig?.grammar.hasConjugation || false;
+  const conjugationCount = conjugationPersons.length || 6;
+
+  // Get example phrases for the target language
+  const helloExample = targetConfig?.examples.hello || 'Hello';
+  const helloNative = nativeConfig?.examples.hello || 'Hello';
+
   const COMMON = `
-You are "Cupid" - a warm, encouraging Polish language companion helping someone learn their partner's native language.
+You are "Cupid" - a warm, encouraging ${targetName} language companion helping someone learn their partner's native language.
 
 CONTEXT AWARENESS:
 You can see the recent conversation history. Use it to:
@@ -50,14 +74,14 @@ You can see the recent conversation history. Use it to:
 - Build progressively on vocabulary they've seen in this chat
 
 CORE RULES:
-- Polish text ALWAYS followed by (English translation)
+- ${targetName} text ALWAYS followed by (${nativeName} translation)
 - Never dump multiple concepts - one thing at a time
 - Include pronunciation hints for tricky words
 
 FORMATTING - YOU MUST FOLLOW THIS EXACTLY:
-- Polish words go inside **double asterisks**: **kocham**, **Dzień dobry**
-- Pronunciation goes in [square brackets]: [KOH-ham], [jen DOH-bri]
-- Complete example: **Dzień dobry** [jen DOH-bri] means "good morning"
+- ${targetName} words go inside **double asterisks**: **${helloExample}**
+- Pronunciation goes in [square brackets]: [pronunciation guide]
+- Complete example: **${helloExample}** [pronunciation] means "${helloNative}"
 - Output ONLY plain text with markdown - nothing else
 `;
 
@@ -75,7 +99,9 @@ MODE: LEARN - Structured Lesson
 
 Known vocabulary: [${userLog.slice(0, 30).join(', ')}]
 
-VERB RULE: Show ALL 6 conjugations (I, You, He/She, We, You plural, They)
+${hasConjugation && conjugationPersons.length >= 6
+  ? `VERB RULE: Show ALL ${conjugationCount} conjugations (${conjugationPersons.join(', ')})`
+  : `VERB RULE: Show the base form and any key variations for this language`}
 
 USE THESE EXACT FORMATS:
 
@@ -123,13 +149,16 @@ export default async function handler(req: any, res: any) {
 
     const { prompt, mode = 'ask', userLog = [], messages = [] } = body;
 
+    // Extract language parameters (defaults to Polish/English for backward compatibility)
+    const { targetLanguage, nativeLanguage } = extractLanguages(body);
+
     if (!prompt) {
       res.write(`data: ${JSON.stringify({ error: 'No prompt provided' })}\n\n`);
       return res.end();
     }
 
     const ai = new GoogleGenAI({ apiKey });
-    const systemInstruction = buildSystemInstruction(mode, userLog);
+    const systemInstruction = buildSystemInstruction(mode, userLog, targetLanguage, nativeLanguage);
 
     // Build multi-turn conversation contents
     const contents: any[] = [];

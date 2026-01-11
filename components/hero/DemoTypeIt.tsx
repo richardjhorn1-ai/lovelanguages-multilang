@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { DemoWord } from './demoData';
 
 interface DemoTypeItProps {
   word: DemoWord;
   accentColor: string;
   onComplete: (correct: boolean) => void;
+  targetName: string;
+  nativeName: string;
 }
 
 export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
   word,
   accentColor,
   onComplete,
+  targetName,
+  nativeName,
 }) => {
+  const { t } = useTranslation();
   const [answer, setAnswer] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -50,7 +56,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
         className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4"
         style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
       >
-        Polish → English
+        {targetName} → {nativeName}
       </span>
 
       <h3 className="text-2xl font-black text-[#1a1a2e] mb-2 text-center">
@@ -68,16 +74,16 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
           {isCorrect ? (
             <div className="flex items-center justify-center gap-2">
               <span>✓</span>
-              <span className="font-bold">Correct!</span>
+              <span className="font-bold">{t('demoTypeIt.correct')}</span>
             </div>
           ) : (
             <div>
               <div className="flex items-center justify-center gap-2 mb-1">
                 <span>✗</span>
-                <span className="font-bold">Not quite</span>
+                <span className="font-bold">{t('demoTypeIt.notQuite')}</span>
               </div>
               <p className="text-xs">
-                Answer: <span className="font-black">{word.translation}</span>
+                {t('demoTypeIt.answer')} <span className="font-black">{word.translation}</span>
               </p>
             </div>
           )}
@@ -90,7 +96,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Type in English..."
+          placeholder={t('demoTypeIt.typeIn', { language: nativeName })}
           disabled={submitted}
           className="w-full p-3 rounded-xl border-2 focus:outline-none text-base font-medium text-center"
           style={{
@@ -112,7 +118,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
         className="w-full mt-4 py-3 rounded-xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50 transition-all active:scale-[0.98]"
         style={{ backgroundColor: accentColor }}
       >
-        {submitted ? 'Next' : 'Check'}
+        {submitted ? t('demoTypeIt.next') : t('demoTypeIt.check')}
       </button>
     </div>
   );

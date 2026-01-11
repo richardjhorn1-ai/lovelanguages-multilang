@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
-import { speakPolish } from '../../../../services/audio';
+import { speak } from '../../../../services/audio';
+import { useLanguage } from '../../../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface LearnHelloStepProps {
   currentStep: number;
@@ -20,10 +23,14 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
   onBack,
   accentColor = '#FF4761'
 }) => {
+  const { t } = useTranslation();
   const [hasListened, setHasListened] = useState(false);
+  const { targetLanguage, nativeLanguage, targetName } = useLanguage();
+  const helloWord = LANGUAGE_CONFIGS[targetLanguage]?.examples.hello || 'Hello';
+  const helloTranslation = LANGUAGE_CONFIGS[nativeLanguage]?.examples.hello || 'Hello';
 
   const playAudio = () => {
-    speakPolish('Cześć');
+    speak(helloWord, targetLanguage);
     setHasListened(true);
   };
 
@@ -37,23 +44,20 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
       <div className="text-center mb-8">
         <div className="text-6xl mb-4">👋</div>
         <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-          Let's learn your first word!
+          {t('onboarding.student.learnHello.title')}
         </h1>
         <p className="text-gray-500">
-          Say hello to {partnerName} in Polish
+          {t('onboarding.student.learnHello.subtitle', { name: partnerName, language: targetName })}
         </p>
       </div>
 
       <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 mb-8">
         <div className="text-center">
-          <div className="text-5xl font-black mb-2" style={{ color: accentColor }}>
-            Cześć
-          </div>
-          <div className="text-gray-400 text-lg mb-6">
-            [cheshch]
+          <div className="text-5xl font-black mb-4" style={{ color: accentColor }}>
+            {helloWord}
           </div>
           <div className="text-gray-600 font-medium mb-6">
-            "Hi" / "Hello" / "Bye"
+            "{helloTranslation}"
           </div>
 
           <button
@@ -61,13 +65,13 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
             className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gray-100 hover:bg-gray-200 transition-all"
           >
             <ICONS.Volume2 className="w-6 h-6 text-gray-600" />
-            <span className="font-bold text-gray-700">Listen</span>
+            <span className="font-bold text-gray-700">{t('onboarding.student.learnHello.listen')}</span>
           </button>
         </div>
       </div>
 
       <div className="text-center text-sm text-gray-400 mb-6">
-        💡 Poles use "Cześć" for both hello AND goodbye with close friends
+        {t('onboarding.student.learnHello.tip', { language: targetName })}
       </div>
 
       <NextButton
@@ -75,7 +79,7 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
         disabled={!hasListened}
         accentColor={accentColor}
       >
-        {hasListened ? 'Got it!' : 'Listen first'}
+        {hasListened ? t('onboarding.student.learnHello.gotIt') : t('onboarding.student.learnHello.listenFirst')}
       </NextButton>
     </OnboardingStep>
   );

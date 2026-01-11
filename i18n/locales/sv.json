@@ -1,0 +1,1817 @@
+{
+  "common": {
+    "loading": "Laddar...",
+    "error": "Något gick fel",
+    "save": "Spara",
+    "cancel": "Avbryt",
+    "close": "Stäng",
+    "back": "Tillbaka",
+    "next": "Nästa",
+    "submit": "Skicka",
+    "delete": "Ta bort",
+    "edit": "Redigera"
+  },
+  "nav": {
+    "chat": "Chatt",
+    "log": "Love Log",
+    "play": "Spela",
+    "progress": "Framsteg",
+    "notifications": "Aviseringar",
+    "noNotifications": "Inga aviseringar ännu",
+    "newCount": "{{count}} nya",
+    "allCaughtUp": "Du är i kapp!",
+    "viewProfile": "Visa profil",
+    "myProgress": "Min framsteg",
+    "reportBug": "Rapportera en bugg",
+    "helpGuide": "Hjälp och guide",
+    "signOut": "Logga ut"
+  },
+  "chat": {
+    "sidebar": {
+      "newSession": "Ny session",
+      "collapse": "Fäll ihop sidofält",
+      "expand": "Expandera sidofält",
+      "conversations": "Konversationer",
+      "noConversations": "Inga konversationer ännu",
+      "startSession": "Starta en ny session ovan",
+      "items": "{{count}} objekt",
+      "items_other": "{{count}} objekt"
+    },
+    "modes": {
+      "coach": "Coach",
+      "ask": "fråga",
+      "learn": "lär"
+    },
+    "status": {
+      "listening": "Lyssnar",
+      "speaking": "Talar",
+      "connecting": "Ansluter"
+    },
+    "input": {
+      "askPlaceholder": "Fråga Cupid vad som helst...",
+      "learnPlaceholder": "Redo för din nästa lektion?",
+      "tutorPlaceholder": "Hur kan du hjälpa din partner idag?",
+      "listeningPlaceholder": "Lyssnar...",
+      "speakingPlaceholder": "Cupid talar...",
+      "connectingPlaceholder": "Ansluter..."
+    },
+    "session": {
+      "deleteConfirm": "Är du säker på att du vill ta bort denna session?",
+      "longConversation": "Denna konversation börjar bli lång!",
+      "startFresh": "Börja om"
+    },
+    "listen": {
+      "title": "Lyssna",
+      "beta": "BETA",
+      "recording": "Spelar in",
+      "stop": "Stopp",
+      "stopSave": "Stoppa och spara",
+      "sessionLabel": "Lyssningssession",
+      "listeningFor": "Lyssnar efter {{language}} tal...",
+      "modeTooltip": "Lyssningsläge - Fånga riktiga {{language}} konversationer",
+      "deleteConfirm": "Är du säker på att du vill ta bort denna lyssningssession?",
+      "bookmarkAdd": "Bokmärk denna fras",
+      "bookmarkRemove": "Ta bort bokmärke",
+      "bookmarked": "{{count}} fras bokmärkt",
+      "bookmarked_other": "{{count}} fraser bokmärkta",
+      "improving": "Förbättrar transkription med AI...",
+      "wordsAdded": "Ord tillagda i Love Log",
+      "extractWords": "Extrahera ord",
+      "newSession": "Ny session",
+      "backToChats": "Tillbaka till chattar"
+    },
+    "listenPrompt": {
+      "title": "Redo att lyssna?",
+      "description": "Fånga riktiga {{language}} konversationer med direkttranskription och översättning.",
+      "contextLabel": "Vad lyssnar du på?",
+      "contextOptional": "(valfritt)",
+      "contextPlaceholder": "t.ex. Middag hos mormor, TV-serie...",
+      "contextHint": "Du kan namnge det senare om du föredrar",
+      "cancel": "Avbryt",
+      "start": "Börja lyssna"
+    },
+    "wordExtractor": {
+      "title": "Extrahera ord",
+      "found": "{{count}} ord hittade",
+      "selected": "{{count}} valda",
+      "analyzing": "Analyserar transkription...",
+      "extracting": "Extraherar ordförråd...",
+      "cancel": "Avbryt",
+      "addWords": "Lägg till {{count}} ord",
+      "adding": "Lägger till..."
+    },
+    "errors": {
+      "addWordsFailed": "Kunde inte lägga till ord: {{message}}",
+      "addWordsError": "Kunde inte lägga till ord. Kontrollera konsolen för detaljer."
+    },
+    "blocks": {
+      "cultureNote": "Kulturell notering",
+      "loveGoal": "Kärleksmål"
+    }
+  },
+  "progress": {
+    "level": {
+      "current": "Nuvarande nivå",
+      "partner": "{{name}}s nivå",
+      "totalXp": "Totalt XP",
+      "xp": "XP",
+      "progressTo": "Framsteg mot {{level}}",
+      "xpToNext": "{{xp}} XP till {{level}}",
+      "maxLevel": "Maxnivå",
+      "max": "Max",
+      "reachedMax": "Du har nått maxnivån!",
+      "takeTest": "Ta nivåtest",
+      "practiceTest": "Övningstest"
+    },
+    "previousTests": {
+      "title": "Öva tidigare nivåer",
+      "previousAttempts": "Tidigare försök",
+      "viewAttempts": "Visa tidigare försök"
+    },
+    "motivation": {
+      "title": "Min motivation",
+      "learningFor": "Lär mig för"
+    },
+    "stats": {
+      "title": "Love Log statistik",
+      "total": "Totalt",
+      "mastered": "Bemästrat",
+      "review": "Repetition",
+      "nouns": "Substantiv",
+      "verbs": "Verb",
+      "adjectives": "Adjektiv",
+      "phrases": "Fraser",
+      "words": "Ord"
+    },
+    "gameHistory": {
+      "title": "Spelhistorik"
+    },
+    "journey": {
+      "title": "Inlärningsresa",
+      "journalEntries": "Dagboksanteckningar",
+      "newEntry": "Ny anteckning",
+      "new": "Ny",
+      "analyzing": "Analyserar...",
+      "noEntries": "Inga anteckningar ännu.",
+      "clickNew": "Klicka på 'Ny anteckning' för att börja!",
+      "clickNewShort": "Klicka på 'Ny' för att börja!",
+      "startJourney": "Börja din inlärningsresa genom att klicka på 'Ny anteckning'",
+      "selectEntry": "Välj en anteckning att visa",
+      "wordsXp": "{{words}} ord • {{xp}} XP"
+    },
+    "summary": {
+      "words": "Ord",
+      "youCanSay": "Nu kan du säga",
+      "topics": "Ämnen",
+      "grammar": "Grammatik",
+      "upNext": "Nästa",
+      "answerInsights": "Svarsinsikter",
+      "diacritics": "Diakritiska tecken",
+      "synonyms": "Synonymer",
+      "typosOk": "Stavfel OK",
+      "diacriticTip": "Tips: Du kan orden! Prova att ställa in ett {{language}} tangentbord för specialtecken",
+      "synonymTip": "Bra ordförrådsbredd - du använder många giltiga alternativ!"
+    },
+    "quickActions": {
+      "practice": "Öva",
+      "practiceDesc": "Flashcards och frågesporter",
+      "loveLog": "Love Log",
+      "loveLogDesc": "Ditt ordförråd"
+    },
+    "testResults": {
+      "title": "Testresultat",
+      "correct": "rätt",
+      "yourAnswers": "Dina svar",
+      "yourAnswer": "Ditt svar: {{answer}}",
+      "correctAnswer": "Rätt: {{answer}}",
+      "tryAgain": "Försök igen"
+    },
+    "tutor": {
+      "yourPartner": "Din partner",
+      "phrasesForTonight": "Fraser för ikväll",
+      "recentlyLearned": "Nyligen inlärt",
+      "wordsToPractice": "Ord att öva tillsammans",
+      "noWeakSpots": "Inga svaga punkter - det går jättebra!",
+      "misses": "{{count}} miss",
+      "misses_other": "{{count}} missar",
+      "quizThem": "Fråga dem →",
+      "playTogether": "Spela tillsammans",
+      "playTogetherDesc": "Frågesporter och aktiviteter",
+      "theirVocabulary": "Deras ordförråd",
+      "browseLoveLog": "Bläddra i Love Log",
+      "useItTonight": "{{word}} - använd det ikväll!",
+      "tryInConversation": "Försök använda det i konversation",
+      "complimentThem": "Ge dem en komplimang med detta!",
+      "whisperBeforeBed": "Viska detta före läggdags",
+      "iLoveYouVeryMuch": "Jag älskar dig väldigt mycket"
+    },
+    "encouragement": {
+      "wordsMastered": "{{count}} ord bemästrade! Dags för en firande dejt!",
+      "wordsNeedWork": "Bara {{count}} ord behöver arbete - du kan fråga dem ikväll!",
+      "milestone": "{{count}} ord i deras ordförråd - fira denna milstolpe!",
+      "justLearned": "De lärde sig just '{{word}}' - använd det i konversation idag!"
+    },
+    "levelThemes": {
+      "firstWords": "Första kärleksorden",
+      "checkingIn": "Kolla in",
+      "feelings": "Känslor",
+      "dailyLife": "Vardagsliv",
+      "preferences": "Preferenser",
+      "makingPlans": "Göra planer",
+      "tellingStories": "Berätta historier",
+      "deeperFeelings": "Djupare känslor",
+      "complexConversations": "Komplexa konversationer",
+      "futureDreams": "Framtidsdrömmar",
+      "problemSolving": "Problemlösning",
+      "culturalNuance": "Kulturella nyanser",
+      "advancedExpression": "Avancerat uttryck",
+      "nativeFluency": "Modersmålsflyt",
+      "expertLevel": "Expertnivå",
+      "culturalMastery": "Kulturell mästerskap",
+      "completeMastery": "Fullständigt mästerskap",
+      "practice": "Övning"
+    }
+  },
+  "play": {
+    "loading": "Laddar övningsmodul...",
+    "title": "Öva",
+    "beta": "Beta",
+    "tabs": {
+      "games": "Spel",
+      "loveNotes": "Kärleksbrev",
+      "gamesDesc": "Öva ditt ordförråd med olika spellägen",
+      "loveNotesDesc": "Utmaningar och gåvor från {{partner}}"
+    },
+    "empty": {
+      "noWords": "Inga ord ännu",
+      "noWordsDesc": "Lär dig några ord i chatten först, kom sedan tillbaka för att öva!",
+      "needMore": "Behöver fler ord",
+      "needMoreDesc": "Flerval kräver minst 4 ord. Du har {{count}}.",
+      "tryFlashcards": "Prova flashcards istället"
+    },
+    "games": {
+      "flashcards": "Flashcards",
+      "flashcardsDesc": "Vänd kort för att visa översättningar",
+      "multiChoice": "Flerval",
+      "multiChoiceDesc": "Välj rätt översättning",
+      "typeIt": "Skriv det",
+      "typeItDesc": "Skriv översättningen själv",
+      "quickFire": "Snabbeld",
+      "quickFireDesc": "60 sekunders utmaning",
+      "aiChallenge": "AI-utmaning",
+      "aiChallengeDesc": "Smart ordval",
+      "conversation": "Konversation",
+      "conversationDesc": "Prata med AI på {{language}}",
+      "verbMastery": "Verbmästerskap",
+      "verbMasteryVerbs": "{{count}} verb",
+      "learnVerbsFirst": "Lär dig verb först"
+    },
+    "directions": {
+      "targetToNative": "{{target}} → {{native}}",
+      "nativeToTarget": "{{native}} → {{target}}"
+    },
+    "flashcard": {
+      "word": "{{language}} ORD",
+      "translation": "ÖVERSÄTTNING",
+      "tapToReveal": "Tryck för att visa",
+      "hard": "Svårt",
+      "gotIt": "Fick det!"
+    },
+    "typeIt": {
+      "hint": "Ledtråd:",
+      "hintShown": "Ledtråd visad",
+      "showHint": "Visa ledtråd",
+      "correct": "Rätt!",
+      "notQuite": "Inte riktigt",
+      "correctAnswer": "Rätt svar:",
+      "typeIn": "Skriv på {{language}}...",
+      "next": "Nästa",
+      "check": "Kontrollera"
+    },
+    "quickFire": {
+      "title": "Snabbeld!",
+      "description": "Översätt så många ord du kan på 60 sekunder!",
+      "wordsAvailable": "{{count}} ord tillgängliga",
+      "upTo20": "Upp till 20 slumpmässiga ord per omgång",
+      "start": "Start!",
+      "needAtLeast5": "Behöver minst 5 ord för att spela Snabbeld",
+      "typeTranslation": "Skriv översättning..."
+    },
+    "aiChallenge": {
+      "chooseMode": "Välj utmaningsläge",
+      "length": "Längd",
+      "all": "Alla",
+      "qs": "frågor",
+      "generatingPhrases": "Genererar romantiska fraser...",
+      "startChallenge": "Starta utmaning",
+      "modes": {
+        "weakest": "Svagaste ord",
+        "weakestDesc": "Fokusera på ord du kämpar med",
+        "gauntlet": "Blandad utmaning",
+        "gauntletDesc": "Slumpmässig mix av alla typer",
+        "romantic": "Romantiska fraser",
+        "romanticDesc": "Söta uttryck på {{language}}",
+        "leastPracticed": "Minst övade",
+        "leastPracticedDesc": "Ord du inte sett på länge",
+        "reviewMastered": "Repetera bemästrade",
+        "reviewMasteredDesc": "Öva inlärda ord"
+      }
+    },
+    "verbMastery": {
+      "title": "Verbmästerskap",
+      "practiceCount": "Öva konjugering av {{count}} verb",
+      "selectTense": "Välj tempus",
+      "presentTense": "Presens",
+      "pastTense": "Preteritum",
+      "futureTense": "Futurum",
+      "verbsAvailable": "{{count}} verb tillgängliga",
+      "noVerbsWithTense": "Inga verb med detta tempus ännu",
+      "noVerbsAlert": "Inga verb hittades med {{tense}}. Lär dig fler verb först!",
+      "conjugateVerb": "Konjugera verbet",
+      "forPronoun": "För pronomenet",
+      "typeConjugation": "Skriv konjugerad form...",
+      "checkAnswer": "Kontrollera svar",
+      "nextQuestion": "Nästa fråga",
+      "seeResults": "Se resultat",
+      "backToGames": "← Tillbaka till spel"
+    },
+    "session": {
+      "yourPartner": "Din partner"
+    }
+  },
+  "profile": {
+    "roles": {
+      "student": "Lär mig {{language}}",
+      "tutor": "Språkcoach"
+    },
+    "partner": {
+      "title": "Din partner",
+      "unlink": "Avlänka"
+    },
+    "customisation": {
+      "title": "Anpassning",
+      "subtitle": "Visuella inställningar",
+      "accentColor": "Accentfärg",
+      "darkMode": "Mörkt läge",
+      "fontSize": "Teckenstorlek",
+      "answerChecking": "Svarskontroll",
+      "smartMode": "Smart läge",
+      "strictMode": "Strikt läge",
+      "smartModeDesc": "AI accepterar synonymer, stavfel och variationer",
+      "strictModeDesc": "Endast exakta svar (ignorerar accenter)",
+      "preview": "Förhandsvisning",
+      "previewText": "<strong>Kocham cię</strong> betyder 'Jag älskar dig' på {{language}}"
+    },
+    "advanced": {
+      "title": "Avancerade inställningar",
+      "subtitle": "Redigera dina introduktionssvar",
+      "yourName": "Ditt namn",
+      "partnerName": "Partners namn",
+      "learnerName": "Elevens namn",
+      "relationshipVibe": "Relationskänsla",
+      "learningReason": "Varför lär du dig {{language}}?",
+      "motivationPlaceholder": "Din motivation...",
+      "dailyTime": "Daglig tid",
+      "preferredTime": "Föredragen tid",
+      "biggestChallenge": "Största utmaningen",
+      "firstGoal": "Första målet",
+      "goalPlaceholder": "Vad vill du uppnå?",
+      "relationshipType": "Relationstyp",
+      "languageConnection": "{{language}}-koppling",
+      "howYouLearned": "Hur du lärde dig {{language}}",
+      "dreamPhrase": "Drömfras",
+      "dreamPhrasePlaceholder": "Vad vill du höra dem säga?",
+      "teachingStyle": "Undervisningsstil",
+      "select": "Välj..."
+    },
+    "originOptions": {
+      "grewUp": "Växte upp där",
+      "family": "Från familjen",
+      "school": "Studerade formellt",
+      "self": "Självlärd"
+    },
+    "styleOptions": {
+      "patient": "Tålmodig och mild",
+      "playful": "Lekfull och rolig",
+      "structured": "Strukturerad",
+      "immersive": "Fördjupande"
+    },
+    "buttons": {
+      "saving": "Sparar...",
+      "saved": "Sparat!",
+      "saveChanges": "Spara ändringar",
+      "signOut": "Logga ut"
+    }
+  },
+  "loveLog": {
+    "title": "Love Log",
+    "titleFull": "Love Log",
+    "search": "Sök...",
+    "searchWords": "Sök ord...",
+    "wordsCount": "{{count}} ord",
+
+    "sync": {
+      "scanChats": "Skanna chattar",
+      "scanTooltip": "Skanna chatthistorik för nytt ordförråd",
+      "allSynced": "Allt synkat!",
+      "errorFetching": "Fel vid hämtning av meddelanden",
+      "noNewWords": "Inga nya ord hittades",
+      "newWords": "+{{count}} nytt ord!",
+      "newWords_other": "+{{count}} nya ord!",
+      "syncError": "Synkfel"
+    },
+
+    "filters": {
+      "all": "Alla",
+      "noun": "Substantiv",
+      "verb": "Verb",
+      "adjective": "Adjektiv",
+      "phrase": "Fras",
+      "gifts": "Gåvor"
+    },
+
+    "card": {
+      "gift": "Gåva",
+      "giftFrom": "Gåva från {{name}}",
+      "yourPartner": "din partner",
+      "mastered": "Bemästrat!",
+      "streakProgress": "{{current}}/{{target}} rätt i rad",
+      "tapForDetails": "tryck för detaljer",
+      "example": "Exempel",
+      "noExample": "Inget exempel tillgängligt.",
+      "conjugations": "Konjugationer",
+      "forms": "Former"
+    },
+
+    "modal": {
+      "present": "Presens",
+      "past": "Preteritum",
+      "future": "Futurum",
+      "tenseLocked": "{{tense}} är låst",
+      "unlockTense": "Lås upp {{tense}}",
+      "unlocked": "Upplåst {{date}}"
+    },
+
+    "unlock": {
+      "title": "Lås upp {{tense}}?",
+      "descriptionBefore": "Redo att lära dig säga",
+      "descriptionAfter": "i {{tense}}?",
+      "pastNote": "Du kommer se både maskulina och feminina former.",
+      "notYet": "Inte ännu",
+      "unlockNow": "Lås upp nu",
+      "unlocking": "Låser upp..."
+    },
+
+    "pronouns": {
+      "singular1": "(jag)",
+      "singular2": "(du)",
+      "singular3": "(han/hon)",
+      "plural1": "(vi)",
+      "plural2": "(ni)",
+      "plural3": "(de)"
+    },
+
+    "tableHeaders": {
+      "person": "Person",
+      "masculine": "Mask.",
+      "feminine": "Fem."
+    },
+
+    "nounForms": {
+      "gender": "Genus",
+      "singular": "Singular",
+      "plural": "Plural"
+    },
+
+    "adjectiveForms": {
+      "title": "Genusformer",
+      "masculine": "Maskulin",
+      "feminine": "Feminin",
+      "neuter": "Neutrum",
+      "plural": "Plural"
+    }
+  },
+
+  "onboarding": {
+    "step": {
+      "back": "Tillbaka",
+      "counter": "{{current}} av {{total}}",
+      "quitTitle": "Avsluta registrering",
+      "continue": "Fortsätt",
+      "skipForNow": "Hoppa över för nu"
+    },
+
+    "name": {
+      "title": "Vad ska Cupid kalla dig?",
+      "subtitle": "Ditt namn hjälper till att göra denna resa personlig.",
+      "placeholder": "Ditt namn"
+    },
+
+    "partnerName": {
+      "studentTitle": "Vem lär du dig {{language}} för, {{name}}?",
+      "tutorTitle": "Vem hjälper du lära sig {{language}}, {{name}}?",
+      "studentSubtitle": "Det är den du kommer överraska med dina nya kunskaper.",
+      "tutorSubtitle": "Det är den du kommer guida genom {{language}}.",
+      "placeholder": "Deras namn"
+    },
+
+    "validation": {
+      "title": "Hur ska vi kontrollera dina svar?",
+      "subtitle": "Välj hur förlåtande appen ska vara vid betygsättning.",
+      "changeInSettings": "Du kan ändra detta när som helst i inställningarna",
+      "smart": {
+        "label": "Smart läge",
+        "tag": "Rekommenderat",
+        "description": "AI förstår vad du menar",
+        "detail1": "Accepterar synonymer ('vacker' = 'fin')",
+        "detail2": "Förlåter mindre stavfel",
+        "detail3": "Tillåter artikelvariationer ('hunden' vs 'en hund')",
+        "detail4": "Erkänner alternativa översättningar"
+      },
+      "strict": {
+        "label": "Strikt läge",
+        "tag": "Avancerat",
+        "description": "Endast exakta svar",
+        "detail1": "Måste matcha exakt (ignorerar accenter)",
+        "detail2": "Bäst för avancerade elever",
+        "detail3": "Bygger precision och noggrannhet",
+        "detail4": "Traditionell flashcard-upplevelse"
+      }
+    },
+
+    "plan": {
+      "title": "Välj din plan, {{name}}",
+      "subtitle": "Börja din {{language}}-inlärningsresa idag",
+      "monthly": "Månadsvis",
+      "yearly": "Årsvis",
+      "discount": "70% rabatt",
+      "popular": "Populär",
+      "perMonth": "/mån",
+      "perYear": "/år",
+      "monthlyEquivalent": "{{price}} kr/mån",
+      "moreFeatures": "+{{count}} fler funktioner",
+      "continueWith": "Fortsätt med {{plan}}",
+      "aPlan": "en plan",
+      "trustSignal": "Säker betalning via Stripe. Avsluta när som helst.",
+      "standard": {
+        "name": "Standard",
+        "tagline": "Perfekt för att komma igång",
+        "feature1": "2 000 ord i Love Log",
+        "feature2": "60 min röstchatt/månad",
+        "feature3": "30 min lyssningsläge/månad",
+        "feature4": "Alla konversationsscenarier",
+        "feature5": "Partnerinbjudan"
+      },
+      "unlimited": {
+        "name": "Obegränsad",
+        "tagline": "För dedikerade elever",
+        "feature1": "Obegränsat allt",
+        "feature2": "Obegränsad röstchatt",
+        "feature3": "Obegränsat lyssningsläge",
+        "feature4": "Alla konversationsscenarier",
+        "feature5": "Presentpass för ett annat par (årsvis)"
+      }
+    },
+
+    "student": {
+      "start": {
+        "title": "Redo att börja, {{name}}?",
+        "subtitle": "Din resa för att tala {{partnerName}}s språk börjar nu.",
+        "accessTitle": "Vad du får tillgång till:",
+        "feature1": "AI-konversationer med Cupid",
+        "feature2": "Din Love Log-ordförrådsföljare",
+        "feature3": "Spel för att öva och bemästra ord",
+        "feature4": "Framstegsföljning och nivåtester",
+        "button": "Kör så! 🚀"
+      },
+
+      "vibe": {
+        "title": "Ett ord för din relation med {{name}}",
+        "subtitle": "Välj känslan som känns mest sann.",
+        "passionate": "Passionerad",
+        "playful": "Lekfull",
+        "growing": "Växande",
+        "forever": "För evigt",
+        "longDistance": "Distansförhållande",
+        "newLove": "Ny kärlek"
+      },
+
+      "time": {
+        "title": "Hur mycket tid kan du ägna dagligen?",
+        "subtitle": "Även små stunder blir stort framsteg.",
+        "quick": "En snabb kyss",
+        "quickDesc": "5 minuter",
+        "coffee": "En fika",
+        "coffeeDesc": "10 minuter",
+        "walk": "En lång promenad",
+        "walkDesc": "20+ minuter"
+      },
+
+      "when": {
+        "title": "När föredrar du att öva?",
+        "subtitle": "Vi påminner dig vid det perfekta tillfället.",
+        "morning": "Morgon",
+        "afternoon": "Eftermiddag",
+        "evening": "Kväll",
+        "whenever": "När som helst"
+      },
+
+      "photo": {
+        "title": "Lägg till ditt foto",
+        "subtitleWithPhoto": "Ser bra ut! Detta kommer visas på din profil.",
+        "subtitleNoPhoto": "Ett foto hjälper till att göra din profil mer personlig."
+      },
+
+      "why": {
+        "title": "Varför vill du lära dig {{language}} för {{name}}?",
+        "subtitle": "Detta blir din personliga påminnelse på din resa.",
+        "placeholder": "Jag vill överraska dem när vi besöker deras familj... Jag vill viska söta saker... Jag vill förstå deras värld..."
+      },
+
+      "fear": {
+        "title": "Vad är din största rädsla med att lära dig {{language}}?",
+        "subtitle": "Alla har en. Låt oss tackla din tillsammans.",
+        "pronunciation": "Uttal",
+        "pronunciationDesc": "Att låta fel eller löjlig",
+        "grammar": "Grammatikregler",
+        "grammarDesc": "Kasus, konjugationer, genus",
+        "silly": "Låta löjlig",
+        "sillyDesc": "Göra misstag inför andra",
+        "forgetting": "Glömma allt",
+        "forgettingDesc": "Lära sig men inte behålla"
+      },
+
+      "prior": {
+        "title": "Har du försökt lära dig {{language}} tidigare?",
+        "subtitle": "Detta hjälper oss börja på rätt plats.",
+        "yes": "Ja, lite",
+        "beginner": "Komplett nybörjare"
+      },
+
+      "goal": {
+        "title": "Vad är din första milstolpe?",
+        "subtitle": "Ett mål att jobba mot med {{name}}",
+        "love": "Säga 'Jag älskar dig' perfekt",
+        "phrases": "Lär dig 10 romantiska fraser",
+        "surprise": "Överraska dem med en {{language}} hälsning",
+        "custom": "Sätt mitt eget mål",
+        "customPlaceholder": "t.ex. 'Beställa på {{language}} på deras favoritrestaurang'"
+      },
+
+      "learnHello": {
+        "title": "Låt oss lära oss ditt första ord!",
+        "subtitle": "Säg hej till {{name}} på {{language}}",
+        "listen": "Lyssna",
+        "tip": "💡 Ditt första ord på {{language}}!",
+        "gotIt": "Fick det!",
+        "listenFirst": "Lyssna först"
+      },
+
+      "learnLove": {
+        "title": "Nu, den viktigaste frasen...",
+        "subtitle": "Den {{name}} aldrig kommer glömma",
+        "hearIt": "Hör det",
+        "listenAgain": "Lyssna igen",
+        "proTip": "<strong>Proffstips:</strong> Öva att säga denna fras till {{name}} - de kommer älska att höra dig säga det på {{language}}!",
+        "ready": "Jag är redo!",
+        "listenFirst": "Lyssna först"
+      },
+
+      "tryIt": {
+        "title": "Prova att säga det!",
+        "subtitle": "Oroa dig inte, bara du kan höra dig själv.",
+        "listening": "Lyssnar... Tryck för att stoppa",
+        "success": "Fantastiskt! Du sa det! 🎉",
+        "practiceLater": "Jag övar senare"
+      },
+
+      "celebration": {
+        "title": "Du klarade det!",
+        "subtitle": "Du har precis lärt dig dina första ord på {{language}}!",
+        "partnerReaction": "{{name}} kommer älska detta.",
+        "xpEarned": "+10 XP",
+        "firstXp": "Dina första erfarenhetspoäng!",
+        "wordsLearned": "Ord du just lärde dig:",
+        "keepGoing": "Fortsätt!"
+      }
+    },
+
+    "tutor": {
+      "start": {
+        "title": "Redo att vara {{learnerName}}s guide, {{userName}}?",
+        "subtitle": "Ditt språk är en gåva. Låt oss dela det med kärlek.",
+        "toolkitTitle": "Din tutorverktygslåda:",
+        "feature1": "Fråga Cupid om undervisningstips",
+        "feature2": "Följ {{learnerName}}s framsteg",
+        "feature3": "Skicka ordgåvor för att överraska dem",
+        "feature4": "Länka konton för att se deras resa",
+        "button": "Börja hjälpa {{learnerName}}! 🎯"
+      },
+
+      "relation": {
+        "title": "Vilken är din relation till {{name}}?",
+        "subtitle": "Detta hjälper oss anpassa din undervisningsupplevelse",
+        "partner": "Partner",
+        "spouse": "Make/Maka",
+        "friend": "Vän",
+        "family": "Familj"
+      },
+
+      "connection": {
+        "title": "Vilken är din koppling till {{language}}?",
+        "subtitle": "Hjälp oss förstå din språkbakgrund",
+        "native": "Modersmålstalare",
+        "nativeDesc": "Född och uppvuxen med {{language}}",
+        "heritage": "Arvsspråktalare",
+        "heritageDesc": "{{language}} familjebakgrund",
+        "fluent": "Flytande talare",
+        "fluentDesc": "Lärde sig och bemästrade {{language}}",
+        "bilingual": "Tvåspråkig",
+        "bilingualDesc": "Växte upp med {{language}} och ett annat språk"
+      },
+
+      "origin": {
+        "title": "Hur lärde du dig {{language}}?",
+        "subtitle": "Din resa hjälper oss föreslå undervisningsmetoder",
+        "country": "Växte upp där",
+        "family": "Från familjen",
+        "school": "Studerade formellt",
+        "self": "Självlärd"
+      },
+
+      "dreamPhrase": {
+        "title": "Drömögonblick 💭",
+        "subtitle": "Vad är det första du vill höra {{name}} säga på {{language}}?",
+        "placeholder": "t.ex. 'Jag älskar dig' eller 'God morgon'",
+        "note": "Detta blir ert första gemensamma undervisningsmål"
+      },
+
+      "style": {
+        "title": "Din undervisningsstil?",
+        "subtitle": "Hur hjälper du naturligt någon att lära sig?",
+        "patient": "Tålmodig och mild",
+        "patientDesc": "Långsamt och stadigt vinner loppet",
+        "playful": "Lekfull och rolig",
+        "playfulDesc": "Lärande genom spel och humor",
+        "structured": "Strukturerad",
+        "structuredDesc": "Organiserade lektioner med tydliga mål",
+        "immersive": "Fördjupande",
+        "immersiveDesc": "Hoppa in och lär genom att göra"
+      },
+
+      "preview": {
+        "title": "Din undervisningsverktygslåda",
+        "subtitle": "Här är vad du kan göra för {{name}}",
+        "coachMode": "Coach-läge",
+        "coachModeDesc": "Få personliga tips om att hjälpa {{name}} baserat på deras framsteg och utmaningar",
+        "progressTracking": "Framstegsföljning",
+        "progressTrackingDesc": "Se vilka ord {{name}} har bemästrat och var de behöver hjälp",
+        "wordGifts": "Ordgåvor",
+        "wordGiftsDesc": "Skicka speciella ord och fraser till {{name}}s inlärningslogg",
+        "button": "Låter bra!"
+      }
+    }
+  },
+
+  "levelTest": {
+    "preparing": "Förbereder ditt test",
+    "generatingQuestions": "Genererar frågor baserat på din nivå...",
+    "oops": "Hoppsan!",
+    "backToProgress": "Tillbaka till framsteg",
+    "levelUpTest": "Nivåhöjningstest",
+    "questions": "Frågor",
+    "passThreshold": "Godkändtröskel",
+    "timeLimit": "Tidsgräns",
+    "none": "Ingen",
+    "startTest": "Starta test",
+    "congratulations": "Grattis!",
+    "keepPracticing": "Fortsätt öva!",
+    "advancedTo": "Du har avancerat till {{level}}!",
+    "passedTest": "Du klarade testet!",
+    "scoreNeeded": "Du fick {{score}}%. Du behöver 80% för att klara.",
+    "correctAnswers": "Rätta svar",
+    "tryAgain": "Försök igen",
+    "viewDetailed": "Visa detaljerade resultat i Framsteg",
+    "questionTypes": {
+      "multipleChoice": "Flerval",
+      "fillBlank": "Fyll i luckan",
+      "translation": "Översättning"
+    },
+    "coreConcept": "Kärnkoncept",
+    "typeMissing": "Skriv det saknade ordet...",
+    "typeTranslation": "Skriv din översättning...",
+    "back": "Tillbaka",
+    "submitting": "Skickar...",
+    "submitTest": "Skicka test",
+    "next": "Nästa"
+  },
+
+  "tutorGames": {
+    "playTogether": "Spela tillsammans",
+    "sendChallenge": "Skicka utmaning",
+    "playNow": "Spela nu",
+    "sendDescription": "Skicka utmaningar för {{name}} att göra senare",
+    "playDescription": "Öva tillsammans just nu",
+    "startNow": "Börja nu",
+
+    "local": {
+      "quiz": "Fråga {{name}}",
+      "quizDesc": "Flashcard-frågesport tillsammans",
+      "quickFire": "Snabbeld",
+      "quickFireDesc": "60 sekunders utmaning",
+      "multipleChoice": "Flerval",
+      "multipleChoiceDesc": "Välj rätt svar",
+      "typeIt": "Skriv det",
+      "typeItDesc": "Skriv översättningen",
+      "needWords": "{{name}} behöver minst 4 ord i sitt ordförråd för att spela"
+    },
+
+    "send": {
+      "doYouRemember": "Kommer du ihåg?",
+      "quizPartner": "Fråga {{name}} på deras ordförråd",
+      "createQuiz": "Skapa frågesport",
+      "quickFire": "Snabbeld",
+      "timedChallenge": "Tidsbestämd ordförrådsutmaning",
+      "createChallenge": "Skapa utmaning",
+      "giftWords": "Ge ord",
+      "sendWords": "Skicka ord för {{name}} att lära sig",
+      "sendGift": "Skicka gåva"
+    },
+
+    "pending": {
+      "waitingFor": "Väntar på {{name}}",
+      "words": "{{count}} ord",
+      "sent": "Skickat {{date}}",
+      "pending": "Väntande"
+    },
+
+    "gifts": {
+      "title": "Ordgåvor skickade",
+      "word": "{{count}} ord",
+      "word_other": "{{count}} ord",
+      "topic": "Ämne: {{topic}}",
+      "custom": "Egna ord",
+      "xpMultiplier": "{{multiplier}}x XP"
+    },
+
+    "results": {
+      "title": "Senaste resultat",
+      "completed": "Avslutad {{date}}"
+    },
+
+    "empty": {
+      "noChallenges": "Inga utmaningar ännu",
+      "createFirst": "Skapa din första utmaning för {{name}}!"
+    },
+
+    "flashcard": {
+      "targetWord": "{{language}}",
+      "nativeWord": "{{language}}",
+      "tapToReveal": "Tryck för att visa",
+      "hard": "Svårt",
+      "gotIt": "Fick det!"
+    },
+
+    "direction": {
+      "label": "{{target}} → {{native}}"
+    },
+
+    "quickFireGame": {
+      "title": "Snabbeld!",
+      "description": "Översätt så många ord du kan på 60 sekunder!",
+      "cancel": "Avbryt",
+      "start": "Start!",
+      "typeTranslation": "Skriv översättningen..."
+    },
+
+    "typeItGame": {
+      "correct": "Rätt!",
+      "notQuite": "Inte riktigt",
+      "correctAnswer": "Rätt svar: {{answer}}",
+      "typeIn": "Skriv på {{language}}...",
+      "next": "Nästa",
+      "check": "Kontrollera"
+    },
+
+    "gameOver": {
+      "greatJob": "Bra jobbat!",
+      "keepPracticing": "Fortsätt öva!",
+      "correct": "{{correct}} av {{total}} rätt",
+      "practicedTogether": "Övade ni tillsammans?",
+      "saveDescription": "Spara denna session till {{name}}s inlärningshistorik för att följa deras framsteg.",
+      "saveToProgress": "Spara till {{name}}s framsteg",
+      "saving": "Sparar...",
+      "savedSuccess": "Sparat till {{name}}s historik!",
+      "autoSaving": "Autosparar till {{name}}s framsteg...",
+      "done": "Klar",
+      "playAgain": "Spela igen"
+    },
+
+    "saveDialog": {
+      "title": "Spara till {{name}}s framsteg?",
+      "howItWorks": "Hur det fungerar:",
+      "detail1": "Spelresultat sparas till {{name}}s inlärningshistorik",
+      "detail2": "Deras ordpoäng uppdateras (serier, mästerskap)",
+      "detail3": "Perfekt för när ni övar tillsammans!",
+      "willUpdate": "Detta uppdaterar {{name}}s ordpoäng och inlärningshistorik.",
+      "remember": "Spara alltid till {{name}}s framsteg",
+      "notNow": "Inte nu",
+      "save": "Spara"
+    }
+  },
+
+  "gameResults": {
+    "greatJob": "Bra jobbat!",
+    "sessionResults": "Sessionsresultat:",
+    "correct": "Rätt",
+    "missed": "Missade",
+    "showDetails": "Visa detaljer",
+    "hideDetails": "Dölj detaljer",
+    "done": "Klar",
+    "playAgain": "Spela igen"
+  },
+
+  "conversationPractice": {
+    "states": {
+      "listening": "Lyssnar...",
+      "speaking": "Talar...",
+      "connecting": "Ansluter...",
+      "error": "Fel",
+      "disconnected": "Frånkopplad"
+    },
+    "end": "Avsluta",
+    "startingConversation": "Startar konversation...",
+    "tryAgain": "Försök igen",
+    "speakIn": "Tala på {{language}}...",
+    "aiSpeaking": "AI talar...",
+    "conversationEnded": "Konversation avslutad"
+  },
+
+  "scenarioSelector": {
+    "title": "Konversationsövning",
+    "subtitle": "Välj ett scenario",
+    "beta": "Beta",
+    "difficulty": {
+      "beginner": "nybörjare",
+      "intermediate": "medel",
+      "advanced": "avancerad"
+    },
+    "createOwn": "Skapa eget",
+    "createOwnDesc": "Beskriv vilket scenario du vill öva",
+    "backToScenarios": "Tillbaka till scenarier",
+    "customScenario": "Eget scenario",
+    "customScenarioName": "Eget scenario",
+    "describeScenario": "Beskriv situationen du vill öva",
+    "customPlaceholder": "t.ex. Jag är på ett bageri och försöker köpa bröd och fråga om ingredienser...",
+    "startPractice": "Starta övning",
+    "footerInfo": "AI:n talar {{targetLanguage}} som standard. Om du kämpar hjälper den på {{nativeLanguage}}.",
+    "customPersona": "Du är en vänlig {{language}} person som hjälper någon öva {{language}}. Du är tålmodig, uppmuntrande och anpassar ditt språk till deras nivå."
+  },
+
+  "challengeCreator": {
+    "common": {
+      "addNewWords": "Lägg till nya ord",
+      "enterTargetLanguage": "Skriv på {{language}} så genererar AI översättningen.",
+      "enterWordPlaceholder": "Skriv {{language}} ord eller fras...",
+      "generating": "Genererar...",
+      "generate": "Generera",
+      "clear": "Rensa",
+      "editTranslation": "Redigera översättning...",
+      "add": "Lägg till",
+      "cancel": "Avbryt",
+      "creating": "Skapar...",
+      "searchWords": "Sök ord...",
+      "sending": "Skickar...",
+      "sendChallenge": "Skicka utmaning",
+      "failedGenerateTranslation": "Kunde inte generera översättning",
+      "failedCreateChallenge": "Kunde inte skapa utmaning",
+      "needMinWords": "Behöver minst 5 ord för utmaningen!"
+    },
+
+    "quiz": {
+      "title": "Skapa frågesport",
+      "subtitle": "Välj ord för {{name}} att öva",
+      "titleLabel": "Frågesporttitel (valfritt)",
+      "titlePlaceholder": "Frågesport för {{name}}",
+      "teachNewWords": "Lär {{name}} nya ord! {{instruction}}",
+      "questionTypes": "Frågetyper",
+      "types": {
+        "multipleChoice": "Flerval",
+        "typeAnswer": "Skriv svar",
+        "flashcards": "Flashcards"
+      },
+      "selectExisting": "Välj befintliga ord ({{count}}/20)",
+      "selectAll": "Välj alla",
+      "noWordsYet": "{{name}} har inte lärt sig några ord ännu!",
+      "addWordsToStart": "Lägg till nya ord ovan för att komma igång."
+    },
+
+    "quickFire": {
+      "title": "Snabbeld",
+      "subtitle": "Tidsbestämd utmaning för {{name}}",
+      "titleLabel": "Utmaningstitel",
+      "titlePlaceholder": "Snabbeldsutmaning",
+      "difficulty": "Svårighetsgrad",
+      "difficultyLevels": {
+        "easy": "Lätt",
+        "medium": "Medel",
+        "hard": "Svårt"
+      },
+      "difficultyDesc": {
+        "easy": "Avslappnad takt, gott om tid",
+        "medium": "Balanserad utmaning",
+        "hard": "Kapplöpning mot klockan!"
+      },
+      "targetWords": "Målord: {{count}}",
+      "wordsMin": "5 ord",
+      "wordsMax": "20 ord",
+      "pickSpecific": "Välj specifika ord ({{count}} valda)",
+      "weakWordIndicator": "🔴 = svagt ord (kämpar med detta)",
+      "wordSelection": "Ordval:",
+      "newWordsCount": "Nya ord:",
+      "manuallyPicked": "Manuellt valda:",
+      "autoFill": "Autofyll (svaga ord först):",
+      "total": "Totalt:",
+      "target": "mål",
+      "timeInfo": "{{name}} får {{time}} sekunder att översätta orden.",
+      "averageTime": "Genomsnitt: {{time}}s per ord",
+      "needMoreWords": "Behöver minst 5 ord totalt för att skapa en utmaning!"
+    },
+
+    "lovePackage": {
+      "title": "Love Package",
+      "subtitle": "Skicka ord till {{name}}",
+      "packageCount": "Love Package ({{count}} ord)",
+      "packageCount_other": "Love Package ({{count}} ord)",
+      "hasData": "+data",
+      "xpBonus": "{{name}} tjänar 2x XP för att lära sig dessa ord!",
+      "corrected": "Korrigerat: {{note}}",
+      "sendLovePackage": "Skicka Love Package",
+      "alreadyInPackage": "Detta ord finns redan i ditt paket!",
+      "alreadyInLoveLog": "'{{word}}' finns redan i {{name}}s Love Log!"
+    }
+  },
+
+  "challengePlayer": {
+    "common": {
+      "later": "Senare",
+      "done": "Klar",
+      "calculatingScore": "Beräknar din poäng...",
+      "showDetails": "Visa detaljer ({{count}})",
+      "xpEarned": "+{{xp}} XP tjänat!"
+    },
+
+    "results": {
+      "perfect": "Perfekt!",
+      "perfectScore": "Perfekt poäng!",
+      "lightningFast": "Blixtsnabb!",
+      "greatJob": "Bra jobbat!",
+      "keepPracticing": "Fortsätt öva!"
+    },
+
+    "quiz": {
+      "startDescription": "{{name}} vill fråga dig på {{count}} ord!",
+      "startInstructions": "Svara på frågor om {{language}}-ord du har lärt dig. Svara rätt för att bygga din serie!",
+      "startButton": "Starta frågesport",
+      "questionProgress": "Fråga {{current}} av {{total}}",
+      "resultScore": "Du fick {{correct}} av {{total}} rätt",
+      "flashcard": {
+        "prompt": "Vad betyder detta?",
+        "showAnswer": "Visa svar",
+        "didYouGetIt": "Fick du rätt?",
+        "no": "Nej",
+        "yes": "Ja"
+      },
+      "multipleChoice": {
+        "prompt": "Översätt detta ord:"
+      },
+      "typeIt": {
+        "prompt": "Skriv översättningen:",
+        "placeholder": "Skriv ditt svar...",
+        "submit": "Skicka"
+      }
+    },
+
+    "quickFire": {
+      "title": "Snabbeld!",
+      "startDescription": "{{name}} utmanar dig att översätta {{count}} ord på {{time}} sekunder!",
+      "difficulty": {
+        "easy": "Lätt läge",
+        "medium": "Medel läge",
+        "hard": "Svårt läge"
+      },
+      "timePerWord": "{{time}}s per ord",
+      "startButton": "Start!",
+      "getReady": "Gör dig redo!",
+      "resultScore": "{{correct}}/{{total}} rätt på {{time}}s",
+      "timeBonus": "(Tidsbonus!)",
+      "quitChallenge": "Avsluta utmaning",
+      "typePlaceholder": "Skriv översättning..."
+    }
+  },
+
+  "roleSelection": {
+    "loading": "Gör allt klart...",
+    "confirmHeader": "Bara för att vara säker...",
+    "confirmSubtitle": "Tryck för att bekräfta eller byt roll",
+    "welcomeHeader": "Välkommen till Love Languages!",
+    "welcomeSubtitle": "Hur kommer du använda appen?",
+    "student": {
+      "title": "Jag lär mig {{language}}",
+      "subtitle": "För min {{language}}-talande partner",
+      "confirmMessage": "Du lär dig {{language}} för kärleken!",
+      "confirmSubtext": "Redo att överraska din partner med dina nya kunskaper?"
+    },
+    "tutor": {
+      "title": "Jag undervisar {{language}}",
+      "subtitle": "Hjälper min partner att lära sig",
+      "confirmMessage": "Du är {{language}}-proffset!",
+      "confirmSubtext": "Redo att hjälpa din partner att bli kär i ditt språk?"
+    },
+    "settingUp": "Ställer in...",
+    "letsGo": "Det är jag! Kör igång",
+    "chooseRole": "Välj din roll för att fortsätta"
+  },
+
+  "subscription": {
+    "common": {
+      "monthly": "Månadsvis",
+      "yearly": "Årsvis",
+      "mo": "mån",
+      "yr": "år",
+      "discount": "70% rabatt",
+      "savePercent": "Spara {{percent}}%",
+      "perMonth": "/mån",
+      "perYear": "/år",
+      "billedAnnually": "{{price}} kr/mån faktureras årligen",
+      "loading": "Laddar...",
+      "processing": "Bearbetar...",
+      "opening": "Öppnar...",
+      "popular": "Populär",
+      "mostPopular": "Mest populär",
+      "currentPlan": "Nuvarande plan",
+      "securePayment": "Säker betalning via Stripe. Avsluta när som helst.",
+      "cancelAnytime": "Avsluta när som helst. Säker betalning via Stripe.",
+      "questionsEmail": "Frågor? Maila oss på",
+      "friend": "Vän",
+      "copy": "Kopiera"
+    },
+
+    "plans": {
+      "standard": "Standard",
+      "unlimited": "Obegränsad",
+      "none": "Ingen"
+    },
+
+    "features": {
+      "wordsLimit": "{{limit}} ord i Love Log",
+      "unlimitedWords": "Obegränsade ord",
+      "voiceMinutes": "{{minutes}} min röstchatt/månad",
+      "unlimitedVoice": "Obegränsad röstchatt",
+      "listenMinutes": "{{minutes}} min lyssningsläge/månad",
+      "unlimitedListen": "Obegränsat lyssningsläge",
+      "unlimitedChallenges": "Obegränsade AI-utmaningar",
+      "allScenarios": "Alla konversationsscenarier",
+      "allScenariosCount": "Alla {{count}} konversationsscenarier",
+      "partnerInvite": "Partnerinbjudan",
+      "giftPass": "Presentpass för ett annat par (årsvis)",
+      "unlimitedEverything": "Obegränsat allt"
+    },
+
+    "manager": {
+      "couplePass": "Parpass",
+      "freeAccess": "Gratis tillgång från {{name}}",
+      "yourPartner": "din partner",
+      "plan": "Plan:",
+      "status": "Status:",
+      "validUntil": "Giltigt till:",
+      "renews": "Förnyas:",
+      "ends": "Slutar:",
+      "askPartner": "För att hantera denna prenumeration, fråga {{name}}.",
+      "noSubscription": "Ingen prenumeration",
+      "subscribeToUnlock": "Prenumerera för att låsa upp alla funktioner",
+      "yourSubscription": "Din prenumeration",
+      "planLabel": "{{plan}}-plan",
+      "partnerFreeAccess": "{{name}} har gratis tillgång genom dig",
+      "cancelWarning": "Om du avslutar din prenumeration förlorar {{name}} också tillgång.",
+      "manageSubscription": "Hantera prenumeration",
+      "continueToManage": "Fortsätt till hantering"
+    },
+
+    "required": {
+      "title": "Ett steg till, {{name}}!",
+      "subtitle": "Slutför din prenumeration för att börja lära dig {{language}} tillsammans",
+      "taglineStandard": "Perfekt för att komma igång",
+      "taglineUnlimited": "För dedikerade elever",
+      "subscribeTo": "Prenumerera på {{plan}}",
+      "logoutOption": "Logga ut och använd ett annat konto",
+      "signOutOption": "Logga ut och använd ett annat konto"
+    },
+
+    "pricing": {
+      "title": "Lär dig {{language}} för kärleken",
+      "subtitle": "Välj planen som passar din inlärningsresa",
+      "save70": "Spara 70%",
+      "wordsInLoveLog": "{{limit}} ord i Love Log",
+      "voiceChatPerMonth": "{{minutes}} min röstchatt/månad",
+      "listenModePerMonth": "{{minutes}} min lyssningsläge/månad",
+      "unlimitedChallenges": "Obegränsade AI-utmaningar",
+      "allScenarios": "Alla 8 konversationsscenarier",
+      "partnerInvite": "Partnerinbjudan",
+      "unlimitedWords": "Obegränsade ord",
+      "unlimitedVoiceChat": "Obegränsad röstchatt",
+      "unlimitedListenMode": "Obegränsat lyssningsläge",
+      "giftPass": "Presentpass för ett annat par (årsvis)",
+      "youreOnPlan": "Du har {{plan}}-planen",
+      "currentPlanBanner": "Du har {{plan}}-planen",
+      "mostPopular": "Mest populär",
+      "billedAnnually": "{{price}} kr/mån faktureras årligen",
+      "currentPlan": "Nuvarande plan",
+      "processing": "Bearbetar...",
+      "getPlan": "Få {{plan}}",
+      "yourGiftPasses": "Dina presentpass",
+      "shareGiftPasses": "Dela dessa koder med ett annat par för att ge dem ett gratis år av Standard!",
+      "giftPasses": "Dina presentpass",
+      "giftPassDescription": "Dela dessa koder med ett annat par för att ge dem ett gratis år av Standard!",
+      "cancelAnytime": "Avsluta när som helst. Säker betalning via Stripe.",
+      "questionsEmail": "Frågor? Maila oss på",
+      "copy": "Kopiera"
+    },
+
+    "errors": {
+      "loginRequired": "Logga in för att prenumerera",
+      "loginAgain": "Logga in igen",
+      "failedLoadPricing": "Kunde inte ladda priser. Försök igen.",
+      "pricingUnavailable": "Priser ej tillgängliga. Kontakta support.",
+      "failedCheckout": "Kunde inte starta betalning",
+      "failedPortal": "Kunde inte öppna prenumerationshantering",
+      "somethingWrong": "Något gick fel"
+    }
+  },
+
+  "pendingChallenges": {
+    "yourPartner": "Din partner",
+    "sentYouSomething": "{{name}} skickade dig något!",
+    "sentYouThings": "{{name}} skickade dig {{count}} saker!",
+    "challengeCount": "{{count}} utmaning",
+    "challengeCount_plural": "{{count}} utmaningar",
+    "wordGiftCount": "{{count}} ordgåva",
+    "wordGiftCount_plural": "{{count}} ordgåvor",
+    "wordsCount": "{{count}} ord",
+    "quiz": "Frågesport",
+    "quickFire": "Snabbeld",
+    "wordGift": "Ordgåva",
+    "play": "Spela",
+    "learn": "Lär",
+    "xpBonus": "{{multiplier}}x XP bonus"
+  },
+
+  "invite": {
+    "title": "Bjud in din partner",
+    "subtitle": "Din prenumeration inkluderar gratis tillgång för din partner!",
+    "shareLinkLabel": "Dela denna länk med din partner:",
+    "copied": "Kopierat!",
+    "copy": "Kopiera",
+    "expiresIn": "Går ut om {{days}} dagar",
+    "expiresTomorrow": "Går ut imorgon",
+    "expired": "Utgången",
+    "howItWorks": "Hur det fungerar:",
+    "step1": "Dela länken med din partner",
+    "step2": "De registrerar sig eller loggar in",
+    "step3": "De får gratis tillgång genom din prenumeration!",
+    "generateButton": "Generera inbjudningslänk",
+    "generating": "Genererar..."
+  },
+
+  "helpGuide": {
+    "title": "Din guide",
+    "subtitle": "Love Languages",
+    "contents": "Innehåll",
+    "quickTips": "Snabba tips",
+    "backToContents": "Tillbaka till innehåll",
+    "footer": "Gjort med kärlek för par som lär sig tillsammans",
+    "sections": {
+      "gettingStarted": {
+        "title": "Kom igång",
+        "intro": "Love Languages hjälper dig lära dig {{language}} genom er relation. Varje ord du lär dig är en kärleksgåva.",
+        "cupidTitle": "Din AI-kompanjon: Cupid",
+        "cupidDescription": "Cupid är din varma, uppmuntrande guide. De hjälper dig lära dig ordförråd, öva uttal och hitta de perfekta orden för att uttrycka din kärlek.",
+        "rolesTitle": "Elev vs Tutor",
+        "studentRole": "Elever lär sig {{language}} - Cupid undervisar dig direkt",
+        "tutorRole": "Tutorer hjälper sin partner lära sig - Cupid ger undervisningstips"
+      },
+      "chatModes": {
+        "title": "Chattlägen",
+        "askTitle": "Fråga-läge",
+        "askSubtitle": "(Elever)",
+        "askDescription": "Snabba frågor, avslappnad inlärning. Perfekt för:",
+        "askExample1": "'Hur säger jag \"Jag älskar dig\"?'",
+        "askExample2": "'Vad är en romantisk fras?'",
+        "askExample3": "'Hur uttalar man det här?'",
+        "learnTitle": "Lär-läge",
+        "learnSubtitle": "(Elever)",
+        "learnDescription": "Strukturerade lektioner med tabeller och övningar. Använd för:",
+        "learnExample1": "Verbkonjugeringsövning",
+        "learnExample2": "Grammatikförklaringar",
+        "learnExample3": "Ordförrådslektioner",
+        "coachTitle": "Coach-läge",
+        "coachSubtitle": "(Tutorer)",
+        "coachDescription": "Din allt-i-ett-undervisningsassistent:",
+        "coachExample1": "Undervisningstips och grammatikförklaringar",
+        "coachExample2": "Personliga förslag baserat på partners framsteg",
+        "coachExample3": "Nya ordförrådsrekommendationer för att utveckla deras färdigheter"
+      },
+      "vocabulary": {
+        "title": "Bygga ordförråd",
+        "intro": "Ord från dina konversationer sparas automatiskt i din Love Log.",
+        "syncTitle": "Synkknapp",
+        "syncDescription": "Klicka synka i Love Log för att extrahera nya ord från senaste chattar",
+        "masteryTitle": "Mästerskapsnivåer",
+        "masteryDescription": "Öva ord i spel för att öka mästerskap från 0-5 stjärnor",
+        "tenseTitle": "Tempusupplåsning",
+        "tenseDescription": "Lär dig förfluten/framtid i chatt för att låsa upp dem i dina verbposter"
+      },
+      "games": {
+        "title": "Spela spel",
+        "intro": "Spel hjälper dig öva och komma ihåg ordförråd. Varje rätt svar bygger mästerskap!",
+        "flashcards": "Flashcards",
+        "flashcardsDescription": "Klassiska vändkort - se {{language}}, återkalla {{native}}",
+        "multipleChoice": "Flerval",
+        "multipleChoiceDescription": "Välj rätt översättning från 4 alternativ",
+        "typeIt": "Skriv det",
+        "typeItDescription": "Skriv {{language}}-ordet - testar stavning och minne",
+        "aiChallenge": "AI-utmaning",
+        "aiChallengeDescription": "Cupid genererar unika utmaningar med dina ord"
+      },
+      "progress": {
+        "title": "Följa framsteg",
+        "xpTitle": "XP och nivåer",
+        "xpDescription": "Tjäna XP genom att chatta, spela spel och bemästra ord. Avancera genom 18 nivåer över 6 skikt!",
+        "tiersTitle": "Nivåskikt",
+        "beginner": "Nybörjare 1-3",
+        "elementary": "Elementär 1-3",
+        "conversational": "Konversation 1-3",
+        "proficient": "Kunnig 1-3",
+        "fluent": "Flytande 1-3",
+        "master": "Mästare 1-3",
+        "testsNote": "Ta nivåtester för att bevisa dina färdigheter och avancera snabbare!"
+      }
+    },
+    "tips": {
+      "verbsQuestion": "Vad är bästa sättet att lära sig verb?",
+      "verbsAnswer": "Använd Lär-läge och be om konjugationstabeller. Öva alla 6 personer (jag, du, han/hon, vi, ni, de) tillsammans.",
+      "partnerQuestion": "Hur övar jag med min partner?",
+      "partnerAnswer": "Använd fraser du lärt dig i dagliga konversationer. Även enkla hälsningar räknas! Skapa utmaningar för varandra i Spela-sektionen.",
+      "progressQuestion": "Hur snabbt kan jag avancera?",
+      "progressAnswer": "15-20 minuters daglig övning gör underverk. Konsekvens slår intensitet!",
+      "forgetQuestion": "Tänk om jag glömmer ett ord?",
+      "forgetAnswer": "Spela spel - de visar automatiskt ord du kämpar med igen. Utspridd repetition hjälper låsa dem."
+    }
+  },
+
+  "bugReport": {
+    "title": "Rapportera en bugg",
+    "subtitle": "Hjälp oss förbättra Love Languages",
+    "severity": {
+      "label": "Hur allvarligt är problemet?",
+      "low": "Låg",
+      "lowDescription": "Mindre problem, kosmetiskt",
+      "medium": "Medel",
+      "mediumDescription": "Påverkar användbarhet",
+      "high": "Hög",
+      "highDescription": "Viktig funktion trasig",
+      "critical": "Kritisk",
+      "criticalDescription": "Appen oanvändbar"
+    },
+    "titleLabel": "Vad gick fel?",
+    "titlePlaceholder": "Kort beskrivning av problemet",
+    "detailsLabel": "Detaljer",
+    "detailsPlaceholder": "Vad gjorde du när det hände? Vad förväntade du dig?",
+    "autoCaptureNote": "Vi inkluderar automatiskt din nuvarande sida, webbläsarinfo och appstatus för att hjälpa oss undersöka.",
+    "errors": {
+      "fillRequired": "Fyll i alla obligatoriska fält",
+      "signIn": "Logga in för att skicka en buggrapport",
+      "failed": "Kunde inte skicka. Försök igen."
+    },
+    "cancel": "Avbryt",
+    "submit": "Skicka rapport",
+    "submitting": "Skickar...",
+    "success": {
+      "title": "Tack!",
+      "message": "Din buggrapport har skickats. Vi undersöker och jobbar på en fix.",
+      "close": "Stäng"
+    }
+  },
+
+  "wordGift": {
+    "intro": {
+      "title": "Gåva från {{name}}!",
+      "subtitle": "De vill att du ska lära dig {{count}} speciellt ord",
+      "subtitle_plural": "De vill att du ska lära dig {{count}} speciella ord",
+      "topic": "Ämne:",
+      "xpBonus": "Tjäna {{multiplier}}x XP för dessa ord!",
+      "later": "Senare",
+      "openGift": "Öppna gåva"
+    },
+    "card": {
+      "wordOf": "Ord {{current}} av {{total}}",
+      "targetLanguage": "{{language}}",
+      "nativeLanguage": "{{language}}",
+      "tapToFlip": "Tryck för att vända",
+      "back": "Tillbaka",
+      "next": "Nästa",
+      "addToLoveLog": "Lägg till i Love Log"
+    },
+    "result": {
+      "title": "Ord inlärda!",
+      "wordsAdded": "{{count}} nytt ord tillagt i din Love Log",
+      "wordsAdded_plural": "{{count}} nya ord tillagda i din Love Log",
+      "words": "Ord:",
+      "completion": "Slutförande:",
+      "giftFrom": "Gåva från {{name}}",
+      "done": "Klar"
+    },
+    "loading": "Lägger till ord i din Love Log...",
+    "error": {
+      "title": "Hoppsan!",
+      "close": "Stäng",
+      "tryAgain": "Försök igen"
+    },
+    "errors": {
+      "failed": "Kunde inte slutföra. Försök igen.",
+      "network": "Nätverksfel. Kontrollera din anslutning och försök igen."
+    }
+  },
+
+  "chatSuggestions": {
+    "student": {
+      "askTitle": "Fråga Cupid vad som helst",
+      "learnTitle": "Redo för en lektion?",
+      "subtitle": "Varje ord du lär dig för er närmare"
+    },
+    "tutor": {
+      "coachTitle": "Coacha din partner",
+      "subtitle": "Undervisningstips och personliga förslag"
+    },
+    "tryAsking": "Prova att fråga...",
+    "suggestions": {
+      "student": {
+        "ask": {
+          "s1": "Hur säger jag 'Jag älskar dig' på {{language}}?",
+          "s2": "Lär mig en söt komplimang",
+          "s3": "Vad är en romantisk fras för ikväll?"
+        },
+        "learn": {
+          "s1": "Starta en lektion om hälsningar",
+          "s2": "Lär mig verbkonjugationer",
+          "s3": "Öva matordförråd"
+        }
+      },
+      "tutor": {
+        "coach": {
+          "s1": "Hur förklarar jag {{language}} kasus enkelt?",
+          "s2": "Vilka nya ord ska jag lära dem?",
+          "s3": "Föreslå en romantisk fras för ikväll"
+        }
+      }
+    }
+  },
+
+  "newWords": {
+    "added": "{{count}} nytt ord tillagt",
+    "added_other": "{{count}} nya ord tillagda",
+    "viewAll": "Visa alla i Love Log"
+  },
+
+  "avatar": {
+    "clickToUpload": "Klicka för att ladda upp",
+    "clickToChange": "Klicka för att ändra",
+    "adjustPhoto": "Justera foto",
+    "cancel": "Avbryt",
+    "save": "Spara",
+    "saving": "Sparar...",
+    "uploading": "Laddar upp...",
+    "errors": {
+      "invalidType": "Ladda upp en JPG, PNG, WebP eller GIF-bild",
+      "tooLarge": "Bilden måste vara mindre än 5MB",
+      "readFailed": "Kunde inte läsa bildfil",
+      "cropRequired": "Justera beskärningsområdet",
+      "uploadFailed": "Kunde inte ladda upp bild"
+    }
+  },
+
+  "joinInvite": {
+    "validating": "Validerar inbjudan...",
+    "invalidInvite": "Ogiltig inbjudan",
+    "goToHomepage": "Gå till startsidan",
+    "linking": "Länkar era konton...",
+    "joinJourney": "{{name}} vill att du ska gå med på deras {{language}}-inlärningsresa!",
+    "learningToConnect": "De lär sig {{language}} för att koppla samman med dig på en djupare nivå. Som deras språkcoach kan du:",
+    "trackProgress": "Följ deras framsteg",
+    "trackProgressDesc": "Se vilka ord de lärt sig och var de behöver hjälp",
+    "conversationStarters": "Få konversationsstartare",
+    "conversationStartersDesc": "AI föreslår {{language}}-fraser att använda tillsammans baserat på deras ordförråd",
+    "encourageCelebrate": "Uppmuntra och fira",
+    "encourageCelebrateDesc": "Hjälp dem hålla motivationen och fira milstolpar tillsammans",
+    "join": "Gå med {{name}}",
+    "createAccount": "Skapa ditt konto för att bli deras coach",
+    "signInToConnect": "Logga in för att ansluta",
+    "emailLabel": "E-postadress",
+    "passwordLabel": "Lösenord",
+    "connecting": "Ansluter...",
+    "joinAsCoach": "Gå med som coach",
+    "signInConnect": "Logga in och anslut",
+    "alreadyHaveAccount": "Har du redan ett konto? Logga in",
+    "noAccount": "Inget konto? Registrera dig",
+    "checkEmail": "Kolla din e-post för bekräftelse, logga sedan in!",
+    "yourPartner": "Din partner"
+  },
+
+  "gameHistory": {
+    "loading": "Laddar...",
+    "noHistory": "Ingen spelhistorik ännu",
+    "noHistoryDesc": "Spela några spel för att se dina framsteg här!",
+    "today": "Idag",
+    "yesterday": "Igår",
+    "gameModes": {
+      "flashcards": "Flashcards",
+      "multiple_choice": "Flerval",
+      "type_it": "Skriv det",
+      "quick_fire": "Snabbeld",
+      "ai_challenge": "AI-utmaning"
+    },
+    "smartAccepted": "Smart accepterat",
+    "missedWords": "Missade ord",
+    "missed": "{{count}} missade",
+    "youSaid": "Du sa:",
+    "correct": "Rätt:",
+    "practiceWords": "Öva dessa {{count}} ord",
+    "perfectScore": "Perfekt poäng! Inga missade ord."
+  },
+
+  "usage": {
+    "title": "Månatlig användning",
+    "unlimitedPlan": "Obegränsad plan",
+    "noLimits": "Inga användningsgränser - lär dig så mycket du vill!",
+    "words": "Ord",
+    "voiceMin": "Röst min",
+    "listenMin": "Lyssna min",
+    "vocabulary": "Ordförråd",
+    "voiceChat": "Röstchatt",
+    "listenMode": "Lyssningsläge",
+    "upgradePrompt": "Börjar ta slut? Uppgradera till Obegränsad för inga gränser!",
+    "resetsMonthly": "Användning återställs den 1:a varje månad"
+  },
+
+  "inviteLink": {
+    "title": "Magisk inbjudningslänk",
+    "subtitle": "Dela med din partner för att ansluta direkt",
+    "generate": "Generera inbjudningslänk",
+    "generating": "Genererar...",
+    "yourLink": "Din inbjudningslänk:",
+    "copied": "Kopierat till urklipp!",
+    "copyLink": "Kopiera länk",
+    "expired": "Utgången",
+    "expiresTomorrow": "Går ut imorgon",
+    "expiresIn": "Går ut om {{days}} dagar",
+    "newLink": "Ny länk",
+    "description": "När din partner klickar på denna länk blir de inbjudna att gå med som din språkcoach!"
+  },
+
+  "breakup": {
+    "warning": {
+      "title": "Avsluta er inlärningsresa tillsammans?",
+      "whatHappens": "Vad som händer:",
+      "consequence1": "Era konton avlänkas",
+      "consequence2": "Ni ser inte varandras framsteg",
+      "consequence3Granter": "{{name}} förlorar sin gratis tillgång",
+      "consequence3Grantee": "Du förlorar din gratis tillgång",
+      "consequence4": "Ditt ordförråd och framsteg stannar hos dig",
+      "stayTogether": "Stanna tillsammans",
+      "continue": "Fortsätt"
+    },
+    "confirm": {
+      "title": "Är du säker?",
+      "typeGoodbye": "Skriv 'adjö' för att bekräfta",
+      "placeholder": "Skriv adjö...",
+      "goBack": "Gå tillbaka",
+      "itsOver": "Det är över"
+    },
+    "processing": "Skiljs åt...",
+    "complete": {
+      "title": "Konton avlänkade",
+      "messageGranter": "Din prenumeration fortsätter. Du kan bjuda in någon ny när som helst.",
+      "messageGrantee": "Ta hand om dig. Du behöver en egen prenumeration för att fortsätta lära dig."
+    }
+  },
+
+  "gameShowcase": {
+    "studentHeadline": {
+      "part1": "Åh, och om du vill lära dig ",
+      "highlight": "på traditionellt sätt också",
+      "part2": "..."
+    },
+    "tutorHeadline": {
+      "playTogether": "Spela tillsammans",
+      "middle": ", eller skicka dem ",
+      "challenges": "utmaningar",
+      "end": " att tackla ensamma..."
+    },
+    "studentSubtext": "Det gör vi fantastiskt.",
+    "tutorSubtext": "Spoiler: du kommer vilja spela också.",
+    "modes": {
+      "flashcard": "Flashcard",
+      "multipleChoice": "Flerval",
+      "typeIt": "Skriv det",
+      "quickFire": "Snabbeld"
+    },
+    "mobileShort": {
+      "multi": "Flerval",
+      "quick": "Snabb"
+    }
+  },
+
+  "demoFlashcard": {
+    "tapToReveal": "Tryck för att visa",
+    "hard": "Svårt",
+    "gotIt": "Fick det!"
+  },
+
+  "demoTypeIt": {
+    "correct": "Rätt!",
+    "notQuite": "Inte riktigt",
+    "answer": "Svar:",
+    "typeIn": "Skriv på {{language}}...",
+    "next": "Nästa",
+    "check": "Kontrollera"
+  },
+
+  "demoQuickFire": {
+    "title": "Snabbeld!",
+    "instructions": "Skriv översättningar så fort du kan!",
+    "start": "Start",
+    "submit": "Skicka",
+    "typeIn": "Skriv på {{language}}...",
+    "perfect": "Perfekt!",
+    "greatJob": "Bra jobbat!",
+    "keepPracticing": "Fortsätt öva!",
+    "timesUp": "Tiden är ute!"
+  },
+
+  "hero": {
+    "toggle": {
+      "learn": "Lär",
+      "teach": "Lär ut"
+    },
+    "login": {
+      "emailLabel": "E-postadress",
+      "emailPlaceholder": "du@kärlek.se",
+      "passwordLabel": "Lösenord",
+      "passwordPlaceholder": "••••••••",
+      "entering": "Loggar in...",
+      "alreadyHaveAccount": "Har du redan ett konto? Logga in",
+      "newHere": "Ny här? Skapa ett konto",
+      "checkEmail": "Kolla din e-post för bekräftelse!"
+    },
+    "legal": {
+      "terms": "Villkor",
+      "termsOfService": "Användarvillkor",
+      "privacy": "Integritet",
+      "privacyPolicy": "Integritetspolicy"
+    },
+    "student": {
+      "section1": {
+        "headline": "Skippa det tråkiga. Lär dig orden som betyder något - de som får dem att le.",
+        "highlight1": "orden som betyder något",
+        "highlight2": "får dem att le",
+        "subhead": "De som de bara använder med människor de älskar.",
+        "copy": "Deras interna skämt. Deras familjens fraser. Sättet de säger 'Jag älskar dig' när ingen lyssnar.",
+        "copyHighlight1": "interna skämt",
+        "copyHighlight2": "familjens fraser",
+        "copyHighlight3": "Jag älskar dig",
+        "underline": "Sättet de säger 'Jag älskar dig' när ingen lyssnar"
+      },
+      "section2": {
+        "headline": "Det finns en konversation du inte är med i. Än.",
+        "highlight1": "Än",
+        "copy": "Skämten du ler åt utan att förstå. Familjehistorierna som förlorar något i översättning. Dags att faktiskt fatta.",
+        "copyHighlight1": "familjehistorierna",
+        "copyHighlight2": "faktiskt fatta",
+        "underline": "Dags att faktiskt fatta"
+      },
+      "section3": {
+        "headline": "Du lär dig inte ett språk. Du lär dig dem.",
+        "highlight1": "lär dig dem",
+        "copy": "Deras ord. Deras skämt. Deras sätt att retas kärleksfullt. Byggt för människor som är här för kärleken, inte betygen.",
+        "copyHighlight1": "Deras ord",
+        "copyHighlight2": "Deras skämt",
+        "copyHighlight3": "kärleken",
+        "underline": "Byggt för människor som är här för kärleken"
+      },
+      "section4": {
+        "headline": "Att lära sig deras språk = flirta med extra steg.",
+        "highlight1": "flirta",
+        "copy": "Det här är inte skola. Det finns inget prov. Bara du, som visar upp för dem på ett helt nytt sätt. Ganska romantiskt, faktiskt.",
+        "copyHighlight1": "visar upp för dem",
+        "copyHighlight2": "romantiskt",
+        "underline": "Ganska romantiskt, faktiskt"
+      },
+      "section5": {
+        "headline": "Stunden du får deras familj att skratta? Perfekt.",
+        "highlight1": "deras familj att skratta",
+        "highlight2": "Perfekt",
+        "copy": "Första gången du faktiskt fattar skämtet. Det första 'Jag älskar dig' på deras språk som låter helt rätt. Stunden deras mamma börjar prata direkt med dig på deras språk. Det kommer.",
+        "copyHighlight1": "Jag älskar dig",
+        "copyHighlight2": "mamma",
+        "copyHighlight3": "Det kommer",
+        "underline": "Det kommer"
+      },
+      "section6": {
+        "headline": "Lär tillsammans. Älska tillsammans. Skratta tillsammans.",
+        "highlight1": "tillsammans",
+        "highlight2": "Älska",
+        "highlight3": "Skratta",
+        "copy": "De skickar dig ord som betyder något. Utmanar dig till spel. Retar ditt uttal (kärleksfullt). Det här är inte att studera ensam - det är att bygga er egen lilla värld tillsammans.",
+        "copyHighlight1": "ord som betyder något",
+        "copyHighlight2": "er egen lilla värld",
+        "underline": "bygga er egen lilla värld tillsammans"
+      },
+      "context1": { "header": "Redo att träffa dem?", "cta": "Börja lära", "subtext": "2 minuter till ditt första ord." },
+      "context2": { "header": "Vi har dig", "cta": "Börja lära", "subtext": "Ingen mer fejkat skratt." },
+      "context3": { "header": "Byggt för älskare", "cta": "Börja din resa", "subtext": "Inte turister. Familj." },
+      "context4": { "header": "Spela din väg", "cta": "Utforska spel", "subtext": "Flashcards, utmaningar och mer." },
+      "context5": { "header": "Gör det räknas", "cta": "Börja din resa", "subtext": "Varje ord betyder något." },
+      "context6": { "header": "Gör det hända", "cta": "Börja nu", "subtext": "Den stunden kommer." },
+      "context7": { "header": "Börja tillsammans", "cta": "Skapa er värld", "subtext": "De väntar på dig." }
+    },
+    "tutor": {
+      "section1": {
+        "headline": "De älskar dig. Hjälp dem nu älska ditt språk också.",
+        "highlight1": "älskar",
+        "highlight2": "ditt språk",
+        "copy": "Dina ord. Dina skämt. Sättet du svär när du slår tån. Det finns en hel du de inte träffat ännu - en helt ny du. Släpp in dem.",
+        "copyHighlight1": "Dina ord",
+        "copyHighlight2": "Dina skämt",
+        "copyHighlight3": "en helt ny du",
+        "copyHighlight4": "Släpp in dem",
+        "underline": "Släpp in dem"
+      },
+      "section2": {
+        "headline": "Du har försökt förklara. De har försökt nicka. Låt oss fixa detta.",
+        "highlight1": "förklara",
+        "highlight2": "nicka",
+        "highlight3": "fixa detta",
+        "copy": "Sakerna du säger när du är riktigt glad. Eller riktigt irriterad. Orden som känns som hem. De vill förstå hela dig - inte bara den översatta versionen.",
+        "copyHighlight1": "riktigt glad",
+        "copyHighlight2": "riktigt irriterad",
+        "copyHighlight3": "hela dig",
+        "underline": "inte bara den översatta versionen"
+      },
+      "section3": {
+        "headline": "Varje ord du delar är en bro.",
+        "highlight1": "bro",
+        "copy": "Dela ord. Skapa utmaningar. Fira segrar tillsammans. Appen hanterar det tråkiga - du får bara vara den roliga.",
+        "copyHighlight1": "Dela ord",
+        "copyHighlight2": "Skapa utmaningar",
+        "copyHighlight3": "Fira segrar",
+        "copyHighlight4": "den roliga",
+        "underline": "du får bara vara den roliga"
+      },
+      "section4": {
+        "headline": "Skicka ett ord. Starta ett spel. Se dem växa.",
+        "highlight1": "spel",
+        "highlight2": "växa",
+        "copy": "Utmana dem på din mammas favoritfras. Fråga dem före middag. Fira när de lyckas. Det här är partid förklätt till lärande - och det är faktiskt kul.",
+        "copyHighlight1": "mammas favoritfras",
+        "copyHighlight2": "partid",
+        "copyHighlight3": "faktiskt kul",
+        "underline": "Det här är partid förklätt till lärande"
+      },
+      "section5": {
+        "headline": "Stunden de överraskar dig med en fras du aldrig lärt dem? Magi.",
+        "highlight1": "överraskar dig",
+        "highlight2": "Magi",
+        "copy": "När de drar ett skämt och din familj faktiskt skrattar. När din mamma börjar prata direkt med dem på ditt språk. När de slänger ur sig en fras som får din käke att trilla ner. Du gjorde det möjligt.",
+        "copyHighlight1": "familj faktiskt skrattar",
+        "copyHighlight2": "mamma",
+        "copyHighlight3": "Du gjorde det möjligt"
+      },
+      "section6": {
+        "headline": "Lär ut tillsammans. Spela tillsammans. Bli djupare kära.",
+        "highlight1": "tillsammans",
+        "highlight2": "kära",
+        "copy": "Så här delar du vem du verkligen är. Ord för ord. Spel för spel. Skratt för skratt. Och de får bli kära i allt.",
+        "copyHighlight1": "vem du verkligen är",
+        "copyHighlight2": "bli kära",
+        "underline": "Och de får bli kära i allt"
+      },
+      "context1": { "header": "Dela din värld", "cta": "Börja guida", "subtext": "Bli deras språkguide." },
+      "context2": { "header": "Släpp in dem", "cta": "Börja guida", "subtext": "Vissa saker översätts bättre när de lärs." },
+      "context3": { "header": "Lär ut med kärlek", "cta": "Börja", "subtext": "Inte lektioner. Kärleksbrev." },
+      "context4": { "header": "Utmana dem", "cta": "Skicka en utmaning", "subtext": "Spel, utmaningar, överraskningar." },
+      "context5": { "header": "Se dem blomstra", "cta": "Börja skicka", "subtext": "Ett ord i taget." },
+      "context6": { "header": "Öppna dörren", "cta": "Börja nu", "subtext": "Den stunden kommer." },
+      "context7": { "header": "Väx tillsammans", "cta": "Bli deras guide", "subtext": "De är redo för dig." }
+    }
+  }
+}

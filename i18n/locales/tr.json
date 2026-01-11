@@ -1,0 +1,1817 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir şeyler yanlış gitti",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "submit": "Gönder",
+    "delete": "Sil",
+    "edit": "Düzenle"
+  },
+  "nav": {
+    "chat": "Sohbet",
+    "log": "Love Log",
+    "play": "Oyna",
+    "progress": "İlerleme",
+    "notifications": "Bildirimler",
+    "noNotifications": "Henüz bildirim yok",
+    "newCount": "{{count}} yeni",
+    "allCaughtUp": "Her şey tamam!",
+    "viewProfile": "Profili Görüntüle",
+    "myProgress": "İlerlemem",
+    "reportBug": "Hata Bildir",
+    "helpGuide": "Yardım ve Rehber",
+    "signOut": "Çıkış Yap"
+  },
+  "chat": {
+    "sidebar": {
+      "newSession": "Yeni Oturum",
+      "collapse": "Kenar çubuğunu daralt",
+      "expand": "Kenar çubuğunu genişlet",
+      "conversations": "Konuşmalar",
+      "noConversations": "Henüz konuşma yok",
+      "startSession": "Yukarıdan yeni bir oturum başlat",
+      "items": "{{count}} öğe",
+      "items_other": "{{count}} öğe"
+    },
+    "modes": {
+      "coach": "Koç",
+      "ask": "sor",
+      "learn": "öğren"
+    },
+    "status": {
+      "listening": "Dinliyor",
+      "speaking": "Konuşuyor",
+      "connecting": "Bağlanıyor"
+    },
+    "input": {
+      "askPlaceholder": "Cupid'e bir şey sor...",
+      "learnPlaceholder": "Bir sonraki derse hazır mısın?",
+      "tutorPlaceholder": "Bugün partnerine nasıl yardımcı olabilirsin?",
+      "listeningPlaceholder": "Dinliyor...",
+      "speakingPlaceholder": "Cupid konuşuyor...",
+      "connectingPlaceholder": "Bağlanıyor..."
+    },
+    "session": {
+      "deleteConfirm": "Bu oturumu silmek istediğinden emin misin?",
+      "longConversation": "Bu konuşma uzuyor!",
+      "startFresh": "Yeniden Başla"
+    },
+    "listen": {
+      "title": "Dinle",
+      "beta": "BETA",
+      "recording": "Kayıt",
+      "stop": "Durdur",
+      "stopSave": "Durdur ve Kaydet",
+      "sessionLabel": "Dinleme Oturumu",
+      "listeningFor": "{{language}} konuşması dinleniyor...",
+      "modeTooltip": "Dinleme Modu - Gerçek {{language}} konuşmalarını yakala",
+      "deleteConfirm": "Bu dinleme oturumunu silmek istediğinden emin misin?",
+      "bookmarkAdd": "Bu ifadeyi yer imlerine ekle",
+      "bookmarkRemove": "Yer imini kaldır",
+      "bookmarked": "{{count}} ifade yer imlerine eklendi",
+      "bookmarked_other": "{{count}} ifade yer imlerine eklendi",
+      "improving": "Transkript yapay zeka ile iyileştiriliyor...",
+      "wordsAdded": "Kelimeler Love Log'a Eklendi",
+      "extractWords": "Kelimeleri Çıkar",
+      "newSession": "Yeni Oturum",
+      "backToChats": "Sohbetlere Dön"
+    },
+    "listenPrompt": {
+      "title": "Dinlemeye Hazır mısın?",
+      "description": "Canlı transkripsiyon ve çeviri ile gerçek {{language}} konuşmalarını yakala.",
+      "contextLabel": "Ne dinliyorsun?",
+      "contextOptional": "(isteğe bağlı)",
+      "contextPlaceholder": "örn., Büyükannenin evinde akşam yemeği, TV programı...",
+      "contextHint": "İstersen sonra da isimlendirebilirsin",
+      "cancel": "İptal",
+      "start": "Dinlemeye Başla"
+    },
+    "wordExtractor": {
+      "title": "Kelimeleri Çıkar",
+      "found": "{{count}} kelime bulundu",
+      "selected": "{{count}} seçildi",
+      "analyzing": "Transkript analiz ediliyor...",
+      "extracting": "Kelimeler çıkarılıyor...",
+      "cancel": "İptal",
+      "addWords": "{{count}} Kelime Ekle",
+      "adding": "Ekleniyor..."
+    },
+    "errors": {
+      "addWordsFailed": "Kelimeler eklenemedi: {{message}}",
+      "addWordsError": "Kelimeler eklenemedi. Detaylar için konsolu kontrol et."
+    },
+    "blocks": {
+      "cultureNote": "Kültür Notu",
+      "loveGoal": "Aşk Hedefi"
+    }
+  },
+  "progress": {
+    "level": {
+      "current": "Mevcut Seviye",
+      "partner": "{{name}}'in Seviyesi",
+      "totalXp": "Toplam XP",
+      "xp": "XP",
+      "progressTo": "{{level}}'e ilerleme",
+      "xpToNext": "{{level}}'e {{xp}} XP",
+      "maxLevel": "Maksimum Seviye",
+      "max": "Maks",
+      "reachedMax": "Maksimum seviyeye ulaştın!",
+      "takeTest": "Seviye Testi Yap",
+      "practiceTest": "Pratik Seviye Testi"
+    },
+    "previousTests": {
+      "title": "Önceki Seviyeleri Çalış",
+      "previousAttempts": "Önceki Denemeler",
+      "viewAttempts": "Önceki denemeleri görüntüle"
+    },
+    "motivation": {
+      "title": "Motivasyonum",
+      "learningFor": "Şunun için öğreniyorum:"
+    },
+    "stats": {
+      "title": "Love Log İstatistikleri",
+      "total": "Toplam",
+      "mastered": "Öğrenilmiş",
+      "review": "Tekrar",
+      "nouns": "İsimler",
+      "verbs": "Fiiller",
+      "adjectives": "Sıfatlar",
+      "phrases": "İfadeler",
+      "words": "Kelimeler"
+    },
+    "gameHistory": {
+      "title": "Oyun Geçmişi"
+    },
+    "journey": {
+      "title": "Öğrenme Yolculuğu",
+      "journalEntries": "Günlük Kayıtları",
+      "newEntry": "Yeni Kayıt",
+      "new": "Yeni",
+      "analyzing": "Analiz ediliyor...",
+      "noEntries": "Henüz kayıt yok.",
+      "clickNew": "Başlamak için \"Yeni Kayıt\"a tıkla!",
+      "clickNewShort": "Başlamak için \"Yeni\"ye tıkla!",
+      "startJourney": "'Yeni Kayıt'a tıklayarak öğrenme yolculuğuna başla",
+      "selectEntry": "Görüntülemek için bir kayıt seç",
+      "wordsXp": "{{words}} kelime • {{xp}} XP"
+    },
+    "summary": {
+      "words": "Kelimeler",
+      "youCanSay": "Artık Söyleyebilirsin",
+      "topics": "Konular",
+      "grammar": "Dilbilgisi",
+      "upNext": "Sırada",
+      "answerInsights": "Cevap Analizi",
+      "diacritics": "Aksan İşaretleri",
+      "synonyms": "Eş Anlamlılar",
+      "typosOk": "Yazım Hataları Kabul",
+      "diacriticTip": "İpucu: Kelimeleri biliyorsun! Özel karakterler için {{language}} klavyesi kurmayı dene",
+      "synonymTip": "Harika kelime hazinesi - birçok geçerli alternatif kullanıyorsun!"
+    },
+    "quickActions": {
+      "practice": "Pratik",
+      "practiceDesc": "Kartlar ve testler",
+      "loveLog": "Love Log",
+      "loveLogDesc": "Kelime hazinen"
+    },
+    "testResults": {
+      "title": "Test Sonuçları",
+      "correct": "doğru",
+      "yourAnswers": "Cevapların",
+      "yourAnswer": "Senin cevabın: {{answer}}",
+      "correctAnswer": "Doğru: {{answer}}",
+      "tryAgain": "Tekrar Dene"
+    },
+    "tutor": {
+      "yourPartner": "Partnerin",
+      "phrasesForTonight": "Bu Gece İçin İfadeler",
+      "recentlyLearned": "Son Öğrenilenler",
+      "wordsToPractice": "Birlikte Çalışılacak Kelimeler",
+      "noWeakSpots": "Zayıf nokta yok - harika gidiyor!",
+      "misses": "{{count}} hata",
+      "misses_other": "{{count}} hata",
+      "quizThem": "Test et →",
+      "playTogether": "Birlikte Oyna",
+      "playTogetherDesc": "Test oyunları ve aktiviteler",
+      "theirVocabulary": "Kelime Hazinesi",
+      "browseLoveLog": "Love Log'a Göz At",
+      "useItTonight": "{{word}} - bu gece kullan!",
+      "tryInConversation": "Bunu konuşmada kullanmayı dene",
+      "complimentThem": "Bununla iltifat et!",
+      "whisperBeforeBed": "Yatmadan önce fısılda",
+      "iLoveYouVeryMuch": "Seni çok seviyorum"
+    },
+    "encouragement": {
+      "wordsMastered": "{{count}} kelime öğrenildi! Kutlama zamanı!",
+      "wordsNeedWork": "Sadece {{count}} kelime çalışma istiyor - bu gece test edebilirsin!",
+      "milestone": "Kelime hazinesinde {{count}} kelime var - bu kilometre taşını kutla!",
+      "justLearned": "\"{{word}}\" kelimesini yeni öğrendi - bugün konuşmada kullan!"
+    },
+    "levelThemes": {
+      "firstWords": "Aşkın İlk Kelimeleri",
+      "checkingIn": "Hal Hatır",
+      "feelings": "Duygular",
+      "dailyLife": "Günlük Hayat",
+      "preferences": "Tercihler",
+      "makingPlans": "Plan Yapma",
+      "tellingStories": "Hikaye Anlatma",
+      "deeperFeelings": "Derin Duygular",
+      "complexConversations": "Karmaşık Konuşmalar",
+      "futureDreams": "Gelecek Hayalleri",
+      "problemSolving": "Problem Çözme",
+      "culturalNuance": "Kültürel İncelik",
+      "advancedExpression": "İleri Düzey İfade",
+      "nativeFluency": "Anadil Akıcılığı",
+      "expertLevel": "Uzman Seviyesi",
+      "culturalMastery": "Kültürel Ustalık",
+      "completeMastery": "Tam Ustalık",
+      "practice": "Pratik"
+    }
+  },
+  "play": {
+    "loading": "Pratik modülü yükleniyor...",
+    "title": "Pratik",
+    "beta": "Beta",
+    "tabs": {
+      "games": "Oyunlar",
+      "loveNotes": "Aşk Notları",
+      "gamesDesc": "Farklı oyun modlarıyla kelime hazineni çalış",
+      "loveNotesDesc": "{{partner}}'dan meydan okumalar ve hediyeler"
+    },
+    "empty": {
+      "noWords": "Henüz Kelime Yok",
+      "noWordsDesc": "Önce Sohbet'te birkaç kelime öğren, sonra pratik yapmaya gel!",
+      "needMore": "Daha Fazla Kelime Gerekli",
+      "needMoreDesc": "Çoktan seçmeli için en az 4 kelime gerekli. {{count}} kelimeniz var.",
+      "tryFlashcards": "Kartları Dene"
+    },
+    "games": {
+      "flashcards": "Kartlar",
+      "flashcardsDesc": "Çevirileri görmek için kartları çevir",
+      "multiChoice": "Çoktan Seçmeli",
+      "multiChoiceDesc": "Doğru çeviriyi seç",
+      "typeIt": "Yaz",
+      "typeItDesc": "Çeviriyi kendin yaz",
+      "quickFire": "Hızlı Ateş",
+      "quickFireDesc": "60 saniye meydan okuma",
+      "aiChallenge": "Yapay Zeka Meydan Okuması",
+      "aiChallengeDesc": "Akıllı kelime seçimi",
+      "conversation": "Konuşma",
+      "conversationDesc": "{{language}} dilinde yapay zeka ile konuş",
+      "verbMastery": "Fiil Ustalığı",
+      "verbMasteryVerbs": "{{count}} fiil",
+      "learnVerbsFirst": "Önce fiilleri öğren"
+    },
+    "directions": {
+      "targetToNative": "{{target}} → {{native}}",
+      "nativeToTarget": "{{native}} → {{target}}"
+    },
+    "flashcard": {
+      "word": "{{language}} KELİME",
+      "translation": "ÇEVİRİ",
+      "tapToReveal": "Görmek için dokun",
+      "hard": "Zor",
+      "gotIt": "Bildim!"
+    },
+    "typeIt": {
+      "hint": "İpucu:",
+      "hintShown": "İpucu gösterildi",
+      "showHint": "İpucu göster",
+      "correct": "Doğru!",
+      "notQuite": "Tam değil",
+      "correctAnswer": "Doğru cevap:",
+      "typeIn": "{{language}} dilinde yaz...",
+      "next": "Sonraki",
+      "check": "Kontrol Et"
+    },
+    "quickFire": {
+      "title": "Hızlı Ateş!",
+      "description": "60 saniyede olabildiğince çok kelime çevir!",
+      "wordsAvailable": "{{count}} kelime mevcut",
+      "upTo20": "Tur başına en fazla 20 rastgele kelime",
+      "start": "Başla!",
+      "needAtLeast5": "Hızlı Ateş için en az 5 kelime gerekli",
+      "typeTranslation": "Çeviriyi yaz..."
+    },
+    "aiChallenge": {
+      "chooseMode": "Meydan Okuma Modu Seç",
+      "length": "Uzunluk",
+      "all": "Tümü",
+      "qs": "Soru",
+      "generatingPhrases": "Romantik ifadeler oluşturuluyor...",
+      "startChallenge": "Meydan Okumayı Başlat",
+      "modes": {
+        "weakest": "En Zayıf Kelimeler",
+        "weakestDesc": "Zorlandığın kelimelere odaklan",
+        "gauntlet": "Karışık Eldiven",
+        "gauntletDesc": "Tüm türlerden rastgele karışım",
+        "romantic": "Romantik İfadeler",
+        "romanticDesc": "{{language}} dilinde tatlı ifadeler",
+        "leastPracticed": "En Az Çalışılan",
+        "leastPracticedDesc": "Son zamanlarda görmediğin kelimeler",
+        "reviewMastered": "Öğrenilenleri Tekrarla",
+        "reviewMasteredDesc": "Öğrenilmiş kelimeleri çalış"
+      }
+    },
+    "verbMastery": {
+      "title": "Fiil Ustalığı",
+      "practiceCount": "{{count}} fiil çekimini çalış",
+      "selectTense": "Zaman Seç",
+      "presentTense": "Şimdiki Zaman",
+      "pastTense": "Geçmiş Zaman",
+      "futureTense": "Gelecek Zaman",
+      "verbsAvailable": "{{count}} fiil mevcut",
+      "noVerbsWithTense": "Bu zamanda henüz fiil yok",
+      "noVerbsAlert": "{{tense}} zamanında fiil bulunamadı. Önce daha fazla fiil öğren!",
+      "conjugateVerb": "Fiili çek",
+      "forPronoun": "Şu zamir için",
+      "typeConjugation": "Çekimli hali yaz...",
+      "checkAnswer": "Cevabı Kontrol Et",
+      "nextQuestion": "Sonraki Soru",
+      "seeResults": "Sonuçları Gör",
+      "backToGames": "← Oyunlara Dön"
+    },
+    "session": {
+      "yourPartner": "Partnerin"
+    }
+  },
+  "profile": {
+    "roles": {
+      "student": "{{language}} öğreniyor",
+      "tutor": "Dil Koçu"
+    },
+    "partner": {
+      "title": "Partnerin",
+      "unlink": "Bağlantıyı Kes"
+    },
+    "customisation": {
+      "title": "Kişiselleştirme",
+      "subtitle": "Görsel ayarlar",
+      "accentColor": "Vurgu Rengi",
+      "darkMode": "Karanlık Mod",
+      "fontSize": "Yazı Boyutu",
+      "answerChecking": "Cevap Kontrolü",
+      "smartMode": "Akıllı Mod",
+      "strictMode": "Katı Mod",
+      "smartModeDesc": "Yapay zeka eş anlamlıları, yazım hatalarını ve varyasyonları kabul eder",
+      "strictModeDesc": "Sadece tam eşleşme (aksan işaretleri hariç)",
+      "preview": "Önizleme",
+      "previewText": "<strong>Kocham cię</strong> {{language}} dilinde \"Seni seviyorum\" demek"
+    },
+    "advanced": {
+      "title": "Gelişmiş Tercihler",
+      "subtitle": "Kayıt cevaplarını düzenle",
+      "yourName": "Adın",
+      "partnerName": "Partnerin Adı",
+      "learnerName": "Öğrencinin Adı",
+      "relationshipVibe": "İlişki Havası",
+      "learningReason": "Neden {{language}} öğreniyorsun?",
+      "motivationPlaceholder": "Motivasyonun...",
+      "dailyTime": "Günlük Süre",
+      "preferredTime": "Tercih Edilen Zaman",
+      "biggestChallenge": "En Büyük Zorluk",
+      "firstGoal": "İlk Hedef",
+      "goalPlaceholder": "Ne başarmak istiyorsun?",
+      "relationshipType": "İlişki Türü",
+      "languageConnection": "{{language}} Bağlantısı",
+      "howYouLearned": "{{language}} dilini nasıl öğrendin",
+      "dreamPhrase": "Hayal İfadesi",
+      "dreamPhrasePlaceholder": "Onun ne söylediğini duymak istiyorsun?",
+      "teachingStyle": "Öğretme Tarzı",
+      "select": "Seç..."
+    },
+    "originOptions": {
+      "grewUp": "Orada büyüdüm",
+      "family": "Aileden",
+      "school": "Resmi eğitim",
+      "self": "Kendi kendine"
+    },
+    "styleOptions": {
+      "patient": "Sabırlı ve Nazik",
+      "playful": "Eğlenceli ve Neşeli",
+      "structured": "Yapılandırılmış",
+      "immersive": "Yoğun"
+    },
+    "buttons": {
+      "saving": "Kaydediliyor...",
+      "saved": "Kaydedildi!",
+      "saveChanges": "Değişiklikleri Kaydet",
+      "signOut": "Çıkış Yap"
+    }
+  },
+  "loveLog": {
+    "title": "Love Log",
+    "titleFull": "Love Log",
+    "search": "Ara...",
+    "searchWords": "Kelime ara...",
+    "wordsCount": "{{count}} kelime",
+
+    "sync": {
+      "scanChats": "Sohbetleri Tara",
+      "scanTooltip": "Yeni kelimeler için sohbet geçmişini tara",
+      "allSynced": "Tümü senkronize!",
+      "errorFetching": "Mesajlar alınırken hata",
+      "noNewWords": "Yeni kelime bulunamadı",
+      "newWords": "+{{count}} yeni kelime!",
+      "newWords_other": "+{{count}} yeni kelime!",
+      "syncError": "Senkronizasyon hatası"
+    },
+
+    "filters": {
+      "all": "Tümü",
+      "noun": "İsim",
+      "verb": "Fiil",
+      "adjective": "Sıfat",
+      "phrase": "İfade",
+      "gifts": "Hediyeler"
+    },
+
+    "card": {
+      "gift": "Hediye",
+      "giftFrom": "{{name}}'dan hediye",
+      "yourPartner": "partnerin",
+      "mastered": "Öğrenildi!",
+      "streakProgress": "Üst üste {{current}}/{{target}} doğru",
+      "tapForDetails": "detaylar için dokun",
+      "example": "Örnek",
+      "noExample": "Örnek mevcut değil.",
+      "conjugations": "Çekimler",
+      "forms": "Formlar"
+    },
+
+    "modal": {
+      "present": "Şimdiki",
+      "past": "Geçmiş",
+      "future": "Gelecek",
+      "tenseLocked": "{{tense}} zaman kilitli",
+      "unlockTense": "{{tense}} Zamanı Aç",
+      "unlocked": "{{date}} tarihinde açıldı"
+    },
+
+    "unlock": {
+      "title": "{{tense}} Zamanı Açılsın mı?",
+      "descriptionBefore": "Şunu söylemeyi öğrenmeye hazır mısın:",
+      "descriptionAfter": "{{tense}} zamanda?",
+      "pastNote": "Hem eril hem dişil formları göreceksin.",
+      "notYet": "Henüz Değil",
+      "unlockNow": "Şimdi Aç",
+      "unlocking": "Açılıyor..."
+    },
+
+    "pronouns": {
+      "singular1": "(ben)",
+      "singular2": "(sen)",
+      "singular3": "(o)",
+      "plural1": "(biz)",
+      "plural2": "(siz)",
+      "plural3": "(onlar)"
+    },
+
+    "tableHeaders": {
+      "person": "Kişi",
+      "masculine": "Eril",
+      "feminine": "Dişil"
+    },
+
+    "nounForms": {
+      "gender": "Cinsiyet",
+      "singular": "Tekil",
+      "plural": "Çoğul"
+    },
+
+    "adjectiveForms": {
+      "title": "Cinsiyet Formları",
+      "masculine": "Eril",
+      "feminine": "Dişil",
+      "neuter": "Nötr",
+      "plural": "Çoğul"
+    }
+  },
+
+  "onboarding": {
+    "step": {
+      "back": "Geri",
+      "counter": "{{total}} / {{current}}",
+      "quitTitle": "Kaydı bırak",
+      "continue": "Devam Et",
+      "skipForNow": "Şimdilik geç"
+    },
+
+    "name": {
+      "title": "Cupid sana ne desin?",
+      "subtitle": "Adın bu yolculuğu kişisel hale getirir.",
+      "placeholder": "Adın"
+    },
+
+    "partnerName": {
+      "studentTitle": "{{name}}, kimin için {{language}} öğreniyorsun?",
+      "tutorTitle": "{{name}}, kime {{language}} öğrenmede yardım ediyorsun?",
+      "studentSubtitle": "Bu kişiyi yeni yeteneklerinle şaşırtacaksın.",
+      "tutorSubtitle": "{{language}} yolculuğunda rehberlik edeceğin kişi.",
+      "placeholder": "Onun adı"
+    },
+
+    "validation": {
+      "title": "Cevapların nasıl kontrol edilsin?",
+      "subtitle": "Notlandırmada uygulamanın ne kadar hoşgörülü olacağını seç.",
+      "changeInSettings": "Bunu istediğin zaman Ayarlar'dan değiştirebilirsin",
+      "smart": {
+        "label": "Akıllı Mod",
+        "tag": "Önerilen",
+        "description": "Yapay zeka ne demek istediğini anlar",
+        "detail1": "Eş anlamlıları kabul eder (\"güzel\" = \"hoş\")",
+        "detail2": "Küçük yazım hatalarını affeder",
+        "detail3": "Artikel varyasyonlarına izin verir",
+        "detail4": "Alternatif çevirileri tanır"
+      },
+      "strict": {
+        "label": "Katı Mod",
+        "tag": "İleri Düzey",
+        "description": "Sadece tam eşleşme",
+        "detail1": "Tam eşleşmeli olmalı (aksan işaretleri hariç)",
+        "detail2": "İleri düzey öğrenciler için en iyisi",
+        "detail3": "Hassasiyet ve doğruluk geliştirir",
+        "detail4": "Geleneksel kart deneyimi"
+      }
+    },
+
+    "plan": {
+      "title": "{{name}}, planını seç",
+      "subtitle": "{{language}} öğrenme yolculuğuna bugün başla",
+      "monthly": "Aylık",
+      "yearly": "Yıllık",
+      "discount": "%70 indirim",
+      "popular": "Popüler",
+      "perMonth": "/ay",
+      "perYear": "/yıl",
+      "monthlyEquivalent": "${{price}}/ay",
+      "moreFeatures": "+{{count}} daha fazla özellik",
+      "continueWith": "{{plan}} ile devam et",
+      "aPlan": "bir plan",
+      "trustSignal": "Stripe ile güvenli ödeme. İstediğin zaman iptal et.",
+      "standard": {
+        "name": "Standart",
+        "tagline": "Başlamak için mükemmel",
+        "feature1": "Love Log'da 2.000 kelime",
+        "feature2": "Ayda 60 dk sesli sohbet",
+        "feature3": "Ayda 30 dk Dinleme Modu",
+        "feature4": "Tüm konuşma senaryoları",
+        "feature5": "Partner daveti"
+      },
+      "unlimited": {
+        "name": "Sınırsız",
+        "tagline": "Kararlı öğrenciler için",
+        "feature1": "Sınırsız her şey",
+        "feature2": "Sınırsız sesli sohbet",
+        "feature3": "Sınırsız Dinleme Modu",
+        "feature4": "Tüm konuşma senaryoları",
+        "feature5": "Başka bir çift için hediye kartı (yıllık)"
+      }
+    },
+
+    "student": {
+      "start": {
+        "title": "{{name}}, başlamaya hazır mısın?",
+        "subtitle": "{{partnerName}}'in dilini konuşma yolculuğun şimdi başlıyor.",
+        "accessTitle": "Erişimin olacaklar:",
+        "feature1": "Cupid ile yapay zeka sohbetleri",
+        "feature2": "Love Log kelime takipçin",
+        "feature3": "Kelimeleri çalışmak ve ustalaşmak için oyunlar",
+        "feature4": "İlerleme takibi ve seviye testleri",
+        "button": "Hadi başlayalım!"
+      },
+
+      "vibe": {
+        "title": "{{name}} ile ilişkin için tek kelime",
+        "subtitle": "En doğru hissettiren havayı seç.",
+        "passionate": "Tutkulu",
+        "playful": "Eğlenceli",
+        "growing": "Gelişen",
+        "forever": "Sonsuza Dek",
+        "longDistance": "Uzak Mesafe",
+        "newLove": "Yeni Aşk"
+      },
+
+      "time": {
+        "title": "Günde ne kadar zaman ayırabilirsin?",
+        "subtitle": "Küçük anlar bile büyük ilerlemeye dönüşür.",
+        "quick": "Kısa bir öpücük",
+        "quickDesc": "5 dakika",
+        "coffee": "Bir kahve molası",
+        "coffeeDesc": "10 dakika",
+        "walk": "Uzun bir yürüyüş",
+        "walkDesc": "20+ dakika"
+      },
+
+      "when": {
+        "title": "Ne zaman pratik yapmayı tercih edersin?",
+        "subtitle": "Tam doğru anda hatırlatırız.",
+        "morning": "Sabah",
+        "afternoon": "Öğleden Sonra",
+        "evening": "Akşam",
+        "whenever": "Ne Zaman Olsa"
+      },
+
+      "photo": {
+        "title": "Fotoğrafını ekle",
+        "subtitleWithPhoto": "Harika görünüyorsun! Bu profilinde görünecek.",
+        "subtitleNoPhoto": "Bir fotoğraf profilini daha kişisel hissettirir."
+      },
+
+      "why": {
+        "title": "Neden {{name}} için {{language}} öğrenmek istiyorsun?",
+        "subtitle": "Bu, yolculuğundaki kişisel hatırlatıcın olur.",
+        "placeholder": "Ailesini ziyaret ettiğimizde onları şaşırtmak istiyorum... Tatlı şeyler fısıldamak istiyorum... Onun dünyasını anlamak istiyorum..."
+      },
+
+      "fear": {
+        "title": "{{language}} öğrenmekle ilgili en büyük korkunz ne?",
+        "subtitle": "Herkesin bir korkusu var. Seninkiyle birlikte başa çıkalım.",
+        "pronunciation": "Telaffuz",
+        "pronunciationDesc": "Yanlış veya komik ses çıkarmak",
+        "grammar": "Dilbilgisi kuralları",
+        "grammarDesc": "Çekimler, haller, cinsiyet",
+        "silly": "Komik görünmek",
+        "sillyDesc": "Başkalarının önünde hata yapmak",
+        "forgetting": "Her şeyi unutmak",
+        "forgettingDesc": "Öğrenmek ama aklında tutamamak"
+      },
+
+      "prior": {
+        "title": "Daha önce {{language}} öğrenmeyi denedin mi?",
+        "subtitle": "Bu, doğru yerden başlamamıza yardımcı olur.",
+        "yes": "Evet, biraz",
+        "beginner": "Tamamen yeni başlayan"
+      },
+
+      "goal": {
+        "title": "İlk hedefin ne?",
+        "subtitle": "{{name}} ile çalışacağın bir hedef",
+        "love": "\"Seni seviyorum\"u mükemmel söyle",
+        "phrases": "10 romantik ifade öğren",
+        "surprise": "{{language}} bir selamlamayla onu şaşırt",
+        "custom": "Kendi hedefimi belirle",
+        "customPlaceholder": "örn., \"En sevdiği restoranda {{language}} sipariş ver\""
+      },
+
+      "learnHello": {
+        "title": "İlk kelimeni öğrenelim!",
+        "subtitle": "{{name}}'e {{language}} dilinde merhaba de",
+        "listen": "Dinle",
+        "tip": "{{language}} dilindeki ilk kelimen!",
+        "gotIt": "Anladım!",
+        "listenFirst": "Önce dinle"
+      },
+
+      "learnLove": {
+        "title": "Şimdi en önemli ifade...",
+        "subtitle": "{{name}}'in asla unutmayacağı",
+        "hearIt": "Dinle",
+        "listenAgain": "Tekrar dinle",
+        "proTip": "<strong>İpucu:</strong> Bu ifadeyi {{name}}'e söyleme pratiği yap - {{language}} dilinde duyduğunda bayılacak!",
+        "ready": "Hazırım!",
+        "listenFirst": "Önce dinle"
+      },
+
+      "tryIt": {
+        "title": "Söylemeyi dene!",
+        "subtitle": "Endişelenme, sadece sen duyabilirsin.",
+        "listening": "Dinliyor... Durdurmak için dokun",
+        "success": "Muhteşem! Söyledin!",
+        "practiceLater": "Sonra pratik yaparım"
+      },
+
+      "celebration": {
+        "title": "Başardın!",
+        "subtitle": "İlk {{language}} kelimelerini öğrendin!",
+        "partnerReaction": "{{name}} buna bayılacak.",
+        "xpEarned": "+10 XP",
+        "firstXp": "İlk deneyim puanların!",
+        "wordsLearned": "Az önce öğrendiğin kelimeler:",
+        "keepGoing": "Devam et!"
+      }
+    },
+
+    "tutor": {
+      "start": {
+        "title": "{{learnerName}}'in rehberi olmaya hazır mısın, {{userName}}?",
+        "subtitle": "Dilin bir hediye. Sevgiyle paylaşalım.",
+        "toolkitTitle": "Öğretmen araç setin:",
+        "feature1": "Öğretme ipuçları için Cupid'e sor",
+        "feature2": "{{learnerName}}'in ilerlemesini takip et",
+        "feature3": "Onları şaşırtmak için kelime hediyeleri gönder",
+        "feature4": "Yolculuklarını görmek için hesapları bağla",
+        "button": "{{learnerName}}'e yardım etmeye başla!"
+      },
+
+      "relation": {
+        "title": "{{name}} ile ilişkin ne?",
+        "subtitle": "Bu, öğretme deneyimini kişiselleştirmemize yardımcı olur",
+        "partner": "Partner",
+        "spouse": "Eş",
+        "friend": "Arkadaş",
+        "family": "Aile"
+      },
+
+      "connection": {
+        "title": "{{language}} ile bağlantın ne?",
+        "subtitle": "Dil geçmişini anlamamıza yardım et",
+        "native": "Anadil konuşucusu",
+        "nativeDesc": "{{language}} konuşarak doğup büyüdüm",
+        "heritage": "Miras konuşucusu",
+        "heritageDesc": "{{language}} aile geçmişi",
+        "fluent": "Akıcı konuşucu",
+        "fluentDesc": "{{language}} öğrendim ve ustalaştım",
+        "bilingual": "İki dilli",
+        "bilingualDesc": "{{language}} ve başka bir dil konuşarak büyüdüm"
+      },
+
+      "origin": {
+        "title": "{{language}} dilini nasıl öğrendin?",
+        "subtitle": "Yolculuğun, öğretme yaklaşımları önermemize yardımcı olur",
+        "country": "Orada büyüdüm",
+        "family": "Aileden",
+        "school": "Resmi eğitim",
+        "self": "Kendi kendime"
+      },
+
+      "dreamPhrase": {
+        "title": "Hayal anı",
+        "subtitle": "{{name}}'in {{language}} dilinde söylediğini ilk duymak istediğin şey ne?",
+        "placeholder": "örn., \"Seni seviyorum\" veya \"Günaydın\"",
+        "note": "Bu, birlikte ilk öğretme hedefin olur"
+      },
+
+      "style": {
+        "title": "Öğretme tarzın?",
+        "subtitle": "Birine öğrenmeye nasıl yardım edersin?",
+        "patient": "Sabırlı ve Nazik",
+        "patientDesc": "Ağır ağır ilerlemek kazandırır",
+        "playful": "Eğlenceli ve Neşeli",
+        "playfulDesc": "Oyunlar ve mizahla öğrenme",
+        "structured": "Yapılandırılmış",
+        "structuredDesc": "Net hedeflerle organize dersler",
+        "immersive": "Yoğun",
+        "immersiveDesc": "Dalıp yaparak öğrenme"
+      },
+
+      "preview": {
+        "title": "Öğretmen araç setin",
+        "subtitle": "{{name}} için yapabileceklerin",
+        "coachMode": "Koç Modu",
+        "coachModeDesc": "{{name}}'in ilerlemesine ve zorluklarına göre kişiselleştirilmiş ipuçları al",
+        "progressTracking": "İlerleme Takibi",
+        "progressTrackingDesc": "{{name}}'in hangi kelimelere ustalaştığını ve nerede yardıma ihtiyacı olduğunu gör",
+        "wordGifts": "Kelime Hediyeleri",
+        "wordGiftsDesc": "{{name}}'in öğrenme günlüğüne özel kelimeler ve ifadeler gönder",
+        "button": "Harika görünüyor!"
+      }
+    }
+  },
+
+  "levelTest": {
+    "preparing": "Testin Hazırlanıyor",
+    "generatingQuestions": "Seviyene göre sorular oluşturuluyor...",
+    "oops": "Hay aksi!",
+    "backToProgress": "İlerlemeye Dön",
+    "levelUpTest": "Seviye Atlama Testi",
+    "questions": "Sorular",
+    "passThreshold": "Geçme eşiği",
+    "timeLimit": "Süre sınırı",
+    "none": "Yok",
+    "startTest": "Teste Başla",
+    "congratulations": "Tebrikler!",
+    "keepPracticing": "Pratik Yapmaya Devam Et!",
+    "advancedTo": "{{level}}'e yükseldin!",
+    "passedTest": "Testi geçtin!",
+    "scoreNeeded": "%{{score}} aldın. Geçmek için %80 gerekli.",
+    "correctAnswers": "Doğru cevaplar",
+    "tryAgain": "Tekrar Dene",
+    "viewDetailed": "Detaylı sonuçları İlerleme'de gör",
+    "questionTypes": {
+      "multipleChoice": "Çoktan Seçmeli",
+      "fillBlank": "Boşluk Doldur",
+      "translation": "Çeviri"
+    },
+    "coreConcept": "Temel Kavram",
+    "typeMissing": "Eksik kelimeyi yaz...",
+    "typeTranslation": "Çevirini yaz...",
+    "back": "Geri",
+    "submitting": "Gönderiliyor...",
+    "submitTest": "Testi Gönder",
+    "next": "Sonraki"
+  },
+
+  "tutorGames": {
+    "playTogether": "Birlikte Oyna",
+    "sendChallenge": "Meydan Okuma Gönder",
+    "playNow": "Şimdi Oyna",
+    "sendDescription": "{{name}}'in sonra tamamlaması için meydan okumalar gönder",
+    "playDescription": "Şimdi birlikte pratik yap",
+    "startNow": "Şimdi Başla",
+
+    "local": {
+      "quiz": "{{name}}'i Test Et",
+      "quizDesc": "Birlikte kart testi",
+      "quickFire": "Hızlı Ateş",
+      "quickFireDesc": "60 saniye meydan okuma",
+      "multipleChoice": "Çoktan Seçmeli",
+      "multipleChoiceDesc": "Doğru cevabı seç",
+      "typeIt": "Yaz",
+      "typeItDesc": "Çeviriyi yaz",
+      "needWords": "{{name}}'in oynamak için kelime hazinesinde en az 4 kelime olması gerekiyor"
+    },
+
+    "send": {
+      "doYouRemember": "Hatırlıyor musun?",
+      "quizPartner": "{{name}}'i kelime hazinesinden test et",
+      "createQuiz": "Test Oluştur",
+      "quickFire": "Hızlı Ateş",
+      "timedChallenge": "Süreli kelime meydan okuması",
+      "createChallenge": "Meydan Okuma Oluştur",
+      "giftWords": "Kelime Hediye Et",
+      "sendWords": "{{name}}'in öğrenmesi için kelimeler gönder",
+      "sendGift": "Hediye Gönder"
+    },
+
+    "pending": {
+      "waitingFor": "{{name}} bekleniyor",
+      "words": "{{count}} kelime",
+      "sent": "{{date}} gönderildi",
+      "pending": "Beklemede"
+    },
+
+    "gifts": {
+      "title": "Gönderilen Kelime Hediyeleri",
+      "word": "{{count}} kelime",
+      "word_other": "{{count}} kelime",
+      "topic": "Konu: {{topic}}",
+      "custom": "Özel kelimeler",
+      "xpMultiplier": "{{multiplier}}x XP"
+    },
+
+    "results": {
+      "title": "Son Sonuçlar",
+      "completed": "{{date}} tamamlandı"
+    },
+
+    "empty": {
+      "noChallenges": "Henüz meydan okuma yok",
+      "createFirst": "{{name}} için ilk meydan okumayı oluştur!"
+    },
+
+    "flashcard": {
+      "targetWord": "{{language}}",
+      "nativeWord": "{{language}}",
+      "tapToReveal": "Görmek için dokun",
+      "hard": "Zor",
+      "gotIt": "Bildim!"
+    },
+
+    "direction": {
+      "label": "{{target}} → {{native}}"
+    },
+
+    "quickFireGame": {
+      "title": "Hızlı Ateş!",
+      "description": "60 saniyede olabildiğince çok kelime çevir!",
+      "cancel": "İptal",
+      "start": "Başla!",
+      "typeTranslation": "Çeviriyi yaz..."
+    },
+
+    "typeItGame": {
+      "correct": "Doğru!",
+      "notQuite": "Tam değil",
+      "correctAnswer": "Doğru cevap: {{answer}}",
+      "typeIn": "{{language}} dilinde yaz...",
+      "next": "Sonraki",
+      "check": "Kontrol Et"
+    },
+
+    "gameOver": {
+      "greatJob": "Harika İş!",
+      "keepPracticing": "Pratik Yapmaya Devam Et!",
+      "correct": "{{total}} içinden {{correct}} doğru",
+      "practicedTogether": "Birlikte pratik yaptınız mı?",
+      "saveDescription": "İlerlemelerini takip etmek için bu oturumu {{name}}'in öğrenme geçmişine kaydet.",
+      "saveToProgress": "{{name}}'in İlerlemesine Kaydet",
+      "saving": "Kaydediliyor...",
+      "savedSuccess": "{{name}}'in geçmişine kaydedildi!",
+      "autoSaving": "{{name}}'in ilerlemesine otomatik kaydediliyor...",
+      "done": "Tamam",
+      "playAgain": "Tekrar Oyna"
+    },
+
+    "saveDialog": {
+      "title": "{{name}}'in İlerlemesine Kaydedilsin mi?",
+      "howItWorks": "Nasıl çalışır:",
+      "detail1": "Oyun sonuçları {{name}}'in öğrenme geçmişine kaydedilir",
+      "detail2": "Kelime puanları güncellenecek (seriler, ustalık)",
+      "detail3": "Birlikte pratik yaptığınızda harika!",
+      "willUpdate": "Bu, {{name}}'in kelime puanlarını ve öğrenme geçmişini güncelleyecek.",
+      "remember": "Her zaman {{name}}'in ilerlemesine kaydet",
+      "notNow": "Şimdi Değil",
+      "save": "Kaydet"
+    }
+  },
+
+  "gameResults": {
+    "greatJob": "Harika İş!",
+    "sessionResults": "Oturum sonuçları:",
+    "correct": "Doğru",
+    "missed": "Yanlış",
+    "showDetails": "Detayları göster",
+    "hideDetails": "Detayları gizle",
+    "done": "Tamam",
+    "playAgain": "Tekrar Oyna"
+  },
+
+  "conversationPractice": {
+    "states": {
+      "listening": "Dinliyor...",
+      "speaking": "Konuşuyor...",
+      "connecting": "Bağlanıyor...",
+      "error": "Hata",
+      "disconnected": "Bağlantı Kesildi"
+    },
+    "end": "Bitir",
+    "startingConversation": "Konuşma başlatılıyor...",
+    "tryAgain": "Tekrar Dene",
+    "speakIn": "{{language}} dilinde konuş...",
+    "aiSpeaking": "Yapay zeka konuşuyor...",
+    "conversationEnded": "Konuşma sona erdi"
+  },
+
+  "scenarioSelector": {
+    "title": "Konuşma Pratiği",
+    "subtitle": "Bir senaryo seç",
+    "beta": "Beta",
+    "difficulty": {
+      "beginner": "başlangıç",
+      "intermediate": "orta",
+      "advanced": "ileri"
+    },
+    "createOwn": "Kendi Senaryonu Oluştur",
+    "createOwnDesc": "Pratik yapmak istediğin herhangi bir senaryoyu tanımla",
+    "backToScenarios": "Senaryolara dön",
+    "customScenario": "Özel Senaryo",
+    "customScenarioName": "Özel Senaryo",
+    "describeScenario": "Pratik yapmak istediğin durumu tanımla",
+    "customPlaceholder": "örn., Bir fırındayım, ekmek almaya çalışıyorum ve içindekiler hakkında soruyorum...",
+    "startPractice": "Pratiğe Başla",
+    "footerInfo": "Yapay zeka varsayılan olarak {{targetLanguage}} konuşacak. Zorlanırsan, {{nativeLanguage}} dilinde yardım edecek.",
+    "customPersona": "{{language}} dilinde pratik yapmasına yardım eden samimi bir {{language}} kişisisin. Sabırlısın, cesaretlendiricisin ve dilini onların seviyesine göre ayarlarsın."
+  },
+
+  "challengeCreator": {
+    "common": {
+      "addNewWords": "Yeni Kelimeler Ekle",
+      "enterTargetLanguage": "{{language}} gir ve yapay zeka çeviriyi oluşturacak.",
+      "enterWordPlaceholder": "{{language}} kelime veya ifade gir...",
+      "generating": "Oluşturuluyor...",
+      "generate": "Oluştur",
+      "clear": "Temizle",
+      "editTranslation": "Çeviriyi düzenle...",
+      "add": "Ekle",
+      "cancel": "İptal",
+      "creating": "Oluşturuluyor...",
+      "searchWords": "Kelime ara...",
+      "sending": "Gönderiliyor...",
+      "sendChallenge": "Meydan Okuma Gönder",
+      "failedGenerateTranslation": "Çeviri oluşturulamadı",
+      "failedCreateChallenge": "Meydan okuma oluşturulamadı",
+      "needMinWords": "Meydan okuma için en az 5 kelime gerekli!"
+    },
+
+    "quiz": {
+      "title": "Test Oluştur",
+      "subtitle": "{{name}}'in pratik yapması için kelimeler seç",
+      "titleLabel": "Test Başlığı (isteğe bağlı)",
+      "titlePlaceholder": "{{name}} için test",
+      "teachNewWords": "{{name}}'e yeni kelimeler öğret! {{instruction}}",
+      "questionTypes": "Soru Türleri",
+      "types": {
+        "multipleChoice": "Çoktan Seçmeli",
+        "typeAnswer": "Cevabı Yaz",
+        "flashcards": "Kartlar"
+      },
+      "selectExisting": "Mevcut Kelimeleri Seç ({{count}}/20)",
+      "selectAll": "Tümünü Seç",
+      "noWordsYet": "{{name}} henüz hiç kelime öğrenmemiş!",
+      "addWordsToStart": "Başlamak için yukarıya yeni kelimeler ekle."
+    },
+
+    "quickFire": {
+      "title": "Hızlı Ateş",
+      "subtitle": "{{name}} için süreli meydan okuma",
+      "titleLabel": "Meydan Okuma Başlığı",
+      "titlePlaceholder": "Hızlı Ateş Meydan Okuması",
+      "difficulty": "Zorluk",
+      "difficultyLevels": {
+        "easy": "Kolay",
+        "medium": "Orta",
+        "hard": "Zor"
+      },
+      "difficultyDesc": {
+        "easy": "Rahat tempo, bol zaman",
+        "medium": "Dengeli meydan okuma",
+        "hard": "Zamana karşı yarış!"
+      },
+      "targetWords": "Hedef Kelimeler: {{count}}",
+      "wordsMin": "5 kelime",
+      "wordsMax": "20 kelime",
+      "pickSpecific": "Belirli Kelimeleri Seç ({{count}} seçildi)",
+      "weakWordIndicator": "= zayıf kelime (bununla zorlanıyor)",
+      "wordSelection": "Kelime Seçimi:",
+      "newWordsCount": "Yeni kelimeler:",
+      "manuallyPicked": "Manuel seçilmiş:",
+      "autoFill": "Otomatik doldur (önce zayıf kelimeler):",
+      "total": "Toplam:",
+      "target": "hedef",
+      "timeInfo": "{{name}}'in kelimeleri çevirmek için {{time}} saniyesi olacak.",
+      "averageTime": "Ortalama: kelime başına {{time}}sn",
+      "needMoreWords": "Meydan okuma oluşturmak için toplam en az 5 kelime gerekli!"
+    },
+
+    "lovePackage": {
+      "title": "Aşk Paketi",
+      "subtitle": "{{name}}'e kelimeler gönder",
+      "packageCount": "Aşk Paketi ({{count}} kelime)",
+      "packageCount_other": "Aşk Paketi ({{count}} kelime)",
+      "hasData": "+veri",
+      "xpBonus": "{{name}} bu kelimeleri öğrenerek 2 kat XP kazanır!",
+      "corrected": "Düzeltildi: {{note}}",
+      "sendLovePackage": "Aşk Paketi Gönder",
+      "alreadyInPackage": "Bu kelime zaten paketinde!",
+      "alreadyInLoveLog": "\"{{word}}\" zaten {{name}}'in Love Log'unda!"
+    }
+  },
+
+  "challengePlayer": {
+    "common": {
+      "later": "Sonra",
+      "done": "Tamam",
+      "calculatingScore": "Puanın hesaplanıyor...",
+      "showDetails": "Detayları göster ({{count}})",
+      "xpEarned": "+{{xp}} XP kazanıldı!"
+    },
+
+    "results": {
+      "perfect": "Mükemmel!",
+      "perfectScore": "Tam Puan!",
+      "lightningFast": "Yıldırım Hızında!",
+      "greatJob": "Harika İş!",
+      "keepPracticing": "Pratik Yapmaya Devam Et!"
+    },
+
+    "quiz": {
+      "startDescription": "{{name}} seni {{count}} kelimeden test etmek istiyor!",
+      "startInstructions": "Öğrendiğin {{language}} kelimeleri hakkındaki soruları cevapla. Doğru bil ve serini artır!",
+      "startButton": "Teste Başla",
+      "questionProgress": "Soru {{current}} / {{total}}",
+      "resultScore": "{{total}} içinden {{correct}} doğru",
+      "flashcard": {
+        "prompt": "Bunun anlamı ne?",
+        "showAnswer": "Cevabı Göster",
+        "didYouGetIt": "Doğru mu bildin?",
+        "no": "Hayır",
+        "yes": "Evet"
+      },
+      "multipleChoice": {
+        "prompt": "Bu kelimeyi çevir:"
+      },
+      "typeIt": {
+        "prompt": "Çeviriyi yaz:",
+        "placeholder": "Cevabını yaz...",
+        "submit": "Gönder"
+      }
+    },
+
+    "quickFire": {
+      "title": "Hızlı Ateş!",
+      "startDescription": "{{name}} sana meydan okuyor: {{time}} saniyede {{count}} kelime çevir!",
+      "difficulty": {
+        "easy": "Kolay Mod",
+        "medium": "Orta Mod",
+        "hard": "Zor Mod"
+      },
+      "timePerWord": "Kelime başına {{time}}sn",
+      "startButton": "Başla!",
+      "getReady": "Hazır Ol!",
+      "resultScore": "{{time}}sn'de {{total}} içinden {{correct}} doğru",
+      "timeBonus": "(Zaman Bonusu!)",
+      "quitChallenge": "Meydan okumadan çık",
+      "typePlaceholder": "Çeviriyi yaz..."
+    }
+  },
+
+  "roleSelection": {
+    "loading": "Hazırlanıyor...",
+    "confirmHeader": "Emin olmak için...",
+    "confirmSubtitle": "Onaylamak veya değiştirmek için dokun",
+    "welcomeHeader": "Love Languages'a Hoş Geldin!",
+    "welcomeSubtitle": "Uygulamayı nasıl kullanacaksın?",
+    "student": {
+      "title": "{{language}} Öğreniyorum",
+      "subtitle": "{{language}} konuşan partnerim için",
+      "confirmMessage": "Aşk için {{language}} öğreniyorsun!",
+      "confirmSubtext": "Partnerini yeni yeteneklerinle şaşırtmaya hazır mısın?"
+    },
+    "tutor": {
+      "title": "{{language}} Öğretiyorum",
+      "subtitle": "Partnerime öğrenmesinde yardım ediyorum",
+      "confirmMessage": "Sen {{language}} ustasısın!",
+      "confirmSubtext": "Partnerinin diline aşık olmasına yardım etmeye hazır mısın?"
+    },
+    "settingUp": "Ayarlanıyor...",
+    "letsGo": "Benim! Hadi gidelim",
+    "chooseRole": "Devam etmek için rolünü seç"
+  },
+
+  "subscription": {
+    "common": {
+      "monthly": "Aylık",
+      "yearly": "Yıllık",
+      "mo": "ay",
+      "yr": "yıl",
+      "discount": "%70 indirim",
+      "savePercent": "%{{percent}} tasarruf",
+      "perMonth": "/ay",
+      "perYear": "/yıl",
+      "billedAnnually": "Yıllık faturada ${{price}}/ay",
+      "loading": "Yükleniyor...",
+      "processing": "İşleniyor...",
+      "opening": "Açılıyor...",
+      "popular": "Popüler",
+      "mostPopular": "En Popüler",
+      "currentPlan": "Mevcut Plan",
+      "securePayment": "Stripe ile güvenli ödeme. İstediğin zaman iptal et.",
+      "cancelAnytime": "İstediğin zaman iptal et. Stripe ile güvenli ödeme.",
+      "questionsEmail": "Soruların mı var? Bize e-posta gönder:",
+      "friend": "Arkadaş",
+      "copy": "Kopyala"
+    },
+
+    "plans": {
+      "standard": "Standart",
+      "unlimited": "Sınırsız",
+      "none": "Yok"
+    },
+
+    "features": {
+      "wordsLimit": "Love Log'da {{limit}} kelime",
+      "unlimitedWords": "Sınırsız kelime",
+      "voiceMinutes": "Ayda {{minutes}} dk sesli sohbet",
+      "unlimitedVoice": "Sınırsız sesli sohbet",
+      "listenMinutes": "Ayda {{minutes}} dk Dinleme Modu",
+      "unlimitedListen": "Sınırsız Dinleme Modu",
+      "unlimitedChallenges": "Sınırsız yapay zeka meydan okumaları",
+      "allScenarios": "Tüm konuşma senaryoları",
+      "allScenariosCount": "Tüm {{count}} konuşma senaryosu",
+      "partnerInvite": "Partner daveti",
+      "giftPass": "Başka bir çift için hediye kartı (yıllık)",
+      "unlimitedEverything": "Sınırsız her şey"
+    },
+
+    "manager": {
+      "couplePass": "Çift Kartı",
+      "freeAccess": "{{name}}'dan ücretsiz erişim",
+      "yourPartner": "partnerin",
+      "plan": "Plan:",
+      "status": "Durum:",
+      "validUntil": "Geçerlilik:",
+      "renews": "Yenileme:",
+      "ends": "Bitiş:",
+      "askPartner": "Bu aboneliği yönetmek için {{name}}'e sor.",
+      "noSubscription": "Abonelik Yok",
+      "subscribeToUnlock": "Tüm özelliklerin kilidini açmak için abone ol",
+      "yourSubscription": "Aboneliğin",
+      "planLabel": "{{plan}} planı",
+      "partnerFreeAccess": "{{name}} senin sayende ücretsiz erişime sahip",
+      "cancelWarning": "Aboneliğini iptal edersen, {{name}} de erişimini kaybeder.",
+      "manageSubscription": "Aboneliği Yönet",
+      "continueToManage": "Yönetmeye Devam Et"
+    },
+
+    "required": {
+      "title": "Bir adım daha, {{name}}!",
+      "subtitle": "Birlikte {{language}} öğrenmeye başlamak için aboneliğini tamamla",
+      "taglineStandard": "Başlamak için mükemmel",
+      "taglineUnlimited": "Kararlı öğrenciler için",
+      "subscribeTo": "{{plan}}'a Abone Ol",
+      "logoutOption": "Çıkış yap ve farklı bir hesap kullan",
+      "signOutOption": "Çıkış yap ve farklı bir hesap kullan"
+    },
+
+    "pricing": {
+      "title": "Aşk İçin {{language}} Öğren",
+      "subtitle": "Öğrenme yolculuğuna uygun planı seç",
+      "save70": "%70 Tasarruf Et",
+      "wordsInLoveLog": "Love Log'da {{limit}} kelime",
+      "voiceChatPerMonth": "Ayda {{minutes}} dk sesli sohbet",
+      "listenModePerMonth": "Ayda {{minutes}} dk Dinleme Modu",
+      "unlimitedChallenges": "Sınırsız yapay zeka meydan okumaları",
+      "allScenarios": "Tüm 8 konuşma senaryosu",
+      "partnerInvite": "Partner daveti",
+      "unlimitedWords": "Sınırsız kelime",
+      "unlimitedVoiceChat": "Sınırsız sesli sohbet",
+      "unlimitedListenMode": "Sınırsız Dinleme Modu",
+      "giftPass": "Başka bir çift için hediye kartı (yıllık)",
+      "youreOnPlan": "{{plan}} planındasın",
+      "currentPlanBanner": "{{plan}} planındasın",
+      "mostPopular": "En Popüler",
+      "billedAnnually": "Yıllık faturada ${{price}}/ay",
+      "currentPlan": "Mevcut Plan",
+      "processing": "İşleniyor...",
+      "getPlan": "{{plan}} Al",
+      "yourGiftPasses": "Hediye Kartların",
+      "shareGiftPasses": "Bu kodları başka bir çiftle paylaşarak onlara bir yıllık ücretsiz Standart ver!",
+      "giftPasses": "Hediye Kartların",
+      "giftPassDescription": "Bu kodları başka bir çiftle paylaşarak onlara bir yıllık ücretsiz Standart ver!",
+      "cancelAnytime": "İstediğin zaman iptal et. Stripe ile güvenli ödeme.",
+      "questionsEmail": "Soruların mı var? Bize e-posta gönder:",
+      "copy": "Kopyala"
+    },
+
+    "errors": {
+      "loginRequired": "Abone olmak için giriş yap",
+      "loginAgain": "Lütfen tekrar giriş yap",
+      "failedLoadPricing": "Fiyatlandırma yüklenemedi. Lütfen tekrar dene.",
+      "pricingUnavailable": "Fiyatlandırma mevcut değil. Lütfen destekle iletişime geç.",
+      "failedCheckout": "Ödeme başlatılamadı",
+      "failedPortal": "Abonelik yönetimi açılamadı",
+      "somethingWrong": "Bir şeyler yanlış gitti"
+    }
+  },
+
+  "pendingChallenges": {
+    "yourPartner": "Partnerin",
+    "sentYouSomething": "{{name}} sana bir şey gönderdi!",
+    "sentYouThings": "{{name}} sana {{count}} şey gönderdi!",
+    "challengeCount": "{{count}} meydan okuma",
+    "challengeCount_plural": "{{count}} meydan okuma",
+    "wordGiftCount": "{{count}} kelime hediyesi",
+    "wordGiftCount_plural": "{{count}} kelime hediyesi",
+    "wordsCount": "{{count}} kelime",
+    "quiz": "Test",
+    "quickFire": "Hızlı Ateş",
+    "wordGift": "Kelime Hediyesi",
+    "play": "Oyna",
+    "learn": "Öğren",
+    "xpBonus": "{{multiplier}}x XP bonusu"
+  },
+
+  "invite": {
+    "title": "Partnerini Davet Et",
+    "subtitle": "Aboneliğin partnerine ücretsiz erişim içeriyor!",
+    "shareLinkLabel": "Bu linki partnerinle paylaş:",
+    "copied": "Kopyalandı!",
+    "copy": "Kopyala",
+    "expiresIn": "{{days}} gün içinde sona erer",
+    "expiresTomorrow": "Yarın sona erer",
+    "expired": "Süresi doldu",
+    "howItWorks": "Nasıl çalışır:",
+    "step1": "Linki partnerinle paylaş",
+    "step2": "Kaydolsun veya giriş yapsın",
+    "step3": "Aboneliğin sayesinde ücretsiz erişim kazanır!",
+    "generateButton": "Davet Linki Oluştur",
+    "generating": "Oluşturuluyor..."
+  },
+
+  "helpGuide": {
+    "title": "Rehberin",
+    "subtitle": "Love Languages",
+    "contents": "İçindekiler",
+    "quickTips": "Hızlı İpuçları",
+    "backToContents": "İçindekilere dön",
+    "footer": "Birlikte öğrenen çiftler için sevgiyle yapıldı",
+    "sections": {
+      "gettingStarted": {
+        "title": "Başlarken",
+        "intro": "Love Languages, ilişkiniz üzerinden {{language}} öğrenmenize yardımcı olur. Öğrendiğin her kelime bir aşk hediyesi.",
+        "cupidTitle": "Yapay zeka yoldaşın: Cupid",
+        "cupidDescription": "Cupid sıcak ve cesaretlendirici rehberin. Kelime öğrenmene, telaffuz pratiği yapmana ve sevgini ifade etmek için mükemmel kelimeleri bulmana yardım edecek.",
+        "rolesTitle": "Öğrenci ve Öğretmen",
+        "studentRole": "Öğrenciler {{language}} öğreniyor - Cupid sana doğrudan öğretiyor",
+        "tutorRole": "Öğretmenler partnerlerine yardım ediyor - Cupid öğretme ipuçları veriyor"
+      },
+      "chatModes": {
+        "title": "Sohbet Modları",
+        "askTitle": "Sor Modu",
+        "askSubtitle": "(Öğrenciler)",
+        "askDescription": "Hızlı sorular, rahat öğrenme. Şunlar için mükemmel:",
+        "askExample1": "\"'Seni seviyorum' nasıl denir?\"",
+        "askExample2": "\"Bana romantik bir ifade öğret\"",
+        "askExample3": "\"Bunu nasıl telaffuz edersin?\"",
+        "learnTitle": "Öğren Modu",
+        "learnSubtitle": "(Öğrenciler)",
+        "learnDescription": "Tablolar ve alıştırmalarla yapılandırılmış dersler. Şunlar için kullan:",
+        "learnExample1": "Fiil çekimi pratiği",
+        "learnExample2": "Dilbilgisi açıklamaları",
+        "learnExample3": "Kelime dersleri",
+        "coachTitle": "Koç Modu",
+        "coachSubtitle": "(Öğretmenler)",
+        "coachDescription": "Hepsi bir arada öğretme asistanın:",
+        "coachExample1": "Öğretme ipuçları ve dilbilgisi açıklamaları",
+        "coachExample2": "Partnerin ilerlemesine göre kişiselleştirilmiş öneriler",
+        "coachExample3": "Yeteneklerini geliştirmek için yeni kelime önerileri"
+      },
+      "vocabulary": {
+        "title": "Kelime Hazinesi Oluşturma",
+        "intro": "Konuşmalarındaki kelimeler otomatik olarak Love Log'una kaydedilir.",
+        "syncTitle": "Senkronize Butonu",
+        "syncDescription": "Son sohbetlerden yeni kelimeleri çıkarmak için Love Log'da senkronize'ye tıkla",
+        "masteryTitle": "Ustalık Seviyeleri",
+        "masteryDescription": "Ustalığı 0-5 yıldıza çıkarmak için oyunlarda kelimeleri çalış",
+        "tenseTitle": "Zaman Kilidi Açma",
+        "tenseDescription": "Fiil kayıtlarında açmak için sohbette geçmiş/gelecek zamanları öğren"
+      },
+      "games": {
+        "title": "Oyun Oynama",
+        "intro": "Oyunlar kelime hazineni çalışmana ve hatırlamana yardımcı olur. Her doğru cevap ustalığı artırır!",
+        "flashcards": "Kartlar",
+        "flashcardsDescription": "Klasik çevirme kartları - {{language}} gör, {{native}} hatırla",
+        "multipleChoice": "Çoktan Seçmeli",
+        "multipleChoiceDescription": "4 seçenekten doğru çeviriyi seç",
+        "typeIt": "Yaz",
+        "typeItDescription": "{{language}} kelimesini yaz - yazım ve hatırlamayı test eder",
+        "aiChallenge": "Yapay Zeka Meydan Okuması",
+        "aiChallengeDescription": "Cupid kelimelerinizi kullanarak benzersiz meydan okumalar oluşturur"
+      },
+      "progress": {
+        "title": "İlerleme Takibi",
+        "xpTitle": "XP ve Seviyeler",
+        "xpDescription": "Sohbet ederek, oyun oynayarak ve kelimelere ustalaşarak XP kazan. 6 kademe boyunca 18 seviyede ilerle!",
+        "tiersTitle": "Seviye Kademeleri",
+        "beginner": "Başlangıç 1-3",
+        "elementary": "Temel 1-3",
+        "conversational": "Konuşma 1-3",
+        "proficient": "Yetkin 1-3",
+        "fluent": "Akıcı 1-3",
+        "master": "Usta 1-3",
+        "testsNote": "Yeteneklerini kanıtlamak ve daha hızlı ilerlemek için Seviye Testleri yap!"
+      }
+    },
+    "tips": {
+      "verbsQuestion": "Fiilleri öğrenmenin en iyi yolu ne?",
+      "verbsAnswer": "Öğren modunu kullan ve çekim tabloları iste. 6 kişiyi (ben, sen, o, biz, siz, onlar) birlikte çalış.",
+      "partnerQuestion": "Partnerimle nasıl pratik yaparım?",
+      "partnerAnswer": "Öğrendiğin ifadeleri günlük konuşmalarda kullan. Basit selamlaşmalar bile sayılır! Oyna bölümünde birbirinize meydan okumalar oluşturun.",
+      "progressQuestion": "Ne kadar hızlı ilerleyebilirim?",
+      "progressAnswer": "Günde 15-20 dakika pratik harikalar yaratır. Tutarlılık sıkıştırmayı yener!",
+      "forgetQuestion": "Bir kelimeyi unutursam ne olur?",
+      "forgetAnswer": "Oyun oyna - zorlandığın kelimeleri otomatik olarak geri getirir. Aralıklı tekrar onları aklına yerleştirir."
+    }
+  },
+
+  "bugReport": {
+    "title": "Hata Bildir",
+    "subtitle": "Love Languages'ı geliştirmemize yardım et",
+    "severity": {
+      "label": "Bu sorun ne kadar ciddi?",
+      "low": "Düşük",
+      "lowDescription": "Küçük sorun, görsel",
+      "medium": "Orta",
+      "mediumDescription": "Kullanılabilirliği etkiliyor",
+      "high": "Yüksek",
+      "highDescription": "Ana özellik bozuk",
+      "critical": "Kritik",
+      "criticalDescription": "Uygulama kullanılamaz"
+    },
+    "titleLabel": "Ne yanlış gitti?",
+    "titlePlaceholder": "Sorunun kısa açıklaması",
+    "detailsLabel": "Detaylar",
+    "detailsPlaceholder": "Bu olduğunda ne yapıyordun? Ne olmasını bekliyordun?",
+    "autoCaptureNote": "Araştırmamıza yardımcı olmak için mevcut sayfan, tarayıcı bilgilerin ve uygulama durumunu otomatik olarak dahil edeceğiz.",
+    "errors": {
+      "fillRequired": "Lütfen tüm gerekli alanları doldur",
+      "signIn": "Hata bildirimi göndermek için giriş yap",
+      "failed": "Gönderilemedi. Lütfen tekrar dene."
+    },
+    "cancel": "İptal",
+    "submit": "Raporu Gönder",
+    "submitting": "Gönderiliyor...",
+    "success": {
+      "title": "Teşekkürler!",
+      "message": "Hata raporun gönderildi. İnceleyip düzeltme üzerinde çalışacağız.",
+      "close": "Kapat"
+    }
+  },
+
+  "wordGift": {
+    "intro": {
+      "title": "{{name}}'dan Hediye!",
+      "subtitle": "{{count}} özel kelime öğrenmeni istiyor",
+      "subtitle_plural": "{{count}} özel kelime öğrenmeni istiyor",
+      "topic": "Konu:",
+      "xpBonus": "Bu kelimeler için {{multiplier}}x XP kazan!",
+      "later": "Sonra",
+      "openGift": "Hediyeyi Aç"
+    },
+    "card": {
+      "wordOf": "Kelime {{current}} / {{total}}",
+      "targetLanguage": "{{language}}",
+      "nativeLanguage": "{{language}}",
+      "tapToFlip": "Çevirmek için dokun",
+      "back": "Geri",
+      "next": "Sonraki",
+      "addToLoveLog": "Love Log'a Ekle"
+    },
+    "result": {
+      "title": "Kelimeler Öğrenildi!",
+      "wordsAdded": "Love Log'una {{count}} yeni kelime eklendi",
+      "wordsAdded_plural": "Love Log'una {{count}} yeni kelime eklendi",
+      "words": "Kelimeler:",
+      "completion": "Tamamlama:",
+      "giftFrom": "{{name}}'dan hediye",
+      "done": "Tamam"
+    },
+    "loading": "Kelimeler Love Log'una ekleniyor...",
+    "error": {
+      "title": "Hay aksi!",
+      "close": "Kapat",
+      "tryAgain": "Tekrar Dene"
+    },
+    "errors": {
+      "failed": "Tamamlanamadı. Lütfen tekrar dene.",
+      "network": "Ağ hatası. Lütfen bağlantını kontrol et ve tekrar dene."
+    }
+  },
+
+  "chatSuggestions": {
+    "student": {
+      "askTitle": "Cupid'e bir şey sor",
+      "learnTitle": "Derse hazır mısın?",
+      "subtitle": "Öğrendiğin her kelime sizi birbirinize yaklaştırır"
+    },
+    "tutor": {
+      "coachTitle": "Partnerine koçluk yap",
+      "subtitle": "Öğretme ipuçları ve kişiselleştirilmiş öneriler"
+    },
+    "tryAsking": "Şunu sormayı dene...",
+    "suggestions": {
+      "student": {
+        "ask": {
+          "s1": "{{language}} dilinde 'Seni seviyorum' nasıl denir?",
+          "s2": "Bana tatlı bir iltifat öğret",
+          "s3": "Bu gece için romantik bir ifade ne?"
+        },
+        "learn": {
+          "s1": "Selamlaşmalar dersi başlat",
+          "s2": "Bana fiil çekimlerini öğret",
+          "s3": "Yemek kelimelerini çalış"
+        }
+      },
+      "tutor": {
+        "coach": {
+          "s1": "{{language}} hallerini basitçe nasıl açıklarım?",
+          "s2": "Onlara hangi yeni kelimeleri öğretmeliyim?",
+          "s3": "Bu gece için romantik bir ifade öner"
+        }
+      }
+    }
+  },
+
+  "newWords": {
+    "added": "{{count}} yeni kelime eklendi",
+    "added_other": "{{count}} yeni kelime eklendi",
+    "viewAll": "Love Log'da hepsini gör"
+  },
+
+  "avatar": {
+    "clickToUpload": "Yüklemek için tıkla",
+    "clickToChange": "Değiştirmek için tıkla",
+    "adjustPhoto": "Fotoğrafı Ayarla",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "saving": "Kaydediliyor...",
+    "uploading": "Yükleniyor...",
+    "errors": {
+      "invalidType": "Lütfen JPG, PNG, WebP veya GIF resim yükle",
+      "tooLarge": "Resim 5MB'dan küçük olmalı",
+      "readFailed": "Resim dosyası okunamadı",
+      "cropRequired": "Lütfen kırpma alanını ayarla",
+      "uploadFailed": "Resim yüklenemedi"
+    }
+  },
+
+  "joinInvite": {
+    "validating": "Davet doğrulanıyor...",
+    "invalidInvite": "Geçersiz Davet",
+    "goToHomepage": "Ana Sayfaya Git",
+    "linking": "Hesapların bağlanıyor...",
+    "joinJourney": "{{name}} seni {{language}} öğrenme yolculuğuna katılmaya davet ediyor!",
+    "learningToConnect": "Seninle daha derin bağlantı kurmak için {{language}} öğreniyorlar. Dil koçları olarak:",
+    "trackProgress": "İlerlemelerini Takip Et",
+    "trackProgressDesc": "Hangi kelimeleri öğrendiklerini ve nerede yardıma ihtiyaçları olduğunu gör",
+    "conversationStarters": "Konuşma Başlatıcıları Al",
+    "conversationStartersDesc": "Yapay zeka kelime hazinelerine göre birlikte kullanacağınız {{language}} ifadeleri önerir",
+    "encourageCelebrate": "Cesaretlendir ve Kutla",
+    "encourageCelebrateDesc": "Motive kalmalarına yardım et ve kilometre taşlarını birlikte kutla",
+    "join": "{{name}}'e Katıl",
+    "createAccount": "Koçları olmak için hesabını oluştur",
+    "signInToConnect": "Bağlanmak için giriş yap",
+    "emailLabel": "E-posta Adresi",
+    "passwordLabel": "Şifre",
+    "connecting": "Bağlanıyor...",
+    "joinAsCoach": "Koç Olarak Katıl",
+    "signInConnect": "Giriş Yap ve Bağlan",
+    "alreadyHaveAccount": "Zaten hesabın var mı? Giriş yap",
+    "noAccount": "Hesabın yok mu? Kaydol",
+    "checkEmail": "Onay için e-postanı kontrol et, sonra giriş yap!",
+    "yourPartner": "Partnerin"
+  },
+
+  "gameHistory": {
+    "loading": "Yükleniyor...",
+    "noHistory": "Henüz oyun geçmişi yok",
+    "noHistoryDesc": "İlerlemeni burada görmek için biraz oyun oyna!",
+    "today": "Bugün",
+    "yesterday": "Dün",
+    "gameModes": {
+      "flashcards": "Kartlar",
+      "multiple_choice": "Çoktan Seçmeli",
+      "type_it": "Yaz",
+      "quick_fire": "Hızlı Ateş",
+      "ai_challenge": "Yapay Zeka Meydan Okuması"
+    },
+    "smartAccepted": "Akıllı Kabul",
+    "missedWords": "Yanlış Kelimeler",
+    "missed": "{{count}} yanlış",
+    "youSaid": "Sen dedin:",
+    "correct": "Doğrusu:",
+    "practiceWords": "Bu {{count}} Kelimeyi Çalış",
+    "perfectScore": "Tam puan! Yanlış kelime yok."
+  },
+
+  "usage": {
+    "title": "Aylık Kullanım",
+    "unlimitedPlan": "Sınırsız Plan",
+    "noLimits": "Kullanım limiti yok - istediğin kadar öğren!",
+    "words": "Kelimeler",
+    "voiceMin": "Sesli dk",
+    "listenMin": "Dinleme dk",
+    "vocabulary": "Kelime Hazinesi",
+    "voiceChat": "Sesli Sohbet",
+    "listenMode": "Dinleme Modu",
+    "upgradePrompt": "Azalıyor mu? Limit olmadan Sınırsız'a yükselt!",
+    "resetsMonthly": "Kullanım her ayın 1'inde sıfırlanır"
+  },
+
+  "inviteLink": {
+    "title": "Sihirli Davet Linki",
+    "subtitle": "Anında bağlanmak için partnerinle paylaş",
+    "generate": "Davet Linki Oluştur",
+    "generating": "Oluşturuluyor...",
+    "yourLink": "Davet linkin:",
+    "copied": "Panoya Kopyalandı!",
+    "copyLink": "Linki Kopyala",
+    "expired": "Süresi Doldu",
+    "expiresTomorrow": "Yarın sona erer",
+    "expiresIn": "{{days}} gün içinde sona erer",
+    "newLink": "Yeni Link",
+    "description": "Partnerin bu linke tıkladığında, dil koçun olarak katılmaya davet edilecek!"
+  },
+
+  "breakup": {
+    "warning": {
+      "title": "Birlikte öğrenme yolculuğunuz bitsin mi?",
+      "whatHappens": "Ne olur:",
+      "consequence1": "Hesaplarınızın bağlantısı kesilecek",
+      "consequence2": "Birbirinizin ilerlemesini göremeyeceksiniz",
+      "consequence3Granter": "{{name}} ücretsiz erişimini kaybedecek",
+      "consequence3Grantee": "Ücretsiz erişimini kaybedeceksin",
+      "consequence4": "Kelime hazinen ve ilerlemen sende kalır",
+      "stayTogether": "Birlikte Kal",
+      "continue": "Devam Et"
+    },
+    "confirm": {
+      "title": "Emin misin?",
+      "typeGoodbye": "Onaylamak için \"hoşçakal\" yaz",
+      "placeholder": "Hoşçakal yaz...",
+      "goBack": "Geri Dön",
+      "itsOver": "Bitti"
+    },
+    "processing": "Ayrılıyor...",
+    "complete": {
+      "title": "Hesaplar Ayrıldı",
+      "messageGranter": "Aboneliğin devam ediyor. İstediğin zaman yeni birini davet edebilirsin.",
+      "messageGrantee": "Kendine iyi bak. Öğrenmeye devam etmek için kendi aboneliğine ihtiyacın olacak."
+    }
+  },
+
+  "gameShowcase": {
+    "studentHeadline": {
+      "part1": "Oh, ve ",
+      "highlight": "geleneksel şekilde de",
+      "part2": " öğrenmek istersen..."
+    },
+    "tutorHeadline": {
+      "playTogether": "Birlikte oyna",
+      "middle": ", ya da tek başlarına çözmeleri için ",
+      "challenges": "meydan okumalar",
+      "end": " gönder..."
+    },
+    "studentSubtext": "Bunu muhteşem yapıyoruz.",
+    "tutorSubtext": "Spoiler: sen de oynamak isteyeceksin.",
+    "modes": {
+      "flashcard": "Kart",
+      "multipleChoice": "Çoktan Seçmeli",
+      "typeIt": "Yaz",
+      "quickFire": "Hızlı Ateş"
+    },
+    "mobileShort": {
+      "multi": "Çoklu",
+      "quick": "Hızlı"
+    }
+  },
+
+  "demoFlashcard": {
+    "tapToReveal": "Görmek için dokun",
+    "hard": "Zor",
+    "gotIt": "Bildim!"
+  },
+
+  "demoTypeIt": {
+    "correct": "Doğru!",
+    "notQuite": "Tam değil",
+    "answer": "Cevap:",
+    "typeIn": "{{language}} dilinde yaz...",
+    "next": "Sonraki",
+    "check": "Kontrol Et"
+  },
+
+  "demoQuickFire": {
+    "title": "Hızlı Ateş!",
+    "instructions": "Çevirileri olabildiğince hızlı yaz!",
+    "start": "Başla",
+    "submit": "Gönder",
+    "typeIn": "{{language}} dilinde yaz...",
+    "perfect": "Mükemmel!",
+    "greatJob": "Harika iş!",
+    "keepPracticing": "Pratik yapmaya devam et!",
+    "timesUp": "Süre doldu!"
+  },
+
+  "hero": {
+    "toggle": {
+      "learn": "Öğren",
+      "teach": "Öğret"
+    },
+    "login": {
+      "emailLabel": "E-posta Adresi",
+      "emailPlaceholder": "sen@ask.com",
+      "passwordLabel": "Şifre",
+      "passwordPlaceholder": "••••••••",
+      "entering": "Giriş yapılıyor...",
+      "alreadyHaveAccount": "Zaten hesabın var mı? Giriş yap",
+      "newHere": "Yeni misin? Hesap oluştur",
+      "checkEmail": "Onay için e-postanı kontrol et!"
+    },
+    "legal": {
+      "terms": "Şartlar",
+      "termsOfService": "Kullanım Şartları",
+      "privacy": "Gizlilik",
+      "privacyPolicy": "Gizlilik Politikası"
+    },
+    "student": {
+      "section1": {
+        "headline": "Sıkıcı şeyleri atla. Önemli kelimeleri öğren - onları gülümsetenleri.",
+        "highlight1": "önemli kelimeleri",
+        "highlight2": "gülümsetenleri",
+        "subhead": "Sadece sevdikleriyle kullandıkları kelimeler.",
+        "copy": "İç şakaları. Aile ifadeleri. Kimse dinlemezken 'Seni seviyorum' deme şekilleri.",
+        "copyHighlight1": "İç şakaları",
+        "copyHighlight2": "Aile ifadeleri",
+        "copyHighlight3": "Seni seviyorum",
+        "underline": "Kimse dinlemezken 'Seni seviyorum' deme şekilleri"
+      },
+      "section2": {
+        "headline": "Dahil olmadığın bir konuşma var. Henüz.",
+        "highlight1": "Henüz",
+        "copy": "Anlamadan güldüğün şakalar. Çeviride bir şeyler kaybeden aile hikayeleri. Artık gerçekten anlama zamanı.",
+        "copyHighlight1": "aile hikayeleri",
+        "copyHighlight2": "gerçekten anlama",
+        "underline": "Artık gerçekten anlama zamanı"
+      },
+      "section3": {
+        "headline": "Bir dil öğrenmiyorsun. Onları öğreniyorsun.",
+        "highlight1": "Onları öğreniyorsun",
+        "copy": "Onların kelimeleri. Onların şakaları. Sana sevgiyle laf sokma şekilleri. Notlar için değil, aşk için olanlar için yapıldı.",
+        "copyHighlight1": "Onların kelimeleri",
+        "copyHighlight2": "Onların şakaları",
+        "copyHighlight3": "aşk",
+        "underline": "Aşk için olanlar için yapıldı"
+      },
+      "section4": {
+        "headline": "Onların dilini öğrenmek = ekstra adımlarla flört.",
+        "highlight1": "flört",
+        "copy": "Bu okul değil. Test yok. Sadece sen, onlar için tamamen yeni bir şekilde ortaya çıkıyorsun. Açıkçası oldukça romantik.",
+        "copyHighlight1": "onlar için ortaya çıkıyorsun",
+        "copyHighlight2": "romantik",
+        "underline": "Açıkçası oldukça romantik"
+      },
+      "section5": {
+        "headline": "Ailesini güldürdüğün an? Muhteşem.",
+        "highlight1": "ailesini güldürdüğün",
+        "highlight2": "Muhteşem",
+        "copy": "Şakayı gerçekten anladığın ilk an. Tam doğru duyan ilk 'Seni seviyorum'. Annesinin seninle doğrudan kendi dilinde konuşmaya başladığı an. Geliyor.",
+        "copyHighlight1": "Seni seviyorum",
+        "copyHighlight2": "Annesinin",
+        "copyHighlight3": "Geliyor",
+        "underline": "Geliyor"
+      },
+      "section6": {
+        "headline": "Birlikte öğren. Birlikte sev. Birlikte gül.",
+        "highlight1": "Birlikte",
+        "highlight2": "Sev",
+        "highlight3": "Gül",
+        "copy": "Sana önemli kelimeler gönderecekler. Oyunlara meydan okuyacaklar. Telaffuzunla (sevgiyle) dalga geçecekler. Bu tek başına çalışmak değil - birlikte kendi küçük dünyanızı inşa etmek.",
+        "copyHighlight1": "önemli kelimeler",
+        "copyHighlight2": "kendi küçük dünyanızı",
+        "underline": "birlikte kendi küçük dünyanızı inşa etmek"
+      },
+      "context1": { "header": "Onlarla tanışmaya hazır mısın?", "cta": "Öğrenmeye başla", "subtext": "İlk kelimene 2 dakika." },
+      "context2": { "header": "Yanındayız", "cta": "Öğrenmeye başla", "subtext": "Artık sahte gülüş yok." },
+      "context3": { "header": "Aşıklar için yapıldı", "cta": "Yolculuğuna başla", "subtext": "Turistler değil. Aile." },
+      "context4": { "header": "Kendi tarzında oyna", "cta": "Oyunları keşfet", "subtext": "Kartlar, meydan okumalar ve daha fazlası." },
+      "context5": { "header": "Önemli kıl", "cta": "Yolculuğuna başla", "subtext": "Her kelime önemli." },
+      "context6": { "header": "Gerçekleştir", "cta": "Şimdi başla", "subtext": "O an geliyor." },
+      "context7": { "header": "Birlikte başla", "cta": "Dünyanızı yaratın", "subtext": "Seni bekliyorlar." }
+    },
+    "tutor": {
+      "section1": {
+        "headline": "Seni seviyorlar. Şimdi dilini de sevmelerine yardım et.",
+        "highlight1": "seviyorlar",
+        "highlight2": "dilini",
+        "copy": "Senin kelimelerin. Senin şakaların. Ayağını bir yere çarptığında küfür etme şeklin. Henüz tanımadıkları koca bir sen var - tamamen yeni bir sen. İçeri al.",
+        "copyHighlight1": "Senin kelimelerin",
+        "copyHighlight2": "Senin şakaların",
+        "copyHighlight3": "tamamen yeni bir sen",
+        "copyHighlight4": "İçeri al",
+        "underline": "İçeri al"
+      },
+      "section2": {
+        "headline": "Açıklamayı denedin. Başlarını salladılar. Bunu düzeltelim.",
+        "highlight1": "Açıklamayı",
+        "highlight2": "salladılar",
+        "highlight3": "düzeltelim",
+        "copy": "Gerçekten mutlu olduğunda söylediğin şeyler. Ya da gerçekten sinirlendiğinde. Ev gibi hissettiren kelimeler. Seni - sadece çevrilmiş versiyonunu değil - tamamen anlamak istiyorlar.",
+        "copyHighlight1": "gerçekten mutlu",
+        "copyHighlight2": "gerçekten sinirlendiğinde",
+        "copyHighlight3": "tamamen",
+        "underline": "sadece çevrilmiş versiyonunu değil"
+      },
+      "section3": {
+        "headline": "Paylaştığın her kelime bir köprü.",
+        "highlight1": "köprü",
+        "copy": "Kelimeler paylaş. Meydan okumalar oluştur. Başarıları birlikte kutla. Uygulama sıkıcı işleri halleder - sen sadece eğlenceli olan olursun.",
+        "copyHighlight1": "Kelimeler paylaş",
+        "copyHighlight2": "Meydan okumalar oluştur",
+        "copyHighlight3": "Başarıları kutla",
+        "copyHighlight4": "eğlenceli olan",
+        "underline": "sen sadece eğlenceli olan olursun"
+      },
+      "section4": {
+        "headline": "Bir kelime gönder. Bir oyun başlat. Gelişmelerini izle.",
+        "highlight1": "oyun",
+        "highlight2": "Gelişmelerini",
+        "copy": "Annenin favori ifadesiyle meydan oku. Akşam yemeğinden önce test et. Başardıklarında kutla. Bu, öğrenme kılığında çiftler zamanı - ve gerçekten eğlenceli.",
+        "copyHighlight1": "Annenin favori ifadesi",
+        "copyHighlight2": "çiftler zamanı",
+        "copyHighlight3": "gerçekten eğlenceli",
+        "underline": "Bu, öğrenme kılığında çiftler zamanı"
+      },
+      "section5": {
+        "headline": "Hiç öğretmediğin bir ifadeyle seni şaşırttıkları an? Sihir.",
+        "highlight1": "şaşırttıkları",
+        "highlight2": "Sihir",
+        "copy": "Bir şaka yapıp ailen gerçekten güldüğünde. Annen onlarla doğrudan senin dilinde konuşmaya başladığında. Çeneni düşüren bir ifade söylediklerinde. Bunu sen yaptın.",
+        "copyHighlight1": "ailen gerçekten güldüğünde",
+        "copyHighlight2": "Annen",
+        "copyHighlight3": "Bunu sen yaptın"
+      },
+      "section6": {
+        "headline": "Birlikte öğret. Birlikte oyna. Daha derinden aşık ol.",
+        "highlight1": "Birlikte",
+        "highlight2": "aşık",
+        "copy": "Gerçekten kim olduğunu bu şekilde paylaşırsın. Kelime kelime. Oyun oyun. Kahkaha kahkaha. Ve hepsine aşık olmaya devam ederler.",
+        "copyHighlight1": "gerçekten kim olduğunu",
+        "copyHighlight2": "aşık olmaya",
+        "underline": "Ve hepsine aşık olmaya devam ederler"
+      },
+      "context1": { "header": "Dünyayı paylaş", "cta": "Rehberlik etmeye başla", "subtext": "Onların dil rehberi ol." },
+      "context2": { "header": "İçeri al", "cta": "Rehberlik etmeye başla", "subtext": "Bazı şeyler öğrenildiğinde daha iyi çevrilir." },
+      "context3": { "header": "Sevgiyle öğret", "cta": "Başla", "subtext": "Dersler değil. Aşk mektupları." },
+      "context4": { "header": "Meydan oku", "cta": "Meydan okuma gönder", "subtext": "Oyunlar, meydan okumalar, sürprizler." },
+      "context5": { "header": "Çiçek açmalarını izle", "cta": "Göndermeye başla", "subtext": "Her seferinde bir kelime." },
+      "context6": { "header": "Kapıyı aç", "cta": "Şimdi başla", "subtext": "O an geliyor." },
+      "context7": { "header": "Birlikte büyü", "cta": "Rehberleri ol", "subtext": "Seni bekliyorlar." }
+    }
+  }
+}
