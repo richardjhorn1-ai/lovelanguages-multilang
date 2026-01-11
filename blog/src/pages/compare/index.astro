@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const comparisons = [
+  {
+    title: "Love Languages vs Duolingo",
+    description: "Compare the gamified free option with our couple-focused Polish app.",
+    href: "/compare/love-languages-vs-duolingo",
+    competitor: "Duolingo",
+    competitorIcon: "🦉",
+    verdict: "Best free alternative"
+  },
+  {
+    title: "Love Languages vs Babbel",
+    description: "Compare structured courses with AI-powered conversational learning.",
+    href: "/compare/love-languages-vs-babbel",
+    competitor: "Babbel",
+    competitorIcon: "📚",
+    verdict: "Best for structured learners"
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Love Languages Comparisons",
+  "description": "Compare Love Languages with other Polish learning apps like Duolingo and Babbel.",
+  "url": "https://lovelanguages.xyz/compare",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+---
+
+<BaseLayout
+  title="Compare Polish Learning Apps - Love Languages vs Alternatives"
+  description="Compare Love Languages with Duolingo, Babbel, and other Polish learning apps. Find the best app for couples learning Polish together."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Header -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-4xl mx-auto px-4 py-12 md:py-16">
+      <div class="text-center">
+        <a href="/" class="inline-flex items-center gap-2 text-accent font-bold font-header text-xl mb-4 hover:opacity-80">
+          <img src="/favicon.svg" alt="" class="w-6 h-6" />
+          Love Languages
+        </a>
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Compare Polish Learning Apps
+        </h1>
+        <p class="text-xl text-gray-600">
+          Honest comparisons to help you choose the right app for learning Polish with your partner
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Comparisons Grid -->
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-2 gap-6">
+      {comparisons.map(comp => (
+        <a
+          href={comp.href}
+          class="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all p-6 border border-gray-100 hover:border-accent/30"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/favicon.svg" alt="Love Languages" class="w-12 h-12" />
+            <span class="text-2xl text-gray-300">vs</span>
+            <span class="text-4xl">{comp.competitorIcon}</span>
+          </div>
+          <h2 class="text-xl font-bold font-header text-gray-900 group-hover:text-accent transition-colors mb-2">
+            {comp.title}
+          </h2>
+          <p class="text-gray-600 mb-3">{comp.description}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-gray-500">
+              {comp.competitor}: {comp.verdict}
+            </span>
+            <span class="text-accent font-medium group-hover:translate-x-1 transition-transform">
+              Compare →
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Why Love Languages Section -->
+    <section class="mt-12 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl p-8">
+      <h2 class="text-2xl font-bold font-header text-gray-900 mb-6 text-center">
+        Why Couples Choose Love Languages
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="text-4xl mb-3">💕</div>
+          <h3 class="font-bold text-gray-900 mb-2">Built for Couples</h3>
+          <p class="text-gray-600 text-sm">The only Polish app designed for learning together with your partner.</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-3">🤖</div>
+          <h3 class="font-bold text-gray-900 mb-2">AI Conversations</h3>
+          <p class="text-gray-600 text-sm">Real conversations with AI, not scripted exercises. Practice anytime.</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-3">🇵🇱</div>
+          <h3 class="font-bold text-gray-900 mb-2">Polish Only</h3>
+          <p class="text-gray-600 text-sm">100% focus on Polish. Deep cultural content, not generic templates.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
+        See Why Couples Love Us
+      </h2>
+      <p class="text-white/90 mb-6 text-lg">
+        AI coaching, voice practice, and games designed for learning Polish together.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Learning Polish →
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/compare" class="hover:text-accent">Compare</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
