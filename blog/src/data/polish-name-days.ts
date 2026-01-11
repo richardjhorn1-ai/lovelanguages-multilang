@@ -23,7 +23,7 @@ export const polishNameDays: Record<string, string[]> = {
   "1-18": ["Małgorzata", "Piotr", "Beatrycze"],
   "1-19": ["Henryk", "Marta", "Mariusz"],
   "1-20": ["Fabian", "Sebastian"],
-  "1-21": ["Agnieszka", "Inez", "Jarosław"],
+  "1-21": ["Agnieszka", "Inez", "Jarosław", "Agniesza"],
   "1-22": ["Anastazy", "Wincenty"],
   "1-23": ["Ildefons", "Rajmund", "Emerencja"],
   "1-24": ["Felicja", "Franciszek", "Rafał"],
@@ -71,7 +71,7 @@ export const polishNameDays: Record<string, string[]> = {
   "3-2": ["Helena", "Halszka", "Paweł"],
   "3-3": ["Maryna", "Kunegunda"],
   "3-4": ["Kazimierz", "Lucjusz", "Eugeniusz"],
-  "3-5": ["Adriana", "Fryderyk", "Oliwia"],
+  "3-5": ["Adriana", "Fryderyk", "Oliwia", "Oliwier"],
   "3-6": ["Jordan", "Róża", "Koleta"],
   "3-7": ["Tomasz", "Perpetua", "Felicyta"],
   "3-8": ["Beata", "Jan", "Stefan"],
@@ -291,7 +291,7 @@ export const polishNameDays: Record<string, string[]> = {
   "9-26": ["Justyna", "Cyprian", "Kosma"],
   "9-27": ["Wincenty", "Kosma", "Damian"],
   "9-28": ["Lidia", "Wacław", "Salomon"],
-  "9-29": ["Michał", "Gabriel", "Rafał"],
+  "9-29": ["Michał", "Gabriel", "Rafał", "Michalina"],
   "9-30": ["Zofia", "Wera", "Hieronim"],
 
   // October
@@ -393,22 +393,7 @@ export const polishNameDays: Record<string, string[]> = {
   "12-31": ["Sylwester", "Melania", "Kolumba"]
 };
 
-// Reverse index: name -> dates
-export function buildNameToDateIndex(): Map<string, string[]> {
-  const index = new Map<string, string[]>();
-
-  for (const [date, names] of Object.entries(polishNameDays)) {
-    for (const name of names) {
-      const normalizedName = name.toLowerCase();
-      if (!index.has(normalizedName)) {
-        index.set(normalizedName, []);
-      }
-      index.get(normalizedName)!.push(date);
-    }
-  }
-
-  return index;
-}
+// Reverse index: name -> dates (merged below after additionalNames)
 
 // Format date as readable string
 export function formatNameDayDate(dateKey: string): string {
@@ -478,4 +463,129 @@ export const nameDayFacts = [
 // Get a random name day fact
 export function getRandomFact(): string {
   return nameDayFacts[Math.floor(Math.random() * nameDayFacts.length)];
+}
+
+// Additional popular Polish names to supplement the main calendar
+// These are common names and diminutives that many Poles use
+export const additionalNames: Record<string, string[]> = {
+  // January
+  "1-5": ["Hania"],
+  "1-17": ["Antek"],
+  "1-18": ["Gosia"],
+  "1-20": ["Sebastianek"],
+  "1-30": ["Martynka"],
+
+  // February
+  "2-14": ["Walentynka"],
+
+  // March
+  "3-8": ["Beatka"],
+  "3-17": ["Patrycja"],
+  "3-18": ["Aleksandra", "Ola", "Oleńka", "Sandra"],
+  "3-19": ["Józia"],
+
+  // April
+  "4-8": ["Julka", "Julcia"],
+  "4-23": ["Wojtek"],
+
+  // May
+  "5-3": ["Maja"],
+  "5-8": ["Lidka"],
+  "5-15": ["Zosia", "Zośka"],
+  "5-22": ["Helenka"],
+  "5-24": ["Zuzka", "Zuzia"],
+
+  // June
+  "6-9": ["Ania", "Anka", "Anusia"],
+  "6-13": ["Antosia"],
+  "6-21": ["Ala"],
+  "6-24": ["Janek", "Jasiek", "Jaś"],
+  "6-29": ["Piotrek", "Piotruś"],
+  "6-30": ["Emilka"],
+
+  // July
+  "7-3": ["Tomek"],
+  "7-6": ["Dominiczka"],
+  "7-11": ["Olcia"],
+  "7-14": ["Kamilek", "Kamilka"],
+  "7-22": ["Magda", "Madzia", "Magdalenka"],
+  "7-24": ["Krysia", "Krystynka", "Olka"],
+  "7-25": ["Jakub", "Kuba", "Kubuś", "Krzysiek", "Krzyś"],
+  "7-26": ["Ania", "Aneczka"],
+
+  // August
+  "8-11": ["Klarka", "Zuzia", "Zuzanka"],
+  "8-15": ["Marysia", "Maryla"],
+  "8-17": ["Jacuś"],
+  "8-18": ["Ilonka", "Helenka"],
+  "8-20": ["Berni"],
+  "8-27": ["Moniczka"],
+
+  // September
+  "9-8": ["Adrianna", "Ada", "Adasia"],
+  "9-21": ["Mateuszek", "Mati"],
+  "9-29": ["Michałek", "Gabrysia", "Gabryś"],
+  "9-30": ["Zosieńka"],
+
+  // October
+  "10-4": ["Franek", "Franciszka"],
+  "10-15": ["Terenia", "Jadzia", "Jadwinia"],
+  "10-17": ["Wika", "Wiktusia"],
+  "10-25": ["Daria", "Darka", "Darek"],
+  "10-28": ["Szymek", "Tadek", "Tadeuszek"],
+
+  // November
+  "11-3": ["Sylwia", "Sylwinka"],
+  "11-4": ["Karolina", "Karolinka", "Karol", "Karolek"],
+  "11-10": ["Lenka"],
+  "11-11": ["Marcinek"],
+  "11-19": ["Ela", "Elżunka"],
+  "11-22": ["Cecylka"],
+  "11-25": ["Kasia", "Kaśka", "Kasieńka", "Katarzynka"],
+  "11-30": ["Andrzejek", "Jędrek"],
+
+  // December
+  "12-1": ["Natalka", "Natka"],
+  "12-4": ["Basia", "Baśka", "Barbarzynka"],
+  "12-6": ["Mikołajek"],
+  "12-10": ["Julcia", "Julia"],
+  "12-12": ["Dagmarka", "Joasia", "Jola"],
+  "12-13": ["Łucja"],
+  "12-19": ["Gabrysia", "Gabi"],
+  "12-23": ["Wiktoria", "Wika"],
+  "12-24": ["Adaś", "Ewka", "Ewunia"],
+  "12-26": ["Stefek", "Stefcia"],
+  "12-31": ["Sylwek"]
+};
+
+// Merge additional names into the main index
+export function buildNameToDateIndex(): Map<string, string[]> {
+  const index = new Map<string, string[]>();
+
+  // Add main calendar names
+  for (const [date, names] of Object.entries(polishNameDays)) {
+    for (const name of names) {
+      const normalizedName = name.toLowerCase();
+      if (!index.has(normalizedName)) {
+        index.set(normalizedName, []);
+      }
+      index.get(normalizedName)!.push(date);
+    }
+  }
+
+  // Add supplementary names
+  for (const [date, names] of Object.entries(additionalNames)) {
+    for (const name of names) {
+      const normalizedName = name.toLowerCase();
+      if (!index.has(normalizedName)) {
+        index.set(normalizedName, []);
+      }
+      // Avoid duplicates
+      if (!index.get(normalizedName)!.includes(date)) {
+        index.get(normalizedName)!.push(date);
+      }
+    }
+  }
+
+  return index;
 }

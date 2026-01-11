@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { polishNameDays, nameDayFacts, formatNameDayDate } from '../../data/polish-name-days';
+import { polishNameDays, additionalNames, nameDayFacts, formatNameDayDate } from '../../data/polish-name-days';
 
 // Get today's names
 const today = new Date();
@@ -28,8 +28,9 @@ const jsonLd = {
   }
 };
 
-// Pass data to client-side
+// Pass data to client-side (merge main and additional names)
 const nameDaysJson = JSON.stringify(polishNameDays);
+const additionalNamesJson = JSON.stringify(additionalNames);
 ---
 
 <BaseLayout
@@ -199,12 +200,15 @@ const nameDaysJson = JSON.stringify(polishNameDays);
   </footer>
 </BaseLayout>
 
-<script define:vars={{ nameDaysJson }}>
+<script define:vars={{ nameDaysJson, additionalNamesJson }}>
   // Parse the name days data
   const nameDays = JSON.parse(nameDaysJson);
+  const additionalNames = JSON.parse(additionalNamesJson);
 
-  // Build reverse index (name -> dates)
+  // Build reverse index (name -> dates) - merge main and additional names
   const nameToDate = new Map();
+
+  // Add main calendar names
   for (const [date, names] of Object.entries(nameDays)) {
     for (const name of names) {
       const normalizedName = name.toLowerCase();
@@ -212,6 +216,21 @@ const nameDaysJson = JSON.stringify(polishNameDays);
         nameToDate.set(normalizedName, []);
       }
       nameToDate.get(normalizedName).push({ date, originalName: name });
+    }
+  }
+
+  // Add supplementary names (diminutives, modern variants)
+  for (const [date, names] of Object.entries(additionalNames)) {
+    for (const name of names) {
+      const normalizedName = name.toLowerCase();
+      if (!nameToDate.has(normalizedName)) {
+        nameToDate.set(normalizedName, []);
+      }
+      // Avoid duplicates
+      const existing = nameToDate.get(normalizedName);
+      if (!existing.some(e => e.date === date)) {
+        existing.push({ date, originalName: name });
+      }
     }
   }
 
@@ -350,10 +369,18 @@ const nameDaysJson = JSON.stringify(polishNameDays);
       resultsDiv.innerHTML = `
         <div class="bg-gray-50 rounded-xl p-6 text-center">
           <div class="text-4xl mb-3">🤔</div>
-          <p class="text-gray-600">
+          <p class="text-gray-600 mb-3">
             No Polish name day found for "<strong>${searchName}</strong>".
-            <br><span class="text-sm">Try a traditional Polish name like Anna, Jan, or Katarzyna.</span>
           </p>
+          <div class="text-sm text-gray-500 space-y-2">
+            <p>Our database includes 1,000+ traditional Polish names, but not every name is listed.</p>
+            <p><strong>Tips:</strong></p>
+            <ul class="text-left max-w-xs mx-auto space-y-1">
+              <li>• Try the formal version (e.g., "Katarzyna" instead of "Kasia")</li>
+              <li>• Check spelling with Polish letters (ą, ę, ł, ó, etc.)</li>
+              <li>• Some modern or foreign names don't have traditional name days</li>
+            </ul>
+          </div>
         </div>
       `;
       resultsDiv.classList.remove('hidden');
