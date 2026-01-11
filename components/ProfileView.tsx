@@ -594,6 +594,50 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
           )}
         </div>
 
+        {/* Extras Section */}
+        <div className="bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+          <div className="p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accentHex}20` }}>
+                <span className="text-xl">📚</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-[var(--text-primary)]">Extras</h3>
+                <p className="text-xs text-[var(--text-secondary)]">Resources & more</p>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <a
+                href="/#/learn"
+                className="flex items-center gap-3 p-4 rounded-xl border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all group"
+              >
+                <span className="text-xl">📖</span>
+                <div className="flex-1">
+                  <p className="font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">Learn Polish Blog</p>
+                  <p className="text-xs text-[var(--text-secondary)]">Free articles, phrases & culture guides</p>
+                </div>
+                <ICONS.ChevronDown className="w-4 h-4 text-[var(--text-secondary)] -rotate-90" />
+              </a>
+
+              <div className="flex gap-2 pt-2">
+                <a
+                  href="/#/terms"
+                  className="flex-1 text-center py-2 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                >
+                  Terms of Service
+                </a>
+                <a
+                  href="/#/privacy"
+                  className="flex-1 text-center py-2 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                >
+                  Privacy Policy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <button
           onClick={() => supabase.auth.signOut({ scope: 'local' })}
           className="w-full py-6 text-[var(--text-secondary)] text-[10px] font-black hover:opacity-70 transition-all uppercase tracking-[0.3em]"
