@@ -2057,20 +2057,13 @@ const Hero: React.FC = () => {
                 ))}
               </div>
 
-              {/* Language indicator overlay at bottom */}
+              {/* Language indicator overlay at bottom - no change button */}
               {nativeLanguage && selectedTargetLanguage && (
                 <div className="absolute bottom-2 left-4 right-4 z-10">
                   <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-white/80 backdrop-blur-sm">
                     <span className="text-lg">{LANGUAGE_CONFIGS[nativeLanguage]?.flag}</span>
                     <span className="text-gray-400 text-sm">→</span>
                     <span className="text-lg">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.flag}</span>
-                    <button
-                      onClick={handleChangeLanguages}
-                      className="ml-2 text-xs font-bold"
-                      style={{ color: accentColor }}
-                    >
-                      {t('hero.languageSelector.change')}
-                    </button>
                   </div>
                 </div>
               )}
@@ -2085,20 +2078,53 @@ const Hero: React.FC = () => {
         >
           <ICONS.Heart className="absolute -bottom-16 -right-16 w-48 h-48 opacity-[0.03] pointer-events-none" style={{ color: accentColor }} />
 
-          {/* Progress dots at TOP of login section - 3 steps */}
-          <div className="flex justify-center gap-2 mb-4">
-            {(['native', 'target', 'marketing'] as SelectionStep[]).map((step, i) => (
+          {/* Progress dots at TOP of login section - all steps (native, target, + 7 marketing sections) */}
+          <div className="flex justify-center gap-1.5 mb-4 flex-wrap max-w-xs mx-auto">
+            {/* Native language step */}
+            <button
+              onClick={() => {
+                mobileStepCarouselRef.current?.scrollTo({ left: 0, behavior: 'smooth' });
+              }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentStep === 'native' ? 'scale-150' : 'opacity-40'
+              }`}
+              style={{ backgroundColor: accentColor }}
+              aria-label="Native language"
+            />
+            {/* Target language step */}
+            <button
+              onClick={() => {
+                const stepWidth = mobileStepCarouselRef.current?.clientWidth || 0;
+                mobileStepCarouselRef.current?.scrollTo({ left: stepWidth, behavior: 'smooth' });
+              }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentStep === 'target' ? 'scale-150' : 'opacity-40'
+              }`}
+              style={{ backgroundColor: accentColor }}
+              aria-label="Target language"
+            />
+            {/* Divider */}
+            <div className="w-px h-2 bg-gray-300 mx-1" />
+            {/* Marketing sections (7 dots) */}
+            {Array.from({ length: 7 }).map((_, i) => (
               <button
-                key={step}
+                key={`section-${i}`}
                 onClick={() => {
                   const stepWidth = mobileStepCarouselRef.current?.clientWidth || 0;
-                  mobileStepCarouselRef.current?.scrollTo({ left: i * stepWidth, behavior: 'smooth' });
+                  mobileStepCarouselRef.current?.scrollTo({ left: 2 * stepWidth, behavior: 'smooth' });
+                  // Also scroll to the section within marketing carousel
+                  setTimeout(() => {
+                    const carousel = mobileCarouselRef.current;
+                    if (carousel) {
+                      carousel.scrollTo({ left: i * carousel.clientWidth, behavior: 'smooth' });
+                    }
+                  }, 100);
                 }}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  currentStep === step ? 'scale-150' : 'opacity-40'
+                  currentStep === 'marketing' && activeSection === i ? 'scale-150' : 'opacity-40'
                 }`}
                 style={{ backgroundColor: accentColor }}
-                aria-label={`Go to step ${i + 1}`}
+                aria-label={`Section ${i + 1}`}
               />
             ))}
           </div>
@@ -2330,47 +2356,51 @@ const Hero: React.FC = () => {
             style={{ color: accentColor }}
           />
 
-          {/* Section indicator dots - only show when in marketing mode */}
-          {currentStep === 'marketing' ? (
-            <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2">
-              {Array.from({ length: 7 }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    const section = scrollRef.current?.querySelector(`[data-section="${i}"]`);
-                    section?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    i === activeSection
-                      ? 'scale-150'
-                      : 'opacity-30 hover:opacity-60'
-                  }`}
-                  style={{ backgroundColor: accentColor }}
-                  aria-label={`Go to section ${i + 1}`}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2">
-              {(['native', 'target', 'marketing'] as SelectionStep[]).map((step, i) => (
-                <button
-                  key={step}
-                  onClick={() => {
-                    if (step === 'native') setCurrentStep('native');
-                    else if (step === 'target' && nativeLanguage) setCurrentStep('target');
-                    else if (step === 'marketing' && nativeLanguage && selectedTargetLanguage) setCurrentStep('marketing');
-                  }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    currentStep === step
-                      ? 'scale-150'
-                      : 'opacity-30 hover:opacity-60'
-                  }`}
-                  style={{ backgroundColor: accentColor }}
-                  aria-label={`Go to step ${i + 1}`}
-                />
-              ))}
-            </div>
-          )}
+          {/* Section indicator dots - all steps (native, target, + 7 marketing sections) */}
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2">
+            {/* Native language step */}
+            <button
+              onClick={() => setCurrentStep('native')}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentStep === 'native' ? 'scale-150' : 'opacity-30 hover:opacity-60'
+              }`}
+              style={{ backgroundColor: accentColor }}
+              aria-label="Native language"
+            />
+            {/* Target language step */}
+            <button
+              onClick={() => nativeLanguage && setCurrentStep('target')}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentStep === 'target' ? 'scale-150' : 'opacity-30 hover:opacity-60'
+              }`}
+              style={{ backgroundColor: accentColor }}
+              aria-label="Target language"
+            />
+            {/* Divider */}
+            <div className="w-2 h-px bg-gray-300 my-1" />
+            {/* Marketing sections (7 dots) */}
+            {Array.from({ length: 7 }).map((_, i) => (
+              <button
+                key={`section-${i}`}
+                onClick={() => {
+                  if (nativeLanguage && selectedTargetLanguage) {
+                    setCurrentStep('marketing');
+                    setTimeout(() => {
+                      const section = scrollRef.current?.querySelector(`[data-section="${i}"]`);
+                      section?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }
+                }}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentStep === 'marketing' && activeSection === i
+                    ? 'scale-150'
+                    : 'opacity-30 hover:opacity-60'
+                }`}
+                style={{ backgroundColor: accentColor }}
+                aria-label={`Section ${i + 1}`}
+              />
+            ))}
+          </div>
 
           {/* Toggle above login form */}
           <div className="flex gap-3 mb-8">
