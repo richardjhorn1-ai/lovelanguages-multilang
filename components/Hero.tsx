@@ -1410,9 +1410,9 @@ const LoginForm: React.FC<{
 
   return (
     <div className="w-full max-w-md relative z-10">
-      <div className="text-center mb-6">
+      <div className="text-center mb-4">
         <h3
-          className="text-3xl md:text-4xl font-black mb-3 font-header transition-all duration-300"
+          className="text-3xl md:text-4xl font-black mb-2 font-header transition-all duration-300"
           style={{ color: '#1a1a2e' }}
         >
           {context.header}
@@ -2734,7 +2734,7 @@ const Hero: React.FC = () => {
 
         {/* Right: Sticky panel with toggle + login form */}
         <div
-          className="flex-1 flex flex-col items-center justify-center p-8 rounded-l-[4rem] shadow-2xl relative overflow-hidden h-screen sticky top-0"
+          className="flex-1 flex flex-col items-center justify-start pt-16 px-8 pb-8 rounded-l-[4rem] shadow-2xl relative overflow-hidden h-screen sticky top-0"
           style={{ backgroundColor: '#ffffff', color: '#1a1a2e' }}
         >
           <ICONS.Heart
@@ -2789,7 +2789,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Toggle above login form */}
-          <div className="flex gap-3 mb-4">
+          <div className="flex gap-3 mb-2">
             <button
               onClick={() => { setSelectedRole('student'); setActiveSection(0); scrollRef.current?.scrollTo({ top: 0 }); }}
               className="flex items-center gap-3 px-5 py-3 rounded-2xl transition-all duration-300 border-2"
