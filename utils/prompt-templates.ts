@@ -120,6 +120,179 @@ OUTPUT JSON:
 }`;
 }
 
+// =============================================================================
+// CHAT PROMPT BUILDER
+// =============================================================================
+
+export interface LearningJourneyContext {
+  level: string;
+  totalWords: number;
+  topicsExplored: string[];
+  canNowSay: string[];
+  suggestions: string[];
+  struggledWords: Array<{ word: string; translation: string }>;
+}
+
+export interface PartnerContext {
+  learnerName: string;
+  vocabulary: string[];
+  weakSpots: Array<{ word: string; translation: string; failCount: number }>;
+  recentWords: Array<{ word: string; translation: string }>;
+  stats: { totalWords: number; masteredCount: number; xp: number; level: string };
+  journey: LearningJourneyContext | null;
+}
+
+export interface ChatPromptOptions {
+  targetLanguage: string;
+  nativeLanguage: string;
+  mode: ChatMode;
+  userRole: 'student' | 'tutor';
+  userLog?: string[];
+  partnerName?: string | null;
+  partnerContext?: PartnerContext | null;
+  journeyContext?: LearningJourneyContext | null;
+}
+
+/**
+ * Build the complete chat system prompt.
+ * Shared between streaming and non-streaming endpoints.
+ */
+export function buildChatPrompt(options: ChatPromptOptions): string {
+  const {
+    targetLanguage,
+    nativeLanguage,
+    mode,
+    userRole,
+    userLog = [],
+    partnerName,
+    partnerContext,
+    journeyContext
+  } = options;
+
+  const { target, native } = validateLanguagePair(targetLanguage, nativeLanguage);
+  const hasConjugation = target.grammar.hasConjugation || false;
+  const conjugationPersons = target.grammar.conjugationPersons || [];
+
+  // Build learning journey section
+  const learningJourneySection = journeyContext ? `
+LEARNER'S JOURNEY:
+- Level: ${journeyContext.level} | Words learned: ${journeyContext.totalWords}
+- Recent topics: ${journeyContext.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
+- Can now say: ${journeyContext.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}
+${journeyContext.struggledWords.length > 0 ? `- Needs practice: ${journeyContext.struggledWords.map(w => w.word).join(', ')}` : ''}
+- Suggested focus: ${journeyContext.suggestions.slice(0, 2).join(', ') || 'Keep exploring'}
+` : '';
+
+  const COMMON = `You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
+
+You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
+${learningJourneySection}
+CONTEXT: Use conversation history naturally - build on what they've learned, don't repeat yourself.
+
+CORE PRINCIPLES:
+- You are NOT flirty with the user - you ENCOURAGE them to be romantic with their partner
+- Celebrate every small win enthusiastically
+- Connect vocabulary to relationship moments
+- Write ALL explanations in ${native.name}, then introduce ${target.name} words with their ${native.name} translation
+
+PACE: Don't overwhelm. One concept at a time. Translate everything helpfully.
+
+FORMAT:
+- ${target.name} words in **bold**: **word**
+- Pronunciation in [brackets]: [pro-nun-see-AY-shun]
+- Example: **${target.examples.hello}** [pronunciation] means "${native.examples.hello}"
+`;
+
+  // Mode-specific prompts
+  const askPrompt = `
+### ASK MODE - Quick Q&A
+
+Be conversational and concise. 2-3 sentences max.
+- Give the ${target.name} word once with pronunciation, then move on
+- End with a follow-up question to keep the conversation going
+- No tables, lists, or lectures - just natural chat
+`;
+
+  const learnPrompt = `
+### MODE: LEARN - Structured Lesson
+
+You MUST use special markdown syntax. This is NON-NEGOTIABLE.
+
+Known vocabulary: [${userLog.slice(0, 30).join(', ')}]
+
+VERB TEACHING RULE:
+${hasConjugation ? `When teaching ANY verb, ALWAYS show ALL ${conjugationPersons.length} conjugations (${conjugationPersons.join(', ')}).
+This is essential - never show partial conjugations.` : `Show the base/infinitive form and any key variations.`}
+
+YOUR RESPONSE MUST CONTAIN THESE EXACT PATTERNS:
+
+PATTERN 1 - Table (copy this EXACT format):
+::: table
+Column1 | Column2 | Column3
+---|---|---
+Row1Col1 | Row1Col2 | Row1Col3
+:::
+
+PATTERN 2 - Drill (copy this EXACT format):
+::: drill
+Your challenge text here
+:::
+
+ALWAYS END WITH A FOLLOW-UP QUESTION offering to teach related content.
+
+If you write a table WITHOUT "::: markers, IT WILL NOT RENDER.
+`;
+
+  const buildCoachPrompt = (): string => {
+    if (!partnerContext) {
+      return `
+### COACH MODE
+
+Your partner hasn't connected their account yet. Encourage the tutor to:
+1. Ask their partner to accept the connection request
+2. Come back once linked for personalized suggestions
+`;
+    }
+
+    const weakWords = partnerContext.weakSpots.slice(0, 5).map(w => w.word).join(', ') || 'None identified';
+    const recentWords = partnerContext.recentWords.slice(0, 5).map(w => w.word).join(', ') || 'Just starting';
+
+    return `
+### COACH MODE
+
+You're here to assist a ${target.name}-speaking tutor who is teaching their ${native.name}-speaking partner (${partnerContext.learnerName}).
+
+${partnerContext.learnerName.toUpperCase()}'S LEARNING JOURNEY:
+- Level: ${partnerContext.stats.level} | Words learned: ${partnerContext.stats.totalWords}
+${partnerContext.journey ? `- Topics explored: ${partnerContext.journey.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
+- Can now say: ${partnerContext.journey.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}
+- Suggested focus: ${partnerContext.journey.suggestions.slice(0, 2).join(', ') || 'Keep exploring'}` : ''}
+- Needs practice: ${weakWords}
+- Recently learned: ${recentWords}
+
+GUIDANCE:
+- Be practical - give suggestions they can use tonight
+- Suggest NEW words to grow their vocabulary
+- Focus on connection over perfection
+`;
+  };
+
+  // Select mode prompt
+  let modePrompt: string;
+  if (userRole === 'tutor') {
+    modePrompt = buildCoachPrompt();
+  } else {
+    modePrompt = mode === 'learn' ? learnPrompt : askPrompt;
+  }
+
+  // Add partner personalization for students
+  const personalizedContext = partnerName && userRole === 'student'
+    ? `\nREMEMBER: They're learning ${target.name} for ${partnerName}. Reference this naturally.`
+    : '';
+
+  return COMMON + modePrompt + personalizedContext;
+}
+
 /**
  * Build level test generation prompt.
  */
