@@ -9,6 +9,7 @@ import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { sounds } from '../services/sounds';
 import GameHistory from './GameHistory';
 
 interface ProgressProps {
@@ -361,6 +362,8 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
     setGenerating(true);
     const result = await geminiService.getProgressSummary(languageParams);
     if (result.success && result.data) {
+      // Play notification sound on success
+      sounds.play('notification');
       // Add to index and select it
       const newEntry: SummaryIndex = {
         id: result.data.id,

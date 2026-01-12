@@ -21,6 +21,7 @@ import {
   DARK_MODE_STYLES,
   FONT_SIZES
 } from '../services/theme';
+import { sounds } from '../services/sounds';
 
 interface ProfileViewProps {
   profile: Profile;
@@ -47,6 +48,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const [smartValidation, setSmartValidation] = useState(profile.smart_validation ?? true);
   const [savingValidation, setSavingValidation] = useState(false);
   const [showBreakupModal, setShowBreakupModal] = useState(false);
+  const [isSoundMuted, setIsSoundMuted] = useState(sounds.isMuted());
 
   const { theme, setAccentColor, setDarkMode, setFontSize, accentHex, isDark } = useTheme();
   const { t } = useTranslation();
@@ -330,6 +332,47 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     </button>
                   ))}
                 </div>
+              </div>
+
+              {/* Sound Effects */}
+              <div>
+                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.sounds')}</label>
+                <button
+                  onClick={() => {
+                    const newMuted = sounds.toggleMute();
+                    setIsSoundMuted(newMuted);
+                    if (!newMuted) sounds.play('notification');
+                  }}
+                  className="w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between"
+                  style={{
+                    borderColor: !isSoundMuted ? accentHex : 'var(--border-color)',
+                    backgroundColor: !isSoundMuted ? `${accentHex}08` : 'transparent'
+                  }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{isSoundMuted ? '🔇' : '🔊'}</span>
+                    <div className="text-left">
+                      <p className="font-bold text-[var(--text-primary)]">
+                        {isSoundMuted ? t('profile.customisation.soundsOff') : t('profile.customisation.soundsOn')}
+                      </p>
+                      <p className="text-xs text-[var(--text-secondary)]">
+                        {isSoundMuted
+                          ? t('profile.customisation.soundsOffDesc')
+                          : t('profile.customisation.soundsOnDesc')}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className="w-12 h-7 rounded-full p-1 transition-all"
+                    style={{ backgroundColor: !isSoundMuted ? accentHex : 'var(--border-color)' }}
+                  >
+                    <div
+                      className={`w-5 h-5 rounded-full bg-white shadow-sm transition-transform ${
+                        !isSoundMuted ? 'translate-x-5' : 'translate-x-0'
+                      }`}
+                    />
+                  </div>
+                </button>
               </div>
 
               {/* Answer Validation Mode */}

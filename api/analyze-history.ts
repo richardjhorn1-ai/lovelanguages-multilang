@@ -102,10 +102,6 @@ export default async function handler(req: any, res: any) {
     const genderTypes = targetConfig?.grammar.genderTypes || [];
     const conjugationPersons = getConjugationPersons(targetLanguage);
 
-    // Get example phrases from the language config
-    const helloExample = targetConfig?.examples.hello || 'Hello';
-    const iLoveYouExample = targetConfig?.examples.iLoveYou || 'I love you';
-
     // Build dynamic extraction prompt based on language grammar
     const verbInstructions = hasConjugation && conjugationPersons.length > 0 ? `
 FOR VERBS:

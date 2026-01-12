@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 import { speak } from '../../../../services/audio';
+import { sounds } from '../../../../services/sounds';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
@@ -31,6 +32,9 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
 
   const playAudio = () => {
     speak(helloWord, targetLanguage);
+    if (!hasListened) {
+      sounds.play('notification');
+    }
     setHasListened(true);
   };
 

@@ -2611,3 +2611,117 @@ stripe trigger customer.subscription.updated
 stripe trigger customer.subscription.deleted
 stripe trigger invoice.payment_failed
 ```
+
+---
+
+## Issue 48: chat-stream.ts Prompt Divergence (Tutors Broken)
+
+**Date:** January 12, 2026
+
+**Problem:**
+Tutors using chat were getting completely wrong responses. Instead of receiving coaching prompts designed for native speakers helping their partners, they received student-mode "ASK" prompts.
+
+**Symptoms:**
+- Tutor sends message in COACH mode
+- Receives response as if they're a student learning Polish
+- No coaching suggestions or teaching tips
+
+**Root Cause:**
+Two separate chat endpoints existed that had completely diverged:
+- `api/chat.ts` - Had updated prompts, coach mode, vocabulary extraction ✅
+- `api/chat-stream.ts` - Stale prompts, NO coach mode defined ❌
+
+The streaming endpoint (line 135) had:
+```typescript
+const prompt = MODES[mode] || MODES.ask;  // Falls back to ASK!
+```
+
+Since `MODES.coach` didn't exist in chat-stream.ts, all tutor messages fell back to student ASK mode.
+
+**Why Two Endpoints Existed:**
+- `chat.ts` - Non-streaming, used when images were attached
+- `chat-stream.ts` - Streaming (typing effect), used for text-only messages
+- Frontend `ChatArea.tsx` chose between them based on attachments
+
+**Investigation:**
+The streaming endpoint was ~300 lines of duplicated logic including:
+- Mode selection (without coach)
+- Prompt building (stale version)
+- Vocabulary extraction (separate call via analyzeHistory)
+
+Meanwhile `chat.ts` had all the latest improvements:
+- Updated Cupid voice ("calm, engaging, loves love")
+- "Knowing friend" romantic vibe
+- Learning journey context
+- Proper coach mode for tutors
+- Inline vocabulary extraction (no separate API call)
+
+**The Fix:**
+**Deleted `chat-stream.ts` entirely.** Instead of maintaining two endpoints:
+
+1. Updated `ChatArea.tsx` to use `generateReply` for ALL messages (text and image)
+2. Deleted `api/chat-stream.ts` (~297 lines)
+3. Removed `generateReplyStream` from `services/gemini.ts` (~70 lines)
+
+**Before:**
+```typescript
+// ChatArea.tsx - chose based on attachments
+if (pendingImages.length > 0) {
+  result = await geminiService.generateReply(...);  // Non-streaming
+} else {
+  replyText = await geminiService.generateReplyStream(...);  // Streaming
+  newWords = await geminiService.analyzeHistory(...);  // Extra API call!
+}
+```
+
+**After:**
+```typescript
+// ChatArea.tsx - always use generateReply
+const result = await geminiService.generateReply(
+  userMessage,
+  mode,
+  pendingImages,
+  userWords,
+  messageHistory,
+  sessionContextRef.current,
+  languageParams
+);
+replyText = result.replyText;
+newWords = result.newWords;  // Vocab included!
+```
+
+**Key Lessons:**
+1. **Avoid duplicate endpoints** - Streaming was only for "typing effect", not worth the maintenance cost
+2. **One source of truth** - Having two endpoints with shared prompts guarantees divergence
+3. **"Best code is no code"** - Deleting ~360 lines eliminated the bug AND future divergence
+
+**Files Changed:**
+- `components/ChatArea.tsx` - Use generateReply for all paths
+- `api/chat-stream.ts` - **DELETED**
+- `services/gemini.ts` - Removed generateReplyStream
+
+**Status:** ✅ FIXED - Single endpoint, zero divergence possible
+
+---
+
+## Issue 49: Unused Variables in analyze-history.ts
+
+**Date:** January 12, 2026
+
+**Problem:**
+Dead code in `api/analyze-history.ts` - variables defined but never used.
+
+**Code Found:**
+```typescript
+const helloExample = targetConfig?.examples.hello || 'Hello';
+const iLoveYouExample = targetConfig?.examples.iLoveYou || 'I love you';
+```
+
+These were likely remnants of an earlier prompt design.
+
+**The Fix:**
+Removed the unused variable declarations.
+
+**Key Lesson:** When refactoring prompts, verify all variables are actually used.
+
+**Status:** ✅ FIXED - Dead code removed

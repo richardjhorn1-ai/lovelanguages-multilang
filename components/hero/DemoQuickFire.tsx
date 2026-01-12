@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DemoWord } from './demoData';
+import { sounds } from '../../services/sounds';
 
 interface DemoQuickFireProps {
   accentColor: string;
@@ -66,6 +67,8 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
   }, [gameState, timeLeft, score, totalAnswered, onComplete]);
 
   const handleStart = () => {
+    // Play countdown sound
+    sounds.play('countdown');
     setGameState('countdown');
   };
 
@@ -73,6 +76,8 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
     if (!answer.trim() || gameState !== 'playing') return;
 
     const isCorrect = answer.trim().toLowerCase() === currentWord.translation.toLowerCase();
+    // Play feedback sound
+    sounds.play('correct');
     setLastCorrect(isCorrect);
     if (isCorrect) setScore(score + 1);
     setTotalAnswered(totalAnswered + 1);

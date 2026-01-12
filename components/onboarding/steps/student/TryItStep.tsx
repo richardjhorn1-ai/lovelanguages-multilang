@@ -4,6 +4,7 @@ import { OnboardingStep, NextButton, SkipButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
+import { sounds } from '../../../../services/sounds';
 
 interface TryItStepProps {
   currentStep: number;
@@ -32,6 +33,7 @@ export const TryItStep: React.FC<TryItStepProps> = ({
     if (isRecording) {
       setIsRecording(false);
       setHasTried(true);
+      sounds.play('correct');
       return;
     }
 
@@ -42,10 +44,12 @@ export const TryItStep: React.FC<TryItStepProps> = ({
       setTimeout(() => {
         setIsRecording(false);
         setHasTried(true);
+        sounds.play('correct');
       }, 3000);
     } catch {
       // Mic denied - that's okay, skip to success
       setHasTried(true);
+      sounds.play('correct');
     }
   };
 

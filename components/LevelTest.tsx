@@ -6,6 +6,7 @@ import { geminiService } from '../services/gemini';
 import { getLevelFromXP, getTierColor, translateLevel } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { sounds } from '../services/sounds';
 
 interface LevelTestProps {
   profile: Profile;
@@ -117,6 +118,16 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
       setError(result.error || 'Failed to submit test');
       setState('in_progress');
       return;
+    }
+
+    // Play sound based on result
+    if (result.data.passed) {
+      // Passed - play test passed sound, and tier up if they advanced
+      sounds.play('test-passed');
+      if (result.data.newLevel) {
+        // Small delay then play tier up for level advancement
+        setTimeout(() => sounds.play('tier-up'), 500);
+      }
     }
 
     setResults(result.data);

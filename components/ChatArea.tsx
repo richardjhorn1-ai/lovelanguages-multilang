@@ -9,6 +9,7 @@ import { Profile, Chat, Message, ChatMode, WordType } from '../types';
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { sounds } from '../services/sounds';
 import NewWordsNotification from './NewWordsNotification';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
 import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
@@ -466,22 +467,18 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       replyText = result.replyText;
       newWords = result.newWords;
     } else {
-      // Use streaming for text-only messages - show words as they arrive
-      replyText = await geminiService.generateReplyStream(
+      // Use non-streaming for text-only messages (vocab extraction included)
+      const result = await geminiService.generateReply(
         userMessage,
         mode,
+        [],  // No attachments
         userWords,
-        (chunk) => setStreamingText(prev => prev + chunk),
         messageHistory,
+        sessionContextRef.current,
         languageParams
       );
-      // Extract words after streaming completes
-      const extracted = await geminiService.analyzeHistory(
-        [...messageHistory, { role: 'user', content: userMessage }, { role: 'model', content: replyText }],
-        userWords,
-        languageParams
-      );
-      newWords = extracted;
+      replyText = result.replyText;
+      newWords = result.newWords;
     }
 
     // ACT 3: SAVE MODEL REPLY
@@ -714,6 +711,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Start listening
   const startListening = async () => {
+    // Play recording start sound
+    sounds.play('record-start');
+
     setShowListenPrompt(false);
     setListenError(null);
     setListenEntries([]);
@@ -754,6 +754,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Stop listening and save session
   const stopListening = async () => {
+    // Play recording stop sound
+    sounds.play('record-stop');
+
     gladiaRef.current?.disconnect();
     gladiaRef.current = null;
 
@@ -966,6 +969,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         alert(t('chat.errors.addWordsFailed', { message: error.message }));
       } else {
         console.log('Words added successfully:', data);
+        // Play new words sound
+        sounds.play('new-words');
         setShowWordExtractor(false);
         setExtractedWords([]);
         setSelectedWords(new Set());

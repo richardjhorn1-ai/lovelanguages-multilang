@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { TutorChallenge, QuickFireConfig } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { sounds } from '../services/sounds';
 
 interface PlayQuickFireChallengeProps {
   challenge: TutorChallenge;
@@ -115,6 +116,8 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   };
 
   const handleStart = async () => {
+    // Play countdown sound
+    sounds.play('countdown');
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       await fetch('/api/start-challenge', {
@@ -149,6 +152,8 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
+    // Play feedback sound
+    sounds.play('correct');
     setShowFeedback(isCorrect ? 'correct' : 'wrong');
     setTimeout(() => setShowFeedback(null), 200);
 
@@ -200,6 +205,10 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
       const data = await response.json();
       if (data.success) {
+        // Play perfect sound if all correct
+        if (data.result.correct_answers === data.result.total_questions) {
+          sounds.play('perfect');
+        }
         setResult({ ...data.result, timeSpent });
         setFinished(true);
       }

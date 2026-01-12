@@ -24,6 +24,8 @@
     "myProgress": "My Progress",
     "reportBug": "Report a Bug",
     "helpGuide": "Help & Guide",
+    "muteSounds": "Mute Sounds",
+    "unmuteSounds": "Unmute Sounds",
     "signOut": "Sign Out"
   },
   "chat": {
@@ -390,6 +392,11 @@
       "accentColor": "Accent Color",
       "darkMode": "Dark Mode",
       "fontSize": "Font Size",
+      "sounds": "Sound Effects",
+      "soundsOn": "Sounds On",
+      "soundsOff": "Sounds Off",
+      "soundsOnDesc": "Feedback sounds for games & actions",
+      "soundsOffDesc": "Silent mode - no sound effects",
       "answerChecking": "Answer Checking",
       "smartMode": "Smart Mode",
       "strictMode": "Strict Mode",

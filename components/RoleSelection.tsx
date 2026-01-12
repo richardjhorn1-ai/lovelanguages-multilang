@@ -18,12 +18,24 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
   const { t } = useTranslation();
   const { targetName } = useLanguage();
 
-  // Check for intended_role from Hero signup - auto-save if present
+  // Check for intended_role from Hero signup (metadata) or OAuth (localStorage) - auto-save if present
   useEffect(() => {
     const checkIntendedRole = async () => {
       try {
         const { data: { user } } = await supabase.auth.getUser();
-        const intendedRole = user?.user_metadata?.intended_role;
+
+        // Check user metadata first (email/password signup), then localStorage (OAuth signup)
+        let intendedRole = user?.user_metadata?.intended_role;
+
+        if (!intendedRole) {
+          // Check localStorage for OAuth signups
+          const storedRole = localStorage.getItem('intended_role');
+          if (storedRole === 'student' || storedRole === 'tutor') {
+            intendedRole = storedRole;
+            // Clean up localStorage after reading
+            localStorage.removeItem('intended_role');
+          }
+        }
 
         if (intendedRole === 'student' || intendedRole === 'tutor') {
           // Auto-save the role from Hero signup and proceed directly to onboarding
@@ -39,7 +51,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
           }
           // If save failed, fall back to manual selection
           console.error('Error auto-saving intended role:', error);
-          setSelectedRole(intendedRole);
+          setSelectedRole(intendedRole as UserRole);
         }
       } catch (err) {
         console.error('Error checking intended role:', err);
