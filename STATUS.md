@@ -1,4 +1,4 @@
-# Project Status - January 10, 2026
+# Project Status - January 12, 2026
 
 ## Where We Are
 
@@ -154,9 +154,9 @@ npm run build        # Production build
 
 ## Next Action
 
-**Phase ML-6: UI Internationalization** - Translate all user-facing UI text into the user's native language.
+**ML-6.10: Test full flows in 3 languages** - Final testing phase before ML-6 completion.
 
-See ML-6 task breakdown above for sub-tasks.
+All UI strings migrated, all 18 language translations complete, Language Selection UX implemented.
 
 ### ML-5 Task Breakdown
 
@@ -265,3 +265,6 @@ All API endpoints now accept `targetLanguage`/`nativeLanguage` parameters:
 | ML-4.2-4.6: Component updates | ✅ Complete | Claude Agent | Jan 10 |
 | ML-4.7-4.10: Service updates | ✅ Complete | Claude Agent | Jan 10 |
 | **ML-4 COMPLETE** | ✅ | - | Jan 10 |
+| ML-6.1-6.8: UI string migrations | ✅ Complete | Claude Agent | Jan 10-11 |
+| ML-6.9a-d: All 18 language translations | ✅ Complete | Claude Agent | Jan 11-12 |
+| ML-6.11: Language Selection UX | ✅ Complete | Claude Agent | Jan 12 |
