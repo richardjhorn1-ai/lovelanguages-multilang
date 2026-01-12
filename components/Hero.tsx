@@ -677,19 +677,13 @@ const WordParticleEffect: React.FC<{
   const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage];
 
   // Build word pairs dynamically based on selected language settings
+  // Only language words, no emojis
   const wordPairs = useMemo(() => {
-    const pairs = [
+    return [
       { word: targetConfig?.examples.hello || 'Hello', translation: nativeConfig?.examples.hello || 'Hello' },
       { word: targetConfig?.examples.iLoveYou || 'I love you', translation: nativeConfig?.examples.iLoveYou || 'I love you' },
       { word: targetConfig?.examples.thankYou || 'Thank you', translation: nativeConfig?.examples.thankYou || 'Thank you' },
     ];
-    const emojis = [
-      { word: '\u2764\uFE0F', translation: '\uD83D\uDC95' },
-      { word: '\uD83D\uDC97', translation: '\uD83D\uDC96' },
-      { word: '\u2728', translation: '\uD83D\uDCAB' },
-      { word: '\uD83D\uDC8B', translation: '\uD83D\uDE18' },
-    ];
-    return [...pairs, ...emojis];
   }, [targetConfig, nativeConfig]);
 
   // Convert text to particle positions using offscreen canvas
@@ -1968,20 +1962,20 @@ const Hero: React.FC = () => {
               <p className="text-sm mb-4 font-medium" style={{ color: '#6b7280' }}>
                 {t('hero.languageSelector.nativeSubtitle')}
               </p>
-              <div className="grid grid-cols-4 gap-2">
-                {Object.values(LANGUAGE_CONFIGS).slice(0, 12).map(lang => (
+              <div className="grid grid-cols-6 gap-1.5">
+                {Object.values(LANGUAGE_CONFIGS).map(lang => (
                   <button
                     key={lang.code}
                     onClick={() => handleNativeSelect(lang.code)}
-                    className="flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all"
+                    className="flex flex-col items-center gap-0.5 p-1.5 rounded-lg border transition-all"
                     style={{
                       borderColor: nativeLanguage === lang.code ? accentColor : '#e5e7eb',
                       backgroundColor: nativeLanguage === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
                       boxShadow: nativeLanguage === lang.code ? `0 0 0 2px ${accentColor}` : 'none',
                     }}
                   >
-                    <span className="text-xl">{lang.flag}</span>
-                    <span className="text-[10px] font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
+                    <span className="text-lg">{lang.flag}</span>
+                    <span className="text-[8px] font-bold text-gray-600 truncate w-full text-center leading-tight">{lang.nativeName}</span>
                   </button>
                 ))}
               </div>
@@ -2003,23 +1997,22 @@ const Hero: React.FC = () => {
               <p className="text-sm mb-4 font-medium" style={{ color: '#6b7280' }}>
                 {t('hero.languageSelector.targetSubtitle')}
               </p>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-6 gap-1.5">
                 {Object.values(LANGUAGE_CONFIGS)
                   .filter(lang => lang.code !== nativeLanguage)
-                  .slice(0, 12)
                   .map(lang => (
                     <button
                       key={lang.code}
                       onClick={() => handleTargetSelect(lang.code)}
-                      className="flex flex-col items-center gap-1 p-2 rounded-xl border-2 transition-all"
+                      className="flex flex-col items-center gap-0.5 p-1.5 rounded-lg border transition-all"
                       style={{
                         borderColor: selectedTargetLanguage === lang.code ? accentColor : '#e5e7eb',
                         backgroundColor: selectedTargetLanguage === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
                         boxShadow: selectedTargetLanguage === lang.code ? `0 0 0 2px ${accentColor}` : 'none',
                       }}
                     >
-                      <span className="text-xl">{lang.flag}</span>
-                      <span className="text-[10px] font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
+                      <span className="text-lg">{lang.flag}</span>
+                      <span className="text-[8px] font-bold text-gray-600 truncate w-full text-center leading-tight">{lang.nativeName}</span>
                     </button>
                   ))}
               </div>
@@ -2268,6 +2261,25 @@ const Hero: React.FC = () => {
           {/* Step 3: Marketing Content */}
           {currentStep === 'marketing' && (
             <>
+              {/* Sticky language indicator at top - clickable to change */}
+              {nativeLanguage && selectedTargetLanguage && (
+                <div className="sticky top-0 z-20 bg-gradient-to-b from-[#FFF0F3] via-[#FFF0F3] to-transparent pb-8 pt-4">
+                  <button
+                    onClick={handleChangeLanguages}
+                    className="mx-auto flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all hover:scale-105"
+                  >
+                    <span className="text-lg">{LANGUAGE_CONFIGS[nativeLanguage]?.flag}</span>
+                    <span className="text-sm font-bold text-gray-600">{LANGUAGE_CONFIGS[nativeLanguage]?.nativeName}</span>
+                    <span className="text-gray-400">→</span>
+                    <span className="text-lg">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.flag}</span>
+                    <span className="text-sm font-bold text-gray-600">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.nativeName}</span>
+                    <span className="ml-1 text-xs font-bold" style={{ color: accentColor }}>
+                      {t('hero.languageSelector.change')}
+                    </span>
+                  </button>
+                </div>
+              )}
+
               {/* First 3 sections (indices 0, 1, 2) */}
               {sections.slice(0, 3).map((section, i) => (
                 <Section
