@@ -4,6 +4,7 @@
  */
 
 import { GoogleGenAI, Type } from "@google/genai";
+import { buildAnswerValidationPrompt } from '../utils/prompt-templates.js';
 
 // Batch validation result
 export interface ValidationResult {
@@ -16,7 +17,7 @@ export interface ValidationResult {
 export interface AnswerToValidate {
   userAnswer: string;
   correctAnswer: string;
-  polishWord?: string;
+  targetWord?: string;
 }
 
 /**
@@ -42,11 +43,15 @@ export function fastMatch(userAnswer: string, correctAnswer: string): boolean {
  * 3. Map results back to original indices
  *
  * @param answers - Array of answers to validate
+ * @param targetLanguage - Language code being learned (e.g., 'pl', 'es')
+ * @param nativeLanguage - User's native language code (e.g., 'en', 'es')
  * @param apiKey - Gemini API key (optional - falls back to strict mode if missing)
  * @returns Array of validation results with original indices
  */
 export async function batchSmartValidate(
   answers: AnswerToValidate[],
+  targetLanguage: string,
+  nativeLanguage: string,
   apiKey?: string
 ): Promise<ValidationResult[]> {
   const results: ValidationResult[] = [];
@@ -81,29 +86,18 @@ export async function batchSmartValidate(
 
     // Build batch prompt with all answers that need validation
     const answersText = needsAiValidation.map((item, i) =>
-      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.polishWord ? ` | Polish: "${item.polishWord}"` : ''}`
+      `${i + 1}. Expected: "${item.correctAnswer}" | User typed: "${item.userAnswer}"${item.targetWord ? ` | Target word: "${item.targetWord}"` : ''}`
     ).join('\n');
 
-    const prompt = `You are validating answers for a Polish language learning app.
+    // Use language-aware prompt builder
+    const systemPrompt = buildAnswerValidationPrompt(targetLanguage, nativeLanguage);
+    const prompt = `${systemPrompt}
 
 Validate these ${needsAiValidation.length} answers:
 
 ${answersText}
 
-For EACH answer, ACCEPT if ANY apply:
-- Exact match (ignoring case)
-- Missing Polish diacritics (dzis=dziś, zolw=żółw, cie=cię)
-- Valid synonym (pretty=beautiful, hi=hello)
-- Article variation (the dog=dog)
-- Minor typo (1-2 chars off)
-- Alternate valid translation
-
-REJECT if:
-- Completely different meaning
-- Wrong language
-- Major spelling error (3+ chars wrong)
-
-Return a JSON array with ${needsAiValidation.length} results in order.`;
+Return a JSON array with ${needsAiValidation.length} validation results in order.`;
 
     const result = await ai.models.generateContent({
       model: "gemini-3-flash-preview",

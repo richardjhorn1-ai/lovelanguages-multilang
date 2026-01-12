@@ -230,6 +230,14 @@
       "culturalMastery": "Культурна майстерність",
       "completeMastery": "Повна майстерність",
       "practice": "Практика"
+    },
+    "tiers": {
+      "Beginner": "Початківець",
+      "Elementary": "Елементарний",
+      "Conversational": "Розмовний",
+      "Proficient": "Просунутий",
+      "Fluent": "Вільний",
+      "Master": "Майстер"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Майстерність дієслів",
       "verbMasteryVerbs": "{{count}} дієслів",
       "learnVerbsFirst": "Спочатку вивчи дієслова"
+    },
+    "loveNotes": {
+      "title": "Любовні Записки від {{partner}}",
+      "subtitle": "Виклики та подарунки тільки для тебе",
+      "empty": "Поки Немає Любовних Записок",
+      "emptyDesc": "Коли {{partner}} надішле тобі виклики або подарунки слів, вони з'являться тут!",
+      "challenges": "Виклики",
+      "wordGifts": "Подарунки Слів",
+      "wordGift": "Подарунок Слів",
+      "quizChallenge": "Вікторина",
+      "quickFire": "Швидкий Вогонь",
+      "words": "{{count}} слово",
+      "words_other": "{{count}} слів",
+      "from": "Від {{partner}}",
+      "goToGames": "До Тренувальних Ігор"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Мови",
+      "nativeLanguage": "Рідна мова",
+      "learning": "Вивчаю",
+      "active": "Активна",
+      "wordsLearned": "{{count}} слово вивчено",
+      "wordsLearned_other": "{{count}} слів вивчено",
+      "loading": "Завантаження...",
+      "switch": "Змінити",
+      "switching": "Зміна...",
+      "addLanguage": "Додати мову",
+      "comingSoon": "Скоро! Додайте більше мов з преміум-підпискою."
+    },
     "roles": {
       "student": "Вивчаю {{language}}",
       "tutor": "Мовний коуч"
@@ -360,7 +396,7 @@
       "smartModeDesc": "ШІ приймає синоніми, помилки та варіації",
       "strictModeDesc": "Лише точні відповіді (ігноруючи наголоси)",
       "preview": "Перегляд",
-      "previewText": "<strong>Kocham cię</strong> означає 'Я тебе кохаю' {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> означає 'Я тебе кохаю' {{language}}"
     },
     "advanced": {
       "title": "Розширені налаштування",
@@ -955,6 +991,16 @@
       "beginner": "початківець",
       "intermediate": "середній",
       "advanced": "просунутий"
+    },
+    "scenarios": {
+      "cafe": { "name": "У Кав'ярні", "description": "Замовити каву та перекус" },
+      "restaurant": { "name": "Вечеря в Ресторані", "description": "Замовити страву та попросити рекомендації" },
+      "market": { "name": "На Ринку", "description": "Купити фрукти та овочі" },
+      "taxi": { "name": "Поїздка на Таксі", "description": "Вказати дорогу та поговорити з водієм" },
+      "pharmacy": { "name": "В Аптеці", "description": "Запитати про ліки та описати симптоми" },
+      "hotel": { "name": "Заселення в Готель", "description": "Заселитися та запитати про зручності" },
+      "family_dinner": { "name": "Сімейна Вечеря", "description": "Познайомитися з батьками партнера" },
+      "train_station": { "name": "Вокзал", "description": "Купити квитки та дізнатися розклад" }
     },
     "createOwn": "Створити свій",
     "createOwnDesc": "Опиши будь-який сценарій, який хочеш практикувати",
@@ -1659,6 +1705,10 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Я розмовляю...",
+      "targetPrompt": "Хочу вивчити..."
+    },
     "toggle": {
       "learn": "Вчитися",
       "teach": "Вчити"

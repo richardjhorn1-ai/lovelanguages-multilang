@@ -165,12 +165,27 @@ const App: React.FC = () => {
         if (error.code === 'PGRST116') {
           const { data: userData } = await supabase.auth.getUser();
           if (userData.user) {
+            // Read language selection from user metadata (set during signup)
+            // Fall back to localStorage (set during Hero page interaction)
+            // Final fallback to defaults for edge cases
+            const userMeta = userData.user.user_metadata || {};
+            const storedTarget = userMeta.target_language
+              || localStorage.getItem('preferredTargetLanguage')
+              || 'pl';
+            const storedNative = userMeta.native_language
+              || localStorage.getItem('preferredLanguage')
+              || 'en';
+
             const { data: newProfile, error: createError } = await supabase
               .from('profiles')
               .insert({
                 id: userData.user.id,
                 email: userData.user.email,
-                full_name: userData.user.user_metadata.full_name || 'Lover'
+                full_name: userData.user.user_metadata.full_name || 'Lover',
+                // Set languages from signup metadata or localStorage selection
+                active_language: storedTarget,
+                native_language: storedNative,
+                languages: [storedTarget]
                 // role intentionally not set - user will choose in RoleSelection
               })
               .select()
@@ -243,15 +258,18 @@ const App: React.FC = () => {
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
 
-            {/* Target language route - /pl, /es, /fr, etc. */}
-            <Route path="/:targetLang" element={
-              session && profile ? (
-                // Authenticated users go to main app
-                <Navigate to="/" />
-              ) : (
-                <Hero />
-              )
-            } />
+            {/* Target language routes - /pl, /es, /fr, etc. */}
+            {/* Only match actual language codes, not app routes like /log, /play */}
+            {SUPPORTED_LANGUAGE_CODES.map(lang => (
+              <Route key={lang} path={`/${lang}`} element={
+                session && profile ? (
+                  // Authenticated users go to main app
+                  <Navigate to="/" />
+                ) : (
+                  <Hero />
+                )
+              } />
+            ))}
 
             {/* All other routes */}
             <Route path="*" element={

@@ -10,7 +10,7 @@ Love Languages: Multi-Language Learning for Couples - A language learning app bu
 
 Any language can be your **native** language (AI explains in this) or **target** language (what you're learning).
 
-**Key Architecture Document:** `MULTILANGUAGE_TRANSFORMATION.md` - The central source of truth for multi-language architecture.
+**Key Architecture Document:** `ML_MASTER_PLAN.md` - The central source of truth for multi-language transformation.
 
 ## Build & Development Commands
 
@@ -415,13 +415,13 @@ All game components must implement both paths consistently using the user's `act
 
 ## Documentation
 
-- `MULTILANGUAGE_TRANSFORMATION.md` - Multi-language architecture (source of truth)
+- `ML_MASTER_PLAN.md` - Multi-language transformation (source of truth)
+- `STATUS.md` - Current project status and phase tracking
 - `README.md` - AI persona and feature overview
 - `ROADMAP.md` - Product phases and progress tracking
 - `TROUBLESHOOTING.md` - 36+ solved issues with detailed solutions (check here first for common errors)
-- `SEO_STATUS.md` - Blog SEO work tracking (74 articles)
+- `SEO.md` - Blog SEO work tracking (74 articles)
 - `docs/AI_INTEGRATION_GUIDE.md` - Gemini API implementation
-- `docs/FORMATTING.md` - Markdown rendering pipeline
 - `docs/SYSTEM_PROMPTS.md` - AI prompt documentation and modification guide
 - `DESIGN.md` - UI/UX design system, theming, mobile patterns
 

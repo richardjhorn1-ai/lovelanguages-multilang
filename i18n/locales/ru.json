@@ -230,6 +230,14 @@
       "culturalMastery": "Культурное мастерство",
       "completeMastery": "Полное владение",
       "practice": "Практика"
+    },
+    "tiers": {
+      "Beginner": "Начинающий",
+      "Elementary": "Элементарный",
+      "Conversational": "Разговорный",
+      "Proficient": "Продвинутый",
+      "Fluent": "Свободный",
+      "Master": "Мастер"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Мастерство глаголов",
       "verbMasteryVerbs": "{{count}} глаголов",
       "learnVerbsFirst": "Сначала выучи глаголы"
+    },
+    "loveNotes": {
+      "title": "Любовные Записки от {{partner}}",
+      "subtitle": "Задания и подарки только для тебя",
+      "empty": "Пока Нет Любовных Записок",
+      "emptyDesc": "Когда {{partner}} отправит тебе задания или подарки слов, они появятся здесь!",
+      "challenges": "Задания",
+      "wordGifts": "Подарки Слов",
+      "wordGift": "Подарок Слов",
+      "quizChallenge": "Викторина",
+      "quickFire": "Быстрый Огонь",
+      "words": "{{count}} слово",
+      "words_other": "{{count}} слов",
+      "from": "От {{partner}}",
+      "goToGames": "К Тренировочным Играм"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Языки",
+      "nativeLanguage": "Родной язык",
+      "learning": "Изучаю",
+      "active": "Активный",
+      "wordsLearned": "{{count}} слово выучено",
+      "wordsLearned_other": "{{count}} слов выучено",
+      "loading": "Загрузка...",
+      "switch": "Сменить",
+      "switching": "Смена...",
+      "addLanguage": "Добавить язык",
+      "comingSoon": "Скоро! Добавьте больше языков с премиум-подпиской."
+    },
     "roles": {
       "student": "Изучаю {{language}}",
       "tutor": "Языковой коуч"
@@ -360,7 +396,7 @@
       "smartModeDesc": "ИИ принимает синонимы, опечатки и вариации",
       "strictModeDesc": "Только точные ответы (без учёта ударений)",
       "preview": "Предпросмотр",
-      "previewText": "<strong>Kocham cię</strong> означает 'Я тебя люблю' на {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> означает 'Я тебя люблю' на {{language}}"
     },
     "advanced": {
       "title": "Расширенные настройки",
@@ -955,6 +991,16 @@
       "beginner": "начинающий",
       "intermediate": "средний",
       "advanced": "продвинутый"
+    },
+    "scenarios": {
+      "cafe": { "name": "В Кафе", "description": "Заказать кофе и перекус" },
+      "restaurant": { "name": "Ужин в Ресторане", "description": "Заказать блюдо и попросить рекомендации" },
+      "market": { "name": "На Рынке", "description": "Купить фрукты и овощи" },
+      "taxi": { "name": "Поездка на Такси", "description": "Указать дорогу и поболтать с водителем" },
+      "pharmacy": { "name": "В Аптеке", "description": "Спросить о лекарствах и описать симптомы" },
+      "hotel": { "name": "Заселение в Отель", "description": "Заселиться и спросить об удобствах" },
+      "family_dinner": { "name": "Семейный Ужин", "description": "Познакомиться с родителями партнёра" },
+      "train_station": { "name": "Вокзал", "description": "Купить билеты и узнать расписание" }
     },
     "createOwn": "Создай свой",
     "createOwnDesc": "Опиши любой сценарий, который хочешь практиковать",
@@ -1659,6 +1705,11 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Я говорю на...",
+      "targetPrompt": "Хочу выучить...",
+      "targetPromptTutor": "Хочу преподавать..."
+    },
     "toggle": {
       "learn": "Учить",
       "teach": "Преподавать"

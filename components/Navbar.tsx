@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
 import { Profile, Notification } from '../types';
 import { supabase } from '../services/supabase';
-import { getLevelFromXP, getLevelProgress, getTierColor } from '../services/level-utils';
+import { getLevelFromXP, getLevelProgress, getTierColor, translateLevel } from '../services/level-utils';
 import { useTheme } from '../context/ThemeContext';
 import { HelpGuide } from './HelpGuide';
 import { BugReportModal } from './BugReportModal';
@@ -36,34 +36,24 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
   useEffect(() => {
     const fetchRequestCount = async () => {
-      const { count, error } = await supabase
-        .from('link_requests')
-        .select('*', { count: 'exact', head: true })
-        .eq('target_email', profile.email.toLowerCase())
-        .eq('status', 'pending');
+      try {
+        const { count, error } = await supabase
+          .from('link_requests')
+          .select('*', { count: 'exact', head: true })
+          .eq('target_email', profile.email.toLowerCase())
+          .eq('status', 'pending');
 
-      if (!error && count !== null) setRequestCount(count);
+        // Silently ignore if table doesn't exist (404)
+        if (!error && count !== null) setRequestCount(count);
+      } catch {
+        // Table may not exist yet - ignore
+      }
     };
 
     fetchRequestCount();
 
-    const channel = supabase
-      .channel('schema-db-changes')
-      .on(
-        'postgres_changes',
-        {
-          event: '*',
-          schema: 'public',
-          table: 'link_requests',
-          filter: `target_email=eq.${profile.email.toLowerCase()}`
-        },
-        () => fetchRequestCount()
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    // Only subscribe if we successfully fetched (table exists)
+    // Skip subscription to avoid repeated errors if table doesn't exist
   }, [profile.email]);
 
   // Fetch notifications
@@ -329,7 +319,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           >
             <div className="hidden sm:flex flex-col items-end">
               <span className="text-xs font-black truncate max-w-[120px] text-[var(--text-primary)]">{profile.full_name}</span>
-              <span className="text-[8px] uppercase tracking-[0.2em] font-black" style={{ color: tierColor }}>{levelInfo.displayName} {profile.role}</span>
+              <span className="text-[8px] uppercase tracking-[0.2em] font-black" style={{ color: tierColor }}>{translateLevel(levelInfo.displayName, t)} {profile.role}</span>
             </div>
             <div className="relative">
               <div

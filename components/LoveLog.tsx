@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
-import { speakPolish } from '../services/audio';
+import { speak } from '../services/audio';
 import { geminiService } from '../services/gemini';
 import { Profile, DictionaryEntry, WordType, WordScore, GiftWord } from '../types';
 import { ICONS } from '../constants';
@@ -56,24 +56,35 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     return () => window.removeEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
   }, []);
 
+  // Listen for language switch events from Profile settings
+  useEffect(() => {
+    const handleLanguageSwitch = () => {
+      console.log('Language switched, refreshing Love Log...');
+      fetchEntries();
+    };
+    window.addEventListener('language-switched', handleLanguageSwitch);
+    return () => window.removeEventListener('language-switched', handleLanguageSwitch);
+  }, []);
+
   const fetchEntries = async () => {
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
 
     // Fetch dictionary entries filtered by target language
     const { data } = await supabase
       .from('dictionary')
-      .select('id, user_id, word, translation, word_type, importance, context, unlocked_at')
+      .select('id, user_id, word, translation, word_type, pronunciation, gender, plural, conjugations, adjective_forms, example_sentence, pro_tip, notes, source, language_code, created_at')
       .eq('user_id', targetUserId)
       .eq('language_code', targetLanguage)
-      .order('unlocked_at', { ascending: false });
+      .order('created_at', { ascending: false });
 
     if (data) setEntries(data as DictionaryEntry[]);
 
-    // Fetch scores for mastery badges
+    // Fetch scores for mastery badges (filtered by language)
     const { data: scoreData } = await supabase
-      .from('scores')
+      .from('word_scores')
       .select('*')
-      .eq('user_id', targetUserId);
+      .eq('user_id', targetUserId)
+      .eq('language_code', targetLanguage);
 
     if (scoreData) {
       const map = new Map<string, WordScore>();
@@ -81,11 +92,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       setScoresMap(map);
     }
 
-    // Fetch gift words to show "Gift from Partner" badge
+    // Fetch gift words to show "Gift from Partner" badge (filtered by language)
     const { data: giftData } = await supabase
       .from('gift_words')
       .select('*')
-      .eq('student_id', targetUserId);
+      .eq('student_id', targetUserId)
+      .eq('language_code', targetLanguage);
 
     if (giftData) {
       const giftMap = new Map<string, GiftWord>();
@@ -151,37 +163,35 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
           const harvestedWords = harvested.map(w => w.word.toLowerCase().trim());
           const { data: existingEntries } = await supabase
             .from('dictionary')
-            .select('word, context')
+            .select('word, conjugations, gender, plural, adjective_forms')
             .eq('user_id', profile.id)
             .in('word', harvestedWords);
 
-          // Create a map of existing words with their parsed context
+          // Create a map of existing words with their data
           const existingMap = new Map<string, any>();
           (existingEntries || []).forEach(e => {
-            try {
-              const ctx = typeof e.context === 'string' ? JSON.parse(e.context) : e.context;
-              existingMap.set(e.word.toLowerCase(), ctx);
-            } catch {
-              existingMap.set(e.word.toLowerCase(), null);
-            }
+            existingMap.set(e.word.toLowerCase(), {
+              conjugations: e.conjugations,
+              gender: e.gender,
+              plural: e.plural,
+              adjective_forms: e.adjective_forms
+            });
           });
 
           const newWordCount = harvestedWords.filter(w => !existingMap.has(w)).length;
 
           const wordsToSave = harvested.map(w => {
             const wordKey = String(w.word).toLowerCase().trim();
-            const existingCtx = existingMap.get(wordKey);
+            const existing = existingMap.get(wordKey);
             const newConjugations = (w as any).conjugations || null;
 
             // Merge conjugations if word exists and both have conjugation data
             let mergedConjugations = newConjugations;
-            if (existingCtx?.conjugations && newConjugations) {
+            if (existing?.conjugations && newConjugations) {
               mergedConjugations = {
-                present: newConjugations.present || existingCtx.conjugations.present,
-                // Keep existing past if it was unlocked, otherwise use new (if provided)
-                past: existingCtx.conjugations.past || newConjugations.past || null,
-                // Keep existing future if it was unlocked, otherwise use new (if provided)
-                future: existingCtx.conjugations.future || newConjugations.future || null,
+                present: newConjugations.present || existing.conjugations.present,
+                past: existing.conjugations.past || newConjugations.past || null,
+                future: existing.conjugations.future || newConjugations.future || null,
               };
             }
 
@@ -190,25 +200,23 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               word: wordKey,
               translation: String(w.translation),
               word_type: w.type as WordType,
-              importance: Number(w.importance) || 1,
-              context: JSON.stringify({
-                original: w.context,
-                examples: w.examples || [],
-                root: w.rootWord || w.word,
-                proTip: w.proTip || '',
-                conjugations: mergedConjugations,
-                gender: (w as any).gender || existingCtx?.gender || null,
-                plural: (w as any).plural || existingCtx?.plural || null,
-                adjectiveForms: (w as any).adjectiveForms || existingCtx?.adjectiveForms || null
-              }),
-              unlocked_at: new Date().toISOString()
+              pronunciation: (w as any).pronunciation || null,
+              gender: (w as any).gender || existing?.gender || null,
+              plural: (w as any).plural || existing?.plural || null,
+              conjugations: mergedConjugations,
+              adjective_forms: (w as any).adjectiveForms || existing?.adjective_forms || null,
+              example_sentence: (w as any).examples?.[0] || null,
+              pro_tip: w.proTip || null,
+              notes: w.context || null,
+              language_code: targetLanguage,
+              source: 'listen'
             };
           });
 
           await supabase
             .from('dictionary')
             .upsert(wordsToSave, {
-              onConflict: 'user_id,word',
+              onConflict: 'user_id,word,language_code',
               ignoreDuplicates: false
             });
 
@@ -257,33 +265,18 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     return matchesFilter && matchesSearch;
   });
 
-  const parseContext = (ctxStr: any) => {
-    const fallback = {
-      original: '',
-      examples: [] as string[],
-      root: '',
-      proTip: '',
-      conjugations: null as any,
-      gender: null as string | null,
-      plural: null as string | null,
-      adjectiveForms: null as any
+  // Extract context data directly from entry columns (new schema)
+  const getEntryContext = (entry: DictionaryEntry) => {
+    return {
+      original: entry.example_sentence || '',
+      examples: entry.example_sentence ? [entry.example_sentence] : [],
+      root: entry.word,
+      proTip: entry.pro_tip || '',
+      conjugations: entry.conjugations || null,
+      gender: entry.gender || null,
+      plural: entry.plural || null,
+      adjectiveForms: entry.adjective_forms || null
     };
-    if (!ctxStr) return fallback;
-    try {
-      const parsed = typeof ctxStr === 'string' ? JSON.parse(ctxStr) : ctxStr;
-      return {
-        original: parsed?.original || '',
-        examples: Array.isArray(parsed?.examples) ? parsed.examples : [],
-        root: parsed?.root || '',
-        proTip: parsed?.proTip || '',
-        conjugations: parsed?.conjugations || null,
-        gender: parsed?.gender || null,
-        plural: parsed?.plural || null,
-        adjectiveForms: parsed?.adjectiveForms || null
-      };
-    } catch {
-      return { ...fallback, original: String(ctxStr) };
-    }
   };
 
   const handleUnlockTense = async (entry: DictionaryEntry, tense: 'past' | 'future') => {
@@ -409,8 +402,8 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-5">
           {filtered.map(e => {
             const isFlipped = flippedId === e.id;
-            const ctx = parseContext(e.context);
-            const examples = [ctx.original, ...(ctx.examples || [])].filter(Boolean);
+            const ctx = getEntryContext(e);
+            const examples = ctx.examples?.length ? ctx.examples : (ctx.original ? [ctx.original] : []);
             const currentIdx = carouselIdx[e.id] || 0;
             const hasFormsData = e.word_type === 'verb' ? ctx.conjugations :
                                  e.word_type === 'noun' ? (ctx.gender || ctx.plural) :
@@ -468,7 +461,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                       {/* Audio button */}
                       <button
-                        onClick={(ev) => { ev.stopPropagation(); speakPolish(e.word); }}
+                        onClick={(ev) => { ev.stopPropagation(); speak(e.word, targetLanguage); }}
                         className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] flex items-center justify-center transition-all group"
                       >
                         <ICONS.Play className="w-3 h-3 md:w-4 md:h-4 text-[var(--accent-color)] translate-x-0.5" />
@@ -488,7 +481,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-sm">{e.word}</span>
                         <button
-                          onClick={(ev) => { ev.stopPropagation(); speakPolish(e.word); }}
+                          onClick={(ev) => { ev.stopPropagation(); speak(e.word, targetLanguage); }}
                           className="w-6 h-6 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
                         >
                           <ICONS.Play className="w-3 h-3 translate-x-0.5" />
@@ -562,7 +555,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       {formsModalId && (() => {
         const entry = entries.find(e => e.id === formsModalId);
         if (!entry) return null;
-        const ctx = parseContext(entry.context);
+        const ctx = getEntryContext(entry);
 
         return (
           <div
@@ -578,7 +571,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 <div className="flex items-center gap-3">
                   <span className="font-bold text-lg">{entry.word}</span>
                   <button
-                    onClick={() => speakPolish(entry.word)}
+                    onClick={() => speak(entry.word, targetLanguage)}
                     className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
                   >
                     <ICONS.Play className="w-4 h-4 translate-x-0.5" />
@@ -601,7 +594,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     <div className="flex gap-1 bg-[var(--bg-primary)] rounded-xl p-1">
                       {(['present', 'past', 'future'] as const).map(tense => {
                         const isPresent = tense === 'present';
-                        const tenseData = ctx.conjugations?.[tense];
+                        const tenseData = ctx.conjugations?.[tense] as any;
                         const isUnlocked = isPresent || (tenseData && tenseData.unlockedAt);
                         const isActive = activeTenseTab === tense;
 
@@ -633,7 +626,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                     {/* Active Tense Content */}
                     {(() => {
-                      const tenseData = ctx.conjugations?.[activeTenseTab];
+                      const tenseData = ctx.conjugations?.[activeTenseTab] as any;
                       const isPresent = activeTenseTab === 'present';
                       const isUnlocked = isPresent || (tenseData && tenseData.unlockedAt);
 

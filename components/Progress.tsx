@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
 import { Profile, DictionaryEntry, WordType, ProgressSummary, SavedProgressSummary, WordScore } from '../types';
-import { getLevelFromXP, getLevelProgress, getTierColor } from '../services/level-utils';
+import { getLevelFromXP, getLevelProgress, getTierColor, translateLevel } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { useTheme } from '../context/ThemeContext';
@@ -57,7 +57,7 @@ function getPreviousLevelTests(currentLevel: string): { from: string; to: string
     'Proficient 3->Fluent 1': 'Cultural Nuance',
     'Fluent 1->2': 'Advanced Expression',
     'Fluent 2->3': 'Native-Like Fluency',
-    'Fluent 3->Master 1': 'Expert Polish',
+    'Fluent 3->Master 1': 'Expert Level',
     'Master 1->2': 'Cultural Mastery',
     'Master 2->3': 'Complete Mastery'
   };
@@ -152,7 +152,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       'Cultural Nuance': t('progress.levelThemes.culturalNuance'),
       'Advanced Expression': t('progress.levelThemes.advancedExpression'),
       'Native-Like Fluency': t('progress.levelThemes.nativeFluency'),
-      'Expert Polish': t('progress.levelThemes.expertLevel'),
+      'Expert Level': t('progress.levelThemes.expertLevel'),
       'Cultural Mastery': t('progress.levelThemes.culturalMastery'),
       'Complete Mastery': t('progress.levelThemes.completeMastery'),
       'Practice': t('progress.levelThemes.practice'),
@@ -200,7 +200,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
   const recentWords = useMemo(() => {
     return [...entries]
-      .sort((a, b) => new Date(b.unlocked_at).getTime() - new Date(a.unlocked_at).getTime())
+      .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
       .slice(0, 5);
   }, [entries]);
 
@@ -234,11 +234,27 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
     }
   }, [profile, targetLanguage]);
 
+  // Listen for language switch events from Profile settings
+  useEffect(() => {
+    const handleLanguageSwitch = () => {
+      console.log('Language switched, refreshing progress...');
+      fetchEntries();
+      fetchSummaryIndex();
+      fetchTestAttempts();
+      if (profile.role === 'tutor') {
+        fetchScores();
+      }
+    };
+    window.addEventListener('language-switched', handleLanguageSwitch);
+    return () => window.removeEventListener('language-switched', handleLanguageSwitch);
+  }, [profile.role]);
+
   const fetchTestAttempts = async () => {
     const { data } = await supabase
       .from('level_tests')
       .select('*')
       .eq('user_id', profile.id)
+      .eq('language_code', targetLanguage)
       .not('completed_at', 'is', null)
       .order('completed_at', { ascending: false });
 
@@ -253,7 +269,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       : profile.id;
 
     const { data: scoreData } = await supabase
-      .from('scores')
+      .from('word_scores')
       .select('*, dictionary:word_id(word, translation)')
       .eq('user_id', targetUserId);
 
@@ -425,7 +441,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                 <p className="text-white/60 text-[8px] md:text-[9px] font-black uppercase tracking-widest mb-0.5 md:mb-1">
                   {t('progress.level.partner', { name: partnerProfile?.full_name || t('progress.tutor.yourPartner') })}
                 </p>
-                <h2 className="text-lg md:text-2xl font-black">{levelInfo.displayName}</h2>
+                <h2 className="text-lg md:text-2xl font-black">{translateLevel(levelInfo.displayName, t)}</h2>
               </div>
               <div className="text-right">
                 <p className="text-2xl md:text-3xl font-black">{targetXp}</p>
@@ -434,7 +450,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             </div>
             <div className="mt-3 md:mt-4 relative z-10">
               <div className="flex justify-between text-[8px] md:text-[9px] font-bold text-white/60 mb-1">
-                <span>{t('progress.level.progressTo', { level: levelInfo.nextLevel || t('progress.level.max') })}</span>
+                <span>{t('progress.level.progressTo', { level: translateLevel(levelInfo.nextLevel, t) || t('progress.level.max') })}</span>
                 <span>{levelProgress}%</span>
               </div>
               <div className="h-1.5 md:h-2 bg-white/20 rounded-full overflow-hidden">
@@ -590,7 +606,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           <div className="flex items-center justify-between mb-4 md:mb-6 relative z-10">
             <div>
               <p className="text-white/60 text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.current')}</p>
-              <h2 className="text-xl md:text-3xl font-black">{levelInfo.displayName}</h2>
+              <h2 className="text-xl md:text-3xl font-black">{translateLevel(levelInfo.displayName, t)}</h2>
             </div>
             <div className="text-right">
               <p className="text-white/60 text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.totalXp')}</p>
@@ -600,7 +616,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
           <div className="relative z-10 mb-4 md:mb-6">
             <div className="flex justify-between text-[9px] md:text-[10px] font-bold text-white/60 mb-1.5 md:mb-2">
-              <span>{t('progress.level.progressTo', { level: levelInfo.nextLevel || t('progress.level.maxLevel') })}</span>
+              <span>{t('progress.level.progressTo', { level: translateLevel(levelInfo.nextLevel, t) || t('progress.level.maxLevel') })}</span>
               <span>{levelProgress}%</span>
             </div>
             <div className="h-2 md:h-3 bg-white/20 rounded-full overflow-hidden">
@@ -611,7 +627,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             </div>
             {levelInfo.nextLevel && (
               <p className="text-[9px] md:text-[10px] text-white/60 mt-1.5 md:mt-2 text-center">
-                {t('progress.level.xpToNext', { xp: levelInfo.xpToNextLevel, level: levelInfo.nextLevel })}
+                {t('progress.level.xpToNext', { xp: levelInfo.xpToNextLevel, level: translateLevel(levelInfo.nextLevel, t) })}
               </p>
             )}
           </div>
@@ -875,7 +891,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                           className="text-[9px] font-bold px-2 py-0.5 rounded-full"
                           style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
                         >
-                          {entry.level_at_time}
+                          {translateLevel(entry.level_at_time, t)}
                         </span>
                       </div>
                       <p className="text-xs font-semibold text-[var(--text-primary)] line-clamp-1">
@@ -1119,7 +1135,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                               className="text-[8px] font-bold px-1.5 py-0.5 rounded-full"
                               style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
                             >
-                              {entry.level_at_time}
+                              {translateLevel(entry.level_at_time, t)}
                             </span>
                           </div>
                           <p className="text-[10px] font-semibold text-[var(--text-primary)] line-clamp-2">

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { useHoneypot } from '../hooks/useHoneypot';
 
 interface InviterInfo {
   name: string;
@@ -27,6 +28,9 @@ const JoinInvite: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState(true);
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState('');
+
+  // Honeypot anti-bot protection
+  const { honeypotProps, honeypotStyles, isBot } = useHoneypot();
 
   useEffect(() => {
     if (token) {
@@ -82,6 +86,16 @@ const JoinInvite: React.FC = () => {
     e.preventDefault();
     setAuthLoading(true);
     setAuthMessage('');
+
+    // Honeypot check: if bot filled the hidden field, fake success silently
+    if (isBot()) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (isSignUp) {
+        setAuthMessage(t('joinInvite.checkEmail'));
+      }
+      setAuthLoading(false);
+      return;
+    }
 
     try {
       if (isSignUp) {
@@ -160,7 +174,7 @@ const JoinInvite: React.FC = () => {
 
       // Success! Force a full page reload to get fresh profile data
       console.log('[JoinInvite] Success! Reloading to fetch updated profile...');
-      window.location.href = '/';
+      window.location.href = '/#/';
     } catch (e: any) {
       console.error('[JoinInvite] Complete invite error:', e);
       setAuthMessage(e.message || 'Failed to link accounts');
@@ -285,7 +299,10 @@ const JoinInvite: React.FC = () => {
             </p>
           </div>
 
+          <style dangerouslySetInnerHTML={{ __html: honeypotStyles }} />
           <form onSubmit={handleAuth} className="space-y-4">
+            {/* Honeypot field - hidden from users, bots fill it */}
+            <input {...honeypotProps} />
             <div>
               <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-2 ml-1">
                 {t('joinInvite.emailLabel')}

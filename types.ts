@@ -150,9 +150,20 @@ export interface DictionaryEntry {
   word: string;
   translation: string;
   word_type: WordType;
-  importance: number;
-  context: string;  // JSON stringified WordContext
-  unlocked_at: string;
+  pronunciation?: string;
+  gender?: string;
+  plural?: string;
+  conjugations?: VerbConjugations;
+  adjective_forms?: Partial<AdjectiveForms>;
+  example_sentence?: string;
+  example_translation?: string;
+  pro_tip?: string;
+  notes?: string;
+  source?: string;
+  language_code: string;
+  enriched_at?: string;
+  created_at: string;
+  updated_at?: string;
 }
 
 export type ChatMode = 'ask' | 'learn' | 'coach';
@@ -513,8 +524,9 @@ export interface ExtractedWord {
   word: string;
   translation: string;
   type: 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
-  importance: number;
-  context: string;
+  importance?: number;
+  context?: string;
+  pronunciation?: string;
   rootWord?: string;
   examples?: string[];
   proTip?: string;

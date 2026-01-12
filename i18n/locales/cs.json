@@ -230,6 +230,14 @@
       "culturalMastery": "Kulturní mistrovství",
       "completeMastery": "Kompletní mistrovství",
       "practice": "Cvičení"
+    },
+    "tiers": {
+      "Beginner": "Začátečník",
+      "Elementary": "Základní",
+      "Conversational": "Konverzační",
+      "Proficient": "Pokročilý",
+      "Fluent": "Plynulý",
+      "Master": "Mistr"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Mistrovství sloves",
       "verbMasteryVerbs": "{{count}} sloves",
       "learnVerbsFirst": "Nejdřív se nauč slovesa"
+    },
+    "loveNotes": {
+      "title": "Vzkazy Lásky od {{partner}}",
+      "subtitle": "Výzvy a dárky jen pro tebe",
+      "empty": "Zatím Žádné Vzkazy Lásky",
+      "emptyDesc": "Když ti {{partner}} pošle výzvy nebo slovní dárky, objeví se zde!",
+      "challenges": "Výzvy",
+      "wordGifts": "Slovní Dárky",
+      "wordGift": "Slovní Dárek",
+      "quizChallenge": "Kvízová Výzva",
+      "quickFire": "Rychlopalba",
+      "words": "{{count}} slovo",
+      "words_other": "{{count}} slov",
+      "from": "Od {{partner}}",
+      "goToGames": "Jít na Cvičné Hry"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Jazyky",
+      "nativeLanguage": "Rodný Jazyk",
+      "learning": "Učím se",
+      "active": "Aktivní",
+      "wordsLearned": "{{count}} slovo naučeno",
+      "wordsLearned_other": "{{count}} slov naučeno",
+      "loading": "Načítání...",
+      "switch": "Změnit",
+      "switching": "Měním...",
+      "addLanguage": "Přidat Jazyk",
+      "comingSoon": "Již brzy! Přidejte další jazyky s prémiovým předplatným."
+    },
     "roles": {
       "student": "Učím se {{language}}",
       "tutor": "Jazykový kouč"
@@ -360,7 +396,7 @@
       "smartModeDesc": "AI přijímá synonyma, překlepy a varianty",
       "strictModeDesc": "Pouze přesné odpovědi (bez ohledu na diakritiku)",
       "preview": "Náhled",
-      "previewText": "<strong>Kocham cię</strong> znamená 'Miluji tě' v {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> znamená 'Miluji tě' v {{language}}"
     },
     "advanced": {
       "title": "Pokročilé nastavení",
@@ -955,6 +991,16 @@
       "beginner": "začátečník",
       "intermediate": "středně pokročilý",
       "advanced": "pokročilý"
+    },
+    "scenarios": {
+      "cafe": { "name": "V Kavárně", "description": "Objednej kávu a svačinu" },
+      "restaurant": { "name": "Večeře v Restauraci", "description": "Objednej jídlo a zeptej se na doporučení" },
+      "market": { "name": "Na Trhu", "description": "Kup ovoce a zeleninu" },
+      "taxi": { "name": "Jízda Taxíkem", "description": "Ukaž cestu a popovídej si s řidičem" },
+      "pharmacy": { "name": "V Lékárně", "description": "Zeptej se na léky a popiš příznaky" },
+      "hotel": { "name": "Check-in v Hotelu", "description": "Ubytuj se a zeptej se na vybavení" },
+      "family_dinner": { "name": "Rodinná Večeře", "description": "Poznej rodiče svého partnera" },
+      "train_station": { "name": "Nádraží", "description": "Kup jízdenky a zjisti jízdní řád" }
     },
     "createOwn": "Vytvoř vlastní",
     "createOwnDesc": "Popiš jakýkoliv scénář, který chceš procvičit",
@@ -1659,6 +1705,11 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Mluvím...",
+      "targetPrompt": "Chci se naučit...",
+      "targetPromptTutor": "Chci učit..."
+    },
     "toggle": {
       "learn": "Učit se",
       "teach": "Učit"

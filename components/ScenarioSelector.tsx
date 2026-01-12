@@ -81,12 +81,12 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-bold text-[var(--text-primary)]">{scenario.name}</h3>
+                        <h3 className="font-bold text-[var(--text-primary)]">{t(`scenarioSelector.scenarios.${scenario.id}.name`)}</h3>
                         <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded-full ${difficultyColors[scenario.difficulty]}`}>
                           {t(`scenarioSelector.difficulty.${scenario.difficulty}`)}
                         </span>
                       </div>
-                      <p className="text-sm text-[var(--text-secondary)]">{scenario.description}</p>
+                      <p className="text-sm text-[var(--text-secondary)]">{t(`scenarioSelector.scenarios.${scenario.id}.description`)}</p>
                     </div>
                     <ICONS.ChevronRight className="w-5 h-5 text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>

@@ -123,7 +123,9 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
               {scenario?.icon || '🎙️'}
             </div>
             <div>
-              <h2 className="font-bold text-[var(--text-primary)] text-sm">{scenario?.name}</h2>
+              <h2 className="font-bold text-[var(--text-primary)] text-sm">
+                {scenario?.id === 'custom' ? t('scenarioSelector.customScenarioName') : t(`scenarioSelector.scenarios.${scenario?.id}.name`)}
+              </h2>
               <div className="flex items-center gap-2">
                 <span className={`w-2 h-2 rounded-full ${
                   state === 'listening' ? 'bg-green-500 animate-pulse' :

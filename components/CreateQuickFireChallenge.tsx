@@ -6,8 +6,8 @@ import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 
 interface NewWord {
-  polish: string;
-  english: string;
+  word: string;        // Target language word
+  translation: string; // Native language translation
 }
 
 interface CreateQuickFireChallengeProps {
@@ -39,9 +39,9 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
 
   // New words feature
   const [newWords, setNewWords] = useState<NewWord[]>([]);
-  const [newPolish, setNewPolish] = useState('');
-  const [newEnglish, setNewEnglish] = useState('');
-  const [generatedWord, setGeneratedWord] = useState<{ polish: string; english: string; pronunciation?: string } | null>(null);
+  const [newWord, setNewWord] = useState('');
+  const [newTranslation, setNewTranslation] = useState('');
+  const [generatedWord, setGeneratedWord] = useState<{ word: string; translation: string; pronunciation?: string } | null>(null);
   const [generating, setGenerating] = useState(false);
 
   // Language & i18n
@@ -89,7 +89,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
   };
 
   const generateTranslation = async () => {
-    if (!newPolish.trim()) return;
+    if (!newWord.trim()) return;
 
     setGenerating(true);
     try {
@@ -100,17 +100,17 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ polish: newPolish.trim(), ...languageParams })
+        body: JSON.stringify({ word: newWord.trim(), ...languageParams })
       });
 
       const data = await response.json();
       if (data.success && data.validated) {
         setGeneratedWord({
-          polish: data.validated.word,
-          english: data.validated.translation,
+          word: data.validated.word,
+          translation: data.validated.translation,
           pronunciation: data.validated.pronunciation
         });
-        setNewEnglish(data.validated.translation);
+        setNewTranslation(data.validated.translation);
       } else {
         alert(data.error || t('challengeCreator.common.failedGenerateTranslation'));
       }
@@ -122,10 +122,10 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
   };
 
   const addNewWord = () => {
-    if (!newPolish.trim() || !newEnglish.trim()) return;
-    setNewWords(prev => [...prev, { polish: newPolish.trim(), english: newEnglish.trim() }]);
-    setNewPolish('');
-    setNewEnglish('');
+    if (!newWord.trim() || !newTranslation.trim()) return;
+    setNewWords(prev => [...prev, { word: newWord.trim(), translation: newTranslation.trim() }]);
+    setNewWord('');
+    setNewTranslation('');
     setGeneratedWord(null);
   };
 
@@ -287,27 +287,27 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
               {t('challengeCreator.common.enterTargetLanguage', { language: targetName })}
             </p>
 
-            {/* Step 1: Polish input with Generate button */}
+            {/* Step 1: Target language input with Generate button */}
             <div className="flex gap-2 mb-3">
               <input
                 type="text"
-                value={newPolish}
+                value={newWord}
                 onChange={e => {
-                  setNewPolish(e.target.value);
+                  setNewWord(e.target.value);
                   if (generatedWord) {
                     setGeneratedWord(null);
-                    setNewEnglish('');
+                    setNewTranslation('');
                   }
                 }}
                 placeholder={t('challengeCreator.common.enterWordPlaceholder', { language: targetName })}
                 className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-                onKeyDown={e => e.key === 'Enter' && newPolish.trim() && !generatedWord && generateTranslation()}
+                onKeyDown={e => e.key === 'Enter' && newWord.trim() && !generatedWord && generateTranslation()}
                 disabled={generating}
               />
               {!generatedWord ? (
                 <button
                   onClick={generateTranslation}
-                  disabled={!newPolish.trim() || generating}
+                  disabled={!newWord.trim() || generating}
                   className="px-4 py-2 bg-amber-500 text-white rounded-lg font-bold text-sm hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
                 >
                   {generating ? (
@@ -326,7 +326,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                 <button
                   onClick={() => {
                     setGeneratedWord(null);
-                    setNewEnglish('');
+                    setNewTranslation('');
                   }}
                   className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-lg font-bold text-sm transition-colors"
                 >
@@ -341,7 +341,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="font-bold text-[var(--text-primary)]">{generatedWord.polish}</span>
+                      <span className="font-bold text-[var(--text-primary)]">{generatedWord.word}</span>
                       {generatedWord.pronunciation && (
                         <span className="text-xs text-[var(--text-secondary)]">[{generatedWord.pronunciation}]</span>
                       )}
@@ -350,17 +350,17 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                       <span className="text-[var(--text-secondary)]">→</span>
                       <input
                         type="text"
-                        value={newEnglish}
-                        onChange={e => setNewEnglish(e.target.value)}
+                        value={newTranslation}
+                        onChange={e => setNewTranslation(e.target.value)}
                         placeholder={t('challengeCreator.common.editTranslation')}
                         className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-                        onKeyDown={e => e.key === 'Enter' && newEnglish && addNewWord()}
+                        onKeyDown={e => e.key === 'Enter' && newTranslation && addNewWord()}
                       />
                     </div>
                   </div>
                   <button
                     onClick={addNewWord}
-                    disabled={!newEnglish.trim()}
+                    disabled={!newTranslation.trim()}
                     className="px-3 py-2 bg-green-500 text-white rounded-lg font-bold text-sm hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
                   >
                     <ICONS.Check className="w-4 h-4" />
@@ -378,9 +378,9 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                     className="flex items-center justify-between p-2 bg-[var(--bg-card)] rounded-lg border border-[var(--border-color)]"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-[var(--text-primary)] text-sm">{word.polish}</span>
+                      <span className="font-bold text-[var(--text-primary)] text-sm">{word.word}</span>
                       <span className="text-[var(--text-secondary)]">→</span>
-                      <span className="text-[var(--text-secondary)] text-sm">{word.english}</span>
+                      <span className="text-[var(--text-secondary)] text-sm">{word.translation}</span>
                     </div>
                     <button
                       onClick={() => removeNewWord(index)}

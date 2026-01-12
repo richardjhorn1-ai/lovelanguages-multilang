@@ -1,8 +1,12 @@
 ---
 interface Conjugation {
   person: string;
-  polish: string;
-  english: string;
+  // New language-agnostic props (preferred)
+  word?: string;
+  translation?: string;
+  // Legacy props (backward compatibility)
+  polish?: string;
+  english?: string;
 }
 
 interface Props {
@@ -12,6 +16,10 @@ interface Props {
 }
 
 const { verb, meaning, conjugations } = Astro.props;
+
+// Helper to get display values with fallback to legacy props
+const getWord = (c: Conjugation) => c.word || c.polish || '';
+const getTranslation = (c: Conjugation) => c.translation || c.english || '';
 ---
 
 <div class="my-8 bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
@@ -24,8 +32,8 @@ const { verb, meaning, conjugations } = Astro.props;
       {conjugations.map((c, i) => (
         <tr class={i % 2 === 0 ? 'bg-gray-50' : ''}>
           <td class="px-4 py-3 font-medium text-gray-600 w-1/4">{c.person}</td>
-          <td class="px-4 py-3 font-bold text-accent">{c.polish}</td>
-          <td class="px-4 py-3 text-gray-600">{c.english}</td>
+          <td class="px-4 py-3 font-bold text-accent">{getWord(c)}</td>
+          <td class="px-4 py-3 text-gray-600">{getTranslation(c)}</td>
         </tr>
       ))}
     </tbody>

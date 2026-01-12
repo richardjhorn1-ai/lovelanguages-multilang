@@ -43,6 +43,54 @@
             "type": "string"
           }
         },
+        "language": {
+          "type": "string",
+          "enum": [
+            "en",
+            "es",
+            "fr",
+            "it",
+            "pt",
+            "ro",
+            "de",
+            "nl",
+            "sv",
+            "no",
+            "da",
+            "pl",
+            "cs",
+            "ru",
+            "uk",
+            "el",
+            "hu",
+            "tr"
+          ],
+          "default": "pl"
+        },
+        "nativeLanguage": {
+          "type": "string",
+          "enum": [
+            "en",
+            "es",
+            "fr",
+            "it",
+            "pt",
+            "ro",
+            "de",
+            "nl",
+            "sv",
+            "no",
+            "da",
+            "pl",
+            "cs",
+            "ru",
+            "uk",
+            "el",
+            "hu",
+            "tr"
+          ],
+          "default": "en"
+        },
         "$schema": {
           "type": "string"
         }

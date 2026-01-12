@@ -230,6 +230,14 @@
       "culturalMastery": "Kulturelle Meisterschaft",
       "completeMastery": "Vollständige Meisterschaft",
       "practice": "Übung"
+    },
+    "tiers": {
+      "Beginner": "Anfänger",
+      "Elementary": "Grundstufe",
+      "Conversational": "Konversation",
+      "Proficient": "Fortgeschritten",
+      "Fluent": "Fließend",
+      "Master": "Meister"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Verbenmeisterschaft",
       "verbMasteryVerbs": "{{count}} Verben",
       "learnVerbsFirst": "Lerne zuerst Verben"
+    },
+    "loveNotes": {
+      "title": "Liebesnotizen von {{partner}}",
+      "subtitle": "Herausforderungen und Geschenke nur für dich",
+      "empty": "Noch Keine Liebesnotizen",
+      "emptyDesc": "Wenn {{partner}} dir Herausforderungen oder Wortgeschenke schickt, erscheinen sie hier!",
+      "challenges": "Herausforderungen",
+      "wordGifts": "Wortgeschenke",
+      "wordGift": "Wortgeschenk",
+      "quizChallenge": "Quiz-Herausforderung",
+      "quickFire": "Schnellfeuer",
+      "words": "{{count}} Wort",
+      "words_other": "{{count}} Wörter",
+      "from": "Von {{partner}}",
+      "goToGames": "Zu Übungsspielen"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Sprachen",
+      "nativeLanguage": "Muttersprache",
+      "learning": "Lernend",
+      "active": "Aktiv",
+      "wordsLearned": "{{count}} Wort gelernt",
+      "wordsLearned_other": "{{count}} Wörter gelernt",
+      "loading": "Laden...",
+      "switch": "Wechseln",
+      "switching": "Wechseln...",
+      "addLanguage": "Sprache hinzufügen",
+      "comingSoon": "Bald verfügbar! Fügen Sie mit einem Premium-Abo weitere Sprachen hinzu."
+    },
     "roles": {
       "student": "Lernt {{language}}",
       "tutor": "Sprachcoach"
@@ -360,7 +396,7 @@
       "smartModeDesc": "KI akzeptiert Synonyme, Tippfehler & Variationen",
       "strictModeDesc": "Nur exakte Antworten (Akzente ignoriert)",
       "preview": "Vorschau",
-      "previewText": "<strong>Kocham cię</strong> bedeutet 'Ich liebe dich' auf {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> bedeutet 'Ich liebe dich' auf {{language}}"
     },
     "advanced": {
       "title": "Erweiterte Einstellungen",
@@ -955,6 +991,16 @@
       "beginner": "Anfänger",
       "intermediate": "Fortgeschritten",
       "advanced": "Experte"
+    },
+    "scenarios": {
+      "cafe": { "name": "Im Café", "description": "Kaffee und einen Snack bestellen" },
+      "restaurant": { "name": "Abendessen im Restaurant", "description": "Ein Gericht bestellen und Empfehlungen erfragen" },
+      "market": { "name": "Auf dem Markt", "description": "Obst und Gemüse kaufen" },
+      "taxi": { "name": "Taxifahrt", "description": "Wegbeschreibung geben und mit dem Fahrer plaudern" },
+      "pharmacy": { "name": "In der Apotheke", "description": "Medikamente erfragen und Symptome beschreiben" },
+      "hotel": { "name": "Hotel Check-in", "description": "Einchecken und nach Annehmlichkeiten fragen" },
+      "family_dinner": { "name": "Familienessen", "description": "Die Eltern deines Partners kennenlernen" },
+      "train_station": { "name": "Bahnhof", "description": "Fahrkarten kaufen und Fahrpläne erfragen" }
     },
     "createOwn": "Eigenes erstellen",
     "createOwnDesc": "Beschreibe ein beliebiges Szenario zum Üben",
@@ -1659,6 +1705,11 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Ich spreche...",
+      "targetPrompt": "Ich möchte lernen...",
+      "targetPromptTutor": "Ich möchte unterrichten..."
+    },
     "toggle": {
       "learn": "Lernen",
       "teach": "Lehren"

@@ -12,6 +12,12 @@ interface RelatedArticle {
   };
 }
 
+interface LanguageInfo {
+  flag: string;
+  name: string;
+  nativeName: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -22,15 +28,23 @@ interface Props {
   date: string;
   tags?: string[];
   relatedArticles?: RelatedArticle[];
+  languageCode?: string;
+  languageInfo?: LanguageInfo;
 }
 
-const { title, description, category, difficulty, readTime, image, date, tags, relatedArticles = [] } = Astro.props;
+const {
+  title, description, category, difficulty, readTime, image, date, tags,
+  relatedArticles = [],
+  languageCode = 'pl',
+  languageInfo = { flag: '🇵🇱', name: 'Polish', nativeName: 'Polski' }
+} = Astro.props;
 
+// Use language flag for culture category
 const categoryConfig = {
   phrases: { icon: '💬', bg: 'bg-rose-100', text: 'text-rose-700', label: 'Phrases' },
   vocabulary: { icon: '📚', bg: 'bg-purple-100', text: 'text-purple-700', label: 'Vocabulary' },
   grammar: { icon: '📝', bg: 'bg-blue-100', text: 'text-blue-700', label: 'Grammar' },
-  culture: { icon: '🇵🇱', bg: 'bg-amber-100', text: 'text-amber-700', label: 'Culture' },
+  culture: { icon: languageInfo.flag, bg: 'bg-amber-100', text: 'text-amber-700', label: 'Culture' },
   situations: { icon: '🎭', bg: 'bg-emerald-100', text: 'text-emerald-700', label: 'Situations' },
 };
 
@@ -85,8 +99,8 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Learn Polish",
-      "item": "https://lovelanguages.xyz/learn"
+      "name": `Learn ${languageInfo.name}`,
+      "item": "https://lovelanguages.xyz/learn/"
     },
     {
       "@type": "ListItem",
@@ -118,7 +132,7 @@ const breadcrumbJsonLd = {
     <ol class="flex items-center gap-2 text-sm text-gray-500">
       <li><a href="/" class="hover:text-accent">Home</a></li>
       <li>/</li>
-      <li><a href="/learn" class="hover:text-accent">Learn</a></li>
+      <li><a href="/learn/" class="hover:text-accent">Learn</a></li>
       <li>/</li>
       <li class="text-gray-900 truncate max-w-[200px]">{title}</li>
     </ol>
@@ -229,7 +243,7 @@ const breadcrumbJsonLd = {
       href="/"
       class="flex items-center justify-center gap-2 text-white font-bold"
     >
-      <span>Learn Polish Together</span>
+      <span>Learn {languageInfo.name} Together</span>
       <span class="bg-white text-accent px-3 py-1 rounded-full text-sm">Start Now →</span>
     </a>
   </div>
@@ -244,9 +258,9 @@ const breadcrumbJsonLd = {
         <img src="/favicon.svg" alt="" class="w-8 h-8" />
         Love Languages
       </a>
-      <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
+      <p class="text-gray-600 mb-6">Learn {languageInfo.name} together with your partner</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
-        <a href="/learn" class="hover:text-accent">Blog</a>
+        <a href="/learn/" class="hover:text-accent">Blog</a>
         <a href="/tools" class="hover:text-accent">Tools</a>
         <a href="/terms" class="hover:text-accent">Terms</a>
         <a href="/privacy" class="hover:text-accent">Privacy</a>

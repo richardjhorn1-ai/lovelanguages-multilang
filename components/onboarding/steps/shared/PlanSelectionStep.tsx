@@ -37,17 +37,22 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('yearly');
   const [prices, setPrices] = useState<Prices | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchPrices();
   }, []);
 
   const fetchPrices = async () => {
+    setError(null);
+    setLoading(true);
     try {
       const session = await supabase.auth.getSession();
       const token = session.data.session?.access_token;
 
       if (!token) {
+        console.error('[PlanSelectionStep] No auth token available');
+        setError(t('onboarding.plan.errors.authRequired'));
         setLoading(false);
         return;
       }
@@ -56,12 +61,26 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        setPrices(data.prices);
+      if (!response.ok) {
+        console.error('[PlanSelectionStep] API error:', response.status);
+        setError(t('onboarding.plan.errors.loadFailed'));
+        setLoading(false);
+        return;
       }
+
+      const data = await response.json();
+
+      if (!data.prices?.standardMonthly) {
+        console.error('[PlanSelectionStep] Prices missing from response:', data);
+        setError(t('onboarding.plan.errors.pricesUnavailable'));
+        setLoading(false);
+        return;
+      }
+
+      setPrices(data.prices);
     } catch (err) {
       console.error('[PlanSelectionStep] Error fetching prices:', err);
+      setError(t('onboarding.plan.errors.loadFailed'));
     } finally {
       setLoading(false);
     }
@@ -142,6 +161,19 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
           {t('onboarding.plan.subtitle', { language: targetName })}
         </p>
       </div>
+
+      {/* Error Message */}
+      {error && (
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm text-center">
+          {error}
+          <button
+            onClick={fetchPrices}
+            className="ml-2 underline hover:no-underline font-medium"
+          >
+            {t('onboarding.plan.errors.retry')}
+          </button>
+        </div>
+      )}
 
       {/* Billing Toggle */}
       <div className="flex justify-center mb-6">
@@ -248,7 +280,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       {/* Continue Button */}
       <NextButton
         onClick={() => onNext(selectedPlan || 'standard', getPriceId())}
-        disabled={!selectedPlan}
+        disabled={!selectedPlan || !prices}
         accentColor={accentColor}
       >
         {t('onboarding.plan.continueWith', { plan: selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : t('onboarding.plan.aPlan') })}

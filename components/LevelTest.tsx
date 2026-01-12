@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Profile, TestQuestion } from '../types';
 import { geminiService } from '../services/gemini';
-import { getLevelFromXP, getTierColor } from '../services/level-utils';
+import { getLevelFromXP, getTierColor, translateLevel } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -176,7 +176,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
           <p className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-2">{t('levelTest.levelUpTest')}</p>
           <h2 className="text-2xl font-black text-[var(--text-primary)] mb-1">{themeName}</h2>
-          <p className="text-sm text-[var(--text-secondary)] mb-6">{fromLevel} → {toLevel}</p>
+          <p className="text-sm text-[var(--text-secondary)] mb-6">{translateLevel(fromLevel, t)} → {translateLevel(toLevel, t)}</p>
 
           <div className="bg-[var(--bg-primary)] rounded-2xl p-4 mb-6 text-left">
             <div className="flex justify-between text-sm mb-2">
@@ -231,7 +231,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
           <p className="text-[var(--text-secondary)] mb-6">
             {passed
               ? results.newLevel
-                ? t('levelTest.advancedTo', { level: results.newLevel })
+                ? t('levelTest.advancedTo', { level: translateLevel(results.newLevel, t) })
                 : t('levelTest.passedTest')
               : t('levelTest.scoreNeeded', { score: results.score })}
           </p>

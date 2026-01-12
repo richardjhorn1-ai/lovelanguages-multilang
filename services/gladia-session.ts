@@ -2,7 +2,7 @@
  * Gladia Session Service
  *
  * WebSocket client for Gladia's real-time speech-to-text API
- * Features: Polish transcription, English translation
+ * Features: Multi-language transcription with translation to native language
  *
  * Flow:
  * 1. Backend calls Gladia API to create session → returns WebSocket URL

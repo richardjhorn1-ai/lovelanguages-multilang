@@ -230,6 +230,14 @@
       "culturalMastery": "Cultural Mastery",
       "completeMastery": "Complete Mastery",
       "practice": "Practice"
+    },
+    "tiers": {
+      "Beginner": "Beginner",
+      "Elementary": "Elementary",
+      "Conversational": "Conversational",
+      "Proficient": "Proficient",
+      "Fluent": "Fluent",
+      "Master": "Master"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Verb Mastery",
       "verbMasteryVerbs": "{{count}} verbs",
       "learnVerbsFirst": "Learn verbs first"
+    },
+    "loveNotes": {
+      "title": "Love Notes from {{partner}}",
+      "subtitle": "Challenges and gifts just for you",
+      "empty": "No Love Notes Yet",
+      "emptyDesc": "When {{partner}} sends you challenges or word gifts, they'll appear here!",
+      "challenges": "Challenges",
+      "wordGifts": "Word Gifts",
+      "wordGift": "Word Gift",
+      "quizChallenge": "Quiz Challenge",
+      "quickFire": "Quick Fire",
+      "words": "{{count}} word",
+      "words_other": "{{count}} words",
+      "from": "From {{partner}}",
+      "goToGames": "Go to Practice Games"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Languages",
+      "nativeLanguage": "Native Language",
+      "learning": "Learning",
+      "active": "Active",
+      "wordsLearned": "{{count}} word learned",
+      "wordsLearned_other": "{{count}} words learned",
+      "loading": "Loading...",
+      "switch": "Switch",
+      "switching": "Switching...",
+      "addLanguage": "Add Language",
+      "comingSoon": "Coming soon! Add more languages with a premium subscription."
+    },
     "roles": {
       "student": "Learning {{language}}",
       "tutor": "Language Coach"
@@ -360,7 +396,7 @@
       "smartModeDesc": "AI accepts synonyms, typos & variations",
       "strictModeDesc": "Exact answers only (ignoring accents)",
       "preview": "Preview",
-      "previewText": "<strong>Kocham cię</strong> means \"I love you\" in {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> means \"I love you\" in {{language}}"
     },
     "advanced": {
       "title": "Advanced Preferences",
@@ -401,6 +437,10 @@
       "saved": "Saved!",
       "saveChanges": "Save Changes",
       "signOut": "Sign Out"
+    },
+    "links": {
+      "blog": "Learn {{language}} Blog",
+      "blogDescription": "Free articles, phrases & culture guides"
     }
   },
   "loveLog": {
@@ -570,6 +610,12 @@
         "feature3": "Unlimited Listen Mode",
         "feature4": "All conversation scenarios",
         "feature5": "Gift pass for another couple (yearly)"
+      },
+      "errors": {
+        "authRequired": "Please sign in to continue",
+        "loadFailed": "Failed to load pricing. Please try again.",
+        "pricesUnavailable": "Pricing information unavailable",
+        "retry": "Retry"
       }
     },
 
@@ -956,6 +1002,16 @@
       "intermediate": "intermediate",
       "advanced": "advanced"
     },
+    "scenarios": {
+      "cafe": { "name": "At the Cafe", "description": "Order coffee and a snack" },
+      "restaurant": { "name": "Restaurant Dinner", "description": "Order a meal and ask for recommendations" },
+      "market": { "name": "At the Market", "description": "Buy fruits and vegetables" },
+      "taxi": { "name": "Taxi Ride", "description": "Give directions and chat with the driver" },
+      "pharmacy": { "name": "At the Pharmacy", "description": "Ask for medicine and describe symptoms" },
+      "hotel": { "name": "Hotel Check-in", "description": "Check in and ask about amenities" },
+      "family_dinner": { "name": "Family Dinner", "description": "Meet your partner's parents" },
+      "train_station": { "name": "Train Station", "description": "Buy tickets and ask about schedules" }
+    },
     "createOwn": "Create Your Own",
     "createOwnDesc": "Describe any scenario you want to practice",
     "backToScenarios": "Back to scenarios",
@@ -1206,6 +1262,11 @@
       "subscribeTo": "Subscribe to {{plan}}",
       "logoutOption": "Sign out and use a different account",
       "signOutOption": "Sign out and use a different account"
+    },
+
+    "canceled": {
+      "title": "No problem!",
+      "message": "Your checkout was canceled. You can subscribe anytime to unlock all features, or continue exploring."
     },
 
     "pricing": {
@@ -1661,9 +1722,12 @@
   "hero": {
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
-      "nativeSubtitle": "We'll show everything in your language",
+      "nativeSubtitle": "18 languages available - we'll show everything in yours",
+      "nativePrompt": "I speak...",
       "targetTitle": "What do you want to learn?",
       "targetSubtitle": "Pick the language of someone you love",
+      "targetPrompt": "I want to learn...",
+      "targetPromptTutor": "I want to teach...",
       "showAll": "Show all languages",
       "showLess": "Show less",
       "selected": "Selected",

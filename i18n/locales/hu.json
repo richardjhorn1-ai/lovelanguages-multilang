@@ -230,6 +230,14 @@
       "culturalMastery": "Kulturális mesterség",
       "completeMastery": "Teljes mesterség",
       "practice": "Gyakorlás"
+    },
+    "tiers": {
+      "Beginner": "Kezdő",
+      "Elementary": "Alapfokú",
+      "Conversational": "Társalgási",
+      "Proficient": "Haladó",
+      "Fluent": "Folyékony",
+      "Master": "Mester"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Igeragozás",
       "verbMasteryVerbs": "{{count}} ige",
       "learnVerbsFirst": "Előbb tanulj igéket"
+    },
+    "loveNotes": {
+      "title": "Szerelmes Üzenetek {{partner}}-tól",
+      "subtitle": "Kihívások és ajándékok csak neked",
+      "empty": "Még Nincsenek Szerelmes Üzenetek",
+      "emptyDesc": "Amikor {{partner}} kihívásokat vagy szóajándékokat küld, itt jelennek meg!",
+      "challenges": "Kihívások",
+      "wordGifts": "Szóajándékok",
+      "wordGift": "Szóajándék",
+      "quizChallenge": "Kvíz Kihívás",
+      "quickFire": "Gyorstűz",
+      "words": "{{count}} szó",
+      "words_other": "{{count}} szó",
+      "from": "{{partner}}-tól",
+      "goToGames": "Gyakorló Játékokhoz"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Nyelvek",
+      "nativeLanguage": "Anyanyelv",
+      "learning": "Tanulok",
+      "active": "Aktív",
+      "wordsLearned": "{{count}} szó megtanulva",
+      "wordsLearned_other": "{{count}} szó megtanulva",
+      "loading": "Betöltés...",
+      "switch": "Váltás",
+      "switching": "Váltás...",
+      "addLanguage": "Nyelv Hozzáadása",
+      "comingSoon": "Hamarosan! Adj hozzá több nyelvet prémium előfizetéssel."
+    },
     "roles": {
       "student": "{{language}} tanulása",
       "tutor": "Nyelvi edző"
@@ -360,7 +396,7 @@
       "smartModeDesc": "Az AI elfogadja a szinonimákat, elírásokat és variációkat",
       "strictModeDesc": "Csak pontos válaszok (ékezeteket figyelmen kívül hagyva)",
       "preview": "Előnézet",
-      "previewText": "<strong>Kocham cię</strong> jelentése: \"Szeretlek\" {{language}} nyelven"
+      "previewText": "<strong>{{iLoveYou}}</strong> jelentése: \"Szeretlek\" {{language}} nyelven"
     },
     "advanced": {
       "title": "Haladó beállítások",
@@ -955,6 +991,16 @@
       "beginner": "kezdő",
       "intermediate": "középhaladó",
       "advanced": "haladó"
+    },
+    "scenarios": {
+      "cafe": { "name": "A Kávézóban", "description": "Rendelj kávét és harapnivalót" },
+      "restaurant": { "name": "Vacsora az Étteremben", "description": "Rendelj ételt és kérj ajánlásokat" },
+      "market": { "name": "A Piacon", "description": "Vegyél gyümölcsöt és zöldséget" },
+      "taxi": { "name": "Taxizás", "description": "Adj útvonalat és beszélgess a sofőrrel" },
+      "pharmacy": { "name": "A Patikában", "description": "Kérj gyógyszert és írd le a tüneteket" },
+      "hotel": { "name": "Szállodai Bejelentkezés", "description": "Jelentkezz be és kérdezz a szolgáltatásokról" },
+      "family_dinner": { "name": "Családi Vacsora", "description": "Ismerkedj meg a partnered szüleivel" },
+      "train_station": { "name": "Vasútállomás", "description": "Vegyél jegyet és nézd meg a menetrendet" }
     },
     "createOwn": "Saját készítése",
     "createOwnDesc": "Írd le bármelyik szituációt, amit gyakorolni szeretnél",
@@ -1659,6 +1705,10 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Beszélek...",
+      "targetPrompt": "Tanulni akarok..."
+    },
     "toggle": {
       "learn": "Tanulás",
       "teach": "Tanítás"

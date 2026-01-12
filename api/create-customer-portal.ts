@@ -102,15 +102,21 @@ export default async function handler(req: any, res: any) {
       safeOrigin = allowedOrigins[0] || 'http://localhost:5173';
     }
 
-    const defaultReturnUrl = `${safeOrigin}/profile`;
+    // App uses HashRouter, so URLs need /#/ prefix
+    const defaultReturnUrl = `${safeOrigin}/#/profile`;
 
     let returnUrl = defaultReturnUrl;
     if (body?.returnUrl && typeof body.returnUrl === 'string') {
       const isValidUrl = allowedOrigins.includes('*') || isValidReturnUrl(body.returnUrl, allowedOrigins);
       if (isValidUrl) {
-        returnUrl = body.returnUrl.startsWith('/')
-          ? `${safeOrigin}${body.returnUrl}`
-          : body.returnUrl;
+        // Handle both /path and /#/path formats
+        if (body.returnUrl.startsWith('/')) {
+          // If it's a relative path, add hash for HashRouter
+          const path = body.returnUrl.startsWith('/#/') ? body.returnUrl : `/#${body.returnUrl}`;
+          returnUrl = `${safeOrigin}${path}`;
+        } else {
+          returnUrl = body.returnUrl;
+        }
       } else {
         console.warn(`[create-customer-portal] Rejected invalid returnUrl: ${body.returnUrl}`);
       }

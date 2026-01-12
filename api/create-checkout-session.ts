@@ -131,14 +131,22 @@ export default async function handler(req: any, res: any) {
       : (allowedOrigins[0] || 'http://localhost:5173');
 
     // Validate custom URLs - must be same origin or relative paths
+    // App uses HashRouter, so relative paths need /#/ prefix
     function validateRedirectUrl(url: string | undefined, defaultPath: string): string {
+      // Helper to add hash prefix for HashRouter
+      const addHashPrefix = (path: string) => {
+        if (path.startsWith('/#/')) return path;
+        if (path.startsWith('/')) return `/#${path}`;
+        return path;
+      };
+
       if (!url) {
-        return `${safeOrigin}${defaultPath}`;
+        return `${safeOrigin}${addHashPrefix(defaultPath)}`;
       }
 
-      // If it's a relative path (starts with /), use safe origin
+      // If it's a relative path (starts with /), use safe origin with hash
       if (url.startsWith('/')) {
-        return `${safeOrigin}${url}`;
+        return `${safeOrigin}${addHashPrefix(url)}`;
       }
 
       // If it's an absolute URL, validate the origin
@@ -152,7 +160,7 @@ export default async function handler(req: any, res: any) {
       }
 
       // Fallback to safe default
-      return `${safeOrigin}${defaultPath}`;
+      return `${safeOrigin}${addHashPrefix(defaultPath)}`;
     }
 
     const finalSuccessUrl = validateRedirectUrl(successUrl, '/profile?subscription=success');

@@ -21,7 +21,11 @@ import {
   hasGrammaticalCases,
   hasArticles,
   type LanguageConfig
-} from '../constants/language-config';
+} from '../constants/language-config.js';
+
+// Import and re-export LevelTheme from canonical location
+import type { LevelTheme } from '../constants/levels.js';
+export type { LevelTheme };
 
 // =============================================================================
 // TYPES
@@ -39,12 +43,6 @@ export interface ConversationScenario {
 export interface PartnerProgress {
   level: string;
   wordsLearned: number;
-}
-
-export interface LevelTheme {
-  name: string;
-  description: string;
-  concepts: string[];
 }
 
 // =============================================================================

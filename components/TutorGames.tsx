@@ -23,7 +23,9 @@ function normalizeAnswer(s: string): string {
 async function validateAnswerSmart(
   userAnswer: string,
   correctAnswer: string,
-  polishWord?: string
+  targetWord: string,
+  targetLanguage: string,
+  nativeLanguage: string
 ): Promise<{ accepted: boolean; explanation: string }> {
   // Fast local match first
   if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
@@ -37,8 +39,10 @@ async function validateAnswerSmart(
       body: JSON.stringify({
         userAnswer,
         correctAnswer,
-        polishWord,
-        direction: 'polish_to_english'
+        targetWord,
+        direction: 'target_to_native',
+        targetLanguage,
+        nativeLanguage
       })
     });
 
@@ -156,7 +160,7 @@ const SAVE_PREF_KEY = 'tutor_save_to_student_progress';
 
 const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const { t } = useTranslation();
-  const { targetName, nativeName } = useLanguage();
+  const { targetLanguage, nativeLanguage, languageParams, targetName, nativeName } = useLanguage();
   const [challenges, setChallenges] = useState<TutorChallenge[]>([]);
   const [wordRequests, setWordRequests] = useState<WordRequest[]>([]);
   const [partnerVocab, setPartnerVocab] = useState<DictionaryEntry[]>([]);
@@ -216,19 +220,21 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           .single();
         if (partnerProfile) setPartnerName(partnerProfile.full_name);
 
-        // Get partner's vocabulary for game creation
+        // Get partner's vocabulary for game creation (filtered by current language)
         const { data: vocab } = await supabase
           .from('dictionary')
           .select('*')
           .eq('user_id', profile.linked_user_id)
-          .order('unlocked_at', { ascending: false });
+          .eq('language_code', targetLanguage)
+          .order('created_at', { ascending: false });
         if (vocab) setPartnerVocab(vocab);
 
-        // Get partner's scores for smart word selection
+        // Get partner's scores for smart word selection (filtered by current language)
         const { data: scores } = await supabase
-          .from('scores')
+          .from('word_scores')
           .select('*')
-          .eq('user_id', profile.linked_user_id);
+          .eq('user_id', profile.linked_user_id)
+          .eq('language_code', targetLanguage);
         if (scores) {
           const map = new Map<string, WordScore>();
           scores.forEach((s: any) => map.set(s.word_id, s));
@@ -244,7 +250,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ role: 'tutor' })
+        body: JSON.stringify({ role: 'tutor', ...languageParams })
       });
       const challengeData = await challengeRes.json();
       if (challengeData.challenges) setChallenges(challengeData.challenges);
@@ -256,7 +262,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ role: 'tutor' })
+        body: JSON.stringify({ role: 'tutor', ...languageParams })
       });
       const requestData = await requestRes.json();
       if (requestData.wordRequests) setWordRequests(requestData.wordRequests);
@@ -312,7 +318,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           totalTimeSeconds,
           answers,
           // Tell the API to save to the linked student, not the tutor
-          targetUserId: profile.linked_user_id
+          targetUserId: profile.linked_user_id,
+          ...languageParams
         })
       });
 
@@ -465,7 +472,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     let isCorrect: boolean;
     let explanation = '';
     if (profile.smart_validation) {
-      const result = await validateAnswerSmart(typeItAnswer, currentWord.translation, currentWord.word);
+      const result = await validateAnswerSmart(typeItAnswer, currentWord.translation, currentWord.word, targetLanguage, nativeLanguage);
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
@@ -523,7 +530,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     let isCorrect: boolean;
     let explanation = '';
     if (profile.smart_validation) {
-      const result = await validateAnswerSmart(localQuickFireInput, currentWord.translation, currentWord.word);
+      const result = await validateAnswerSmart(localQuickFireInput, currentWord.translation, currentWord.word, targetLanguage, nativeLanguage);
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {

@@ -3,6 +3,55 @@
 
 import { LEVEL_TIERS, QUESTION_COUNTS, PASS_THRESHOLD, LevelTier } from '../constants/levels';
 
+// Tier names used internally (keep as English keys for lookups)
+const TIER_NAMES = ['Beginner', 'Elementary', 'Conversational', 'Proficient', 'Fluent', 'Master'] as const;
+
+/**
+ * Translate a level display name like "Beginner 2" using the provided translation function
+ * @param displayName - The level display name (e.g., "Beginner 2", "Master 3")
+ * @param t - Translation function from i18next
+ * @returns Translated level name (e.g., "Principiante 2" for Spanish)
+ */
+export function translateLevel(displayName: string | null | undefined, t: (key: string) => string): string {
+  if (!displayName) return '';
+
+  // Parse the display name (e.g., "Beginner 2" -> tier: "Beginner", level: 2)
+  const match = displayName.match(/^(.+)\s+(\d)$/);
+  if (!match) return displayName;
+
+  const tier = match[1];
+  const level = match[2];
+
+  // Get translated tier name
+  const translatedTier = t(`progress.tiers.${tier}`);
+
+  // If translation not found, return original
+  if (translatedTier === `progress.tiers.${tier}`) {
+    return displayName;
+  }
+
+  return `${translatedTier} ${level}`;
+}
+
+/**
+ * Translate a tier name like "Beginner" using the provided translation function
+ * @param tier - The tier name (e.g., "Beginner", "Master")
+ * @param t - Translation function from i18next
+ * @returns Translated tier name
+ */
+export function translateTier(tier: string | null | undefined, t: (key: string) => string): string {
+  if (!tier) return '';
+
+  const translatedTier = t(`progress.tiers.${tier}`);
+
+  // If translation not found, return original
+  if (translatedTier === `progress.tiers.${tier}`) {
+    return tier;
+  }
+
+  return translatedTier;
+}
+
 export interface LevelInfo {
   tier: string;           // e.g., "Beginner"
   level: number;          // 1, 2, or 3

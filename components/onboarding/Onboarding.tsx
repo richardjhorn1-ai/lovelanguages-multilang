@@ -697,8 +697,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               },
               body: JSON.stringify({
                 priceId: data.selectedPriceId,
-                successUrl: `${window.location.origin}/?onboarding=complete&subscription=success`,
-                cancelUrl: `${window.location.origin}/?onboarding=complete&subscription=canceled`
+                successUrl: `${window.location.origin}/#/?onboarding=complete&subscription=success`,
+                cancelUrl: `${window.location.origin}/#/?onboarding=complete&subscription=canceled`
               })
             });
 
@@ -986,8 +986,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           <LanguageConnectionStep
             currentStep={4}
             totalSteps={totalSteps}
-            initialValue={data.polishConnection}
-            onNext={(connection) => { updateData('polishConnection', connection); goNext(); }}
+            initialValue={data.languageConnection || data.polishConnection}
+            onNext={(connection) => { updateData('languageConnection', connection); goNext(); }}
             onBack={goBack}
             accentColor={accentColor}
           />
@@ -997,8 +997,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           <OriginStep
             currentStep={5}
             totalSteps={totalSteps}
-            initialValue={data.polishOrigin}
-            onNext={(origin) => { updateData('polishOrigin', origin); goNext(); }}
+            initialValue={data.languageOrigin || data.polishOrigin}
+            onNext={(origin) => { updateData('languageOrigin', origin); goNext(); }}
             onBack={goBack}
             accentColor={accentColor}
           />

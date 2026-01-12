@@ -56,11 +56,16 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    const { word, translation, lightweight } = req.body as ValidateWordRequest;
+    // Support both new format {word} and legacy format {polish} for backward compatibility
+    const requestWord = req.body.word || req.body.polish;
+    const { translation, lightweight } = req.body as ValidateWordRequest;
 
-    if (!word) {
+    if (!requestWord) {
       return res.status(400).json({ error: 'Missing word' });
     }
+
+    // Normalize to use 'word' internally
+    const word = requestWord;
 
     // Extract language parameters (defaults to Polish/English for backward compatibility)
     const { targetLanguage, nativeLanguage } = extractLanguages(req.body);

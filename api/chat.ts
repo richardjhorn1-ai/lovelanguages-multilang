@@ -118,7 +118,7 @@ async function getPartnerContext(userId: string, targetLanguage: string): Promis
 
   // Get learner's scores for weak spots (filter by language via dictionary join)
   const { data: scores } = await supabase
-    .from('scores')
+    .from('word_scores')
     .select('word_id, success_count, fail_count, learned_at, dictionary:word_id(word, translation, language_code)')
     .eq('user_id', learnerId);
 
