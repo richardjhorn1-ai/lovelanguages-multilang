@@ -194,7 +194,7 @@
       "noWeakSpots": "Sem pontos fracos - está indo muito bem!",
       "misses": "{{count}} erro",
       "misses_other": "{{count}} erros",
-      "quizThem": "Teste ele/ela →",
+      "quizThem": "Teste seu amor →",
       "playTogether": "Jogar Juntos",
       "playTogetherDesc": "Quizzes e atividades",
       "theirVocabulary": "Vocabulário Dele/Dela",
@@ -416,7 +416,7 @@
       "languageConnection": "Conexão com {{language}}",
       "howYouLearned": "Como Você Aprendeu {{language}}",
       "dreamPhrase": "Frase dos Sonhos",
-      "dreamPhrasePlaceholder": "O que você quer ouvi-lo/a dizer?",
+      "dreamPhrasePlaceholder": "O que você quer ouvi-lessa pessoa dizer?",
       "teachingStyle": "Estilo de Ensino",
       "select": "Selecione..."
     },
@@ -501,7 +501,7 @@
     "pronouns": {
       "singular1": "(eu)",
       "singular2": "(você)",
-      "singular3": "(ele/ela)",
+      "singular3": "(seu amor)",
       "plural1": "(nós)",
       "plural2": "(vocês)",
       "plural3": "(eles/elas)"
@@ -661,7 +661,7 @@
       "why": {
         "title": "Por que você quer aprender {{language}} para {{name}}?",
         "subtitle": "Isso se torna seu lembrete pessoal na sua jornada.",
-        "placeholder": "Quero surpreendê-lo/a quando visitarmos a família... Quero sussurrar palavras doces... Quero entender o mundo dele/dela..."
+        "placeholder": "Quero surpreendê-lessa pessoa quando visitarmos a família... Quero sussurrar palavras doces... Quero entender o mundo dele/dela..."
       },
 
       "fear": {
@@ -689,7 +689,7 @@
         "subtitle": "Uma meta para alcançar com {{name}}",
         "love": "Dizer 'Eu te amo' perfeitamente",
         "phrases": "Aprender 10 frases românticas",
-        "surprise": "Surpreendê-lo/a com uma saudação em {{language}}",
+        "surprise": "Surpreendê-lessa pessoa com uma saudação em {{language}}",
         "custom": "Definir minha própria meta",
         "customPlaceholder": "ex., 'Pedir em {{language}} no restaurante favorito dele/dela'"
       },
@@ -708,7 +708,7 @@
         "subtitle": "Aquela que {{name}} nunca vai esquecer",
         "hearIt": "Ouça",
         "listenAgain": "Ouvir novamente",
-        "proTip": "<strong>Dica:</strong> Pratique dizer esta frase para {{name}} - ele/ela vai amar ouvir você dizer em {{language}}!",
+        "proTip": "<strong>Dica:</strong> Pratique dizer esta frase para {{name}} - seu amor vai amar ouvir você dizer em {{language}}!",
         "ready": "Estou pronto!",
         "listenFirst": "Ouça primeiro"
       },
@@ -739,7 +739,7 @@
         "toolkitTitle": "Seu kit de tutor:",
         "feature1": "Peça dicas de ensino ao Cupido",
         "feature2": "Acompanhe o progresso de {{learnerName}}",
-        "feature3": "Envie palavras de presente para surpreendê-lo/a",
+        "feature3": "Envie palavras de presente para surpreendê-lessa pessoa",
         "feature4": "Vincule contas para ver a jornada dele/dela",
         "button": "Começar a ajudar {{learnerName}}! 🎯"
       },
@@ -747,9 +747,9 @@
       "relation": {
         "title": "Qual é sua relação com {{name}}?",
         "subtitle": "Isso nos ajuda a personalizar sua experiência de ensino",
-        "partner": "Parceiro/a",
+        "partner": "Parceiressa pessoa",
         "spouse": "Cônjuge",
-        "friend": "Amigo/a",
+        "friend": "Amigessa pessoa",
         "family": "Família"
       },
 
@@ -1199,7 +1199,7 @@
       "securePayment": "Pagamento seguro via Stripe. Cancele quando quiser.",
       "cancelAnytime": "Cancele quando quiser. Pagamento seguro via Stripe.",
       "questionsEmail": "Dúvidas? Envie email para",
-      "friend": "Amigo/a",
+      "friend": "Amigessa pessoa",
       "copy": "Copiar"
     },
 
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "Qual é a melhor forma de aprender verbos?",
-      "verbsAnswer": "Use o modo Aprender e peça tabelas de conjugação. Pratique todas as 6 pessoas (eu, você, ele/ela, nós, vocês, eles/elas) juntas.",
+      "verbsAnswer": "Use o modo Aprender e peça tabelas de conjugação. Pratique todas as 6 pessoas (eu, você, seu amor, nós, vocês, eles/elas) juntas.",
       "partnerQuestion": "Como posso praticar com meu parceiro?",
       "partnerAnswer": "Use frases que você aprendeu em conversas do dia a dia. Até saudações simples contam! Criem desafios um para o outro na seção Jogar.",
       "progressQuestion": "Quão rápido posso progredir?",
@@ -1554,11 +1554,11 @@
     "joinJourney": "{{name}} quer que você participe da jornada de aprendizado de {{language}}!",
     "learningToConnect": "Ele/ela está aprendendo {{language}} para se conectar com você em um nível mais profundo. Como coach de idiomas, você vai:",
     "trackProgress": "Acompanhar o Progresso",
-    "trackProgressDesc": "Veja quais palavras ele/ela aprendeu e onde precisa de ajuda",
+    "trackProgressDesc": "Veja quais palavras seu amor aprendeu e onde precisa de ajuda",
     "conversationStarters": "Receber Tópicos de Conversa",
     "conversationStartersDesc": "IA sugere frases em {{language}} para usar juntos com base no vocabulário",
     "encourageCelebrate": "Encorajar e Celebrar",
-    "encourageCelebrateDesc": "Ajude-o/a a manter a motivação e celebrem conquistas juntos",
+    "encourageCelebrateDesc": "Ajude-essa pessoa a manter a motivação e celebrem conquistas juntos",
     "join": "Juntar-se a {{name}}",
     "createAccount": "Crie sua conta para se tornar o coach dele/dela",
     "signInToConnect": "Faça login para conectar",
@@ -1661,7 +1661,7 @@
       "playTogether": "Joguem juntos",
       "middle": ", ou envie ",
       "challenges": "desafios",
-      "end": " para ele/ela resolver sozinho/a..."
+      "end": " para seu amor resolver sozinhessa pessoa..."
     },
     "studentSubtext": "Fazemos isso incrivelmente.",
     "tutorSubtext": "Spoiler: você também vai querer jogar.",
@@ -1732,15 +1732,15 @@
     },
     "student": {
       "section1": {
-        "headline": "Pule as coisas chatas. Aprenda as palavras que importam—as que fazem ele/ela sorrir.",
+        "headline": "Pule as coisas chatas. Aprenda as palavras que importam—as que fazem seu amor sorrir.",
         "highlight1": "palavras que importam",
-        "highlight2": "fazem ele/ela sorrir",
-        "subhead": "As que ele/ela só usa com pessoas que ama.",
-        "copy": "As piadas internas de vocês. As expressões da família. O jeito que ele/ela diz 'eu te amo' quando ninguém está ouvindo.",
+        "highlight2": "fazem seu amor sorrir",
+        "subhead": "As que seu amor só usa com pessoas que ama.",
+        "copy": "As piadas internas de vocês. As expressões da família. O jeito que seu amor diz 'eu te amo' quando ninguém está ouvindo.",
         "copyHighlight1": "piadas internas",
         "copyHighlight2": "expressões da família",
         "copyHighlight3": "eu te amo",
-        "underline": "O jeito que ele/ela diz 'eu te amo' quando ninguém está ouvindo"
+        "underline": "O jeito que seu amor diz 'eu te amo' quando ninguém está ouvindo"
       },
       "section2": {
         "headline": "Tem uma conversa da qual você não faz parte. Ainda.",
@@ -1751,8 +1751,8 @@
         "underline": "Hora de realmente entender"
       },
       "section3": {
-        "headline": "Você não está aprendendo uma língua. Você está aprendendo ele/ela.",
-        "highlight1": "aprendendo ele/ela",
+        "headline": "Você não está aprendendo uma língua. Você está aprendendo seu amor.",
+        "highlight1": "aprendendo seu amor",
         "copy": "As palavras dele/dela. As piadas. O jeito carinhoso de zoar você. Feito para pessoas que estão nisso por amor, não por notas.",
         "copyHighlight1": "As palavras dele/dela",
         "copyHighlight2": "As piadas",
@@ -1762,8 +1762,8 @@
       "section4": {
         "headline": "Aprender a língua dele/dela = flertar com passos extras.",
         "highlight1": "flertar",
-        "copy": "Isso não é escola. Não tem prova. Só você, se dedicando a ele/ela de um jeito totalmente novo. Bem romântico, sinceramente.",
-        "copyHighlight1": "se dedicando a ele/ela",
+        "copy": "Isso não é escola. Não tem prova. Só você, se dedicando a seu amor de um jeito totalmente novo. Bem romântico, sinceramente.",
+        "copyHighlight1": "se dedicando a seu amor",
         "copyHighlight2": "romântico",
         "underline": "Bem romântico, sinceramente"
       },
@@ -1782,12 +1782,12 @@
         "highlight1": "juntos",
         "highlight2": "Amem",
         "highlight3": "Riam",
-        "copy": "Ele/ela vai te mandar palavras que importam. Te desafiar com jogos. Zoar sua pronúncia (com amor). Você não está estudando sozinho/a—vocês estão construindo seu próprio mundinho juntos.",
+        "copy": "Ele/ela vai te mandar palavras que importam. Te desafiar com jogos. Zoar sua pronúncia (com amor). Você não está estudando sozinhessa pessoa—vocês estão construindo seu próprio mundinho juntos.",
         "copyHighlight1": "palavras que importam",
         "copyHighlight2": "seu próprio mundinho",
         "underline": "construindo seu próprio mundinho juntos"
       },
-      "context1": { "header": "Pronto para conhecê-lo/a?", "cta": "Começar a aprender", "subtext": "2 minutos para sua primeira palavra." },
+      "context1": { "header": "Pronto para conhecê-lessa pessoa?", "cta": "Começar a aprender", "subtext": "2 minutos para sua primeira palavra." },
       "context2": { "header": "A gente te ajuda", "cta": "Começar a aprender", "subtext": "Chega de risadas forçadas." },
       "context3": { "header": "Feito para quem ama", "cta": "Começar a jornada", "subtext": "Não turistas. Família." },
       "context4": { "header": "Jogue do seu jeito", "cta": "Explorar jogos", "subtext": "Flashcards, desafios e mais." },
@@ -1812,9 +1812,9 @@
         "highlight1": "explicar",
         "highlight2": "acenar",
         "highlight3": "Vamos resolver isso",
-        "copy": "As coisas que você diz quando está muito feliz. Ou muito irritado/a. As palavras que parecem casa. Ele/ela quer entender todo você—não só a versão traduzida.",
+        "copy": "As coisas que você diz quando está muito feliz. Ou muito irritadessa pessoa. As palavras que parecem casa. Ele/ela quer entender todo você—não só a versão traduzida.",
         "copyHighlight1": "muito feliz",
-        "copyHighlight2": "muito irritado/a",
+        "copyHighlight2": "muito irritadessa pessoa",
         "copyHighlight3": "todo você",
         "underline": "não só a versão traduzida"
       },
@@ -1839,10 +1839,10 @@
         "underline": "Isso é tempo de casal disfarçado de aprendizado"
       },
       "section5": {
-        "headline": "O momento em que ele/ela te surpreende com uma frase que você nunca ensinou? Mágica.",
+        "headline": "O momento em que seu amor te surpreende com uma frase que você nunca ensinou? Mágica.",
         "highlight1": "te surpreende",
         "highlight2": "Mágica",
-        "copy": "Quando faz uma piada e sua família realmente ri. Quando sua mãe começa a falar diretamente com ele/ela na sua língua. Quando solta uma frase que te deixa de queixo caído. Você fez isso acontecer.",
+        "copy": "Quando faz uma piada e sua família realmente ri. Quando sua mãe começa a falar diretamente com seu amor na sua língua. Quando solta uma frase que te deixa de queixo caído. Você fez isso acontecer.",
         "copyHighlight1": "família realmente ri",
         "copyHighlight2": "mãe",
         "copyHighlight3": "Você fez isso acontecer"
@@ -1851,10 +1851,10 @@
         "headline": "Ensinem juntos. Joguem juntos. Se apaixonem mais.",
         "highlight1": "juntos",
         "highlight2": "amor",
-        "copy": "É assim que você compartilha quem você realmente é. Palavra por palavra. Jogo por jogo. Risada por risada. E ele/ela se apaixona por tudo isso.",
+        "copy": "É assim que você compartilha quem você realmente é. Palavra por palavra. Jogo por jogo. Risada por risada. E seu amor se apaixona por tudo isso.",
         "copyHighlight1": "quem você realmente é",
         "copyHighlight2": "se apaixona",
-        "underline": "E ele/ela se apaixona por tudo isso"
+        "underline": "E seu amor se apaixona por tudo isso"
       },
       "context1": { "header": "Compartilhe seu mundo", "cta": "Começar a guiar", "subtext": "Seja o guia de idiomas dele/dela." },
       "context2": { "header": "Deixe entrar", "cta": "Começar a guiar", "subtext": "Algumas coisas se traduzem melhor quando aprendidas." },
@@ -1862,7 +1862,7 @@
       "context4": { "header": "Desafie", "cta": "Enviar desafio", "subtext": "Jogos, desafios, surpresas." },
       "context5": { "header": "Veja florescer", "cta": "Começar a enviar", "subtext": "Uma palavra de cada vez." },
       "context6": { "header": "Abra a porta", "cta": "Começar agora", "subtext": "Esse momento está chegando." },
-      "context7": { "header": "Cresçam juntos", "cta": "Seja o guia", "subtext": "Ele/ela está pronto/a para você." }
+      "context7": { "header": "Cresçam juntos", "cta": "Seja o guia", "subtext": "Ele/ela está prontessa pessoa para você." }
     }
   }
 }

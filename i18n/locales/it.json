@@ -501,7 +501,7 @@
     "pronouns": {
       "singular1": "(io)",
       "singular2": "(tu)",
-      "singular3": "(lui/lei)",
+      "singular3": "(il tuo amore)",
       "plural1": "(noi)",
       "plural2": "(voi)",
       "plural3": "(loro)"
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "Qual è il modo migliore per imparare i verbi?",
-      "verbsAnswer": "Usa la modalità Impara e chiedi tabelle di coniugazione. Pratica tutte e 6 le persone (io, tu, lui/lei, noi, voi, loro) insieme.",
+      "verbsAnswer": "Usa la modalità Impara e chiedi tabelle di coniugazione. Pratica tutte e 6 le persone (io, tu, il tuo amore, noi, voi, loro) insieme.",
       "partnerQuestion": "Come posso praticare con il mio partner?",
       "partnerAnswer": "Usa le frasi che hai imparato nelle conversazioni quotidiane. Anche semplici saluti contano! Create sfide l'uno per l'altro nella sezione Gioca.",
       "progressQuestion": "Quanto velocemente posso progredire?",
@@ -1732,9 +1732,9 @@
     },
     "student": {
       "section1": {
-        "headline": "Salta le cose noiose. Impara le parole che contano—quelle che lo/la fanno sorridere.",
+        "headline": "Salta le cose noiose. Impara le parole che contano—quelle che fanno sorridere.",
         "highlight1": "parole che contano",
-        "highlight2": "lo/la fanno sorridere",
+        "highlight2": "fanno sorridere",
         "subhead": "Quelle che usa solo con le persone che ama.",
         "copy": "Le vostre battute private. Le espressioni della sua famiglia. Il modo in cui dice 'ti amo' quando nessuno ascolta.",
         "copyHighlight1": "battute private",
@@ -1751,8 +1751,8 @@
         "underline": "È ora di capire davvero"
       },
       "section3": {
-        "headline": "Non stai imparando una lingua. Stai imparando lui/lei.",
-        "highlight1": "imparando lui/lei",
+        "headline": "Non stai imparando una lingua. Stai imparando il tuo amore.",
+        "highlight1": "imparando il tuo amore",
         "copy": "Le sue parole. Le sue battute. Il suo modo affettuoso di prenderti in giro. Fatto per chi lo fa per amore, non per i voti.",
         "copyHighlight1": "Le sue parole",
         "copyHighlight2": "Le sue battute",
@@ -1762,8 +1762,8 @@
       "section4": {
         "headline": "Imparare la sua lingua = flirtare con passaggi extra.",
         "highlight1": "flirtare",
-        "copy": "Questa non è scuola. Non c'è esame. Solo tu, che ti fai avanti per lui/lei in un modo tutto nuovo. Abbastanza romantico, onestamente.",
-        "copyHighlight1": "ti fai avanti per lui/lei",
+        "copy": "Questa non è scuola. Non c'è esame. Solo tu, che ti fai avanti per il tuo amore in un modo tutto nuovo. Abbastanza romantico, onestamente.",
+        "copyHighlight1": "ti fai avanti per il tuo amore",
         "copyHighlight2": "romantico",
         "underline": "Abbastanza romantico, onestamente"
       },
@@ -1851,10 +1851,10 @@
         "headline": "Insegnate insieme. Giocate insieme. Innamoratevi di più.",
         "highlight1": "insieme",
         "highlight2": "amore",
-        "copy": "Così condividi chi sei davvero. Parola per parola. Gioco per gioco. Risata per risata. E lui/lei si innamora di tutto questo.",
+        "copy": "Così condividi chi sei davvero. Parola per parola. Gioco per gioco. Risata per risata. E il tuo amore si innamora di tutto questo.",
         "copyHighlight1": "chi sei davvero",
         "copyHighlight2": "si innamora",
-        "underline": "E lui/lei si innamora di tutto questo"
+        "underline": "E il tuo amore si innamora di tutto questo"
       },
       "context1": { "header": "Condividi il tuo mondo", "cta": "Inizia a guidare", "subtext": "Diventa la sua guida linguistica." },
       "context2": { "header": "Fallo/a entrare", "cta": "Inizia a guidare", "subtext": "Alcune cose si traducono meglio quando si imparano." },

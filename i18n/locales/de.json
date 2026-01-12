@@ -191,7 +191,7 @@
       "phrasesForTonight": "Ausdrücke für heute Abend",
       "recentlyLearned": "Kürzlich gelernt",
       "wordsToPractice": "Wörter zum gemeinsamen Üben",
-      "noWeakSpots": "Keine Schwachstellen - er/sie macht das super!",
+      "noWeakSpots": "Keine Schwachstellen - dein Schatz macht das super!",
       "misses": "{{count}} Fehler",
       "misses_other": "{{count}} Fehler",
       "quizThem": "Quiz →",
@@ -416,7 +416,7 @@
       "languageConnection": "{{language}}-Verbindung",
       "howYouLearned": "Wie hast du {{language}} gelernt",
       "dreamPhrase": "Traumsatz",
-      "dreamPhrasePlaceholder": "Was möchtest du ihn/sie sagen hören?",
+      "dreamPhrasePlaceholder": "Was möchtest du diese besondere Person sagen hören?",
       "teachingStyle": "Lehrstil",
       "select": "Auswählen..."
     },
@@ -501,7 +501,7 @@
     "pronouns": {
       "singular1": "(ich)",
       "singular2": "(du)",
-      "singular3": "(er/sie)",
+      "singular3": "(dein Schatz)",
       "plural1": "(wir)",
       "plural2": "(ihr)",
       "plural3": "(sie)"
@@ -708,7 +708,7 @@
         "subtitle": "Der, den {{name}} nie vergessen wird",
         "hearIt": "Anhören",
         "listenAgain": "Nochmal anhören",
-        "proTip": "<strong>Profi-Tipp:</strong> Übe diesen Satz für {{name}} - er/sie wird es lieben, dich auf {{language}} sprechen zu hören!",
+        "proTip": "<strong>Profi-Tipp:</strong> Übe diesen Satz für {{name}} - dein Schatz wird es lieben, dich auf {{language}} sprechen zu hören!",
         "ready": "Ich bin bereit!",
         "listenFirst": "Erst anhören"
       },
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "Was ist der beste Weg, Verben zu lernen?",
-      "verbsAnswer": "Nutze den Lern-Modus und frage nach Konjugationstabellen. Übe alle 6 Personen (ich, du, er/sie, wir, ihr, sie) zusammen.",
+      "verbsAnswer": "Nutze den Lern-Modus und frage nach Konjugationstabellen. Übe alle 6 Personen (ich, du, dein Schatz, wir, ihr, sie) zusammen.",
       "partnerQuestion": "Wie kann ich mit meinem Partner üben?",
       "partnerAnswer": "Verwende gelernte Ausdrücke in täglichen Gesprächen. Selbst einfache Grüße zählen! Erstellt Challenges füreinander im Spielbereich.",
       "progressQuestion": "Wie schnell kann ich vorankommen?",
@@ -1554,7 +1554,7 @@
     "joinJourney": "{{name}} möchte, dass du der {{language}}-Lernreise beitrittst!",
     "learningToConnect": "Er/Sie lernt {{language}}, um sich tiefer mit dir zu verbinden. Als Sprachcoach wirst du:",
     "trackProgress": "Fortschritt verfolgen",
-    "trackProgressDesc": "Sieh, welche Wörter er/sie gelernt hat und wo Hilfe nötig ist",
+    "trackProgressDesc": "Sieh, welche Wörter dein Schatz gelernt hat und wo Hilfe nötig ist",
     "conversationStarters": "Gesprächsstarter bekommen",
     "conversationStartersDesc": "KI schlägt {{language}}-Ausdrücke vor, basierend auf seinem/ihrem Vokabular",
     "encourageCelebrate": "Ermutigen & Feiern",
@@ -1621,7 +1621,7 @@
     "expiresTomorrow": "Läuft morgen ab",
     "expiresIn": "Läuft in {{days}} Tagen ab",
     "newLink": "Neuer Link",
-    "description": "Wenn dein Partner auf diesen Link klickt, wird er/sie eingeladen, dein Sprachcoach zu werden!"
+    "description": "Wenn dein Partner auf diesen Link klickt, wird dein Schatz eingeladen, dein Sprachcoach zu werden!"
   },
 
   "breakup": {
@@ -1732,15 +1732,15 @@
     },
     "student": {
       "section1": {
-        "headline": "Überspring das Langweilige. Lerne die Wörter, die zählen—die, die ihn/sie lächeln lassen.",
+        "headline": "Überspring das Langweilige. Lerne die Wörter, die zählen—die, die zum Lächeln bringen.",
         "highlight1": "Wörter, die zählen",
-        "highlight2": "ihn/sie lächeln lassen",
-        "subhead": "Die, die er/sie nur mit Menschen benutzt, die er/sie liebt.",
-        "copy": "Eure Insider-Witze. Ihre Familienausdrücke. Die Art, wie er/sie 'Ich liebe dich' sagt, wenn niemand zuhört.",
+        "highlight2": "zum Lächeln bringen",
+        "subhead": "Die, die dein Schatz nur mit Menschen benutzt, die dein Schatz liebt.",
+        "copy": "Eure Insider-Witze. Ihre Familienausdrücke. Die Art, wie dein Schatz 'Ich liebe dich' sagt, wenn niemand zuhört.",
         "copyHighlight1": "Insider-Witze",
         "copyHighlight2": "Familienausdrücke",
         "copyHighlight3": "Ich liebe dich",
-        "underline": "Die Art, wie er/sie 'Ich liebe dich' sagt, wenn niemand zuhört"
+        "underline": "Die Art, wie dein Schatz 'Ich liebe dich' sagt, wenn niemand zuhört"
       },
       "section2": {
         "headline": "Es gibt ein Gespräch, an dem du nicht teilnimmst. Noch nicht.",
@@ -1751,8 +1751,8 @@
         "underline": "Zeit, es wirklich zu verstehen"
       },
       "section3": {
-        "headline": "Du lernst keine Sprache. Du lernst ihn/sie.",
-        "highlight1": "ihn/sie",
+        "headline": "Du lernst keine Sprache. Du lernst diese besondere Person.",
+        "highlight1": "diese besondere Person",
         "copy": "Seine/Ihre Wörter. Seine/Ihre Witze. Seine/Ihre Art, dich liebevoll aufzuziehen. Gemacht für Menschen, die aus Liebe dabei sind, nicht für Noten.",
         "copyHighlight1": "Seine/Ihre Wörter",
         "copyHighlight2": "Seine/Ihre Witze",
@@ -1763,7 +1763,7 @@
         "headline": "Seine/Ihre Sprache lernen = Flirten mit extra Schritten.",
         "highlight1": "Flirten",
         "copy": "Das ist keine Schule. Es gibt keinen Test. Nur du, der/die sich auf eine ganz neue Art zeigt. Ziemlich romantisch, ehrlich gesagt.",
-        "copyHighlight1": "sich für ihn/sie zeigt",
+        "copyHighlight1": "sich für diese besondere Person zeigt",
         "copyHighlight2": "romantisch",
         "underline": "Ziemlich romantisch, ehrlich gesagt"
       },
@@ -1787,7 +1787,7 @@
         "copyHighlight2": "eure eigene kleine Welt",
         "underline": "eure eigene kleine Welt zusammen bauen"
       },
-      "context1": { "header": "Bereit, ihn/sie zu treffen?", "cta": "Lernen starten", "subtext": "2 Minuten bis zum ersten Wort." },
+      "context1": { "header": "Bereit, diese besondere Person zu treffen?", "cta": "Lernen starten", "subtext": "2 Minuten bis zum ersten Wort." },
       "context2": { "header": "Wir haben dich", "cta": "Lernen starten", "subtext": "Kein falsches Lachen mehr." },
       "context3": { "header": "Für Liebende gemacht", "cta": "Reise beginnen", "subtext": "Keine Touristen. Familie." },
       "context4": { "header": "Spiele auf deine Art", "cta": "Spiele entdecken", "subtext": "Karteikarten, Challenges und mehr." },
@@ -1800,12 +1800,12 @@
         "headline": "Er/Sie liebt dich. Jetzt hilf ihm/ihr, auch deine Sprache zu lieben.",
         "highlight1": "liebt",
         "highlight2": "deine Sprache",
-        "copy": "Deine Wörter. Deine Witze. Die Art, wie du fluchst, wenn du dir den Zeh stößt. Es gibt ein ganzes Du, das er/sie noch nicht kennengelernt hat—ein ganz neues Du. Lass ihn/sie rein.",
+        "copy": "Deine Wörter. Deine Witze. Die Art, wie du fluchst, wenn du dir den Zeh stößt. Es gibt ein ganzes Du, das dein Schatz noch nicht kennengelernt hat—ein ganz neues Du. Lass diese besondere Person rein.",
         "copyHighlight1": "Deine Wörter",
         "copyHighlight2": "Deine Witze",
         "copyHighlight3": "ein ganz neues Du",
-        "copyHighlight4": "Lass ihn/sie rein",
-        "underline": "Lass ihn/sie rein"
+        "copyHighlight4": "Lass diese besondere Person rein",
+        "underline": "Lass diese besondere Person rein"
       },
       "section2": {
         "headline": "Du hast versucht zu erklären. Er/Sie hat versucht zu nicken. Lass uns das beheben.",
@@ -1829,20 +1829,20 @@
         "underline": "du darfst einfach der/die Lustige sein"
       },
       "section4": {
-        "headline": "Schick ein Wort. Starte ein Spiel. Sieh zu, wie er/sie wächst.",
+        "headline": "Schick ein Wort. Starte ein Spiel. Sieh zu, wie dein Schatz wächst.",
         "highlight1": "Spiel",
         "highlight2": "wächst",
-        "copy": "Fordere ihn/sie mit dem Lieblingsausdruck deiner Mutter heraus. Quiz vor dem Abendessen. Feier, wenn er/sie es schafft. Das ist Pärchen-Zeit als Lernen getarnt—und es macht wirklich Spaß.",
+        "copy": "Fordere diese besondere Person mit dem Lieblingsausdruck deiner Mutter heraus. Quiz vor dem Abendessen. Feier, wenn dein Schatz es schafft. Das ist Pärchen-Zeit als Lernen getarnt—und es macht wirklich Spaß.",
         "copyHighlight1": "Lieblingsausdruck deiner Mutter",
         "copyHighlight2": "Pärchen-Zeit",
         "copyHighlight3": "wirklich Spaß",
         "underline": "Das ist Pärchen-Zeit als Lernen getarnt"
       },
       "section5": {
-        "headline": "Der Moment, wenn er/sie dich mit einem Satz überrascht, den du nie beigebracht hast? Magisch.",
+        "headline": "Der Moment, wenn dein Schatz dich mit einem Satz überrascht, den du nie beigebracht hast? Magisch.",
         "highlight1": "dich überrascht",
         "highlight2": "Magisch",
-        "copy": "Wenn er/sie einen Witz macht und deine Familie wirklich lacht. Wenn deine Mutter anfängt, direkt mit ihm/ihr in deiner Sprache zu sprechen. Wenn er/sie einen Ausdruck bringt, der dir die Kinnlade runterklappen lässt. Das hast du möglich gemacht.",
+        "copy": "Wenn dein Schatz einen Witz macht und deine Familie wirklich lacht. Wenn deine Mutter anfängt, direkt mit ihm/ihr in deiner Sprache zu sprechen. Wenn dein Schatz einen Ausdruck bringt, der dir die Kinnlade runterklappen lässt. Das hast du möglich gemacht.",
         "copyHighlight1": "Familie wirklich lacht",
         "copyHighlight2": "Mutter",
         "copyHighlight3": "Das hast du möglich gemacht"
@@ -1851,16 +1851,16 @@
         "headline": "Lehrt zusammen. Spielt zusammen. Verliebt euch noch mehr.",
         "highlight1": "zusammen",
         "highlight2": "Verliebt",
-        "copy": "So teilst du, wer du wirklich bist. Wort für Wort. Spiel für Spiel. Lachen für Lachen. Und er/sie verliebt sich in alles davon.",
+        "copy": "So teilst du, wer du wirklich bist. Wort für Wort. Spiel für Spiel. Lachen für Lachen. Und dein Schatz verliebt sich in alles davon.",
         "copyHighlight1": "wer du wirklich bist",
         "copyHighlight2": "verliebt sich",
-        "underline": "Und er/sie verliebt sich in alles davon"
+        "underline": "Und dein Schatz verliebt sich in alles davon"
       },
       "context1": { "header": "Teile deine Welt", "cta": "Guiden starten", "subtext": "Werde sein/ihr Sprachguide." },
-      "context2": { "header": "Lass ihn/sie rein", "cta": "Guiden starten", "subtext": "Manche Dinge lernt man besser." },
+      "context2": { "header": "Lass diese besondere Person rein", "cta": "Guiden starten", "subtext": "Manche Dinge lernt man besser." },
       "context3": { "header": "Mit Liebe lehren", "cta": "Beginnen", "subtext": "Keine Lektionen. Liebesbriefe." },
-      "context4": { "header": "Fordere ihn/sie heraus", "cta": "Challenge senden", "subtext": "Spiele, Challenges, Überraschungen." },
-      "context5": { "header": "Sieh zu, wie er/sie aufblüht", "cta": "Starten", "subtext": "Ein Wort nach dem anderen." },
+      "context4": { "header": "Fordere diese besondere Person heraus", "cta": "Challenge senden", "subtext": "Spiele, Challenges, Überraschungen." },
+      "context5": { "header": "Sieh zu, wie dein Schatz aufblüht", "cta": "Starten", "subtext": "Ein Wort nach dem anderen." },
       "context6": { "header": "Öffne die Tür", "cta": "Jetzt starten", "subtext": "Der Moment kommt." },
       "context7": { "header": "Wachst zusammen", "cta": "Sein/Ihr Guide werden", "subtext": "Er/Sie ist bereit für dich." }
     }

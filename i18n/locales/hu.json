@@ -202,7 +202,7 @@
       "useItTonight": "{{word}} - használd ma este!",
       "tryInConversation": "Próbáld használni beszélgetés közben",
       "complimentThem": "Bókolj nekik ezzel!",
-      "whisperBeforeBed": "Súgd ezt lefekvés előtt",
+      "whisperBeforeBed": "Súgd ezt lefekvés elezt a személytt",
       "iLoveYouVeryMuch": "Nagyon szeretlek"
     },
     "encouragement": {
@@ -343,7 +343,7 @@
     "verbMastery": {
       "title": "Igeragozás mester",
       "practiceCount": "Gyakorolj {{count}} ige ragozását",
-      "selectTense": "Válassz igeidőt",
+      "selectTense": "Válassz igeidezt a személyt",
       "presentTense": "Jelen idő",
       "pastTense": "Múlt idő",
       "futureTense": "Jövő idő",
@@ -421,7 +421,7 @@
       "select": "Válassz..."
     },
     "originOptions": {
-      "grewUp": "Ott nőttem fel",
+      "grewUp": "Ott nezt a személyttem fel",
       "family": "Családtól",
       "school": "Tanulmányoztam",
       "self": "Önképzés"
@@ -633,7 +633,7 @@
       },
 
       "time": {
-        "title": "Mennyi időt tudsz naponta szánni rá?",
+        "title": "Mennyi idezt a személyt tudsz naponta szánni rá?",
         "subtitle": "A kis pillanatok is nagy haladást eredményeznek.",
         "quick": "Egy gyors puszi",
         "quickDesc": "5 perc",
@@ -672,7 +672,7 @@
         "grammar": "Nyelvtani szabályok",
         "grammarDesc": "Esetek, ragozások, nemek",
         "silly": "Nevetségesen hangzani",
-        "sillyDesc": "Hibázni mások előtt",
+        "sillyDesc": "Hibázni mások elezt a személytt",
         "forgetting": "Mindent elfelejteni",
         "forgettingDesc": "Tanulni, de nem megjegyezni"
       },
@@ -689,7 +689,7 @@
         "subtitle": "Egy cél, amin {{name}}-mal/-mel együtt dolgozhatsz",
         "love": "Tökéletesen mondani: \"Szeretlek\"",
         "phrases": "Megtanulni 10 romantikus kifejezést",
-        "surprise": "Meglepni őt egy {{language}} köszöntéssel",
+        "surprise": "Meglepni ezt a személyt egy {{language}} köszöntéssel",
         "custom": "Saját cél beállítása",
         "customPlaceholder": "pl. \"{{language}} nyelven rendelni a kedvenc éttermében\""
       },
@@ -769,7 +769,7 @@
       "origin": {
         "title": "Hogyan tanultad meg a {{language}} nyelvet?",
         "subtitle": "Az utad segít javaslatokat tenni a tanítási megközelítésre",
-        "country": "Ott nőttem fel",
+        "country": "Ott nezt a személyttem fel",
         "family": "Családtól",
         "school": "Tanulmányoztam",
         "self": "Önképzés"
@@ -1375,7 +1375,7 @@
         "masteryTitle": "Elsajátítási szintek",
         "masteryDescription": "Gyakorold a szavakat játékokban az elsajátítás növeléséhez 0-5 csillagig",
         "tenseTitle": "Igeidő feloldása",
-        "tenseDescription": "Tanulj meg múlt/jövő időt csevegésben, hogy feloldd őket az igék bejegyzéseiben"
+        "tenseDescription": "Tanulj meg múlt/jövő idezt a személyt csevegésben, hogy feloldd őket az igék bejegyzéseiben"
       },
       "games": {
         "title": "Játékok",
@@ -1435,7 +1435,7 @@
     "detailsPlaceholder": "Mit csináltál, amikor ez történt? Mit vártál?",
     "autoCaptureNote": "Automatikusan rögzítjük az aktuális oldaladat, böngésző információidat és az alkalmazás állapotát a vizsgálat segítéséhez.",
     "errors": {
-      "fillRequired": "Kérlek, töltsd ki az összes kötelező mezőt",
+      "fillRequired": "Kérlek, töltsd ki az összes kötelező mezezt a személyt",
       "signIn": "Kérlek, jelentkezz be a hibajelentés beküldéséhez",
       "failed": "Nem sikerült beküldeni. Kérlek, próbáld újra."
     },
@@ -1831,7 +1831,7 @@
         "headline": "Küldj egy szót. Indíts egy játékot. Nézd, ahogy fejlődnek.",
         "highlight1": "játékot",
         "highlight2": "fejlődnek",
-        "copy": "Hívd ki őket az anyukád kedvenc kifejezésére. Kérdezd ki őket vacsora előtt. Ünnepelj, amikor eltalálják. Ez párprogram, ami tanulásnak van álcázva - és tényleg szórakoztató.",
+        "copy": "Hívd ki őket az anyukád kedvenc kifejezésére. Kérdezd ki őket vacsora elezt a személytt. Ünnepelj, amikor eltalálják. Ez párprogram, ami tanulásnak van álcázva - és tényleg szórakoztató.",
         "copyHighlight1": "anyukád kedvenc kifejezésére",
         "copyHighlight2": "párprogram",
         "copyHighlight3": "tényleg szórakoztató",

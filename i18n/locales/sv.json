@@ -501,7 +501,7 @@
     "pronouns": {
       "singular1": "(jag)",
       "singular2": "(du)",
-      "singular3": "(han/hon)",
+      "singular3": "(din kärlek)",
       "plural1": "(vi)",
       "plural2": "(ni)",
       "plural3": "(de)"
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "Vad är bästa sättet att lära sig verb?",
-      "verbsAnswer": "Använd Lär-läge och be om konjugationstabeller. Öva alla 6 personer (jag, du, han/hon, vi, ni, de) tillsammans.",
+      "verbsAnswer": "Använd Lär-läge och be om konjugationstabeller. Öva alla 6 personer (jag, du, din kärlek, vi, ni, de) tillsammans.",
       "partnerQuestion": "Hur övar jag med min partner?",
       "partnerAnswer": "Använd fraser du lärt dig i dagliga konversationer. Även enkla hälsningar räknas! Skapa utmaningar för varandra i Spela-sektionen.",
       "progressQuestion": "Hur snabbt kan jag avancera?",

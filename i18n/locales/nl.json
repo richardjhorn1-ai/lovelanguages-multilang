@@ -194,14 +194,14 @@
       "noWeakSpots": "Geen zwakke punten - het gaat geweldig!",
       "misses": "{{count}} fout",
       "misses_other": "{{count}} fouten",
-      "quizThem": "Quiz hem/haar →",
+      "quizThem": "Quiz deze persoon →",
       "playTogether": "Samen Spelen",
       "playTogetherDesc": "Quizspellen & activiteiten",
       "theirVocabulary": "Zijn/Haar Woordenschat",
       "browseLoveLog": "Bladeren in Liefdesdagboek",
       "useItTonight": "{{word}} - gebruik het vanavond!",
       "tryInConversation": "Probeer dit te gebruiken in een gesprek",
-      "complimentThem": "Geef hem/haar hiermee een compliment!",
+      "complimentThem": "Geef deze persoon hiermee een compliment!",
       "whisperBeforeBed": "Fluister dit voor het slapen",
       "iLoveYouVeryMuch": "Ik hou heel veel van je"
     },
@@ -416,7 +416,7 @@
       "languageConnection": "{{language}} Connectie",
       "howYouLearned": "Hoe Je {{language}} Hebt Geleerd",
       "dreamPhrase": "Droomzin",
-      "dreamPhrasePlaceholder": "Wat wil je hem/haar horen zeggen?",
+      "dreamPhrasePlaceholder": "Wat wil je deze persoon horen zeggen?",
       "teachingStyle": "Lesstijl",
       "select": "Selecteer..."
     },
@@ -501,7 +501,7 @@
     "pronouns": {
       "singular1": "(ik)",
       "singular2": "(jij)",
-      "singular3": "(hij/zij)",
+      "singular3": "(je geliefde)",
       "plural1": "(wij)",
       "plural2": "(jullie)",
       "plural3": "(zij)"
@@ -661,7 +661,7 @@
       "why": {
         "title": "Waarom wil je {{language}} leren voor {{name}}?",
         "subtitle": "Dit wordt je persoonlijke herinnering op je reis.",
-        "placeholder": "Ik wil hem/haar verrassen als we zijn/haar familie bezoeken... Ik wil lieve woordjes fluisteren... Ik wil zijn/haar wereld begrijpen..."
+        "placeholder": "Ik wil deze persoon verrassen als we zijn/haar familie bezoeken... Ik wil lieve woordjes fluisteren... Ik wil zijn/haar wereld begrijpen..."
       },
 
       "fear": {
@@ -708,7 +708,7 @@
         "subtitle": "Degene die {{name}} nooit zal vergeten",
         "hearIt": "Hoor het",
         "listenAgain": "Nogmaals luisteren",
-        "proTip": "<strong>Pro tip:</strong> Oefen deze zin tegen {{name}} te zeggen - hij/zij zal het geweldig vinden om je het in {{language}} te horen zeggen!",
+        "proTip": "<strong>Pro tip:</strong> Oefen deze zin tegen {{name}} te zeggen - je geliefde zal het geweldig vinden om je het in {{language}} te horen zeggen!",
         "ready": "Ik ben klaar!",
         "listenFirst": "Eerst luisteren"
       },
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "Wat is de beste manier om werkwoorden te leren?",
-      "verbsAnswer": "Gebruik de Leermodus en vraag om vervoegingstabellen. Oefen alle 6 personen (ik, jij, hij/zij, wij, jullie, zij) samen.",
+      "verbsAnswer": "Gebruik de Leermodus en vraag om vervoegingstabellen. Oefen alle 6 personen (ik, jij, je geliefde, wij, jullie, zij) samen.",
       "partnerQuestion": "Hoe kan ik met mijn partner oefenen?",
       "partnerAnswer": "Gebruik zinnen die je hebt geleerd in dagelijkse gesprekken. Zelfs simpele begroetingen tellen! Maak uitdagingen voor elkaar in de Spelen sectie.",
       "progressQuestion": "Hoe snel kan ik vorderen?",
@@ -1621,7 +1621,7 @@
     "expiresTomorrow": "Verloopt morgen",
     "expiresIn": "Verloopt over {{days}} dagen",
     "newLink": "Nieuwe Link",
-    "description": "Als je partner op deze link klikt, wordt hij/zij uitgenodigd om als je taalcoach mee te doen!"
+    "description": "Als je partner op deze link klikt, wordt je geliefde uitgenodigd om als je taalcoach mee te doen!"
   },
 
   "breakup": {
@@ -1659,7 +1659,7 @@
     },
     "tutorHeadline": {
       "playTogether": "Samen spelen",
-      "middle": ", of stuur hem/haar ",
+      "middle": ", of stuur deze persoon ",
       "challenges": "uitdagingen",
       "end": " om zelf aan te pakken..."
     },
@@ -1732,15 +1732,15 @@
     },
     "student": {
       "section1": {
-        "headline": "Sla het saaie over. Leer de woorden die ertoe doen—degene die hem/haar laten glimlachen.",
+        "headline": "Sla het saaie over. Leer de woorden die ertoe doen—degene die deze persoon laten glimlachen.",
         "highlight1": "woorden die ertoe doen",
-        "highlight2": "hem/haar laten glimlachen",
-        "subhead": "Degene die hij/zij alleen gebruikt met mensen van wie hij/zij houdt.",
-        "copy": "Jullie inside jokes. Hun familie-uitdrukkingen. De manier waarop hij/zij 'ik hou van je' zegt als niemand luistert.",
+        "highlight2": "deze persoon laten glimlachen",
+        "subhead": "Degene die je geliefde alleen gebruikt met mensen van wie je geliefde houdt.",
+        "copy": "Jullie inside jokes. Hun familie-uitdrukkingen. De manier waarop je geliefde 'ik hou van je' zegt als niemand luistert.",
         "copyHighlight1": "inside jokes",
         "copyHighlight2": "familie-uitdrukkingen",
         "copyHighlight3": "ik hou van je",
-        "underline": "De manier waarop hij/zij 'ik hou van je' zegt als niemand luistert"
+        "underline": "De manier waarop je geliefde 'ik hou van je' zegt als niemand luistert"
       },
       "section2": {
         "headline": "Er is een gesprek waar je geen deel van uitmaakt. Nog niet.",
@@ -1751,8 +1751,8 @@
         "underline": "Tijd om het echt te begrijpen"
       },
       "section3": {
-        "headline": "Je leert geen taal. Je leert hem/haar kennen.",
-        "highlight1": "hem/haar kennen",
+        "headline": "Je leert geen taal. Je leert deze persoon kennen.",
+        "highlight1": "deze persoon kennen",
         "copy": "Zijn/haar woorden. Zijn/haar grappen. Zijn/haar liefdevolle manier om je te plagen. Gemaakt voor mensen die het voor de liefde doen, niet voor cijfers.",
         "copyHighlight1": "Zijn/haar woorden",
         "copyHighlight2": "Zijn/haar grappen",
@@ -1762,8 +1762,8 @@
       "section4": {
         "headline": "Zijn/haar taal leren = flirten met extra stappen.",
         "highlight1": "flirten",
-        "copy": "Dit is geen school. Er is geen toets. Alleen jij, die je voor hem/haar inzet op een heel nieuwe manier. Best romantisch, eigenlijk.",
-        "copyHighlight1": "voor hem/haar inzet",
+        "copy": "Dit is geen school. Er is geen toets. Alleen jij, die je voor deze persoon inzet op een heel nieuwe manier. Best romantisch, eigenlijk.",
+        "copyHighlight1": "voor deze persoon inzet",
         "copyHighlight2": "romantisch",
         "underline": "Best romantisch, eigenlijk"
       },
@@ -1787,7 +1787,7 @@
         "copyHighlight2": "jullie eigen kleine wereld",
         "underline": "jullie eigen kleine wereld samen bouwen"
       },
-      "context1": { "header": "Klaar om hem/haar te ontmoeten?", "cta": "Begin met leren", "subtext": "2 minuten tot je eerste woord." },
+      "context1": { "header": "Klaar om deze persoon te ontmoeten?", "cta": "Begin met leren", "subtext": "2 minuten tot je eerste woord." },
       "context2": { "header": "Wij helpen je", "cta": "Begin met leren", "subtext": "Geen fake lachen meer." },
       "context3": { "header": "Gemaakt voor geliefden", "cta": "Begin je reis", "subtext": "Geen toeristen. Familie." },
       "context4": { "header": "Speel op jouw manier", "cta": "Ontdek spelletjes", "subtext": "Flashcards, uitdagingen en meer." },

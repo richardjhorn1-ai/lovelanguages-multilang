@@ -1516,7 +1516,7 @@
       "tutor": {
         "coach": {
           "s1": "Jak prosto wyjaśnić przypadki w {{language}}?",
-          "s2": "Jakich nowych słów powinienem go/ją nauczyć?",
+          "s2": "Jakich nowych słów powinienem nauczyć tę osobę?",
           "s3": "Zasugeruj romantyczne wyrażenie na dziś wieczór"
         }
       }
@@ -1751,8 +1751,8 @@
         "underline": "Czas naprawdę zrozumieć"
       },
       "section3": {
-        "headline": "Nie uczysz się języka. Uczysz się jego/jej.",
-        "highlight1": "jego/jej",
+        "headline": "Nie uczysz się języka. Uczysz się tej wyjątkowej osoby.",
+        "highlight1": "tej wyjątkowej osoby",
         "copy": "Jego/Jej słowa. Jego/Jej żarty. Jego/Jej sposób na czułe docinanie. Stworzone dla ludzi, którzy są w tym dla miłości, nie dla ocen.",
         "copyHighlight1": "Jego/Jej słowa",
         "copyHighlight2": "Jego/Jej żarty",
@@ -1760,7 +1760,7 @@
         "underline": "Stworzone dla ludzi, którzy są w tym dla miłości"
       },
       "section4": {
-        "headline": "Nauka jego/jej języka = flirtowanie z dodatkowymi krokami.",
+        "headline": "Nauka tej wyjątkowej osoby języka = flirtowanie z dodatkowymi krokami.",
         "highlight1": "flirtowanie",
         "copy": "To nie jest szkoła. Nie ma testu. Tylko ty, pokazujący się dla niego/niej w zupełnie nowy sposób. Całkiem romantyczne, szczerze.",
         "copyHighlight1": "pokazujący się dla niego/niej",
@@ -1768,10 +1768,10 @@
         "underline": "Całkiem romantyczne, szczerze"
       },
       "section5": {
-        "headline": "Moment, kiedy rozśmieszysz jego/jej rodzinę? Perfekcja.",
-        "highlight1": "rozśmieszysz jego/jej rodzinę",
+        "headline": "Moment, kiedy rozśmieszysz tej wyjątkowej osoby rodzinę? Perfekcja.",
+        "highlight1": "rozśmieszysz tej wyjątkowej osoby rodzinę",
         "highlight2": "Perfekcja",
-        "copy": "Pierwszy raz, kiedy naprawdę zrozumiesz żart. Pierwsze 'kocham cię' w jego/jej języku, które brzmi idealnie. Moment, kiedy jego/jej mama zacznie mówić do ciebie bezpośrednio w ich języku. To nadchodzi.",
+        "copy": "Pierwszy raz, kiedy naprawdę zrozumiesz żart. Pierwsze 'kocham cię' w tej wyjątkowej osoby języku, które brzmi idealnie. Moment, kiedy tej wyjątkowej osoby mama zacznie mówić do ciebie bezpośrednio w ich języku. To nadchodzi.",
         "copyHighlight1": "kocham cię",
         "copyHighlight2": "mama",
         "copyHighlight3": "To nadchodzi",
@@ -1787,7 +1787,7 @@
         "copyHighlight2": "waszego własnego małego świata",
         "underline": "budowanie waszego własnego małego świata razem"
       },
-      "context1": { "header": "Gotowy go/ją poznać?", "cta": "Zacznij się uczyć", "subtext": "2 minuty do pierwszego słowa." },
+      "context1": { "header": "Gotowy poznać tę wyjątkową osobę?", "cta": "Zacznij się uczyć", "subtext": "2 minuty do pierwszego słowa." },
       "context2": { "header": "Jesteśmy z tobą", "cta": "Zacznij się uczyć", "subtext": "Koniec z fałszywym śmiechem." },
       "context3": { "header": "Dla zakochanych", "cta": "Rozpocznij podróż", "subtext": "Nie turyści. Rodzina." },
       "context4": { "header": "Graj po swojemu", "cta": "Odkrywaj gry", "subtext": "Fiszki, wyzwania i więcej." },
@@ -1800,12 +1800,12 @@
         "headline": "Kocha cię. Teraz pomóż mu/jej pokochać też twój język.",
         "highlight1": "Kocha",
         "highlight2": "twój język",
-        "copy": "Twoje słowa. Twoje żarty. Sposób, w jaki przeklinasz, kiedy uderzysz się w palec. Jest cały ty, którego jeszcze nie poznał/a—zupełnie nowy ty. Wpuść go/ją.",
+        "copy": "Twoje słowa. Twoje żarty. Sposób, w jaki przeklinasz, kiedy uderzysz się w palec. Jest cały ty, którego jeszcze jeszcze nie poznała—zupełnie nowy ty. Otwórz się.",
         "copyHighlight1": "Twoje słowa",
         "copyHighlight2": "Twoje żarty",
         "copyHighlight3": "zupełnie nowy ty",
-        "copyHighlight4": "Wpuść go/ją",
-        "underline": "Wpuść go/ją"
+        "copyHighlight4": "Otwórz się",
+        "underline": "Otwórz się"
       },
       "section2": {
         "headline": "Próbowałeś wyjaśniać. Próbował/a kiwać głową. Naprawmy to.",
@@ -1856,13 +1856,13 @@
         "copyHighlight2": "zakochuje się",
         "underline": "I on/ona zakochuje się w tym wszystkim"
       },
-      "context1": { "header": "Podziel się swoim światem", "cta": "Zacznij prowadzić", "subtext": "Zostań jego/jej przewodnikiem językowym." },
-      "context2": { "header": "Wpuść go/ją", "cta": "Zacznij prowadzić", "subtext": "Niektóre rzeczy lepiej się uczyć." },
+      "context1": { "header": "Podziel się swoim światem", "cta": "Zacznij prowadzić", "subtext": "Zostań tej wyjątkowej osoby przewodnikiem językowym." },
+      "context2": { "header": "Otwórz się", "cta": "Zacznij prowadzić", "subtext": "Niektóre rzeczy lepiej się uczyć." },
       "context3": { "header": "Ucz z miłością", "cta": "Zacznij", "subtext": "Nie lekcje. Listy miłosne." },
       "context4": { "header": "Rzuć mu/jej wyzwanie", "cta": "Wyślij wyzwanie", "subtext": "Gry, wyzwania, niespodzianki." },
       "context5": { "header": "Patrz, jak rozkwita", "cta": "Zacznij wysyłać", "subtext": "Jedno słowo naraz." },
       "context6": { "header": "Otwórz drzwi", "cta": "Zacznij teraz", "subtext": "Ten moment nadchodzi." },
-      "context7": { "header": "Rośnijcie razem", "cta": "Zostań jego/jej przewodnikiem", "subtext": "Czeka na ciebie." }
+      "context7": { "header": "Rośnijcie razem", "cta": "Zostań tej wyjątkowej osoby przewodnikiem", "subtext": "Czeka na ciebie." }
     }
   }
 }

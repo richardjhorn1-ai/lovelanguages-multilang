@@ -501,7 +501,7 @@
     "pronouns": {
       "singular1": "(yo)",
       "singular2": "(tú)",
-      "singular3": "(él/ella)",
+      "singular3": "(tu amor)",
       "plural1": "(nosotros)",
       "plural2": "(vosotros)",
       "plural3": "(ellos)"
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "¿Cuál es la mejor manera de aprender verbos?",
-      "verbsAnswer": "Usa el modo Aprender y pide tablas de conjugación. Practica las 6 personas (yo, tú, él/ella, nosotros, vosotros, ellos) juntas.",
+      "verbsAnswer": "Usa el modo Aprender y pide tablas de conjugación. Practica las 6 personas (yo, tú, tu amor, nosotros, vosotros, ellos) juntas.",
       "partnerQuestion": "¿Cómo practico con mi pareja?",
       "partnerAnswer": "Usa frases que has aprendido en conversaciones diarias. ¡Incluso saludos simples cuentan! Creen desafíos uno para el otro en la sección Jugar.",
       "progressQuestion": "¿Qué tan rápido puedo progresar?",
