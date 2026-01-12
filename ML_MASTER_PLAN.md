@@ -23,7 +23,7 @@
 | ML-7 | Blog Generator System | ✅ Complete |
 | ML-8 | Settings & Language Switcher | ✅ Complete |
 | ML-9 | Language Switcher UI | ✅ Complete |
-| ML-10 | Final Testing & Validation | ⏳ Not Started |
+| ML-10 | Final Testing & Validation | ⏳ In Progress |
 | ML-11 | Add Language (Premium $5.99/mo) | ⏳ Not Started |
 
 **Current Focus:** ML-10 Final Testing & Validation
@@ -333,8 +333,40 @@ export const VocabCard: React.FC<{
 
 ## Phase ML-10: Testing & Validation
 
-**Status:** ⏳ Not Started
+**Status:** ⏳ In Progress
 **Priority:** High (final phase)
+**Started:** January 12, 2026
+
+### E2E Testing Infrastructure
+
+Playwright E2E tests configured in `/e2e/`:
+
+```bash
+# Run tests against Vercel preview
+PLAYWRIGHT_BASE_URL=https://your-preview.vercel.app npm run test:e2e
+
+# Interactive UI mode
+npm run test:e2e:ui
+
+# Debug mode
+npm run test:e2e:debug
+```
+
+**Test Files:**
+- `e2e/ml-10-multilanguage.spec.ts` - Core multi-language verification
+- `e2e/tutor-features.spec.ts` - Tutor role specific tests
+- `e2e/auth.setup.ts` - Authentication state setup
+
+### Test Accounts
+
+| Account | Password | Language Pair |
+|---------|----------|---------------|
+| testaccount1@gmail.com | tester1 | en → pl |
+| testaccount2@gmail.com | tester2 | es → pl |
+| testaccount3@gmail.com | tester3 | en → es |
+| testaccount4@gmail.com | tester4 | es → fr |
+| testaccount5@gmail.com | tester5 | en → ru |
+| testaccount6@gmail.com | tester6 | en → el |
 
 ### Representative Test Pairs
 
@@ -361,7 +393,7 @@ For EACH test pair, verify:
 - [ ] Listen mode works
 - [ ] Level tests generate correctly
 - [ ] Progress tracking is per-language
-- [ ] Partner features work
+- [ ] Partner features work (Tutor role)
 
 ---
 
