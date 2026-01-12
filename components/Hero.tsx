@@ -2734,7 +2734,7 @@ const Hero: React.FC = () => {
 
         {/* Right: Sticky panel with toggle + login form */}
         <div
-          className="flex-1 flex flex-col items-center justify-start pt-16 px-8 pb-8 rounded-l-[4rem] shadow-2xl relative overflow-hidden h-screen sticky top-0"
+          className="flex-1 flex flex-col items-center justify-start pt-6 px-8 pb-8 rounded-l-[4rem] shadow-2xl relative overflow-hidden h-screen sticky top-0"
           style={{ backgroundColor: '#ffffff', color: '#1a1a2e' }}
         >
           <ICONS.Heart
