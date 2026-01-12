@@ -243,7 +243,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <ThemeProvider userId={profile?.id}>
+    <ThemeProvider userId={profile?.id} profileTheme={profile ? { accent_color: profile.accent_color, dark_mode: profile.dark_mode, font_size: profile.font_size } : null}>
       <LanguageProvider profile={profile}>
         <I18nSyncWrapper>
         <HashRouter>
