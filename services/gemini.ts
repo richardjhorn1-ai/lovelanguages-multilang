@@ -119,6 +119,74 @@ export const geminiService = {
     }
   },
 
+  async generateReplyStream(
+    prompt: string,
+    mode: string,
+    userWords: string[] = [],
+    messageHistory: { role: string; content: string }[] = [],
+    languageParams?: { targetLanguage: string; nativeLanguage: string },
+    onChunk?: (text: string) => void
+  ): Promise<string> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/chat-stream', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          prompt,
+          mode,
+          userLog: userWords,
+          messages: messageHistory.slice(-20),
+          ...languageParams
+        })
+      });
+
+      if (response.status === 401) {
+        return "Please log in to continue chatting.";
+      }
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Stream failed');
+      }
+
+      const reader = response.body?.getReader();
+      if (!reader) throw new Error('No response body');
+
+      const decoder = new TextDecoder();
+      let fullText = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        const lines = chunk.split('\n');
+
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(line.slice(6));
+              if (data.text) {
+                fullText += data.text;
+                onChunk?.(data.text);
+              }
+              if (data.done) break;
+              if (data.error) throw new Error(data.error);
+            } catch (e) {
+              // Skip malformed JSON lines
+            }
+          }
+        }
+      }
+
+      return fullText || "I'm having a bit of trouble finding the words.";
+    } catch (e) {
+      console.error("Gemini Stream Error:", e);
+      return "I'm having a little trouble connecting right now.";
+    }
+  },
+
   async generateTitle(firstMessage: string): Promise<string> {
     try {
       const headers = await getAuthHeaders();

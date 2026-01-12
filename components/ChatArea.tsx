@@ -467,18 +467,23 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       replyText = result.replyText;
       newWords = result.newWords;
     } else {
-      // Use non-streaming for text-only messages (vocab extraction included)
-      const result = await geminiService.generateReply(
+      // Use streaming for text-only messages (shows typing effect)
+      replyText = await geminiService.generateReplyStream(
         userMessage,
         mode,
-        [],  // No attachments
         userWords,
         messageHistory,
-        sessionContextRef.current,
+        languageParams,
+        (chunk) => setStreamingText(prev => prev + chunk)
+      );
+
+      // Extract vocabulary separately after streaming completes
+      const extracted = await geminiService.analyzeHistory(
+        [...messageHistory, { role: 'user', content: userMessage }, { role: 'assistant', content: replyText }],
+        userWords,
         languageParams
       );
-      replyText = result.replyText;
-      newWords = result.newWords;
+      newWords = extracted;
     }
 
     // ACT 3: SAVE MODEL REPLY
