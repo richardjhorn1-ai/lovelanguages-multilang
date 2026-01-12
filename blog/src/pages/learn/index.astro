@@ -29,10 +29,12 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
 // Get all articles
 const allArticles = await getCollection('articles');
 
-// Count articles per language
+// Count articles per target language (slug format: nativeLang/targetLang/article-slug)
+// For now, we only show English-native articles on this index
 const languageCounts: Record<string, number> = {};
 for (const code of Object.keys(LANGUAGE_INFO)) {
-  languageCounts[code] = allArticles.filter(a => a.slug.startsWith(`${code}/`)).length;
+  // Count articles where slug starts with "en/[targetLang]/"
+  languageCounts[code] = allArticles.filter(a => a.slug.startsWith(`en/${code}/`)).length;
 }
 
 // Sort: languages with articles first, then alphabetically
@@ -112,7 +114,7 @@ const jsonLd = {
 
         return (
           <a
-            href={`/learn/${code}`}
+            href={`/learn/en/${code}/`}
             class={`group relative flex flex-col items-center p-6 rounded-2xl border-2 transition-all ${
               hasArticles
                 ? 'border-gray-200 hover:border-accent hover:shadow-lg bg-white'
@@ -156,7 +158,7 @@ const jsonLd = {
             .slice(0, 3)
             .map(([code, info]) => (
               <a
-                href={`/learn/${code}`}
+                href={`/learn/en/${code}/`}
                 class="bg-white rounded-2xl p-6 border border-gray-200 hover:border-accent hover:shadow-lg transition-all group"
               >
                 <div class="flex items-center gap-4 mb-4">

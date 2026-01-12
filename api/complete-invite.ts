@@ -71,16 +71,26 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'You cannot accept your own invite' });
     }
 
-    // Get the inviter's profile to ensure they're still valid (including subscription info)
+    // Get the inviter's profile to ensure they're still valid (including subscription and language info)
     const { data: inviterProfile, error: inviterError } = await supabase
       .from('profiles')
-      .select('id, linked_user_id, subscription_plan, subscription_status, subscription_ends_at, subscription_period')
+      .select('id, linked_user_id, subscription_plan, subscription_status, subscription_ends_at, subscription_period, active_language')
       .eq('id', tokenData.inviter_id)
       .single();
 
     if (inviterError || !inviterProfile) {
       return res.status(404).json({ error: 'Inviter account no longer exists' });
     }
+
+    // Get the new user's current profile to check their language settings
+    const { data: newUserProfile } = await supabase
+      .from('profiles')
+      .select('native_language, active_language')
+      .eq('id', auth.userId)
+      .single();
+
+    // Determine the language to use (from token, or inviter's profile, or default)
+    const inviterLearningLanguage = tokenData.language_code || inviterProfile.active_language || 'pl';
 
     // Check if inviter already has a partner
     if (inviterProfile.linked_user_id) {
@@ -101,6 +111,24 @@ export default async function handler(req: any, res: any) {
       role: 'tutor',
       linked_user_id: tokenData.inviter_id
     };
+
+    // Set language settings for new tutors with default settings (pl/en)
+    // Only update if user hasn't configured their own languages yet
+    const hasDefaultLanguages =
+      (!newUserProfile?.native_language || newUserProfile.native_language === 'en') &&
+      (!newUserProfile?.active_language || newUserProfile.active_language === 'pl');
+
+    if (hasDefaultLanguages) {
+      // Tutor speaks the language being learned (their native = inviter's target)
+      // and we set their active_language the same (no separate learning, just coaching)
+      partnerUpdateData.native_language = inviterLearningLanguage;
+      partnerUpdateData.active_language = inviterLearningLanguage;
+      partnerUpdateData.languages = [inviterLearningLanguage];
+      console.log('[complete-invite] Setting tutor language settings:', {
+        native_language: inviterLearningLanguage,
+        active_language: inviterLearningLanguage
+      });
+    }
 
     // Grant inherited subscription if inviter has active subscription
     const hasActiveSubscription = inviterProfile.subscription_status === 'active';

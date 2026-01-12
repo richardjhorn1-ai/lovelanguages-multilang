@@ -35,28 +35,39 @@ export async function getStaticPaths() {
 const { article, allArticles } = Astro.props;
 const { Content } = await article.render();
 
-// Extract language from slug (e.g., "pl/article-name" -> "pl")
-const languageCode = article.slug.split('/')[0] || article.data.language || 'pl';
-const languageInfo = LANGUAGE_INFO[languageCode] || LANGUAGE_INFO.pl;
+// Extract languages from slug (e.g., "en/pl/article-name" -> nativeLang: "en", targetLang: "pl")
+const slugParts = article.slug.split('/');
+const nativeLanguageCode = slugParts[0] || 'en';
+const targetLanguageCode = slugParts[1] || article.data.language || 'pl';
+const languageCode = targetLanguageCode; // For backwards compatibility with layout
 
-// Get related articles: same language and category, excluding current, max 3
+const nativeLanguageInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
+const languageInfo = LANGUAGE_INFO[targetLanguageCode] || LANGUAGE_INFO.pl;
+
+// Get related articles: same native language, same target language, same category, excluding current, max 3
 const relatedArticles = allArticles
   .filter((a) => {
-    const aLang = a.slug.split('/')[0];
+    const aParts = a.slug.split('/');
+    const aNativeLang = aParts[0];
+    const aTargetLang = aParts[1];
     return a.slug !== article.slug &&
-           aLang === languageCode &&
+           aNativeLang === nativeLanguageCode &&
+           aTargetLang === targetLanguageCode &&
            a.data.category === article.data.category;
   })
   .sort(() => Math.random() - 0.5)
   .slice(0, 3);
 
-// If not enough in same category, fill with other articles from same language
+// If not enough in same category, fill with other articles from same native+target language pair
 if (relatedArticles.length < 3) {
   const otherArticles = allArticles
     .filter((a) => {
-      const aLang = a.slug.split('/')[0];
+      const aParts = a.slug.split('/');
+      const aNativeLang = aParts[0];
+      const aTargetLang = aParts[1];
       return a.slug !== article.slug &&
-             aLang === languageCode &&
+             aNativeLang === nativeLanguageCode &&
+             aTargetLang === targetLanguageCode &&
              !relatedArticles.includes(a);
     })
     .sort(() => Math.random() - 0.5)
@@ -77,6 +88,8 @@ if (relatedArticles.length < 3) {
   relatedArticles={relatedArticles}
   languageCode={languageCode}
   languageInfo={languageInfo}
+  nativeLanguageCode={nativeLanguageCode}
+  nativeLanguageInfo={nativeLanguageInfo}
 >
   <Content />
 </ArticleLayout>

@@ -105,10 +105,10 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // Get user profile with subscription info
+    // Get user profile with subscription info and language settings
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('id, full_name, email, linked_user_id, subscription_status, subscription_granted_by')
+      .select('id, full_name, email, linked_user_id, subscription_status, subscription_granted_by, active_language')
       .eq('id', auth.userId)
       .single();
 
@@ -165,7 +165,8 @@ export default async function handler(req: any, res: any) {
         inviter_id: auth.userId,
         inviter_name: profile.full_name,
         inviter_email: profile.email,
-        expires_at: expiresAt.toISOString()
+        expires_at: expiresAt.toISOString(),
+        language_code: profile.active_language || 'pl'  // Store inviter's learning language
       })
       .select()
       .single();

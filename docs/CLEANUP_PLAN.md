@@ -6,7 +6,7 @@ This document outlines redundant code that should be consolidated to reduce main
 
 ## CL-1: Consolidate Validation Logic
 
-**Status:** Not Started
+**Status:** SKIPPED (risky - API files work correctly, consolidation would add risk for minimal benefit)
 **Priority:** High
 **Estimated Savings:** ~180 lines removed
 
@@ -52,7 +52,7 @@ API files CAN import from `../services/` and `../utils/` - this is already done 
 
 ## CL-2: Consolidate LEVEL_THEMES
 
-**Status:** Not Started
+**Status:** COMPLETED
 **Priority:** Medium
 **Estimated Savings:** ~90 lines removed
 
@@ -82,7 +82,7 @@ Keep single source of truth in `constants/levels.ts`, import in API.
 
 ## CL-3: Consolidate LevelTheme Interface
 
-**Status:** Not Started
+**Status:** COMPLETED
 **Priority:** Medium
 **Estimated Savings:** ~15 lines removed
 
@@ -111,7 +111,7 @@ Single definition in `constants/levels.ts`, export and import elsewhere.
 
 ## CL-4: Remove Legacy Polish Audio Wrappers
 
-**Status:** Not Started
+**Status:** COMPLETED
 **Priority:** Low
 **Estimated Savings:** ~30 lines removed
 
@@ -147,7 +147,7 @@ Remove these wrappers after confirming no usage.
 
 ## CL-5: Remove Unused quickPhrases
 
-**Status:** Not Started
+**Status:** COMPLETED
 **Priority:** Low
 **Estimated Savings:** ~30 lines removed
 
@@ -166,7 +166,7 @@ Either remove it or connect it to the UI if intended.
 
 ## CL-6: Clean Up services/validation.ts
 
-**Status:** Not Started
+**Status:** COMPLETED
 **Priority:** Medium
 **Estimated Savings:** Improved maintainability
 
@@ -195,16 +195,16 @@ Update to accept language parameters like the API versions.
 
 ## Summary
 
-| Task | Priority | Lines Saved | Complexity |
-|------|----------|-------------|------------|
-| CL-1 | High | ~180 | Medium |
-| CL-2 | Medium | ~90 | Low |
-| CL-3 | Medium | ~15 | Low |
-| CL-4 | Low | ~30 | Low |
-| CL-5 | Low | ~30 | Low |
-| CL-6 | Medium | - | Medium |
+| Task | Priority | Lines Saved | Status |
+|------|----------|-------------|--------|
+| CL-1 | High | ~180 | SKIPPED (risky) |
+| CL-2 | Medium | ~90 | COMPLETED |
+| CL-3 | Medium | ~15 | COMPLETED |
+| CL-4 | Low | ~30 | COMPLETED |
+| CL-5 | Low | ~30 | COMPLETED |
+| CL-6 | Medium | - | COMPLETED |
 
-**Total potential savings:** ~345 lines of redundant code
+**Actual savings:** ~165 lines removed (CL-2, CL-3, CL-4, CL-5)
 
 ---
 

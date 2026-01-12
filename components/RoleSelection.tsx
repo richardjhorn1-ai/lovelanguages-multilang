@@ -18,7 +18,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
   const { t } = useTranslation();
   const { targetName } = useLanguage();
 
-  // Check for intended_role from Hero signup
+  // Check for intended_role from Hero signup - auto-save if present
   useEffect(() => {
     const checkIntendedRole = async () => {
       try {
@@ -26,6 +26,19 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
         const intendedRole = user?.user_metadata?.intended_role;
 
         if (intendedRole === 'student' || intendedRole === 'tutor') {
+          // Auto-save the role from Hero signup and proceed directly to onboarding
+          const { error } = await supabase
+            .from('profiles')
+            .update({ role: intendedRole })
+            .eq('id', userId);
+
+          if (!error) {
+            // Role saved successfully, proceed to onboarding
+            onRoleSelected();
+            return;
+          }
+          // If save failed, fall back to manual selection
+          console.error('Error auto-saving intended role:', error);
           setSelectedRole(intendedRole);
         }
       } catch (err) {
@@ -36,7 +49,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
     };
 
     checkIntendedRole();
-  }, []);
+  }, [userId, onRoleSelected]);
 
   const handleConfirm = async () => {
     if (!selectedRole) return;

@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders } from '../utils/api-middleware.js';
+import { getLanguageName } from '../constants/language-config.js';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers
@@ -70,12 +71,30 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // Token is valid - return inviter info
+    // Get language code - from token if available, otherwise look up from inviter's profile
+    let languageCode = tokenData.language_code;
+
+    if (!languageCode) {
+      // Fallback for old tokens without language_code - look up from inviter's profile
+      const { data: inviterProfile } = await supabase
+        .from('profiles')
+        .select('active_language')
+        .eq('id', tokenData.inviter_id)
+        .single();
+
+      languageCode = inviterProfile?.active_language || 'pl';
+    }
+
+    // Token is valid - return inviter info with language context
     return res.status(200).json({
       valid: true,
       inviter: {
         name: tokenData.inviter_name,
         email: tokenData.inviter_email
+      },
+      language: {
+        code: languageCode,
+        name: getLanguageName(languageCode)
       },
       expiresAt: tokenData.expires_at
     });
