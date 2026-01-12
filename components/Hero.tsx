@@ -84,6 +84,25 @@ const ANIMATION_STYLES = `
     animation: blink 0.8s infinite;
     font-weight: 100;
   }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
 `;
 
 
@@ -1379,6 +1398,16 @@ const LoginForm: React.FC<{
   const accentShadow = isStudent ? BRAND.shadow : BRAND.tealShadow;
   const accentBorder = isStudent ? BRAND.border : BRAND.tealLight;
 
+  // Check if error suggests user should sign up instead
+  const isCredentialsError = message && (
+    message.toLowerCase().includes('invalid') ||
+    message.toLowerCase().includes('credentials') ||
+    message.toLowerCase().includes('not found') ||
+    message.toLowerCase().includes('no user')
+  );
+  const hasError = message && !message.toLowerCase().includes('check');
+  const errorBorderColor = '#ef4444'; // red-500
+
   return (
     <div className="w-full max-w-md relative z-10">
       <div className="text-center mb-12">
@@ -1394,36 +1423,46 @@ const LoginForm: React.FC<{
       </div>
 
       <form onSubmit={onSubmit} className="space-y-5">
+        {/* Inline error message */}
+        {hasError && (
+          <div className="flex items-center gap-2 text-red-500 text-sm font-semibold animate-shake">
+            <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+            </svg>
+            <span>{message}</span>
+          </div>
+        )}
+
         <div>
-          <label className="block text-[11px] font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: '#9ca3af' }}>
+          <label className="block text-[11px] font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: hasError ? '#ef4444' : '#9ca3af' }}>
             {t('hero.login.emailLabel')}
           </label>
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => { setEmail(e.target.value); if (message) setMessage(''); }}
             required
             className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-base"
-            style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
-            onFocus={(e) => e.target.style.borderColor = accentColor}
-            onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+            style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: hasError ? errorBorderColor : '#e5e7eb' }}
+            onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
+            onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : '#e5e7eb'}
             placeholder={t('hero.login.emailPlaceholder')}
           />
         </div>
         <div>
-          <label className="block text-[11px] font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: '#9ca3af' }}>
+          <label className="block text-[11px] font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: hasError ? '#ef4444' : '#9ca3af' }}>
             {t('hero.login.passwordLabel')}
           </label>
           <input
             type="password"
             autoComplete="current-password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); }}
             required
             className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-base"
-            style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
-            onFocus={(e) => e.target.style.borderColor = accentColor}
-            onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+            style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: hasError ? errorBorderColor : '#e5e7eb' }}
+            onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
+            onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : '#e5e7eb'}
             placeholder={t('hero.login.passwordPlaceholder')}
           />
         </div>
@@ -1487,19 +1526,26 @@ const LoginForm: React.FC<{
         </button>
       </div>
 
-      {message && (
-        <div className={`mt-6 p-5 rounded-2xl text-sm font-bold text-center ${message.includes('Check') || message.includes('check') ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+      {/* Success messages (like email confirmation) */}
+      {message && message.toLowerCase().includes('check') && (
+        <div className="mt-6 p-4 rounded-2xl text-sm font-bold text-center bg-green-50 text-green-700">
           {message}
         </div>
       )}
 
-      <div className="mt-10 text-center">
+      <div className="mt-8 text-center">
         <button
-          onClick={() => setIsSignUp(!isSignUp)}
-          className="text-sm font-black uppercase tracking-widest transition-all hover:opacity-70"
-          style={{ color: accentColor }}
+          onClick={() => { setIsSignUp(!isSignUp); setMessage(''); }}
+          className={`text-sm font-black uppercase tracking-widest transition-all hover:opacity-70 ${
+            isCredentialsError && !isSignUp ? 'animate-pulse-glow' : ''
+          }`}
+          style={{
+            color: accentColor,
+            textShadow: isCredentialsError && !isSignUp ? `0 0 20px ${accentColor}, 0 0 40px ${accentColor}` : 'none'
+          }}
         >
           {isSignUp ? t('hero.login.alreadyHaveAccount') : t('hero.login.newHere')}
+          {isCredentialsError && !isSignUp && ' ←'}
         </button>
       </div>
     </div>
@@ -1774,6 +1820,15 @@ const Hero: React.FC = () => {
   const [message, setMessage] = useState('');
   const [selectedRole, setSelectedRole] = useState<HeroRole>('student');
   const [oauthLoading, setOauthLoading] = useState<'google' | 'apple' | null>(null);
+
+  // Computed error states for mobile form
+  const mobileIsCredentialsError = message && (
+    message.toLowerCase().includes('invalid') ||
+    message.toLowerCase().includes('credentials') ||
+    message.toLowerCase().includes('not found') ||
+    message.toLowerCase().includes('no user')
+  );
+  const mobileHasError = message && !message.toLowerCase().includes('check');
 
   // OAuth sign-in handler for mobile form
   const handleMobileOAuthSignIn = async (provider: 'google' | 'apple') => {
@@ -2414,29 +2469,38 @@ const Hero: React.FC = () => {
 
             <style dangerouslySetInnerHTML={{ __html: honeypotStyles }} />
             <form onSubmit={handleAuth} className="space-y-3">
+              {/* Inline error message */}
+              {mobileHasError && (
+                <div className="flex items-center gap-2 text-red-500 text-xs font-semibold animate-shake">
+                  <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                  </svg>
+                  <span>{message}</span>
+                </div>
+              )}
               {/* Honeypot field - hidden from users, bots fill it */}
               <input {...honeypotProps} />
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => { setEmail(e.target.value); if (message) setMessage(''); }}
                 required
                 className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-sm"
-                style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
-                onFocus={(e) => e.target.style.borderColor = accentColor}
-                onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: mobileHasError ? '#ef4444' : '#e5e7eb' }}
+                onFocus={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : accentColor}
+                onBlur={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : '#e5e7eb'}
                 placeholder={t('hero.login.emailPlaceholder')}
               />
               <input
                 type="password"
                 autoComplete="current-password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); }}
                 required
                 className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-sm"
-                style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: '#e5e7eb' }}
-                onFocus={(e) => e.target.style.borderColor = accentColor}
-                onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
+                style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: mobileHasError ? '#ef4444' : '#e5e7eb' }}
+                onFocus={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : accentColor}
+                onBlur={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : '#e5e7eb'}
                 placeholder={t('hero.login.passwordPlaceholder')}
               />
 
@@ -2497,19 +2561,26 @@ const Hero: React.FC = () => {
               </button>
             </div>
 
-            {message && (
-              <div className={`mt-3 p-3 rounded-xl text-xs font-bold text-center ${message.includes('Check') || message.includes('check') ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+            {/* Success messages only */}
+            {message && message.toLowerCase().includes('check') && (
+              <div className="mt-3 p-3 rounded-xl text-xs font-bold text-center bg-green-50 text-green-700">
                 {message}
               </div>
             )}
 
             <div className="mt-3 text-center">
               <button
-                onClick={() => setIsSignUp(!isSignUp)}
-                className="text-xs font-bold transition-all hover:opacity-70"
-                style={{ color: accentColor }}
+                onClick={() => { setIsSignUp(!isSignUp); setMessage(''); }}
+                className={`text-xs font-bold transition-all hover:opacity-70 ${
+                  mobileIsCredentialsError && !isSignUp ? 'animate-pulse-glow' : ''
+                }`}
+                style={{
+                  color: accentColor,
+                  textShadow: mobileIsCredentialsError && !isSignUp ? `0 0 15px ${accentColor}, 0 0 30px ${accentColor}` : 'none'
+                }}
               >
                 {isSignUp ? t('hero.login.alreadyHaveAccount') : t('hero.login.newHere')}
+                {mobileIsCredentialsError && !isSignUp && ' ←'}
               </button>
             </div>
 
