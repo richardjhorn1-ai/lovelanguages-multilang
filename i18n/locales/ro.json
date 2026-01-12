@@ -1239,7 +1239,7 @@
       "yourSubscription": "Abonamentul Tau",
       "planLabel": "Plan {{plan}}",
       "partnerFreeAccess": "{{name}} are acces gratuit prin tine",
-      "cancelWarning": "Daca anulezi abonamentul, {{name}} va pierde si el/ea accesul.",
+      "cancelWarning": "Daca anulezi abonamentul, {{name}} va pierde si iubirea ta accesul.",
       "manageSubscription": "Gestioneaza Abonamentul",
       "continueToManage": "Continua la Gestionare"
     },
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "Care e cel mai bun mod de a invata verbe?",
-      "verbsAnswer": "Foloseste modul Invata si cere tabele de conjugare. Exerseaza toate cele 6 persoane (eu, tu, el/ea, noi, voi, ei/ele) impreuna.",
+      "verbsAnswer": "Foloseste modul Invata si cere tabele de conjugare. Exerseaza toate cele 6 persoane (eu, tu, iubirea ta, noi, voi, ei/ele) impreuna.",
       "partnerQuestion": "Cum exersez cu partenerul meu?",
       "partnerAnswer": "Foloseste expresiile pe care le-ai invatat in conversatiile zilnice. Chiar si saluturile simple conteaza! Creeaza provocari unul pentru celalalt in sectiunea Joaca.",
       "progressQuestion": "Cat de repede pot progresa?",

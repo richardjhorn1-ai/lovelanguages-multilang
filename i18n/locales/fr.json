@@ -191,7 +191,7 @@
       "phrasesForTonight": "Expressions pour ce soir",
       "recentlyLearned": "Appris récemment",
       "wordsToPractice": "Mots à pratiquer ensemble",
-      "noWeakSpots": "Pas de points faibles - il/elle se débrouille super bien !",
+      "noWeakSpots": "Pas de points faibles - ton amour se débrouille super bien !",
       "misses": "{{count}} erreur",
       "misses_other": "{{count}} erreurs",
       "quizThem": "Quiz →",
@@ -501,7 +501,7 @@
     "pronouns": {
       "singular1": "(je)",
       "singular2": "(tu)",
-      "singular3": "(il/elle)",
+      "singular3": "(ton amour)",
       "plural1": "(nous)",
       "plural2": "(vous)",
       "plural3": "(ils/elles)"
@@ -708,7 +708,7 @@
         "subtitle": "Celle que {{name}} n'oubliera jamais",
         "hearIt": "L'entendre",
         "listenAgain": "Écouter encore",
-        "proTip": "<strong>Astuce :</strong> Entraîne-toi à dire cette phrase à {{name}} - il/elle adorera t'entendre la dire en {{language}} !",
+        "proTip": "<strong>Astuce :</strong> Entraîne-toi à dire cette phrase à {{name}} - ton amour adorera t'entendre la dire en {{language}} !",
         "ready": "Je suis prêt !",
         "listenFirst": "Écoute d'abord"
       },
@@ -801,7 +801,7 @@
         "coachMode": "Mode Coach",
         "coachModeDesc": "Obtiens des conseils personnalisés pour aider {{name}} basés sur ses progrès et difficultés",
         "progressTracking": "Suivi des progrès",
-        "progressTrackingDesc": "Vois quels mots {{name}} a maîtrisés et où il/elle a besoin d'aide",
+        "progressTrackingDesc": "Vois quels mots {{name}} a maîtrisés et où ton amour a besoin d'aide",
         "wordGifts": "Cadeaux de mots",
         "wordGiftsDesc": "Envoie des mots et expressions spéciaux au journal d'apprentissage de {{name}}",
         "button": "Super !"
@@ -1171,7 +1171,7 @@
     "tutor": {
       "title": "J'enseigne le {{language}}",
       "subtitle": "J'aide mon partenaire à apprendre",
-      "confirmMessage": "Tu es le/la pro du {{language}} !",
+      "confirmMessage": "Tu es cette personne pro du {{language}} !",
       "confirmSubtext": "Prêt à aider ton partenaire à tomber amoureux de ta langue ?"
     },
     "settingUp": "Configuration...",
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "Quelle est la meilleure façon d'apprendre les verbes ?",
-      "verbsAnswer": "Utilise le mode Apprendre et demande des tableaux de conjugaison. Pratique les 6 personnes (je, tu, il/elle, nous, vous, ils/elles) ensemble.",
+      "verbsAnswer": "Utilise le mode Apprendre et demande des tableaux de conjugaison. Pratique les 6 personnes (je, tu, ton amour, nous, vous, ils/elles) ensemble.",
       "partnerQuestion": "Comment pratiquer avec mon partenaire ?",
       "partnerAnswer": "Utilise les phrases apprises dans les conversations quotidiennes. Même les simples salutations comptent ! Créez des défis l'un pour l'autre dans la section Jouer.",
       "progressQuestion": "À quelle vitesse puis-je progresser ?",
@@ -1554,11 +1554,11 @@
     "joinJourney": "{{name}} veut que tu rejoignes son parcours d'apprentissage du {{language}} !",
     "learningToConnect": "Il/Elle apprend le {{language}} pour se connecter avec toi à un niveau plus profond. En tant que coach linguistique, tu vas :",
     "trackProgress": "Suivre ses progrès",
-    "trackProgressDesc": "Vois quels mots il/elle a appris et où il/elle a besoin d'aide",
+    "trackProgressDesc": "Vois quels mots ton amour a appris et où ton amour a besoin d'aide",
     "conversationStarters": "Obtenir des amorces de conversation",
     "conversationStartersDesc": "L'IA suggère des phrases en {{language}} à utiliser ensemble basées sur son vocabulaire",
     "encourageCelebrate": "Encourager et célébrer",
-    "encourageCelebrateDesc": "Aide-le/la à rester motivé(e) et célébrez les étapes ensemble",
+    "encourageCelebrateDesc": "Aide-cette personne à rester motivé et célébrez les étapes ensemble",
     "join": "Rejoindre {{name}}",
     "createAccount": "Crée ton compte pour devenir son coach",
     "signInToConnect": "Connecte-toi pour te connecter",
@@ -1621,7 +1621,7 @@
     "expiresTomorrow": "Expire demain",
     "expiresIn": "Expire dans {{days}} jours",
     "newLink": "Nouveau lien",
-    "description": "Quand ton partenaire clique sur ce lien, il/elle sera invité(e) à te rejoindre en tant que coach linguistique !"
+    "description": "Quand ton partenaire clique sur ce lien, ton amour sera invité(e) à te rejoindre en tant que coach linguistique !"
   },
 
   "breakup": {
@@ -1732,15 +1732,15 @@
     },
     "student": {
       "section1": {
-        "headline": "Oublie l'ennuyeux. Apprends les mots qui comptent—ceux qui le/la font sourire.",
+        "headline": "Oublie l'ennuyeux. Apprends les mots qui comptent—ceux qui cette personne font sourire.",
         "highlight1": "mots qui comptent",
-        "highlight2": "le/la font sourire",
-        "subhead": "Ceux qu'il/elle n'utilise qu'avec les gens qu'il/elle aime.",
-        "copy": "Leurs blagues entre vous. Leurs expressions familiales. La façon dont il/elle dit « je t'aime » quand personne n'écoute.",
+        "highlight2": "cette personne font sourire",
+        "subhead": "Ceux qu'ton amour n'utilise qu'avec les gens qu'ton amour aime.",
+        "copy": "Leurs blagues entre vous. Leurs expressions familiales. La façon dont ton amour dit « je t'aime » quand personne n'écoute.",
         "copyHighlight1": "blagues entre vous",
         "copyHighlight2": "expressions familiales",
         "copyHighlight3": "je t'aime",
-        "underline": "La façon dont il/elle dit « je t'aime » quand personne n'écoute"
+        "underline": "La façon dont ton amour dit « je t'aime » quand personne n'écoute"
       },
       "section2": {
         "headline": "Il y a une conversation dont tu ne fais pas partie. Pas encore.",
@@ -1787,7 +1787,7 @@
         "copyHighlight2": "votre petit monde",
         "underline": "construire votre petit monde ensemble"
       },
-      "context1": { "header": "Prêt à le/la rencontrer ?", "cta": "Commencer à apprendre", "subtext": "2 minutes pour ton premier mot." },
+      "context1": { "header": "Prêt à cette personne rencontrer ?", "cta": "Commencer à apprendre", "subtext": "2 minutes pour ton premier mot." },
       "context2": { "header": "On est là pour toi", "cta": "Commencer à apprendre", "subtext": "Fini les rires forcés." },
       "context3": { "header": "Fait pour les amoureux", "cta": "Commencer le parcours", "subtext": "Pas des touristes. De la famille." },
       "context4": { "header": "Joue à ta façon", "cta": "Explorer les jeux", "subtext": "Flashcards, défis et plus." },
@@ -1797,15 +1797,15 @@
     },
     "tutor": {
       "section1": {
-        "headline": "Il/Elle t'aime. Maintenant aide-le/la à aimer ta langue aussi.",
+        "headline": "On t'aime. Maintenant aide-cette personne à aimer ta langue aussi.",
         "highlight1": "t'aime",
         "highlight2": "ta langue",
-        "copy": "Tes mots. Tes blagues. Ta façon de jurer quand tu te cognes l'orteil. Il y a tout un toi qu'il/elle n'a pas encore rencontré—un tout nouveau toi. Laisse-le/la entrer.",
+        "copy": "Tes mots. Tes blagues. Ta façon de jurer quand tu te cognes l'orteil. Il y a tout un toi qu'ton amour n'a pas encore rencontré—un tout nouveau toi. Laisse-cette personne entrer.",
         "copyHighlight1": "Tes mots",
         "copyHighlight2": "Tes blagues",
         "copyHighlight3": "un tout nouveau toi",
-        "copyHighlight4": "Laisse-le/la entrer",
-        "underline": "Laisse-le/la entrer"
+        "copyHighlight4": "Laisse-cette personne entrer",
+        "underline": "Laisse-cette personne entrer"
       },
       "section2": {
         "headline": "Tu as essayé d'expliquer. Il/Elle a essayé d'acquiescer. Réglons ça.",
@@ -1821,28 +1821,28 @@
       "section3": {
         "headline": "Chaque mot que tu partages est un pont.",
         "highlight1": "pont",
-        "copy": "Partage des mots. Crée des défis. Célébrez les victoires ensemble. L'appli gère l'ennuyeux—toi, tu n'as qu'à être le/la plus fun.",
+        "copy": "Partage des mots. Crée des défis. Célébrez les victoires ensemble. L'appli gère l'ennuyeux—toi, tu n'as qu'à être cette personne plus fun.",
         "copyHighlight1": "Partage des mots",
         "copyHighlight2": "Crée des défis",
         "copyHighlight3": "Célébrez les victoires",
-        "copyHighlight4": "le/la plus fun",
-        "underline": "toi, tu n'as qu'à être le/la plus fun"
+        "copyHighlight4": "cette personne plus fun",
+        "underline": "toi, tu n'as qu'à être cette personne plus fun"
       },
       "section4": {
-        "headline": "Envoie un mot. Lance un jeu. Regarde-le/la progresser.",
+        "headline": "Envoie un mot. Lance un jeu. Regarde-cette personne progresser.",
         "highlight1": "jeu",
         "highlight2": "progresser",
-        "copy": "Défie-le/la sur l'expression préférée de ta mère. Quiz avant le dîner. Célèbre quand il/elle réussit. C'est du temps de couple déguisé en apprentissage—et c'est vraiment amusant.",
+        "copy": "Défie-cette personne sur l'expression préférée de ta mère. Quiz avant le dîner. Célèbre quand ton amour réussit. C'est du temps de couple déguisé en apprentissage—et c'est vraiment amusant.",
         "copyHighlight1": "expression préférée de ta mère",
         "copyHighlight2": "temps de couple",
         "copyHighlight3": "vraiment amusant",
         "underline": "C'est du temps de couple déguisé en apprentissage"
       },
       "section5": {
-        "headline": "Le moment où il/elle te surprend avec une phrase que tu n'as jamais enseignée ? Magique.",
+        "headline": "Le moment où ton amour te surprend avec une phrase que tu n'as jamais enseignée ? Magique.",
         "highlight1": "te surprend",
         "highlight2": "Magique",
-        "copy": "Quand il/elle fait une blague et que ta famille rit vraiment. Quand ta mère commence à lui parler directement dans ta langue. Quand il/elle sort une phrase qui te laisse bouche bée. C'est toi qui as fait ça.",
+        "copy": "Quand ton amour fait une blague et que ta famille rit vraiment. Quand ta mère commence à lui parler directement dans ta langue. Quand ton amour sort une phrase qui te laisse bouche bée. C'est toi qui as fait ça.",
         "copyHighlight1": "famille rit vraiment",
         "copyHighlight2": "mère",
         "copyHighlight3": "C'est toi qui as fait ça"
@@ -1851,16 +1851,16 @@
         "headline": "Enseignez ensemble. Jouez ensemble. Tombez encore plus amoureux.",
         "highlight1": "ensemble",
         "highlight2": "amoureux",
-        "copy": "C'est comme ça que tu partages qui tu es vraiment. Mot par mot. Jeu par jeu. Rire après rire. Et il/elle tombe amoureux de tout ça.",
+        "copy": "C'est comme ça que tu partages qui tu es vraiment. Mot par mot. Jeu par jeu. Rire après rire. Et ton amour tombe amoureux de tout ça.",
         "copyHighlight1": "qui tu es vraiment",
         "copyHighlight2": "tombe amoureux",
-        "underline": "Et il/elle tombe amoureux de tout ça"
+        "underline": "Et ton amour tombe amoureux de tout ça"
       },
       "context1": { "header": "Partage ton monde", "cta": "Commencer à guider", "subtext": "Deviens son guide linguistique." },
-      "context2": { "header": "Laisse-le/la entrer", "cta": "Commencer à guider", "subtext": "Certaines choses s'apprennent mieux." },
+      "context2": { "header": "Laisse-cette personne entrer", "cta": "Commencer à guider", "subtext": "Certaines choses s'apprennent mieux." },
       "context3": { "header": "Enseigne avec amour", "cta": "Commencer", "subtext": "Pas des leçons. Des lettres d'amour." },
-      "context4": { "header": "Défie-le/la", "cta": "Envoyer un défi", "subtext": "Jeux, défis, surprises." },
-      "context5": { "header": "Regarde-le/la s'épanouir", "cta": "Commencer à envoyer", "subtext": "Un mot à la fois." },
+      "context4": { "header": "Défie-cette personne", "cta": "Envoyer un défi", "subtext": "Jeux, défis, surprises." },
+      "context5": { "header": "Regarde-cette personne s'épanouir", "cta": "Commencer à envoyer", "subtext": "Un mot à la fois." },
       "context6": { "header": "Ouvre la porte", "cta": "Commencer", "subtext": "Ce moment arrive." },
       "context7": { "header": "Grandissez ensemble", "cta": "Devenir son guide", "subtext": "Il/Elle est prêt(e) pour toi." }
     }

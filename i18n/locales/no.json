@@ -501,7 +501,7 @@
     "pronouns": {
       "singular1": "(jeg)",
       "singular2": "(du)",
-      "singular3": "(han/hun)",
+      "singular3": "(din kjærlighet)",
       "plural1": "(vi)",
       "plural2": "(dere)",
       "plural3": "(de)"
@@ -1405,7 +1405,7 @@
     },
     "tips": {
       "verbsQuestion": "Hva er den beste måten å lære verb?",
-      "verbsAnswer": "Bruk Lær-modus og be om bøyningstabeller. Øv alle 6 personer (jeg, du, han/hun, vi, dere, de) sammen.",
+      "verbsAnswer": "Bruk Lær-modus og be om bøyningstabeller. Øv alle 6 personer (jeg, du, din kjærlighet, vi, dere, de) sammen.",
       "partnerQuestion": "Hvordan øver jeg med partneren min?",
       "partnerAnswer": "Bruk fraser du har lært i daglige samtaler. Selv enkle hilsener teller! Lag utfordringer for hverandre i Spill-seksjonen.",
       "progressQuestion": "Hvor raskt kan jeg avansere?",
