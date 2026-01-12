@@ -238,41 +238,6 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     [deck, scoresMap]
   );
 
-  const quickPhrases = useMemo(() => {
-    const phrases: Array<{ targetWord: string; nativeWord: string; tip: string }> = [];
-    const verbs = masteredWords.filter(w => w.word_type === 'verb').slice(0, 3);
-    const adjectives = masteredWords.filter(w => w.word_type === 'adjective').slice(0, 3);
-    const nouns = masteredWords.filter(w => w.word_type === 'noun').slice(0, 3);
-
-    if (verbs.length > 0) {
-      phrases.push({
-        targetWord: `${verbs[0].word} - use it tonight!`,
-        nativeWord: verbs[0].translation,
-        tip: 'Try using this in conversation'
-      });
-    }
-    if (adjectives.length > 0 && nouns.length > 0) {
-      phrases.push({
-        targetWord: `${adjectives[0].word} ${nouns[0].word}`,
-        nativeWord: `${adjectives[0].translation} ${nouns[0].translation}`,
-        tip: 'Compliment them with this!'
-      });
-    }
-    // Check if they have any love-related words in their vocabulary
-    const hasLove = deck.some(w => w.translation.toLowerCase().includes('love'));
-    if (hasLove) {
-      const loveWord = deck.find(w => w.translation.toLowerCase().includes('love'));
-      if (loveWord) {
-        phrases.push({
-          targetWord: loveWord.word,
-          nativeWord: loveWord.translation,
-          tip: 'Whisper this before bed'
-        });
-      }
-    }
-    return phrases.slice(0, 3);
-  }, [masteredWords, deck]);
-
   const recentWords = useMemo(() => {
     return [...deck]
       .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())

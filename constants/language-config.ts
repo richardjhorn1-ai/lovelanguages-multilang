@@ -54,7 +54,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇬🇧',
     direction: 'ltr',
     ttsCode: 'en-GB',
-    ttsVoice: 'en-GB-Standard-A',
+    ttsVoice: 'en-GB-Wavenet-A',
     grammar: {
       hasGender: false,
       hasCases: false,
@@ -79,7 +79,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇪🇸',
     direction: 'ltr',
     ttsCode: 'es-ES',
-    ttsVoice: 'es-ES-Standard-A',
+    ttsVoice: 'es-ES-Wavenet-B',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine'],
@@ -105,7 +105,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇫🇷',
     direction: 'ltr',
     ttsCode: 'fr-FR',
-    ttsVoice: 'fr-FR-Standard-A',
+    ttsVoice: 'fr-FR-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine'],
@@ -131,7 +131,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇮🇹',
     direction: 'ltr',
     ttsCode: 'it-IT',
-    ttsVoice: 'it-IT-Standard-A',
+    ttsVoice: 'it-IT-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine'],
@@ -157,7 +157,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇵🇹',
     direction: 'ltr',
     ttsCode: 'pt-PT',
-    ttsVoice: 'pt-PT-Standard-A',
+    ttsVoice: 'pt-PT-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine'],
@@ -183,7 +183,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇷🇴',
     direction: 'ltr',
     ttsCode: 'ro-RO',
-    ttsVoice: 'ro-RO-Standard-A',
+    ttsVoice: 'ro-RO-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine', 'neuter'],
@@ -215,7 +215,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇩🇪',
     direction: 'ltr',
     ttsCode: 'de-DE',
-    ttsVoice: 'de-DE-Standard-A',
+    ttsVoice: 'de-DE-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine', 'neuter'],
@@ -243,7 +243,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇳🇱',
     direction: 'ltr',
     ttsCode: 'nl-NL',
-    ttsVoice: 'nl-NL-Standard-A',
+    ttsVoice: 'nl-NL-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['common', 'neuter'],
@@ -269,7 +269,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇸🇪',
     direction: 'ltr',
     ttsCode: 'sv-SE',
-    ttsVoice: 'sv-SE-Standard-A',
+    ttsVoice: 'sv-SE-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['common', 'neuter'],
@@ -295,7 +295,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇳🇴',
     direction: 'ltr',
     ttsCode: 'nb-NO',
-    ttsVoice: 'nb-NO-Standard-A',
+    ttsVoice: 'nb-NO-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine', 'neuter'],
@@ -321,7 +321,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇩🇰',
     direction: 'ltr',
     ttsCode: 'da-DK',
-    ttsVoice: 'da-DK-Standard-A',
+    ttsVoice: 'da-DK-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['common', 'neuter'],
@@ -351,7 +351,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇵🇱',
     direction: 'ltr',
     ttsCode: 'pl-PL',
-    ttsVoice: 'pl-PL-Standard-A',
+    ttsVoice: 'pl-PL-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine', 'neuter'],
@@ -378,7 +378,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇨🇿',
     direction: 'ltr',
     ttsCode: 'cs-CZ',
-    ttsVoice: 'cs-CZ-Standard-A',
+    ttsVoice: 'cs-CZ-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine', 'neuter'],
@@ -405,7 +405,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇷🇺',
     direction: 'ltr',
     ttsCode: 'ru-RU',
-    ttsVoice: 'ru-RU-Standard-A',
+    ttsVoice: 'ru-RU-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine', 'neuter'],
@@ -432,7 +432,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇺🇦',
     direction: 'ltr',
     ttsCode: 'uk-UA',
-    ttsVoice: 'uk-UA-Standard-A',
+    ttsVoice: 'uk-UA-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine', 'neuter'],
@@ -463,7 +463,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇬🇷',
     direction: 'ltr',
     ttsCode: 'el-GR',
-    ttsVoice: 'el-GR-Standard-A',
+    ttsVoice: 'el-GR-Wavenet-A',
     grammar: {
       hasGender: true,
       genderTypes: ['masculine', 'feminine', 'neuter'],
@@ -491,7 +491,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇭🇺',
     direction: 'ltr',
     ttsCode: 'hu-HU',
-    ttsVoice: 'hu-HU-Standard-A',
+    ttsVoice: 'hu-HU-Wavenet-A',
     grammar: {
       hasGender: false,
       hasCases: true,
@@ -522,7 +522,7 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
     flag: '🇹🇷',
     direction: 'ltr',
     ttsCode: 'tr-TR',
-    ttsVoice: 'tr-TR-Standard-A',
+    ttsVoice: 'tr-TR-Wavenet-A',
     grammar: {
       hasGender: false,
       hasCases: true,
@@ -606,7 +606,7 @@ export function getTTSLangCode(code: string): string {
  * Get the preferred TTS voice name
  */
 export function getTTSVoice(code: string): string {
-  return LANGUAGE_CONFIGS[code]?.ttsVoice ?? 'en-US-Standard-A';
+  return LANGUAGE_CONFIGS[code]?.ttsVoice ?? 'en-US-Wavenet-A';
 }
 
 /**

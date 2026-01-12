@@ -47,29 +47,37 @@ async function getArticlesWithoutImages(): Promise<ArticleInfo[]> {
   const articlesDir = path.join(__dirname, '..', 'src', 'content', 'articles');
   const articles: ArticleInfo[] = [];
 
-  const languages = fs.readdirSync(articlesDir).filter(f =>
-    fs.statSync(path.join(articlesDir, f)).isDirectory() && f !== 'pl'
+  // New structure: articles/[nativeLang]/[targetLang]/article.mdx
+  const nativeLanguages = fs.readdirSync(articlesDir).filter(f =>
+    fs.statSync(path.join(articlesDir, f)).isDirectory()
   );
 
-  for (const lang of languages) {
-    const langDir = path.join(articlesDir, lang);
-    const files = fs.readdirSync(langDir).filter(f => f.endsWith('.mdx'));
+  for (const nativeLang of nativeLanguages) {
+    const nativeLangDir = path.join(articlesDir, nativeLang);
+    const targetLanguages = fs.readdirSync(nativeLangDir).filter(f =>
+      fs.statSync(path.join(nativeLangDir, f)).isDirectory()
+    );
 
-    for (const file of files) {
-      const filePath = path.join(langDir, file);
-      const content = fs.readFileSync(filePath, 'utf-8');
+    for (const targetLang of targetLanguages) {
+      const targetLangDir = path.join(nativeLangDir, targetLang);
+      const files = fs.readdirSync(targetLangDir).filter(f => f.endsWith('.mdx'));
 
-      // Check if already has image
-      if (!content.match(/^image:/m)) {
-        const titleMatch = content.match(/^title:\s*["'](.+?)["']/m);
-        const title = titleMatch ? titleMatch[1] : file.replace('.mdx', '');
+      for (const file of files) {
+        const filePath = path.join(targetLangDir, file);
+        const content = fs.readFileSync(filePath, 'utf-8');
 
-        articles.push({
-          slug: file.replace('.mdx', ''),
-          title,
-          language: lang,
-          filePath,
-        });
+        // Check if already has image
+        if (!content.match(/^image:/m)) {
+          const titleMatch = content.match(/^title:\s*["'](.+?)["']/m);
+          const title = titleMatch ? titleMatch[1] : file.replace('.mdx', '');
+
+          articles.push({
+            slug: file.replace('.mdx', ''),
+            title,
+            language: targetLang, // Use target language for image prompts
+            filePath,
+          });
+        }
       }
     }
   }

@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
-import { useLanguage } from '../context/LanguageContext';
 import { useHoneypot } from '../hooks/useHoneypot';
 
 interface InviterInfo {
@@ -11,15 +10,20 @@ interface InviterInfo {
   email: string;
 }
 
+interface LanguageInfo {
+  code: string;
+  name: string;
+}
+
 const JoinInvite: React.FC = () => {
   const { t } = useTranslation();
-  const { targetName } = useLanguage();
   const { token } = useParams<{ token: string }>();
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
   const [validating, setValidating] = useState(false);
   const [inviter, setInviter] = useState<InviterInfo | null>(null);
+  const [language, setLanguage] = useState<LanguageInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   // Auth form state
@@ -74,6 +78,7 @@ const JoinInvite: React.FC = () => {
       }
 
       setInviter(data.inviter);
+      setLanguage(data.language || { code: 'pl', name: 'Polish' });  // Fallback for old API responses
     } catch (e: any) {
       console.error('[JoinInvite] Error:', e);
       setError(e.message || 'Failed to validate invite');
@@ -241,11 +246,11 @@ const JoinInvite: React.FC = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6 text-[#292F36]">
-            {t('joinInvite.joinJourney', { name: inviter?.name || t('joinInvite.yourPartner'), language: targetName })}
+            {t('joinInvite.joinJourney', { name: inviter?.name || t('joinInvite.yourPartner'), language: language?.name || 'their language' })}
           </h2>
 
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            {t('joinInvite.learningToConnect', { language: targetName })}
+            {t('joinInvite.learningToConnect', { language: language?.name || 'their language' })}
           </p>
 
           <div className="space-y-4 mb-8">
@@ -265,7 +270,7 @@ const JoinInvite: React.FC = () => {
               </div>
               <div>
                 <p className="font-bold text-gray-800">{t('joinInvite.conversationStarters')}</p>
-                <p className="text-sm text-gray-500">{t('joinInvite.conversationStartersDesc', { language: targetName })}</p>
+                <p className="text-sm text-gray-500">{t('joinInvite.conversationStartersDesc', { language: language?.name || 'their language' })}</p>
               </div>
             </div>
 

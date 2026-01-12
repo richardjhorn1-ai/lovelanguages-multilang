@@ -77,7 +77,7 @@ export const polishNavigation: NavigationConfig = {
       items: [
         {
           label: 'All Articles',
-          href: '/learn',
+          href: '/learn/',
           icon: '📖',
           description: 'Browse all Polish lessons'
         },
@@ -170,14 +170,14 @@ export function buildNavigation(langCode: string): NavigationConfig {
       name: lang.name,
       nativeName: lang.nativeName,
       flag: lang.flag,
-      href: `/learn/${langCode}`
+      href: `/learn/en/${langCode}/`
     },
     availableLanguages: Object.entries(LANGUAGE_INFO).map(([code, info]) => ({
       code,
       name: info.name,
       nativeName: info.nativeName,
       flag: info.flag,
-      href: `/learn/${code}`
+      href: `/learn/en/${code}/`
     })),
     sections: [
       {
@@ -186,7 +186,7 @@ export function buildNavigation(langCode: string): NavigationConfig {
         items: [
           {
             label: 'All Articles',
-            href: '/learn',
+            href: '/learn/',
             icon: '📖',
             description: `Browse all ${lang.name} lessons`
           },

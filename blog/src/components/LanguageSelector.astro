@@ -7,23 +7,27 @@ interface LanguageInfo {
 
 interface Props {
   currentLang: string;
+  nativeLang?: string;  // Native language code (defaults to 'en')
   languageInfo: Record<string, LanguageInfo>;
   languageCounts: Record<string, number>;
 }
 
-const { currentLang, languageInfo, languageCounts } = Astro.props;
+const { currentLang, nativeLang = 'en', languageInfo, languageCounts } = Astro.props;
 const currentInfo = languageInfo[currentLang];
 
 // Sort languages: those with articles first, then alphabetically
-const sortedLanguages = Object.entries(languageInfo).sort(([codeA], [codeB]) => {
-  const countA = languageCounts[codeA] || 0;
-  const countB = languageCounts[codeB] || 0;
-  // Languages with articles come first
-  if (countA > 0 && countB === 0) return -1;
-  if (countB > 0 && countA === 0) return 1;
-  // Then sort by name
-  return languageInfo[codeA].name.localeCompare(languageInfo[codeB].name);
-});
+// Filter out the native language (can't learn your own language)
+const sortedLanguages = Object.entries(languageInfo)
+  .filter(([code]) => code !== nativeLang)
+  .sort(([codeA], [codeB]) => {
+    const countA = languageCounts[codeA] || 0;
+    const countB = languageCounts[codeB] || 0;
+    // Languages with articles come first
+    if (countA > 0 && countB === 0) return -1;
+    if (countB > 0 && countA === 0) return 1;
+    // Then sort by name
+    return languageInfo[codeA].name.localeCompare(languageInfo[codeB].name);
+  });
 ---
 
 <div class="language-selector relative inline-block">
@@ -53,7 +57,7 @@ const sortedLanguages = Object.entries(languageInfo).sort(([codeA], [codeB]) => 
 
         return (
           <a
-            href={`/learn/${code}`}
+            href={`/learn/${nativeLang}/${code}/`}
             class={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors ${
               isActive
                 ? 'bg-accent/10 text-accent'
@@ -94,7 +98,7 @@ const sortedLanguages = Object.entries(languageInfo).sort(([codeA], [codeB]) => 
 
     <div class="border-t border-gray-100 p-3">
       <a
-        href="/learn"
+        href="/learn/"
         class="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-accent hover:bg-accent/5 rounded-lg transition-colors"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
