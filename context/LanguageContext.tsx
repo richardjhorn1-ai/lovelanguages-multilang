@@ -30,8 +30,12 @@ interface LanguageProviderProps {
 
 export function LanguageProvider({ children, profile }: LanguageProviderProps) {
   const value = useMemo(() => {
-    const targetLanguage = profile?.active_language || DEFAULT_TARGET;
-    const nativeLanguage = profile?.native_language || DEFAULT_NATIVE;
+    // Priority: 1) Profile (logged-in user), 2) localStorage (Hero selection), 3) defaults
+    const storedTarget = typeof window !== 'undefined' ? localStorage.getItem('preferredTargetLanguage') : null;
+    const storedNative = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') : null;
+
+    const targetLanguage = profile?.active_language || storedTarget || DEFAULT_TARGET;
+    const nativeLanguage = profile?.native_language || storedNative || DEFAULT_NATIVE;
 
     const targetConfig = LANGUAGE_CONFIGS[targetLanguage] || LANGUAGE_CONFIGS[DEFAULT_TARGET];
     const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage] || LANGUAGE_CONFIGS[DEFAULT_NATIVE];
