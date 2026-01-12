@@ -1519,6 +1519,7 @@ const LanguageGrid: React.FC<{
   const [showAll, setShowAll] = useState(false);
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
   const accentShadow = isStudent ? BRAND.shadow : BRAND.tealShadow;
+  const accentLight = isStudent ? BRAND.light : BRAND.tealLight;
 
   // Filter out excluded language
   const availableLanguages = Object.values(LANGUAGE_CONFIGS).filter(
@@ -1529,10 +1530,8 @@ const LanguageGrid: React.FC<{
   const popularLanguages = availableLanguages.filter(lang => POPULAR_LANGUAGES.includes(lang.code));
   const otherLanguages = availableLanguages.filter(lang => !POPULAR_LANGUAGES.includes(lang.code));
 
-  const displayedLanguages = showAll ? availableLanguages : popularLanguages;
-
   return (
-    <div className="w-full max-w-lg mx-auto">
+    <div className="w-full max-w-xl mx-auto">
       {showBackButton && onBack && (
         <button
           onClick={onBack}
@@ -1547,37 +1546,101 @@ const LanguageGrid: React.FC<{
       <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: '#1a1a2e' }}>
         {title}
       </h2>
-      <p className="text-base mb-8 font-medium" style={{ color: '#6b7280' }}>
+      <p className="text-base mb-6 font-medium" style={{ color: '#6b7280' }}>
         {subtitle}
       </p>
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
-        {displayedLanguages.map(lang => (
+      {/* Popular languages - always visible */}
+      <div className="grid grid-cols-4 gap-2.5">
+        {popularLanguages.map(lang => (
           <button
             key={lang.code}
             onClick={() => onSelect(lang.code)}
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl border-2 transition-all duration-200 hover:scale-105"
+            className="flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all duration-200 hover:scale-105"
             style={{
               borderColor: selectedCode === lang.code ? accentColor : '#e5e7eb',
-              backgroundColor: selectedCode === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
+              backgroundColor: selectedCode === lang.code ? accentLight : '#ffffff',
               boxShadow: selectedCode === lang.code ? `0 4px 12px ${accentShadow}, 0 0 0 2px ${accentColor}` : 'none',
             }}
           >
-            <span className="text-3xl">{lang.flag}</span>
-            <span className="text-xs font-bold text-gray-700">{lang.nativeName}</span>
+            <span className="text-2xl">{lang.flag}</span>
+            <span className="text-[10px] font-bold text-gray-700">{lang.nativeName}</span>
           </button>
         ))}
       </div>
 
-      {otherLanguages.length > 0 && (
+      {/* Show more button - styled pill */}
+      {otherLanguages.length > 0 && !showAll && (
         <button
-          onClick={() => setShowAll(!showAll)}
-          className="mt-6 w-full py-3 text-sm font-bold transition-all hover:opacity-70"
-          style={{ color: accentColor }}
+          onClick={() => setShowAll(true)}
+          className="mt-5 mx-auto flex items-center gap-2 px-5 py-2.5 rounded-full border-2 transition-all duration-300 hover:scale-105 group"
+          style={{
+            borderColor: accentColor,
+            backgroundColor: 'transparent',
+          }}
         >
-          {showAll ? t('hero.languageSelector.showLess') : t('hero.languageSelector.showAll')}
+          <span className="text-sm font-bold" style={{ color: accentColor }}>
+            {t('hero.languageSelector.showAll')}
+          </span>
+          <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: accentLight, color: accentColor }}>
+            +{otherLanguages.length}
+          </span>
+          <svg
+            className="w-4 h-4 transition-transform group-hover:translate-y-0.5"
+            style={{ color: accentColor }}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
       )}
+
+      {/* Expanded languages - smooth slide down */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-out ${
+          showAll ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'
+        }`}
+      >
+        {/* Divider with label */}
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex-1 h-px bg-gray-200" />
+          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">More languages</span>
+          <div className="flex-1 h-px bg-gray-200" />
+        </div>
+
+        {/* Other languages grid */}
+        <div className="grid grid-cols-5 gap-2">
+          {otherLanguages.map(lang => (
+            <button
+              key={lang.code}
+              onClick={() => onSelect(lang.code)}
+              className="flex flex-col items-center gap-1 p-2 rounded-lg border-2 transition-all duration-200 hover:scale-105"
+              style={{
+                borderColor: selectedCode === lang.code ? accentColor : '#e5e7eb',
+                backgroundColor: selectedCode === lang.code ? accentLight : '#ffffff',
+                boxShadow: selectedCode === lang.code ? `0 2px 8px ${accentShadow}, 0 0 0 2px ${accentColor}` : 'none',
+              }}
+            >
+              <span className="text-xl">{lang.flag}</span>
+              <span className="text-[9px] font-bold text-gray-600 truncate w-full text-center">{lang.nativeName}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Collapse button */}
+        <button
+          onClick={() => setShowAll(false)}
+          className="mt-4 mx-auto flex items-center gap-1.5 px-4 py-2 rounded-full transition-all duration-200 hover:opacity-70"
+          style={{ backgroundColor: accentLight, color: accentColor }}
+        >
+          <span className="text-xs font-bold">{t('hero.languageSelector.showLess')}</span>
+          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };
@@ -2236,22 +2299,24 @@ const Hero: React.FC = () => {
           {/* Step 1: Native Language Selection */}
           {currentStep === 'native' && (
             <div
-              className={`relative z-10 px-8 md:px-16 transition-all duration-300 ${
+              className={`relative z-10 w-full max-h-full overflow-y-auto px-8 md:px-16 py-8 transition-all duration-300 ${
                 stepTransition === 'exiting' ? 'opacity-0 translate-x-[-20px]' :
                 stepTransition === 'entering' ? 'opacity-0 translate-x-[20px]' : 'opacity-100'
               }`}
             >
-              {/* Logo */}
-              <div className="flex items-center gap-3 mb-10">
-                <div
-                  className="p-2.5 rounded-xl shadow-lg"
-                  style={{ backgroundColor: accentColor, boxShadow: `0 10px 20px -5px ${accentShadow}` }}
-                >
-                  <ICONS.Heart className="text-white fill-white w-6 h-6" />
+              {/* Logo - sticky at top */}
+              <div className="sticky top-0 bg-gradient-to-b from-[#FFF0F3] via-[#FFF0F3] to-transparent pb-6 pt-2 -mt-2 z-10">
+                <div className="flex items-center gap-3">
+                  <div
+                    className="p-2.5 rounded-xl shadow-lg"
+                    style={{ backgroundColor: accentColor, boxShadow: `0 10px 20px -5px ${accentShadow}` }}
+                  >
+                    <ICONS.Heart className="text-white fill-white w-6 h-6" />
+                  </div>
+                  <h1 className="text-2xl font-black font-header tracking-tight" style={{ color: accentColor }}>
+                    Love Languages
+                  </h1>
                 </div>
-                <h1 className="text-2xl font-black font-header tracking-tight" style={{ color: accentColor }}>
-                  Love Languages
-                </h1>
               </div>
               <LanguageGrid
                 onSelect={handleNativeSelect}
@@ -2266,7 +2331,7 @@ const Hero: React.FC = () => {
           {/* Step 2: Target Language Selection */}
           {currentStep === 'target' && (
             <div
-              className={`relative z-10 px-8 md:px-16 transition-all duration-300 ${
+              className={`relative z-10 w-full max-h-full overflow-y-auto px-8 md:px-16 py-8 transition-all duration-300 ${
                 stepTransition === 'exiting' ? 'opacity-0 translate-x-[-20px]' :
                 stepTransition === 'entering' ? 'opacity-0 translate-x-[20px]' : 'opacity-100'
               }`}
@@ -2287,22 +2352,30 @@ const Hero: React.FC = () => {
           {/* Step 3: Marketing Content */}
           {currentStep === 'marketing' && (
             <>
-              {/* Sticky language indicator at top - clickable to change */}
+              {/* Sticky language indicator at top - each language clickable separately */}
               {nativeLanguage && selectedTargetLanguage && (
                 <div className="sticky top-0 z-20 bg-gradient-to-b from-[#FFF0F3] via-[#FFF0F3] to-transparent pb-8 pt-4">
-                  <button
-                    onClick={handleChangeLanguages}
-                    className="mx-auto flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all hover:scale-105"
-                  >
-                    <span className="text-lg">{LANGUAGE_CONFIGS[nativeLanguage]?.flag}</span>
-                    <span className="text-sm font-bold text-gray-600">{LANGUAGE_CONFIGS[nativeLanguage]?.nativeName}</span>
+                  <div className="mx-auto flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md w-fit">
+                    {/* Native language - click to change */}
+                    <button
+                      onClick={() => setCurrentStep('native')}
+                      className="flex items-center gap-2 px-3 py-1 rounded-full hover:bg-gray-100 transition-all"
+                      title={t('hero.languageSelector.changeNative')}
+                    >
+                      <span className="text-lg">{LANGUAGE_CONFIGS[nativeLanguage]?.flag}</span>
+                      <span className="text-sm font-bold text-gray-600">{LANGUAGE_CONFIGS[nativeLanguage]?.nativeName}</span>
+                    </button>
                     <span className="text-gray-400">→</span>
-                    <span className="text-lg">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.flag}</span>
-                    <span className="text-sm font-bold text-gray-600">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.nativeName}</span>
-                    <span className="ml-1 text-xs font-bold" style={{ color: accentColor }}>
-                      {t('hero.languageSelector.change')}
-                    </span>
-                  </button>
+                    {/* Target language - click to change */}
+                    <button
+                      onClick={() => setCurrentStep('target')}
+                      className="flex items-center gap-2 px-3 py-1 rounded-full hover:bg-gray-100 transition-all"
+                      title={t('hero.languageSelector.changeTarget')}
+                    >
+                      <span className="text-lg">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.flag}</span>
+                      <span className="text-sm font-bold text-gray-600">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.nativeName}</span>
+                    </button>
+                  </div>
                 </div>
               )}
 
