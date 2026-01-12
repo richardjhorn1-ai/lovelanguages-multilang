@@ -1816,7 +1816,7 @@ const Hero: React.FC = () => {
     sections?.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [selectedRole]);
+  }, [selectedRole, currentStep]); // Re-observe when switching to marketing step
 
   // Reset visible sections when role changes
   useEffect(() => {
@@ -2043,7 +2043,7 @@ const Hero: React.FC = () => {
                   data-section={3}
                   className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center items-center px-4"
                 >
-                  <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} isMobile={true} />
+                  <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} isMobile={true} targetLanguage={selectedTargetLanguage} nativeLanguage={nativeLanguage} />
                 </div>
 
                 {/* Sections 4-6 */}
@@ -2292,7 +2292,7 @@ const Hero: React.FC = () => {
               ))}
 
               {/* Game Showcase - section index 3 */}
-              <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} />
+              <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} targetLanguage={selectedTargetLanguage} nativeLanguage={nativeLanguage} />
 
               {/* Remaining sections (indices 4, 5, 6) */}
               {sections.slice(3).map((section, i) => (

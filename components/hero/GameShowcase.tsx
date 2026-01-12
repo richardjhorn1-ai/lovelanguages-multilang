@@ -6,12 +6,16 @@ import { DemoMultipleChoice } from './DemoMultipleChoice';
 import { DemoTypeIt } from './DemoTypeIt';
 import { DemoQuickFire } from './DemoQuickFire';
 import { useLanguage } from '../../context/LanguageContext';
+import { LANGUAGE_CONFIGS } from '../../constants/language-config';
 
 interface GameShowcaseProps {
   isStudent: boolean;
   accentColor: string;
   sectionIndex?: number;
   isMobile?: boolean;
+  // Optional language overrides (for Hero page where user isn't logged in)
+  targetLanguage?: string | null;
+  nativeLanguage?: string | null;
 }
 
 const MODES = ['Flashcard', 'Multiple Choice', 'Type It', 'Quick Fire'] as const;
@@ -22,9 +26,23 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
   accentColor,
   sectionIndex,
   isMobile = false,
+  targetLanguage: propsTargetLanguage,
+  nativeLanguage: propsNativeLanguage,
 }) => {
   const { t } = useTranslation();
-  const { targetLanguage, nativeLanguage, targetName, nativeName } = useLanguage();
+  const contextLanguage = useLanguage();
+
+  // Use props if provided, otherwise fall back to context
+  const targetLanguage = propsTargetLanguage || contextLanguage.targetLanguage;
+  const nativeLanguage = propsNativeLanguage || contextLanguage.nativeLanguage;
+
+  // Compute names from configs if using props, otherwise use context
+  const targetName = propsTargetLanguage
+    ? LANGUAGE_CONFIGS[propsTargetLanguage]?.nativeName || propsTargetLanguage
+    : contextLanguage.targetName;
+  const nativeName = propsNativeLanguage
+    ? LANGUAGE_CONFIGS[propsNativeLanguage]?.nativeName || propsNativeLanguage
+    : contextLanguage.nativeName;
   const [currentMode, setCurrentMode] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
 
