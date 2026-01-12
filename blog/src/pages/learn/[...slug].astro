@@ -2,6 +2,28 @@
 import { getCollection } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
+// Language config for flags and names (subset of main app's LANGUAGE_CONFIGS)
+const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
+  en: { flag: '🇬🇧', name: 'English', nativeName: 'English' },
+  es: { flag: '🇪🇸', name: 'Spanish', nativeName: 'Español' },
+  fr: { flag: '🇫🇷', name: 'French', nativeName: 'Français' },
+  it: { flag: '🇮🇹', name: 'Italian', nativeName: 'Italiano' },
+  pt: { flag: '🇵🇹', name: 'Portuguese', nativeName: 'Português' },
+  ro: { flag: '🇷🇴', name: 'Romanian', nativeName: 'Română' },
+  de: { flag: '🇩🇪', name: 'German', nativeName: 'Deutsch' },
+  nl: { flag: '🇳🇱', name: 'Dutch', nativeName: 'Nederlands' },
+  sv: { flag: '🇸🇪', name: 'Swedish', nativeName: 'Svenska' },
+  no: { flag: '🇳🇴', name: 'Norwegian', nativeName: 'Norsk' },
+  da: { flag: '🇩🇰', name: 'Danish', nativeName: 'Dansk' },
+  pl: { flag: '🇵🇱', name: 'Polish', nativeName: 'Polski' },
+  cs: { flag: '🇨🇿', name: 'Czech', nativeName: 'Čeština' },
+  ru: { flag: '🇷🇺', name: 'Russian', nativeName: 'Русский' },
+  uk: { flag: '🇺🇦', name: 'Ukrainian', nativeName: 'Українська' },
+  el: { flag: '🇬🇷', name: 'Greek', nativeName: 'Ελληνικά' },
+  hu: { flag: '🇭🇺', name: 'Hungarian', nativeName: 'Magyar' },
+  tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
+};
+
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
   return articles.map((article) => ({
@@ -13,16 +35,30 @@ export async function getStaticPaths() {
 const { article, allArticles } = Astro.props;
 const { Content } = await article.render();
 
-// Get related articles: same category, excluding current, max 3
+// Extract language from slug (e.g., "pl/article-name" -> "pl")
+const languageCode = article.slug.split('/')[0] || article.data.language || 'pl';
+const languageInfo = LANGUAGE_INFO[languageCode] || LANGUAGE_INFO.pl;
+
+// Get related articles: same language and category, excluding current, max 3
 const relatedArticles = allArticles
-  .filter((a) => a.slug !== article.slug && a.data.category === article.data.category)
-  .sort(() => Math.random() - 0.5) // Shuffle for variety
+  .filter((a) => {
+    const aLang = a.slug.split('/')[0];
+    return a.slug !== article.slug &&
+           aLang === languageCode &&
+           a.data.category === article.data.category;
+  })
+  .sort(() => Math.random() - 0.5)
   .slice(0, 3);
 
-// If not enough in same category, fill with other articles
+// If not enough in same category, fill with other articles from same language
 if (relatedArticles.length < 3) {
   const otherArticles = allArticles
-    .filter((a) => a.slug !== article.slug && !relatedArticles.includes(a))
+    .filter((a) => {
+      const aLang = a.slug.split('/')[0];
+      return a.slug !== article.slug &&
+             aLang === languageCode &&
+             !relatedArticles.includes(a);
+    })
     .sort(() => Math.random() - 0.5)
     .slice(0, 3 - relatedArticles.length);
   relatedArticles.push(...otherArticles);
@@ -39,6 +75,8 @@ if (relatedArticles.length < 3) {
   date={article.data.date}
   tags={article.data.tags}
   relatedArticles={relatedArticles}
+  languageCode={languageCode}
+  languageInfo={languageInfo}
 >
   <Content />
 </ArticleLayout>

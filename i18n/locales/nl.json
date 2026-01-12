@@ -230,6 +230,14 @@
       "culturalMastery": "Culturele Beheersing",
       "completeMastery": "Volledige Beheersing",
       "practice": "Oefenen"
+    },
+    "tiers": {
+      "Beginner": "Beginner",
+      "Elementary": "Elementair",
+      "Conversational": "Conversatie",
+      "Proficient": "Gevorderd",
+      "Fluent": "Vloeiend",
+      "Master": "Meester"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Werkwoordbeheersing",
       "verbMasteryVerbs": "{{count}} werkwoorden",
       "learnVerbsFirst": "Leer eerst werkwoorden"
+    },
+    "loveNotes": {
+      "title": "Liefdesbriefjes van {{partner}}",
+      "subtitle": "Uitdagingen en cadeaus speciaal voor jou",
+      "empty": "Nog Geen Liefdesbriefjes",
+      "emptyDesc": "Wanneer {{partner}} je uitdagingen of woordcadeaus stuurt, verschijnen ze hier!",
+      "challenges": "Uitdagingen",
+      "wordGifts": "Woordcadeaus",
+      "wordGift": "Woordcadeau",
+      "quizChallenge": "Quiz Uitdaging",
+      "quickFire": "Snelvuur",
+      "words": "{{count}} woord",
+      "words_other": "{{count}} woorden",
+      "from": "Van {{partner}}",
+      "goToGames": "Naar Oefenspellen"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Talen",
+      "nativeLanguage": "Moedertaal",
+      "learning": "Aan het leren",
+      "active": "Actief",
+      "wordsLearned": "{{count}} woord geleerd",
+      "wordsLearned_other": "{{count}} woorden geleerd",
+      "loading": "Laden...",
+      "switch": "Wisselen",
+      "switching": "Wisselen...",
+      "addLanguage": "Taal Toevoegen",
+      "comingSoon": "Binnenkort beschikbaar! Voeg meer talen toe met een premium abonnement."
+    },
     "roles": {
       "student": "Leert {{language}}",
       "tutor": "Taalcoach"
@@ -360,7 +396,7 @@
       "smartModeDesc": "AI accepteert synoniemen, typfouten & variaties",
       "strictModeDesc": "Alleen exacte antwoorden (accenten genegeerd)",
       "preview": "Voorbeeld",
-      "previewText": "<strong>Kocham cię</strong> betekent 'Ik hou van je' in {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> betekent 'Ik hou van je' in {{language}}"
     },
     "advanced": {
       "title": "Geavanceerde Voorkeuren",
@@ -955,6 +991,16 @@
       "beginner": "beginner",
       "intermediate": "gemiddeld",
       "advanced": "gevorderd"
+    },
+    "scenarios": {
+      "cafe": { "name": "In het Café", "description": "Koffie en een snack bestellen" },
+      "restaurant": { "name": "Diner in Restaurant", "description": "Een maaltijd bestellen en aanbevelingen vragen" },
+      "market": { "name": "Op de Markt", "description": "Fruit en groenten kopen" },
+      "taxi": { "name": "Taxirit", "description": "Routebeschrijving geven en kletsen met de chauffeur" },
+      "pharmacy": { "name": "Bij de Apotheek", "description": "Medicijnen vragen en symptomen beschrijven" },
+      "hotel": { "name": "Hotel Inchecken", "description": "Inchecken en vragen over voorzieningen" },
+      "family_dinner": { "name": "Familiediner", "description": "De ouders van je partner ontmoeten" },
+      "train_station": { "name": "Treinstation", "description": "Kaartjes kopen en dienstregeling checken" }
     },
     "createOwn": "Maak Je Eigen",
     "createOwnDesc": "Beschrijf elk scenario dat je wilt oefenen",
@@ -1659,6 +1705,11 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Ik spreek...",
+      "targetPrompt": "Ik wil leren...",
+      "targetPromptTutor": "Ik wil lesgeven..."
+    },
     "toggle": {
       "learn": "Leren",
       "teach": "Lesgeven"

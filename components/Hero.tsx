@@ -8,6 +8,7 @@ import { ICONS } from '../constants';
 import { DEFAULT_THEME, applyTheme } from '../services/theme';
 import { GameShowcase } from './hero/GameShowcase';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES, LanguageCode } from '../constants/language-config';
+import { useHoneypot } from '../hooks/useHoneypot';
 
 type HeroRole = 'student' | 'tutor';
 
@@ -1702,6 +1703,9 @@ const Hero: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [message, setMessage] = useState('');
   const [selectedRole, setSelectedRole] = useState<HeroRole>('student');
+
+  // Honeypot anti-bot protection
+  const { honeypotProps, honeypotStyles, isBot } = useHoneypot();
   const [activeSection, setActiveSection] = useState(0);
   const [visibleSections, setVisibleSections] = useState<Set<number>>(new Set([0]));
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -1713,6 +1717,10 @@ const Hero: React.FC = () => {
   const [nativeLanguage, setNativeLanguage] = useState<string | null>(null);
   const [selectedTargetLanguage, setSelectedTargetLanguage] = useState<string | null>(null);
   const [stepTransition, setStepTransition] = useState<'entering' | 'exiting' | null>(null);
+
+  // Mobile language pagination state (6 languages per page)
+  const [mobileNativePage, setMobileNativePage] = useState(0);
+  const [mobileTargetPage, setMobileTargetPage] = useState(0);
 
   // Initialize from localStorage, URL param, and browser language
   useEffect(() => {
@@ -1924,18 +1932,54 @@ const Hero: React.FC = () => {
     setLoading(true);
     setMessage('');
 
+    // Honeypot check: if bot filled the hidden field, fake success silently
+    if (isBot()) {
+      // Simulate normal delay then show "success" to not tip off the bot
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (isSignUp) {
+        setMessage(t('hero.login.checkEmail'));
+      }
+      setLoading(false);
+      return;
+    }
+
     const { error } = isSignUp
       ? await supabase.auth.signUp({
           email,
           password,
           options: {
-            data: { intended_role: selectedRole }
+            data: {
+              intended_role: selectedRole,
+              // Store language selection in user metadata for email confirmation flow
+              // (localStorage may not be available when user clicks confirmation link)
+              native_language: nativeLanguage || 'en',
+              target_language: selectedTargetLanguage || 'pl'
+            }
           }
         })
       : await supabase.auth.signInWithPassword({ email, password });
 
-    if (error) setMessage(error.message);
-    else if (isSignUp) setMessage(t('hero.login.checkEmail'));
+    if (error) {
+      setMessage(error.message);
+    } else if (isSignUp) {
+      setMessage(t('hero.login.checkEmail'));
+    } else {
+      // For sign-in: Update profile with user's language selection from Hero page
+      // This ensures localStorage languages override database defaults (pl/en)
+      const storedTarget = localStorage.getItem('preferredTargetLanguage');
+      const storedNative = localStorage.getItem('preferredLanguage');
+
+      if (storedTarget || storedNative) {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          await supabase.from('profiles').update({
+            active_language: storedTarget || 'pl',
+            native_language: storedNative || 'en',
+            languages: [storedTarget || 'pl']
+          }).eq('id', user.id);
+        }
+      }
+    }
 
     setLoading(false);
   };
@@ -1960,29 +2004,42 @@ const Hero: React.FC = () => {
     >
       {/* Mobile: Full-screen layout with horizontal swipe carousel */}
       <div className="md:hidden flex flex-col h-screen overflow-hidden">
-        {/* Top: Learn/Teach Toggle */}
-        <div className="flex-shrink-0 p-4 flex justify-center">
-          <div className="flex gap-2">
+        {/* Top: Logo on left, Learn/Teach Toggle on right */}
+        <div className="flex-shrink-0 px-4 py-3 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center gap-1.5">
+            <div
+              className="p-1.5 rounded-lg shadow-md"
+              style={{ backgroundColor: accentColor, boxShadow: `0 4px 8px -2px ${accentShadow}` }}
+            >
+              <ICONS.Heart className="text-white fill-white w-4 h-4" />
+            </div>
+            <span className="text-base font-black font-header tracking-tight" style={{ color: accentColor }}>
+              Love Languages
+            </span>
+          </div>
+          {/* Learn/Teach Toggle */}
+          <div className="flex gap-1.5">
             <button
               onClick={() => { setSelectedRole('student'); setActiveSection(0); }}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-bold transition-all"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all"
               style={isStudent
-                ? { backgroundColor: BRAND.primary, boxShadow: `0 8px 12px -3px ${BRAND.shadow}`, color: '#ffffff' }
+                ? { backgroundColor: BRAND.primary, boxShadow: `0 4px 8px -2px ${BRAND.shadow}`, color: '#ffffff' }
                 : { backgroundColor: '#f3f4f6', color: '#4b5563' }
               }
             >
-              <ICONS.Heart className="w-4 h-4" style={{ color: isStudent ? '#ffffff' : '#4b5563', fill: isStudent ? '#ffffff' : 'none' }} />
+              <ICONS.Heart className="w-3.5 h-3.5" style={{ color: isStudent ? '#ffffff' : '#4b5563', fill: isStudent ? '#ffffff' : 'none' }} />
               <span>{t('hero.toggle.learn')}</span>
             </button>
             <button
               onClick={() => { setSelectedRole('tutor'); setActiveSection(0); }}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-sm font-bold transition-all"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all"
               style={!isStudent
-                ? { backgroundColor: BRAND.teal, boxShadow: `0 8px 12px -3px ${BRAND.tealShadow}`, color: '#ffffff' }
+                ? { backgroundColor: BRAND.teal, boxShadow: `0 4px 8px -2px ${BRAND.tealShadow}`, color: '#ffffff' }
                 : { backgroundColor: '#f3f4f6', color: '#4b5563' }
               }
             >
-              <ICONS.Sparkles className="w-4 h-4" style={{ color: !isStudent ? '#ffffff' : '#4b5563' }} />
+              <ICONS.Sparkles className="w-3.5 h-3.5" style={{ color: !isStudent ? '#ffffff' : '#4b5563' }} />
               <span>{t('hero.toggle.teach')}</span>
             </button>
           </div>
@@ -2007,78 +2064,146 @@ const Hero: React.FC = () => {
           >
             {/* Step 1: Native Language Selection */}
             <div className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center px-6 py-4 overflow-y-auto">
-              {/* Logo */}
-              <div className="flex items-center gap-2 mb-4">
-                <div
-                  className="p-2 rounded-xl shadow-lg"
-                  style={{ backgroundColor: accentColor, boxShadow: `0 8px 16px -4px ${accentShadow}` }}
-                >
-                  <ICONS.Heart className="text-white fill-white w-5 h-5" />
-                </div>
-                <h1 className="text-xl font-black font-header tracking-tight" style={{ color: accentColor }}>
-                  Love Languages
-                </h1>
-              </div>
-              <h2 className="text-xl font-black mb-2" style={{ color: '#1a1a2e' }}>
-                {t('hero.languageSelector.nativeTitle')}
-              </h2>
-              <p className="text-sm mb-4 font-medium" style={{ color: '#6b7280' }}>
-                {t('hero.languageSelector.nativeSubtitle')}
+              <p className="text-base font-bold mb-4" style={{ color: '#4b5563' }}>
+                {t('hero.languageSelector.nativePrompt')}
               </p>
-              <div className="grid grid-cols-6 gap-1.5">
-                {Object.values(LANGUAGE_CONFIGS).map(lang => (
-                  <button
-                    key={lang.code}
-                    onClick={() => handleNativeSelect(lang.code)}
-                    className="flex flex-col items-center gap-0.5 p-1.5 rounded-lg border transition-all"
-                    style={{
-                      borderColor: nativeLanguage === lang.code ? accentColor : '#e5e7eb',
-                      backgroundColor: nativeLanguage === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
-                      boxShadow: nativeLanguage === lang.code ? `0 0 0 2px ${accentColor}` : 'none',
-                    }}
-                  >
-                    <span className="text-lg">{lang.flag}</span>
-                    <span className="text-[8px] font-bold text-gray-600 truncate w-full text-center leading-tight">{lang.nativeName}</span>
-                  </button>
-                ))}
-              </div>
+              {/* Paginated language grid with arrows */}
+              {(() => {
+                const allLangs = Object.values(LANGUAGE_CONFIGS);
+                const perPage = 6;
+                const totalPages = Math.ceil(allLangs.length / perPage);
+                const startIdx = mobileNativePage * perPage;
+                const pageLangs = allLangs.slice(startIdx, startIdx + perPage);
+
+                return (
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-2">
+                      {/* Left arrow */}
+                      <button
+                        onClick={() => setMobileNativePage(p => Math.max(0, p - 1))}
+                        disabled={mobileNativePage === 0}
+                        className="p-2 rounded-full transition-all disabled:opacity-30"
+                        style={{ backgroundColor: mobileNativePage > 0 ? (isStudent ? BRAND.light : BRAND.tealLight) : '#f3f4f6' }}
+                      >
+                        <ICONS.ChevronLeft className="w-5 h-5" style={{ color: accentColor }} />
+                      </button>
+
+                      {/* Language grid - 3 cols x 2 rows */}
+                      <div className="flex-1 grid grid-cols-3 gap-2.5">
+                        {pageLangs.map(lang => (
+                          <button
+                            key={lang.code}
+                            onClick={() => handleNativeSelect(lang.code)}
+                            className="flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all min-w-0"
+                            style={{
+                              borderColor: nativeLanguage === lang.code ? accentColor : '#e5e7eb',
+                              backgroundColor: nativeLanguage === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
+                              boxShadow: nativeLanguage === lang.code ? `0 4px 12px -2px ${accentColor}40` : 'none',
+                            }}
+                          >
+                            <span className="text-2xl">{lang.flag}</span>
+                            <span className="text-[11px] font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Right arrow */}
+                      <button
+                        onClick={() => setMobileNativePage(p => Math.min(totalPages - 1, p + 1))}
+                        disabled={mobileNativePage >= totalPages - 1}
+                        className="p-2 rounded-full transition-all disabled:opacity-30"
+                        style={{ backgroundColor: mobileNativePage < totalPages - 1 ? (isStudent ? BRAND.light : BRAND.tealLight) : '#f3f4f6' }}
+                      >
+                        <ICONS.ChevronRight className="w-5 h-5" style={{ color: accentColor }} />
+                      </button>
+                    </div>
+
+                    {/* Page dots */}
+                    <div className="flex justify-center gap-1.5">
+                      {Array.from({ length: totalPages }).map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setMobileNativePage(i)}
+                          className={`w-2 h-2 rounded-full transition-all ${mobileNativePage === i ? 'scale-125' : 'opacity-40'}`}
+                          style={{ backgroundColor: accentColor }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Step 2: Target Language Selection */}
             <div className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center px-6 py-4 overflow-y-auto">
-              <button
-                onClick={handleBack}
-                className="flex items-center gap-1 mb-4 text-sm font-bold"
-                style={{ color: accentColor }}
-              >
-                <ICONS.ChevronLeft className="w-4 h-4" />
-                {t('hero.languageSelector.back')}
-              </button>
-              <h2 className="text-xl font-black mb-2" style={{ color: '#1a1a2e' }}>
-                {t('hero.languageSelector.targetTitle')}
-              </h2>
-              <p className="text-sm mb-4 font-medium" style={{ color: '#6b7280' }}>
-                {t('hero.languageSelector.targetSubtitle')}
+              <p className="text-base font-bold mb-4" style={{ color: '#4b5563' }}>
+                {isStudent ? t('hero.languageSelector.targetPrompt') : t('hero.languageSelector.targetPromptTutor')}
               </p>
-              <div className="grid grid-cols-6 gap-1.5">
-                {Object.values(LANGUAGE_CONFIGS)
-                  .filter(lang => lang.code !== nativeLanguage)
-                  .map(lang => (
-                    <button
-                      key={lang.code}
-                      onClick={() => handleTargetSelect(lang.code)}
-                      className="flex flex-col items-center gap-0.5 p-1.5 rounded-lg border transition-all"
-                      style={{
-                        borderColor: selectedTargetLanguage === lang.code ? accentColor : '#e5e7eb',
-                        backgroundColor: selectedTargetLanguage === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
-                        boxShadow: selectedTargetLanguage === lang.code ? `0 0 0 2px ${accentColor}` : 'none',
-                      }}
-                    >
-                      <span className="text-lg">{lang.flag}</span>
-                      <span className="text-[8px] font-bold text-gray-600 truncate w-full text-center leading-tight">{lang.nativeName}</span>
-                    </button>
-                  ))}
-              </div>
+              {/* Paginated language grid with arrows */}
+              {(() => {
+                const allLangs = Object.values(LANGUAGE_CONFIGS).filter(lang => lang.code !== nativeLanguage);
+                const perPage = 6;
+                const totalPages = Math.ceil(allLangs.length / perPage);
+                const startIdx = mobileTargetPage * perPage;
+                const pageLangs = allLangs.slice(startIdx, startIdx + perPage);
+
+                return (
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center gap-2">
+                      {/* Left arrow */}
+                      <button
+                        onClick={() => setMobileTargetPage(p => Math.max(0, p - 1))}
+                        disabled={mobileTargetPage === 0}
+                        className="p-2 rounded-full transition-all disabled:opacity-30"
+                        style={{ backgroundColor: mobileTargetPage > 0 ? (isStudent ? BRAND.light : BRAND.tealLight) : '#f3f4f6' }}
+                      >
+                        <ICONS.ChevronLeft className="w-5 h-5" style={{ color: accentColor }} />
+                      </button>
+
+                      {/* Language grid - 3 cols x 2 rows */}
+                      <div className="flex-1 grid grid-cols-3 gap-2.5">
+                        {pageLangs.map(lang => (
+                          <button
+                            key={lang.code}
+                            onClick={() => handleTargetSelect(lang.code)}
+                            className="flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all min-w-0"
+                            style={{
+                              borderColor: selectedTargetLanguage === lang.code ? accentColor : '#e5e7eb',
+                              backgroundColor: selectedTargetLanguage === lang.code ? (isStudent ? BRAND.light : BRAND.tealLight) : '#ffffff',
+                              boxShadow: selectedTargetLanguage === lang.code ? `0 4px 12px -2px ${accentColor}40` : 'none',
+                            }}
+                          >
+                            <span className="text-2xl">{lang.flag}</span>
+                            <span className="text-[11px] font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Right arrow */}
+                      <button
+                        onClick={() => setMobileTargetPage(p => Math.min(totalPages - 1, p + 1))}
+                        disabled={mobileTargetPage >= totalPages - 1}
+                        className="p-2 rounded-full transition-all disabled:opacity-30"
+                        style={{ backgroundColor: mobileTargetPage < totalPages - 1 ? (isStudent ? BRAND.light : BRAND.tealLight) : '#f3f4f6' }}
+                      >
+                        <ICONS.ChevronRight className="w-5 h-5" style={{ color: accentColor }} />
+                      </button>
+                    </div>
+
+                    {/* Page dots */}
+                    <div className="flex justify-center gap-1.5">
+                      {Array.from({ length: totalPages }).map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setMobileTargetPage(i)}
+                          className={`w-2 h-2 rounded-full transition-all ${mobileTargetPage === i ? 'scale-125' : 'opacity-40'}`}
+                          style={{ backgroundColor: accentColor }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Step 3: Marketing Content (nested carousel) */}
@@ -2097,7 +2222,6 @@ const Hero: React.FC = () => {
                     {...section}
                     index={i}
                     isStudent={isStudent}
-                    showLogo={i === 0}
                   />
                 ))}
 
@@ -2120,16 +2244,6 @@ const Hero: React.FC = () => {
                 ))}
               </div>
 
-              {/* Language indicator overlay at bottom - no change button */}
-              {nativeLanguage && selectedTargetLanguage && (
-                <div className="absolute bottom-2 left-4 right-4 z-10">
-                  <div className="flex items-center justify-center gap-2 p-2 rounded-xl bg-white/80 backdrop-blur-sm">
-                    <span className="text-lg">{LANGUAGE_CONFIGS[nativeLanguage]?.flag}</span>
-                    <span className="text-gray-400 text-sm">→</span>
-                    <span className="text-lg">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.flag}</span>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -2206,7 +2320,10 @@ const Hero: React.FC = () => {
               </p>
             </div>
 
+            <style dangerouslySetInnerHTML={{ __html: honeypotStyles }} />
             <form onSubmit={handleAuth} className="space-y-3">
+              {/* Honeypot field - hidden from users, bots fill it */}
+              <input {...honeypotProps} />
               <input
                 type="email"
                 value={email}
@@ -2277,8 +2394,8 @@ const Hero: React.FC = () => {
           }`}
           style={{ scrollBehavior: 'smooth' }}
         >
-          {/* Background effects container */}
-          <div className="absolute inset-0 pointer-events-none">
+          {/* Background effects container - fixed position so hearts stay visible during scroll */}
+          <div className="fixed top-0 left-0 bottom-0 pointer-events-none z-0" style={{ width: '50%' }}>
             {/* Word particle effect - only show when languages are selected */}
             {currentStep === 'marketing' && nativeLanguage && selectedTargetLanguage && (
               <WordParticleEffect
@@ -2305,7 +2422,7 @@ const Hero: React.FC = () => {
               }`}
             >
               {/* Logo - sticky at top */}
-              <div className="sticky top-0 bg-gradient-to-b from-[#FFF0F3] via-[#FFF0F3] to-transparent pb-6 pt-2 -mt-2 z-10">
+              <div className="sticky top-0 pb-6 pt-2 -mt-2 z-10">
                 <div className="flex items-center gap-3">
                   <div
                     className="p-2.5 rounded-xl shadow-lg"
@@ -2354,7 +2471,7 @@ const Hero: React.FC = () => {
             <>
               {/* Sticky language indicator at top - each language clickable separately */}
               {nativeLanguage && selectedTargetLanguage && (
-                <div className="sticky top-0 z-20 bg-gradient-to-b from-[#FFF0F3] via-[#FFF0F3] to-transparent pb-8 pt-4">
+                <div className="sticky top-0 z-20 pb-8 pt-4">
                   <div className="mx-auto flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md w-fit">
                     {/* Native language - click to change */}
                     <button
@@ -2404,17 +2521,6 @@ const Hero: React.FC = () => {
                 />
               ))}
 
-              {/* Language indicator at bottom of last section */}
-              {nativeLanguage && selectedTargetLanguage && (
-                <div className="px-8 md:px-16 lg:px-24 pb-20">
-                  <LanguageIndicator
-                    nativeCode={nativeLanguage}
-                    targetCode={selectedTargetLanguage}
-                    onChangeClick={handleChangeLanguages}
-                    isStudent={isStudent}
-                  />
-                </div>
-              )}
             </>
           )}
         </div>

@@ -24,11 +24,6 @@ export const getVoicesForLanguage = (languageCode: string): SpeechSynthesisVoice
   );
 };
 
-// Legacy: Get available Polish voices (for backward compatibility)
-export const getPolishVoices = (): SpeechSynthesisVoice[] => {
-  return getVoicesForLanguage('pl');
-};
-
 // Fallback: Browser Web Speech API (language-aware)
 const fallbackSpeak = (text: string, languageCode: string = 'pl', rate: number = 0.85): void => {
   if (!isSpeechSupported()) {
@@ -53,11 +48,6 @@ const fallbackSpeak = (text: string, languageCode: string = 'pl', rate: number =
   }
 
   speechSynthesis.speak(utterance);
-};
-
-// Legacy fallback for Polish (backward compatibility)
-const fallbackSpeakPolish = (text: string, rate: number = 0.85): void => {
-  fallbackSpeak(text, 'pl', rate);
 };
 
 // Get auth headers for API calls
@@ -151,14 +141,6 @@ export const speak = async (text: string, languageCode: string = 'pl', rate: num
     console.warn('[audio] TTS failed, using fallback:', error);
     fallbackSpeak(text, languageCode, rate);
   }
-};
-
-/**
- * Legacy: Speak Polish text (backward compatibility)
- * Use speak(text, languageCode) for multi-language support
- */
-export const speakPolish = async (text: string, rate: number = 0.85): Promise<void> => {
-  return speak(text, 'pl', rate);
 };
 
 // Stop any ongoing speech

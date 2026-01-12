@@ -11,7 +11,7 @@ export interface LevelTheme {
   name: string;
   description: string;
   concepts: string[];
-  examples: string[];  // Reference examples (may be in any language)
+  examples?: string[];  // Optional: Reference examples (Polish legacy, not used by API)
 }
 
 // Tier definitions with XP ranges
@@ -340,9 +340,9 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
   },
   'Proficient 3->Fluent 1': {
     name: 'Cultural Nuance',
-    description: 'Understand Polish expressions and culture',
+    description: 'Understand native expressions and culture',
     concepts: [
-      'Polish idioms',
+      'idioms',
       'cultural expressions',
       'formal vs informal',
       'family terms',
@@ -411,13 +411,13 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
     ]
   },
   'Fluent 3->Master 1': {
-    name: 'Expert Polish',
+    name: 'Expert Level',
     description: 'Master the intricacies of the language',
     concepts: [
       'archaic expressions',
       'regional dialects',
       'professional jargon',
-      'academic Polish',
+      'academic language',
       'legal/medical terms',
       'historical context',
       'linguistic analysis',
@@ -436,7 +436,7 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
   },
   'Master 1->2': {
     name: 'Cultural Mastery',
-    description: 'Deep understanding of Polish culture and history',
+    description: 'Deep understanding of the language culture and history',
     concepts: [
       'historical references',
       'literary allusions',

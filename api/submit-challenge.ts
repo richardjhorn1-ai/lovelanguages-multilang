@@ -309,7 +309,7 @@ export default async function handler(req: any, res: any) {
       // Step 4: Batch upsert ALL scores in ONE query
       if (scoreUpserts.length > 0) {
         await supabase.from('word_scores').upsert(scoreUpserts, {
-          onConflict: 'user_id,word_id,language_code'
+          onConflict: 'user_id,word_id'
         });
       }
     }

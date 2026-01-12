@@ -1,14 +1,16 @@
 ---
 interface Props {
   title?: string;
+  // Flag emoji for the target language (defaults to Polish for backward compatibility)
+  flag?: string;
 }
 
-const { title = "Cultural Tip" } = Astro.props;
+const { title = "Cultural Tip", flag = "🇵🇱" } = Astro.props;
 ---
 
 <div class="my-8 bg-amber-50 border border-amber-200 rounded-2xl p-6">
   <div class="flex items-center gap-2 mb-3">
-    <span class="text-2xl">🇵🇱</span>
+    <span class="text-2xl">{flag}</span>
     <h4 class="font-bold text-amber-800 font-header">{title}</h4>
   </div>
   <div class="text-amber-900">

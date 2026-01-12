@@ -230,6 +230,14 @@
       "culturalMastery": "Stapanirea Culturii",
       "completeMastery": "Stapanire Completa",
       "practice": "Practica"
+    },
+    "tiers": {
+      "Beginner": "Incepator",
+      "Elementary": "Elementar",
+      "Conversational": "Conversational",
+      "Proficient": "Avansat",
+      "Fluent": "Fluent",
+      "Master": "Maestru"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Stapanirea Verbelor",
       "verbMasteryVerbs": "{{count}} verbe",
       "learnVerbsFirst": "Invata verbe mai intai"
+    },
+    "loveNotes": {
+      "title": "Mesaje de Dragoste de la {{partner}}",
+      "subtitle": "Provocări și cadouri doar pentru tine",
+      "empty": "Niciun Mesaj de Dragoste Încă",
+      "emptyDesc": "Când {{partner}} îți trimite provocări sau cadouri de cuvinte, vor apărea aici!",
+      "challenges": "Provocări",
+      "wordGifts": "Cadouri de Cuvinte",
+      "wordGift": "Cadou de Cuvinte",
+      "quizChallenge": "Provocare Quiz",
+      "quickFire": "Foc Rapid",
+      "words": "{{count}} cuvânt",
+      "words_other": "{{count}} cuvinte",
+      "from": "De la {{partner}}",
+      "goToGames": "Mergi la Jocuri de Practică"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Limbi",
+      "nativeLanguage": "Limba Maternă",
+      "learning": "Învăț",
+      "active": "Activ",
+      "wordsLearned": "{{count}} cuvânt învățat",
+      "wordsLearned_other": "{{count}} cuvinte învățate",
+      "loading": "Se încarcă...",
+      "switch": "Schimbă",
+      "switching": "Se schimbă...",
+      "addLanguage": "Adaugă Limbă",
+      "comingSoon": "În curând! Adaugă mai multe limbi cu un abonament premium."
+    },
     "roles": {
       "student": "Invat {{language}}",
       "tutor": "Coach de Limba"
@@ -360,7 +396,7 @@
       "smartModeDesc": "AI accepta sinonime, greseli si variatii",
       "strictModeDesc": "Doar raspunsuri exacte (ignorand accentele)",
       "preview": "Previzualizare",
-      "previewText": "<strong>Kocham cie</strong> inseamna \"Te iubesc\" in {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> inseamna \"Te iubesc\" in {{language}}"
     },
     "advanced": {
       "title": "Preferinte Avansate",
@@ -955,6 +991,16 @@
       "beginner": "incepator",
       "intermediate": "intermediar",
       "advanced": "avansat"
+    },
+    "scenarios": {
+      "cafe": { "name": "La Cafenea", "description": "Comandă cafea și o gustare" },
+      "restaurant": { "name": "Cină la Restaurant", "description": "Comandă o masă și cere recomandări" },
+      "market": { "name": "La Piață", "description": "Cumpără fructe și legume" },
+      "taxi": { "name": "Cursă cu Taxi", "description": "Dă indicații și vorbește cu șoferul" },
+      "pharmacy": { "name": "La Farmacie", "description": "Cere medicamente și descrie simptomele" },
+      "hotel": { "name": "Check-in la Hotel", "description": "Fă check-in și întreabă despre facilități" },
+      "family_dinner": { "name": "Cină în Familie", "description": "Cunoaște părinții partenerului tău" },
+      "train_station": { "name": "Gara", "description": "Cumpără bilete și verifică orarul" }
     },
     "createOwn": "Creeaza-ti Propriul",
     "createOwnDesc": "Descrie orice scenariu vrei sa exersezi",
@@ -1659,6 +1705,11 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Eu vorbesc...",
+      "targetPrompt": "Vreau să învăț...",
+      "targetPromptTutor": "Vreau să predau..."
+    },
     "toggle": {
       "learn": "Invata",
       "teach": "Preda"

@@ -1,7 +1,7 @@
 # Love Languages - Product Roadmap
 
-**Updated:** January 10, 2026
-**Status:** Transforming to Multi-Language Platform
+**Updated:** January 12, 2026
+**Status:** Multi-Language Platform (18 Languages)
 
 A language learning app for couples where one partner learns their loved one's native language. Every word learned is a gift of love.
 
@@ -39,7 +39,7 @@ A language learning app for couples where one partner learns their loved one's n
 - Send quiz challenges and Love Packages
 - Conversation starters and encouragement
 
-### Phase 8: Codebase Cleanup (14/16)
+### Phase 8: Codebase Cleanup
 - Dead code removal, debug flags, API standardization
 - Auth logging, theme fixes, bug fixes
 - Profile photo upload
@@ -52,7 +52,8 @@ A language learning app for couples where one partner learns their loved one's n
 ### Phase 11: Security
 - Rate limiting via subscription tiers
 - Input validation, CORS, RLS fixes
-- Error sanitization
+- XSS prevention with DOMPurify
+- API endpoint hardening
 
 ### Phase 13: Legal
 - Privacy Policy, Terms of Service
@@ -63,49 +64,63 @@ A language learning app for couples where one partner learns their loved one's n
 ## Multi-Language Transformation
 
 > **The biggest upgrade this codebase will ever see.**
-> See `MULTILANGUAGE_TRANSFORMATION.md` for complete architecture details.
+> See `ML_MASTER_PLAN.md` for complete architecture details.
 
-### Phase ML-1: Foundation (Current)
-- [x] Create transformation planning document
-- [x] Create new repo (lovelanguages-multilang)
-- [x] Update documentation for new direction
-- [ ] Create `constants/language-config.ts` with all 18 languages
-- [ ] Create `utils/prompt-templates.ts` with template functions
-- [ ] Add database columns (with 'pl' defaults)
-- [ ] Create `user_languages` table
+### Phase ML-1 through ML-6: Core Transformation ✅
 
-### Phase ML-2: Backend Refactoring
-- [ ] Update all API endpoints to accept `languageCode`
-- [ ] Refactor AI prompts to use templates
-- [ ] Update validation logic per language
-- [ ] Rename `/api/polish-transcript` to `/api/process-transcript`
-- [ ] Language-aware diacritic handling
+All completed January 10-12, 2026:
 
-### Phase ML-3: Type System
-- [ ] Refactor `types.ts` field names (polish -> word)
-- [ ] Add language-specific grammar interfaces
-- [ ] Update `OnboardingData` to be generic
-- [ ] Create `TranslationDirection` type (replace polish_to_english)
+| Phase | Description | Status |
+|-------|-------------|--------|
+| ML-1 | Foundation Files (language-config, prompt-templates, schema-builders) | ✅ Complete |
+| ML-2 | Database & Backend APIs (18 endpoints updated) | ✅ Complete |
+| ML-3 | Type System (language-agnostic interfaces) | ✅ Complete |
+| ML-4 | Frontend Components (LanguageContext, all components) | ✅ Complete |
+| ML-5 | Scenarios & Content (universal scenarios, cultural adaptations) | ✅ Complete |
+| ML-6 | UI Internationalization (react-i18next, 18 language translations) | ✅ Complete |
+| ML-6.X | Bug Fixes (12 hardcoding issues resolved) | ✅ Complete |
 
-### Phase ML-4: Frontend Components
-- [ ] Add language selector to onboarding
-- [ ] Refactor `FlashcardGame.tsx` direction enums
-- [ ] Update all UI copy to use language config
-- [ ] Refactor onboarding steps to be language-agnostic
-- [ ] Language flag display throughout app
+### Phase ML-7: Blog Generator System ⏳
 
-### Phase ML-5: Scenarios & Content
-- [ ] Update conversation scenarios with cultural adaptations
-- [ ] Create romantic phrases for each language
-- [ ] Level test examples per language
-- [ ] TTS voice configuration per language
+Make the Astro blog multi-language aware:
+- Update article generator to accept language parameters
+- Add `--language` CLI flag to generation script
+- VocabCard component backward compatibility
 
-### Phase ML-6: Premium Multi-Language
-- [ ] Implement language switcher in settings
-- [ ] Add multi-language purchase flow (+$5/language/month)
-- [ ] Track per-language progress separately
-- [ ] Build language selection UI
-- [ ] Update pricing page
+### Phase ML-8: Settings & Language Switcher ⏳
+
+- Language switcher in settings
+- Profile language preferences display
+- Active language switching for premium users
+
+### Phase ML-9: Premium Multi-Language ⏳
+
+- +$5/language/month add-on
+- Language unlocking via Stripe
+- Multi-language purchase flow
+
+### Phase ML-10: Final Testing ⏳
+
+Test matrix across 6 representative language pairs.
+
+---
+
+## SEO & Content (From Original Repo)
+
+### Blog System ✅
+- Astro static site at `/learn`
+- 74 SEO-optimized articles
+- Article generator with Claude API
+
+### SEO Tools ✅
+- Name Day Finder (70+ Polish names)
+- Polish Dictionary (109 words)
+- Comparison landing pages (vs Duolingo, vs Babbel)
+
+### Content Infrastructure ✅
+- Category filters on blog listing
+- Internal linking with Related Articles
+- AI-generated hero images
 
 ---
 
@@ -123,16 +138,13 @@ A language learning app for couples where one partner learns their loved one's n
 
 ---
 
-## Post-Transformation Phases
+## Future Phases
 
 ### Phase 7: Mobile PWA
 - Add to home screen
 - Offline flashcard practice
 - Push notifications for daily practice
 - Mobile-optimized UI
-
-### Phase 9: Integration Testing
-Manual testing of user journeys across all languages.
 
 ### Phase 12: Scale Resilience
 - Gemini/Gladia cost monitoring per language
@@ -163,6 +175,8 @@ Manual testing of user journeys across all languages.
 | Speech | Gladia (Listen Mode transcription) |
 | Payments | Stripe |
 | Voice | Gemini Live API |
+| Blog | Astro (static site generation) |
+| i18n | react-i18next |
 
 ---
 
@@ -170,9 +184,11 @@ Manual testing of user journeys across all languages.
 
 | File | Purpose |
 |------|---------|
-| `MULTILANGUAGE_TRANSFORMATION.md` | Multi-language architecture (source of truth) |
+| `ML_MASTER_PLAN.md` | Multi-language transformation (source of truth) |
+| `STATUS.md` | Current project status |
 | `CLAUDE.md` | Development guidance |
 | `TROUBLESHOOTING.md` | Solved issues reference |
 | `DESIGN.md` | UI/UX guidelines |
+| `SEO.md` | Blog SEO work tracking |
 | `docs/AI_INTEGRATION_GUIDE.md` | AI implementation details |
 | `docs/SYSTEM_PROMPTS.md` | AI prompt documentation |

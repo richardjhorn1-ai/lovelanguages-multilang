@@ -26,7 +26,7 @@ function normalizeAnswer(s: string): string {
 async function validateAnswerSmart(
   userAnswer: string,
   correctAnswer: string,
-  polishWord?: string
+  targetWord?: string
 ): Promise<{ accepted: boolean; explanation: string }> {
   // Fast local match first
   if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
@@ -40,8 +40,8 @@ async function validateAnswerSmart(
       body: JSON.stringify({
         userAnswer,
         correctAnswer,
-        polishWord,
-        direction: 'polish_to_english'
+        targetWord,
+        direction: 'target_to_native'
       })
     });
 

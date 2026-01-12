@@ -101,11 +101,12 @@ The frontend renders special blocks for language learning:
 
 | File | Purpose |
 |------|---------|
-| `MULTILANGUAGE_TRANSFORMATION.md` | Multi-language architecture plan |
+| `ML_MASTER_PLAN.md` | Multi-language architecture (source of truth) |
 | `ROADMAP.md` | Product roadmap with completed/planned phases |
+| `STATUS.md` | Current project status |
 | `TROUBLESHOOTING.md` | 36+ issues documented with solutions |
+| `SEO.md` | Blog SEO work tracking (74 articles) |
 | `docs/AI_INTEGRATION_GUIDE.md` | Voice mode and Gemini API implementation |
-| `docs/FORMATTING.md` | Markdown rendering pipeline |
 | `docs/SYSTEM_PROMPTS.md` | AI prompt documentation |
 
 ---
@@ -119,4 +120,4 @@ Each supported language has a configuration that includes:
 - Transcription support (Gladia)
 - Voice mode support (Gemini Live)
 
-See `MULTILANGUAGE_TRANSFORMATION.md` for the complete language configuration system.
+See `ML_MASTER_PLAN.md` for the complete language configuration system.

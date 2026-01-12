@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 import { supabase } from '../services/supabase';
@@ -12,16 +13,17 @@ interface Props {
   profile: Profile;
 }
 
-const SEVERITY_OPTIONS: { value: BugReportSeverity; label: string; description: string; color: string }[] = [
-  { value: 'low', label: 'Low', description: 'Minor issue, cosmetic', color: 'text-slate-500' },
-  { value: 'medium', label: 'Medium', description: 'Affects usability', color: 'text-amber-500' },
-  { value: 'high', label: 'High', description: 'Major feature broken', color: 'text-orange-500' },
-  { value: 'critical', label: 'Critical', description: 'App unusable', color: 'text-red-500' },
-];
-
 export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) => {
+  const { t } = useTranslation();
   const { accentHex } = useTheme();
   const location = useLocation();
+
+  const SEVERITY_OPTIONS: { value: BugReportSeverity; label: string; description: string; color: string }[] = [
+    { value: 'low', label: t('bugReport.severity.low'), description: t('bugReport.severity.lowDescription'), color: 'text-slate-500' },
+    { value: 'medium', label: t('bugReport.severity.medium'), description: t('bugReport.severity.mediumDescription'), color: 'text-amber-500' },
+    { value: 'high', label: t('bugReport.severity.high'), description: t('bugReport.severity.highDescription'), color: 'text-orange-500' },
+    { value: 'critical', label: t('bugReport.severity.critical'), description: t('bugReport.severity.criticalDescription'), color: 'text-red-500' },
+  ];
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -34,7 +36,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
     e.preventDefault();
 
     if (!title.trim() || !description.trim()) {
-      setError('Please fill in all required fields');
+      setError(t('bugReport.errors.fillRequired'));
       return;
     }
 
@@ -44,7 +46,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) {
-        setError('Please sign in to submit a bug report');
+        setError(t('bugReport.errors.signIn'));
         return;
       }
 
@@ -86,7 +88,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
       setSubmitted(true);
     } catch (err: any) {
       console.error('Bug report submission error:', err);
-      setError(err.message || 'Failed to submit. Please try again.');
+      setError(err.message || t('bugReport.errors.failed'));
     } finally {
       setIsSubmitting(false);
     }
@@ -125,8 +127,8 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 <ICONS.Bug className="w-5 h-5" style={{ color: accentHex }} />
               </div>
               <div>
-                <h2 className="font-header font-bold text-lg text-[var(--text-primary)]">Report a Bug</h2>
-                <p className="text-xs text-[var(--text-secondary)]">Help us improve Love Languages</p>
+                <h2 className="font-header font-bold text-lg text-[var(--text-primary)]">{t('bugReport.title')}</h2>
+                <p className="text-xs text-[var(--text-secondary)]">{t('bugReport.subtitle')}</p>
               </div>
             </div>
             <button
@@ -147,16 +149,16 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 >
                   <ICONS.Check className="w-8 h-8" style={{ color: accentHex }} />
                 </div>
-                <h3 className="font-bold text-lg text-[var(--text-primary)] mb-2">Thank you!</h3>
+                <h3 className="font-bold text-lg text-[var(--text-primary)] mb-2">{t('bugReport.success.title')}</h3>
                 <p className="text-sm text-[var(--text-secondary)] mb-6">
-                  Your bug report has been submitted. We'll look into it and work on a fix.
+                  {t('bugReport.success.message')}
                 </p>
                 <button
                   onClick={handleClose}
                   className="px-6 py-2.5 rounded-xl font-medium text-white transition-all hover:opacity-90"
                   style={{ backgroundColor: accentHex }}
                 >
-                  Close
+                  {t('bugReport.success.close')}
                 </button>
               </div>
             ) : (
@@ -164,13 +166,13 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 {/* Title */}
                 <div>
                   <label className="block text-sm font-medium text-[var(--text-primary)] mb-1.5">
-                    What went wrong? <span className="text-red-500">*</span>
+                    {t('bugReport.titleLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Brief description of the issue"
+                    placeholder={t('bugReport.titlePlaceholder')}
                     className="w-full px-4 py-2.5 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[var(--accent-color)] transition-colors"
                     maxLength={255}
                     disabled={isSubmitting}
@@ -180,12 +182,12 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 {/* Description */}
                 <div>
                   <label className="block text-sm font-medium text-[var(--text-primary)] mb-1.5">
-                    Details <span className="text-red-500">*</span>
+                    {t('bugReport.detailsLabel')} <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    placeholder="What were you doing when this happened? What did you expect to happen?"
+                    placeholder={t('bugReport.detailsPlaceholder')}
                     rows={4}
                     className="w-full px-4 py-2.5 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[var(--accent-color)] transition-colors resize-none"
                     disabled={isSubmitting}
@@ -195,7 +197,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 {/* Severity */}
                 <div>
                   <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">
-                    How severe is this issue?
+                    {t('bugReport.severity.label')}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {SEVERITY_OPTIONS.map((option) => (
@@ -221,7 +223,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 <div className="flex items-start gap-2 p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)]">
                   <ICONS.HelpCircle className="w-4 h-4 text-[var(--text-secondary)] flex-shrink-0 mt-0.5" />
                   <p className="text-xs text-[var(--text-secondary)]">
-                    We'll automatically include your current page, browser info, and app state to help us investigate.
+                    {t('bugReport.autoCaptureNote')}
                   </p>
                 </div>
 
@@ -240,7 +242,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                     disabled={isSubmitting}
                     className="flex-1 px-4 py-2.5 rounded-xl font-medium text-[var(--text-secondary)] bg-[var(--bg-primary)] hover:bg-[var(--border-color)] transition-colors"
                   >
-                    Cancel
+                    {t('bugReport.cancel')}
                   </button>
                   <button
                     type="submit"
@@ -251,10 +253,10 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                     {isSubmitting ? (
                       <>
                         <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Submitting...
+                        {t('bugReport.submitting')}
                       </>
                     ) : (
-                      'Submit Report'
+                      t('bugReport.submit')
                     )}
                   </button>
                 </div>

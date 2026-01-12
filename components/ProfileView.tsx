@@ -9,6 +9,7 @@ import UsageSection from './UsageSection';
 import InvitePartnerSection from './InvitePartnerSection';
 import BreakupModal from './BreakupModal';
 import AvatarUpload from './AvatarUpload';
+import LanguagesSection from './LanguagesSection';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
@@ -51,6 +52,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const { t } = useTranslation();
   const { targetLanguage } = useLanguage();
   const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'your language';
+  const iLoveYou = LANGUAGE_CONFIGS[targetLanguage]?.examples?.iLoveYou || 'I love you';
 
   // Am I the payer (not receiving inherited subscription)?
   const isPayer = !profile.subscription_granted_by;
@@ -167,6 +169,9 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             </p>
           </div>
         </div>
+
+        {/* Languages Section */}
+        <LanguagesSection profile={profile} onRefresh={onRefresh} />
 
         {/* Subscription Manager */}
         <SubscriptionManager
@@ -373,7 +378,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <p
                   className="text-[var(--text-primary)]"
                   dangerouslySetInnerHTML={{
-                    __html: t('profile.customisation.previewText', { language: targetName })
+                    __html: t('profile.customisation.previewText', { language: targetName, iLoveYou })
                   }}
                 />
               </div>
@@ -524,8 +529,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.languageConnection', { language: targetName })}</label>
                     <select
-                      value={editData.polishConnection || ''}
-                      onChange={(e) => updateField('polishConnection', e.target.value)}
+                      value={editData.languageConnection || editData.polishConnection || ''}
+                      onChange={(e) => updateField('languageConnection', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
@@ -536,8 +541,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.howYouLearned', { language: targetName })}</label>
                     <select
-                      value={editData.polishOrigin || ''}
-                      onChange={(e) => updateField('polishOrigin', e.target.value)}
+                      value={editData.languageOrigin || editData.polishOrigin || ''}
+                      onChange={(e) => updateField('languageOrigin', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
@@ -614,7 +619,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               >
                 <span className="text-xl">📖</span>
                 <div className="flex-1">
-                  <p className="font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">Learn Polish Blog</p>
+                  <p className="font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">{t('profile.links.blog', { language: targetName })}</p>
                   <p className="text-xs text-[var(--text-secondary)]">Free articles, phrases & culture guides</p>
                 </div>
                 <ICONS.ChevronDown className="w-4 h-4 text-[var(--text-secondary)] -rotate-90" />

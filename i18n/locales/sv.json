@@ -230,6 +230,14 @@
       "culturalMastery": "Kulturell mästerskap",
       "completeMastery": "Fullständigt mästerskap",
       "practice": "Övning"
+    },
+    "tiers": {
+      "Beginner": "Nybörjare",
+      "Elementary": "Grundläggande",
+      "Conversational": "Konversation",
+      "Proficient": "Avancerad",
+      "Fluent": "Flytande",
+      "Master": "Mästare"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Verbmästerskap",
       "verbMasteryVerbs": "{{count}} verb",
       "learnVerbsFirst": "Lär dig verb först"
+    },
+    "loveNotes": {
+      "title": "Kärleksbrev från {{partner}}",
+      "subtitle": "Utmaningar och gåvor bara för dig",
+      "empty": "Inga Kärleksbrev Ännu",
+      "emptyDesc": "När {{partner}} skickar dig utmaningar eller ordgåvor, dyker de upp här!",
+      "challenges": "Utmaningar",
+      "wordGifts": "Ordgåvor",
+      "wordGift": "Ordgåva",
+      "quizChallenge": "Quiz Utmaning",
+      "quickFire": "Snabbeld",
+      "words": "{{count}} ord",
+      "words_other": "{{count}} ord",
+      "from": "Från {{partner}}",
+      "goToGames": "Gå till Övningsspel"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Språk",
+      "nativeLanguage": "Modersmål",
+      "learning": "Lär sig",
+      "active": "Aktiv",
+      "wordsLearned": "{{count}} ord inlärt",
+      "wordsLearned_other": "{{count}} ord inlärda",
+      "loading": "Laddar...",
+      "switch": "Byt",
+      "switching": "Byter...",
+      "addLanguage": "Lägg till Språk",
+      "comingSoon": "Kommer snart! Lägg till fler språk med ett premiumabonnemang."
+    },
     "roles": {
       "student": "Lär mig {{language}}",
       "tutor": "Språkcoach"
@@ -360,7 +396,7 @@
       "smartModeDesc": "AI accepterar synonymer, stavfel och variationer",
       "strictModeDesc": "Endast exakta svar (ignorerar accenter)",
       "preview": "Förhandsvisning",
-      "previewText": "<strong>Kocham cię</strong> betyder 'Jag älskar dig' på {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> betyder 'Jag älskar dig' på {{language}}"
     },
     "advanced": {
       "title": "Avancerade inställningar",
@@ -955,6 +991,16 @@
       "beginner": "nybörjare",
       "intermediate": "medel",
       "advanced": "avancerad"
+    },
+    "scenarios": {
+      "cafe": { "name": "På Kaféet", "description": "Beställa kaffe och ett mellanmål" },
+      "restaurant": { "name": "Middag på Restaurang", "description": "Beställa en måltid och fråga efter rekommendationer" },
+      "market": { "name": "På Marknaden", "description": "Köpa frukt och grönsaker" },
+      "taxi": { "name": "Taxiresa", "description": "Ge vägbeskrivning och prata med föraren" },
+      "pharmacy": { "name": "På Apoteket", "description": "Fråga efter medicin och beskriva symtom" },
+      "hotel": { "name": "Hotell Incheckning", "description": "Checka in och fråga om bekvämligheter" },
+      "family_dinner": { "name": "Familjemiddag", "description": "Träffa din partners föräldrar" },
+      "train_station": { "name": "Tågstation", "description": "Köpa biljetter och kolla tidtabellen" }
     },
     "createOwn": "Skapa eget",
     "createOwnDesc": "Beskriv vilket scenario du vill öva",
@@ -1659,6 +1705,11 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Jag talar...",
+      "targetPrompt": "Jag vill lära mig...",
+      "targetPromptTutor": "Jag vill lära ut..."
+    },
     "toggle": {
       "learn": "Lär",
       "teach": "Lär ut"

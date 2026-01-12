@@ -57,3 +57,35 @@ const fullTitle = `${title} | Love Languages`;
 <meta property="twitter:title" content={fullTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={fullImage} />
+
+<!-- Article JSON-LD Structured Data -->
+{article && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": fullImage,
+    "datePublished": article.publishedTime,
+    "dateModified": article.modifiedTime || article.publishedTime,
+    "author": {
+      "@type": "Organization",
+      "name": "Love Languages",
+      "url": siteUrl
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Love Languages",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/favicon.svg`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": fullUrl
+    },
+    "articleSection": article.section || "Polish Language Learning",
+    "keywords": article.tags?.join(", ") || "Polish, language learning, couples"
+  })} />
+)}

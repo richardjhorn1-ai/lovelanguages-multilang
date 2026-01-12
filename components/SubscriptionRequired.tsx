@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile } from '../types';
@@ -15,9 +15,20 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showCanceledMessage, setShowCanceledMessage] = useState(false);
 
   const { t } = useTranslation();
   const { targetName } = useLanguage();
+
+  // Detect subscription=canceled URL param from Stripe checkout
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('subscription') === 'canceled') {
+      setShowCanceledMessage(true);
+      // Clean up URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, []);
 
   const plans = [
     {
@@ -102,8 +113,8 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         },
         body: JSON.stringify({
           priceId,
-          successUrl: `${window.location.origin}/?subscription=success`,
-          cancelUrl: `${window.location.origin}/?subscription=canceled`
+          successUrl: `${window.location.origin}/#/?subscription=success`,
+          cancelUrl: `${window.location.origin}/#/?subscription=canceled`
         })
       });
 
@@ -140,6 +151,23 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
             {t('subscription.required.subtitle', { language: targetName })}
           </p>
         </div>
+
+        {/* Canceled checkout message */}
+        {showCanceledMessage && (
+          <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl flex-shrink-0">👋</span>
+              <div>
+                <h3 className="font-bold text-amber-800 mb-1">
+                  {t('subscription.canceled.title')}
+                </h3>
+                <p className="text-amber-700 text-sm">
+                  {t('subscription.canceled.message')}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Billing Toggle */}
         <div className="flex justify-center mb-6">

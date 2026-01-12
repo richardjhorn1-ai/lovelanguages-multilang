@@ -17,12 +17,28 @@ import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
 interface TranscriptEntry {
   id: string;
   speaker: string;
-  polish: string;
-  english: string;
+  word: string;          // Target language text (was 'polish')
+  translation: string;   // Native language translation (was 'english')
   timestamp: number;
   isBookmarked: boolean;
   isFinal: boolean;
-  language?: string;  // Detected language code: 'pl', 'en', etc.
+  language?: string;  // 'target' | 'native' | 'mixed' or legacy language code
+}
+
+// Normalize old session data (polish/english) to new format (word/translation)
+// Provides backward compatibility for sessions saved before multi-language update
+function normalizeTranscriptEntries(entries: any[]): TranscriptEntry[] {
+  if (!entries || !Array.isArray(entries)) return [];
+  return entries.map(e => ({
+    id: e.id || `entry_${Date.now()}`,
+    speaker: e.speaker || 'speaker_0',
+    word: e.word || e.polish || e.text || '',           // Support: word, polish, text
+    translation: e.translation || e.english || '',      // Support: translation, english
+    timestamp: e.timestamp || Date.now(),
+    isBookmarked: e.isBookmarked || false,
+    isFinal: e.isFinal !== false,
+    language: e.language,
+  }));
 }
 
 // Get flag emoji for detected language
@@ -91,7 +107,7 @@ const parseMarkdown = (text: string) => {
   // Step 3: Apply safe markdown transformations (on escaped text)
   // Pronunciation: subtle italic gray
   clean = clean.replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-sm">($1)</span>');
-  // Polish words: rose/pink semi-bold highlight
+  // Target language words: accent color semi-bold highlight
   clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--accent-color); font-weight: 600;">$1</strong>');
   // Line breaks
   clean = clean.replace(/\n/g, '<br />');
@@ -240,7 +256,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [listenContextLabel, setListenContextLabel] = useState('');
   const [showListenPrompt, setShowListenPrompt] = useState(false);
   const [listenError, setListenError] = useState<string | null>(null);
-  const [isPolishingTranscript, setIsPolishingTranscript] = useState(false);
+  const [isProcessingTranscript, setIsProcessingTranscript] = useState(false);
   const [showWordExtractor, setShowWordExtractor] = useState(false);
   const [extractedWords, setExtractedWords] = useState<any[]>([]);
   const [selectedWords, setSelectedWords] = useState<Set<string>>(new Set());
@@ -299,7 +315,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText, listenEntries]);
 
   const fetchChats = async () => {
-    const { data } = await supabase.from('chats').select('*').eq('user_id', profile.id).order('created_at', { ascending: false });
+    const { data } = await supabase.from('chats').select('*').eq('user_id', profile.id).eq('language_code', targetLanguage).order('created_at', { ascending: false });
     if (data) {
         setChats(data);
         if (data.length > 0 && !activeChat && !activeListenSession) setActiveChat(data[0]);
@@ -309,7 +325,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const fetchListenSessions = async () => {
-    const { data } = await supabase.from('listen_sessions').select('*').eq('user_id', profile.id).order('created_at', { ascending: false });
+    const { data } = await supabase.from('listen_sessions').select('*').eq('user_id', profile.id).eq('language_code', targetLanguage).order('created_at', { ascending: false });
     if (data) {
       setListenSessions(data);
     }
@@ -380,25 +396,22 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       word: w.word.toLowerCase().trim(),
       translation: w.translation,
       word_type: w.type as WordType,
-      importance: Math.max(1, Math.min(5, w.importance || 1)), // Clamp to 1-5
-      context: JSON.stringify({
-        original: w.context || '',
-        root: w.rootWord || w.word,
-        examples: w.examples || [],
-        proTip: w.proTip || '',
-        // Structured data for Love Log card display
-        conjugations: w.conjugations || null,
-        adjectiveForms: w.adjectiveForms || null,
-        gender: w.gender || null,
-        plural: w.plural || null
-      }),
-      unlocked_at: new Date().toISOString()
+      pronunciation: w.pronunciation || null,
+      gender: w.gender || null,
+      plural: w.plural || null,
+      conjugations: w.conjugations || null,
+      adjective_forms: w.adjectiveForms || null,
+      example_sentence: w.examples?.[0] || w.context || null,
+      pro_tip: w.proTip || null,
+      notes: w.context || null,
+      language_code: targetLanguage,
+      source: 'chat'
     }));
 
     const { error } = await supabase
       .from('dictionary')
       .upsert(wordsToSave, {
-        onConflict: 'user_id,word',
+        onConflict: 'user_id,word,language_code',
         ignoreDuplicates: false
       });
 
@@ -406,6 +419,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       console.error('Failed to save words:', error);
       return;
     }
+
+    // Notify Love Log to refresh
+    window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: words.length } }));
 
     // Increment XP only for NEW words (1 XP per new word)
     if (newWordCount > 0) {
@@ -617,7 +633,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const createNewChat = async (selectedMode: ChatMode) => {
-    const { data } = await supabase.from('chats').insert({ user_id: profile.id, title: 'New Session', mode: selectedMode }).select().single();
+    const { data } = await supabase.from('chats').insert({ user_id: profile.id, title: 'New Session', mode: selectedMode, language_code: targetLanguage }).select().single();
     if (data) {
         setChats(prev => [data, ...prev]);
         setActiveChat(data);
@@ -650,8 +666,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     const entry: TranscriptEntry = {
       id: chunk.id,
       speaker: chunk.speaker,
-      polish: chunk.text,
-      english: chunk.translation || '',
+      word: chunk.text,
+      translation: chunk.translation || '',
       timestamp: chunk.timestamp,
       isBookmarked: false,
       isFinal: chunk.isFinal,
@@ -671,9 +687,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
         if (lastSameSpeakerIdx >= 0) {
           const lastEntry = prev[lastSameSpeakerIdx];
-          const isExtension = entry.polish.startsWith(lastEntry.polish.slice(0, 10)) ||
-                             lastEntry.polish.startsWith(entry.polish.slice(0, 10)) ||
-                             entry.polish.length > lastEntry.polish.length;
+          const isExtension = entry.word.startsWith(lastEntry.word.slice(0, 10)) ||
+                             lastEntry.word.startsWith(entry.word.slice(0, 10)) ||
+                             entry.word.length > lastEntry.word.length;
           const isRecent = entry.timestamp - lastEntry.timestamp < 10000;
 
           if (isExtension && isRecent && !lastEntry.isBookmarked) {
@@ -765,8 +781,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         setActiveListenSession(data);
 
         // Start post-processing in background
-        setIsPolishingTranscript(true);
-        polishTranscript(data.id, listenEntries, listenContextLabel);
+        setIsProcessingTranscript(true);
+        processTranscript(data.id, listenEntries, listenContextLabel);
       }
     }
 
@@ -775,7 +791,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   // Post-process transcript with Gemini
-  const polishTranscript = async (sessionId: string, entries: TranscriptEntry[], contextLabel: string) => {
+  const processTranscript = async (sessionId: string, entries: TranscriptEntry[], contextLabel: string) => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) return;
@@ -790,7 +806,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           transcript: entries.map(e => ({
             id: e.id,
             speaker: e.speaker,
-            text: e.polish,
+            text: e.word,
             language: e.language,
             timestamp: e.timestamp
           })),
@@ -801,48 +817,48 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log('[polishTranscript] API response:', result);
+        console.log('[processTranscript] API response:', result);
 
-        // Update entries with polished data, using the index from API response
-        const polishedEntries = entries.map((entry, idx) => {
-          const polished = result.polishedTranscript.find((p: any) => p.index === idx);
-          if (polished) {
+        // Update entries with processed data, using the index from API response
+        const processedEntries = entries.map((entry, idx) => {
+          const processed = result.processedTranscript.find((p: any) => p.index === idx);
+          if (processed) {
             return {
               ...entry,
-              polish: polished.text,
-              english: polished.translation || entry.english || '',
-              language: polished.language,
-              originalText: polished.originalText,
+              word: processed.text,
+              translation: processed.translation || entry.translation || '',
+              language: processed.language,
+              originalText: processed.originalText,
             };
           }
           return entry;
         });
 
-        console.log('[polishTranscript] Polished entries:', polishedEntries);
+        console.log('[processTranscript] Processed entries:', processedEntries);
 
         // Update local state
-        setListenEntries(polishedEntries);
+        setListenEntries(processedEntries);
 
         // Update the session in database (note: summary not stored - table has no summary column)
         await supabase.from('listen_sessions').update({
-          transcript: polishedEntries,
+          transcript: processedEntries,
         }).eq('id', sessionId);
 
         // Update sessions list
         setListenSessions(prev => prev.map(s =>
-          s.id === sessionId ? { ...s, transcript: polishedEntries } : s
+          s.id === sessionId ? { ...s, transcript: processedEntries } : s
         ));
         setActiveListenSession(prev =>
-          prev?.id === sessionId ? { ...prev, transcript: polishedEntries } : prev
+          prev?.id === sessionId ? { ...prev, transcript: processedEntries } : prev
         );
       } else {
         const errorText = await response.text();
-        console.error('[polishTranscript] API error:', response.status, errorText);
+        console.error('[processTranscript] API error:', response.status, errorText);
       }
     } catch (err) {
-      console.error('[polishTranscript] Failed:', err);
+      console.error('[processTranscript] Failed:', err);
     } finally {
-      setIsPolishingTranscript(false);
+      setIsProcessingTranscript(false);
     }
   };
 
@@ -867,12 +883,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       // Format transcript as messages for the analyze-history API
       const messages = listenEntries
-        .filter(e => e.language === targetLanguage || e.english) // Focus on target language content
+        .filter(e => e.language === 'target' || e.translation) // Focus on target language content
         .map(e => ({
           role: 'assistant',
-          content: e.english
-            ? `${e.polish} (${e.english})`
-            : e.polish
+          content: e.translation
+            ? `${e.word} (${e.translation})`
+            : e.word
         }));
 
       console.log('[extractWords] Prepared', messages.length, 'messages for analysis');
@@ -922,32 +938,26 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     setIsAddingWords(true);
     try {
-      const entries = wordsToAdd.map(word => {
-        // Build context object with all grammatical data
-        const contextObj: Record<string, any> = {};
-        if (word.gender) contextObj.gender = word.gender;
-        if (word.plural) contextObj.plural = word.plural;
-        if (word.conjugations) contextObj.conjugations = word.conjugations;
-        if (word.adjectiveForms) contextObj.adjective_forms = word.adjectiveForms;
-        if (word.examples?.length) contextObj.examples = word.examples;
-        if (word.proTip) contextObj.proTip = word.proTip;
-        contextObj.source = 'listen_session';
-
-        return {
-          user_id: profile.id,
-          word: word.word.toLowerCase().trim(),
-          translation: word.translation,
-          word_type: word.type || 'phrase',
-          importance: word.importance || 3,
-          context: JSON.stringify(contextObj),
-          unlocked_at: new Date().toISOString(),
-        };
-      });
+      const entries = wordsToAdd.map(word => ({
+        user_id: profile.id,
+        word: word.word.toLowerCase().trim(),
+        translation: word.translation,
+        word_type: word.type || 'phrase',
+        pronunciation: word.pronunciation || null,
+        gender: word.gender || null,
+        plural: word.plural || null,
+        conjugations: word.conjugations || null,
+        adjective_forms: word.adjectiveForms || null,
+        example_sentence: word.examples?.[0] || null,
+        pro_tip: word.proTip || null,
+        language_code: targetLanguage,
+        source: 'listen'
+      }));
 
       console.log('Adding words to dictionary:', entries);
       // Use upsert to handle duplicates - update existing words with new context
       const { data, error } = await supabase.from('dictionary').upsert(entries, {
-        onConflict: 'user_id,word',
+        onConflict: 'user_id,word,language_code',
         ignoreDuplicates: false  // Update existing entries with new data
       }).select();
 
@@ -987,7 +997,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const selectListenSession = (session: ListenSession) => {
     setActiveChat(null);
     setActiveListenSession(session);
-    setListenEntries(session.transcript || []);
+    // Normalize transcript for backward compatibility (old sessions may have polish/english fields)
+    setListenEntries(normalizeTranscriptEntries(session.transcript));
     setListenDuration(session.duration_seconds);
     setListenContextLabel(session.context_label || '');
     setIsMobileSidebarOpen(false);
@@ -1232,12 +1243,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">
                         <p className="text-[var(--text-primary)] font-medium">
-                          {getLanguageFlag(entry.language)} {entry.polish}
+                          {getLanguageFlag(entry.language)} {entry.word}
                         </p>
-                        {entry.english && (
+                        {entry.translation && (
                           <div className="mt-1.5 ml-4 pl-3 border-l-2 border-[var(--accent-color)]/30">
                             <p className="text-[var(--text-secondary)] text-sm">
-                              {nativeFlag} {entry.english}
+                              {nativeFlag} {entry.translation}
                             </p>
                           </div>
                         )}
@@ -1268,7 +1279,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 <div className="flex justify-start animate-in fade-in duration-200">
                   <div className="max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 rounded-tl-none border border-dashed border-[var(--accent-color)]/50 bg-[var(--accent-light)]/50">
                     <p className="text-[var(--text-secondary)] italic flex items-center gap-2">
-                      {getLanguageFlag(listenPartial.language)} {listenPartial.polish}
+                      {getLanguageFlag(listenPartial.language)} {listenPartial.word}
                       <span className="inline-flex gap-0.5">
                         <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '0ms' }} />
                         <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -1316,7 +1327,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     <span className="text-[var(--text-secondary)]">{t('chat.session.longConversation')}</span>
                     <button
                       onClick={async () => {
-                        const { data } = await supabase.from('chats').insert({ user_id: profile.id, title: 'New Session', mode }).select().single();
+                        const { data } = await supabase.from('chats').insert({ user_id: profile.id, title: 'New Session', mode, language_code: targetLanguage }).select().single();
                         if (data) { setActiveChat(data); setMessages([]); }
                       }}
                       className="px-3 py-1.5 rounded-lg font-medium text-white transition-colors"
@@ -1516,7 +1527,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               ) : activeListenSession && (
                 <div className="flex flex-col items-center gap-3">
                   {/* Polishing indicator */}
-                  {isPolishingTranscript && (
+                  {isProcessingTranscript && (
                     <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
                       <div className="w-4 h-4 border-2 border-[var(--accent-color)] border-t-transparent rounded-full animate-spin" />
                       {t('chat.listen.improving')}
@@ -1533,7 +1544,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     ) : (
                       <button
                         onClick={() => extractWordsFromSession()}
-                        disabled={isPolishingTranscript}
+                        disabled={isProcessingTranscript}
                         className="px-5 py-2.5 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-white disabled:opacity-50"
                         style={{ backgroundColor: accentHex }}
                       >

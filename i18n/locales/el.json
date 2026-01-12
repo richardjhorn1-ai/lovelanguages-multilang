@@ -230,6 +230,14 @@
       "culturalMastery": "Πολιτιστική κυριαρχία",
       "completeMastery": "Πλήρης κυριαρχία",
       "practice": "Εξάσκηση"
+    },
+    "tiers": {
+      "Beginner": "Αρχάριος",
+      "Elementary": "Στοιχειώδης",
+      "Conversational": "Συνομιλητικός",
+      "Proficient": "Προχωρημένος",
+      "Fluent": "Ευφράδης",
+      "Master": "Μάστερ"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Κλίση ρημάτων",
       "verbMasteryVerbs": "{{count}} ρήματα",
       "learnVerbsFirst": "Μάθε πρώτα ρήματα"
+    },
+    "loveNotes": {
+      "title": "Σημειώματα Αγάπης από {{partner}}",
+      "subtitle": "Προκλήσεις και δώρα μόνο για σένα",
+      "empty": "Δεν Υπάρχουν Σημειώματα Αγάπης Ακόμα",
+      "emptyDesc": "Όταν ο/η {{partner}} σου στείλει προκλήσεις ή δώρα λέξεων, θα εμφανιστούν εδώ!",
+      "challenges": "Προκλήσεις",
+      "wordGifts": "Δώρα Λέξεων",
+      "wordGift": "Δώρο Λέξεων",
+      "quizChallenge": "Πρόκληση Quiz",
+      "quickFire": "Γρήγορη Φωτιά",
+      "words": "{{count}} λέξη",
+      "words_other": "{{count}} λέξεις",
+      "from": "Από {{partner}}",
+      "goToGames": "Πήγαινε στα Παιχνίδια Εξάσκησης"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Γλώσσες",
+      "nativeLanguage": "Μητρική Γλώσσα",
+      "learning": "Μαθαίνω",
+      "active": "Ενεργή",
+      "wordsLearned": "{{count}} λέξη μαθημένη",
+      "wordsLearned_other": "{{count}} λέξεις μαθημένες",
+      "loading": "Φόρτωση...",
+      "switch": "Αλλαγή",
+      "switching": "Αλλαγή...",
+      "addLanguage": "Προσθήκη Γλώσσας",
+      "comingSoon": "Έρχεται σύντομα! Προσθέστε περισσότερες γλώσσες με premium συνδρομή."
+    },
     "roles": {
       "student": "Μαθαίνω {{language}}",
       "tutor": "Γλωσσικός προπονητής"
@@ -360,7 +396,7 @@
       "smartModeDesc": "Το AI δέχεται συνώνυμα, τυπογραφικά και παραλλαγές",
       "strictModeDesc": "Μόνο ακριβείς απαντήσεις (αγνοώντας τονισμούς)",
       "preview": "Προεπισκόπηση",
-      "previewText": "<strong>Kocham cię</strong> σημαίνει: \"Σ'αγαπώ\" στα {{language}}"
+      "previewText": "<strong>{{iLoveYou}}</strong> σημαίνει: \"Σ'αγαπώ\" στα {{language}}"
     },
     "advanced": {
       "title": "Προχωρημένες ρυθμίσεις",
@@ -955,6 +991,16 @@
       "beginner": "αρχάριος",
       "intermediate": "μεσαίος",
       "advanced": "προχωρημένος"
+    },
+    "scenarios": {
+      "cafe": { "name": "Στην Καφετέρια", "description": "Παράγγειλε καφέ και σνακ" },
+      "restaurant": { "name": "Δείπνο σε Εστιατόριο", "description": "Παράγγειλε φαγητό και ζήτα συστάσεις" },
+      "market": { "name": "Στην Αγορά", "description": "Αγόρασε φρούτα και λαχανικά" },
+      "taxi": { "name": "Διαδρομή με Ταξί", "description": "Δώσε οδηγίες και μίλα με τον οδηγό" },
+      "pharmacy": { "name": "Στο Φαρμακείο", "description": "Ρώτα για φάρμακα και περίγραψε συμπτώματα" },
+      "hotel": { "name": "Check-in σε Ξενοδοχείο", "description": "Κάνε check-in και ρώτα για παροχές" },
+      "family_dinner": { "name": "Οικογενειακό Δείπνο", "description": "Γνώρισε τους γονείς του συντρόφου σου" },
+      "train_station": { "name": "Σιδηροδρομικός Σταθμός", "description": "Αγόρασε εισιτήρια και δες τα δρομολόγια" }
     },
     "createOwn": "Δημιούργησε το δικό σου",
     "createOwnDesc": "Περίγραψε οποιοδήποτε σενάριο θέλεις να εξασκήσεις",
@@ -1659,6 +1705,10 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Μιλάω...",
+      "targetPrompt": "Θέλω να μάθω..."
+    },
     "toggle": {
       "learn": "Μάθε",
       "teach": "Δίδαξε"

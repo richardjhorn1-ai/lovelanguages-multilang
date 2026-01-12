@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/learn/polish-pet-names",
+      "destination": "/learn/50-polish-terms-of-endearment-complete-guide-to-polish-pet-names/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/polish-pet-names/",
+      "destination": "/learn/50-polish-terms-of-endearment-complete-guide-to-polish-pet-names/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/learn", "destination": "/learn/index.html" },
     { "source": "/learn/:slug", "destination": "/learn/:slug/index.html" }

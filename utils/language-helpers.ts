@@ -15,7 +15,7 @@ import {
   getLanguageName,
   getLanguageFlag,
   type LanguageConfig
-} from '../constants/language-config';
+} from '../constants/language-config.js';
 
 // =============================================================================
 // TYPES
@@ -458,7 +458,7 @@ export {
   getLanguageNativeName,
   getAllLanguages,
   getAllLanguageCodes
-} from '../constants/language-config';
+} from '../constants/language-config.js';
 
 // =============================================================================
 // NOTE: After this file is created, api-middleware.ts should add:

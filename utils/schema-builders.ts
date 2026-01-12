@@ -18,7 +18,7 @@ import {
   getCaseNames,
   getGenderTypes,
   type LanguageConfig
-} from '../constants/language-config';
+} from '../constants/language-config.js';
 
 // =============================================================================
 // TYPES

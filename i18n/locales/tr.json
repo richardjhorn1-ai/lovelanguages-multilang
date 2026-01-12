@@ -230,6 +230,14 @@
       "culturalMastery": "Kültürel Ustalık",
       "completeMastery": "Tam Ustalık",
       "practice": "Pratik"
+    },
+    "tiers": {
+      "Beginner": "Başlangıç",
+      "Elementary": "Temel",
+      "Conversational": "Konuşma",
+      "Proficient": "İleri",
+      "Fluent": "Akıcı",
+      "Master": "Usta"
     }
   },
   "play": {
@@ -265,6 +273,21 @@
       "verbMastery": "Fiil Ustalığı",
       "verbMasteryVerbs": "{{count}} fiil",
       "learnVerbsFirst": "Önce fiilleri öğren"
+    },
+    "loveNotes": {
+      "title": "{{partner}}'dan Aşk Notları",
+      "subtitle": "Sadece senin için meydan okumalar ve hediyeler",
+      "empty": "Henüz Aşk Notu Yok",
+      "emptyDesc": "{{partner}} sana meydan okumalar veya kelime hediyeleri gönderdiğinde, burada görünecekler!",
+      "challenges": "Meydan Okumalar",
+      "wordGifts": "Kelime Hediyeleri",
+      "wordGift": "Kelime Hediyesi",
+      "quizChallenge": "Quiz Meydan Okuması",
+      "quickFire": "Hızlı Ateş",
+      "words": "{{count}} kelime",
+      "words_other": "{{count}} kelime",
+      "from": "{{partner}}'dan",
+      "goToGames": "Pratik Oyunlara Git"
     },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
@@ -340,6 +363,19 @@
     }
   },
   "profile": {
+    "languages": {
+      "title": "Diller",
+      "nativeLanguage": "Ana Dil",
+      "learning": "Öğreniyorum",
+      "active": "Aktif",
+      "wordsLearned": "{{count}} kelime öğrenildi",
+      "wordsLearned_other": "{{count}} kelime öğrenildi",
+      "loading": "Yükleniyor...",
+      "switch": "Değiştir",
+      "switching": "Değiştiriliyor...",
+      "addLanguage": "Dil Ekle",
+      "comingSoon": "Yakında! Premium abonelikle daha fazla dil ekleyin."
+    },
     "roles": {
       "student": "{{language}} öğreniyor",
       "tutor": "Dil Koçu"
@@ -360,7 +396,7 @@
       "smartModeDesc": "Yapay zeka eş anlamlıları, yazım hatalarını ve varyasyonları kabul eder",
       "strictModeDesc": "Sadece tam eşleşme (aksan işaretleri hariç)",
       "preview": "Önizleme",
-      "previewText": "<strong>Kocham cię</strong> {{language}} dilinde \"Seni seviyorum\" demek"
+      "previewText": "<strong>{{iLoveYou}}</strong> {{language}} dilinde \"Seni seviyorum\" demek"
     },
     "advanced": {
       "title": "Gelişmiş Tercihler",
@@ -955,6 +991,16 @@
       "beginner": "başlangıç",
       "intermediate": "orta",
       "advanced": "ileri"
+    },
+    "scenarios": {
+      "cafe": { "name": "Kafede", "description": "Kahve ve atıştırmalık sipariş et" },
+      "restaurant": { "name": "Restoranda Akşam Yemeği", "description": "Yemek sipariş et ve önerileri sor" },
+      "market": { "name": "Pazarda", "description": "Meyve ve sebze al" },
+      "taxi": { "name": "Taksi Yolculuğu", "description": "Yol tarifi ver ve şoförle sohbet et" },
+      "pharmacy": { "name": "Eczanede", "description": "İlaç sor ve semptomları anlat" },
+      "hotel": { "name": "Otel Check-in", "description": "Giriş yap ve olanakları sor" },
+      "family_dinner": { "name": "Aile Yemeği", "description": "Partnerinin ailesiyle tanış" },
+      "train_station": { "name": "Tren İstasyonu", "description": "Bilet al ve tarifeleri kontrol et" }
     },
     "createOwn": "Kendi Senaryonu Oluştur",
     "createOwnDesc": "Pratik yapmak istediğin herhangi bir senaryoyu tanımla",
@@ -1659,6 +1705,10 @@
   },
 
   "hero": {
+    "languageSelector": {
+      "nativePrompt": "Konuştuğum dil...",
+      "targetPrompt": "Öğrenmek istiyorum..."
+    },
     "toggle": {
       "learn": "Öğren",
       "teach": "Öğret"
