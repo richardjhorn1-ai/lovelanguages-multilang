@@ -33,6 +33,11 @@ dist-ssr
 # Playwright MCP screenshots
 .playwright-mcp/
 
+# Playwright E2E test artifacts
+e2e/.auth/
+playwright-report/
+test-results/
+
 # Local test files
 test-logins.local.txt
 blog/.astro/

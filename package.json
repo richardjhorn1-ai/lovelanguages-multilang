@@ -11,7 +11,11 @@
     "build:blog": "cd blog && npm run build",
     "preview": "vite preview",
     "import-content": "node scripts/import-content.cjs",
-    "generate-article": "node --env-file=.env --import=tsx scripts/generate-article.ts"
+    "generate-article": "node --env-file=.env --import=tsx scripts/generate-article.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:debug": "playwright test --debug"
   },
   "dependencies": {
     "@google/genai": "*",
@@ -33,6 +37,7 @@
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
