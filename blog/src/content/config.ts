@@ -8,7 +8,7 @@ const articles = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    category: z.enum(['phrases', 'vocabulary', 'grammar', 'culture', 'situations']),
+    category: z.enum(['phrases', 'vocabulary', 'grammar', 'culture', 'situations', 'pronunciation']),
     difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
     readTime: z.number(),
     image: z.string().optional(),
