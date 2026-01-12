@@ -1410,7 +1410,7 @@ const LoginForm: React.FC<{
 
   return (
     <div className="w-full max-w-md relative z-10">
-      <div className="text-center mb-12">
+      <div className="text-center mb-6">
         <h3
           className="text-3xl md:text-4xl font-black mb-3 font-header transition-all duration-300"
           style={{ color: '#1a1a2e' }}
@@ -1922,22 +1922,19 @@ const Hero: React.FC = () => {
     i18n.changeLanguage(code);
     localStorage.setItem('preferredLanguage', code);
 
-    // If target is already set (from URL or localStorage), go to marketing
-    if (selectedTargetLanguage) {
-      setCurrentStep('marketing');
-    } else {
-      setCurrentStep('target');
-    }
+    // Always go to target step after selecting native
+    // User must confirm/select target language before proceeding
+    setCurrentStep('target');
 
     // Animate in
     setStepTransition('entering');
     setTimeout(() => setStepTransition(null), 200);
 
-    // Mobile: auto-scroll to next step
+    // Mobile: auto-scroll to target step
     if (mobileStepCarouselRef.current) {
       const stepWidth = mobileStepCarouselRef.current.clientWidth;
       mobileStepCarouselRef.current.scrollTo({
-        left: stepWidth * (selectedTargetLanguage ? 2 : 1),
+        left: stepWidth,
         behavior: 'smooth'
       });
     }
@@ -2792,7 +2789,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Toggle above login form */}
-          <div className="flex gap-3 mb-8">
+          <div className="flex gap-3 mb-4">
             <button
               onClick={() => { setSelectedRole('student'); setActiveSection(0); scrollRef.current?.scrollTo({ top: 0 }); }}
               className="flex items-center gap-3 px-5 py-3 rounded-2xl transition-all duration-300 border-2"
