@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useRef, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import {
   ThemeSettings,
   AccentColor,
@@ -6,8 +6,6 @@ import {
   FontSize,
   DEFAULT_THEME,
   ACCENT_COLORS,
-  loadTheme,
-  saveTheme,
   applyTheme
 } from '../services/theme';
 import { supabase } from '../services/supabase';
@@ -26,67 +24,51 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 interface ThemeProviderProps {
   children: ReactNode;
   userId?: string;
+  profileTheme?: { accent_color?: AccentColor; dark_mode?: DarkModeStyle; font_size?: FontSize } | null;
 }
 
-export function ThemeProvider({ children, userId }: ThemeProviderProps) {
+export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderProps) {
   const [theme, setTheme] = useState<ThemeSettings>(DEFAULT_THEME);
   const [isLoaded, setIsLoaded] = useState(false);
-  const isSyncing = useRef(false);
 
-  // Load theme: from Supabase if logged in, otherwise localStorage
+  // Load theme: Profile is source of truth for logged-in users
   useEffect(() => {
-    const loadInitialTheme = async () => {
-      // Always start with localStorage for immediate display
-      const localTheme = loadTheme();
-      setTheme(localTheme);
-      applyTheme(localTheme);
-
-      // If logged in, fetch from Supabase and use that if available
-      if (userId) {
-        const { data } = await supabase
-          .from('profiles')
-          .select('accent_color, dark_mode, font_size')
-          .eq('id', userId)
-          .single();
-
-        if (data && (data.accent_color || data.dark_mode || data.font_size)) {
-          const supabaseTheme: ThemeSettings = {
-            accentColor: (data.accent_color as AccentColor) || localTheme.accentColor,
-            darkMode: (data.dark_mode as DarkModeStyle) || localTheme.darkMode,
-            fontSize: (data.font_size as FontSize) || localTheme.fontSize,
-          };
-          setTheme(supabaseTheme);
-          applyTheme(supabaseTheme);
-          saveTheme(supabaseTheme); // Sync to localStorage
-        }
-      }
-      setIsLoaded(true);
-    };
-
-    loadInitialTheme();
-  }, [userId]);
-
-  // Save theme changes to localStorage and Supabase
-  useEffect(() => {
-    if (!isLoaded || isSyncing.current) return;
-
-    applyTheme(theme);
-    saveTheme(theme);
-
-    // Sync to Supabase if logged in
-    if (userId) {
-      supabase
-        .from('profiles')
-        .update({
-          accent_color: theme.accentColor,
-          dark_mode: theme.darkMode,
-          font_size: theme.fontSize,
-        })
-        .eq('id', userId)
-        .then(() => {
-          // Silent update
-        });
+    if (userId && profileTheme) {
+      // Logged in: Use profile values (source of truth)
+      const userTheme: ThemeSettings = {
+        accentColor: profileTheme.accent_color || DEFAULT_THEME.accentColor,
+        darkMode: profileTheme.dark_mode || DEFAULT_THEME.darkMode,
+        fontSize: profileTheme.font_size || DEFAULT_THEME.fontSize,
+      };
+      setTheme(userTheme);
+      applyTheme(userTheme);
+    } else if (!userId) {
+      // Not logged in: Use defaults (Hero applies its own curated theme)
+      setTheme(DEFAULT_THEME);
+      applyTheme(DEFAULT_THEME);
     }
+    setIsLoaded(true);
+  }, [userId, profileTheme?.accent_color, profileTheme?.dark_mode, profileTheme?.font_size]);
+
+  // Sync theme changes to Supabase when user modifies theme
+  useEffect(() => {
+    if (!isLoaded || !userId) return;
+
+    // Apply theme to DOM
+    applyTheme(theme);
+
+    // Sync to Supabase (profile is source of truth)
+    supabase
+      .from('profiles')
+      .update({
+        accent_color: theme.accentColor,
+        dark_mode: theme.darkMode,
+        font_size: theme.fontSize,
+      })
+      .eq('id', userId)
+      .then(() => {
+        // Silent update
+      });
   }, [theme, userId, isLoaded]);
 
   const setAccentColor = (color: AccentColor) => {
