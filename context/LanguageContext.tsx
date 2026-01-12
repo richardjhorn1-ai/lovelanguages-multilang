@@ -30,29 +30,11 @@ interface LanguageProviderProps {
 
 export function LanguageProvider({ children, profile }: LanguageProviderProps) {
   const value = useMemo(() => {
-    // Priority logic:
-    // 1) If profile has non-default values, use profile (user already updated their languages)
-    // 2) If profile has database defaults AND localStorage has different selection, prefer localStorage
-    //    (this handles the race condition where Hero updates profile AFTER auth listener fires)
-    // 3) Fall back to defaults
-    const storedTarget = typeof window !== 'undefined' ? localStorage.getItem('preferredTargetLanguage') : null;
-    const storedNative = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') : null;
-
-    // Check if profile still has database defaults (pl/en)
-    const profileHasDefaults = profile?.active_language === DEFAULT_TARGET && profile?.native_language === DEFAULT_NATIVE;
-    // Check if user selected different languages in Hero
-    const userSelectedDifferentTarget = storedTarget && storedTarget !== DEFAULT_TARGET;
-    const userSelectedDifferentNative = storedNative && storedNative !== DEFAULT_NATIVE;
-
-    // If profile has defaults but user selected something else, prefer localStorage
-    // This fixes the race condition between Hero profile update and App.tsx fetchProfile
-    const targetLanguage = (profileHasDefaults && userSelectedDifferentTarget)
-      ? storedTarget
-      : profile?.active_language || storedTarget || DEFAULT_TARGET;
-
-    const nativeLanguage = (profileHasDefaults && userSelectedDifferentNative)
-      ? storedNative
-      : profile?.native_language || storedNative || DEFAULT_NATIVE;
+    // Simple priority: Profile is source of truth for logged-in users
+    // localStorage is ONLY used before login (Hero page selection)
+    // Once profile exists, always use profile values
+    const targetLanguage = profile?.active_language || DEFAULT_TARGET;
+    const nativeLanguage = profile?.native_language || DEFAULT_NATIVE;
 
     const targetConfig = LANGUAGE_CONFIGS[targetLanguage] || LANGUAGE_CONFIGS[DEFAULT_TARGET];
     const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage] || LANGUAGE_CONFIGS[DEFAULT_NATIVE];
