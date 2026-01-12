@@ -5,6 +5,7 @@ import { TutorChallenge, QuizConfig } from '../types';
 import { ICONS } from '../constants';
 import { shuffleArray } from '../utils/array';
 import { useLanguage } from '../context/LanguageContext';
+import { sounds } from '../services/sounds';
 
 interface PlayQuizChallengeProps {
   challenge: TutorChallenge;
@@ -158,6 +159,9 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
       explanation = correct ? 'Exact match' : 'No match';
     }
 
+    // Play feedback sound
+    sounds.play('correct');
+
     const newAnswer = {
       wordId: question.wordId,
       word: question.word,
@@ -200,6 +204,10 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
 
       const data = await response.json();
       if (data.success) {
+        // Play perfect sound if all correct
+        if (data.result.correct_answers === data.result.total_questions) {
+          sounds.play('perfect');
+        }
         setResult(data.result);
         setFinished(true);
       }

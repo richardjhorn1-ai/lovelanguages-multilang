@@ -9,6 +9,7 @@ import { getLevelFromXP, getLevelProgress, getTierColor, translateLevel } from '
 import { useTheme } from '../context/ThemeContext';
 import { HelpGuide } from './HelpGuide';
 import { BugReportModal } from './BugReportModal';
+import { sounds } from '../services/sounds';
 
 interface NavbarProps {
   profile: Profile;
@@ -22,6 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   const [isBugReportOpen, setIsBugReportOpen] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [isSoundMuted, setIsSoundMuted] = useState(sounds.isMuted());
   const dropdownRef = useRef<HTMLDivElement>(null);
   const notificationsRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -443,6 +445,23 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               </div>
 
               <div className="border-t border-[var(--border-color)] mt-1.5 md:mt-2 pt-1.5 md:pt-2">
+                <button
+                  onClick={() => {
+                    const newMuted = sounds.toggleMute();
+                    setIsSoundMuted(newMuted);
+                    if (!newMuted) sounds.play('notification');
+                  }}
+                  className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
+                >
+                  {isSoundMuted ? (
+                    <ICONS.VolumeX className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
+                  ) : (
+                    <ICONS.Volume2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
+                  )}
+                  <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">
+                    {isSoundMuted ? t('nav.unmuteSounds') : t('nav.muteSounds')}
+                  </span>
+                </button>
                 <button
                   onClick={async () => {
                     setIsProfileDropdownOpen(false);

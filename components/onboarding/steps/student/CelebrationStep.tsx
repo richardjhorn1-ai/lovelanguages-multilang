@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
+import { sounds } from '../../../../services/sounds';
 
 interface CelebrationStepProps {
   currentStep: number;
@@ -37,6 +38,8 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
   const [xpAnimated, setXpAnimated] = useState(false);
 
   useEffect(() => {
+    // Play celebration sound
+    sounds.play('perfect');
     // Trigger XP animation after a short delay
     const timer = setTimeout(() => setXpAnimated(true), 500);
     // Hide confetti after animation

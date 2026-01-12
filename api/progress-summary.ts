@@ -46,13 +46,25 @@ export default async function handler(req: any, res: any) {
 
   const { action = 'generate' } = req.body || {};
 
-  // LIST: Return all past summaries (for the index)
+  // LIST: Return all past summaries for current language pair (for the index)
   if (action === 'list') {
     try {
+      // Get user's language settings
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('active_language, native_language')
+        .eq('id', auth.userId)
+        .single();
+
+      const targetLanguage = profile?.active_language || 'pl';
+      const nativeLanguage = profile?.native_language || 'en';
+
       const { data: summaries, error } = await supabase
         .from('progress_summaries')
-        .select('id, title, summary, words_learned, xp_at_time, level_at_time, created_at')
+        .select('id, title, summary, words_learned, xp_at_time, level_at_time, language_code, created_at')
         .eq('user_id', auth.userId)
+        .eq('language_code', targetLanguage)
+        .eq('native_language', nativeLanguage)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
@@ -135,6 +147,7 @@ export default async function handler(req: any, res: any) {
     const targetLanguage = profile?.active_language || 'pl';
     const nativeLanguage = profile?.native_language || 'en';
     const targetName = getLanguageName(targetLanguage);
+    const nativeName = getLanguageName(nativeLanguage);
 
     // STEP 3: Incremental fetches - only data SINCE last summary
     // Vocabulary: only new words since last summary (or all if first summary, limited to 100)
@@ -324,56 +337,58 @@ ${Object.entries(gameStats.byMode).map(([mode, stats]) => {
     const vocabList = vocabulary?.slice(0, 30).map(w => `${w.word} = ${w.translation}`).join('\n') || 'No new vocabulary';
 
     const prompt = isIncremental
-      ? `You are a warm, encouraging language learning coach providing a PROGRESS UPDATE.
+      ? `You are Cupid, celebrating someone's recent ${targetName} progress. They're learning to connect with their partner - every word is a small act of love.
 
-## INCREMENTAL UPDATE MODE
-Focus ONLY on what's NEW since the last summary. Keep it brief and celebratory.
+Write in ${nativeName} (the learner's native language). ${targetName} words should be in ${targetName}.
 
-## Recent Progress
-**New Words Learned:** ${newWordsSinceLast}
-**Total Words Now:** ${totalWords} (was ${previousWordCount})
-**XP:** ${profile?.xp || 0}
+## What's New Since Last Time
+- New words: ${newWordsSinceLast} (total now: ${totalWords})
+- XP: ${profile?.xp || 0}
 ${gameStatsSection}
 ${testStatsSection}
-${validationSection}
 
 **New Vocabulary:**
 ${vocabList}
 
-**Recent Conversations:**
+**What They've Been Asking About:**
 ${recentConversationText?.slice(0, 1000) || 'None'}
 
-## Avoid Repeating These (from last summary)
+## Already Covered (don't repeat)
 - Topics: ${previousTopics.slice(0, 5).join(', ') || 'None'}
 - Phrases: ${previousPhrases.slice(0, 5).join(', ') || 'None'}
 
 ## Your Task
-Generate a SHORT, encouraging update (2-3 sentences) celebrating recent progress. Focus on NEW words and achievements only.`
+Write a warm progress update that feels personal. Notice patterns in what they're learning ("You've been learning a lot of food words - planning a romantic dinner?"). Celebrate specific wins, not just numbers. Keep it brief (2-3 sentences) but make them feel seen.`
 
-      : `You are a warm, encouraging language learning coach for a ${targetName} language learning app for couples.
+      : `You are Cupid, reflecting on someone's ${targetName} learning journey. They're learning to connect intimately with their partner - every word is a small act of love.
 
-## User's Learning Data
-**Total Words:** ${totalWords}
-**Words This Week:** ${recentWords.length}
-**XP:** ${profile?.xp || 0}
+Write in ${nativeName} (the learner's native language). ${targetName} words should be in ${targetName}.
 
-**Vocabulary by Type:**
-${Object.entries(wordTypes).map(([type, count]) => `- ${type}: ${count}`).join('\n')}
-
-**Recent Words:**
-${recentWords.slice(0, 20).map(w => `- ${w.word} (${w.translation})`).join('\n') || 'None yet'}
+## Their Data
+- Total words: ${totalWords} | This week: ${recentWords.length} | XP: ${profile?.xp || 0}
+- By type: ${Object.entries(wordTypes).map(([type, count]) => `${type}: ${count}`).join(', ')}
 ${gameStatsSection}
 ${testStatsSection}
 ${validationSection}
 
-**Vocabulary:**
+**Recent Words:**
+${recentWords.slice(0, 20).map(w => `${w.word} (${w.translation})`).join(', ') || 'None yet'}
+
+**All Vocabulary:**
 ${vocabList}
 
-**Recent Conversations:**
+**What They've Been Asking About:**
 ${recentConversationText?.slice(0, 1500) || 'None'}
 
 ## Your Task
-Generate an encouraging, personalized progress summary. Focus on specific words learned and what they can now say to their partner.`;
+Write a progress summary that feels personal, not generic. You have freedom to:
+- Notice interesting patterns ("You've been learning a lot of food words - planning a romantic dinner?")
+- Celebrate specific wins, not just numbers
+- Connect their vocabulary to romantic moments they could create
+- Be warm and encouraging, like a friend who's genuinely proud of them
+- Suggest phrases that combine words they already know
+
+The summary should make them feel seen, not just measured.`;
 
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
@@ -446,6 +461,8 @@ Generate an encouraging, personalized progress summary. Focus on specific words 
       .from('progress_summaries')
       .insert({
         user_id: auth.userId,
+        language_code: targetLanguage,
+        native_language: nativeLanguage,
         title: parsed.title,
         summary: parsed.summary,
         topics_explored: parsed.topicsExplored,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DemoWord, generateMCOptions } from './demoData';
+import { sounds } from '../../services/sounds';
 
 interface DemoMultipleChoiceProps {
   word: DemoWord;
@@ -35,6 +36,9 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
     setShowFeedback(true);
 
     const isCorrect = option === word.translation;
+
+    // Play feedback sound
+    sounds.play('correct');
 
     setTimeout(() => {
       onComplete(isCorrect);

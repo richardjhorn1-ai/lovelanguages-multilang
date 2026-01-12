@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
+import { createClient } from '@supabase/supabase-js';
 import {
   setCorsHeaders,
   verifyAuth,
@@ -10,6 +11,66 @@ import {
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
 import { getLanguageConfig, getLanguageName } from '../constants/language-config.js';
+
+// Learning journey context for personalized voice
+interface LearningJourneyContext {
+  level: string;
+  totalWords: number;
+  topicsExplored: string[];
+  suggestions: string[];
+  struggledWords: Array<{ word: string; translation: string }>;
+}
+
+async function getLearningJourneyContext(
+  userId: string,
+  targetLanguage: string,
+  nativeLanguage: string
+): Promise<LearningJourneyContext | null> {
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+  if (!supabaseUrl || !supabaseServiceKey) return null;
+
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+  // Fetch latest progress summary for this language pair
+  const { data: summary } = await supabase
+    .from('progress_summaries')
+    .select('level_at_time, words_learned, topics_explored, suggestions')
+    .eq('user_id', userId)
+    .eq('language_code', targetLanguage)
+    .eq('native_language', nativeLanguage)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .single();
+
+  // Fetch struggled words (high fail count)
+  const { data: scores } = await supabase
+    .from('word_scores')
+    .select('fail_count, dictionary:word_id(word, translation, language_code)')
+    .eq('user_id', userId)
+    .gt('fail_count', 0)
+    .order('fail_count', { ascending: false })
+    .limit(10);
+
+  const struggledWords = (scores || [])
+    .filter((s: any) => s.dictionary?.language_code === targetLanguage)
+    .slice(0, 5)
+    .map((s: any) => ({
+      word: s.dictionary?.word || '',
+      translation: s.dictionary?.translation || ''
+    }));
+
+  if (!summary && struggledWords.length === 0) return null;
+
+  return {
+    level: summary?.level_at_time || 'Beginner 1',
+    totalWords: summary?.words_learned || 0,
+    topicsExplored: summary?.topics_explored || [],
+    suggestions: summary?.suggestions || [],
+    struggledWords
+  };
+}
 
 // Conversation scenario interface
 interface ConversationScenario {
@@ -31,109 +92,88 @@ function buildConversationSystemInstruction(
   const nativeName = getLanguageName(nativeLanguage);
 
   return `
-You are playing the role described below in a ${targetName} language practice conversation.
+You are Cupid, helping ${userName} practice ${targetName} by role-playing as ${scenario.name}.
 
-## Your Role
-${scenario.persona}
+SCENARIO: ${scenario.context}
+YOUR CHARACTER: ${scenario.persona}
 
-## Scenario Context
-${scenario.context}
+HOW TO PLAY THIS:
+- Speak in ${targetName} as your character - this is immersive practice
+- Stay in character, keep responses short (1-3 sentences)
+- Difficulty: ${scenario.difficulty}
+- If they're struggling, step out briefly in ${nativeName} to help, then get back in character
+- Remember: they're practicing to connect with someone they love
 
-## CRITICAL RULES - FOLLOW EXACTLY:
-
-1. **SPEAK ONLY IN ${targetName.toUpperCase()}** - This is the most important rule. Default to ${targetName} for everything.
-
-2. **STAY IN CHARACTER** - You are ${scenario.name}. Do not break character unless the user is completely stuck.
-
-3. **KEEP RESPONSES SHORT** - Use 1-3 sentences maximum. This is a conversation, not a lecture.
-
-4. **ADJUST TO USER'S LEVEL** - This scenario is marked as ${scenario.difficulty}. Keep your ${targetName} appropriate:
-   ${scenario.difficulty === 'beginner' ? '- Use simple vocabulary, present tense, basic sentences' : ''}
-   ${scenario.difficulty === 'intermediate' ? '- Use varied vocabulary, past/future tenses, natural expressions' : ''}
-   ${scenario.difficulty === 'advanced' ? `- Use complex grammar, idioms, and natural conversational ${targetName}` : ''}
-
-5. **HELP WHEN NEEDED** - If the user struggles significantly (seems stuck for 2+ attempts):
-   - First: Rephrase your ${targetName} more simply
-   - Second: Offer a gentle hint in ${nativeName}, then return to ${targetName} immediately
-   - Never make them feel bad about mistakes
-
-6. **BE ENCOURAGING** - The user's name is ${userName}. They are learning ${targetName} to connect with someone they love. Be patient and supportive.
-
-7. **NATURAL CONVERSATION** - Respond naturally to what they say. Ask follow-up questions. React to their answers.
-
-8. **SPOKEN AUDIO OUTPUT** - You are speaking out loud:
-   - Do NOT include any text formatting, markdown, or styling
-   - Just speak naturally in ${targetName}
-   - Keep it conversational
-
-## START THE CONVERSATION
-Begin speaking in ${targetName}, appropriate to your role. Start with a greeting and opening question/statement.
+Start the conversation as your character.
 `;
 }
 
 // Voice system instructions per mode
 function buildVoiceSystemInstruction(
   mode: string,
-  userLog: string[],
   targetLanguage: string,
-  nativeLanguage: string
+  nativeLanguage: string,
+  journeyContext: LearningJourneyContext | null
 ): string {
-  const targetConfig = getLanguageConfig(targetLanguage);
   const targetName = getLanguageName(targetLanguage);
   const nativeName = getLanguageName(nativeLanguage);
 
-  // Get example phrase from language config
-  const iLoveYouExample = targetConfig?.examples.iLoveYou || 'I love you';
-
   const COMMON = `
-You are "Cupid" - a warm, encouraging ${targetName} language companion helping someone learn their partner's native language.
-Every word they learn is a gift of love.
+You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
 
-VOICE INTERACTION RULES - ${nativeName.toUpperCase()} FIRST:
-- ALWAYS speak primarily in ${nativeName} - this is a beginner-friendly conversation
-- Explain concepts and context in ${nativeName} first, then introduce ${targetName} words/phrases
-- Pattern: ${nativeName} explanation → ${targetName} word → pronunciation tip
-- Keep responses concise for voice (2-4 sentences max)
-- Be encouraging and supportive
+You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
 
-IMPORTANT - SPOKEN AUDIO OUTPUT:
-- You are speaking out loud - do NOT include any text formatting, markdown, HTML, or styling
-- NEVER output asterisks, brackets, CSS codes, or HTML tags
-- Just speak naturally - say the ${targetName} word, then the pronunciation, then the meaning
-- Example of what to SAY: "The word is ${iLoveYouExample}, meaning I love you"
-- Keep it conversational and natural for spoken audio
+VOICE RULES:
+- Speak primarily in ${nativeName}, then introduce ${targetName} words
+- Pattern: ${nativeName} explanation → ${targetName} word → pronunciation
+- Keep responses concise (2-3 sentences)
+- Be encouraging and warm
 `;
+
+  const journeySection = journeyContext ? `
+THEIR JOURNEY:
+- Level: ${journeyContext.level} | Words learned: ${journeyContext.totalWords}
+${journeyContext.struggledWords.length > 0 ? `- Needs practice: ${journeyContext.struggledWords.map(w => w.word).join(', ')}` : ''}
+${journeyContext.suggestions.length > 0 ? `- Suggested focus: ${journeyContext.suggestions.slice(0, 2).join(', ')}` : ''}
+` : '';
 
   const MODES: Record<string, string> = {
     ask: `
 ${COMMON}
-MODE: ASK - Casual Voice Chat
+${journeySection}
+ASK MODE - Casual Chat
 
-You are a supportive friend having a natural conversation IN ${nativeName.toUpperCase()} with ${targetName} sprinkled in.
-- Speak naturally in ${nativeName}, introducing ${targetName} words as they come up
-- Keep responses SHORT (2-3 sentences)
-- When teaching a ${targetName} word: explain in ${nativeName} first, then say the ${targetName} clearly
-- Use encouraging phrases: "Perfect!", "You're getting it!", "Try it again!"
-- When they attempt ${targetName}, gently correct if needed
-- Ask follow-up questions to keep the conversation flowing
+You're catching up with them. Ask about their relationship, how things are going, what moments are coming up. Be curious.
 
-Known vocabulary: [${userLog.slice(0, 20).join(', ')}]
+"So how are things with you two? Any special moments coming up?"
+"Want to learn something specific to say to them tonight?"
+
+When they ask something, help them quickly and keep the conversation going.
 `,
     learn: `
 ${COMMON}
-MODE: LEARN - Voice Lesson
+${journeySection}
+LEARN MODE - Voice Lesson
 
-You are a patient, clear ${targetName} teacher - speaking primarily in ${nativeName}.
-- Explain concepts in ${nativeName} first, then introduce ${targetName}
-- Say the ${nativeName} meaning, pause briefly, then the ${targetName} word with pronunciation
-- Give pronunciation guidance for each word
-- Ask them to repeat after you
-- Provide gentle corrections and encouragement
-- Speak at a measured, learnable pace
+You're teaching them. Go slow, be clear.
+- Say the word, pause, let them repeat
+- Give pronunciation tips
+- For verbs: one conjugation at a time
+- Challenge them with words they need to practice
+`,
+    coach: `
+You are Cupid - a warm, helpful teaching assistant for a ${targetName} native speaker who is teaching their partner.
 
-VERBS: Present one conjugation at a time, not all at once.
+The tutor is with their partner right now and needs quick help explaining something in ${targetName}.
 
-Known vocabulary: [${userLog.slice(0, 20).join(', ')}]
+HOW TO HELP:
+- Give alternative ways to explain ${targetName} concepts
+- Suggest simple phrases they can use with their partner
+- Offer pronunciation tips they can pass on
+- Keep responses SHORT (2-3 sentences) - they're mid-lesson!
+- Speak in ${nativeName} so the tutor understands immediately
+
+Be practical, concise, and supportive. They're teaching someone they love.
 `
   };
 
@@ -232,6 +272,9 @@ export default async function handler(req: any, res: any) {
       };
     }
 
+    // Fetch learning journey context for personalized voice
+    const journeyContext = await getLearningJourneyContext(auth.userId, targetLanguage, nativeLanguage);
+
     // Build mode-specific system instruction
     let systemInstruction: string;
     const voiceName = 'Kore'; // Use Kore for all voice modes
@@ -245,12 +288,12 @@ export default async function handler(req: any, res: any) {
         nativeLanguage
       );
     } else {
-      // Regular voice mode (with sanitized inputs)
+      // Regular voice mode with journey context
       systemInstruction = buildVoiceSystemInstruction(
         mode,
-        sanitizedUserLog,
         targetLanguage,
-        nativeLanguage
+        nativeLanguage,
+        journeyContext
       );
     }
     // Use the only model that supports Live API (BidiGenerateContent)

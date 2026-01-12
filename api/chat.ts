@@ -10,7 +10,7 @@ import {
   RATE_LIMITS
 } from '../utils/api-middleware.js';
 import { extractLanguages, type LanguageParams } from '../utils/language-helpers.js';
-import { buildCupidSystemPrompt, getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
+import { getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
 import { buildVocabularySchema } from '../utils/schema-builders.js';
 
@@ -42,13 +42,17 @@ function sanitizeOutput(text: string): string {
 }
 
 // Simplified PartnerContext for prompt generation (see types.ts for full version)
-// Uses string[] for vocabulary instead of full objects - only word strings needed for prompts
 interface PartnerContext {
   learnerName: string;
   vocabulary: string[];
   weakSpots: Array<{ word: string; translation: string; failCount: number }>;
   recentWords: Array<{ word: string; translation: string }>;
   stats: { totalWords: number; masteredCount: number; xp: number; level: string };
+  journey: {
+    topicsExplored: string[];
+    canNowSay: string[];
+    suggestions: string[];
+  } | null;
 }
 
 // Get user's profile data for personalization
@@ -154,6 +158,16 @@ async function getPartnerContext(userId: string, targetLanguage: string): Promis
   const levelIndex = Math.min((learnerProfile?.level || 1) - 1, 17);
   const levelName = levelNames[levelIndex] || 'Beginner 1';
 
+  // Get partner's learning journey summary
+  const { data: journeySummary } = await supabase
+    .from('progress_summaries')
+    .select('topics_explored, can_now_say, suggestions')
+    .eq('user_id', learnerId)
+    .eq('language_code', targetLanguage)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .single();
+
   return {
     learnerName: learnerProfile?.full_name || 'your partner',
     vocabulary: (vocabulary || []).map((v: any) => `${v.word} (${v.translation})`),
@@ -164,7 +178,75 @@ async function getPartnerContext(userId: string, targetLanguage: string): Promis
       masteredCount,
       xp: learnerProfile?.xp || 0,
       level: levelName
-    }
+    },
+    journey: journeySummary ? {
+      topicsExplored: journeySummary.topics_explored || [],
+      canNowSay: journeySummary.can_now_say || [],
+      suggestions: journeySummary.suggestions || []
+    } : null
+  };
+}
+
+// Learning journey context for personalized chat
+interface LearningJourneyContext {
+  level: string;
+  totalWords: number;
+  topicsExplored: string[];
+  canNowSay: string[];
+  suggestions: string[];
+  struggledWords: Array<{ word: string; translation: string; failCount: number }>;
+}
+
+async function getLearningJourneyContext(
+  userId: string,
+  targetLanguage: string,
+  nativeLanguage: string
+): Promise<LearningJourneyContext | null> {
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+  if (!supabaseUrl || !supabaseServiceKey) return null;
+
+  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+  // Fetch latest progress summary for this language pair
+  const { data: summary } = await supabase
+    .from('progress_summaries')
+    .select('level_at_time, words_learned, topics_explored, can_now_say, suggestions')
+    .eq('user_id', userId)
+    .eq('language_code', targetLanguage)
+    .eq('native_language', nativeLanguage)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .single();
+
+  // Fetch struggled words (high fail count)
+  const { data: scores } = await supabase
+    .from('word_scores')
+    .select('fail_count, dictionary:word_id(word, translation, language_code)')
+    .eq('user_id', userId)
+    .gt('fail_count', 0)
+    .order('fail_count', { ascending: false })
+    .limit(10);
+
+  const struggledWords = (scores || [])
+    .filter((s: any) => s.dictionary?.language_code === targetLanguage)
+    .slice(0, 5)
+    .map((s: any) => ({
+      word: s.dictionary?.word || '',
+      translation: s.dictionary?.translation || '',
+      failCount: s.fail_count
+    }));
+
+  if (!summary && struggledWords.length === 0) return null;
+
+  return {
+    level: summary?.level_at_time || 'Beginner 1',
+    totalWords: summary?.words_learned || 0,
+    topicsExplored: summary?.topics_explored || [],
+    canNowSay: summary?.can_now_say || [],
+    suggestions: summary?.suggestions || [],
+    struggledWords
   };
 }
 
@@ -339,131 +421,53 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ title: response.text?.replace(/"/g, '').trim() || "New Session" });
     }
 
-    // Build dynamic vocabulary extraction instructions based on target language grammar
+    // Variables for mode-specific instructions
     const conjugationPersons = getConjugationPersons(targetLanguage);
-    const hasGender = targetConfig?.grammar.hasGender || false;
-    const genderTypes = targetConfig?.grammar.genderTypes || [];
     const hasConjugation = targetConfig?.grammar.hasConjugation || false;
 
-    // Build conjugation example if language has conjugation
-    const conjugationExample = hasConjugation && conjugationPersons.length >= 6
-      ? `{ present: { first_singular: "...", second_singular: "...", third_singular: "...", first_plural: "...", second_plural: "...", third_plural: "..." } }
-  Person labels for ${targetName}: ${conjugationPersons.join(', ')}`
-      : 'This language has minimal conjugation - include base form only';
+    // Fetch learning journey context for personalization
+    const journeyContext = await getLearningJourneyContext(auth.userId, targetLanguage, nativeLanguage);
 
-    // Build gender instruction if language has grammatical gender
-    const genderInstruction = hasGender
-      ? `- MUST include "gender": "${genderTypes.join('" | "')}"
-- MUST include "plural": the plural form`
-      : '- Include "plural" form if applicable';
+    // Build learning journey section
+    const learningJourneySection = journeyContext ? `
+LEARNER'S JOURNEY:
+- Level: ${journeyContext.level} | Words learned: ${journeyContext.totalWords}
+- Recent topics: ${journeyContext.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
+- Can now say: ${journeyContext.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}
+${journeyContext.struggledWords.length > 0 ? `- Needs practice: ${journeyContext.struggledWords.map(w => w.word).join(', ')}` : ''}
+- Suggested focus: ${journeyContext.suggestions.slice(0, 2).join(', ') || 'Keep exploring'}
+` : '';
 
-    // Build adjective forms instruction
-    const adjectiveInstruction = hasGender
-      ? `- MUST include "adjectiveForms" with gender forms:
-  { ${genderTypes.map(g => `${g}: "..."`).join(', ')}, plural: "..." }
-- EVERY field MUST be filled - no nulls or empty strings`
-      : '- Include base form and plural if applicable';
+    const COMMON_INSTRUCTIONS = `You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
 
-    const COMMON_INSTRUCTIONS = `
-You are "Cupid" - a warm, encouraging ${targetName} language companion helping someone learn their partner's native language. Every word they learn is a gift of love.
-
-CONTEXT AWARENESS:
-You can see the recent conversation history. Use it to:
-- Reference what was discussed earlier ("Earlier you learned X, now let's build on that...")
-- Avoid repeating information already covered
-- Build progressively on vocabulary they've seen in this chat
-- Notice patterns in what they're asking about
+You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
+${learningJourneySection}
+CONTEXT: Use conversation history naturally - build on what they've learned, don't repeat yourself.
 
 CORE PRINCIPLES:
 - You are NOT flirty with the user - you ENCOURAGE them to be romantic with their partner
 - Celebrate every small win enthusiastically
 - Connect vocabulary to relationship moments
-- Always explain ${targetName} in ${nativeName} first, then show ${targetName} with (translation in brackets)
+- Write ALL explanations in ${nativeName}, then introduce ${targetName} words with their ${nativeName} translation
 
-LANGUAGE RULES:
-- ${targetName} text ALWAYS followed by (${nativeName} translation)
-- Never dump multiple concepts - one thing at a time
-- Include pronunciation hints for tricky words
+PACE: Don't overwhelm. One concept at a time. Translate everything helpfully.
 
-FORMATTING - YOU MUST FOLLOW THIS EXACTLY:
-- ${targetName} words go inside **double asterisks**: **word**, **phrase**
-- Pronunciation goes in [square brackets]: [pronunciation guide]
-- Complete example: **${targetConfig?.examples.hello || 'Hello'}** [pronunciation] means "${nativeConfig?.examples.hello || 'Hello'}"
-- Output ONLY plain text with markdown - nothing else
+FORMAT:
+- ${targetName} words in **bold**: **word**
+- Pronunciation in [brackets]: [pro-nun-see-AY-shun]
+- Example: **${targetConfig?.examples.hello || 'Hello'}** [pronunciation] means "${nativeConfig?.examples.hello || 'Hello'}"
 
-VOCABULARY EXTRACTION - THIS IS MANDATORY FOR EVERY RESPONSE:
-
-You MUST populate the newWords array with COMPLETE data. Incomplete entries are NOT acceptable.
-
-=== FOR VERBS ===
-- Use INFINITIVE form as "word"
-- type: "verb"
-${hasConjugation ? `- ONLY extract PRESENT TENSE conjugations with ALL persons:
-  ${conjugationExample}
-- EVERY field MUST be filled - no nulls or empty strings
-- DO NOT include past or future tenses - users unlock those separately when ready` : '- Include base/infinitive form'}
-- Include 5 example sentences in ${targetName} with ${nativeName} translations in parentheses
-- proTip: romantic/practical usage tip (max 60 chars)
-
-=== FOR NOUNS ===
-- Use singular nominative as "word"
-- type: "noun"
-${genderInstruction}
-- Include 5 example sentences
-- proTip: usage tip
-
-=== FOR ADJECTIVES ===
-- Use base form as "word"
-- type: "adjective"
-${adjectiveInstruction}
-- Include 5 example sentences
-- proTip: usage tip
-
-=== FOR PHRASES ===
-- type: "phrase"
-- Include 5 example sentences showing different contexts
-- proTip: when/how to use it
-
-=== EXAMPLES FIELD ===
-EVERY word MUST have exactly 5 examples. Format each as:
-"${targetName} sentence. (${nativeName} translation.)"
-
-=== VALIDATION CHECKLIST ===
-Before returning, verify:
-${hasConjugation ? `[ ] Every verb has conjugations.present with ALL persons filled (NO past/future - those are unlocked later)` : '[ ] Every verb has base form'}
-${hasGender ? `[ ] Every noun has gender AND plural` : '[ ] Every noun has plural if applicable'}
-${hasGender ? `[ ] Every adjective has adjectiveForms with ALL gender forms filled` : '[ ] Every adjective has base form'}
-[ ] Every word has exactly 5 examples
-[ ] Every word has a proTip
-
-DO NOT return incomplete data. If unsure of a form, look it up - ${targetName} grammar is consistent.
+VOCABULARY: Extract new words taught into the newWords array. The schema defines the structure - fill all required fields completely.
 `;
 
     const MODE_DEFINITIONS = {
         ask: `
-### MODE: ASK - Quick Text Chat
+### ASK MODE - Quick Q&A
 
-You are texting a friend. Be BRIEF and natural.
-
-CRITICAL RULES:
-- Maximum 2-3 sentences
-- NEVER repeat the same word/phrase twice
-- Give the ${targetName} word ONCE with pronunciation, then move on
-- End with a quick follow-up question
-
-FORMAT TEMPLATE:
-"[${targetName} word] ([pronunciation]) means [meaning]. [One romantic tip]. [Follow-up question]?"
-
-EXAMPLE:
-User: "How do I say hello?"
-Good: "${targetConfig?.examples.hello || 'Hello'} [pronunciation]! Whisper it to them when you wake up. Want the evening version?"
-Bad: "You can say hello by saying ${targetConfig?.examples.hello || 'Hello'} (Hello)..." ← TOO REPETITIVE
-
-BANNED:
-- Tables, bullet points, numbered lists
-- Repeating the ${nativeName} translation multiple times
-- Long explanations
-- Saying "you can say X by saying X"
+Be conversational and concise. 2-3 sentences max.
+- Give the ${targetName} word once with pronunciation, then move on
+- End with a follow-up question to keep the conversation going
+- No tables, lists, or lectures - just natural chat
 `,
         learn: `
 ### MODE: LEARN - Structured Lesson
@@ -529,76 +533,36 @@ If you write a table WITHOUT "::: markers, IT WILL NOT RENDER.
     const generateCoachPrompt = (context: PartnerContext | null): string => {
       if (!context) {
         return `
-### MODE: COACH - Relationship Language Guide
+### COACH MODE
 
-You are a warm, supportive relationship coach, but your partner hasn't connected their account yet.
-
-Encourage the user to:
+Your partner hasn't connected their account yet. Encourage the tutor to:
 1. Ask their partner to accept the connection request
-2. Come back once they're linked to get personalized suggestions
-
-Keep responses warm and encouraging!
+2. Come back once linked for personalized suggestions
 `;
       }
 
-      const vocabList = context.vocabulary.slice(0, 30).join(', ') || 'No words learned yet';
-      const weakSpotList = context.weakSpots.map(w => `${w.word} (${w.translation}) - ${w.failCount} mistakes`).join(', ') || 'None yet';
-      const recentList = context.recentWords.map(w => `${w.word} (${w.translation})`).join(', ') || 'None yet';
+      const weakWords = context.weakSpots.slice(0, 5).map(w => w.word).join(', ') || 'None identified';
+      const recentWords = context.recentWords.slice(0, 5).map(w => w.word).join(', ') || 'Just starting';
 
       return `
-### MODE: COACH - Tutor's Assistant
+### COACH MODE
 
-You are a warm, helpful assistant for a ${nativeName} speaker who is helping their ${nativeName}-speaking partner (${context.learnerName}) learn ${targetName}.
+You're here to assist a ${targetName}-speaking tutor who is teaching their ${nativeName}-speaking partner (${context.learnerName}).
 
-=== ${context.learnerName.toUpperCase()}'S PROGRESS (use naturally, don't over-reference) ===
-- Total words: ${context.stats.totalWords} | Mastered: ${context.stats.masteredCount} | Level: ${context.stats.level}
-- Known vocabulary: ${vocabList}
-- Struggling with: ${weakSpotList}
-- Recently learned: ${recentList}
+${context.learnerName.toUpperCase()}'S LEARNING JOURNEY:
+- Level: ${context.stats.level} | Words learned: ${context.stats.totalWords}
+${context.journey ? `- Topics explored: ${context.journey.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
+- Can now say: ${context.journey.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}
+- Suggested focus: ${context.journey.suggestions.slice(0, 2).join(', ') || 'Keep exploring'}` : ''}
+- Needs practice: ${weakWords}
+- Recently learned: ${recentWords}
 
-=== YOUR TWO ROLES ===
-
-**1. TEACHING HELPER** - Answer questions about ${targetName}:
-- How to explain grammar concepts simply
-- Pronunciation tips they can share
-- Fun practice activities for couples
-- ${targetName} culture and context
-
-**2. CONTEXT-AWARE COACH** - Use ${context.learnerName}'s progress when helpful:
-- Suggest phrases using words they already know
-- Help with words they're struggling with
-- Recommend NEW words to grow their vocabulary
-- Create intimate moments through language
-
-=== RESPONSE GUIDELINES ===
-- Keep responses concise (2-4 sentences)
-- ${targetName} words in **bold** with [pronunciation]
-- Be practical - suggestions they can use tonight
-- DON'T force partner data into every response
-- When they ask general questions, answer directly
-- When they ask about their partner, use the context data
-
-=== GROWING VOCABULARY ===
-Actively suggest NEW ${targetName} words ${context.learnerName} hasn't learned yet! Expand their vocabulary by:
-- Teaching new words related to ones they know
-- Suggesting romantic phrases they haven't tried
-- Building on their current level with slightly more advanced vocabulary
-
-=== EXAMPLES ===
-
-User: "How do I explain ${targetName} grammar?"
-Good: "Start simple! ${targetConfig?.grammar.hasCases ? `Cases are like 'word costumes' that change based on a word's job. Practice with objects around the room - point and decline together!` : targetConfig?.grammar.hasGender ? `Grammatical gender is like giving every noun a personality. Practice by grouping objects by gender!` : `Focus on common patterns first. Practice with everyday objects and phrases!`}"
-
-User: "What can I say to them tonight?"
-Good: "Since ${context.learnerName} knows some vocabulary, suggest something romantic! Try teaching them '${targetConfig?.examples.iLoveYou || 'I love you'}' - perfect for bedtime whispers. For something NEW, expand their romantic vocabulary with related phrases!"
-
-User: "They're frustrated with learning"
-Good: "Make it a game - you say a word, they repeat. Each correct answer = a kiss! Celebrate small wins. Want a fun 5-minute drill?"
-
-=== IMPORTANT ===
-- DO NOT extract vocabulary - you're helping the tutor, not the learner
-- Focus on CONNECTION over perfection
-- Suggest NEW words alongside known ones to grow their vocabulary
+GUIDANCE:
+- Be practical - give suggestions they can use tonight
+- Don't force the partner data into every response
+- Suggest NEW words to grow their vocabulary
+- Encourage optimal challenges: "Try teaching them X, then quiz with Y"
+- Focus on connection over perfection
 `;
     };
 
@@ -614,6 +578,7 @@ Good: "Make it a game - you say a word, they repeat. Each correct answer = a kis
       partnerName = sessionContext.partnerName;
 
       // For tutors, build partner context from session
+      // Note: journey data not available in cached session, will be null
       if (userRole === 'tutor' && sessionContext.partner) {
         const p = sessionContext.partner;
         partnerContext = {
@@ -626,7 +591,8 @@ Good: "Make it a game - you say a word, they repeat. Each correct answer = a kis
             masteredCount: p.stats.masteredCount,
             xp: p.xp,
             level: p.level
-          }
+          },
+          journey: null // Journey fetched fresh when needed via getPartnerContext
         };
       }
     } else {
@@ -657,7 +623,7 @@ Good: "Make it a game - you say a word, they repeat. Each correct answer = a kis
     // Tutors use simplified instructions (no vocabulary extraction needed)
     const isTutorMode = userRole === 'tutor';
     const activeSystemInstruction = isTutorMode
-      ? `You are a warm, helpful assistant for a ${nativeName} speaker helping their partner learn ${targetName}. Your responses should be encouraging and practical.
+      ? `You are a warm, helpful assistant for a ${targetName} speaker helping their partner learn ${targetName}. Your responses should be encouraging and practical.
 
 FORMATTING:
 - ${targetName} words go inside **double asterisks**: **${targetConfig?.examples.iLoveYou || 'word'}**, **${targetConfig?.examples.hello || 'phrase'}**

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DemoWord } from './demoData';
+import { sounds } from '../../services/sounds';
 
 interface DemoFlashcardProps {
   word: DemoWord;
@@ -26,6 +27,8 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
   }, [word]);
 
   const handleResponse = (gotIt: boolean) => {
+    // Play feedback sound
+    sounds.play('correct');
     // First flip back to front, then after animation completes, advance to next
     setIsFlipped(false);
     setTimeout(() => {

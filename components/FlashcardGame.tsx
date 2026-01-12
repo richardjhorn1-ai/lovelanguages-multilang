@@ -10,6 +10,7 @@ import { shuffleArray } from '../utils/array';
 import { getRomanticPhrases, markPhrasesUsed, getAvailablePhraseCount } from '../services/romantic-phrases';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
+import { sounds } from '../services/sounds';
 import TutorGames from './TutorGames';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
@@ -585,6 +586,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const handleChallengeFlashcardResponse = async (isCorrect: boolean) => {
     const q = challengeQuestions[challengeIndex];
 
+    // Play feedback sound
+    sounds.play('correct');
+
     // Record answer
     const answer: GameSessionAnswer = {
       wordId: q.wordId,
@@ -612,6 +616,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setChallengeMcFeedback(true);
     const q = challengeQuestions[challengeIndex];
     const correct = option === q.translation;
+
+    // Play feedback sound
+    sounds.play('correct');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -658,6 +665,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       explanation = correct ? 'Exact match' : 'No match';
     }
 
+    // Play feedback sound
+    sounds.play('correct');
+
     // Record answer
     const answer: GameSessionAnswer = {
       wordId: q.wordId,
@@ -682,6 +692,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       resetChallengeQuestionState();
       setChallengeIndex(c => c + 1);
     } else {
+      // Play perfect sound if all correct
+      if (score.incorrect === 0) sounds.play('perfect');
       setFinished(true);
       // Save game session
       saveGameSession('ai_challenge', answers, score.correct, score.incorrect);
@@ -781,6 +793,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   // Quick Fire functions
   const startQuickFire = () => {
+    // Play countdown sound at start
+    sounds.play('countdown');
+
     const shuffled = shuffleArray(deck).slice(0, 20);
     setQuickFireWords(shuffled);
     setQuickFireIndex(0);
@@ -847,6 +862,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     quickFireAnswersRef.current = newAnswers;
 
     setQuickFireShowFeedback(isCorrect ? 'correct' : 'wrong');
+    sounds.play('correct'); // Play feedback sound
     setTimeout(() => setQuickFireShowFeedback(null), 200);
 
     const newScore = {
@@ -867,6 +883,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     } else {
       // Finished all words
       if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
+      // Play perfect sound if all correct, otherwise just notification
+      if (newScore.incorrect === 0) sounds.play('perfect');
       setFinished(true);
       // Save game session
       saveGameSession('quick_fire', newAnswers, newScore.correct, newScore.incorrect);
@@ -978,6 +996,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       isCorrect = isCorrectAnswer(verbMasteryInput, question.correctAnswer);
     }
 
+    // Play feedback sound
+    sounds.play('correct');
+
     setVerbMasterySubmitted(true);
     setVerbMasteryCorrect(isCorrect);
     setVerbMasteryExplanation(explanation);
@@ -1012,6 +1033,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       setVerbMasteryExplanation(null);
       setVerbMasteryCorrect(false);
     } else {
+      // Play perfect sound if all correct
+      if (sessionScore.incorrect === 0) sounds.play('perfect');
       setFinished(true);
       saveGameSession('verb_mastery', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
     }
@@ -1035,6 +1058,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   const handleFlashcardResponse = async (isCorrect: boolean) => {
     const word = deck[currentIndex];
+
+    // Play feedback sound
+    sounds.play('correct');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -1060,6 +1086,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       setIsFlipped(false);
       setTimeout(() => setCurrentIndex(c => c + 1), 300);
     } else {
+      // Play perfect sound if all correct
+      if (newScore.incorrect === 0) sounds.play('perfect');
       setFinished(true);
       // Save game session
       saveGameSession('flashcards', newAnswers, newScore.correct, newScore.incorrect);
@@ -1074,6 +1102,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     const currentWord = deck[currentIndex];
     const isCorrect = option === currentWord.translation;
+
+    // Play feedback sound
+    sounds.play('correct');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -1101,6 +1132,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       if (currentIndex < deck.length - 1) {
         setCurrentIndex(c => c + 1);
       } else {
+        // Play perfect sound if all correct
+        if (newScore.incorrect === 0) sounds.play('perfect');
         setFinished(true);
         // Save game session
         saveGameSession('multiple_choice', newAnswers, newScore.correct, newScore.incorrect);
@@ -1115,6 +1148,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         setCurrentIndex(c => c + 1);
         resetTypeItState();
       } else {
+        // Play perfect sound if all correct
+        if (sessionScore.incorrect === 0) sounds.play('perfect');
         setFinished(true);
         // Save game session
         saveGameSession('type_it', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
@@ -1143,6 +1178,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       isCorrect = isCorrectAnswer(typeItAnswer, correctAnswer);
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
+
+    // Play feedback sound
+    sounds.play('correct');
 
     // Record answer
     const answer: GameSessionAnswer = {

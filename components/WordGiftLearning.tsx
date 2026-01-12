@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { WordRequest, WordSuggestion } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { sounds } from '../services/sounds';
 
 interface WordGiftLearningProps {
   wordRequest: WordRequest;
@@ -45,6 +46,8 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
 
       const data = await response.json();
       if (data.success) {
+        // Play new words sound on completion
+        sounds.play('new-words');
         setResult(data);
         // Dispatch event so Love Log refreshes with new words
         window.dispatchEvent(new CustomEvent('dictionary-updated', {

@@ -9,6 +9,7 @@ import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { getConjugationPersons } from '../constants/language-config';
+import { sounds } from '../services/sounds';
 
 interface LoveLogProps {
   profile: Profile;
@@ -236,6 +237,10 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
           .in('id', messageIds);
       }
 
+      // Play new words sound if words were found
+      if (totalNewWords > 0) {
+        sounds.play('new-words');
+      }
       setSyncMessage(totalNewWords > 0
         ? t('loveLog.sync.newWords', { count: totalNewWords })
         : t('loveLog.sync.noNewWords')
