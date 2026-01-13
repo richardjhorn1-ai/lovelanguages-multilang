@@ -2,9 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../../components/ArticleCard.astro';
 import LanguageSelector from '../../../../components/LanguageSelector.astro';
-import NativeLanguageSelector from '../../../../components/NativeLanguageSelector.astro';
 import Testimonials from '../../../../components/Testimonials.astro';
-import LeadMagnet from '../../../../components/LeadMagnet.astro';
 import { getCollection } from 'astro:content';
 
 // Language config for flags and names
@@ -117,12 +115,7 @@ const jsonLd = {
   <header class="bg-gradient-to-b from-accent/10 to-white">
     <div class="max-w-6xl mx-auto px-4 py-6 md:py-8">
       <div class="text-center max-w-2xl mx-auto">
-        <div class="mb-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <NativeLanguageSelector
-            currentNativeLang={nativeLanguageCode}
-            targetLang={targetLanguageCode}
-            languageInfo={LANGUAGE_INFO}
-          />
+        <div class="mb-4">
           <LanguageSelector
             currentLang={targetLanguageCode}
             nativeLang={nativeLanguageCode}
@@ -141,7 +134,7 @@ const jsonLd = {
   </header>
 
   <!-- Filter Bar -->
-  <div class="sticky top-16 z-40 bg-white/90 backdrop-blur-lg border-b border-gray-100">
+  <div class="sticky top-14 z-40 bg-white/90 backdrop-blur-lg border-b border-gray-100">
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex gap-2 overflow-x-auto py-3 scrollbar-hide" id="filter-bar">
         {categories.map((cat, i) => (
@@ -191,11 +184,6 @@ const jsonLd = {
       </div>
     )}
   </main>
-
-  <!-- Lead Magnet -->
-  <section class="max-w-3xl mx-auto px-4 py-8">
-    <LeadMagnet />
-  </section>
 
   <!-- Testimonials -->
   <section class="max-w-6xl mx-auto px-4">

@@ -1,0 +1,316 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Testimonials from '../../../components/Testimonials.astro';
+import { getCollection } from 'astro:content';
+
+// Language config for flags and names
+const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
+  en: { flag: '🇬🇧', name: 'English', nativeName: 'English' },
+  es: { flag: '🇪🇸', name: 'Spanish', nativeName: 'Español' },
+  fr: { flag: '🇫🇷', name: 'French', nativeName: 'Français' },
+  it: { flag: '🇮🇹', name: 'Italian', nativeName: 'Italiano' },
+  pt: { flag: '🇵🇹', name: 'Portuguese', nativeName: 'Português' },
+  ro: { flag: '🇷🇴', name: 'Romanian', nativeName: 'Română' },
+  de: { flag: '🇩🇪', name: 'German', nativeName: 'Deutsch' },
+  nl: { flag: '🇳🇱', name: 'Dutch', nativeName: 'Nederlands' },
+  sv: { flag: '🇸🇪', name: 'Swedish', nativeName: 'Svenska' },
+  no: { flag: '🇳🇴', name: 'Norwegian', nativeName: 'Norsk' },
+  da: { flag: '🇩🇰', name: 'Danish', nativeName: 'Dansk' },
+  pl: { flag: '🇵🇱', name: 'Polish', nativeName: 'Polski' },
+  cs: { flag: '🇨🇿', name: 'Czech', nativeName: 'Čeština' },
+  ru: { flag: '🇷🇺', name: 'Russian', nativeName: 'Русский' },
+  uk: { flag: '🇺🇦', name: 'Ukrainian', nativeName: 'Українська' },
+  el: { flag: '🇬🇷', name: 'Greek', nativeName: 'Ελληνικά' },
+  hu: { flag: '🇭🇺', name: 'Hungarian', nativeName: 'Magyar' },
+  tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
+};
+
+// Generate static paths for each native language
+export async function getStaticPaths() {
+  // Native languages that have translated content
+  const supportedNativeLangs = ['en', 'es', 'fr'];
+  return supportedNativeLangs.map(nativeLang => ({
+    params: { nativeLang }
+  }));
+}
+
+const { nativeLang } = Astro.params;
+const nativeLanguageCode = nativeLang || 'en';
+const nativeInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
+
+// Get all articles
+const allArticles = await getCollection('articles');
+
+// Count articles per target language for this native language
+const languageCounts: Record<string, number> = {};
+for (const code of Object.keys(LANGUAGE_INFO)) {
+  if (code !== nativeLanguageCode) {
+    languageCounts[code] = allArticles.filter(a => a.slug.startsWith(`${nativeLanguageCode}/${code}/`)).length;
+  }
+}
+
+// Sort: languages with articles first, then alphabetically
+const sortedLanguages = Object.entries(LANGUAGE_INFO)
+  .filter(([code]) => code !== nativeLanguageCode) // Exclude native language
+  .sort(([codeA], [codeB]) => {
+    const countA = languageCounts[codeA] || 0;
+    const countB = languageCounts[codeB] || 0;
+    if (countA > 0 && countB === 0) return -1;
+    if (countB > 0 && countA === 0) return 1;
+    return LANGUAGE_INFO[codeA].name.localeCompare(LANGUAGE_INFO[codeB].name);
+  });
+
+// Get total article count for this native language
+const totalArticles = Object.values(languageCounts).reduce((sum, count) => sum + count, 0);
+const languagesWithContent = Object.values(languageCounts).filter(c => c > 0).length;
+
+// Translations for UI text
+const UI_TEXT: Record<string, {
+  heroTitle: string;
+  heroSubtitle: string;
+  chooseLanguage: string;
+  popularTitle: string;
+  ctaTitle: string;
+  ctaSubtitle: string;
+  ctaButton: string;
+  ctaFooter: string;
+  startLearning: string;
+  articles: string;
+  article: string;
+  languages: string;
+  comingSoon: string;
+  learnWith: string;
+}> = {
+  en: {
+    heroTitle: 'Learn Any Language Together',
+    heroSubtitle: 'Free lessons, vocabulary guides, and cultural tips designed for couples learning together.',
+    chooseLanguage: 'Choose Your Language',
+    popularTitle: 'Most Popular Languages',
+    ctaTitle: 'Ready to Start Learning?',
+    ctaSubtitle: 'Join couples learning languages together with AI coaching, voice practice, and games.',
+    ctaButton: 'Start Your Journey',
+    ctaFooter: 'Join couples learning languages across 30+ countries',
+    startLearning: 'Start Learning',
+    articles: 'articles',
+    article: 'article',
+    languages: 'Languages',
+    comingSoon: 'Coming soon',
+    learnWith: 'Learn vocabulary, phrases, grammar, and culture with your partner.',
+  },
+  es: {
+    heroTitle: 'Aprende Cualquier Idioma Juntos',
+    heroSubtitle: 'Lecciones gratuitas, guías de vocabulario y consejos culturales diseñados para parejas que aprenden juntas.',
+    chooseLanguage: 'Elige Tu Idioma',
+    popularTitle: 'Idiomas Más Populares',
+    ctaTitle: '¿Listo para Empezar a Aprender?',
+    ctaSubtitle: 'Únete a parejas aprendiendo idiomas juntos con coaching de IA, práctica de voz y juegos.',
+    ctaButton: 'Comienza Tu Viaje',
+    ctaFooter: 'Únete a parejas aprendiendo idiomas en más de 30 países',
+    startLearning: 'Empezar a Aprender',
+    articles: 'artículos',
+    article: 'artículo',
+    languages: 'Idiomas',
+    comingSoon: 'Próximamente',
+    learnWith: 'Aprende vocabulario, frases, gramática y cultura con tu pareja.',
+  },
+  fr: {
+    heroTitle: 'Apprenez N\'importe Quelle Langue Ensemble',
+    heroSubtitle: 'Leçons gratuites, guides de vocabulaire et conseils culturels conçus pour les couples qui apprennent ensemble.',
+    chooseLanguage: 'Choisissez Votre Langue',
+    popularTitle: 'Langues les Plus Populaires',
+    ctaTitle: 'Prêt à Commencer à Apprendre?',
+    ctaSubtitle: 'Rejoignez des couples apprenant des langues ensemble avec un coaching IA, de la pratique vocale et des jeux.',
+    ctaButton: 'Commencez Votre Voyage',
+    ctaFooter: 'Rejoignez des couples apprenant des langues dans plus de 30 pays',
+    startLearning: 'Commencer à Apprendre',
+    articles: 'articles',
+    article: 'article',
+    languages: 'Langues',
+    comingSoon: 'Bientôt disponible',
+    learnWith: 'Apprenez le vocabulaire, les phrases, la grammaire et la culture avec votre partenaire.',
+  },
+};
+
+const text = UI_TEXT[nativeLanguageCode] || UI_TEXT.en;
+
+// JSON-LD for the language hub
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": `Love Languages - ${text.heroTitle}`,
+  "description": text.heroSubtitle,
+  "url": `https://lovelanguages.xyz/learn/${nativeLanguageCode}/`,
+  "inLanguage": nativeLanguageCode,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  },
+  "numberOfItems": totalArticles
+};
+---
+
+<BaseLayout
+  title={`${text.heroTitle} - Love Languages`}
+  description={text.heroSubtitle}
+  nativeLang={nativeLanguageCode}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="flex justify-center gap-2 mb-6 flex-wrap">
+          {['🇪🇸', '🇫🇷', '🇩🇪', '🇮🇹', '🇵🇱', '🇵🇹', '🇷🇺', '🇬🇷'].map(flag => (
+            <span class="text-3xl">{flag}</span>
+          ))}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          {text.heroTitle}
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          {text.heroSubtitle}
+        </p>
+        <div class="flex justify-center gap-6 text-sm text-gray-500">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">📚</span>
+            <span><strong class="text-gray-900">{totalArticles}</strong> {totalArticles === 1 ? text.article : text.articles}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🌍</span>
+            <span><strong class="text-gray-900">17</strong> {text.languages}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Language Grid -->
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-2xl font-bold font-header text-gray-900 mb-8 text-center">
+      {text.chooseLanguage}
+    </h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      {sortedLanguages.map(([code, info]) => {
+        const count = languageCounts[code] || 0;
+        const hasArticles = count > 0;
+
+        return (
+          <a
+            href={`/learn/${nativeLanguageCode}/${code}/`}
+            class={`group relative flex flex-col items-center p-6 rounded-2xl border-2 transition-all ${
+              hasArticles
+                ? 'border-gray-200 hover:border-accent hover:shadow-lg bg-white'
+                : 'border-gray-100 bg-gray-50 hover:border-gray-200'
+            }`}
+          >
+            <span class="text-5xl mb-3 group-hover:scale-110 transition-transform">{info.flag}</span>
+            <span class={`font-semibold ${hasArticles ? 'text-gray-900' : 'text-gray-400'}`}>
+              {info.name}
+            </span>
+            <span class="text-xs text-gray-400 mb-2">{info.nativeName}</span>
+
+            {hasArticles ? (
+              <span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/10 text-accent">
+                {count} {count === 1 ? text.article : text.articles}
+              </span>
+            ) : (
+              <span class="text-xs text-gray-300">{text.comingSoon}</span>
+            )}
+
+            {hasArticles && (
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-accent ring-offset-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </main>
+
+  <!-- Popular Languages Section -->
+  {languagesWithContent > 0 && (
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl font-bold font-header text-gray-900 mb-8 text-center">
+          {text.popularTitle}
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {sortedLanguages
+            .filter(([code]) => languageCounts[code] > 0)
+            .slice(0, 3)
+            .map(([code, info]) => (
+              <a
+                href={`/learn/${nativeLanguageCode}/${code}/`}
+                class="bg-white rounded-2xl p-6 border border-gray-200 hover:border-accent hover:shadow-lg transition-all group"
+              >
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="text-5xl">{info.flag}</span>
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-accent transition-colors">
+                      {info.name}
+                    </h3>
+                    <p class="text-gray-500">{languageCounts[code]} {languageCounts[code] === 1 ? text.article : text.articles}</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 text-sm">
+                  {text.learnWith}
+                </p>
+                <div class="mt-4 text-accent font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                  {text.startLearning}
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Testimonials -->
+  <section class="max-w-6xl mx-auto px-4">
+    <Testimonials />
+  </section>
+
+  <!-- Main CTA -->
+  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl font-bold font-header mb-4">
+        {text.ctaTitle}
+      </h2>
+      <p class="text-white/90 mb-8">
+        {text.ctaSubtitle}
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        {text.ctaButton}
+      </a>
+      <p class="mt-4 text-white/80 text-sm">
+        {text.ctaFooter}
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">{text.heroSubtitle}</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
