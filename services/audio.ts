@@ -95,23 +95,30 @@ function playAudio(url?: string, base64Data?: string): Promise<void> {
   });
 }
 
+export interface SpeakResult {
+  success: boolean;
+  source: 'cloud' | 'browser' | 'none';
+  error?: string;
+}
+
 /**
- * Speak text in any supported language using Google Cloud TTS
- * Falls back to browser TTS if API fails
+ * Speak text in any supported language using Google Cloud TTS.
+ * Only falls back to browser TTS for unauthenticated users.
+ * Returns result indicating success/failure and audio source.
  */
-export const speak = async (text: string, languageCode: string = 'pl', rate: number = 0.85): Promise<void> => {
+export const speak = async (text: string, languageCode: string = 'pl', rate: number = 0.85): Promise<SpeakResult> => {
   if (!text || !text.trim()) {
     console.warn('[audio] Empty text provided');
-    return;
+    return { success: false, source: 'none', error: 'No text provided' };
   }
 
   try {
     const headers = await getAuthHeaders();
 
-    // Check if user is authenticated
+    // Unauthenticated users get browser TTS (only valid fallback case)
     if (!headers.Authorization || headers.Authorization === 'Bearer ') {
       fallbackSpeak(text, languageCode, rate);
-      return;
+      return { success: true, source: 'browser' };
     }
 
     const response = await fetch('/api/tts', {
@@ -121,9 +128,17 @@ export const speak = async (text: string, languageCode: string = 'pl', rate: num
     });
 
     if (!response.ok) {
-      console.warn('[audio] TTS API error:', response.status);
-      fallbackSpeak(text, languageCode, rate);
-      return;
+      const errorData = await response.json().catch(() => ({}));
+      const errorMsg = errorData.error || `TTS request failed (${response.status})`;
+      console.error('[audio] TTS API error:', response.status, errorMsg);
+
+      // Rate limit - don't fall back, inform the user
+      if (response.status === 429) {
+        return { success: false, source: 'none', error: errorMsg };
+      }
+
+      // Other server errors - don't silently degrade
+      return { success: false, source: 'none', error: errorMsg };
     }
 
     const data = await response.json();
@@ -131,15 +146,18 @@ export const speak = async (text: string, languageCode: string = 'pl', rate: num
     // Play audio from URL or base64 data
     if (data.url) {
       await playAudio(data.url);
+      return { success: true, source: 'cloud' };
     } else if (data.audioData) {
       await playAudio(undefined, data.audioData);
+      return { success: true, source: 'cloud' };
     } else {
-      fallbackSpeak(text, languageCode, rate);
+      return { success: false, source: 'none', error: 'No audio data received' };
     }
 
   } catch (error) {
-    console.warn('[audio] TTS failed, using fallback:', error);
-    fallbackSpeak(text, languageCode, rate);
+    const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+    console.error('[audio] TTS failed:', errorMsg);
+    return { success: false, source: 'none', error: errorMsg };
   }
 };
 

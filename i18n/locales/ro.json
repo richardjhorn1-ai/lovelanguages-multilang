@@ -462,8 +462,10 @@
       "noun": "Substantiv",
       "verb": "Verb",
       "adjective": "Adjectiv",
+      "adverb": "Adverb",
       "phrase": "Expresie",
-      "gifts": "Cadouri"
+      "gifts": "Cadouri",
+      "clear": "Șterge"
     },
 
     "card": {

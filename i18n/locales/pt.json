@@ -462,8 +462,10 @@
       "noun": "Substantivo",
       "verb": "Verbo",
       "adjective": "Adjetivo",
+      "adverb": "Advérbio",
       "phrase": "Frase",
-      "gifts": "Presentes"
+      "gifts": "Presentes",
+      "clear": "Limpar"
     },
 
     "card": {

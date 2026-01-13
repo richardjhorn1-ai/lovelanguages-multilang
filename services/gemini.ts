@@ -155,8 +155,9 @@ export const geminiService = {
 
       const decoder = new TextDecoder();
       let fullText = '';
+      let streamComplete = false;
 
-      while (true) {
+      while (!streamComplete) {
         const { done, value } = await reader.read();
         if (done) break;
 
@@ -171,7 +172,10 @@ export const geminiService = {
                 fullText += data.text;
                 onChunk?.(data.text);
               }
-              if (data.done) break;
+              if (data.done) {
+                streamComplete = true;
+                break;
+              }
               if (data.error) throw new Error(data.error);
             } catch (e) {
               // Skip malformed JSON lines

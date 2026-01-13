@@ -462,8 +462,10 @@
       "noun": "Zelfstandig naamwoord",
       "verb": "Werkwoord",
       "adjective": "Bijvoeglijk naamwoord",
+      "adverb": "Bijwoord",
       "phrase": "Zin",
-      "gifts": "Cadeaus"
+      "gifts": "Cadeaus",
+      "clear": "Wissen"
     },
 
     "card": {

@@ -462,8 +462,10 @@
       "noun": "Navneord",
       "verb": "Verbum",
       "adjective": "Tillægsord",
+      "adverb": "Biord",
       "phrase": "Sætning",
-      "gifts": "Gaver"
+      "gifts": "Gaver",
+      "clear": "Ryd"
     },
 
     "card": {

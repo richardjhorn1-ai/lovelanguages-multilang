@@ -462,8 +462,10 @@
       "noun": "Rzeczownik",
       "verb": "Czasownik",
       "adjective": "Przymiotnik",
+      "adverb": "Przysłówek",
       "phrase": "Wyrażenie",
-      "gifts": "Prezenty"
+      "gifts": "Prezenty",
+      "clear": "Wyczyść"
     },
 
     "card": {
