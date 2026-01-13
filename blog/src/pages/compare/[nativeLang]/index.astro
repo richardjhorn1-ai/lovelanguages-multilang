@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getComparisonContent } from '../../../data/comparison-features';
+
+export function getStaticPaths() {
+  // Supported native languages
+  const supportedLangs = ['en', 'es', 'fr'];
+  return supportedLangs.map(nativeLang => ({
+    params: { nativeLang }
+  }));
+}
+
+const { nativeLang } = Astro.params;
+const lang = nativeLang || 'en';
+const content = getComparisonContent(lang);
+
+// Page-specific translations
+const UI_TEXT: Record<string, {
+  pageTitle: string;
+  pageDescription: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  whyChooseTitle: string;
+  builtForCouples: { title: string; description: string };
+  listenMode: { title: string; description: string };
+  languages18: { title: string; description: string };
+  aiConversations: { title: string; description: string };
+  gameModes: { title: string; description: string };
+  wordGifts: { title: string; description: string };
+  ctaTitle: string;
+  ctaSubtitle: string;
+  ctaButton: string;
+  duolingoDescription: string;
+  duolingoVerdict: string;
+  babbelDescription: string;
+  babbelVerdict: string;
+  compare: string;
+}> = {
+  en: {
+    pageTitle: "Compare Language Learning Apps - Love Languages vs Duolingo, Babbel & More",
+    pageDescription: "Compare Love Languages with Duolingo, Babbel, and other language learning apps. Find the best app for couples learning 18 languages together with Listen Mode and partner challenges.",
+    heroTitle: "Compare Language Learning Apps",
+    heroSubtitle: "Honest comparisons to help you choose the right app for learning languages with your partner",
+    whyChooseTitle: "Why Couples Choose Love Languages",
+    builtForCouples: { title: "Built for Couples", description: "The only language app designed for learning together with partner challenges, word gifts, and shared progress." },
+    listenMode: { title: "Listen Mode", description: "Learn passively while cooking, commuting, or relaxing. No other app lets you absorb language so naturally." },
+    languages18: { title: "18 Languages", description: "Spanish, French, German, Italian, Portuguese, Polish, and more. Any native language to any target language." },
+    aiConversations: { title: "AI Conversations", description: "Real conversations with AI that adapts to your level. Practice speaking anytime, not just scripted exercises." },
+    gameModes: { title: "5 Game Modes", description: "Flashcard battles, listening challenges, and more. Games designed for couples to compete and learn together." },
+    wordGifts: { title: "Word Gifts", description: "Send romantic vocabulary to your partner. A sweet way to share your progress and encourage each other." },
+    ctaTitle: "See Why Couples Love Us",
+    ctaSubtitle: "AI coaching, Listen Mode, partner challenges, and games designed for learning 18 languages together.",
+    ctaButton: "Start Learning Together",
+    duolingoDescription: "Compare the gamified free option with our couple-focused multi-language app. See how Listen Mode and partner features stack up.",
+    duolingoVerdict: "Best free alternative",
+    babbelDescription: "Compare structured solo courses with AI-powered conversational learning for couples. 18 languages vs 14.",
+    babbelVerdict: "Best for structured learners",
+    compare: "Compare"
+  },
+  es: {
+    pageTitle: "Comparar Apps de Idiomas - Love Languages vs Duolingo, Babbel y Más",
+    pageDescription: "Compara Love Languages con Duolingo, Babbel y otras apps de idiomas. Encuentra la mejor app para parejas aprendiendo 18 idiomas juntos con Modo Escucha y desafíos de pareja.",
+    heroTitle: "Comparar Apps de Idiomas",
+    heroSubtitle: "Comparaciones honestas para ayudarte a elegir la app correcta para aprender idiomas con tu pareja",
+    whyChooseTitle: "Por Qué las Parejas Eligen Love Languages",
+    builtForCouples: { title: "Diseñado para Parejas", description: "La única app de idiomas diseñada para aprender juntos con desafíos de pareja, regalos de palabras y progreso compartido." },
+    listenMode: { title: "Modo Escucha", description: "Aprende pasivamente mientras cocinas, viajas o te relajas. Ninguna otra app te permite absorber idiomas tan naturalmente." },
+    languages18: { title: "18 Idiomas", description: "Español, francés, alemán, italiano, portugués, polaco y más. Cualquier idioma nativo a cualquier idioma objetivo." },
+    aiConversations: { title: "Conversaciones con IA", description: "Conversaciones reales con IA que se adapta a tu nivel. Practica hablando en cualquier momento, no solo ejercicios guionizados." },
+    gameModes: { title: "5 Modos de Juego", description: "Batallas de tarjetas, desafíos de escucha y más. Juegos diseñados para que las parejas compitan y aprendan juntas." },
+    wordGifts: { title: "Regalos de Palabras", description: "Envía vocabulario romántico a tu pareja. Una forma dulce de compartir tu progreso y animarse mutuamente." },
+    ctaTitle: "Descubre Por Qué las Parejas Nos Aman",
+    ctaSubtitle: "Coaching de IA, Modo Escucha, desafíos de pareja y juegos diseñados para aprender 18 idiomas juntos.",
+    ctaButton: "Empezar a Aprender Juntos",
+    duolingoDescription: "Compara la opción gratuita gamificada con nuestra app multiidioma para parejas. Ve cómo se comparan el Modo Escucha y las funciones de pareja.",
+    duolingoVerdict: "Mejor alternativa gratuita",
+    babbelDescription: "Compara cursos estructurados individuales con aprendizaje conversacional con IA para parejas. 18 idiomas vs 14.",
+    babbelVerdict: "Mejor para aprendices estructurados",
+    compare: "Comparar"
+  },
+  fr: {
+    pageTitle: "Comparer les Apps de Langues - Love Languages vs Duolingo, Babbel et Plus",
+    pageDescription: "Comparez Love Languages avec Duolingo, Babbel et d'autres apps de langues. Trouvez la meilleure app pour les couples apprenant 18 langues ensemble avec Mode Écoute et défis de couple.",
+    heroTitle: "Comparer les Apps de Langues",
+    heroSubtitle: "Comparaisons honnêtes pour vous aider à choisir la bonne app pour apprendre des langues avec votre partenaire",
+    whyChooseTitle: "Pourquoi les Couples Choisissent Love Languages",
+    builtForCouples: { title: "Conçu pour les Couples", description: "La seule app de langues conçue pour apprendre ensemble avec des défis de couple, des cadeaux de mots et des progrès partagés." },
+    listenMode: { title: "Mode Écoute", description: "Apprenez passivement en cuisinant, voyageant ou vous relaxant. Aucune autre app ne vous permet d'absorber les langues si naturellement." },
+    languages18: { title: "18 Langues", description: "Espagnol, français, allemand, italien, portugais, polonais et plus. N'importe quelle langue maternelle vers n'importe quelle langue cible." },
+    aiConversations: { title: "Conversations IA", description: "De vraies conversations avec une IA qui s'adapte à votre niveau. Pratiquez à tout moment, pas seulement des exercices scriptés." },
+    gameModes: { title: "5 Modes de Jeu", description: "Batailles de cartes, défis d'écoute et plus. Des jeux conçus pour que les couples rivalisent et apprennent ensemble." },
+    wordGifts: { title: "Cadeaux de Mots", description: "Envoyez du vocabulaire romantique à votre partenaire. Une façon douce de partager vos progrès et de vous encourager." },
+    ctaTitle: "Découvrez Pourquoi les Couples Nous Adorent",
+    ctaSubtitle: "Coaching IA, Mode Écoute, défis de couple et jeux conçus pour apprendre 18 langues ensemble.",
+    ctaButton: "Commencer à Apprendre Ensemble",
+    duolingoDescription: "Comparez l'option gratuite gamifiée avec notre app multilingue pour couples. Voyez comment se comparent le Mode Écoute et les fonctionnalités couple.",
+    duolingoVerdict: "Meilleure alternative gratuite",
+    babbelDescription: "Comparez les cours structurés solo avec l'apprentissage conversationnel IA pour couples. 18 langues vs 14.",
+    babbelVerdict: "Meilleur pour apprenants structurés",
+    compare: "Comparer"
+  }
+};
+
+const text = UI_TEXT[lang] || UI_TEXT.en;
+
+const comparisons = [
+  {
+    title: "Love Languages vs Duolingo",
+    description: text.duolingoDescription,
+    href: `/compare/${lang}/love-languages-vs-duolingo`,
+    competitor: "Duolingo",
+    competitorIcon: "🦉",
+    verdict: text.duolingoVerdict
+  },
+  {
+    title: "Love Languages vs Babbel",
+    description: text.babbelDescription,
+    href: `/compare/${lang}/love-languages-vs-babbel`,
+    competitor: "Babbel",
+    competitorIcon: "📚",
+    verdict: text.babbelVerdict
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": text.heroTitle,
+  "description": text.pageDescription,
+  "url": `https://lovelanguages.xyz/compare/${lang}/`,
+  "inLanguage": lang,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+---
+
+<BaseLayout
+  title={text.pageTitle}
+  description={text.pageDescription}
+  nativeLang={lang}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Header -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-4xl mx-auto px-4 py-10 md:py-14">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          {text.heroTitle}
+        </h1>
+        <p class="text-xl text-gray-600">
+          {text.heroSubtitle}
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Comparisons Grid -->
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-2 gap-6">
+      {comparisons.map(comp => (
+        <a
+          href={comp.href}
+          class="group bg-white rounded-2xl shadow-md hover:shadow-lg transition-all p-6 border border-gray-100 hover:border-accent/30"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            <img src="/favicon.svg" alt="Love Languages" class="w-12 h-12" />
+            <span class="text-2xl text-gray-300">vs</span>
+            <span class="text-4xl">{comp.competitorIcon}</span>
+          </div>
+          <h2 class="text-xl font-bold font-header text-gray-900 group-hover:text-accent transition-colors mb-2">
+            {comp.title}
+          </h2>
+          <p class="text-gray-600 mb-3">{comp.description}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm text-gray-500">
+              {comp.competitor}: {comp.verdict}
+            </span>
+            <span class="text-accent font-medium group-hover:translate-x-1 transition-transform">
+              {text.compare} →
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Why Love Languages Section -->
+    <section class="mt-12 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl p-8">
+      <h2 class="text-2xl font-bold font-header text-gray-900 mb-6 text-center">
+        {text.whyChooseTitle}
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="text-center">
+          <div class="text-4xl mb-3">💕</div>
+          <h3 class="font-bold text-gray-900 mb-2">{text.builtForCouples.title}</h3>
+          <p class="text-gray-600 text-sm">{text.builtForCouples.description}</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-3">🎧</div>
+          <h3 class="font-bold text-gray-900 mb-2">{text.listenMode.title}</h3>
+          <p class="text-gray-600 text-sm">{text.listenMode.description}</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-3">🌍</div>
+          <h3 class="font-bold text-gray-900 mb-2">{text.languages18.title}</h3>
+          <p class="text-gray-600 text-sm">{text.languages18.description}</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="text-4xl mb-3">🤖</div>
+          <h3 class="font-bold text-gray-900 mb-2">{text.aiConversations.title}</h3>
+          <p class="text-gray-600 text-sm">{text.aiConversations.description}</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-3">🎮</div>
+          <h3 class="font-bold text-gray-900 mb-2">{text.gameModes.title}</h3>
+          <p class="text-gray-600 text-sm">{text.gameModes.description}</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-3">🎁</div>
+          <h3 class="font-bold text-gray-900 mb-2">{text.wordGifts.title}</h3>
+          <p class="text-gray-600 text-sm">{text.wordGifts.description}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
+        {text.ctaTitle}
+      </h2>
+      <p class="text-white/90 mb-6 text-lg">
+        {text.ctaSubtitle}
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        {text.ctaButton} →
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">{content.page.footerTagline}</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href={`/learn/${lang}/`} class="hover:text-accent">{content.page.blog}</a>
+        <a href="/tools" class="hover:text-accent">{content.page.tools}</a>
+        <a href={`/compare/${lang}/`} class="hover:text-accent">{content.page.compare}</a>
+        <a href="/terms" class="hover:text-accent">{content.page.terms}</a>
+        <a href="/privacy" class="hover:text-accent">{content.page.privacy}</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
