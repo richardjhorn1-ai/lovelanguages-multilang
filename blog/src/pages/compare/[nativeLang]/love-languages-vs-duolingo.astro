@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import { getComparisonContent } from '../../../data/comparison-features';
+
+export function getStaticPaths() {
+  // Supported native languages
+  const supportedLangs = ['en', 'es', 'fr'];
+  return supportedLangs.map(nativeLang => ({
+    params: { nativeLang }
+  }));
+}
+
+const { nativeLang } = Astro.params;
+const lang = nativeLang || 'en';
+const content = getComparisonContent(lang);
+
+const title = content.page.title.replace('{competitor}', 'Duolingo');
+const description = content.page.description.replace('{competitor}', 'Duolingo');
+const heroTitle = content.page.heroTitle.replace('{competitor}', 'Duolingo');
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": `https://lovelanguages.xyz/compare/${lang}/love-languages-vs-duolingo`,
+  "inLanguage": lang
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  nativeLang={lang}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-5xl mx-auto px-4 py-10 md:py-14">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          {heroTitle}
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          {content.page.heroSubtitle}
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quick Summary -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl shadow-lg p-6 border-2 border-accent">
+        <div class="flex items-center gap-3 mb-4">
+          <img src="/favicon.svg" alt="" class="w-10 h-10" />
+          <div>
+            <h2 class="text-xl font-bold font-header text-gray-900">Love Languages</h2>
+            <p class="text-sm text-accent font-medium">{content.page.bestForCouples}</p>
+          </div>
+        </div>
+        <ul class="space-y-2 text-gray-600">
+          {content.loveLanguagesSummary.map(item => (
+            <li class="flex items-center gap-2">
+              <span class="text-green-500">✓</span> {item.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center text-white text-xl font-bold">D</div>
+          <div>
+            <h2 class="text-xl font-bold font-header text-gray-900">Duolingo</h2>
+            <p class="text-sm text-gray-500 font-medium">{content.duolingoSubtitle}</p>
+          </div>
+        </div>
+        <ul class="space-y-2 text-gray-600">
+          {content.duolingoSummary.map(item => (
+            <li class="flex items-center gap-2">
+              <span class={item.positive ? "text-green-500" : "text-red-400"}>{item.positive ? "✓" : "✗"}</span>
+              {item.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Differentiators -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold font-header text-gray-900 mb-6 text-center">{content.page.whatMakesDifferent}</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl p-6">
+        <div class="text-3xl mb-3">🎧</div>
+        <h3 class="font-bold text-gray-900 mb-2">{content.listenMode.title}</h3>
+        <p class="text-gray-600 text-sm">{content.listenMode.description}</p>
+      </div>
+      <div class="bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl p-6">
+        <div class="text-3xl mb-3">🎯</div>
+        <h3 class="font-bold text-gray-900 mb-2">{content.partnerChallenges.title}</h3>
+        <p class="text-gray-600 text-sm">{content.partnerChallenges.description}</p>
+      </div>
+      <div class="bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl p-6">
+        <div class="text-3xl mb-3">🎁</div>
+        <h3 class="font-bold text-gray-900 mb-2">{content.wordGifts.title}</h3>
+        <p class="text-gray-600 text-sm">{content.wordGifts.description}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Comparison Table -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold font-header text-gray-900 mb-6 text-center">{content.page.featureComparison}</h2>
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="text-left p-4 font-bold text-gray-700">Feature</th>
+              <th class="text-center p-4 font-bold text-accent">Love Languages</th>
+              <th class="text-center p-4 font-bold text-gray-700">Duolingo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {content.duolingoFeatures.map((feature, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td class="p-4 font-medium text-gray-900">{feature.name}</td>
+                <td class={`p-4 text-center ${feature.loveLanguages.highlight ? 'text-accent font-bold' : 'text-gray-600'}`}>
+                  {feature.loveLanguages.value}
+                </td>
+                <td class={`p-4 text-center ${feature.competitor.highlight ? 'text-green-600 font-bold' : 'text-gray-600'}`}>
+                  {feature.competitor.value}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to Choose Which -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gradient-to-br from-accent/10 to-pink-50 rounded-2xl p-6">
+        <h3 class="text-xl font-bold font-header text-gray-900 mb-4 flex items-center gap-2">
+          <span class="text-2xl">💕</span> {content.chooseLoveLanguagesTitle}
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          {content.chooseLoveLanguages.slice(0, 5).map(reason => (
+            <li class="flex items-start gap-2">
+              <span class="text-accent mt-1">♥</span>
+              <span>{reason}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-6">
+        <h3 class="text-xl font-bold font-header text-gray-900 mb-4 flex items-center gap-2">
+          <span class="text-2xl">🦉</span> {content.chooseDuolingoTitle}
+        </h3>
+        <ul class="space-y-3 text-gray-700">
+          {content.chooseDuolingo.map(reason => (
+            <li class="flex items-start gap-2">
+              <span class="text-gray-400 mt-1">•</span>
+              <span>{reason}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Couple Features Deep Dive -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <div class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold font-header text-gray-900 mb-6 text-center">{content.page.builtForLearning}</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+            <span class="text-accent">🎮</span> {content.gameModes.title}
+          </h3>
+          <p class="text-gray-600 mb-4">{content.gameModes.description}</p>
+
+          <h3 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+            <span class="text-accent">📚</span> {content.loveLog.title}
+          </h3>
+          <p class="text-gray-600">{content.loveLog.description}</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+            <span class="text-accent">🏆</span> {content.progressXP.title}
+          </h3>
+          <p class="text-gray-600 mb-4">{content.progressXP.description}</p>
+
+          <h3 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+            <span class="text-accent">🌍</span> {content.languages18.title}
+          </h3>
+          <p class="text-gray-600">{content.languages18.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-3xl mx-auto px-4 py-8">
+    <FAQ items={content.duolingoFaqs} />
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-5xl mx-auto px-4 py-12">
+    <div class="bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
+        {content.page.ctaTitle}
+      </h2>
+      <p class="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
+        {content.page.ctaSubtitle}
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        {content.page.ctaButton} →
+      </a>
+      <p class="mt-4 text-white/80 text-sm">
+        {content.page.ctaFooter}
+      </p>
+    </div>
+  </section>
+
+  <!-- Other Comparisons -->
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <h2 class="text-xl font-bold font-header text-gray-900 mb-4 text-center">{content.page.otherComparisons}</h2>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href={`/compare/${lang}/love-languages-vs-babbel`} class="px-4 py-2 bg-gray-100 rounded-full text-gray-700 hover:bg-accent/10 hover:text-accent transition-colors">
+        Love Languages vs Babbel
+      </a>
+      <a href={`/compare/${lang}/`} class="px-4 py-2 bg-gray-100 rounded-full text-gray-700 hover:bg-accent/10 hover:text-accent transition-colors">
+        {content.page.allComparisons}
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">{content.page.footerTagline}</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href={`/learn/${lang}/`} class="hover:text-accent">{content.page.blog}</a>
+        <a href="/tools" class="hover:text-accent">{content.page.tools}</a>
+        <a href={`/compare/${lang}/`} class="hover:text-accent">{content.page.compare}</a>
+        <a href="/terms" class="hover:text-accent">{content.page.terms}</a>
+        <a href="/privacy" class="hover:text-accent">{content.page.privacy}</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
