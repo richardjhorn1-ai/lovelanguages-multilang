@@ -17,9 +17,13 @@ import {
   AccentColor,
   DarkModeStyle,
   FontSize,
+  FontPreset,
+  FontWeight,
   ACCENT_COLORS,
   DARK_MODE_STYLES,
-  FONT_SIZES
+  FONT_SIZES,
+  FONT_PRESETS,
+  FONT_WEIGHTS
 } from '../services/theme';
 import { sounds } from '../services/sounds';
 
@@ -50,7 +54,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const [showBreakupModal, setShowBreakupModal] = useState(false);
   const [isSoundMuted, setIsSoundMuted] = useState(sounds.isMuted());
 
-  const { theme, setAccentColor, setDarkMode, setFontSize, accentHex, isDark } = useTheme();
+  const { theme, setAccentColor, setDarkMode, setFontSize, setFontPreset, setFontWeight, accentHex, isDark } = useTheme();
   const { t } = useTranslation();
   const { targetLanguage } = useLanguage();
   const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'your language';
@@ -329,6 +333,68 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                         Aa
                       </span>
                       <p className="text-xs text-[var(--text-secondary)] mt-1">{FONT_SIZES[size].name}</p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Font Style */}
+              <div>
+                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontStyle', 'Font Style')}</label>
+                <div className="grid grid-cols-3 gap-2">
+                  {(Object.keys(FONT_PRESETS) as FontPreset[]).map((preset) => (
+                    <button
+                      key={preset}
+                      onClick={() => setFontPreset(preset)}
+                      className={`p-3 rounded-xl border-2 transition-all ${
+                        theme.fontPreset === preset
+                          ? 'border-[var(--accent-color)]'
+                          : 'border-[var(--border-color)] hover:border-[var(--text-secondary)]'
+                      }`}
+                      style={{
+                        backgroundColor: theme.fontPreset === preset ? 'var(--accent-light)' : 'var(--bg-card)'
+                      }}
+                    >
+                      <span
+                        className="text-lg font-bold block text-[var(--text-primary)]"
+                        style={{ fontFamily: FONT_PRESETS[preset].header }}
+                      >
+                        Aa
+                      </span>
+                      <span className="text-xs mt-1 block text-[var(--text-secondary)]">
+                        {FONT_PRESETS[preset].name}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Font Weight */}
+              <div>
+                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontWeight', 'Font Weight')}</label>
+                <div className="grid grid-cols-3 gap-2">
+                  {(Object.keys(FONT_WEIGHTS) as FontWeight[]).map((weight) => (
+                    <button
+                      key={weight}
+                      onClick={() => setFontWeight(weight)}
+                      className={`p-3 rounded-xl border-2 transition-all ${
+                        theme.fontWeight === weight
+                          ? 'border-[var(--accent-color)]'
+                          : 'border-[var(--border-color)] hover:border-[var(--text-secondary)]'
+                      }`}
+                      style={{
+                        backgroundColor: theme.fontWeight === weight ? 'var(--accent-light)' : 'var(--bg-card)'
+                      }}
+                    >
+                      <span
+                        className="text-lg block text-[var(--text-primary)]"
+                        style={{ fontWeight: FONT_WEIGHTS[weight].textWeight }}
+                      >
+                        Aa
+                      </span>
+                      <span className="text-xs mt-1 block text-[var(--text-secondary)]">
+                        {FONT_WEIGHTS[weight].name}
+                      </span>
                     </button>
                   ))}
                 </div>

@@ -21,6 +21,7 @@
     "@google/genai": "*",
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
+    "@phosphor-icons/react": "^2.1.10",
     "@stripe/stripe-js": "^8.6.1",
     "@supabase/supabase-js": "^2.39.8",
     "@types/dompurify": "^3.0.5",
