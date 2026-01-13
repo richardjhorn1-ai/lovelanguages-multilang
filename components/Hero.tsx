@@ -2107,23 +2107,10 @@ const Hero: React.FC = () => {
       setMessage(error.message);
     } else if (isSignUp) {
       setMessage(t('hero.login.checkEmail'));
-    } else {
-      // For sign-in: Update profile with user's language selection from Hero page
-      // This ensures localStorage languages override database defaults (pl/en)
-      const storedTarget = localStorage.getItem('preferredTargetLanguage');
-      const storedNative = localStorage.getItem('preferredLanguage');
-
-      if (storedTarget || storedNative) {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-          await supabase.from('profiles').update({
-            active_language: storedTarget || 'pl',
-            native_language: storedNative || 'en',
-            languages: [storedTarget || 'pl']
-          }).eq('id', user.id);
-        }
-      }
     }
+    // For sign-in: Do NOT override database preferences
+    // User's existing account settings take precedence over localStorage
+    // localStorage is only used for the landing page UI before login
 
     setLoading(false);
   };

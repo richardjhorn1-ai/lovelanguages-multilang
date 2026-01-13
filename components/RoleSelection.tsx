@@ -1,56 +1,71 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
-import { UserRole } from '../types';
+import { UserRole, Profile } from '../types';
 import { ICONS } from '../constants';
-import { useLanguage } from '../context/LanguageContext';
+import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES } from '../constants/language-config';
 
 interface RoleSelectionProps {
   userId: string;
+  profile: Profile;
   onRoleSelected: () => void;
 }
 
-const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected }) => {
+const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSelected }) => {
   const [selectedRole, setSelectedRole] = useState<UserRole | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
-  const { t } = useTranslation();
-  const { targetName } = useLanguage();
+  // Language confirmation state - initialized from the PROFILE (source of truth)
+  const [nativeLanguage, setNativeLanguage] = useState<string>(profile.native_language || 'en');
+  const [targetLanguage, setTargetLanguage] = useState<string>(profile.active_language || 'pl');
+  const [showNativeDropdown, setShowNativeDropdown] = useState(false);
+  const [showTargetDropdown, setShowTargetDropdown] = useState(false);
+  const nativeDropdownRef = useRef<HTMLDivElement>(null);
+  const targetDropdownRef = useRef<HTMLDivElement>(null);
 
-  // Check for intended_role from Hero signup (metadata) or OAuth (localStorage) - auto-save if present
+  const { t, i18n } = useTranslation();
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (nativeDropdownRef.current && !nativeDropdownRef.current.contains(event.target as Node)) {
+        setShowNativeDropdown(false);
+      }
+      if (targetDropdownRef.current && !targetDropdownRef.current.contains(event.target as Node)) {
+        setShowTargetDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Check for intended role from signup (pre-select but don't auto-save)
   useEffect(() => {
     const checkIntendedRole = async () => {
       try {
         const { data: { user } } = await supabase.auth.getUser();
+        const userMeta = user?.user_metadata || {};
 
-        // Check user metadata first (email/password signup), then localStorage (OAuth signup)
-        let intendedRole = user?.user_metadata?.intended_role;
+        // Sync i18n with native language from profile
+        if (profile.native_language && i18n.language !== profile.native_language) {
+          i18n.changeLanguage(profile.native_language);
+        }
+
+        // Check for intended role (from Hero signup) - pre-select but DON'T auto-save
+        // User must confirm their settings first
+        let intendedRole = userMeta.intended_role;
 
         if (!intendedRole) {
           // Check localStorage for OAuth signups
           const storedRole = localStorage.getItem('intended_role');
           if (storedRole === 'student' || storedRole === 'tutor') {
             intendedRole = storedRole;
-            // Clean up localStorage after reading
             localStorage.removeItem('intended_role');
           }
         }
 
         if (intendedRole === 'student' || intendedRole === 'tutor') {
-          // Auto-save the role from Hero signup and proceed directly to onboarding
-          const { error } = await supabase
-            .from('profiles')
-            .update({ role: intendedRole })
-            .eq('id', userId);
-
-          if (!error) {
-            // Role saved successfully, proceed to onboarding
-            onRoleSelected();
-            return;
-          }
-          // If save failed, fall back to manual selection
-          console.error('Error auto-saving intended role:', error);
           setSelectedRole(intendedRole as UserRole);
         }
       } catch (err) {
@@ -61,22 +76,45 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
     };
 
     checkIntendedRole();
-  }, [userId, onRoleSelected]);
+  }, [userId, i18n, profile.native_language]);
+
+  const handleNativeSelect = (code: string) => {
+    setNativeLanguage(code);
+    setShowNativeDropdown(false);
+    // Update i18n to show UI in selected language
+    i18n.changeLanguage(code);
+  };
+
+  const handleTargetSelect = (code: string) => {
+    setTargetLanguage(code);
+    setShowTargetDropdown(false);
+  };
 
   const handleConfirm = async () => {
     if (!selectedRole) return;
 
     setSaving(true);
     try {
+      // Save role AND confirmed languages
       const { error } = await supabase
         .from('profiles')
-        .update({ role: selectedRole })
+        .update({
+          role: selectedRole,
+          native_language: nativeLanguage,
+          active_language: targetLanguage,
+          languages: [targetLanguage]
+        })
         .eq('id', userId);
 
       if (error) throw error;
+
+      // Clear localStorage language preferences since they're now confirmed in database
+      localStorage.removeItem('preferredLanguage');
+      localStorage.removeItem('preferredTargetLanguage');
+
       onRoleSelected();
     } catch (err) {
-      console.error('Error saving role:', err);
+      console.error('Error saving profile:', err);
       setSaving(false);
     }
   };
@@ -98,14 +136,16 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
 
   const isStudent = selectedRole === 'student';
   const isTutor = selectedRole === 'tutor';
+  const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage] || LANGUAGE_CONFIGS['en'];
+  const targetConfig = LANGUAGE_CONFIGS[targetLanguage] || LANGUAGE_CONFIGS['pl'];
 
   // Role-specific content
   const roleContent = {
     student: {
       emoji: '📚',
-      title: t('roleSelection.student.title', { language: targetName }),
-      subtitle: t('roleSelection.student.subtitle', { language: targetName }),
-      confirmMessage: t('roleSelection.student.confirmMessage', { language: targetName }),
+      title: t('roleSelection.student.title', { language: targetConfig.name }),
+      subtitle: t('roleSelection.student.subtitle', { language: targetConfig.name }),
+      confirmMessage: t('roleSelection.student.confirmMessage', { language: targetConfig.name }),
       confirmSubtext: t('roleSelection.student.confirmSubtext'),
       accentColor: '#FF4761',
       bgLight: 'bg-rose-50',
@@ -116,9 +156,9 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
     },
     tutor: {
       emoji: '🎓',
-      title: t('roleSelection.tutor.title', { language: targetName }),
+      title: t('roleSelection.tutor.title', { language: targetConfig.name }),
       subtitle: t('roleSelection.tutor.subtitle'),
-      confirmMessage: t('roleSelection.tutor.confirmMessage', { language: targetName }),
+      confirmMessage: t('roleSelection.tutor.confirmMessage', { language: targetConfig.name }),
       confirmSubtext: t('roleSelection.tutor.confirmSubtext'),
       accentColor: '#FF4761',
       bgLight: 'bg-rose-50',
@@ -129,95 +169,189 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, onRoleSelected })
     },
   };
 
+  // Language dropdown component
+  const LanguageDropdown = ({
+    label,
+    value,
+    isOpen,
+    setIsOpen,
+    onSelect,
+    dropdownRef,
+    excludeCode,
+  }: {
+    label: string;
+    value: string;
+    isOpen: boolean;
+    setIsOpen: (open: boolean) => void;
+    onSelect: (code: string) => void;
+    dropdownRef: React.RefObject<HTMLDivElement>;
+    excludeCode?: string;
+  }) => {
+    const config = LANGUAGE_CONFIGS[value] || LANGUAGE_CONFIGS['en'];
+    const availableLanguages = SUPPORTED_LANGUAGE_CODES.filter(code => code !== excludeCode);
+
+    return (
+      <div ref={dropdownRef} className="relative">
+        <label className="block text-sm font-medium text-gray-600 mb-1.5">{label}</label>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          disabled={saving}
+          className="w-full flex items-center justify-between gap-2 px-4 py-3 bg-white border-2 border-gray-200 rounded-xl hover:border-rose-300 transition-all disabled:opacity-50"
+        >
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">{config.flag}</span>
+            <div className="text-left">
+              <div className="font-semibold text-gray-800">{config.name}</div>
+              <div className="text-sm text-gray-500">{config.nativeName}</div>
+            </div>
+          </div>
+          <ICONS.ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        </button>
+
+        {isOpen && (
+          <div className="absolute z-50 mt-2 w-full max-h-64 overflow-y-auto bg-white border border-gray-200 rounded-xl shadow-lg">
+            {availableLanguages.map(code => {
+              const langConfig = LANGUAGE_CONFIGS[code];
+              return (
+                <button
+                  key={code}
+                  onClick={() => onSelect(code)}
+                  className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-rose-50 transition-colors text-left ${
+                    code === value ? 'bg-rose-50' : ''
+                  }`}
+                >
+                  <span className="text-xl">{langConfig.flag}</span>
+                  <div>
+                    <div className="font-medium text-gray-800">{langConfig.name}</div>
+                    <div className="text-sm text-gray-500">{langConfig.nativeName}</div>
+                  </div>
+                  {code === value && (
+                    <ICONS.Check className="w-5 h-5 text-rose-500 ml-auto" />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center p-6">
       <div className="max-w-md w-full">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <div className="text-5xl mb-4">💕</div>
-          {selectedRole ? (
-            <>
-              <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-                {t('roleSelection.confirmHeader')}
-              </h1>
-              <p className="text-gray-500">
-                {t('roleSelection.confirmSubtitle')}
-              </p>
-            </>
-          ) : (
-            <>
-              <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-                {t('roleSelection.welcomeHeader')}
-              </h1>
-              <p className="text-gray-500">
-                {t('roleSelection.welcomeSubtitle')}
-              </p>
-            </>
-          )}
+          <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
+            {t('roleSelection.confirmSettings')}
+          </h1>
+          <p className="text-gray-500">
+            {t('roleSelection.confirmSettingsSubtitle')}
+          </p>
         </div>
 
-        {/* Role Options */}
-        <div className="space-y-3 mb-6">
-          {/* Student Option */}
-          <button
-            onClick={() => setSelectedRole('student')}
-            disabled={saving}
-            className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
-              isStudent
-                ? `${roleContent.student.borderAccent} ${roleContent.student.bgLight} shadow-md`
-                : `border-gray-200 bg-white ${roleContent.student.hoverBorder} ${roleContent.student.hoverBg}`
-            }`}
-          >
-            <div className="flex items-center gap-4">
-              <div className={`w-12 h-12 rounded-full ${roleContent.student.bgAccent} flex items-center justify-center`}>
-                <span className="text-xl">{roleContent.student.emoji}</span>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-800">{roleContent.student.title}</h3>
-                <p className="text-gray-500 text-sm">{roleContent.student.subtitle}</p>
-              </div>
-              {isStudent && (
-                <div
-                  className="w-6 h-6 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: roleContent.student.accentColor }}
-                >
-                  <ICONS.Check className="w-4 h-4 text-white" />
-                </div>
-              )}
-            </div>
-          </button>
+        {/* Language Confirmation Section */}
+        <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 mb-6 border border-white/80">
+          <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4 flex items-center gap-2">
+            <span className="text-lg">🌍</span>
+            {t('roleSelection.languageSettings')}
+          </h2>
 
-          {/* Tutor Option */}
-          <button
-            onClick={() => setSelectedRole('tutor')}
-            disabled={saving}
-            className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
-              isTutor
-                ? `${roleContent.tutor.borderAccent} ${roleContent.tutor.bgLight} shadow-md`
-                : `border-gray-200 bg-white ${roleContent.tutor.hoverBorder} ${roleContent.tutor.hoverBg}`
-            }`}
-          >
-            <div className="flex items-center gap-4">
-              <div className={`w-12 h-12 rounded-full ${roleContent.tutor.bgAccent} flex items-center justify-center`}>
-                <span className="text-xl">{roleContent.tutor.emoji}</span>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-800">{roleContent.tutor.title}</h3>
-                <p className="text-gray-500 text-sm">{roleContent.tutor.subtitle}</p>
-              </div>
-              {isTutor && (
-                <div
-                  className="w-6 h-6 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: roleContent.tutor.accentColor }}
-                >
-                  <ICONS.Check className="w-4 h-4 text-white" />
-                </div>
-              )}
-            </div>
-          </button>
+          <div className="space-y-4">
+            {/* Native Language (Interface) */}
+            <LanguageDropdown
+              label={t('roleSelection.nativeLanguage')}
+              value={nativeLanguage}
+              isOpen={showNativeDropdown}
+              setIsOpen={setShowNativeDropdown}
+              onSelect={handleNativeSelect}
+              dropdownRef={nativeDropdownRef as React.RefObject<HTMLDivElement>}
+              excludeCode={targetLanguage}
+            />
+
+            {/* Target Language (Learning/Teaching) */}
+            <LanguageDropdown
+              label={isStudent || !selectedRole ? t('roleSelection.learningLanguage') : t('roleSelection.teachingLanguage')}
+              value={targetLanguage}
+              isOpen={showTargetDropdown}
+              setIsOpen={setShowTargetDropdown}
+              onSelect={handleTargetSelect}
+              dropdownRef={targetDropdownRef as React.RefObject<HTMLDivElement>}
+              excludeCode={nativeLanguage}
+            />
+          </div>
         </div>
 
-        {/* Confirmation Message & Button */}
+        {/* Role Selection Section */}
+        <div className="mb-6">
+          <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4 flex items-center gap-2">
+            <span className="text-lg">👤</span>
+            {t('roleSelection.chooseYourRole')}
+          </h2>
+
+          <div className="space-y-3">
+            {/* Student Option */}
+            <button
+              onClick={() => setSelectedRole('student')}
+              disabled={saving}
+              className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
+                isStudent
+                  ? `${roleContent.student.borderAccent} ${roleContent.student.bgLight} shadow-md`
+                  : `border-gray-200 bg-white ${roleContent.student.hoverBorder} ${roleContent.student.hoverBg}`
+              }`}
+            >
+              <div className="flex items-center gap-4">
+                <div className={`w-12 h-12 rounded-full ${roleContent.student.bgAccent} flex items-center justify-center`}>
+                  <span className="text-xl">{roleContent.student.emoji}</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-800">{roleContent.student.title}</h3>
+                  <p className="text-gray-500 text-sm">{roleContent.student.subtitle}</p>
+                </div>
+                {isStudent && (
+                  <div
+                    className="w-6 h-6 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: roleContent.student.accentColor }}
+                  >
+                    <ICONS.Check className="w-4 h-4 text-white" />
+                  </div>
+                )}
+              </div>
+            </button>
+
+            {/* Tutor Option */}
+            <button
+              onClick={() => setSelectedRole('tutor')}
+              disabled={saving}
+              className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
+                isTutor
+                  ? `${roleContent.tutor.borderAccent} ${roleContent.tutor.bgLight} shadow-md`
+                  : `border-gray-200 bg-white ${roleContent.tutor.hoverBorder} ${roleContent.tutor.hoverBg}`
+              }`}
+            >
+              <div className="flex items-center gap-4">
+                <div className={`w-12 h-12 rounded-full ${roleContent.tutor.bgAccent} flex items-center justify-center`}>
+                  <span className="text-xl">{roleContent.tutor.emoji}</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-gray-800">{roleContent.tutor.title}</h3>
+                  <p className="text-gray-500 text-sm">{roleContent.tutor.subtitle}</p>
+                </div>
+                {isTutor && (
+                  <div
+                    className="w-6 h-6 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: roleContent.tutor.accentColor }}
+                  >
+                    <ICONS.Check className="w-4 h-4 text-white" />
+                  </div>
+                )}
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Confirmation Button */}
         {selectedRole && (
           <div className="text-center animate-fadeIn">
             <p className="text-lg font-bold text-gray-700 mb-1">

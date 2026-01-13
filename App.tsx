@@ -279,6 +279,7 @@ const App: React.FC = () => {
                 !profile.role ? (
                   <RoleSelection
                     userId={profile.id}
+                    profile={profile}
                     onRoleSelected={() => fetchProfile(profile.id)}
                   />
                 ) : // Step 2: Check if onboarding is completed
