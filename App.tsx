@@ -191,8 +191,23 @@ const App: React.FC = () => {
               })
               .select()
               .single();
-            
+
             if (createError) {
+              // Duplicate key error (23505) means profile was created by auth trigger - fetch it instead
+              if (createError.code === '23505') {
+                const { data: existingProfile, error: fetchError } = await supabase
+                  .from('profiles')
+                  .select('*')
+                  .eq('id', userData.user.id)
+                  .single();
+                if (existingProfile) {
+                  setProfile(existingProfile);
+                  return;
+                }
+                if (fetchError) {
+                  console.error('Failed to fetch existing profile:', fetchError);
+                }
+              }
               const msg = `Database Error: ${createError.message}. Did you run the SQL schema in Supabase?`;
               console.error(msg, createError);
               setDbError(msg);
