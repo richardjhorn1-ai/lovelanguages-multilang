@@ -4,20 +4,25 @@ import { navigation, type NavigationConfig } from '../data/navigation';
 interface Props {
   currentPath?: string;
   config?: NavigationConfig;
+  nativeLang?: string;
+  targetLang?: string;
 }
 
-const { currentPath = '', config = navigation } = Astro.props;
+const { currentPath = '', config = navigation, nativeLang, targetLang } = Astro.props;
 const { currentLanguage, availableLanguages, sections } = config;
 
 // Show language selector only when multiple languages are available
 const showLanguageSelector = availableLanguages.length > 1;
+
+// Build logo href - go to current language articles page if available, otherwise home
+const logoHref = nativeLang && targetLang ? `/learn/${nativeLang}/${targetLang}/` : '/learn/';
 ---
 
 <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-sm">
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 text-accent font-bold font-header text-xl hover:opacity-80 transition-opacity">
+      <a href={logoHref} class="flex items-center gap-2 text-accent font-bold font-header text-xl hover:opacity-80 transition-opacity">
         <img src="/favicon.svg" alt="" class="w-7 h-7" />
         <span class="hidden sm:inline">Love Languages</span>
       </a>

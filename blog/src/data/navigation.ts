@@ -72,59 +72,14 @@ export const polishNavigation: NavigationConfig = {
   ],
   sections: [
     {
-      id: 'learn',
-      label: 'Learn',
-      items: [
-        {
-          label: 'All Articles',
-          href: '/learn/',
-          icon: '📖',
-          description: 'Browse all Polish lessons'
-        },
-        {
-          label: 'Dictionary',
-          href: '/dictionary',
-          icon: '📕',
-          description: 'Polish words with pronunciation'
-        },
-        {
-          label: 'Grammar',
-          href: '/learn?category=grammar',
-          icon: '📝',
-          description: 'Cases, conjugation, tenses'
-        },
-        {
-          label: 'Vocabulary',
-          href: '/learn?category=vocabulary',
-          icon: '📚',
-          description: 'Words and phrases for couples'
-        },
-        {
-          label: 'Culture',
-          href: '/learn?category=culture',
-          icon: '🇵🇱',
-          description: 'Traditions and customs'
-        },
-      ]
+      id: 'dictionary',
+      label: 'Dictionary',
+      href: '/dictionary'
     },
     {
       id: 'tools',
       label: 'Tools',
-      items: [
-        {
-          label: 'Name Day Finder',
-          href: '/tools/name-day-finder',
-          icon: '📅',
-          description: 'Find your Polish imieniny',
-          badge: 'Free'
-        },
-        {
-          label: 'All Tools',
-          href: '/tools',
-          icon: '🛠️',
-          description: 'View all free tools'
-        },
-      ]
+      href: '/tools'
     },
     {
       id: 'compare',
@@ -181,59 +136,14 @@ export function buildNavigation(langCode: string): NavigationConfig {
     })),
     sections: [
       {
-        id: 'learn',
-        label: 'Learn',
-        items: [
-          {
-            label: 'All Articles',
-            href: '/learn/',
-            icon: '📖',
-            description: `Browse all ${lang.name} lessons`
-          },
-          {
-            label: 'Dictionary',
-            href: '/dictionary',
-            icon: '📕',
-            description: `${lang.name} words with pronunciation`
-          },
-          {
-            label: 'Grammar',
-            href: '/learn?category=grammar',
-            icon: '📝',
-            description: 'Cases, conjugation, tenses'
-          },
-          {
-            label: 'Vocabulary',
-            href: '/learn?category=vocabulary',
-            icon: '📚',
-            description: 'Words and phrases for couples'
-          },
-          {
-            label: 'Culture',
-            href: '/learn?category=culture',
-            icon: lang.flag,
-            description: 'Traditions and customs'
-          },
-        ]
+        id: 'dictionary',
+        label: 'Dictionary',
+        href: '/dictionary'
       },
       {
         id: 'tools',
         label: 'Tools',
-        items: [
-          {
-            label: 'Name Day Finder',
-            href: '/tools/name-day-finder',
-            icon: '📅',
-            description: `Find your ${lang.name} imieniny`,
-            badge: 'Free'
-          },
-          {
-            label: 'All Tools',
-            href: '/tools',
-            icon: '🛠️',
-            description: 'View all free tools'
-          },
-        ]
+        href: '/tools'
       },
       {
         id: 'compare',
