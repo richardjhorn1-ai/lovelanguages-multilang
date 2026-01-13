@@ -17,6 +17,8 @@ export interface Profile {
   accent_color?: 'rose' | 'blush' | 'lavender' | 'wine' | 'teal' | 'honey';
   dark_mode?: 'off' | 'midnight' | 'charcoal' | 'black';
   font_size?: 'small' | 'medium' | 'large';
+  font_preset?: 'classic' | 'modern' | 'playful';
+  font_weight?: 'light' | 'regular' | 'bold';
   // Answer validation mode
   smart_validation?: boolean; // true = AI-powered (accepts synonyms, typos), false = strict matching
   // Multi-language support

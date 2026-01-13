@@ -3,11 +3,15 @@
 export type AccentColor = 'rose' | 'blush' | 'lavender' | 'wine' | 'teal' | 'honey';
 export type DarkModeStyle = 'off' | 'midnight' | 'charcoal' | 'black';
 export type FontSize = 'small' | 'medium' | 'large';
+export type FontPreset = 'classic' | 'modern' | 'playful';
+export type FontWeight = 'light' | 'regular' | 'bold';
 
 export interface ThemeSettings {
   accentColor: AccentColor;
   darkMode: DarkModeStyle;
   fontSize: FontSize;
+  fontPreset: FontPreset;
+  fontWeight: FontWeight;
 }
 
 // Accent color palette with variants for full theming
@@ -154,11 +158,47 @@ export const FONT_SIZES: Record<FontSize, { name: string; base: string }> = {
   large: { name: 'Large', base: '18px' },
 };
 
+// Font presets - all support Latin, Cyrillic, Greek (18 languages)
+export const FONT_PRESETS: Record<FontPreset, {
+  name: string;
+  header: string;
+  body: string;
+}> = {
+  classic: {
+    name: 'Classic',
+    header: "'Nunito', sans-serif",
+    body: "'Manrope', sans-serif",
+  },
+  modern: {
+    name: 'Modern',
+    header: "'Montserrat', sans-serif",
+    body: "'Inter', sans-serif",
+  },
+  playful: {
+    name: 'Playful',
+    header: "'Quicksand', sans-serif",
+    body: "'Source Sans 3', sans-serif",
+  },
+};
+
+// Font weight values (affects text and icons)
+export const FONT_WEIGHTS: Record<FontWeight, {
+  name: string;
+  textWeight: number;
+  iconWeight: string;
+}> = {
+  light: { name: 'Light', textWeight: 400, iconWeight: 'light' },
+  regular: { name: 'Regular', textWeight: 500, iconWeight: 'regular' },
+  bold: { name: 'Bold', textWeight: 700, iconWeight: 'bold' },
+};
+
 // Default theme settings
 export const DEFAULT_THEME: ThemeSettings = {
   accentColor: 'rose',
   darkMode: 'off',
   fontSize: 'medium',
+  fontPreset: 'classic',
+  fontWeight: 'regular',
 };
 
 // localStorage key
@@ -181,7 +221,13 @@ export function loadTheme(): ThemeSettings {
       const fontSize = parsed.fontSize && FONT_SIZES[parsed.fontSize as FontSize]
         ? (parsed.fontSize as FontSize)
         : DEFAULT_THEME.fontSize;
-      return { accentColor, darkMode, fontSize };
+      const fontPreset = parsed.fontPreset && FONT_PRESETS[parsed.fontPreset as FontPreset]
+        ? (parsed.fontPreset as FontPreset)
+        : DEFAULT_THEME.fontPreset;
+      const fontWeight = parsed.fontWeight && FONT_WEIGHTS[parsed.fontWeight as FontWeight]
+        ? (parsed.fontWeight as FontWeight)
+        : DEFAULT_THEME.fontWeight;
+      return { accentColor, darkMode, fontSize, fontPreset, fontWeight };
     }
   } catch {
     // Ignore parse errors
@@ -200,6 +246,8 @@ export function applyTheme(theme: ThemeSettings): void {
   const accent = ACCENT_COLORS[theme.accentColor];
   const darkMode = DARK_MODE_STYLES[theme.darkMode];
   const fontSize = FONT_SIZES[theme.fontSize];
+  const fontPreset = FONT_PRESETS[theme.fontPreset];
+  const fontWeight = FONT_WEIGHTS[theme.fontWeight];
   const isDark = theme.darkMode !== 'off';
 
   // Accent color palette
@@ -221,6 +269,14 @@ export function applyTheme(theme: ThemeSettings): void {
   // Font size
   root.style.setProperty('--font-size-base', fontSize.base);
   root.style.fontSize = fontSize.base;
+
+  // Font preset (header and body fonts)
+  root.style.setProperty('--font-header', fontPreset.header);
+  root.style.setProperty('--font-body', fontPreset.body);
+
+  // Font weight (affects text and icons)
+  root.style.setProperty('--font-weight-base', String(fontWeight.textWeight));
+  root.dataset.iconWeight = fontWeight.iconWeight;
 
   // Add/remove dark class for components that need it
   if (isDark) {

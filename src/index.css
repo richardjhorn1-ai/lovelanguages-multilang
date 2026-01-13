@@ -11,6 +11,9 @@
     --text-secondary: #6b7280;
     --border-color: #e5e7eb;
     --font-size-base: 16px;
+    --font-header: 'Nunito', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+    --font-weight-base: 500;
 }
 
 html {
@@ -18,14 +21,15 @@ html {
 }
 
 body {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-base);
     background: var(--bg-primary);
     color: var(--text-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .font-header {
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--font-header);
 }
 
 /* Desktop scrollbar styling */
