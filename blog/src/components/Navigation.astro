@@ -52,23 +52,51 @@ const currentNativeInfo = LANGUAGE_INFO[nativeLang] || LANGUAGE_INFO.en;
         </a>
       </div>
 
-      <!-- Right: CTA Button -->
-      <a
-        href="/"
-        class="px-4 py-2 bg-accent text-white font-bold rounded-full hover:bg-accent/90 hover:shadow-md transition-all text-sm"
-      >
-        Start Learning
-      </a>
+      <!-- Right: Compare Dropdown + CTA -->
+      <div class="flex items-center gap-4">
+        <div class="relative hidden sm:block">
+          <select
+            id="nav-compare"
+            class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 cursor-pointer border-none outline-none appearance-none pr-8"
+            data-native-lang={nativeLang}
+          >
+            <option value="" disabled selected>Compare Apps</option>
+            <option value="love-languages-vs-duolingo">vs Duolingo</option>
+            <option value="love-languages-vs-babbel">vs Babbel</option>
+          </select>
+          <svg class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+        <a
+          href="/"
+          class="px-4 py-2 bg-accent text-white font-bold rounded-full hover:bg-accent/90 hover:shadow-md transition-all text-sm"
+        >
+          Start Learning
+        </a>
+      </div>
     </div>
   </div>
 </nav>
 
 <script>
-  const dropdown = document.getElementById('nav-native-lang') as HTMLSelectElement;
-  if (dropdown) {
-    dropdown.addEventListener('change', () => {
-      // Go to the hub page for the selected native language
-      window.location.href = `/learn/${dropdown.value}/`;
+  // Native language selector
+  const langDropdown = document.getElementById('nav-native-lang') as HTMLSelectElement;
+  if (langDropdown) {
+    langDropdown.addEventListener('change', () => {
+      window.location.href = `/learn/${langDropdown.value}/`;
+    });
+  }
+
+  // Compare apps dropdown
+  const compareDropdown = document.getElementById('nav-compare') as HTMLSelectElement;
+  if (compareDropdown) {
+    compareDropdown.addEventListener('change', () => {
+      const nativeLang = compareDropdown.dataset.nativeLang || 'en';
+      const comparison = compareDropdown.value;
+      if (comparison) {
+        window.location.href = `/compare/${nativeLang}/${comparison}/`;
+      }
     });
   }
 </script>
