@@ -22,6 +22,7 @@ import SubscriptionRequired from './components/SubscriptionRequired';
 import RoleSelection from './components/RoleSelection';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import CookieConsent from './components/CookieConsent';
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
@@ -312,6 +313,8 @@ const App: React.FC = () => {
               )
             } />
           </Routes>
+          {/* Cookie consent banner */}
+          <CookieConsent />
         </div>
         </HashRouter>
         </I18nSyncWrapper>
