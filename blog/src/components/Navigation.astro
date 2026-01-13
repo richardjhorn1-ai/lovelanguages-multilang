@@ -36,7 +36,6 @@ const currentNativeInfo = LANGUAGE_INFO[nativeLang] || LANGUAGE_INFO.en;
           <select
             id="nav-native-lang"
             class="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 cursor-pointer border-none outline-none"
-            data-current-native={nativeLang}
           >
             {nativeLanguageOptions.map(({ code, flag, nativeName }) => (
               <option value={code} selected={code === nativeLang}>
@@ -67,30 +66,9 @@ const currentNativeInfo = LANGUAGE_INFO[nativeLang] || LANGUAGE_INFO.en;
 <script>
   const dropdown = document.getElementById('nav-native-lang') as HTMLSelectElement;
   if (dropdown) {
-    const currentNative = dropdown.dataset.currentNative;
     dropdown.addEventListener('change', () => {
-      const newNativeLang = dropdown.value;
-      const path = window.location.pathname;
-
-      // Handle different URL patterns:
-      // /learn/{nativeLang}/{targetLang}/ - article pages
-      // /learn/{nativeLang}/ - hub pages
-      // /compare/{nativeLang}/... - comparison pages
-
-      let newPath: string;
-
-      if (path.startsWith('/compare/')) {
-        // Replace native lang in comparison URLs
-        newPath = path.replace(`/compare/${currentNative}`, `/compare/${newNativeLang}`);
-      } else if (path.startsWith('/learn/')) {
-        // Replace native lang in learn URLs
-        newPath = path.replace(`/learn/${currentNative}`, `/learn/${newNativeLang}`);
-      } else {
-        // Fallback to learn hub
-        newPath = `/learn/${newNativeLang}/`;
-      }
-
-      window.location.href = newPath;
+      // Go to the hub page for the selected native language
+      window.location.href = `/learn/${dropdown.value}/`;
     });
   }
 </script>
