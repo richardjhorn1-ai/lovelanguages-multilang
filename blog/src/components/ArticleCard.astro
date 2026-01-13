@@ -12,22 +12,26 @@ interface Props {
 
 const { slug, title, description, category, difficulty, readTime, image, date } = Astro.props;
 
-const categoryConfig = {
+const categoryConfig: Record<string, { icon: string; bg: string; text: string }> = {
   phrases: { icon: '💬', bg: 'bg-rose-100', text: 'text-rose-700' },
   vocabulary: { icon: '📚', bg: 'bg-purple-100', text: 'text-purple-700' },
   grammar: { icon: '📝', bg: 'bg-blue-100', text: 'text-blue-700' },
-  culture: { icon: '🇵🇱', bg: 'bg-amber-100', text: 'text-amber-700' },
+  culture: { icon: '🌍', bg: 'bg-amber-100', text: 'text-amber-700' },
   situations: { icon: '🎭', bg: 'bg-emerald-100', text: 'text-emerald-700' },
+  pronunciation: { icon: '🗣️', bg: 'bg-teal-100', text: 'text-teal-700' },
 };
 
-const difficultyConfig = {
+const difficultyConfig: Record<string, { bg: string; text: string }> = {
   beginner: { bg: 'bg-green-100', text: 'text-green-700' },
   intermediate: { bg: 'bg-yellow-100', text: 'text-yellow-700' },
   advanced: { bg: 'bg-red-100', text: 'text-red-700' },
 };
 
-const cat = categoryConfig[category];
-const diff = difficultyConfig[difficulty];
+const defaultCat = { icon: '📖', bg: 'bg-gray-100', text: 'text-gray-700' };
+const defaultDiff = { bg: 'bg-gray-100', text: 'text-gray-700' };
+
+const cat = categoryConfig[category] || defaultCat;
+const diff = difficultyConfig[difficulty] || defaultDiff;
 ---
 
 <a

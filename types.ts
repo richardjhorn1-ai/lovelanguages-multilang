@@ -69,6 +69,8 @@ export interface OnboardingData {
 
   // Shared fields
   smartValidation?: boolean;     // true = AI-powered validation, false = strict matching
+  nativeLanguage?: string;       // User's native language code (e.g., 'en', 'es')
+  targetLanguage?: string;       // Language user is learning (e.g., 'pl', 'fr')
 
   // Subscription selection (from onboarding)
   selectedPlan?: string;         // 'standard' or 'unlimited'

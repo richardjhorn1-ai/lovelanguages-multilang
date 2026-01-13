@@ -564,6 +564,17 @@
       "placeholder": "Their name"
     },
 
+    "languageConfirm": {
+      "title": "Confirm your languages, {{name}}",
+      "subtitle": "Make sure we've got your language journey right.",
+      "iSpeak": "I speak",
+      "iTeach": "I teach",
+      "iWantToLearn": "I want to learn",
+      "theySpeak": "They speak",
+      "summary": "Learning {{target}} as a {{native}} speaker",
+      "tutorSummary": "Teaching {{target}} to a {{native}} speaker"
+    },
+
     "validation": {
       "title": "How should we check your answers?",
       "subtitle": "Choose how forgiving the app should be when grading.",

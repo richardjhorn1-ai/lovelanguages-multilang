@@ -11,20 +11,40 @@ interface Props {
     tags?: string[];
   };
   canonical?: string;
+  nativeLang?: string;
+  targetLang?: string;
 }
+
+// Language names for fallbacks
+const LANGUAGE_NAMES: Record<string, string> = {
+  en: 'English', es: 'Spanish', fr: 'French', de: 'German',
+  it: 'Italian', pt: 'Portuguese', pl: 'Polish', nl: 'Dutch',
+  sv: 'Swedish', no: 'Norwegian', da: 'Danish', cs: 'Czech',
+  ru: 'Russian', uk: 'Ukrainian', el: 'Greek', hu: 'Hungarian',
+  tr: 'Turkish', ro: 'Romanian'
+};
 
 const {
   title,
   description,
   image = '/og-image.png',
   article,
-  canonical
+  canonical,
+  nativeLang = 'en',
+  targetLang
 } = Astro.props;
 
 const siteUrl = 'https://lovelanguages.xyz';
 const fullUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 const fullTitle = `${title} | Love Languages`;
+
+// Dynamic fallbacks based on language
+const targetLanguageName = targetLang ? LANGUAGE_NAMES[targetLang] : 'Language';
+const defaultSection = targetLang ? `${targetLanguageName} Language Learning` : 'Language Learning';
+const defaultKeywords = targetLang
+  ? `${targetLanguageName}, language learning, couples, learn ${targetLanguageName}`
+  : 'language learning, couples, learn languages';
 ---
 
 <!-- Primary Meta Tags -->
@@ -32,6 +52,10 @@ const fullTitle = `${title} | Love Languages`;
 <meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 <link rel="canonical" href={fullUrl} />
+
+<!-- Language tags -->
+<meta property="og:locale" content={nativeLang} />
+{targetLang && <meta name="language" content={nativeLang} />}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={article ? 'article' : 'website'} />
@@ -85,7 +109,8 @@ const fullTitle = `${title} | Love Languages`;
       "@type": "WebPage",
       "@id": fullUrl
     },
-    "articleSection": article.section || "Polish Language Learning",
-    "keywords": article.tags?.join(", ") || "Polish, language learning, couples"
+    "inLanguage": nativeLang,
+    "articleSection": article.section || defaultSection,
+    "keywords": article.tags?.join(", ") || defaultKeywords
   })} />
 )}
