@@ -462,8 +462,10 @@
       "noun": "İsim",
       "verb": "Fiil",
       "adjective": "Sıfat",
+      "adverb": "Zarf",
       "phrase": "İfade",
-      "gifts": "Hediyeler"
+      "gifts": "Hediyeler",
+      "clear": "Temizle"
     },
 
     "card": {

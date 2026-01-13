@@ -462,8 +462,10 @@
       "noun": "Substantiv",
       "verb": "Verb",
       "adjective": "Adjektiv",
+      "adverb": "Adverb",
       "phrase": "Frase",
-      "gifts": "Gaver"
+      "gifts": "Gaver",
+      "clear": "Fjern"
     },
 
     "card": {

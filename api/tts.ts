@@ -4,7 +4,7 @@ import {
   setCorsHeaders,
   verifyAuth,
   createServiceClient,
-  requireSubscription,
+  getSubscriptionPlan,
   checkRateLimit,
   incrementUsage,
   RATE_LIMITS
@@ -86,14 +86,11 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    // Block free users
-    const sub = await requireSubscription(supabase, auth.userId);
-    if (!sub.allowed) {
-      return res.status(403).json({ error: sub.error });
-    }
+    // Get user's plan (free users get limited access, not blocked)
+    const plan = await getSubscriptionPlan(supabase, auth.userId);
 
-    // Check rate limit
-    const limit = await checkRateLimit(supabase, auth.userId, 'tts', sub.plan as 'standard' | 'unlimited');
+    // Check rate limit based on plan
+    const limit = await checkRateLimit(supabase, auth.userId, 'tts', plan);
     if (!limit.allowed) {
       return res.status(429).json({
         error: limit.error,

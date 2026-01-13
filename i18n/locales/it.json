@@ -462,8 +462,10 @@
       "noun": "Sostantivo",
       "verb": "Verbo",
       "adjective": "Aggettivo",
+      "adverb": "Avverbio",
       "phrase": "Frase",
-      "gifts": "Regali"
+      "gifts": "Regali",
+      "clear": "Cancella"
     },
 
     "card": {

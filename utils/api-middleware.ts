@@ -297,9 +297,9 @@ export function getSupabaseConfig(): { url: string; serviceKey: string } | null 
 // =============================================================================
 
 /**
- * Subscription plan type - only paid tiers, no free tier
+ * Subscription plan type - includes free tier for rate-limited access
  */
-export type SubscriptionPlan = 'standard' | 'unlimited';
+export type SubscriptionPlan = 'free' | 'standard' | 'unlimited';
 
 /**
  * Rate limit configuration for each endpoint.
@@ -308,26 +308,28 @@ export type SubscriptionPlan = 'standard' | 'unlimited';
  * To modify limits, edit this object - changes apply to all endpoints.
  */
 export const RATE_LIMITS = {
-  // AI-powered endpoints (high cost)
-  chat: { type: 'text_messages', monthly: { standard: 5000, unlimited: null } },
-  validateWord: { type: 'word_validations', monthly: { standard: 2000, unlimited: null } },
-  validateAnswer: { type: 'answer_validations', monthly: { standard: 3000, unlimited: null } },
-  analyzeHistory: { type: 'history_analysis', monthly: { standard: 500, unlimited: null } },
-  processTranscript: { type: 'transcript_process', monthly: { standard: 200, unlimited: null } },
-  generateLevelTest: { type: 'level_tests', monthly: { standard: 50, unlimited: null } },
-  submitLevelTest: { type: 'level_test_submissions', monthly: { standard: 100, unlimited: null } },
-  createChallenge: { type: 'challenge_creations', monthly: { standard: 200, unlimited: null } },
-  submitChallenge: { type: 'challenge_submissions', monthly: { standard: 500, unlimited: null } },
-  tts: { type: 'tts_requests', monthly: { standard: 1000, unlimited: null } },
+  // AI-powered endpoints (high cost) - no free tier
+  chat: { type: 'text_messages', monthly: { free: 0, standard: 5000, unlimited: null } },
+  validateWord: { type: 'word_validations', monthly: { free: 0, standard: 2000, unlimited: null } },
+  validateAnswer: { type: 'answer_validations', monthly: { free: 0, standard: 3000, unlimited: null } },
+  analyzeHistory: { type: 'history_analysis', monthly: { free: 0, standard: 500, unlimited: null } },
+  processTranscript: { type: 'transcript_process', monthly: { free: 0, standard: 200, unlimited: null } },
+  generateLevelTest: { type: 'level_tests', monthly: { free: 0, standard: 50, unlimited: null } },
+  submitLevelTest: { type: 'level_test_submissions', monthly: { free: 0, standard: 100, unlimited: null } },
+  createChallenge: { type: 'challenge_creations', monthly: { free: 0, standard: 200, unlimited: null } },
+  submitChallenge: { type: 'challenge_submissions', monthly: { free: 0, standard: 500, unlimited: null } },
 
-  // Voice endpoints (very high cost)
-  liveToken: { type: 'voice_sessions', monthly: { standard: 20, unlimited: null } },
-  gladiaToken: { type: 'listen_sessions', monthly: { standard: 40, unlimited: null } },
+  // TTS - available to free users with lower limit
+  tts: { type: 'tts_requests', monthly: { free: 100, standard: 1000, unlimited: null } },
+
+  // Voice endpoints (very high cost) - no free tier
+  liveToken: { type: 'voice_sessions', monthly: { free: 0, standard: 20, unlimited: null } },
+  gladiaToken: { type: 'listen_sessions', monthly: { free: 0, standard: 40, unlimited: null } },
 
   // Abuse prevention (same limits for all tiers)
-  deleteAccount: { type: 'account_deletions', monthly: { standard: 1, unlimited: 1 } },
-  exportUserData: { type: 'data_exports', monthly: { standard: 5, unlimited: 10 } },
-  generateInvite: { type: 'invite_generations', monthly: { standard: 10, unlimited: 20 } },
+  deleteAccount: { type: 'account_deletions', monthly: { free: 1, standard: 1, unlimited: 1 } },
+  exportUserData: { type: 'data_exports', monthly: { free: 2, standard: 5, unlimited: 10 } },
+  generateInvite: { type: 'invite_generations', monthly: { free: 0, standard: 10, unlimited: 20 } },
 } as const;
 
 export type RateLimitKey = keyof typeof RATE_LIMITS;
@@ -350,6 +352,47 @@ export interface RateLimitResult {
   limit?: number;
   resetAt?: string;
   error?: string;
+}
+
+/**
+ * Gets user's subscription plan without blocking.
+ * Returns 'free' for users without active paid subscription.
+ * Use this when free users should have limited access rather than no access.
+ *
+ * @param supabase - Supabase client with service key
+ * @param userId - User ID to check
+ * @returns SubscriptionPlan ('free', 'standard', or 'unlimited')
+ *
+ * @example
+ * ```typescript
+ * const plan = await getSubscriptionPlan(supabase, auth.userId);
+ * const limit = await checkRateLimit(supabase, auth.userId, 'tts', plan);
+ * ```
+ */
+export async function getSubscriptionPlan(
+  supabase: SupabaseClient,
+  userId: string
+): Promise<SubscriptionPlan> {
+  const { data: profile, error } = await supabase
+    .from('profiles')
+    .select('subscription_plan, subscription_status')
+    .eq('id', userId)
+    .single();
+
+  if (error || !profile) {
+    console.error('[api-middleware] Failed to fetch subscription:', error?.message);
+    return 'free';
+  }
+
+  const isActive = profile.subscription_status === 'active';
+  const plan = isActive ? (profile.subscription_plan || 'free') : 'free';
+
+  // Validate plan is a known tier
+  if (plan === 'standard' || plan === 'unlimited') {
+    return plan;
+  }
+
+  return 'free';
 }
 
 /**

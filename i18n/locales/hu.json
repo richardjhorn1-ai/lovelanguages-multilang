@@ -462,8 +462,10 @@
       "noun": "Főnév",
       "verb": "Ige",
       "adjective": "Melléknév",
+      "adverb": "Határozószó",
       "phrase": "Kifejezés",
-      "gifts": "Ajándékok"
+      "gifts": "Ajándékok",
+      "clear": "Törlés"
     },
 
     "card": {

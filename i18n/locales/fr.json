@@ -462,8 +462,10 @@
       "noun": "Nom",
       "verb": "Verbe",
       "adjective": "Adjectif",
+      "adverb": "Adverbe",
       "phrase": "Expression",
-      "gifts": "Cadeaux"
+      "gifts": "Cadeaux",
+      "clear": "Effacer"
     },
 
     "card": {

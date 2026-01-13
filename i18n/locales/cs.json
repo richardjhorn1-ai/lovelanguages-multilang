@@ -462,8 +462,10 @@
       "noun": "Podstatné jméno",
       "verb": "Sloveso",
       "adjective": "Přídavné jméno",
+      "adverb": "Příslovce",
       "phrase": "Fráze",
-      "gifts": "Dárky"
+      "gifts": "Dárky",
+      "clear": "Vymazat"
     },
 
     "card": {

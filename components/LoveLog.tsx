@@ -21,7 +21,8 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [entries, setEntries] = useState<DictionaryEntry[]>([]);
   const [scoresMap, setScoresMap] = useState<Map<string, WordScore>>(new Map());
   const [giftedWordsMap, setGiftedWordsMap] = useState<Map<string, GiftWord>>(new Map());
-  const [filter, setFilter] = useState<WordType | 'all' | 'gifts'>('all');
+  const [activeFilters, setActiveFilters] = useState<Set<WordType>>(new Set());
+  const [showGiftsOnly, setShowGiftsOnly] = useState(false);
   const [search, setSearch] = useState('');
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -256,18 +257,37 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     }
   };
 
+  const toggleFilter = (wordType: WordType) => {
+    setActiveFilters(prev => {
+      const next = new Set(prev);
+      if (next.has(wordType)) {
+        next.delete(wordType);
+      } else {
+        next.add(wordType);
+      }
+      return next;
+    });
+  };
+
+  const clearFilters = () => {
+    setActiveFilters(new Set());
+    setShowGiftsOnly(false);
+  };
+
+  const hasActiveFilters = activeFilters.size > 0 || showGiftsOnly;
+
   const filtered = entries.filter(e => {
-    let matchesFilter = false;
-    if (filter === 'all') {
-      matchesFilter = true;
-    } else if (filter === 'gifts') {
-      matchesFilter = giftedWordsMap.has(e.id);
-    } else {
-      matchesFilter = e.word_type === filter;
-    }
+    // Word type filter (if any active, entry must match one of them)
+    const matchesWordType = activeFilters.size === 0 || activeFilters.has(e.word_type);
+
+    // Gifts filter
+    const matchesGifts = !showGiftsOnly || giftedWordsMap.has(e.id);
+
+    // Text search
     const matchesSearch = e.word.toLowerCase().includes(search.toLowerCase()) ||
                           e.translation.toLowerCase().includes(search.toLowerCase());
-    return matchesFilter && matchesSearch;
+
+    return matchesWordType && matchesGifts && matchesSearch;
   });
 
   // Extract context data directly from entry columns (new schema)
@@ -385,19 +405,37 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         </div>
 
         <div className="max-w-7xl mx-auto mt-2 md:mt-3 flex gap-1.5 md:gap-2 overflow-x-auto no-scrollbar pb-1">
-          {(['all', 'noun', 'verb', 'adjective', 'phrase'] as (WordType | 'all')[]).map(f => (
-            <button key={f} onClick={() => setFilter(f)} className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] border md:border-2 transition-all whitespace-nowrap ${filter === f ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md' : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)]'}`}>{t(`loveLog.filters.${f}`)}s</button>
+          {(['noun', 'verb', 'adjective', 'adverb', 'phrase'] as WordType[]).map(f => (
+            <button
+              key={f}
+              onClick={() => toggleFilter(f)}
+              className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] border md:border-2 transition-all whitespace-nowrap ${
+                activeFilters.has(f)
+                  ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md'
+                  : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)]'
+              }`}
+            >
+              {t(`loveLog.filters.${f}`)}s
+            </button>
           ))}
           {giftedWordsMap.size > 0 && (
             <button
-              onClick={() => setFilter('gifts')}
+              onClick={() => setShowGiftsOnly(!showGiftsOnly)}
               className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] border md:border-2 transition-all whitespace-nowrap flex items-center gap-1 ${
-                filter === 'gifts'
+                showGiftsOnly
                   ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md'
                   : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)]'
               }`}
             >
               <ICONS.Heart className="w-2.5 h-2.5 md:w-3 md:h-3" /> {t('loveLog.filters.gifts')}
+            </button>
+          )}
+          {hasActiveFilters && (
+            <button
+              onClick={clearFilters}
+              className="px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] border md:border-2 transition-all whitespace-nowrap flex items-center gap-1 bg-red-500/10 border-red-500/30 text-red-500 hover:bg-red-500/20"
+            >
+              <ICONS.X className="w-2.5 h-2.5 md:w-3 md:h-3" /> {t('loveLog.filters.clear')}
             </button>
           )}
         </div>

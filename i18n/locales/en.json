@@ -473,8 +473,10 @@
       "noun": "Noun",
       "verb": "Verb",
       "adjective": "Adjective",
+      "adverb": "Adverb",
       "phrase": "Phrase",
-      "gifts": "Gifts"
+      "gifts": "Gifts",
+      "clear": "Clear"
     },
 
     "card": {
