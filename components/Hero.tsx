@@ -1410,7 +1410,7 @@ const LoginForm: React.FC<{
 
   return (
     <div className="w-full max-w-md relative z-10">
-      <div className="text-center mb-4">
+      <div className="text-center mb-5">
         <h3
           className="text-3xl md:text-4xl font-black mb-2 font-header transition-all duration-300"
           style={{ color: '#1a1a2e' }}
@@ -1480,7 +1480,7 @@ const LoginForm: React.FC<{
       </form>
 
       {/* OAuth Divider */}
-      <div className="flex items-center gap-4 my-6">
+      <div className="flex items-center gap-4 mt-6">
         <div className="flex-1 h-px bg-gray-200" />
         <span className="text-xs font-bold uppercase tracking-widest text-gray-400">
           {t('hero.login.orContinueWith', 'or continue with')}
@@ -1489,7 +1489,7 @@ const LoginForm: React.FC<{
       </div>
 
       {/* OAuth Buttons */}
-      <div className="flex gap-3">
+      <div className="flex gap-3 mt-4">
         <button
           type="button"
           onClick={() => handleOAuthSignIn('google')}
@@ -1533,7 +1533,7 @@ const LoginForm: React.FC<{
         </div>
       )}
 
-      <div className="mt-8 text-center">
+      <div className="mt-6 text-center">
         <button
           onClick={() => { setIsSignUp(!isSignUp); setMessage(''); }}
           className={`text-sm font-black uppercase tracking-widest transition-all hover:opacity-70 ${
@@ -2452,7 +2452,7 @@ const Hero: React.FC = () => {
 
           {/* Compact Login Form */}
           <div className="w-full max-w-sm mx-auto relative z-10">
-            <div className="text-center mb-4">
+            <div className="text-center mb-5">
               <h3
                 className="text-2xl font-black mb-1 font-header transition-all duration-300"
                 style={{ color: '#1a1a2e' }}
@@ -2789,7 +2789,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Toggle above login form */}
-          <div className="flex gap-3 mb-2">
+          <div className="flex gap-3 mb-5">
             <button
               onClick={() => { setSelectedRole('student'); setActiveSection(0); scrollRef.current?.scrollTo({ top: 0 }); }}
               className="flex items-center gap-3 px-5 py-3 rounded-2xl transition-all duration-300 border-2"
@@ -2831,7 +2831,7 @@ const Hero: React.FC = () => {
           />
 
           {/* Legal links */}
-          <div className="mt-8 flex justify-center gap-6 text-sm" style={{ color: '#9ca3af' }}>
+          <div className="mt-6 flex justify-center gap-6 text-sm" style={{ color: '#9ca3af' }}>
             <a href="#/terms" className="hover:underline">{t('hero.legal.termsOfService')}</a>
             <span>|</span>
             <a href="#/privacy" className="hover:underline">{t('hero.legal.privacyPolicy')}</a>
