@@ -1175,6 +1175,13 @@
 
   "roleSelection": {
     "loading": "Getting things ready...",
+    "confirmSettings": "Confirm Your Settings",
+    "confirmSettingsSubtitle": "Make sure everything looks right before we begin",
+    "languageSettings": "Language Settings",
+    "nativeLanguage": "I speak (app interface)",
+    "learningLanguage": "I'm learning",
+    "teachingLanguage": "I'm teaching",
+    "chooseYourRole": "Choose Your Role",
     "confirmHeader": "Just to make sure...",
     "confirmSubtitle": "Tap to confirm or switch your role",
     "welcomeHeader": "Welcome to Love Languages!",

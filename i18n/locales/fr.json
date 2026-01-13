@@ -1158,6 +1158,13 @@
 
   "roleSelection": {
     "loading": "Préparation en cours...",
+    "confirmSettings": "Confirme tes Paramètres",
+    "confirmSettingsSubtitle": "Assure-toi que tout est correct avant de commencer",
+    "languageSettings": "Paramètres de Langue",
+    "nativeLanguage": "Je parle (interface de l'app)",
+    "learningLanguage": "J'apprends",
+    "teachingLanguage": "J'enseigne",
+    "chooseYourRole": "Choisis ton Rôle",
     "confirmHeader": "Juste pour être sûr...",
     "confirmSubtitle": "Touche pour confirmer ou changer de rôle",
     "welcomeHeader": "Bienvenue sur Love Languages !",
