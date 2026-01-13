@@ -1329,7 +1329,7 @@ const Section: React.FC<{
         )}
 
         <h2
-          className="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] mb-5 tracking-tight"
+          className="text-3xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-5 tracking-tight"
           style={{ color: '#1a1a2e' }}
         >
           {renderWithHighlights(headline, headlineHighlights, isStudent)}
@@ -1589,7 +1589,7 @@ const MobileSection: React.FC<{
         )}
 
         <h2
-          className="text-2xl font-black leading-[1.15] mb-3 tracking-tight"
+          className="text-2xl font-black font-header leading-[1.15] mb-3 tracking-tight"
           style={{ color: '#1a1a2e' }}
         >
           {renderWithHighlights(headline, headlineHighlights, isStudent)}
@@ -1660,7 +1660,7 @@ const LanguageGrid: React.FC<{
         </button>
       )}
 
-      <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: '#1a1a2e' }}>
+      <h2 className="text-2xl md:text-3xl font-black font-header mb-2" style={{ color: '#1a1a2e' }}>
         {title}
       </h2>
       <p className="text-base mb-6 font-medium" style={{ color: '#6b7280' }}>
