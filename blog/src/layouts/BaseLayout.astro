@@ -14,13 +14,15 @@ interface Props {
     tags?: string[];
   };
   hideNavigation?: boolean;  // Some pages have custom headers
+  nativeLang?: string;
+  targetLang?: string;
 }
 
-const { title, description, image, article, hideNavigation = false } = Astro.props;
+const { title, description, image, article, hideNavigation = false, nativeLang = 'en', targetLang } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={nativeLang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,6 +38,8 @@ const { title, description, image, article, hideNavigation = false } = Astro.pro
     description={description}
     image={image}
     article={article}
+    nativeLang={nativeLang}
+    targetLang={targetLang}
   />
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased" style="font-family: 'Outfit', sans-serif;">

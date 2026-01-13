@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../../components/ArticleCard.astro';
 import LanguageSelector from '../../../../components/LanguageSelector.astro';
+import NativeLanguageSelector from '../../../../components/NativeLanguageSelector.astro';
 import Testimonials from '../../../../components/Testimonials.astro';
 import LeadMagnet from '../../../../components/LeadMagnet.astro';
 import { getCollection } from 'astro:content';
@@ -34,9 +35,8 @@ const SUPPORTED_LANGUAGES = Object.keys(LANGUAGE_INFO);
 export async function getStaticPaths() {
   const paths: { params: { nativeLang: string; targetLang: string } }[] = [];
 
-  // For now, generate paths for English as native language (existing content)
-  // Later we can expand to other native languages as content is added
-  const nativeLanguages = ['en']; // Will expand to ['en', 'es', 'fr', 'de', 'pt', 'it', ...]
+  // Native languages that have translated content
+  const nativeLanguages = ['en', 'es', 'fr']; // Expand as more translations are added
   const targetLanguages = ['en', 'es', 'fr', 'it', 'pt', 'ro', 'de', 'nl', 'sv', 'no', 'da', 'pl', 'cs', 'ru', 'uk', 'el', 'hu', 'tr'];
 
   for (const nativeLang of nativeLanguages) {
@@ -108,6 +108,8 @@ const jsonLd = {
 <BaseLayout
   title={`Learn ${targetInfo.name} - Free Lessons for Couples`}
   description={`Free ${targetInfo.name} lessons, vocabulary guides, and cultural tips designed for couples learning together. Start your ${targetInfo.name} language journey today.`}
+  nativeLang={nativeLanguageCode}
+  targetLang={targetLanguageCode}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
@@ -115,7 +117,13 @@ const jsonLd = {
   <header class="bg-gradient-to-b from-accent/10 to-white">
     <div class="max-w-6xl mx-auto px-4 py-10 md:py-16">
       <div class="text-center max-w-2xl mx-auto">
-        <div class="mb-6">
+        <div class="mb-6 flex flex-wrap items-center justify-center gap-3">
+          <NativeLanguageSelector
+            currentNativeLang={nativeLanguageCode}
+            targetLang={targetLanguageCode}
+            languageInfo={LANGUAGE_INFO}
+          />
+          <span class="text-gray-400">→</span>
           <LanguageSelector
             currentLang={targetLanguageCode}
             nativeLang={nativeLanguageCode}
