@@ -11,46 +11,6 @@
       "permanent": true
     },
     {
-      "source": "/learn/es",
-      "destination": "/learn/en/es/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/es/",
-      "destination": "/learn/en/es/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/es/:slug",
-      "destination": "/learn/en/es/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/es/:slug/",
-      "destination": "/learn/en/es/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/fr",
-      "destination": "/learn/en/fr/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/fr/",
-      "destination": "/learn/en/fr/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/fr/:slug",
-      "destination": "/learn/en/fr/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/fr/:slug/",
-      "destination": "/learn/en/fr/:slug/",
-      "permanent": true
-    },
-    {
       "source": "/learn/it",
       "destination": "/learn/en/it/",
       "permanent": true
