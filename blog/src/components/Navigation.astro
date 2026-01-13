@@ -15,12 +15,12 @@ const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   fr: { flag: '🇫🇷', nativeName: 'Français' },
 };
 
-// Build logo href - go to current language articles page if available, otherwise home
-const logoHref = nativeLang && targetLang ? `/learn/${nativeLang}/${targetLang}/` : '/learn/';
+// Build logo href - go to current language hub page
+const logoHref = `/learn/${nativeLang}/`;
 
-// Get native language options (exclude target language - can't learn your own language)
+// Get native language options (exclude target language if set - can't learn your own language)
 const nativeLanguageOptions = SUPPORTED_NATIVE_LANGS
-  .filter(code => code !== targetLang && LANGUAGE_INFO[code])
+  .filter(code => (!targetLang || code !== targetLang) && LANGUAGE_INFO[code])
   .map(code => ({ code, ...LANGUAGE_INFO[code] }));
 
 const currentNativeInfo = LANGUAGE_INFO[nativeLang] || LANGUAGE_INFO.en;
@@ -31,12 +31,12 @@ const currentNativeInfo = LANGUAGE_INFO[nativeLang] || LANGUAGE_INFO.en;
     <div class="flex items-center justify-between h-14">
       <!-- Left: Native Language Selector + Logo -->
       <div class="flex items-center gap-3">
-        {/* Native Language Dropdown */}
-        {targetLang && nativeLanguageOptions.length > 1 && (
+        {/* Native Language Dropdown - shows when we have multiple language options */}
+        {nativeLanguageOptions.length > 1 && (
           <select
             id="nav-native-lang"
             class="px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 cursor-pointer border-none outline-none"
-            data-target-lang={targetLang}
+            data-current-native={nativeLang}
           >
             {nativeLanguageOptions.map(({ code, flag, nativeName }) => (
               <option value={code} selected={code === nativeLang}>
@@ -67,10 +67,30 @@ const currentNativeInfo = LANGUAGE_INFO[nativeLang] || LANGUAGE_INFO.en;
 <script>
   const dropdown = document.getElementById('nav-native-lang') as HTMLSelectElement;
   if (dropdown) {
-    const targetLang = dropdown.dataset.targetLang;
+    const currentNative = dropdown.dataset.currentNative;
     dropdown.addEventListener('change', () => {
       const newNativeLang = dropdown.value;
-      window.location.href = `/learn/${newNativeLang}/${targetLang}/`;
+      const path = window.location.pathname;
+
+      // Handle different URL patterns:
+      // /learn/{nativeLang}/{targetLang}/ - article pages
+      // /learn/{nativeLang}/ - hub pages
+      // /compare/{nativeLang}/... - comparison pages
+
+      let newPath: string;
+
+      if (path.startsWith('/compare/')) {
+        // Replace native lang in comparison URLs
+        newPath = path.replace(`/compare/${currentNative}`, `/compare/${newNativeLang}`);
+      } else if (path.startsWith('/learn/')) {
+        // Replace native lang in learn URLs
+        newPath = path.replace(`/learn/${currentNative}`, `/learn/${newNativeLang}`);
+      } else {
+        // Fallback to learn hub
+        newPath = `/learn/${newNativeLang}/`;
+      }
+
+      window.location.href = newPath;
     });
   }
 </script>
