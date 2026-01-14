@@ -22,8 +22,10 @@ async function getRawBody(req: any): Promise<Buffer> {
 // Map Stripe price IDs to plan names
 function getPlanFromPriceId(priceId: string): { plan: string; period: string } {
   const priceMap: Record<string, { plan: string; period: string }> = {
+    [process.env.STRIPE_PRICE_STANDARD_WEEKLY || '']: { plan: 'standard', period: 'weekly' },
     [process.env.STRIPE_PRICE_STANDARD_MONTHLY || '']: { plan: 'standard', period: 'monthly' },
     [process.env.STRIPE_PRICE_STANDARD_YEARLY || '']: { plan: 'standard', period: 'yearly' },
+    [process.env.STRIPE_PRICE_UNLIMITED_WEEKLY || '']: { plan: 'unlimited', period: 'weekly' },
     [process.env.STRIPE_PRICE_UNLIMITED_MONTHLY || '']: { plan: 'unlimited', period: 'monthly' },
     [process.env.STRIPE_PRICE_UNLIMITED_YEARLY || '']: { plan: 'unlimited', period: 'yearly' },
   };

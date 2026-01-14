@@ -21,6 +21,8 @@ export interface Profile {
   font_weight?: 'light' | 'regular' | 'bold';
   // Answer validation mode
   smart_validation?: boolean; // true = AI-powered (accepts synonyms, typos), false = strict matching
+  // Native app settings
+  haptics_enabled?: boolean;  // true = haptic feedback on (default), false = off
   // Multi-language support
   active_language?: string;    // Current target language code (e.g., 'pl', 'es')
   native_language?: string;    // User's native language code (e.g., 'en', 'es')
@@ -28,7 +30,7 @@ export interface Profile {
   // Subscription
   subscription_plan?: 'none' | 'standard' | 'unlimited';
   subscription_status?: 'active' | 'inactive' | 'past_due' | 'canceled';
-  subscription_period?: 'monthly' | 'yearly';
+  subscription_period?: 'weekly' | 'monthly' | 'yearly';
   subscription_ends_at?: string;
   stripe_customer_id?: string;
   // Couple subscription - inherited access from partner

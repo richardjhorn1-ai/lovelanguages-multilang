@@ -25,8 +25,10 @@ interface SubscriptionStatus {
   };
   giftPasses: Array<{ id: string; code: string; expires_at: string }>;
   prices: {
+    standardWeekly: string;
     standardMonthly: string;
     standardYearly: string;
+    unlimitedWeekly: string;
     unlimitedMonthly: string;
     unlimitedYearly: string;
   };
@@ -43,7 +45,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
   const [status, setStatus] = useState<SubscriptionStatus | null>(null);
   const [loading, setLoading] = useState(true);
   const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null);
-  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('yearly');
+  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('yearly');
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -146,8 +148,10 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
     {
       id: 'standard',
       name: t('subscription.plans.standard'),
+      weeklyPrice: 7,
       monthlyPrice: 19,
       yearlyPrice: 69,
+      weeklyPriceId: status?.prices?.standardWeekly,
       monthlyPriceId: status?.prices?.standardMonthly,
       yearlyPriceId: status?.prices?.standardYearly,
       features: [
@@ -163,8 +167,10 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
     {
       id: 'unlimited',
       name: t('subscription.plans.unlimited'),
+      weeklyPrice: 12,
       monthlyPrice: 39,
       yearlyPrice: 139,
+      weeklyPriceId: status?.prices?.unlimitedWeekly,
       monthlyPriceId: status?.prices?.unlimitedMonthly,
       yearlyPriceId: status?.prices?.unlimitedYearly,
       features: [
@@ -211,32 +217,60 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
           </p>
 
           {/* Billing Toggle */}
-          <div className="mt-8 inline-flex items-center gap-4 p-1.5 rounded-xl" style={{ background: 'var(--bg-card)' }}>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            {/* Weekly */}
+            <button
+              onClick={() => setBillingPeriod('weekly')}
+              className={`relative flex flex-col items-center px-6 py-3 rounded-xl font-medium transition-all border-2 ${
+                billingPeriod === 'weekly' ? 'shadow-md' : 'hover:border-opacity-50'
+              }`}
+              style={{
+                background: billingPeriod === 'weekly' ? `${accentHex}15` : 'var(--bg-card)',
+                borderColor: billingPeriod === 'weekly' ? accentHex : 'var(--border-color)',
+                color: billingPeriod === 'weekly' ? accentHex : 'var(--text-secondary)',
+              }}
+            >
+              <span className="text-xs opacity-70 mb-0.5">{t('subscription.common.weeklyLabel')}</span>
+              <span className="font-semibold">{t('subscription.common.weekly')}</span>
+            </button>
+
+            {/* Monthly - Featured with glow */}
             <button
               onClick={() => setBillingPeriod('monthly')}
-              className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                billingPeriod === 'monthly' ? 'shadow-sm' : ''
+              className={`relative flex flex-col items-center px-6 py-3 rounded-xl font-medium transition-all border-2 ${
+                billingPeriod === 'monthly' ? 'shadow-lg' : ''
               }`}
               style={{
-                background: billingPeriod === 'monthly' ? accentHex : 'transparent',
-                color: billingPeriod === 'monthly' ? '#fff' : 'var(--text-secondary)',
+                background: billingPeriod === 'monthly' ? accentHex : 'var(--bg-card)',
+                borderColor: accentHex,
+                color: billingPeriod === 'monthly' ? '#fff' : accentHex,
+                boxShadow: `0 0 20px ${accentHex}40, 0 0 40px ${accentHex}20`,
               }}
             >
-              {t('subscription.common.monthly')}
+              <span className={`text-xs mb-0.5 ${billingPeriod === 'monthly' ? 'opacity-90' : 'opacity-70'}`}>
+                {t('subscription.common.monthlyLabel')}
+              </span>
+              <span className="font-semibold">{t('subscription.common.monthly')}</span>
             </button>
+
+            {/* Yearly */}
             <button
               onClick={() => setBillingPeriod('yearly')}
-              className={`px-6 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${
-                billingPeriod === 'yearly' ? 'shadow-sm' : ''
+              className={`relative flex flex-col items-center px-6 py-3 rounded-xl font-medium transition-all border-2 ${
+                billingPeriod === 'yearly' ? 'shadow-md' : 'hover:border-opacity-50'
               }`}
               style={{
-                background: billingPeriod === 'yearly' ? accentHex : 'transparent',
-                color: billingPeriod === 'yearly' ? '#fff' : 'var(--text-secondary)',
+                background: billingPeriod === 'yearly' ? `${accentHex}15` : 'var(--bg-card)',
+                borderColor: billingPeriod === 'yearly' ? accentHex : 'var(--border-color)',
+                color: billingPeriod === 'yearly' ? accentHex : 'var(--text-secondary)',
               }}
             >
-              {t('subscription.common.yearly')}
-              <span className="text-xs px-2 py-0.5 rounded-full bg-green-500 text-white">
-                {t('subscription.pricing.save70')}
+              <span className="text-xs opacity-70 mb-0.5">{t('subscription.common.yearlyLabel')}</span>
+              <span className="font-semibold flex items-center gap-2">
+                {t('subscription.common.yearly')}
+                <span className="text-xs px-2 py-0.5 rounded-full bg-green-500 text-white">
+                  {t('subscription.pricing.save70')}
+                </span>
               </span>
             </button>
           </div>
@@ -275,8 +309,21 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-2 gap-6">
           {plans.map((plan) => {
-            const price = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
-            const priceId = billingPeriod === 'monthly' ? plan.monthlyPriceId : plan.yearlyPriceId;
+            const price = billingPeriod === 'weekly'
+              ? plan.weeklyPrice
+              : billingPeriod === 'monthly'
+                ? plan.monthlyPrice
+                : plan.yearlyPrice;
+            const priceId = billingPeriod === 'weekly'
+              ? plan.weeklyPriceId
+              : billingPeriod === 'monthly'
+                ? plan.monthlyPriceId
+                : plan.yearlyPriceId;
+            const periodLabel = billingPeriod === 'weekly'
+              ? t('subscription.common.wk')
+              : billingPeriod === 'monthly'
+                ? t('subscription.common.mo')
+                : t('subscription.common.yr');
             const isCurrentPlan = currentPlan === plan.id;
             const isLoading = checkoutLoading === priceId;
 
@@ -312,7 +359,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
                       ${price}
                     </span>
                     <span style={{ color: 'var(--text-secondary)' }}>
-                      /{billingPeriod === 'monthly' ? t('subscription.common.mo') : t('subscription.common.yr')}
+                      /{periodLabel}
                     </span>
                   </div>
                   {billingPeriod === 'yearly' && (
