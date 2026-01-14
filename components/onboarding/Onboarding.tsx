@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, createContext, useMemo } from 'react';
+import { Capacitor } from '@capacitor/core';
 import { supabase } from '../../services/supabase';
 import type { OnboardingData } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
@@ -446,7 +447,7 @@ const WordParticleBackground: React.FC<{
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
+      className="fixed inset-0 pointer-events-none hidden md:block"
       style={{ zIndex: 15 }}
     />
   );
@@ -533,15 +534,26 @@ const FloatingHeartsBackground: React.FC<{
     }
 
     // Draw heart shape using bezier curves
+    const isNative = Capacitor.isNativePlatform();
     const drawHeart = (x: number, y: number, size: number, opacity: number) => {
       const { r, g, b } = rgbRef.current;
       ctx.save();
       ctx.translate(x, y);
       ctx.scale(size / 30, size / 30);
       ctx.beginPath();
-      ctx.moveTo(0, -5);
-      ctx.bezierCurveTo(-10, -15, -20, 0, 0, 15);
-      ctx.bezierCurveTo(20, 0, 10, -15, 0, -5);
+      if (isNative) {
+        // More proportional heart shape for native iOS app
+        ctx.moveTo(0, -8);
+        ctx.bezierCurveTo(-8, -18, -15, -8, -15, 0);
+        ctx.bezierCurveTo(-15, 10, 0, 18, 0, 18);
+        ctx.bezierCurveTo(0, 18, 15, 10, 15, 0);
+        ctx.bezierCurveTo(15, -8, 8, -18, 0, -8);
+      } else {
+        // Original heart shape for web
+        ctx.moveTo(0, -5);
+        ctx.bezierCurveTo(-10, -15, -20, 0, 0, 15);
+        ctx.bezierCurveTo(20, 0, 10, -15, 0, -5);
+      }
       ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
       ctx.fill();
       ctx.restore();

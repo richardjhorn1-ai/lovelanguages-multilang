@@ -3,7 +3,13 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.lovelanguages.app',
   appName: 'Love Languages',
-  webDir: 'dist'
+  webDir: 'dist',
+  server: {
+    // Load from production server so APIs work
+    // For local dev, comment this out and run `vercel dev`
+    url: 'https://lovelanguages.xyz',
+    cleartext: false
+  }
 };
 
 export default config;
