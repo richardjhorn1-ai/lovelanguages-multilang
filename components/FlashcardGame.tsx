@@ -11,6 +11,9 @@ import { getRomanticPhrases, markPhrasesUsed, getAvailablePhraseCount } from '..
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
+import { haptics } from '../services/haptics';
+import { useOffline } from '../hooks/useOffline';
+import OfflineIndicator from './OfflineIndicator';
 import TutorGames from './TutorGames';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
@@ -224,6 +227,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // i18n
   const { t } = useTranslation();
 
+  // Offline mode
+  const { isOnline, cacheVocabulary, getCachedVocabulary, cachedWordCount, lastSyncTime } = useOffline(profile.id, targetLanguage);
+
   // Challenge modes with translations (moved from module level to use t())
   const challengeModes = useMemo(() => [
     { id: 'weakest' as const, name: t('play.aiChallenge.modes.weakest'), description: t('play.aiChallenge.modes.weakestDesc'), icon: 'Target' as const },
@@ -299,13 +305,27 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       ? profile.linked_user_id
       : profile.id;
 
+    // If offline, try to use cached data
+    if (!isOnline) {
+      const cachedData = getCachedVocabulary();
+      if (cachedData && cachedData.length > 0) {
+        setDeck(shuffleArray(cachedData));
+        setLoading(false);
+        return;
+      }
+    }
+
     const { data: dictData } = await supabase
       .from('dictionary')
       .select('*')
       .eq('user_id', targetUserId)
       .eq('language_code', targetLanguage);
 
-    if (dictData) setDeck(shuffleArray(dictData));
+    if (dictData) {
+      setDeck(shuffleArray(dictData));
+      // Cache for offline use
+      cacheVocabulary(dictData);
+    }
 
     const { data: scoreData } = await supabase
       .from('word_scores')
@@ -586,8 +606,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const handleChallengeFlashcardResponse = async (isCorrect: boolean) => {
     const q = challengeQuestions[challengeIndex];
 
-    // Play feedback sound
+    // Play feedback
     sounds.play('correct');
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -617,8 +638,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     const q = challengeQuestions[challengeIndex];
     const correct = option === q.translation;
 
-    // Play feedback sound
+    // Play feedback
     sounds.play('correct');
+    haptics.trigger(correct ? 'correct' : 'incorrect');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -665,8 +687,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       explanation = correct ? 'Exact match' : 'No match';
     }
 
-    // Play feedback sound
+    // Play feedback
     sounds.play('correct');
+    haptics.trigger(correct ? 'correct' : 'incorrect');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -693,7 +716,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       setChallengeIndex(c => c + 1);
     } else {
       // Play perfect sound if all correct
-      if (score.incorrect === 0) sounds.play('perfect');
+      if (score.incorrect === 0) {
+        sounds.play('perfect');
+        haptics.trigger('perfect');
+      }
       setFinished(true);
       // Save game session
       saveGameSession('ai_challenge', answers, score.correct, score.incorrect);
@@ -863,6 +889,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     setQuickFireShowFeedback(isCorrect ? 'correct' : 'wrong');
     sounds.play('correct'); // Play feedback sound
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
     setTimeout(() => setQuickFireShowFeedback(null), 200);
 
     const newScore = {
@@ -884,7 +911,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       // Finished all words
       if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
       // Play perfect sound if all correct, otherwise just notification
-      if (newScore.incorrect === 0) sounds.play('perfect');
+      if (newScore.incorrect === 0) {
+        sounds.play('perfect');
+        haptics.trigger('perfect');
+      }
       setFinished(true);
       // Save game session
       saveGameSession('quick_fire', newAnswers, newScore.correct, newScore.incorrect);
@@ -996,8 +1026,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       isCorrect = isCorrectAnswer(verbMasteryInput, question.correctAnswer);
     }
 
-    // Play feedback sound
+    // Play feedback
     sounds.play('correct');
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     setVerbMasterySubmitted(true);
     setVerbMasteryCorrect(isCorrect);
@@ -1034,7 +1065,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       setVerbMasteryCorrect(false);
     } else {
       // Play perfect sound if all correct
-      if (sessionScore.incorrect === 0) sounds.play('perfect');
+      if (sessionScore.incorrect === 0) {
+        sounds.play('perfect');
+        haptics.trigger('perfect');
+      }
       setFinished(true);
       saveGameSession('verb_mastery', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
     }
@@ -1059,8 +1093,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const handleFlashcardResponse = async (isCorrect: boolean) => {
     const word = deck[currentIndex];
 
-    // Play feedback sound
+    // Play feedback
     sounds.play('correct');
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -1087,7 +1122,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       setTimeout(() => setCurrentIndex(c => c + 1), 300);
     } else {
       // Play perfect sound if all correct
-      if (newScore.incorrect === 0) sounds.play('perfect');
+      if (newScore.incorrect === 0) {
+        sounds.play('perfect');
+        haptics.trigger('perfect');
+      }
       setFinished(true);
       // Save game session
       saveGameSession('flashcards', newAnswers, newScore.correct, newScore.incorrect);
@@ -1103,8 +1141,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     const currentWord = deck[currentIndex];
     const isCorrect = option === currentWord.translation;
 
-    // Play feedback sound
+    // Play feedback
     sounds.play('correct');
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -1133,7 +1172,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         setCurrentIndex(c => c + 1);
       } else {
         // Play perfect sound if all correct
-        if (newScore.incorrect === 0) sounds.play('perfect');
+        if (newScore.incorrect === 0) {
+          sounds.play('perfect');
+          haptics.trigger('perfect');
+        }
         setFinished(true);
         // Save game session
         saveGameSession('multiple_choice', newAnswers, newScore.correct, newScore.incorrect);
@@ -1149,7 +1191,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         resetTypeItState();
       } else {
         // Play perfect sound if all correct
-        if (sessionScore.incorrect === 0) sounds.play('perfect');
+        if (sessionScore.incorrect === 0) {
+          sounds.play('perfect');
+          haptics.trigger('perfect');
+        }
         setFinished(true);
         // Save game session
         saveGameSession('type_it', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
@@ -1179,8 +1224,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
-    // Play feedback sound
+    // Play feedback
     sounds.play('correct');
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -1304,6 +1350,17 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   return (
     <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-primary)]">
+      {/* Offline Indicator */}
+      {!isOnline && (
+        <div className="shrink-0 px-4 pt-4">
+          <OfflineIndicator
+            isOnline={isOnline}
+            cachedWordCount={cachedWordCount}
+            lastSyncTime={lastSyncTime}
+          />
+        </div>
+      )}
+
       {/* Header: Two Tabs - Fixed at top */}
       <div className="shrink-0 p-2 md:p-4 pb-1 md:pb-2">
         <div className="w-full max-w-lg mx-auto">
