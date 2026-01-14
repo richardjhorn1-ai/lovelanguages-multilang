@@ -613,6 +613,9 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   const [data, setData] = useState<Partial<OnboardingData>>({});
   const [saving, setSaving] = useState(false);
 
+  // Get setLanguageOverride to update language context during onboarding
+  const { setLanguageOverride } = useLanguage();
+
   // When user has inherited subscription, skip the PlanSelectionStep
   const totalSteps = role === 'student'
     ? (hasInheritedSubscription ? STUDENT_TOTAL_STEPS - 1 : STUDENT_TOTAL_STEPS)
@@ -629,12 +632,19 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         if (parsed.userId === userId && parsed.role === role) {
           setCurrentStep(parsed.step || 1);
           setData(parsed.data || {});
+          // Restore language override from saved onboarding data
+          if (parsed.data?.targetLanguage || parsed.data?.nativeLanguage) {
+            setLanguageOverride({
+              targetLanguage: parsed.data.targetLanguage,
+              nativeLanguage: parsed.data.nativeLanguage,
+            });
+          }
         }
       } catch {
         // Ignore parse errors
       }
     }
-  }, [userId, role]);
+  }, [userId, role, setLanguageOverride]);
 
   // Save progress to localStorage
   useEffect(() => {
@@ -656,7 +666,20 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   };
 
   const updateData = (key: keyof OnboardingData, value: any) => {
-    setData(prev => ({ ...prev, [key]: value }));
+    setData(prev => {
+      const newData = { ...prev, [key]: value };
+
+      // Update language context override when languages change
+      // This ensures subsequent onboarding steps see the updated language
+      if (key === 'targetLanguage' || key === 'nativeLanguage') {
+        setLanguageOverride({
+          targetLanguage: key === 'targetLanguage' ? value : prev.targetLanguage,
+          nativeLanguage: key === 'nativeLanguage' ? value : prev.nativeLanguage,
+        });
+      }
+
+      return newData;
+    });
   };
 
   const handleComplete = async () => {
@@ -679,6 +702,9 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         .eq('id', userId);
 
       if (error) throw error;
+
+      // Clear language override - profile now has the correct languages
+      setLanguageOverride(null);
 
       if (role === 'student') {
         supabase.rpc('increment_xp', { user_id: userId, amount: 10 }).then(() => {});
