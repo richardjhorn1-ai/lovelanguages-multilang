@@ -289,8 +289,8 @@ const WordParticleBackground: React.FC<{
     if (!ctx) return;
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
     };
     resize();
     window.addEventListener('resize', resize);
@@ -519,10 +519,10 @@ const FloatingHeartsBackground: React.FC<{
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas size
+    // Set canvas size to match actual rendered dimensions (fixes iOS stretching)
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
     };
     resize();
     window.addEventListener('resize', resize);
