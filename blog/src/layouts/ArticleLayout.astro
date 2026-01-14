@@ -101,6 +101,9 @@ const jsonLd = {
   "keywords": tags?.join(', ')
 };
 
+// Hub page URL for this language
+const languageHubUrl = `/learn/language/${languageInfo.name.toLowerCase()}/`;
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -121,7 +124,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       "position": 3,
       "name": `Learn ${languageInfo.name}`,
-      "item": `https://lovelanguages.xyz/learn/${nativeLanguageCode}/${languageCode}/`
+      "item": `https://lovelanguages.xyz${languageHubUrl}`
     },
     {
       "@type": "ListItem",
@@ -167,7 +170,7 @@ const breadcrumbJsonLd = {
       <li>/</li>
       <li><a href="/learn/" class="hover:text-accent">Learn</a></li>
       <li>/</li>
-      <li><a href={`/learn/${nativeLanguageCode}/${languageCode}/`} class="hover:text-accent">{languageInfo.flag} {languageInfo.name}</a></li>
+      <li><a href={languageHubUrl} class="hover:text-accent">{languageInfo.flag} {languageInfo.name}</a></li>
       <li>/</li>
       <li class="text-gray-900 truncate max-w-[200px]">{title}</li>
     </ol>
@@ -228,6 +231,25 @@ const breadcrumbJsonLd = {
         <slot />
       </div>
     </article>
+
+    <!-- Explore More CTA -->
+    <div class="mt-8 p-6 bg-gradient-to-r from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-center sm:text-left">
+          <p class="text-gray-600 text-sm mb-1">Want to learn more?</p>
+          <p class="font-bold text-gray-900">Explore our complete {languageInfo.name} guide</p>
+        </div>
+        <a
+          href={languageHubUrl}
+          class="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all text-sm"
+        >
+          {languageInfo.flag} {languageInfo.name} Hub
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
   </main>
 
   <!-- Related Articles -->

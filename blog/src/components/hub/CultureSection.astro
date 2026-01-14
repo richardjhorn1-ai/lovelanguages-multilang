@@ -1,0 +1,30 @@
+---
+interface Props {
+  name: string;
+  tips: string[];
+}
+
+const { name, tips } = Astro.props;
+
+const icons = ['💡', '🤝', '🍽️', '🎉'];
+---
+
+<section class="py-12 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2">
+      {name} Cultural Tips
+    </h2>
+    <p class="text-gray-600 mb-8">
+      Language is culture. Understanding these nuances will help you connect more authentically.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-4">
+      {tips.map((tip, i) => (
+        <div class="flex gap-4 p-4 bg-gradient-to-br from-accent/5 to-pink-50 rounded-xl border border-accent/10">
+          <span class="text-2xl flex-shrink-0">{icons[i % icons.length]}</span>
+          <p class="text-gray-700">{tip}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -104,7 +104,7 @@ html.capacitor .overflow-auto {
     }
 }
 
-/* Mobile: hide scrollbar completely */
+/* Mobile: hide scrollbar completely and prevent zoom */
 @media (max-width: 767px) {
     * {
         -ms-overflow-style: none;
@@ -112,6 +112,11 @@ html.capacitor .overflow-auto {
     }
     *::-webkit-scrollbar {
         display: none;
+    }
+
+    /* Prevent pinch-zoom and horizontal panning on mobile web */
+    html, body {
+        touch-action: pan-y;
     }
 }
 

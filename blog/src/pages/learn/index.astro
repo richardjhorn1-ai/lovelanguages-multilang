@@ -1,253 +1,347 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Testimonials from '../../components/Testimonials.astro';
 import { getCollection } from 'astro:content';
+import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
 
-// This page serves English content directly at /learn/ (no redirect)
-// This is better for SEO than redirecting to /learn/en/
+/**
+ * /learn/ - The Master Hub
+ *
+ * Design notes:
+ * - Uses brand colors: coral (#FF6B6B), teal (#4ECDC4), golden (#FFE66D)
+ * - Warm off-white background (#fdfcfd)
+ * - Varied visual treatments to avoid cookie-cutter look
+ */
 
-// Language config for flags and names
-const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
-  en: { flag: '🇬🇧', name: 'English', nativeName: 'English' },
-  es: { flag: '🇪🇸', name: 'Spanish', nativeName: 'Español' },
-  fr: { flag: '🇫🇷', name: 'French', nativeName: 'Français' },
-  it: { flag: '🇮🇹', name: 'Italian', nativeName: 'Italiano' },
-  pt: { flag: '🇵🇹', name: 'Portuguese', nativeName: 'Português' },
-  ro: { flag: '🇷🇴', name: 'Romanian', nativeName: 'Română' },
-  de: { flag: '🇩🇪', name: 'German', nativeName: 'Deutsch' },
-  nl: { flag: '🇳🇱', name: 'Dutch', nativeName: 'Nederlands' },
-  sv: { flag: '🇸🇪', name: 'Swedish', nativeName: 'Svenska' },
-  no: { flag: '🇳🇴', name: 'Norwegian', nativeName: 'Norsk' },
-  da: { flag: '🇩🇰', name: 'Danish', nativeName: 'Dansk' },
-  pl: { flag: '🇵🇱', name: 'Polish', nativeName: 'Polski' },
-  cs: { flag: '🇨🇿', name: 'Czech', nativeName: 'Čeština' },
-  ru: { flag: '🇷🇺', name: 'Russian', nativeName: 'Русский' },
-  uk: { flag: '🇺🇦', name: 'Ukrainian', nativeName: 'Українська' },
-  el: { flag: '🇬🇷', name: 'Greek', nativeName: 'Ελληνικά' },
-  hu: { flag: '🇭🇺', name: 'Hungarian', nativeName: 'Magyar' },
-  tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
-};
-
-const nativeLanguageCode = 'en';
-
-// Get all articles
 const allArticles = await getCollection('articles');
 
-// Count articles per target language for English speakers
+// Count articles per language (English speakers)
 const languageCounts: Record<string, number> = {};
-for (const code of Object.keys(LANGUAGE_INFO)) {
-  if (code !== nativeLanguageCode) {
-    languageCounts[code] = allArticles.filter(a => a.slug.startsWith(`${nativeLanguageCode}/${code}/`)).length;
-  }
+for (const code of Object.keys(LANGUAGE_HUB_DATA)) {
+  languageCounts[code] = allArticles.filter(a => a.slug.startsWith(`en/${code}/`)).length;
 }
 
-// Sort: languages with articles first, then alphabetically
-const sortedLanguages = Object.entries(LANGUAGE_INFO)
-  .filter(([code]) => code !== nativeLanguageCode)
-  .sort(([codeA], [codeB]) => {
-    const countA = languageCounts[codeA] || 0;
-    const countB = languageCounts[codeB] || 0;
-    if (countA > 0 && countB === 0) return -1;
-    if (countB > 0 && countA === 0) return 1;
-    return LANGUAGE_INFO[codeA].name.localeCompare(LANGUAGE_INFO[codeB].name);
-  });
+// Latest articles
+const latestArticles = allArticles
+  .filter(a => a.slug.startsWith('en/'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 4);
 
-const totalArticles = Object.values(languageCounts).reduce((sum, count) => sum + count, 0);
-const languagesWithContent = Object.values(languageCounts).filter(c => c > 0).length;
+const totalArticles = allArticles.filter(a => a.slug.startsWith('en/')).length;
 
-const text = {
-  heroTitle: 'Learn Any Language Together',
-  heroSubtitle: 'Free lessons, vocabulary guides, and cultural tips designed for couples learning together.',
-  chooseLanguage: 'What Language Do You Want to Learn?',
-  popularTitle: 'Most Popular Languages',
-  ctaTitle: 'Ready to Start Learning?',
-  ctaSubtitle: 'Join couples learning languages together with AI coaching, voice practice, and games.',
-  ctaButton: 'Start Your Journey',
-  ctaFooter: 'Join couples learning languages across 30+ countries',
-  startLearning: 'Start Learning',
-  articles: 'articles',
-  article: 'article',
-  languages: 'Languages',
-  comingSoon: 'Coming soon',
-  learnWith: 'Learn vocabulary, phrases, grammar, and culture with your partner.',
-};
+// Featured languages (most content)
+const allLanguages = Object.entries(LANGUAGE_HUB_DATA)
+  .map(([code, data]) => ({ code, ...data, articleCount: languageCounts[code] || 0 }))
+  .sort((a, b) => b.articleCount - a.articleCount);
+
+const featuredLanguages = allLanguages.slice(0, 6);
+const otherLanguages = allLanguages.slice(6);
+
+const getArticleUrl = (slug: string) => `/learn/${slug}/`;
+const getLangFromSlug = (slug: string) => slug.split('/')[1];
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": `Love Languages - ${text.heroTitle}`,
-  "description": text.heroSubtitle,
+  "name": "Learn Any Language Together - Love Languages",
+  "description": "Free language lessons for couples. 471+ articles across 17 languages.",
   "url": "https://lovelanguages.xyz/learn/",
   "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
     "url": "https://lovelanguages.xyz"
-  },
-  "numberOfItems": totalArticles
+  }
 };
 ---
 
 <BaseLayout
-  title={`${text.heroTitle} - Love Languages`}
-  description={text.heroSubtitle}
-  nativeLang={nativeLanguageCode}
+  title="Learn Any Language Together - Love Languages"
+  description="Free language lessons, vocabulary guides, and cultural tips for couples learning together. 471+ articles across 17 languages."
+  nativeLang="en"
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <!-- Hero Section -->
-  <header class="bg-gradient-to-b from-accent/10 to-white">
-    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
-      <div class="text-center max-w-3xl mx-auto">
-        <div class="flex justify-center gap-2 mb-6 flex-wrap">
-          {['🇪🇸', '🇫🇷', '🇩🇪', '🇮🇹', '🇵🇱', '🇵🇹', '🇷🇺', '🇬🇷'].map(flag => (
-            <span class="text-3xl">{flag}</span>
-          ))}
-        </div>
-        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
-          {text.heroTitle}
-        </h1>
-        <p class="text-xl text-gray-600 mb-8">
-          {text.heroSubtitle}
-        </p>
-        <div class="flex justify-center gap-6 text-sm text-gray-500">
-          <div class="flex items-center gap-2">
-            <span class="text-2xl">📚</span>
-            <span><strong class="text-gray-900">{totalArticles}</strong> {totalArticles === 1 ? text.article : text.articles}</span>
+  <!-- Hero - Warm coral gradient, asymmetric layout -->
+  <header class="relative overflow-hidden" style="background: linear-gradient(135deg, #FFF0F3 0%, #fdfcfd 50%, #E7F5FF 100%);">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-[#FF6B6B] font-medium mb-3 tracking-wide uppercase text-sm">For Couples</p>
+          <h1 class="text-4xl md:text-6xl font-black font-header text-[#292F36] mb-6 leading-tight">
+            Learn Any Language <span class="text-[#FF6B6B]">Together</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+            Free lessons, phrases, and cultural tips designed for partners learning side by side.
+          </p>
+          <div class="flex flex-wrap gap-4 mb-8">
+            <a href="#languages" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white transition-all hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);">
+              Browse Languages
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+            <a href="/learn/couples-language-learning/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold transition-all hover:scale-105" style="color: #4ECDC4; border: 2px solid #4ECDC4;">
+              Why Learn Together?
+            </a>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="text-2xl">🌍</span>
-            <span><strong class="text-gray-900">17</strong> {text.languages}</span>
+          <div class="flex gap-6 text-sm">
+            <div><span class="font-bold text-[#292F36] text-lg">{totalArticles}+</span> <span class="text-gray-500">articles</span></div>
+            <div><span class="font-bold text-[#292F36] text-lg">17</span> <span class="text-gray-500">languages</span></div>
+          </div>
+        </div>
+
+        <!-- Flag cluster - playful arrangement -->
+        <div class="hidden md:flex justify-center items-center relative h-64">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="relative">
+              {allLanguages.slice(0, 8).map((lang, i) => {
+                const positions = [
+                  { x: 0, y: -60, rotate: -5, scale: 1.4 },
+                  { x: 70, y: -30, rotate: 8, scale: 1.2 },
+                  { x: 85, y: 40, rotate: -3, scale: 1.1 },
+                  { x: 30, y: 70, rotate: 10, scale: 1 },
+                  { x: -50, y: 60, rotate: -8, scale: 1.1 },
+                  { x: -80, y: 10, rotate: 5, scale: 1.2 },
+                  { x: -60, y: -45, rotate: -10, scale: 1 },
+                  { x: 10, y: 10, rotate: 0, scale: 1.6 },
+                ];
+                const pos = positions[i];
+                return (
+                  <span
+                    class="absolute text-4xl transition-transform hover:scale-125 cursor-default select-none"
+                    style={`transform: translate(${pos.x}px, ${pos.y}px) rotate(${pos.rotate}deg) scale(${pos.scale}); filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));`}
+                  >
+                    {lang.flag}
+                  </span>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Decorative wave -->
+    <div class="absolute bottom-0 left-0 right-0 h-16 overflow-hidden">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full">
+        <path d="M0,60 C300,120 600,0 900,60 C1050,90 1150,90 1200,60 L1200,120 L0,120 Z" fill="#fdfcfd"/>
+      </svg>
     </div>
   </header>
 
-  <!-- Language Grid -->
-  <main class="max-w-6xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-bold font-header text-gray-900 mb-8 text-center">
-      {text.chooseLanguage}
-    </h2>
-
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-      {sortedLanguages.map(([code, info]) => {
-        const count = languageCounts[code] || 0;
-        const hasArticles = count > 0;
-
-        return (
-          <a
-            href={`/learn/${nativeLanguageCode}/${code}/`}
-            class={`group relative flex flex-col items-center p-6 rounded-2xl border-2 transition-all ${
-              hasArticles
-                ? 'border-gray-200 hover:border-accent hover:shadow-lg bg-white'
-                : 'border-gray-100 bg-gray-50 hover:border-gray-200'
-            }`}
-          >
-            <span class="text-5xl mb-3 group-hover:scale-110 transition-transform">{info.flag}</span>
-            <span class={`font-semibold ${hasArticles ? 'text-gray-900' : 'text-gray-400'}`}>
-              {info.name}
-            </span>
-            <span class="text-xs text-gray-400 mb-2">{info.nativeName}</span>
-
-            {hasArticles ? (
-              <span class="text-xs font-medium px-2 py-1 rounded-full bg-accent/10 text-accent">
-                {count} {count === 1 ? text.article : text.articles}
-              </span>
-            ) : (
-              <span class="text-xs text-gray-300">{text.comingSoon}</span>
-            )}
-
-            {hasArticles && (
-              <div class="absolute inset-0 rounded-2xl ring-2 ring-accent ring-offset-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            )}
-          </a>
-        );
-      })}
-    </div>
-  </main>
-
-  <!-- Popular Languages Section -->
-  {languagesWithContent > 0 && (
-    <section class="bg-gray-50 py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-2xl font-bold font-header text-gray-900 mb-8 text-center">
-          {text.popularTitle}
-        </h2>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          {sortedLanguages
-            .filter(([code]) => languageCounts[code] > 0)
-            .slice(0, 3)
-            .map(([code, info]) => (
-              <a
-                href={`/learn/${nativeLanguageCode}/${code}/`}
-                class="bg-white rounded-2xl p-6 border border-gray-200 hover:border-accent hover:shadow-lg transition-all group"
-              >
-                <div class="flex items-center gap-4 mb-4">
-                  <span class="text-5xl">{info.flag}</span>
-                  <div>
-                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-accent transition-colors">
-                      {info.name}
-                    </h3>
-                    <p class="text-gray-500">{languageCounts[code]} {languageCounts[code] === 1 ? text.article : text.articles}</p>
-                  </div>
-                </div>
-                <p class="text-gray-600 text-sm">
-                  {text.learnWith}
-                </p>
-                <div class="mt-4 text-accent font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                  {text.startLearning}
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </a>
-            ))}
-        </div>
+  <!-- Discovery Paths - Varied card styles, brand colors -->
+  <section class="py-16" style="background: #fdfcfd;">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold font-header text-[#292F36] mb-3">Explore Your Way</h2>
+        <p class="text-gray-600">Multiple paths into language learning</p>
       </div>
-    </section>
-  )}
 
-  <!-- Testimonials -->
-  <section class="max-w-6xl mx-auto px-4">
-    <Testimonials />
+      <div class="grid md:grid-cols-4 gap-5">
+        <!-- Difficulty Path - Teal accent -->
+        <a href="/learn/easiest-languages/" class="group relative p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1" style="background: linear-gradient(145deg, #E7F5FF, #fdfcfd); border-color: #4ECDC4;">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="font-bold text-[#292F36] text-lg mb-2 group-hover:text-[#4ECDC4] transition-colors">By Difficulty</h3>
+          <p class="text-sm text-gray-600">Easiest to hardest for English speakers</p>
+          <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style="background: #4ECDC4;">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- Romance Languages - Coral accent -->
+        <a href="/learn/romance-languages/" class="group relative p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1" style="background: linear-gradient(145deg, #FFF0F3, #fdfcfd); border-color: #FF6B6B;">
+          <div class="text-4xl mb-4">💕</div>
+          <h3 class="font-bold text-[#292F36] text-lg mb-2 group-hover:text-[#FF6B6B] transition-colors">Romance Languages</h3>
+          <p class="text-sm text-gray-600">Spanish, French, Italian, Portuguese</p>
+          <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style="background: #FF6B6B;">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- Slavic Languages - Deep blue accent -->
+        <a href="/learn/slavic-languages/" class="group relative p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1" style="background: linear-gradient(145deg, #EEF2FF, #fdfcfd); border-color: #6366F1;">
+          <div class="text-4xl mb-4">🔤</div>
+          <h3 class="font-bold text-[#292F36] text-lg mb-2 group-hover:text-[#6366F1] transition-colors">Slavic Languages</h3>
+          <p class="text-sm text-gray-600">Polish, Russian, Ukrainian, Czech</p>
+          <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style="background: #6366F1;">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <!-- Romantic Phrases - Golden accent -->
+        <a href="/learn/romantic-phrases/" class="group relative p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1" style="background: linear-gradient(145deg, #FFFBEB, #fdfcfd); border-color: #F59E0B;">
+          <div class="text-4xl mb-4">❤️</div>
+          <h3 class="font-bold text-[#292F36] text-lg mb-2 group-hover:text-[#F59E0B] transition-colors">"I Love You"</h3>
+          <p class="text-sm text-gray-600">Romantic phrases in 18 languages</p>
+          <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style="background: #F59E0B;">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- Main CTA -->
-  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+  <!-- Languages Section - Clear hierarchy, brand colors -->
+  <section id="languages" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold font-header text-[#292F36] mb-3">Choose Your Language</h2>
+        <p class="text-gray-600">Complete guides with lessons, phrases, grammar & culture</p>
+      </div>
+
+      <!-- Featured - Larger cards -->
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        {featuredLanguages.map((lang, i) => (
+          <a
+            href={`/learn/language/${lang.name.toLowerCase()}/`}
+            class="group relative p-6 rounded-2xl transition-all hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
+            style={`background: ${i === 0 ? 'linear-gradient(135deg, #FFF0F3 0%, white 100%)' : i === 1 ? 'linear-gradient(135deg, #E7F5FF 0%, white 100%)' : 'linear-gradient(135deg, #F0FDF4 0%, white 100%)'};`}
+          >
+            <div class="absolute top-0 right-0 w-32 h-32 opacity-10 text-8xl flex items-center justify-center">
+              {lang.flag}
+            </div>
+
+            <div class="relative">
+              <span class="text-5xl mb-4 block group-hover:scale-110 transition-transform origin-left">{lang.flag}</span>
+              <h3 class="text-2xl font-bold text-[#292F36] mb-1 group-hover:text-[#FF6B6B] transition-colors">{lang.name}</h3>
+              <p class="text-gray-500 text-sm mb-4">{lang.nativeName}</p>
+
+              <div class="flex gap-4 mb-4 text-sm">
+                <div>
+                  <span class="font-bold text-[#292F36]">{lang.articleCount}</span>
+                  <span class="text-gray-500 ml-1">guides</span>
+                </div>
+                <div>
+                  <span class="font-bold text-[#292F36]">{lang.fsiHours}h</span>
+                  <span class="text-gray-500 ml-1">to fluency</span>
+                </div>
+                <div class="text-[#FF6B6B]">{'★'.repeat(lang.difficultyRating)}{'☆'.repeat(5 - lang.difficultyRating)}</div>
+              </div>
+
+              <p class="text-gray-600 text-sm line-clamp-2">{lang.whyLearn[0]}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- All Languages - Compact grid -->
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-3">
+        {otherLanguages.map(lang => (
+          <a
+            href={`/learn/language/${lang.name.toLowerCase()}/`}
+            class="group flex flex-col items-center p-3 rounded-xl border border-gray-100 hover:border-[#FF6B6B] hover:shadow-md transition-all bg-white"
+          >
+            <span class="text-2xl mb-1 group-hover:scale-110 transition-transform">{lang.flag}</span>
+            <span class="text-xs font-medium text-gray-700 group-hover:text-[#FF6B6B] text-center">{lang.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles - Horizontal scroll on mobile, distinctive styling -->
+  <section class="py-16" style="background: #fdfcfd;">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl font-bold font-header text-[#292F36]">Fresh Reads</h2>
+          <p class="text-gray-600 text-sm">Latest guides and lessons</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {latestArticles.map(article => {
+          const langCode = getLangFromSlug(article.slug);
+          const langData = LANGUAGE_HUB_DATA[langCode];
+          return (
+            <a href={getArticleUrl(article.slug)} class="group block">
+              <div class="p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-lg hover:border-[#4ECDC4] transition-all h-full">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-lg">{langData?.flag}</span>
+                  <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: #E7F5FF; color: #4ECDC4;">{langData?.name}</span>
+                </div>
+                <h3 class="font-bold text-[#292F36] group-hover:text-[#4ECDC4] transition-colors mb-2 line-clamp-2 text-sm">
+                  {article.data.title}
+                </h3>
+                <p class="text-xs text-gray-500 line-clamp-2">{article.data.description}</p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Couples CTA - Warm, inviting -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="relative rounded-3xl p-8 md:p-12 overflow-hidden" style="background: linear-gradient(135deg, #FFF0F3 0%, #E7F5FF 100%);">
+        <div class="relative text-center">
+          <div class="inline-flex items-center gap-3 mb-6">
+            <span class="text-5xl">👩‍❤️‍👨</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold font-header text-[#292F36] mb-4">
+            Better Together
+          </h2>
+          <p class="text-gray-600 mb-8 max-w-xl mx-auto text-lg">
+            Couples who learn together stay motivated, practice more often, and create memories that last forever.
+          </p>
+          <a
+            href="/learn/couples-language-learning/"
+            class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-all hover:scale-105 hover:shadow-xl"
+            style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);"
+          >
+            Discover Why Couples Learn Faster
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App CTA - Brand gradient -->
+  <section class="py-20" style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 50%, #FFB4B4 100%);">
     <div class="max-w-2xl mx-auto px-4 text-center text-white">
-      <h2 class="text-3xl font-bold font-header mb-4">
-        {text.ctaTitle}
+      <h2 class="text-3xl md:text-4xl font-bold font-header mb-4">
+        Ready to Start?
       </h2>
-      <p class="text-white/90 mb-8">
-        {text.ctaSubtitle}
+      <p class="text-white/90 mb-8 text-lg">
+        AI coaching, voice practice, and games designed for two.
       </p>
       <a
         href="/"
-        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+        class="inline-block bg-white font-bold px-10 py-4 rounded-full hover:shadow-2xl hover:scale-105 transition-all text-lg"
+        style="color: #FF6B6B;"
       >
-        {text.ctaButton}
+        Begin Your Journey
       </a>
-      <p class="mt-4 text-white/80 text-sm">
-        {text.ctaFooter}
+      <p class="mt-6 text-white/70 text-sm">
+        Free to start • No credit card
       </p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+  <footer class="py-12 border-t" style="background: #fdfcfd; border-color: #f0f0f0;">
     <div class="max-w-6xl mx-auto px-4 text-center">
-      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header mb-4" style="color: #FF6B6B;">
         <img src="/favicon.svg" alt="" class="w-8 h-8" />
         Love Languages
       </a>
-      <p class="text-gray-600 mb-6">{text.heroSubtitle}</p>
-      <nav class="flex justify-center gap-6 text-sm text-gray-500">
-        <a href="/learn/" class="hover:text-accent">Blog</a>
-        <a href="/tools" class="hover:text-accent">Tools</a>
-        <a href="/terms" class="hover:text-accent">Terms</a>
-        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
+
+      <div class="flex flex-wrap justify-center gap-4 mb-6">
+        {featuredLanguages.slice(0, 4).map(lang => (
+          <a href={`/learn/language/${lang.name.toLowerCase()}/`} class="text-sm text-gray-500 hover:text-[#FF6B6B] transition-colors">
+            {lang.flag} {lang.name}
+          </a>
+        ))}
+        <a href="/learn/easiest-languages/" class="text-sm text-gray-500 hover:text-[#FF6B6B] transition-colors">Easiest Languages</a>
+      </div>
+
+      <nav class="flex justify-center gap-6 text-sm text-gray-400">
+        <a href="/learn/" class="hover:text-[#FF6B6B]">Blog</a>
+        <a href="/tools" class="hover:text-[#FF6B6B]">Tools</a>
+        <a href="/terms" class="hover:text-[#FF6B6B]">Terms</a>
+        <a href="/privacy" class="hover:text-[#FF6B6B]">Privacy</a>
       </nav>
     </div>
   </footer>

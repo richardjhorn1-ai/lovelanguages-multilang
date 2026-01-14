@@ -1,0 +1,309 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguageCard from '../../components/hub/LanguageCard.astro';
+import FAQSection from '../../components/hub/FAQSection.astro';
+import TopicalArticlesGrid from '../../components/hub/TopicalArticlesGrid.astro';
+import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
+
+// Get Romance languages
+const romanceLanguages = Object.values(LANGUAGE_HUB_DATA).filter(lang =>
+  lang.familyGroup === 'Romance'
+);
+
+const faqs = [
+  {
+    question: "Which Romance language is easiest for English speakers?",
+    answer: "Spanish is generally considered easiest due to consistent pronunciation, phonetic spelling, and familiar vocabulary. Italian is also very accessible with its musical clarity. French has more complex pronunciation rules but closer vocabulary to English. All are FSI Category I (easiest)."
+  },
+  {
+    question: "Can Romance language speakers understand each other?",
+    answer: "Partially, especially in writing. Spanish and Portuguese speakers can understand 70-90% of each other's written language. Italian and Spanish share significant vocabulary. French is somewhat more distinct but still recognizable. Spoken comprehension varies more due to pronunciation differences."
+  },
+  {
+    question: "Should I learn Spanish or French first?",
+    answer: "Both are excellent choices. Spanish has more speakers (500M) and simpler pronunciation. French has closer vocabulary to English (30% of English words have French roots) and is valuable for business in Europe and Africa. Choose based on your travel goals and personal interest."
+  },
+  {
+    question: "Will learning one Romance language help with others?",
+    answer: "Absolutely! Romance languages share grammar structures, verb conjugation patterns, and 70-85% vocabulary overlap. Learning Spanish first makes Italian and Portuguese significantly easier. Many people successfully learn multiple Romance languages."
+  },
+  {
+    question: "Is Romanian really a Romance language?",
+    answer: "Yes! Romanian descended from Latin like the others, despite being geographically surrounded by Slavic languages. It has some Slavic loanwords and unique features but is grammatically and historically Romance. Its Latin roots are clearly visible in core vocabulary."
+  },
+  {
+    question: "Why do Romance languages have gendered nouns?",
+    answer: "They inherited grammatical gender from Latin, which had three genders (masculine, feminine, neuter). Most Romance languages kept two (masculine/feminine). It affects articles and adjective agreement. While it takes practice, patterns make it predictable with exposure."
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Romance Languages Guide - Spanish, French, Italian, Portuguese",
+  "description": "Explore the Romance language family. Compare Spanish, French, Italian, Portuguese, and Romanian. Learn which to choose and how they're connected.",
+  "url": "https://lovelanguages.xyz/learn/romance-languages/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+---
+
+<BaseLayout
+  title="Romance Languages Guide: Spanish, French, Italian, Portuguese | Love Languages"
+  description="Explore the Romance language family descended from Latin. Compare Spanish, French, Italian, Portuguese, and Romanian. Find your perfect romantic language."
+  nativeLang="en"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-pink-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="flex justify-center gap-2 mb-4">
+          {romanceLanguages.map(lang => (
+            <span class="text-3xl">{lang.flag}</span>
+          ))}
+        </div>
+        <h1 class="text-3xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Romance Languages
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8">
+          The languages of love, descended from Latin. Spanish, French, Italian, Portuguese, and Romanian—spoken by over 900 million people worldwide.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-6">
+        About Romance Languages
+      </h2>
+
+      <div class="prose prose-gray max-w-none">
+        <p class="text-lg text-gray-600 mb-6">
+          Romance languages evolved from Vulgar Latin spoken across the Roman Empire. Today, they're among the most studied languages globally, known for their musical quality, rich literature, and cultural influence. They're also among the easiest languages for English speakers.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4 not-prose mb-8">
+          <div class="p-4 bg-pink-50 rounded-xl border border-pink-100 text-center">
+            <div class="text-3xl font-bold text-pink-600">900M+</div>
+            <div class="text-sm text-gray-600">Native Speakers</div>
+          </div>
+          <div class="p-4 bg-pink-50 rounded-xl border border-pink-100 text-center">
+            <div class="text-3xl font-bold text-pink-600">600h</div>
+            <div class="text-sm text-gray-600">Avg. Learning Time</div>
+          </div>
+          <div class="p-4 bg-pink-50 rounded-xl border border-pink-100 text-center">
+            <div class="text-3xl font-bold text-pink-600">75%+</div>
+            <div class="text-sm text-gray-600">Vocabulary Overlap</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Language Cards -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8 text-center">
+        Explore Romance Languages
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {romanceLanguages.map(lang => (
+          <a
+            href={`/learn/language/${lang.name.toLowerCase()}/`}
+            class="group p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-accent hover:shadow-lg transition-all"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-5xl group-hover:scale-110 transition-transform">{lang.flag}</span>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 group-hover:text-accent transition-colors">{lang.name}</h3>
+                <p class="text-gray-500">{lang.nativeName}</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+              <div>
+                <div class="font-bold text-gray-900">{lang.speakers}</div>
+                <div class="text-gray-500">speakers</div>
+              </div>
+              <div>
+                <div class="font-bold text-accent">{'★'.repeat(lang.difficultyRating)}{'☆'.repeat(5 - lang.difficultyRating)}</div>
+                <div class="text-gray-500">difficulty</div>
+              </div>
+            </div>
+
+            <p class="text-gray-600 text-sm mb-4">{lang.couplesTip.substring(0, 100)}...</p>
+
+            <div class="text-accent font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn {lang.name}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- I Love You Comparison -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8 text-center">
+        "I Love You" in Romance Languages
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {romanceLanguages.map(lang => {
+          const lovePhrase = lang.essentialPhrases.find(p =>
+            p.translation.toLowerCase().includes('love')
+          );
+          if (!lovePhrase) return null;
+
+          return (
+            <div class="p-5 bg-gradient-to-br from-accent/5 to-pink-50 rounded-xl border border-accent/10 text-center">
+              <span class="text-3xl mb-2 block">{lang.flag}</span>
+              <div class="text-xl font-bold text-accent mb-1">{lovePhrase.phrase}</div>
+              <div class="text-sm text-gray-500">/{lovePhrase.pronunciation}/</div>
+              <div class="text-xs text-gray-400 mt-2">{lang.name}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        Comparing Romance Languages
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm bg-white rounded-xl overflow-hidden">
+          <thead>
+            <tr class="border-b-2 border-gray-200 bg-gray-50">
+              <th class="text-left py-3 px-4">Language</th>
+              <th class="text-left py-3 px-4">Speakers</th>
+              <th class="text-left py-3 px-4">Pronunciation</th>
+              <th class="text-left py-3 px-4">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇪🇸 Spanish</td>
+              <td class="py-3 px-4">500M</td>
+              <td class="py-3 px-4">Very consistent</td>
+              <td class="py-3 px-4">Travel, business, most speakers</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇫🇷 French</td>
+              <td class="py-3 px-4">300M</td>
+              <td class="py-3 px-4">Complex, many silent letters</td>
+              <td class="py-3 px-4">Diplomacy, culture, cuisine</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇮🇹 Italian</td>
+              <td class="py-3 px-4">85M</td>
+              <td class="py-3 px-4">Very phonetic</td>
+              <td class="py-3 px-4">Art, music, food, fashion</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇵🇹 Portuguese</td>
+              <td class="py-3 px-4">260M</td>
+              <td class="py-3 px-4">Nasal sounds, complex</td>
+              <td class="py-3 px-4">Brazil, Africa, growing markets</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇷🇴 Romanian</td>
+              <td class="py-3 px-4">26M</td>
+              <td class="py-3 px-4">Consistent with unique sounds</td>
+              <td class="py-3 px-4">Eastern Europe, unique heritage</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Romance Languages -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        Why Learn a Romance Language?
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-5 bg-green-50 rounded-xl border border-green-100">
+          <h3 class="font-bold text-green-800 mb-2">🎯 Easiest for English Speakers</h3>
+          <p class="text-gray-600 text-sm">All Romance languages are FSI Category I—the easiest group. 30% of English vocabulary has French/Latin roots, giving you a head start.</p>
+        </div>
+        <div class="p-5 bg-blue-50 rounded-xl border border-blue-100">
+          <h3 class="font-bold text-blue-800 mb-2">🌍 Global Reach</h3>
+          <p class="text-gray-600 text-sm">Romance languages are spoken on every continent. Spanish alone opens doors to 21 countries; French is official in 29.</p>
+        </div>
+        <div class="p-5 bg-purple-50 rounded-xl border border-purple-100">
+          <h3 class="font-bold text-purple-800 mb-2">🎨 Cultural Access</h3>
+          <p class="text-gray-600 text-sm">From Renaissance art to modern cinema, romance languages unlock incredible cultural treasures—literature, music, cuisine, and art.</p>
+        </div>
+        <div class="p-5 bg-pink-50 rounded-xl border border-pink-100">
+          <h3 class="font-bold text-pink-800 mb-2">💕 Perfect for Couples</h3>
+          <p class="text-gray-600 text-sm">These are the languages of love—literally. Their melodic sounds and romantic vocabulary make them perfect for learning together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles from Romance Languages -->
+  <TopicalArticlesGrid
+    langCodes={['es', 'fr', 'it', 'pt', 'ro']}
+    maxArticles={12}
+    title="Romance Language Articles"
+    subtitle="Lessons and guides for Spanish, French, Italian, Portuguese, and Romanian"
+  />
+
+  <FAQSection faqs={faqs} />
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl font-bold font-header mb-4">
+        Ready to Learn a Romance Language?
+      </h2>
+      <p class="text-white/90 mb-8">
+        Choose your language of love and begin your journey with AI-powered coaching.
+      </p>
+      <a
+        href="/learn/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Browse All Languages
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn/" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+interface Props {
+  name: string;
+  tip: string;
+  lovePhrase?: {
+    phrase: string;
+    translation: string;
+  };
+  learnMoreUrl?: string;
+}
+
+const { name, tip, lovePhrase, learnMoreUrl } = Astro.props;
+---
+
+<section class="py-12 bg-gradient-to-r from-pink-50 to-accent/10">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-8">
+      <span class="text-4xl mb-4 block">💕</span>
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-4">
+        Learn {name} Together
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        {tip}
+      </p>
+    </div>
+
+    {lovePhrase && (
+      <div class="bg-white rounded-2xl p-6 max-w-sm mx-auto text-center shadow-sm border border-accent/20">
+        <div class="text-2xl font-bold text-accent mb-2">{lovePhrase.phrase}</div>
+        <div class="text-gray-600">{lovePhrase.translation}</div>
+      </div>
+    )}
+
+    <div class="mt-8 text-center">
+      <a href={learnMoreUrl || "/"} class="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full hover:bg-accent/90 hover:scale-105 transition-all font-medium">
+        <span>Start Learning Together</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>

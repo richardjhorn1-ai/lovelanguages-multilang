@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopicalArticlesGrid from '../../components/hub/TopicalArticlesGrid.astro';
+import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
+
+// Get all languages with their love phrases
+const languagesWithLove = Object.values(LANGUAGE_HUB_DATA).map(lang => {
+  const lovePhrase = lang.essentialPhrases.find(p =>
+    p.translation.toLowerCase().includes('love')
+  );
+  return {
+    ...lang,
+    lovePhrase
+  };
+}).filter(lang => lang.lovePhrase);
+
+const faqs = [
+  {
+    question: "What's the most romantic language?",
+    answer: "French, Italian, and Portuguese are often considered the most romantic due to their melodic sounds and cultural associations with love. However, every language has beautiful romantic expressions—Polish has over 50 terms of endearment, and Spanish's passionate vocabulary is legendary."
+  },
+  {
+    question: "How do I pronounce 'I love you' correctly?",
+    answer: "Each language has unique sounds. Use our pronunciation guides above, and practice with native audio when possible. The key is learning the specific sounds—like the French 'je' or Spanish rolled 'r'. Your partner will appreciate the effort even if it's not perfect!"
+  },
+  {
+    question: "Are there different levels of 'I love you' in other languages?",
+    answer: "Yes! Many languages distinguish between romantic love and affection. Spanish has 'te quiero' (casual love) and 'te amo' (deep love). Japanese has different phrases for confessing versus expressing ongoing love. Understanding these nuances shows cultural awareness."
+  },
+  {
+    question: "What romantic phrases should I learn beyond 'I love you'?",
+    answer: "Start with compliments ('You're beautiful'), terms of endearment ('my love', 'sweetheart'), and expressions of affection ('I miss you', 'You mean everything to me'). These everyday phrases are often more useful than just 'I love you.'"
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Romantic Phrases in Different Languages",
+  "description": "Learn how to say 'I love you' and other romantic phrases in 18 languages. Pronunciation guides, cultural context, and beautiful expressions of love.",
+  "url": "https://lovelanguages.xyz/learn/romantic-phrases/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+---
+
+<BaseLayout
+  title="Romantic Phrases in Different Languages - How to Say I Love You | Love Languages"
+  description="Learn how to say 'I love you' in 18 languages with pronunciation guides. Discover beautiful romantic phrases from around the world."
+  nativeLang="en"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-pink-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-6xl mb-4 block">💕</span>
+        <h1 class="text-3xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Romantic Phrases Around the World
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8">
+          Learn how to say "I love you" and express affection in 18 languages. Complete with pronunciation guides.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- I Love You Grid -->
+  <section class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8 text-center">
+        "I Love You" in 18 Languages
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {languagesWithLove.map(lang => (
+          <a
+            href={`/learn/language/${lang.name.toLowerCase()}/for-couples/`}
+            class="group p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10 hover:border-accent hover:shadow-lg transition-all"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-4xl">{lang.flag}</span>
+              <div>
+                <h3 class="font-bold text-gray-900 group-hover:text-accent transition-colors">{lang.name}</h3>
+                <p class="text-sm text-gray-500">{lang.nativeName}</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-4 border border-gray-100">
+              <div class="text-xl font-bold text-accent mb-1">{lang.lovePhrase?.phrase}</div>
+              <div class="text-sm text-gray-500 mb-2">/{lang.lovePhrase?.pronunciation}/</div>
+              <div class="text-gray-600 text-sm">{lang.lovePhrase?.translation}</div>
+            </div>
+
+            <div class="mt-4 text-accent text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn more {lang.name} phrases
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Beyond I Love You -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        Beyond "I Love You"
+      </h2>
+
+      <div class="prose prose-gray max-w-none">
+        <p class="text-lg text-gray-600 mb-6">
+          While "I love you" is powerful, the most romantic phrases often come from daily expressions of affection. Here are essential romantic phrases to learn in any language:
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 not-prose">
+          <div class="p-4 bg-white rounded-xl border border-gray-200">
+            <h4 class="font-bold text-gray-900 mb-2">💝 Terms of Endearment</h4>
+            <p class="text-gray-600 text-sm">Pet names like "my love," "sweetheart," and "darling" vary beautifully across cultures.</p>
+          </div>
+          <div class="p-4 bg-white rounded-xl border border-gray-200">
+            <h4 class="font-bold text-gray-900 mb-2">✨ Compliments</h4>
+            <p class="text-gray-600 text-sm">"You're beautiful," "You make me happy," "I'm lucky to have you."</p>
+          </div>
+          <div class="p-4 bg-white rounded-xl border border-gray-200">
+            <h4 class="font-bold text-gray-900 mb-2">💭 Expressions of Longing</h4>
+            <p class="text-gray-600 text-sm">"I miss you," "I can't stop thinking about you," "I need you."</p>
+          </div>
+          <div class="p-4 bg-white rounded-xl border border-gray-200">
+            <h4 class="font-bold text-gray-900 mb-2">🌹 Romantic Declarations</h4>
+            <p class="text-gray-600 text-sm">"You're my everything," "Forever yours," "You complete me."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Most Romantic Languages -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        The World's Most Romantic Languages
+      </h2>
+
+      <div class="space-y-6">
+        <div class="p-6 bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">🇫🇷</span>
+            <h3 class="text-xl font-bold text-gray-900">French - The Language of Love</h3>
+          </div>
+          <p class="text-gray-600">French has been synonymous with romance for centuries. Its melodic flow, soft sounds, and poetic expressions make everything sound more romantic. From "je t'aime" to "mon cœur" (my heart), French offers countless ways to express love.</p>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl border border-green-100">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">🇮🇹</span>
+            <h3 class="text-xl font-bold text-gray-900">Italian - Passionate Expression</h3>
+          </div>
+          <p class="text-gray-600">Italian's musical quality and expressive vocabulary make it perfect for romance. The language of opera and art, Italian turns everyday phrases into poetic declarations. "Ti amo" is just the beginning.</p>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-yellow-50 to-white rounded-2xl border border-yellow-100">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">🇪🇸</span>
+            <h3 class="text-xl font-bold text-gray-900">Spanish - Fiery Passion</h3>
+          </div>
+          <p class="text-gray-600">Spanish's rhythmic flow and passionate expressions make it ideal for romance. With over 500 million speakers, it offers regional variations of romantic expressions from Spain to Latin America.</p>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-purple-50 to-white rounded-2xl border border-purple-100">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">🇵🇹</span>
+            <h3 class="text-xl font-bold text-gray-900">Portuguese - Saudade and Soul</h3>
+          </div>
+          <p class="text-gray-600">Portuguese has "saudade"—a word for the deep longing you feel for someone you love. This unique emotional vocabulary makes Portuguese one of the most expressive languages for romance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Romantic Articles -->
+  <TopicalArticlesGrid
+    keywords={['love', 'romantic', 'pet name', 'endearment', 'compliment', 'valentine', 'anniversary', 'wedding']}
+    maxArticles={12}
+    title="Romantic Language Articles"
+    subtitle="Articles about love, romance, and expressing affection"
+  />
+
+  <!-- FAQ Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8 text-center">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="space-y-3">
+        {faqs.map(faq => (
+          <details class="group bg-white rounded-xl border border-gray-200">
+            <summary class="p-5 cursor-pointer font-semibold text-gray-900 flex justify-between items-center gap-4">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-gray-600 border-t border-gray-200 pt-4">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl font-bold font-header mb-4">
+        Learn More Than Just Words
+      </h2>
+      <p class="text-white/90 mb-8">
+        Master pronunciation, cultural context, and natural conversation with AI-powered language coaching.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Learning
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn/" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>

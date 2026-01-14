@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguageCard from '../../components/hub/LanguageCard.astro';
+import FAQSection from '../../components/hub/FAQSection.astro';
+import TopicalArticlesGrid from '../../components/hub/TopicalArticlesGrid.astro';
+import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
+
+// Get Slavic languages
+const slavicLanguages = Object.values(LANGUAGE_HUB_DATA).filter(lang =>
+  lang.familyGroup === 'Slavic'
+);
+
+const faqs = [
+  {
+    question: "Which Slavic language should I learn first?",
+    answer: "For English speakers, Polish or Czech are often recommended as entry points because they use the Latin alphabet. Russian is a good choice if you're interested in the largest Slavic language with the most resources. Ukrainian has gained importance recently. Consider your personal connections and goals."
+  },
+  {
+    question: "Can Slavic language speakers understand each other?",
+    answer: "Partially. West Slavic (Polish, Czech, Slovak) speakers can often understand each other with effort. South Slavic and East Slavic have their own clusters. Russian and Ukrainian share significant vocabulary but are distinct languages. Written comprehension is generally higher than spoken."
+  },
+  {
+    question: "Is Russian harder than Polish?",
+    answer: "They're similarly difficult but in different ways. Russian requires learning Cyrillic (2-4 weeks) but has 6 cases. Polish uses Latin script but has 7 cases and complex consonant clusters. Both have verb aspects. Russian has more learning resources; Polish pronunciation is more consistent."
+  },
+  {
+    question: "Do I need to learn Cyrillic?",
+    answer: "For Russian and Ukrainian, yes. Cyrillic has 33 letters and takes 2-4 weeks to master. Many letters look similar to Latin or Greek (A, E, K, M, O, T). Once learned, it's phonetic and consistent. Polish and Czech use Latin alphabet with diacritics."
+  },
+  {
+    question: "What are cases and why are they hard?",
+    answer: "Cases change word endings based on grammatical function (subject, object, etc.). English dropped most cases; Slavic languages kept 6-7. It's like saying 'I' vs 'me' vs 'my' but for every noun, adjective, and pronoun. Patterns exist, but memorization is required."
+  },
+  {
+    question: "What are verb aspects?",
+    answer: "Slavic verbs come in pairs: perfective (completed action) and imperfective (ongoing action). 'I was reading' vs 'I read (finished the book)' require different verbs. This adds complexity but also precision in expressing when and how actions occur."
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Slavic Languages Guide - Learn Polish, Russian, Ukrainian, Czech",
+  "description": "Explore the Slavic language family. Compare Polish, Russian, Ukrainian, and Czech. Learn which to choose and how they're connected.",
+  "url": "https://lovelanguages.xyz/learn/slavic-languages/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+---
+
+<BaseLayout
+  title="Slavic Languages Guide: Polish, Russian, Ukrainian, Czech | Love Languages"
+  description="Explore the Slavic language family. Compare Polish, Russian, Ukrainian, and Czech. Learn which to choose and how these beautiful languages connect."
+  nativeLang="en"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-blue-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="flex justify-center gap-2 mb-4">
+          {slavicLanguages.map(lang => (
+            <span class="text-3xl">{lang.flag}</span>
+          ))}
+        </div>
+        <h1 class="text-3xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Slavic Languages
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8">
+          A family of beautiful, complex languages spoken by over 300 million people. From Polish to Russian, Ukrainian to Czech.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Overview -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-6">
+        About Slavic Languages
+      </h2>
+
+      <div class="prose prose-gray max-w-none">
+        <p class="text-lg text-gray-600 mb-6">
+          Slavic languages form one of Europe's largest language families, with over 300 million native speakers. They're known for their rich grammatical systems, including cases and verb aspects, which allow precise expression of complex ideas.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4 not-prose mb-8">
+          <div class="p-4 bg-blue-50 rounded-xl border border-blue-100 text-center">
+            <div class="text-3xl font-bold text-blue-600">300M+</div>
+            <div class="text-sm text-gray-600">Native Speakers</div>
+          </div>
+          <div class="p-4 bg-blue-50 rounded-xl border border-blue-100 text-center">
+            <div class="text-3xl font-bold text-blue-600">6-7</div>
+            <div class="text-sm text-gray-600">Grammatical Cases</div>
+          </div>
+          <div class="p-4 bg-blue-50 rounded-xl border border-blue-100 text-center">
+            <div class="text-3xl font-bold text-blue-600">1,100h</div>
+            <div class="text-sm text-gray-600">Avg. Learning Time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Language Cards -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8 text-center">
+        Explore Slavic Languages
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {slavicLanguages.map(lang => (
+          <a
+            href={`/learn/language/${lang.name.toLowerCase()}/`}
+            class="group p-6 bg-white rounded-2xl border-2 border-gray-200 hover:border-accent hover:shadow-lg transition-all"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <span class="text-5xl group-hover:scale-110 transition-transform">{lang.flag}</span>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 group-hover:text-accent transition-colors">{lang.name}</h3>
+                <p class="text-gray-500">{lang.nativeName}</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-4 text-sm">
+              <div>
+                <div class="font-bold text-gray-900">{lang.speakers}</div>
+                <div class="text-gray-500">speakers</div>
+              </div>
+              <div>
+                <div class="font-bold text-gray-900">{lang.fsiHours}h</div>
+                <div class="text-gray-500">to learn</div>
+              </div>
+              <div>
+                <div class="font-bold text-accent">{'★'.repeat(lang.difficultyRating)}{'☆'.repeat(5 - lang.difficultyRating)}</div>
+                <div class="text-gray-500">difficulty</div>
+              </div>
+            </div>
+
+            <p class="text-gray-600 text-sm mb-4">{lang.whyLearn[0]}</p>
+
+            <div class="text-accent font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn {lang.name}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        Comparing Slavic Languages
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-gray-200">
+              <th class="text-left py-3 px-4">Language</th>
+              <th class="text-left py-3 px-4">Alphabet</th>
+              <th class="text-left py-3 px-4">Cases</th>
+              <th class="text-left py-3 px-4">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇵🇱 Polish</td>
+              <td class="py-3 px-4">Latin + diacritics</td>
+              <td class="py-3 px-4">7 cases</td>
+              <td class="py-3 px-4">EU business, Slavic gateway</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇷🇺 Russian</td>
+              <td class="py-3 px-4">Cyrillic</td>
+              <td class="py-3 px-4">6 cases</td>
+              <td class="py-3 px-4">Most speakers, resources</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇺🇦 Ukrainian</td>
+              <td class="py-3 px-4">Cyrillic</td>
+              <td class="py-3 px-4">7 cases</td>
+              <td class="py-3 px-4">Cultural connection, diaspora</td>
+            </tr>
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4 font-medium">🇨🇿 Czech</td>
+              <td class="py-3 px-4">Latin + diacritics</td>
+              <td class="py-3 px-4">7 cases</td>
+              <td class="py-3 px-4">Central Europe, gateway to Slovak</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Features -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        What Slavic Languages Share
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-5 bg-white rounded-xl border border-gray-200">
+          <h3 class="font-bold text-gray-900 mb-2">📚 Case Systems</h3>
+          <p class="text-gray-600 text-sm">All Slavic languages use cases to show grammatical relationships. Once you learn one case system, others become easier to understand.</p>
+        </div>
+        <div class="p-5 bg-white rounded-xl border border-gray-200">
+          <h3 class="font-bold text-gray-900 mb-2">⏱️ Verb Aspects</h3>
+          <p class="text-gray-600 text-sm">Perfective and imperfective verb pairs express completed vs. ongoing actions. This concept transfers across all Slavic languages.</p>
+        </div>
+        <div class="p-5 bg-white rounded-xl border border-gray-200">
+          <h3 class="font-bold text-gray-900 mb-2">🔤 Shared Vocabulary</h3>
+          <p class="text-gray-600 text-sm">Core vocabulary is often similar. Words for family, numbers, common verbs, and everyday objects share roots across the family.</p>
+        </div>
+        <div class="p-5 bg-white rounded-xl border border-gray-200">
+          <h3 class="font-bold text-gray-900 mb-2">💕 Rich Diminutives</h3>
+          <p class="text-gray-600 text-sm">All Slavic languages have extensive diminutive systems—affectionate word endings perfect for expressing love and tenderness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles from Slavic Languages -->
+  <TopicalArticlesGrid
+    langCodes={['pl', 'ru', 'uk', 'cs']}
+    maxArticles={12}
+    title="Slavic Language Articles"
+    subtitle="Lessons and guides for Polish, Russian, Ukrainian, and Czech"
+  />
+
+  <FAQSection faqs={faqs} />
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl font-bold font-header mb-4">
+        Ready to Explore Slavic Languages?
+      </h2>
+      <p class="text-white/90 mb-8">
+        Choose a Slavic language and begin your journey into this beautiful language family.
+      </p>
+      <a
+        href="/learn/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Browse All Languages
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn/" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
