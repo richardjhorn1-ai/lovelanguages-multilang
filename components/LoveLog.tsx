@@ -26,7 +26,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [search, setSearch] = useState('');
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [flippedId, setFlippedId] = useState<string | null>(null);
+  const [detailModalId, setDetailModalId] = useState<string | null>(null);
   const [carouselIdx, setCarouselIdx] = useState<{ [key: string]: number }>({});
   const [formsModalId, setFormsModalId] = useState<string | null>(null);
   const [activeTenseTab, setActiveTenseTab] = useState<'present' | 'past' | 'future'>('present');
@@ -444,14 +444,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       <div className="flex-1 overflow-y-auto p-2 md:p-4 lg:p-6 bg-[var(--bg-primary)]">
         <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-5">
           {filtered.map(e => {
-            const isFlipped = flippedId === e.id;
-            const ctx = getEntryContext(e);
-            const examples = ctx.examples?.length ? ctx.examples : (ctx.original ? [ctx.original] : []);
-            const currentIdx = carouselIdx[e.id] || 0;
-            const hasFormsData = e.word_type === 'verb' ? ctx.conjugations :
-                                 e.word_type === 'noun' ? (ctx.gender || ctx.plural) :
-                                 e.word_type === 'adjective' ? ctx.adjectiveForms : false;
-
             // Get mastery status for this word
             const score = scoresMap.get(e.id);
             const isLearned = score?.learned_at != null;
@@ -462,138 +454,176 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
             const isGifted = !!giftData;
 
             return (
-              <div key={e.id} className="relative h-[200px] md:h-[280px] w-full perspective-2000" onClick={() => !isFlipped && setFlippedId(e.id)}>
-                <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d cursor-pointer ${isFlipped ? 'rotate-y-180' : ''}`}>
-
-                  {/* === FRONT === */}
-                  <div className={`absolute inset-0 bg-[var(--bg-card)] border rounded-xl md:rounded-[1.5rem] p-3 md:p-5 flex flex-col shadow-sm hover:shadow-md transition-all backface-hidden overflow-hidden ${
-                    isGifted ? 'border-[var(--accent-border)] ring-1 md:ring-2 ring-[var(--accent-border)]' : 'border-[var(--border-color)]'
-                  }`}>
-                    {/* Gift Badge - top left corner */}
-                    {isGifted && (
-                      <div
-                        className="absolute top-2 md:top-3 left-2 md:left-3 flex items-center gap-0.5 md:gap-1 bg-[var(--accent-light)] px-1.5 md:px-2 py-0.5 md:py-1 rounded-full"
-                        title={t('loveLog.card.giftFrom', { name: partnerName || t('loveLog.card.yourPartner') })}
-                      >
-                        <ICONS.Heart className="w-2.5 h-2.5 md:w-3 md:h-3 text-[var(--accent-color)] fill-[var(--accent-color)]" />
-                        <span className="text-[7px] md:text-[9px] font-bold text-[var(--accent-color)]">{t('loveLog.card.gift')}</span>
-                      </div>
-                    )}
-
-                    {/* Mastery Badge - top right corner */}
-                    {isLearned && (
-                      <div className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center" title={t('loveLog.card.mastered')}>
-                        <ICONS.Check className="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400" />
-                      </div>
-                    )}
-                    {!isLearned && currentStreak > 0 && (
-                      <div className="absolute top-2 md:top-3 right-2 md:right-3 flex items-center gap-0.5 md:gap-1 bg-[var(--accent-light)] px-1.5 md:px-2 py-0.5 md:py-1 rounded-full" title={t('loveLog.card.streakProgress', { current: currentStreak, target: STREAK_TO_LEARN })}>
-                        <span className="text-[8px] md:text-[10px] font-black text-[var(--accent-color)]">{currentStreak}/{STREAK_TO_LEARN}</span>
-                        <ICONS.Zap className="w-2.5 h-2.5 md:w-3 md:h-3 text-[var(--accent-color)]" />
-                      </div>
-                    )}
-
-                    {/* Word type pill */}
-                    <div className="flex justify-center">
-                      <span className="text-[7px] md:text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] px-2 md:px-3 py-0.5 md:py-1 rounded-full">{e.word_type}</span>
+              <div
+                key={e.id}
+                className="relative h-[200px] md:h-[280px] w-full cursor-pointer"
+                onClick={() => setDetailModalId(e.id)}
+              >
+                <div className={`h-full bg-[var(--bg-card)] border rounded-xl md:rounded-[1.5rem] p-3 md:p-5 flex flex-col shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all overflow-hidden ${
+                  isGifted ? 'border-[var(--accent-border)] ring-1 md:ring-2 ring-[var(--accent-border)]' : 'border-[var(--border-color)]'
+                }`}>
+                  {/* Gift Badge - top left corner */}
+                  {isGifted && (
+                    <div
+                      className="absolute top-2 md:top-3 left-2 md:left-3 flex items-center gap-0.5 md:gap-1 bg-[var(--accent-light)] px-1.5 md:px-2 py-0.5 md:py-1 rounded-full"
+                      title={t('loveLog.card.giftFrom', { name: partnerName || t('loveLog.card.yourPartner') })}
+                    >
+                      <ICONS.Heart className="w-2.5 h-2.5 md:w-3 md:h-3 text-[var(--accent-color)] fill-[var(--accent-color)]" />
+                      <span className="text-[7px] md:text-[9px] font-bold text-[var(--accent-color)]">{t('loveLog.card.gift')}</span>
                     </div>
+                  )}
 
-                    {/* Main content */}
-                    <div className="flex-1 flex flex-col items-center justify-center w-full text-center gap-1 md:gap-2">
-                      <h3 className="text-lg md:text-2xl font-black text-[var(--accent-color)] font-header leading-tight break-words">{e.word}</h3>
-
-                      {/* Audio button */}
-                      <button
-                        onClick={(ev) => { ev.stopPropagation(); speak(e.word, targetLanguage); }}
-                        className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] flex items-center justify-center transition-all group"
-                      >
-                        <ICONS.Play className="w-3 h-3 md:w-4 md:h-4 text-[var(--accent-color)] translate-x-0.5" />
-                      </button>
-
-                      <p className="text-xs md:text-sm text-[var(--text-secondary)] font-medium line-clamp-2">{e.translation}</p>
+                  {/* Mastery Badge - top right corner */}
+                  {isLearned && (
+                    <div className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center" title={t('loveLog.card.mastered')}>
+                      <ICONS.Check className="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400" />
                     </div>
+                  )}
+                  {!isLearned && currentStreak > 0 && (
+                    <div className="absolute top-2 md:top-3 right-2 md:right-3 flex items-center gap-0.5 md:gap-1 bg-[var(--accent-light)] px-1.5 md:px-2 py-0.5 md:py-1 rounded-full" title={t('loveLog.card.streakProgress', { current: currentStreak, target: STREAK_TO_LEARN })}>
+                      <span className="text-[8px] md:text-[10px] font-black text-[var(--accent-color)]">{currentStreak}/{STREAK_TO_LEARN}</span>
+                      <ICONS.Zap className="w-2.5 h-2.5 md:w-3 md:h-3 text-[var(--accent-color)]" />
+                    </div>
+                  )}
 
-                    {/* Flip hint */}
-                    <p className="text-[8px] md:text-[10px] text-[var(--text-secondary)] opacity-50 text-center">{t('loveLog.card.tapForDetails')}</p>
+                  {/* Word type pill */}
+                  <div className="flex justify-center">
+                    <span className="text-[7px] md:text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] px-2 md:px-3 py-0.5 md:py-1 rounded-full">{e.word_type}</span>
                   </div>
 
-                  {/* === BACK === */}
-                  <div className="absolute inset-0 bg-[var(--accent-color)] text-white rounded-xl md:rounded-[1.5rem] p-2.5 md:p-4 flex flex-col shadow-xl backface-hidden rotate-y-180 overflow-hidden" onClick={(ev) => { ev.stopPropagation(); setFlippedId(null); }}>
-                    {/* Header with word and audio */}
-                    <div className="flex items-center justify-between mb-3 pb-2 border-b border-white/20">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-sm">{e.word}</span>
-                        <button
-                          onClick={(ev) => { ev.stopPropagation(); speak(e.word, targetLanguage); }}
-                          className="w-6 h-6 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
-                        >
-                          <ICONS.Play className="w-3 h-3 translate-x-0.5" />
-                        </button>
-                      </div>
-                      <span className="text-[10px] opacity-70">{e.translation}</span>
-                    </div>
+                  {/* Main content */}
+                  <div className="flex-1 flex flex-col items-center justify-center w-full text-center gap-1 md:gap-2">
+                    <h3 className="text-lg md:text-2xl font-black text-[var(--accent-color)] font-header leading-tight break-words">{e.word}</h3>
 
-                    {/* Example sentence */}
-                    <div className="flex-1 flex flex-col gap-2 min-h-0">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-bold uppercase tracking-wider opacity-60">{t('loveLog.card.example')}</span>
-                        {examples.length > 1 && (
-                          <div className="flex items-center gap-1">
-                            <button
-                              onClick={(ev) => {
-                                ev.stopPropagation();
-                                setCarouselIdx(prev => ({ ...prev, [e.id]: (currentIdx - 1 + examples.length) % examples.length }))
-                              }}
-                              className="opacity-60 hover:opacity-100 transition-all p-0.5"
-                            >
-                              <ICONS.ChevronLeft className="w-3 h-3" />
-                            </button>
-                            <span className="text-[9px] opacity-60 min-w-[24px] text-center">
-                              {currentIdx + 1}/{examples.length}
-                            </span>
-                            <button
-                              onClick={(ev) => {
-                                ev.stopPropagation();
-                                setCarouselIdx(prev => ({ ...prev, [e.id]: (currentIdx + 1) % examples.length }))
-                              }}
-                              className="opacity-60 hover:opacity-100 transition-all p-0.5"
-                            >
-                              <ICONS.ChevronRight className="w-3 h-3" />
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                      <div className="bg-white/10 rounded-xl p-3 border border-white/10">
-                        <p className="text-[11px] leading-relaxed italic">
-                          "{examples[currentIdx] || t('loveLog.card.noExample')}"
-                        </p>
-                      </div>
-                    </div>
+                    {/* Audio button */}
+                    <button
+                      onClick={(ev) => { ev.stopPropagation(); speak(e.word, targetLanguage); }}
+                      className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] flex items-center justify-center transition-all group"
+                    >
+                      <ICONS.Play className="w-3 h-3 md:w-4 md:h-4 text-[var(--accent-color)] translate-x-0.5" />
+                    </button>
 
-                    {/* Pro-tip - subtle, above forms button */}
-                    {ctx.proTip && (
-                      <p className="text-[9px] opacity-60 italic text-center px-2 leading-tight">
-                        💡 {ctx.proTip}
-                      </p>
-                    )}
-
-                    {/* Show Forms button */}
-                    {hasFormsData && (
-                      <button
-                        onClick={(ev) => { ev.stopPropagation(); setFormsModalId(e.id); }}
-                        className="mt-2 py-2 bg-white/20 hover:bg-white/30 rounded-xl text-[10px] font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
-                      >
-                        <ICONS.Book className="w-3 h-3" />
-                        {e.word_type === 'verb' ? t('loveLog.card.conjugations') : t('loveLog.card.forms')}
-                      </button>
-                    )}
+                    <p className="text-xs md:text-sm text-[var(--text-secondary)] font-medium line-clamp-2">{e.translation}</p>
                   </div>
+
+                  {/* Tap hint */}
+                  <p className="text-[8px] md:text-[10px] text-[var(--text-secondary)] opacity-50 text-center">{t('loveLog.card.tapForDetails')}</p>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
+
+      {/* === DETAIL MODAL === */}
+      {detailModalId && (() => {
+        const entry = entries.find(e => e.id === detailModalId);
+        if (!entry) return null;
+        const ctx = getEntryContext(entry);
+        const examples = ctx.examples?.length ? ctx.examples : (ctx.original ? [ctx.original] : []);
+        const currentIdx = carouselIdx[entry.id] || 0;
+        const hasFormsData = entry.word_type === 'verb' ? ctx.conjugations :
+                             entry.word_type === 'noun' ? (ctx.gender || ctx.plural) :
+                             entry.word_type === 'adjective' ? ctx.adjectiveForms : false;
+
+        return (
+          <div
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            onClick={() => setDetailModalId(null)}
+          >
+            <div
+              className="bg-[var(--bg-card)] rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+              onClick={(ev) => ev.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="bg-[var(--accent-color)] text-white px-5 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="font-bold text-lg">{entry.word}</span>
+                  <button
+                    onClick={() => speak(entry.word, targetLanguage)}
+                    className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
+                  >
+                    <ICONS.Play className="w-4 h-4 translate-x-0.5" />
+                  </button>
+                </div>
+                <button
+                  onClick={() => setDetailModalId(null)}
+                  className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
+                >
+                  <ICONS.X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-5 overflow-y-auto max-h-[60vh] space-y-4">
+                {/* Translation + Type */}
+                <div className="text-center">
+                  <p className="text-lg text-[var(--text-primary)] font-medium">{entry.translation}</p>
+                  <span className="inline-block mt-2 text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] px-3 py-1 rounded-full">
+                    {entry.word_type}
+                  </span>
+                </div>
+
+                {/* Example Sentence */}
+                {examples.length > 0 && (
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+                        {t('loveLog.card.example')}
+                      </span>
+                      {examples.length > 1 && (
+                        <div className="flex items-center gap-1">
+                          <button
+                            onClick={() => setCarouselIdx(prev => ({ ...prev, [entry.id]: (currentIdx - 1 + examples.length) % examples.length }))}
+                            className="text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-all p-1"
+                          >
+                            <ICONS.ChevronLeft className="w-4 h-4" />
+                          </button>
+                          <span className="text-xs text-[var(--text-secondary)] min-w-[32px] text-center">
+                            {currentIdx + 1}/{examples.length}
+                          </span>
+                          <button
+                            onClick={() => setCarouselIdx(prev => ({ ...prev, [entry.id]: (currentIdx + 1) % examples.length }))}
+                            className="text-[var(--text-secondary)] hover:text-[var(--accent-color)] transition-all p-1"
+                          >
+                            <ICONS.ChevronRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                    <div className="bg-[var(--bg-primary)] rounded-xl p-4 border border-[var(--border-color)]">
+                      <p className="text-sm leading-relaxed italic text-[var(--text-primary)]">
+                        "{examples[currentIdx] || t('loveLog.card.noExample')}"
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Pro-tip */}
+                {ctx.proTip && (
+                  <div className="bg-[var(--accent-light)] rounded-xl p-4 border border-[var(--accent-border)]">
+                    <p className="text-sm text-[var(--text-primary)]">
+                      💡 {ctx.proTip}
+                    </p>
+                  </div>
+                )}
+
+                {/* Show Forms button */}
+                {hasFormsData && (
+                  <button
+                    onClick={() => { setDetailModalId(null); setFormsModalId(entry.id); }}
+                    className="w-full py-3 bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white rounded-xl text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                  >
+                    <ICONS.Book className="w-4 h-4" />
+                    {entry.word_type === 'verb' ? t('loveLog.card.conjugations') : t('loveLog.card.forms')}
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* === FORMS OVERLAY MODAL === */}
       {formsModalId && (() => {
         const entry = entries.find(e => e.id === formsModalId);
@@ -903,10 +933,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       })()}
 
       <style>{`
-        .perspective-2000 { perspective: 2000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
         .no-scrollbar::-webkit-scrollbar { display: none; }
       `}</style>
     </div>

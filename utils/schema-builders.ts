@@ -274,7 +274,7 @@ export function buildVocabularySchema(languageCode: string): GeminiSchema {
     },
     proTip: {
       type: Type.STRING,
-      description: 'Usage tip or memory trick (max 60 characters)'
+      description: 'Usage tip or memory trick in the learner\'s native language (max 60 characters)'
     },
     examples: {
       type: Type.ARRAY,
