@@ -1769,6 +1769,21 @@
       "speakingIndicator": "Speaking {{native}}",
       "changeLanguages": "Change languages"
     },
+    "nativeStep": {
+      "header": "What language do you speak?",
+      "subtext": "We'll show everything in your language",
+      "cta": "Sign up"
+    },
+    "studentTargetStep": {
+      "header": "What do you want to learn?",
+      "subtext": "Pick the language of someone you love",
+      "cta": "Sign up"
+    },
+    "tutorTargetStep": {
+      "header": "What do you want to teach?",
+      "subtext": "Share your language with someone you love",
+      "cta": "Sign up"
+    },
     "toggle": {
       "learn": "Learn",
       "teach": "Teach"

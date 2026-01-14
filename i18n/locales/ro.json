@@ -1712,6 +1712,21 @@
       "targetPrompt": "Vreau să învăț...",
       "targetPromptTutor": "Vreau să predau..."
     },
+    "nativeStep": {
+      "header": "Ce limbă vorbești?",
+      "subtext": "Îți vom arăta totul în limba ta",
+      "cta": "Înregistrează-te"
+    },
+    "studentTargetStep": {
+      "header": "Ce limbă vrei să înveți?",
+      "subtext": "Alege limba cuiva pe care îl iubești",
+      "cta": "Înregistrează-te"
+    },
+    "tutorTargetStep": {
+      "header": "Ce limbă vrei să predai?",
+      "subtext": "Împărtășește limba ta cu cineva pe care îl iubești",
+      "cta": "Înregistrează-te"
+    },
     "toggle": {
       "learn": "Invata",
       "teach": "Preda"

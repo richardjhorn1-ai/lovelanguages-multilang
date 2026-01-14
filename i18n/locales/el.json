@@ -1709,7 +1709,23 @@
   "hero": {
     "languageSelector": {
       "nativePrompt": "Μιλάω...",
-      "targetPrompt": "Θέλω να μάθω..."
+      "targetPrompt": "Θέλω να μάθω...",
+      "targetPromptTutor": "Θέλω να διδάξω..."
+    },
+    "nativeStep": {
+      "header": "Ποια γλώσσα μιλάτε;",
+      "subtext": "Θα σας δείξουμε τα πάντα στη γλώσσα σας",
+      "cta": "Εγγραφή"
+    },
+    "studentTargetStep": {
+      "header": "Ποια γλώσσα θέλετε να μάθετε;",
+      "subtext": "Επιλέξτε τη γλώσσα κάποιου που αγαπάτε",
+      "cta": "Εγγραφή"
+    },
+    "tutorTargetStep": {
+      "header": "Ποια γλώσσα θέλετε να διδάξετε;",
+      "subtext": "Μοιραστείτε τη γλώσσα σας με κάποιον που αγαπάτε",
+      "cta": "Εγγραφή"
     },
     "toggle": {
       "learn": "Μάθε",
