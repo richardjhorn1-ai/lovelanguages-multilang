@@ -1896,6 +1896,62 @@ const Hero: React.FC = () => {
   const [mobileNativePage, setMobileNativePage] = useState(0);
   const [mobileTargetPage, setMobileTargetPage] = useState(0);
 
+  // Mobile bottom sheet state
+  const [sheetExpanded, setSheetExpanded] = useState(false);
+  const [sheetDragOffset, setSheetDragOffset] = useState(0);
+  const sheetDragStart = useRef<{ y: number; expanded: boolean } | null>(null);
+  const bottomSheetRef = useRef<HTMLDivElement>(null);
+
+  // Bottom sheet touch handlers
+  const handleSheetTouchStart = (e: React.TouchEvent) => {
+    sheetDragStart.current = {
+      y: e.touches[0].clientY,
+      expanded: sheetExpanded
+    };
+  };
+
+  const handleSheetTouchMove = (e: React.TouchEvent) => {
+    if (!sheetDragStart.current) return;
+    const currentY = e.touches[0].clientY;
+    const deltaY = sheetDragStart.current.y - currentY; // positive = dragging up
+
+    // Clamp the offset
+    const maxExpand = window.innerHeight * 0.35; // Can expand 35% more
+    const maxCollapse = window.innerHeight * 0.35; // Can collapse 35%
+
+    let newOffset = deltaY;
+    if (sheetDragStart.current.expanded) {
+      // Already expanded, limit how much further up we can go
+      newOffset = Math.max(-maxCollapse, Math.min(50, deltaY));
+    } else {
+      // Collapsed, limit expansion
+      newOffset = Math.max(-50, Math.min(maxExpand, deltaY));
+    }
+
+    setSheetDragOffset(newOffset);
+  };
+
+  const handleSheetTouchEnd = () => {
+    if (!sheetDragStart.current) return;
+
+    const threshold = 80; // px threshold to trigger state change
+
+    if (sheetDragStart.current.expanded) {
+      // Was expanded - check if should collapse
+      if (sheetDragOffset < -threshold) {
+        setSheetExpanded(false);
+      }
+    } else {
+      // Was collapsed - check if should expand
+      if (sheetDragOffset > threshold) {
+        setSheetExpanded(true);
+      }
+    }
+
+    setSheetDragOffset(0);
+    sheetDragStart.current = null;
+  };
+
   // Initialize from localStorage, URL param, and browser language
   useEffect(() => {
     const savedNative = localStorage.getItem('preferredLanguage');
@@ -2224,7 +2280,14 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Middle: 3-Step Horizontal Swipe Carousel */}
-        <div className="flex-1 relative overflow-hidden min-h-0">
+        <div
+          className="flex-1 relative overflow-hidden min-h-0"
+          style={{
+            transform: `translateY(calc(${sheetExpanded ? '-35vh' : '0px'} - ${sheetDragOffset}px))`,
+            transition: sheetDragOffset === 0 ? 'transform 0.3s ease-out' : 'none',
+            zIndex: 1
+          }}
+        >
           {/* Floating hearts background */}
           <InteractiveHearts
             accentColor={accentColor}
@@ -2389,7 +2452,7 @@ const Hero: React.FC = () => {
               {/* Marketing content carousel */}
               <div
                 ref={mobileCarouselRef}
-                className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory h-full hide-scrollbar"
+                className="flex items-center overflow-x-auto overflow-y-hidden snap-x snap-mandatory h-full hide-scrollbar"
                 onScroll={handleMobileCarouselScroll}
                 style={{ scrollBehavior: 'smooth' }}
               >
@@ -2406,7 +2469,7 @@ const Hero: React.FC = () => {
                 {/* Section 3: GameShowcase */}
                 <div
                   data-section={3}
-                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center items-center px-4"
+                  className="flex-shrink-0 w-full snap-start px-4"
                 >
                   <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={3} isMobile={true} targetLanguage={selectedTargetLanguage} nativeLanguage={nativeLanguage} />
                 </div>
@@ -2426,11 +2489,32 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom: Fixed Login Form (~45%) */}
+        {/* Bottom: Draggable Login Sheet */}
         <div
-          className="flex-shrink-0 rounded-t-3xl shadow-2xl px-6 pt-4 pb-6 relative overflow-y-auto"
-          style={{ backgroundColor: '#ffffff', maxHeight: '45vh', minHeight: '320px' }}
+          ref={bottomSheetRef}
+          className="flex-shrink-0 rounded-t-3xl shadow-2xl px-6 pt-2 pb-6 relative overflow-hidden"
+          style={{
+            backgroundColor: '#ffffff',
+            height: `calc(${sheetExpanded ? '80vh' : '45vh'} + ${sheetDragOffset}px)`,
+            minHeight: '320px',
+            maxHeight: '85vh',
+            transition: sheetDragOffset === 0 ? 'height 0.3s ease-out' : 'none',
+            zIndex: 10
+          }}
+          onTouchStart={handleSheetTouchStart}
+          onTouchMove={handleSheetTouchMove}
+          onTouchEnd={handleSheetTouchEnd}
         >
+          {/* Drag handle */}
+          <div className="flex justify-center mb-2">
+            <div
+              className="w-10 h-1 rounded-full"
+              style={{ backgroundColor: '#d1d5db' }}
+            />
+          </div>
+
+          {/* Scrollable content area */}
+          <div className="overflow-y-auto h-full pb-4">
           <ICONS.Heart className="absolute -bottom-16 -right-16 w-48 h-48 opacity-[0.03] pointer-events-none" style={{ color: accentColor }} />
 
           {/* Progress dots at TOP of login section - all steps (native, target, + 7 marketing sections) */}
@@ -2610,6 +2694,7 @@ const Hero: React.FC = () => {
               <a href="#/privacy" className="hover:underline">{t('hero.legal.privacy')}</a>
             </div>
           </div>
+          </div>{/* Close scrollable content area */}
         </div>
       </div>
 
