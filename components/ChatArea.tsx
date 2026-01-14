@@ -1501,6 +1501,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         value={input}
                         onChange={e => setInput(e.target.value)}
                         onKeyDown={e => e.key === 'Enter' && handleSend()}
+                        onFocus={() => {
+                          // Auto-scroll to bottom when user focuses input
+                          setTimeout(() => {
+                            scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
+                          }, 100);
+                        }}
                         placeholder={isLive ? (liveState === 'listening' ? t('chat.input.listeningPlaceholder') : liveState === 'speaking' ? t('chat.input.speakingPlaceholder') : t('chat.input.connectingPlaceholder')) : (profile.role === 'tutor' ? t('chat.input.tutorPlaceholder') : mode === 'ask' ? t('chat.input.askPlaceholder') : t('chat.input.learnPlaceholder'))}
                         disabled={isLive}
                         className="w-full bg-transparent border-none text-xs md:text-sm font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"

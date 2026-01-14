@@ -263,7 +263,7 @@ const App: React.FC = () => {
       <LanguageProvider profile={profile}>
         <I18nSyncWrapper>
         <HashRouter>
-          <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+          <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 safe-area-all">
           {/* Success toast */}
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
@@ -317,7 +317,7 @@ const App: React.FC = () => {
                     onSubscribed={() => fetchProfile(profile.id)}
                   />
                 ) : (
-                  <div className="flex flex-col h-screen">
+                  <div className="flex flex-col h-screen-safe">
                     <Navbar profile={profile} />
                     <main className="flex-1 overflow-hidden">
                       <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />

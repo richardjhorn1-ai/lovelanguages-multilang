@@ -1737,6 +1737,8 @@
       "passwordLabel": "Jelszó",
       "passwordPlaceholder": "••••••••",
       "entering": "Belépés...",
+      "signIn": "Bejelentkezés",
+      "createAccount": "Fiók létrehozása",
       "alreadyHaveAccount": "Már van fiókod? Jelentkezz be",
       "newHere": "Új vagy itt? Hozz létre fiókot",
       "checkEmail": "Nézd meg az e-mailed a megerősítéshez!"

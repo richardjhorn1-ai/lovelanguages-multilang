@@ -1744,6 +1744,8 @@
       "passwordLabel": "Passwort",
       "passwordPlaceholder": "••••••••",
       "entering": "Betreten...",
+      "signIn": "Anmelden",
+      "createAccount": "Konto erstellen",
       "alreadyHaveAccount": "Schon ein Konto? Anmelden",
       "newHere": "Neu hier? Konto erstellen",
       "checkEmail": "Prüfe deine E-Mail zur Bestätigung!"

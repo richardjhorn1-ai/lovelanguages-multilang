@@ -1737,6 +1737,8 @@
       "passwordLabel": "Senha",
       "passwordPlaceholder": "••••••••",
       "entering": "Entrando...",
+      "signIn": "Entrar",
+      "createAccount": "Criar conta",
       "alreadyHaveAccount": "Já tem uma conta? Entre",
       "newHere": "Novo por aqui? Crie uma conta",
       "checkEmail": "Verifique seu email para confirmação!"

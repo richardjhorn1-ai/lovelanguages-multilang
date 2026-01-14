@@ -1737,6 +1737,8 @@
       "passwordLabel": "Wachtwoord",
       "passwordPlaceholder": "••••••••",
       "entering": "Inloggen...",
+      "signIn": "Inloggen",
+      "createAccount": "Account aanmaken",
       "alreadyHaveAccount": "Heb je al een account? Log in",
       "newHere": "Nieuw hier? Maak een account",
       "checkEmail": "Controleer je e-mail voor bevestiging!"

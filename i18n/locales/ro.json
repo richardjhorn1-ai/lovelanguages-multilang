@@ -1737,6 +1737,8 @@
       "passwordLabel": "Parola",
       "passwordPlaceholder": "••••••••",
       "entering": "Se intra...",
+      "signIn": "Conectează-te",
+      "createAccount": "Creează cont",
       "alreadyHaveAccount": "Ai deja un cont? Logheaza-te",
       "newHere": "Esti nou? Creeaza un cont",
       "checkEmail": "Verifica emailul pentru confirmare!"

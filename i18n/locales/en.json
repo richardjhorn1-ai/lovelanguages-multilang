@@ -1794,6 +1794,8 @@
       "passwordLabel": "Password",
       "passwordPlaceholder": "••••••••",
       "entering": "Entering...",
+      "signIn": "Sign in",
+      "createAccount": "Create account",
       "alreadyHaveAccount": "Already have an account? Sign in",
       "newHere": "New here? Create an account",
       "checkEmail": "Check your email for confirmation!"

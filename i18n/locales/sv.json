@@ -1737,6 +1737,8 @@
       "passwordLabel": "Lösenord",
       "passwordPlaceholder": "••••••••",
       "entering": "Loggar in...",
+      "signIn": "Logga in",
+      "createAccount": "Skapa konto",
       "alreadyHaveAccount": "Har du redan ett konto? Logga in",
       "newHere": "Ny här? Skapa ett konto",
       "checkEmail": "Kolla din e-post för bekräftelse!"

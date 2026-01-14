@@ -1737,6 +1737,8 @@
       "passwordLabel": "Şifre",
       "passwordPlaceholder": "••••••••",
       "entering": "Giriş yapılıyor...",
+      "signIn": "Giriş yap",
+      "createAccount": "Hesap oluştur",
       "alreadyHaveAccount": "Zaten hesabın var mı? Giriş yap",
       "newHere": "Yeni misin? Hesap oluştur",
       "checkEmail": "Onay için e-postanı kontrol et!"
