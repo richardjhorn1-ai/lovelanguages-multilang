@@ -1806,7 +1806,7 @@
         "copyHighlight2": "saját kis világotok",
         "underline": "a saját kis világotok építése"
       },
-      "context1": { "header": "Készen állsz a találkozásra?", "cta": "Tanulás indítása", "subtext": "2 perc az első szavadig." },
+      "context1": { "header": "Készen állsz a mélyebb kapcsolatra?", "cta": "Tanulás indítása", "subtext": "2 perc az első szavadig." },
       "context2": { "header": "Segítünk", "cta": "Tanulás indítása", "subtext": "Nincs több színlelt nevetés." },
       "context3": { "header": "Szerelmeseknek készült", "cta": "Kezdd el az utad", "subtext": "Nem turistáknak. Családnak." },
       "context4": { "header": "Játssz a kedvedre", "cta": "Játékok felfedezése", "subtext": "Kártyák, kihívások és még több." },

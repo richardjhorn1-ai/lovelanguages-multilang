@@ -1806,7 +1806,7 @@
         "copyHighlight2": "kendi küçük dünyanızı",
         "underline": "birlikte kendi küçük dünyanızı inşa etmek"
       },
-      "context1": { "header": "Onlarla tanışmaya hazır mısın?", "cta": "Öğrenmeye başla", "subtext": "İlk kelimene 2 dakika." },
+      "context1": { "header": "Daha derin bağ kurmaya hazır mısın?", "cta": "Öğrenmeye başla", "subtext": "İlk kelimene 2 dakika." },
       "context2": { "header": "Yanındayız", "cta": "Öğrenmeye başla", "subtext": "Artık sahte gülüş yok." },
       "context3": { "header": "Aşıklar için yapıldı", "cta": "Yolculuğuna başla", "subtext": "Turistler değil. Aile." },
       "context4": { "header": "Kendi tarzında oyna", "cta": "Oyunları keşfet", "subtext": "Kartlar, meydan okumalar ve daha fazlası." },
