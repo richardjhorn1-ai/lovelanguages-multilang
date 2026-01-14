@@ -74,6 +74,26 @@ if (relatedArticles.length < 3) {
     .slice(0, 3 - relatedArticles.length);
   relatedArticles.push(...otherArticles);
 }
+
+// Find alternate versions of this article in other native languages
+// E.g., if current is en/pl/article-name, find es/pl/article-name, fr/pl/article-name
+const baseArticleSlug = slugParts.slice(2).join('/');
+const alternateVersions = allArticles
+  .filter((a) => {
+    const aParts = a.slug.split('/');
+    const aBaseSlug = aParts.slice(2).join('/');
+    const aTargetLang = aParts[1];
+    return aBaseSlug === baseArticleSlug &&
+           aTargetLang === targetLanguageCode &&
+           a.slug !== article.slug;
+  })
+  .map((altArticle) => {
+    const altParts = altArticle.slug.split('/');
+    return {
+      nativeLang: altParts[0],
+      href: `https://lovelanguages.xyz/learn/${altArticle.slug}/`
+    };
+  });
 ---
 
 <ArticleLayout
@@ -90,6 +110,7 @@ if (relatedArticles.length < 3) {
   languageInfo={languageInfo}
   nativeLanguageCode={nativeLanguageCode}
   nativeLanguageInfo={nativeLanguageInfo}
+  alternateVersions={alternateVersions}
 >
   <Content />
 </ArticleLayout>

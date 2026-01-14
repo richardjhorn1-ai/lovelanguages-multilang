@@ -1,18 +1,59 @@
 # SEO Status - Love Languages Blog
 
-> Central source of truth for SEO work on the Polish learning blog.
-> Last updated: January 11, 2026
+> Central source of truth for SEO work on the multi-language learning blog.
+> Last updated: January 14, 2026
 
 ## Quick Stats
 
 | Metric | Count |
 |--------|-------|
-| **Total Static Pages** | 192 |
-| **Blog Articles** | 74 |
+| **Total Static Pages** | 653 |
+| **Blog Articles** | 471 |
 | **Dictionary Word Pages** | 109 |
-| **Comparison Pages** | 2 |
+| **Comparison Pages** | 6 |
 | **Tool Pages** | 2 |
 | **Name Days in Database** | 1,000+ |
+
+---
+
+## Recent SEO Work (Jan 14, 2026)
+
+### 1. Hreflang Implementation ✅
+Fixed multi-language SEO signals in:
+- `blog/src/pages/learn/[...slug].astro` - Added alternate version detection
+- `blog/src/layouts/ArticleLayout.astro` - Fixed hreflang tag generation
+
+### 2. Title Optimization ✅
+Optimized **471 article titles** across all language pairs:
+- Max 43 characters (60 with brand suffix)
+- Front-loaded keywords
+- Removed fluff ("Complete Guide", "for Couples", etc.)
+- Preserved numbers
+
+---
+
+## Content Coverage Matrix
+
+### Articles by Language Pair
+
+**Native Language (rows) → Target Language (columns)**
+
+| Native | PL | DE | FR | IT | ES | PT | NL | EL | RU | TR | Others |
+|--------|----|----|----|----|----|----|----|----|----|----|--------|
+| 🇬🇧 EN | 73 ✅ | 10 | 10 | 10 | 10 | 5 | 5 | 5 | 5 | 5 | 3 each |
+| 🇪🇸 ES | 73 ✅ | 10 | 10 | 10 | - | 5 | 5 | 5 | 5 | 5 | 3 each |
+| 🇫🇷 FR | 68 ✅ | 10 | - | 10 | 10 | 5 | 5 | 5 | 5 | 5 | 3 each |
+| 🇩🇪 DE | ❌ 0 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 🇮🇹 IT | ❌ 0 | 0 | 0 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Others | ❌ 0 | 0 | 0 | 0 | 0 | - | - | - | - | - | 0 |
+
+**Legend:** ✅ = Well covered (50+) | Numbers = Article count | ❌ = No content
+
+### Coverage Summary
+- **Strong:** Polish as target (214 articles across EN/ES/FR speakers)
+- **Medium:** Major European languages (10 articles each)
+- **Weak:** Minor languages (3-5 articles each)
+- **Missing:** German, Italian, Portuguese, Dutch native speakers (0 content)
 
 ---
 
@@ -286,13 +327,98 @@
 
 ---
 
+## Content Expansion Strategy
+
+### Phase 1: New Native Languages (High Priority)
+
+Add content for German and Italian native speakers - large markets with 0 content.
+
+**Target: 50 articles each for DE→PL and IT→PL**
+
+| Language Pair | Topic Priority | Article Count Goal |
+|---------------|----------------|-------------------|
+| 🇩🇪 DE → 🇵🇱 PL | German speakers learning Polish | 50 |
+| 🇮🇹 IT → 🇵🇱 PL | Italian speakers learning Polish | 50 |
+
+**How to generate:**
+```bash
+cd blog
+ANTHROPIC_API_KEY=xxx npm run generate -- \
+  --language pl \
+  --nativeLanguage de \
+  --topic "Polish greetings for German speakers" \
+  --category phrases
+```
+
+### Phase 2: Expand High-Demand Target Languages
+
+Increase EN→ES and EN→FR from 10 to 50+ articles (massive search volume).
+
+| Language Pair | Current | Target |
+|---------------|---------|--------|
+| 🇬🇧 EN → 🇪🇸 ES | 10 | 50 |
+| 🇬🇧 EN → 🇫🇷 FR | 10 | 50 |
+| 🇬🇧 EN → 🇩🇪 DE | 10 | 50 |
+| 🇬🇧 EN → 🇮🇹 IT | 10 | 50 |
+
+### Phase 3: Cross-Pollinate Content
+
+For each well-performing EN article, create ES and FR versions with same slug for hreflang benefits.
+
+**Process:**
+1. Identify top 20 EN→PL articles by traffic
+2. Create ES→PL and FR→PL versions with SAME slug
+3. Hreflang tags will auto-connect them
+
+### Essential Article Topics (Per Language Pair)
+
+Every language pair should have these core articles:
+
+- [ ] "How to Say I Love You in [Language]"
+- [ ] "50 [Language] Pet Names & Endearments"
+- [ ] "100 Most Common [Language] Words"
+- [ ] "[Language] Pronunciation Guide"
+- [ ] "Is [Language] Hard to Learn?"
+- [ ] "[Language] Grammar Basics for Beginners"
+- [ ] "Romantic [Language] Phrases for Couples"
+- [ ] "Meeting Your [Language] Partner's Parents"
+- [ ] "[Language] vs [Native Language]: Key Differences"
+- [ ] "[Language] Date Night Vocabulary"
+
+### Content Generation Commands
+
+**Single article:**
+```bash
+npm run generate -- -l pl -t "Topic" -c vocabulary -d beginner
+```
+
+**Batch generation (run multiple times):**
+```bash
+# German speakers learning Polish
+for topic in "greetings" "pet names" "pronunciation" "grammar basics" "i love you"; do
+  npm run generate -- -l pl --nativeLanguage de -t "Polish $topic for German speakers" -c phrases
+done
+```
+
+### Priority Order
+
+1. **DE→PL** (50 articles) - Large German market, 0 competition on your site
+2. **IT→PL** (50 articles) - Growing Italian interest in Polish
+3. **EN→ES** (40 more) - Massive search volume
+4. **EN→FR** (40 more) - High search volume
+5. **PT→PL** (50 articles) - Portuguese speakers, underserved market
+
+---
+
 ## Next Actions
 
-1. [ ] Merge `feature/name-day-finder` to `main`
-2. [ ] Expand dictionary to 200+ words
-3. [ ] Build affiliate resource hub (Polish Books)
-4. [ ] Add more comparison pages
-5. [ ] Create wedding/proposal niche content
+1. [x] ~~Merge `feature/name-day-finder` to `main`~~ (completed)
+2. [ ] Generate 50 DE→PL articles (Phase 1)
+3. [ ] Generate 50 IT→PL articles (Phase 1)
+4. [ ] Expand EN→ES to 50 articles (Phase 2)
+5. [ ] Expand dictionary to 200+ words
+6. [ ] Build affiliate resource hub (Polish Books)
+7. [ ] Add more comparison pages
 
 ---
 
