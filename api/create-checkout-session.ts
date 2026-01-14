@@ -79,8 +79,10 @@ export default async function handler(req: any, res: any) {
 
     // Valid price IDs from environment
     const validPriceIds = [
+      process.env.STRIPE_PRICE_STANDARD_WEEKLY,
       process.env.STRIPE_PRICE_STANDARD_MONTHLY,
       process.env.STRIPE_PRICE_STANDARD_YEARLY,
+      process.env.STRIPE_PRICE_UNLIMITED_WEEKLY,
       process.env.STRIPE_PRICE_UNLIMITED_MONTHLY,
       process.env.STRIPE_PRICE_UNLIMITED_YEARLY,
     ].filter(Boolean);
