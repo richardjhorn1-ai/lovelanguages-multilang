@@ -1,0 +1,31 @@
+---
+interface Props {
+  name: string;
+  highlights: string[];
+}
+
+const { name, highlights } = Astro.props;
+---
+
+<section class="py-12 bg-white">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2">
+      {name} Grammar: What to Expect
+    </h2>
+    <p class="text-gray-600 mb-8">
+      Understanding the structure helps you learn faster. Here's what makes {name} unique.
+    </p>
+
+    <div class="bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl p-6 md:p-8 border border-accent/10">
+      <h3 class="font-bold text-gray-900 mb-4 text-lg">Key Grammar Features</h3>
+      <ul class="space-y-3">
+        {highlights.map(highlight => (
+          <li class="flex gap-3 items-start">
+            <span class="text-accent font-bold mt-0.5">✓</span>
+            <span class="text-gray-700">{highlight}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

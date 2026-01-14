@@ -1,0 +1,58 @@
+---
+/**
+ * FamilyHubLink - Shows a banner linking to the language family hub
+ * e.g., "Polish is part of the Slavic Languages family"
+ */
+
+interface Props {
+  languageName: string;
+  familyGroup: string;
+}
+
+const { languageName, familyGroup } = Astro.props;
+
+// Map family groups to hub URLs and descriptions
+const familyHubs: Record<string, { url: string; description: string; emoji: string }> = {
+  'Romance': {
+    url: '/learn/romance-languages/',
+    description: 'Spanish, French, Italian, Portuguese, Romanian',
+    emoji: '💕'
+  },
+  'Slavic': {
+    url: '/learn/slavic-languages/',
+    description: 'Polish, Russian, Ukrainian, Czech',
+    emoji: '🔤'
+  },
+  'Germanic': {
+    url: '/learn/easiest-languages/',
+    description: 'German, Dutch, Swedish, Norwegian, Danish',
+    emoji: '📊'
+  },
+  // Languages without a dedicated family hub
+  'Uralic': null,
+  'Turkic': null,
+  'Hellenic': null,
+};
+
+const hubInfo = familyHubs[familyGroup];
+---
+
+{hubInfo && (
+  <div class="bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-3">
+      <a
+        href={hubInfo.url}
+        class="flex items-center justify-center gap-3 text-sm text-gray-600 hover:text-accent transition-colors group"
+      >
+        <span>{hubInfo.emoji}</span>
+        <span>
+          <span class="font-medium text-gray-900">{languageName}</span> is part of the
+          <span class="font-semibold text-accent group-hover:underline">{familyGroup} Languages</span> family
+        </span>
+        <svg class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+)}

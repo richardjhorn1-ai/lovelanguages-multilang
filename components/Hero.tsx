@@ -2513,8 +2513,8 @@ const Hero: React.FC = () => {
             />
           </div>
 
-          {/* Scrollable content area */}
-          <div className="overflow-y-auto h-full pb-4">
+          {/* Content area - no internal scroll, drag sheet instead */}
+          <div className="pb-4">
           <ICONS.Heart className="absolute -bottom-16 -right-16 w-48 h-48 opacity-[0.03] pointer-events-none" style={{ color: accentColor }} />
 
           {/* Progress dots at TOP of login section - all steps (native, target, + 7 marketing sections) */}

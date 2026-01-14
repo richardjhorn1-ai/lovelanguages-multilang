@@ -1,0 +1,40 @@
+---
+interface Mistake {
+  mistake: string;
+  explanation: string;
+}
+
+interface Props {
+  nativeLanguage?: string;
+  mistakes: Mistake[];
+}
+
+const { nativeLanguage = 'English', mistakes } = Astro.props;
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2">
+      Common Mistakes {nativeLanguage} Speakers Make
+    </h2>
+    <p class="text-gray-600 mb-8">
+      Avoid these pitfalls to accelerate your learning.
+    </p>
+
+    <div class="space-y-4">
+      {mistakes.map((item, i) => (
+        <div class="bg-white rounded-xl p-5 border border-gray-200 hover:border-accent/30 transition-colors">
+          <div class="flex gap-4 items-start">
+            <span class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 font-bold text-sm">
+              {i + 1}
+            </span>
+            <div>
+              <h3 class="font-bold text-gray-900 mb-1">{item.mistake}</h3>
+              <p class="text-gray-600 text-sm md:text-base">{item.explanation}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -125,20 +125,12 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
     }
   };
 
-  // Mobile compact layout - fits within carousel card without vertical scroll
+  // Mobile compact layout - mode selector absolutely positioned to left, centered with game
   if (isMobile) {
     return (
-      <div className="w-full h-full flex flex-col justify-center items-center overflow-hidden px-2">
-        {/* Compact headline */}
-        <p
-          className="text-xs font-semibold mb-2 text-center"
-          style={{ color: accentColor }}
-        >
-          {subtext}
-        </p>
-
-        {/* Compact mode navigation */}
-        <div className="flex items-center gap-1 mb-2">
+      <div className="relative w-full pl-16">
+        {/* Left side: Mode selector - absolutely positioned, centered vertically with game */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
           <button
             onClick={goToPrevMode}
             className="w-6 h-6 rounded-full flex items-center justify-center font-bold transition-all text-sm"
@@ -147,12 +139,12 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
             ‹
           </button>
 
-          <div className="flex items-center gap-1">
+          <div className="flex flex-col items-center gap-1">
             {MODES.map((mode, i) => (
               <button
                 key={mode}
                 onClick={() => { setCurrentMode(i); setQuestionIndex(0); }}
-                className={`px-1.5 py-0.5 rounded-full text-[9px] font-bold transition-all ${
+                className={`px-2 py-1 rounded-full text-[9px] font-bold transition-all whitespace-nowrap ${
                   i === currentMode
                     ? 'text-white shadow-lg'
                     : 'text-gray-500'
@@ -171,62 +163,73 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
           >
             ›
           </button>
+
+          {/* Progress dots - hide for Quick Fire */}
+          {currentMode !== 3 && (
+            <div className="flex gap-1 mt-1">
+              {[0, 1].map((i) => (
+                <div
+                  key={i}
+                  className="w-1.5 h-1.5 rounded-full transition-all"
+                  style={{
+                    backgroundColor: i <= questionIndex ? accentColor : '#e5e7eb',
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Progress dots - hide for Quick Fire */}
-        {currentMode !== 3 && (
-          <div className="flex gap-1 mb-2">
-            {[0, 1].map((i) => (
-              <div
-                key={i}
-                className="w-1.5 h-1.5 rounded-full transition-all"
-                style={{
-                  backgroundColor: i <= questionIndex ? accentColor : '#e5e7eb',
-                }}
-              />
-            ))}
-          </div>
-        )}
+        {/* Right side: Game demo - defines container height */}
+        <div className="flex flex-col items-center justify-center">
+          {/* Compact headline */}
+          <p
+            className="text-xs font-semibold mb-2 text-center"
+            style={{ color: accentColor }}
+          >
+            {subtext}
+          </p>
 
-        {/* Demo component - scaled down significantly to fit */}
-        <div className="transition-all duration-300 transform scale-[0.75] origin-top">
-          {currentMode === 0 && (
-            <DemoFlashcard
-              word={currentWord}
-              accentColor={accentColor}
-              onComplete={handleComplete}
-              targetName={targetName}
-              nativeName={nativeName}
-            />
-          )}
-          {currentMode === 1 && (
-            <DemoMultipleChoice
-              word={currentWord}
-              accentColor={accentColor}
-              onComplete={handleComplete}
-              targetName={targetName}
-              nativeName={nativeName}
-              allWords={deck}
-            />
-          )}
-          {currentMode === 2 && (
-            <DemoTypeIt
-              word={currentWord}
-              accentColor={accentColor}
-              onComplete={handleComplete}
-              targetName={targetName}
-              nativeName={nativeName}
-            />
-          )}
-          {currentMode === 3 && (
-            <DemoQuickFire
-              accentColor={accentColor}
-              onComplete={handleComplete}
-              targetName={targetName}
-              nativeName={nativeName}
-              words={deck}
-            />
-          )}
+          {/* Demo component - scaled down significantly to fit */}
+          <div className="transition-all duration-300 transform scale-[0.70] origin-center">
+            {currentMode === 0 && (
+              <DemoFlashcard
+                word={currentWord}
+                accentColor={accentColor}
+                onComplete={handleComplete}
+                targetName={targetName}
+                nativeName={nativeName}
+              />
+            )}
+            {currentMode === 1 && (
+              <DemoMultipleChoice
+                word={currentWord}
+                accentColor={accentColor}
+                onComplete={handleComplete}
+                targetName={targetName}
+                nativeName={nativeName}
+                allWords={deck}
+              />
+            )}
+            {currentMode === 2 && (
+              <DemoTypeIt
+                word={currentWord}
+                accentColor={accentColor}
+                onComplete={handleComplete}
+                targetName={targetName}
+                nativeName={nativeName}
+              />
+            )}
+            {currentMode === 3 && (
+              <DemoQuickFire
+                accentColor={accentColor}
+                onComplete={handleComplete}
+                targetName={targetName}
+                nativeName={nativeName}
+                words={deck}
+              />
+            )}
+          </div>
         </div>
       </div>
     );

@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguageCard from '../../components/hub/LanguageCard.astro';
+import FAQSection from '../../components/hub/FAQSection.astro';
+import TopicalArticlesGrid from '../../components/hub/TopicalArticlesGrid.astro';
+import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
+
+// Group languages by difficulty
+const languagesByDifficulty = Object.values(LANGUAGE_HUB_DATA).reduce((acc, lang) => {
+  const level = lang.difficultyRating;
+  if (!acc[level]) acc[level] = [];
+  acc[level].push(lang);
+  return acc;
+}, {} as Record<number, typeof LANGUAGE_HUB_DATA[keyof typeof LANGUAGE_HUB_DATA][]>);
+
+const difficultyLabels: Record<number, { title: string; description: string; color: string; bgColor: string; badgeColor: string }> = {
+  1: { title: 'Easiest', description: '575-600 hours to proficiency', color: 'green', bgColor: 'from-green-50 to-white border-green-100', badgeColor: 'bg-green-100 text-green-700' },
+  2: { title: 'Easy', description: '600-750 hours to proficiency', color: 'emerald', bgColor: 'from-emerald-50 to-white border-emerald-100', badgeColor: 'bg-emerald-100 text-emerald-700' },
+  3: { title: 'Medium', description: '750-900 hours to proficiency', color: 'yellow', bgColor: 'from-yellow-50 to-white border-yellow-100', badgeColor: 'bg-yellow-100 text-yellow-700' },
+  4: { title: 'Hard', description: '1,100 hours to proficiency', color: 'orange', bgColor: 'from-orange-50 to-white border-orange-100', badgeColor: 'bg-orange-100 text-orange-700' },
+  5: { title: 'Very Hard', description: '1,100+ hours to proficiency', color: 'red', bgColor: 'from-red-50 to-white border-red-100', badgeColor: 'bg-red-100 text-red-700' }
+};
+
+const faqs = [
+  {
+    question: "What makes a language easy for English speakers?",
+    answer: "Languages closest to English (Germanic family) are easiest due to shared vocabulary, similar grammar, and familiar sounds. Romance languages (French, Spanish, Italian) are also accessible because 30% of English vocabulary has French/Latin roots. Languages with different writing systems, cases, or tonal systems require more time."
+  },
+  {
+    question: "What's the fastest language to learn?",
+    answer: "Norwegian, Swedish, and Dutch are often cited as the fastest for English speakers. They share Germanic roots with English, have simple grammar (no cases), and many recognizable words. Spanish is also quick due to consistent pronunciation and shared vocabulary."
+  },
+  {
+    question: "Why is Hungarian considered so difficult?",
+    answer: "Hungarian has 18 grammatical cases (English has none), agglutinative structure (suffixes pile up), and vocabulary unrelated to English or neighboring languages. It's in the Uralic family, distantly related to Finnish. However, it's very logical once you understand the patterns."
+  },
+  {
+    question: "Are difficulty ratings accurate?",
+    answer: "FSI (Foreign Service Institute) ratings are based on classroom hours for native English speakers to reach professional proficiency. Individual experience varies based on prior languages known, learning style, and motivation. A 'difficult' language you're passionate about may be easier than an 'easy' one you're not interested in."
+  },
+  {
+    question: "Should I choose a language based on difficulty?",
+    answer: "Not necessarily! Motivation matters more than difficulty. A harder language that genuinely interests you will be easier to stick with than an 'easy' one you don't care about. Consider your goals: travel, heritage, career, or relationships."
+  },
+  {
+    question: "Do I need to learn the alphabet for some languages?",
+    answer: "Russian, Ukrainian, and Greek use different alphabets, but they're learnable in 2-4 weeks. The Cyrillic alphabet (Russian/Ukrainian) has 33 letters; Greek has 24. Many letters look similar to Latin or are familiar from math. This is a minor hurdle, not a major barrier."
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Easiest Languages to Learn for English Speakers",
+  "description": "Comprehensive guide to language difficulty for English speakers. Discover which languages are easiest to learn and how long each takes to master.",
+  "url": "https://lovelanguages.xyz/learn/easiest-languages/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+---
+
+<BaseLayout
+  title="Easiest Languages to Learn for English Speakers (2024 Guide) | Love Languages"
+  description="Discover which languages are easiest for English speakers to learn. Complete ranking with time estimates, difficulty factors, and tips for each language."
+  nativeLang="en"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-green-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-6xl mb-4 block">📊</span>
+        <h1 class="text-3xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Easiest Languages for English Speakers
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8">
+          A complete guide to language difficulty based on FSI research. Find out how long it really takes to learn each language.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quick Stats -->
+  <section class="py-8 bg-white border-b border-gray-100">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="grid grid-cols-3 gap-4 text-center">
+        <div>
+          <div class="text-2xl md:text-3xl font-bold text-green-600">575h</div>
+          <div class="text-sm text-gray-500">Easiest (Norwegian)</div>
+        </div>
+        <div>
+          <div class="text-2xl md:text-3xl font-bold text-yellow-600">900h</div>
+          <div class="text-sm text-gray-500">Medium (German)</div>
+        </div>
+        <div>
+          <div class="text-2xl md:text-3xl font-bold text-red-600">1,100h+</div>
+          <div class="text-sm text-gray-500">Hardest (Hungarian)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Difficulty Tiers -->
+  {[1, 2, 3, 4, 5].map(level => {
+    const languages = languagesByDifficulty[level] || [];
+    const info = difficultyLabels[level];
+    if (languages.length === 0) return null;
+
+    return (
+      <section class={`py-12 bg-gradient-to-b ${info.bgColor} border-b`}>
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="flex items-center gap-3 mb-2">
+            <span class={`px-3 py-1 rounded-full text-sm font-bold ${info.badgeColor}`}>
+              {'★'.repeat(level)}{'☆'.repeat(5 - level)}
+            </span>
+            <h2 class="text-2xl font-bold font-header text-gray-900">
+              {info.title}
+            </h2>
+          </div>
+          <p class="text-gray-600 mb-8">{info.description}</p>
+
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {languages.map(lang => (
+              <LanguageCard
+                code={lang.code}
+                name={lang.name}
+                nativeName={lang.nativeName}
+                flag={lang.flag}
+                speakers={lang.speakers}
+                difficultyRating={lang.difficultyRating}
+                href={`/learn/language/${lang.name.toLowerCase()}/`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <!-- What Makes Languages Easy/Hard -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        What Makes a Language Easy or Hard?
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-green-50 rounded-2xl border border-green-100">
+          <h3 class="font-bold text-green-800 mb-4 text-lg">✅ Makes Languages Easier</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex gap-2"><span>•</span> Same language family as English (Germanic)</li>
+            <li class="flex gap-2"><span>•</span> Shared vocabulary (Latin/French roots)</li>
+            <li class="flex gap-2"><span>•</span> Same writing system (Latin alphabet)</li>
+            <li class="flex gap-2"><span>•</span> Simple grammar (no cases, genders)</li>
+            <li class="flex gap-2"><span>•</span> Phonetic spelling (reads as written)</li>
+            <li class="flex gap-2"><span>•</span> Similar sentence structure (SVO order)</li>
+          </ul>
+        </div>
+
+        <div class="p-6 bg-red-50 rounded-2xl border border-red-100">
+          <h3 class="font-bold text-red-800 mb-4 text-lg">❌ Makes Languages Harder</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex gap-2"><span>•</span> Different writing system (Cyrillic, Greek)</li>
+            <li class="flex gap-2"><span>•</span> Many grammatical cases (6-18)</li>
+            <li class="flex gap-2"><span>•</span> Unrelated vocabulary (Hungarian, Turkish)</li>
+            <li class="flex gap-2"><span>•</span> Complex verb aspects (Slavic languages)</li>
+            <li class="flex gap-2"><span>•</span> Unpredictable stress or pitch accent</li>
+            <li class="flex gap-2"><span>•</span> Agglutinative structure (suffixes pile up)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Time Investment Chart -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        Time to Learn Each Language
+      </h2>
+
+      <div class="bg-white rounded-2xl p-6 border border-gray-200">
+        <div class="space-y-4">
+          {Object.values(LANGUAGE_HUB_DATA)
+            .sort((a, b) => a.fsiHours - b.fsiHours)
+            .map(lang => {
+              const maxHours = 1200;
+              const percentage = (lang.fsiHours / maxHours) * 100;
+
+              return (
+                <div class="flex items-center gap-4">
+                  <span class="text-2xl w-8">{lang.flag}</span>
+                  <span class="w-24 text-sm font-medium text-gray-700">{lang.name}</span>
+                  <div class="flex-1 bg-gray-100 rounded-full h-4 overflow-hidden">
+                    <div
+                      class="h-full bg-gradient-to-r from-accent to-pink-500 rounded-full"
+                      style={`width: ${percentage}%`}
+                    />
+                  </div>
+                  <span class="w-16 text-sm text-gray-500 text-right">{lang.fsiHours}h</span>
+                </div>
+              );
+            })}
+        </div>
+        <p class="text-xs text-gray-400 mt-4 text-center">
+          * Hours based on FSI estimates for English speakers to reach professional proficiency
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beginner-Friendly Articles -->
+  <TopicalArticlesGrid
+    langCodes={['es', 'fr', 'it', 'pt', 'nl', 'no', 'sv', 'da']}
+    keywords={['beginner', 'easy', 'basic', 'essential', 'first']}
+    maxArticles={12}
+    title="Beginner-Friendly Articles"
+    subtitle="Great starting points for the easiest languages"
+  />
+
+  <FAQSection faqs={faqs} />
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl font-bold font-header mb-4">
+        Ready to Start Learning?
+      </h2>
+      <p class="text-white/90 mb-8">
+        Choose a language and begin your journey with AI-powered coaching designed for couples.
+      </p>
+      <a
+        href="/learn/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Browse All Languages
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn/" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>

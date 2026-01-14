@@ -1,0 +1,166 @@
+---
+/**
+ * ArticlesGrid - Displays articles organized by category
+ * This component creates the "spoke" links from hub pages to actual content
+ */
+import { getCollection } from 'astro:content';
+
+interface Props {
+  langCode: string;
+  langName: string;
+  nativeLang?: string; // If provided, only show articles for this native language
+  maxPerCategory?: number;
+}
+
+const { langCode, langName, nativeLang = 'en', maxPerCategory = 4 } = Astro.props;
+
+// Get all articles for this target language
+const allArticles = await getCollection('articles');
+const languageArticles = allArticles.filter(article => {
+  const parts = article.slug.split('/');
+  // slug format: nativeLang/targetLang/article-slug
+  return parts[1] === langCode && parts[0] === nativeLang;
+});
+
+// Category display names and order
+const categoryInfo: Record<string, { label: string; emoji: string; priority: number }> = {
+  'phrases': { label: 'Essential Phrases', emoji: '💬', priority: 1 },
+  'romance': { label: 'Romantic Expressions', emoji: '💕', priority: 2 },
+  'vocabulary': { label: 'Vocabulary', emoji: '📚', priority: 3 },
+  'grammar': { label: 'Grammar Guides', emoji: '📖', priority: 4 },
+  'culture': { label: 'Culture & Traditions', emoji: '🎭', priority: 5 },
+  'pronunciation': { label: 'Pronunciation', emoji: '🗣️', priority: 6 },
+  'learning': { label: 'Learning Tips', emoji: '🎯', priority: 7 },
+};
+
+// Group articles by category
+const articlesByCategory = languageArticles.reduce((acc, article) => {
+  const category = article.data.category || 'general';
+  if (!acc[category]) acc[category] = [];
+  acc[category].push(article);
+  return acc;
+}, {} as Record<string, typeof languageArticles>);
+
+// Sort articles within each category by date (newest first)
+Object.keys(articlesByCategory).forEach(category => {
+  articlesByCategory[category].sort((a, b) =>
+    new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
+});
+
+// Get sorted categories
+const sortedCategories = Object.keys(articlesByCategory)
+  .sort((a, b) => {
+    const priorityA = categoryInfo[a]?.priority || 99;
+    const priorityB = categoryInfo[b]?.priority || 99;
+    return priorityA - priorityB;
+  });
+
+// Helper to build article URL
+const getArticleUrl = (article: typeof languageArticles[0]) => {
+  const parts = article.slug.split('/');
+  // Output: /learn/nativeLang/targetLang/article-slug/
+  return `/learn/${parts[0]}/${parts[1]}/${parts[2]}/`;
+};
+
+// Helper to truncate description
+const truncate = (str: string, len: number) => {
+  if (str.length <= len) return str;
+  return str.substring(0, len).trim() + '...';
+};
+
+const totalArticles = languageArticles.length;
+---
+
+{totalArticles > 0 && (
+  <section class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2">
+          {langName} Learning Guides
+        </h2>
+        <p class="text-gray-600">
+          Browse <span class="font-semibold text-accent">{totalArticles}</span> in-depth articles to master {langName}
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        {sortedCategories.map(category => {
+          const articles = articlesByCategory[category];
+          const info = categoryInfo[category] || { label: category.charAt(0).toUpperCase() + category.slice(1), emoji: '📄', priority: 99 };
+          const displayArticles = articles.slice(0, maxPerCategory);
+          const hasMore = articles.length > maxPerCategory;
+
+          return (
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                  <span>{info.emoji}</span>
+                  {info.label}
+                  <span class="text-sm font-normal text-gray-500">({articles.length})</span>
+                </h3>
+              </div>
+
+              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {displayArticles.map(article => (
+                  <a
+                    href={getArticleUrl(article)}
+                    class="group p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-accent hover:shadow-md transition-all"
+                  >
+                    <div class="flex items-start gap-3">
+                      <div class="flex-1 min-w-0">
+                        <h4 class="font-semibold text-gray-900 group-hover:text-accent transition-colors text-sm leading-tight mb-2 line-clamp-2">
+                          {article.data.title}
+                        </h4>
+                        <p class="text-xs text-gray-500 line-clamp-2 mb-2">
+                          {truncate(article.data.description, 80)}
+                        </p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                          {article.data.difficulty && (
+                            <span class="px-2 py-0.5 bg-gray-100 rounded-full capitalize">
+                              {article.data.difficulty}
+                            </span>
+                          )}
+                          {article.data.readTime && (
+                            <span>{article.data.readTime} min</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {hasMore && (
+                <div class="mt-4 text-center">
+                  <a
+                    href={`/learn/${nativeLang}/${langCode}/`}
+                    class="inline-flex items-center gap-1 text-sm text-accent hover:underline font-medium"
+                  >
+                    View all {articles.length} {info.label.toLowerCase()} articles
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- See All Articles CTA -->
+      <div class="mt-12 text-center">
+        <a
+          href={`/learn/${nativeLang}/${langCode}/`}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all"
+        >
+          Browse All {totalArticles} {langName} Articles
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+)}

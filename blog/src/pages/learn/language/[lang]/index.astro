@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import HubHero from '../../../../components/hub/HubHero.astro';
+import WhyLearnSection from '../../../../components/hub/WhyLearnSection.astro';
+import PhrasesPreview from '../../../../components/hub/PhrasesPreview.astro';
+import GrammarOverview from '../../../../components/hub/GrammarOverview.astro';
+import CommonMistakes from '../../../../components/hub/CommonMistakes.astro';
+import CultureSection from '../../../../components/hub/CultureSection.astro';
+import CouplesSection from '../../../../components/hub/CouplesSection.astro';
+import FAQSection from '../../../../components/hub/FAQSection.astro';
+import ArticlesGrid from '../../../../components/hub/ArticlesGrid.astro';
+import FamilyHubLink from '../../../../components/hub/FamilyHubLink.astro';
+import { LANGUAGE_HUB_DATA, type LanguageHubData } from '../../../../data/language-hub-data';
+import { getCollection } from 'astro:content';
+
+// Generate static paths for all languages
+export async function getStaticPaths() {
+  const paths = [];
+
+  for (const [code, data] of Object.entries(LANGUAGE_HUB_DATA)) {
+    // Use lowercase language name as slug (e.g., "polish", "spanish")
+    const slug = data.name.toLowerCase();
+    paths.push({
+      params: { lang: slug },
+      props: { langCode: code, langData: data }
+    });
+  }
+
+  return paths;
+}
+
+interface Props {
+  langCode: string;
+  langData: LanguageHubData;
+}
+
+const { langCode, langData } = Astro.props;
+
+// Get article counts for this language (across all native languages)
+const allArticles = await getCollection('articles');
+const articleCount = allArticles.filter(a =>
+  a.slug.includes(`/${langCode}/`)
+).length;
+
+// Find the "I love you" phrase for couples section
+const lovePhrase = langData.essentialPhrases.find(p =>
+  p.translation.toLowerCase().includes('love')
+);
+
+// JSON-LD for the hub page
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": `Learn ${langData.name} - Complete Guide`,
+  "description": `Everything you need to start learning ${langData.name}. Free lessons, phrases, grammar tips, and cultural insights for ${langData.speakers} speakers worldwide.`,
+  "url": `https://lovelanguages.xyz/learn/language/${langData.name.toLowerCase()}/`,
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  },
+  "about": {
+    "@type": "Language",
+    "name": langData.name,
+    "alternateName": langData.nativeName
+  }
+};
+---
+
+<BaseLayout
+  title={`Learn ${langData.name}: Complete Guide for English Speakers | Love Languages`}
+  description={`Everything you need to start learning ${langData.name}. Essential phrases, grammar tips, cultural insights, and learning resources. ${langData.speakers} speakers worldwide.`}
+  nativeLang="en"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <HubHero
+    flag={langData.flag}
+    name={langData.name}
+    title={`Learn ${langData.name}: Complete Guide for English Speakers`}
+    description={`Everything you need to start your ${langData.name} learning journey—from essential phrases to cultural insights.`}
+    speakers={langData.speakers}
+    fsiHours={langData.fsiHours}
+    difficultyRating={langData.difficultyRating}
+  />
+
+  <!-- Family Hub Cross-Link -->
+  <FamilyHubLink
+    languageName={langData.name}
+    familyGroup={langData.familyGroup}
+  />
+
+  <WhyLearnSection
+    name={langData.name}
+    reasons={langData.whyLearn}
+  />
+
+  <PhrasesPreview
+    name={langData.name}
+    phrases={langData.essentialPhrases}
+    learnMoreUrl={`/learn/en/${langCode}/`}
+  />
+
+  <GrammarOverview
+    name={langData.name}
+    highlights={langData.grammarHighlights}
+  />
+
+  <CommonMistakes
+    nativeLanguage="English"
+    mistakes={langData.commonMistakes}
+  />
+
+  <CultureSection
+    name={langData.name}
+    tips={langData.culturalTips}
+  />
+
+  <CouplesSection
+    name={langData.name}
+    tip={langData.couplesTip}
+    lovePhrase={lovePhrase ? { phrase: lovePhrase.phrase, translation: lovePhrase.translation } : undefined}
+    learnMoreUrl={`/learn/language/${langData.name.toLowerCase()}/for-couples/`}
+  />
+
+  <!-- Articles Grid - The "Spokes" of the Hub -->
+  <ArticlesGrid
+    langCode={langCode}
+    langName={langData.name}
+    nativeLang="en"
+    maxPerCategory={4}
+  />
+
+  <!-- Native Language Options -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2 text-center">
+        Start Learning {langData.name}
+      </h2>
+      <p class="text-gray-600 mb-8 text-center">
+        Choose your native language to see lessons in your language.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+        <a
+          href={`/learn/en/${langCode}/`}
+          class="flex items-center gap-3 p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-accent hover:shadow-lg transition-all group"
+        >
+          <span class="text-3xl">🇬🇧</span>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-accent transition-colors">English</div>
+            <div class="text-sm text-gray-500">I speak English</div>
+          </div>
+        </a>
+        <a
+          href={`/learn/es/${langCode}/`}
+          class="flex items-center gap-3 p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-accent hover:shadow-lg transition-all group"
+        >
+          <span class="text-3xl">🇪🇸</span>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-accent transition-colors">Español</div>
+            <div class="text-sm text-gray-500">Hablo español</div>
+          </div>
+        </a>
+        <a
+          href={`/learn/fr/${langCode}/`}
+          class="flex items-center gap-3 p-4 bg-white rounded-xl border-2 border-gray-200 hover:border-accent hover:shadow-lg transition-all group"
+        >
+          <span class="text-3xl">🇫🇷</span>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-accent transition-colors">Français</div>
+            <div class="text-sm text-gray-500">Je parle français</div>
+          </div>
+        </a>
+      </div>
+
+      {articleCount > 0 && (
+        <p class="text-center text-gray-500 mt-6">
+          <span class="font-semibold text-accent">{articleCount}</span> articles available
+        </p>
+      )}
+    </div>
+  </section>
+
+  <FAQSection faqs={langData.faqs} />
+
+  <!-- Main CTA -->
+  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl font-bold font-header mb-4">
+        Ready to Start Learning {langData.name}?
+      </h2>
+      <p class="text-white/90 mb-8">
+        Join couples learning {langData.name} together with AI coaching, voice practice, and games.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Your Journey
+      </a>
+      <p class="mt-4 text-white/80 text-sm">
+        Join couples learning languages across 30+ countries
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn/" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>

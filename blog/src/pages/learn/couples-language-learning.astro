@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguageCard from '../../components/hub/LanguageCard.astro';
+import FAQSection from '../../components/hub/FAQSection.astro';
+import TopicalArticlesGrid from '../../components/hub/TopicalArticlesGrid.astro';
+import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
+
+// Get top languages sorted by difficulty (easiest first for couples)
+const languages = Object.values(LANGUAGE_HUB_DATA)
+  .sort((a, b) => a.difficultyRating - b.difficultyRating);
+
+const easiestLanguages = languages.slice(0, 6);
+
+const faqs = [
+  {
+    question: "What's the best language for couples to learn together?",
+    answer: "Spanish, French, and Italian are excellent choices for couples due to their romantic nature and relative ease for English speakers. Spanish offers the most practical benefits with 500+ million speakers, while French and Italian are traditionally associated with romance and culture."
+  },
+  {
+    question: "How can we stay motivated learning together?",
+    answer: "Set shared goals, practice conversations daily, watch movies in your target language together, plan trips to countries where the language is spoken, and celebrate milestones together. Making it a shared hobby rather than a chore keeps both partners engaged."
+  },
+  {
+    question: "Should we learn at the same pace?",
+    answer: "Not necessarily. It's natural for one partner to progress faster. The key is supporting each other and using the difference as an opportunity—the faster learner can help teach and reinforce concepts for both of you."
+  },
+  {
+    question: "How much time should we dedicate daily?",
+    answer: "Even 15-30 minutes of daily practice together is effective. Consistency matters more than duration. Try incorporating language into daily activities: morning greetings, meal conversations, or bedtime phrases."
+  },
+  {
+    question: "What if one partner loses interest?",
+    answer: "Focus on making it fun rather than academic. Try cooking recipes in the target language, playing language learning games together, or planning a trip that requires the language. Sometimes a change in approach reignites motivation."
+  },
+  {
+    question: "Can we learn different languages?",
+    answer: "You can, but learning the same language creates more opportunities for practice and shared experiences. If you have different interests, consider learning one language first together, then exploring individual interests later."
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Learn a Language Together - Couples Language Learning Guide",
+  "description": "Discover the best languages to learn as a couple and how to make language learning a shared journey. Tips, recommendations, and resources for couples.",
+  "url": "https://lovelanguages.xyz/learn/couples-language-learning/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://lovelanguages.xyz"
+  }
+};
+---
+
+<BaseLayout
+  title="Learn a Language Together: The Complete Couples Guide | Love Languages"
+  description="Discover why learning a language together strengthens relationships. Find the best languages for couples, tips for staying motivated, and how to make it fun."
+  nativeLang="en"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-pink-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-20">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-6xl mb-4 block">💑</span>
+        <h1 class="text-3xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Learn a Language Together
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8">
+          The ultimate guide to making language learning a shared adventure. Strengthen your bond while opening doors to new cultures.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Why Learn Together -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        Why Couples Should Learn Languages Together
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
+          <span class="text-3xl mb-3 block">🎯</span>
+          <h3 class="font-bold text-gray-900 mb-2">Shared Goals Build Connection</h3>
+          <p class="text-gray-600">Working toward a common goal creates teamwork and deepens your relationship. Celebrating language milestones together creates lasting memories.</p>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
+          <span class="text-3xl mb-3 block">💬</span>
+          <h3 class="font-bold text-gray-900 mb-2">Built-in Practice Partner</h3>
+          <p class="text-gray-600">Having a conversation partner available 24/7 accelerates learning. You can practice anytime—during meals, walks, or lazy Sunday mornings.</p>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
+          <span class="text-3xl mb-3 block">✈️</span>
+          <h3 class="font-bold text-gray-900 mb-2">Travel Transforms</h3>
+          <p class="text-gray-600">Speaking even basic phrases transforms travel experiences. Navigate together, order food confidently, and connect with locals in ways tourists never do.</p>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
+          <span class="text-3xl mb-3 block">🧠</span>
+          <h3 class="font-bold text-gray-900 mb-2">Keeps Minds Sharp</h3>
+          <p class="text-gray-600">Language learning is one of the best exercises for brain health. Doing it together means you're both investing in long-term cognitive wellness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Languages for Couples -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2">
+        Best Languages for Couples to Learn
+      </h2>
+      <p class="text-gray-600 mb-8">
+        These languages offer the best combination of romance, practicality, and achievability for English-speaking couples.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {easiestLanguages.map(lang => (
+          <LanguageCard
+            code={lang.code}
+            name={lang.name}
+            nativeName={lang.nativeName}
+            flag={lang.flag}
+            speakers={lang.speakers}
+            difficultyRating={lang.difficultyRating}
+            href={`/learn/language/${lang.name.toLowerCase()}/for-couples/`}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        Tips for Learning Together
+      </h2>
+
+      <div class="space-y-6">
+        <div class="flex gap-4 items-start p-5 bg-gray-50 rounded-xl">
+          <span class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold flex-shrink-0">1</span>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Set Realistic Goals Together</h3>
+            <p class="text-gray-600">Agree on how many hours per week you'll practice and what milestones you want to hit. Having shared goals keeps you both accountable.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start p-5 bg-gray-50 rounded-xl">
+          <span class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold flex-shrink-0">2</span>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Make It Part of Daily Life</h3>
+            <p class="text-gray-600">Label items around your home, greet each other in your target language, or designate "language-only" meals where you practice together.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start p-5 bg-gray-50 rounded-xl">
+          <span class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold flex-shrink-0">3</span>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Watch Movies & Shows Together</h3>
+            <p class="text-gray-600">Start with subtitles in your native language, progress to target language subtitles, then try without. Discuss what you learned after each episode.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start p-5 bg-gray-50 rounded-xl">
+          <span class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold flex-shrink-0">4</span>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Plan a Trip as Motivation</h3>
+            <p class="text-gray-600">Nothing motivates like knowing you'll need the language soon. Plan a trip to a country where your target language is spoken and set learning milestones before departure.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start p-5 bg-gray-50 rounded-xl">
+          <span class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold flex-shrink-0">5</span>
+          <div>
+            <h3 class="font-bold text-gray-900 mb-1">Celebrate Milestones</h3>
+            <p class="text-gray-600">First conversation, 100 words learned, ordering food successfully—celebrate these wins together. Small rewards keep motivation high.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Languages Grid -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2 text-center">
+        Explore All Languages
+      </h2>
+      <p class="text-gray-600 mb-8 text-center">
+        Find the perfect language for your journey together.
+      </p>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {languages.map(lang => (
+          <LanguageCard
+            code={lang.code}
+            name={lang.name}
+            nativeName={lang.nativeName}
+            flag={lang.flag}
+            speakers={lang.speakers}
+            difficultyRating={lang.difficultyRating}
+            href={`/learn/language/${lang.name.toLowerCase()}/`}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Couples-Focused Articles -->
+  <TopicalArticlesGrid
+    keywords={['couple', 'together', 'partner', 'relationship', 'love', 'romantic']}
+    maxArticles={12}
+    title="Articles for Couples"
+    subtitle="Guides designed for partners learning together"
+  />
+
+  <FAQSection faqs={faqs} />
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl font-bold font-header mb-4">
+        Ready to Start Your Journey?
+      </h2>
+      <p class="text-white/90 mb-8">
+        Join thousands of couples learning languages together with AI coaching, voice practice, and games.
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+      >
+        Start Learning Together
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn/" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
