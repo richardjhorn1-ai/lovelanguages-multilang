@@ -1,17 +1,22 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import HubHero from '../../../../components/hub/HubHero.astro';
-import WhyLearnSection from '../../../../components/hub/WhyLearnSection.astro';
-import PhrasesPreview from '../../../../components/hub/PhrasesPreview.astro';
-import GrammarOverview from '../../../../components/hub/GrammarOverview.astro';
-import CommonMistakes from '../../../../components/hub/CommonMistakes.astro';
-import CultureSection from '../../../../components/hub/CultureSection.astro';
-import CouplesSection from '../../../../components/hub/CouplesSection.astro';
 import FAQSection from '../../../../components/hub/FAQSection.astro';
 import ArticlesGrid from '../../../../components/hub/ArticlesGrid.astro';
 import FamilyHubLink from '../../../../components/hub/FamilyHubLink.astro';
 import { LANGUAGE_HUB_DATA, type LanguageHubData } from '../../../../data/language-hub-data';
 import { getCollection } from 'astro:content';
+
+/**
+ * Language Hub Page - Redesigned for better article discoverability
+ *
+ * Structure:
+ * 1. Compact hero with stats inline
+ * 2. Family hub link
+ * 3. ARTICLES FIRST - immediately visible
+ * 4. Two-column layout: Phrases + Why Learn | Grammar + Culture
+ * 5. Compact common mistakes
+ * 6. Couples CTA + FAQ
+ */
 
 // Generate static paths for all languages
 export async function getStaticPaths() {
@@ -75,15 +80,37 @@ const jsonLd = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <HubHero
-    flag={langData.flag}
-    name={langData.name}
-    title={`Learn ${langData.name}: Complete Guide for English Speakers`}
-    description={`Everything you need to start your ${langData.name} learning journey—from essential phrases to cultural insights.`}
-    speakers={langData.speakers}
-    fsiHours={langData.fsiHours}
-    difficultyRating={langData.difficultyRating}
-  />
+  <!-- Compact Hero - Inline stats -->
+  <header class="relative overflow-hidden" style="background: linear-gradient(135deg, #FFF0F3 0%, #fdfcfd 50%, #E7F5FF 100%);">
+    <div class="max-w-6xl mx-auto px-4 py-8 md:py-12">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <span class="text-5xl md:text-6xl">{langData.flag}</span>
+          <div>
+            <h1 class="text-2xl md:text-4xl font-black font-header text-[#292F36]">
+              Learn {langData.name}
+            </h1>
+            <p class="text-gray-600 text-sm md:text-base">Complete Guide for English Speakers</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 md:gap-6 text-sm">
+          <div class="text-center px-3 py-2 bg-white/80 rounded-xl">
+            <div class="font-bold text-[#292F36]">{langData.speakers}</div>
+            <div class="text-gray-500 text-xs">Speakers</div>
+          </div>
+          <div class="text-center px-3 py-2 bg-white/80 rounded-xl">
+            <div class="font-bold text-[#292F36]">{langData.fsiHours}h</div>
+            <div class="text-gray-500 text-xs">To Fluency</div>
+          </div>
+          <div class="text-center px-3 py-2 bg-white/80 rounded-xl">
+            <div class="font-bold text-[#FF6B6B]">{'★'.repeat(langData.difficultyRating)}{'☆'.repeat(5 - langData.difficultyRating)}</div>
+            <div class="text-gray-500 text-xs">Difficulty</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
   <!-- Family Hub Cross-Link -->
   <FamilyHubLink
@@ -91,46 +118,135 @@ const jsonLd = {
     familyGroup={langData.familyGroup}
   />
 
-  <WhyLearnSection
-    name={langData.name}
-    reasons={langData.whyLearn}
-  />
-
-  <PhrasesPreview
-    name={langData.name}
-    phrases={langData.essentialPhrases}
-    learnMoreUrl={`/learn/en/${langCode}/`}
-  />
-
-  <GrammarOverview
-    name={langData.name}
-    highlights={langData.grammarHighlights}
-  />
-
-  <CommonMistakes
-    nativeLanguage="English"
-    mistakes={langData.commonMistakes}
-  />
-
-  <CultureSection
-    name={langData.name}
-    tips={langData.culturalTips}
-  />
-
-  <CouplesSection
-    name={langData.name}
-    tip={langData.couplesTip}
-    lovePhrase={lovePhrase ? { phrase: lovePhrase.phrase, translation: lovePhrase.translation } : undefined}
-    learnMoreUrl={`/learn/language/${langData.name.toLowerCase()}/for-couples/`}
-  />
-
-  <!-- Articles Grid - The "Spokes" of the Hub -->
+  <!-- ARTICLES FIRST - Immediately after hero -->
   <ArticlesGrid
     langCode={langCode}
     langName={langData.name}
     nativeLang="en"
     maxPerCategory={4}
   />
+
+  <!-- Two-Column Reference Section: Phrases + Why Learn | Grammar + Culture -->
+  <section class="py-10 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Left Column: Essential Phrases -->
+        <div class="space-y-6">
+          <div class="bg-white rounded-2xl p-5 border border-gray-200">
+            <h2 class="text-lg font-bold font-header text-[#292F36] mb-4 flex items-center gap-2">
+              <span class="text-xl">💬</span> Essential Phrases
+            </h2>
+            <div class="grid grid-cols-1 gap-2">
+              {langData.essentialPhrases.slice(0, 6).map(phrase => (
+                <div class="p-3 bg-gray-50 rounded-lg border border-gray-100 hover:border-[#FF6B6B]/30 transition-colors">
+                  <div class="flex justify-between items-start gap-2">
+                    <div>
+                      <span class="font-bold text-[#292F36] text-sm">{phrase.phrase}</span>
+                      <span class="text-[#FF6B6B] text-xs ml-2">/{phrase.pronunciation}/</span>
+                    </div>
+                  </div>
+                  <div class="text-gray-600 text-xs mt-1">{phrase.translation}</div>
+                </div>
+              ))}
+            </div>
+            <a href={`/learn/en/${langCode}/`} class="mt-4 inline-flex items-center gap-1 text-sm text-[#FF6B6B] font-medium hover:underline">
+              See all phrases <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Why Learn (compact) -->
+          <div class="bg-white rounded-2xl p-5 border border-gray-200">
+            <h2 class="text-lg font-bold font-header text-[#292F36] mb-3 flex items-center gap-2">
+              <span class="text-xl">🎯</span> Why Learn {langData.name}?
+            </h2>
+            <ul class="space-y-2">
+              {langData.whyLearn.slice(0, 3).map(reason => (
+                <li class="flex gap-2 text-sm text-gray-700">
+                  <span class="text-[#4ECDC4] flex-shrink-0">✓</span>
+                  <span class="line-clamp-2">{reason}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: Grammar + Culture -->
+        <div class="space-y-6">
+          <!-- Grammar Overview (compact) -->
+          <div class="bg-white rounded-2xl p-5 border border-gray-200">
+            <h2 class="text-lg font-bold font-header text-[#292F36] mb-3 flex items-center gap-2">
+              <span class="text-xl">📝</span> Grammar Highlights
+            </h2>
+            <ul class="space-y-2">
+              {langData.grammarHighlights.slice(0, 4).map(highlight => (
+                <li class="flex gap-2 text-sm text-gray-700">
+                  <span class="text-[#FF6B6B] flex-shrink-0">•</span>
+                  <span class="line-clamp-2">{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Culture Tips (compact) -->
+          <div class="bg-white rounded-2xl p-5 border border-gray-200">
+            <h2 class="text-lg font-bold font-header text-[#292F36] mb-3 flex items-center gap-2">
+              <span class="text-xl">{langData.flag}</span> Cultural Tips
+            </h2>
+            <ul class="space-y-2">
+              {langData.culturalTips.slice(0, 3).map(tip => (
+                <li class="flex gap-2 text-sm text-gray-700">
+                  <span class="text-[#FFE66D] flex-shrink-0">💡</span>
+                  <span class="line-clamp-2">{tip}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Common Mistakes (compact) -->
+          <div class="bg-white rounded-2xl p-5 border border-gray-200">
+            <h2 class="text-lg font-bold font-header text-[#292F36] mb-3 flex items-center gap-2">
+              <span class="text-xl">⚠️</span> Common Mistakes
+            </h2>
+            <ul class="space-y-2">
+              {langData.commonMistakes.slice(0, 3).map(item => (
+                <li class="text-sm">
+                  <span class="font-medium text-gray-900">{item.mistake}</span>
+                  <span class="text-gray-600 block text-xs mt-0.5 line-clamp-2">{item.explanation}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Couples CTA (compact) -->
+  <section class="py-10" style="background: linear-gradient(135deg, #FFF0F3 0%, #E7F5FF 100%);">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+        <span class="text-5xl">💕</span>
+        <div class="flex-1">
+          <h2 class="text-xl md:text-2xl font-bold font-header text-[#292F36] mb-2">
+            Learn {langData.name} Together
+          </h2>
+          <p class="text-gray-600 text-sm">{langData.couplesTip}</p>
+          {lovePhrase && (
+            <p class="mt-2 text-[#FF6B6B] font-bold">
+              "{lovePhrase.phrase}" — {lovePhrase.translation}
+            </p>
+          )}
+        </div>
+        <a
+          href={`/learn/language/${langData.name.toLowerCase()}/for-couples/`}
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white transition-all hover:scale-105 hover:shadow-lg flex-shrink-0"
+          style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);"
+        >
+          For Couples <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Native Language Options -->
   <section class="py-12 bg-gray-50">
