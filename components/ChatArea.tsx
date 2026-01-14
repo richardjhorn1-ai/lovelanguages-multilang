@@ -1145,9 +1145,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         )}
       </div>
 
-      <div className="flex-1 flex flex-col min-w-0 h-full relative">
+      <div className="flex-1 flex flex-col min-w-0 min-h-0 relative">
         {/* Mode Navigation */}
-        <div className="p-2 md:p-3 border-b border-[var(--border-color)] flex justify-between items-center bg-[var(--bg-card)]/80 backdrop-blur-md sticky top-0 z-10">
+        <div className="p-2 md:p-3 border-b border-[var(--border-color)] flex justify-between items-center bg-[var(--bg-card)]/80 backdrop-blur-md z-10 shrink-0">
           <div className="flex items-center gap-1.5 md:gap-2">
             {/* Mobile: Hamburger menu button for conversation sidebar */}
             <button
@@ -1212,7 +1212,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         </div>
 
         {/* Messages / Listen Transcripts */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto p-2 md:p-4 space-y-3 md:space-y-6 bg-[var(--bg-primary)] no-scrollbar">
+        <div ref={scrollRef} className="flex-1 min-h-0 overflow-y-auto p-2 md:p-4 space-y-3 md:space-y-6 bg-[var(--bg-primary)] no-scrollbar">
           {/* ========== LISTEN MODE VIEW ========== */}
           {(isListening || activeListenSession) ? (
             <>
@@ -1445,7 +1445,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
         {/* Input - Hidden in listen mode */}
         {!isListening && !activeListenSession && (
-          <div className="p-2 md:p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] relative">
+          <div className="p-2 md:p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] relative safe-area-bottom shrink-0">
             <div className={`absolute bottom-16 md:bottom-20 left-2 md:left-4 flex flex-col items-center gap-3 md:gap-4 transition-all duration-300 z-20 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
                <button onClick={() => imgInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
                   <ICONS.Image className="w-5 h-5 md:w-6 md:h-6" />
@@ -1509,7 +1509,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         }}
                         placeholder={isLive ? (liveState === 'listening' ? t('chat.input.listeningPlaceholder') : liveState === 'speaking' ? t('chat.input.speakingPlaceholder') : t('chat.input.connectingPlaceholder')) : (profile.role === 'tutor' ? t('chat.input.tutorPlaceholder') : mode === 'ask' ? t('chat.input.askPlaceholder') : t('chat.input.learnPlaceholder'))}
                         disabled={isLive}
-                        className="w-full bg-transparent border-none text-xs md:text-sm font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
+                        className="w-full bg-transparent border-none text-base md:text-sm font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
                       />
                   </div>
               </div>

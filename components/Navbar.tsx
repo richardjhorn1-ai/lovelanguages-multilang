@@ -159,6 +159,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
   return (
     <>
+    <div className="safe-area-top bg-[var(--bg-card)]">
       {/* XP PROGRESS BAR - shows progress within current level */}
       <div className="w-full h-1 bg-[var(--bg-primary)] flex">
         <div
@@ -492,6 +493,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
         </div>
         </div>
       </nav>
+    </div>
 
       {/* Mobile Notifications Panel - slide-in from right */}
       <div
