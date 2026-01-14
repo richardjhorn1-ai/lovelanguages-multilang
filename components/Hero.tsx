@@ -2174,7 +2174,7 @@ const Hero: React.FC = () => {
       {/* Mobile: Full-screen layout with horizontal swipe carousel */}
       <div className="md:hidden flex flex-col h-screen overflow-hidden">
         {/* Top: Logo on left, Learn/Teach Toggle on right */}
-        <div className="flex-shrink-0 px-4 py-3 flex items-center justify-between">
+        <div className="flex-shrink-0 px-4 py-3 flex items-center justify-between safe-area-top">
           {/* Logo */}
           <div className="flex items-center gap-1.5">
             <svg

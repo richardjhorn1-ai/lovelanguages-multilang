@@ -65,12 +65,22 @@ html.capacitor input,
 html.capacitor textarea,
 html.capacitor select {
     font-size: 16px !important;
-    touch-action: manipulation;
 }
 
-/* Capacitor: Prevent zoom gestures */
-html.capacitor * {
-    touch-action: pan-x pan-y;
+/* Capacitor: Completely disable pinch-zoom and pan gestures at root level */
+html.capacitor {
+    touch-action: none;
+}
+
+html.capacitor body {
+    touch-action: none;
+}
+
+/* Allow vertical scrolling in scrollable containers only */
+html.capacitor .overflow-y-auto,
+html.capacitor .overflow-auto {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
 }
 
 .font-header {
