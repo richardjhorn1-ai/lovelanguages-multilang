@@ -1218,10 +1218,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Weekly",
       "monthly": "Monthly",
       "yearly": "Yearly",
+      "wk": "wk",
       "mo": "mo",
       "yr": "yr",
+      "weeklyLabel": "Most Flexible",
+      "monthlyLabel": "Most Popular",
+      "yearlyLabel": "Best Commitment",
       "discount": "70% off",
       "savePercent": "Save {{percent}}%",
       "perMonth": "/mo",

@@ -12,7 +12,7 @@ interface SubscriptionRequiredProps {
 
 const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, onSubscribed }) => {
   const [selectedPlan, setSelectedPlan] = useState<'standard' | 'unlimited'>('unlimited');
-  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('yearly');
+  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('yearly');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showCanceledMessage, setShowCanceledMessage] = useState(false);
@@ -34,6 +34,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     {
       id: 'standard' as const,
       name: t('subscription.plans.standard'),
+      weeklyPrice: 7,
       monthlyPrice: 19,
       yearlyPrice: 69,
       tagline: t('subscription.required.taglineStandard'),
@@ -48,6 +49,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     {
       id: 'unlimited' as const,
       name: t('subscription.plans.unlimited'),
+      weeklyPrice: 12,
       monthlyPrice: 39,
       yearlyPrice: 139,
       tagline: t('subscription.required.taglineUnlimited'),
@@ -93,9 +95,17 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       // Determine price ID
       let priceId: string | null = null;
       if (selectedPlan === 'standard') {
-        priceId = billingPeriod === 'monthly' ? prices.standardMonthly : prices.standardYearly;
+        priceId = billingPeriod === 'weekly'
+          ? prices.standardWeekly
+          : billingPeriod === 'monthly'
+            ? prices.standardMonthly
+            : prices.standardYearly;
       } else {
-        priceId = billingPeriod === 'monthly' ? prices.unlimitedMonthly : prices.unlimitedYearly;
+        priceId = billingPeriod === 'weekly'
+          ? prices.unlimitedWeekly
+          : billingPeriod === 'monthly'
+            ? prices.unlimitedMonthly
+            : prices.unlimitedYearly;
       }
 
       if (!priceId) {
@@ -170,34 +180,70 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         )}
 
         {/* Billing Toggle */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 p-1 rounded-xl bg-white/80 shadow-sm">
-            <button
-              onClick={() => setBillingPeriod('monthly')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                billingPeriod === 'monthly' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500'
-              }`}
-            >
-              {t('subscription.common.monthly')}
-            </button>
-            <button
-              onClick={() => setBillingPeriod('yearly')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
-                billingPeriod === 'yearly' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500'
-              }`}
-            >
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-2 mb-6">
+          {/* Weekly */}
+          <button
+            onClick={() => setBillingPeriod('weekly')}
+            className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+              billingPeriod === 'weekly'
+                ? 'bg-rose-50 border-rose-400 text-rose-600 shadow-sm'
+                : 'bg-white/80 border-gray-200 text-gray-500 hover:border-gray-300'
+            }`}
+          >
+            <span className="text-xs opacity-70 mb-0.5">{t('subscription.common.weeklyLabel')}</span>
+            <span>{t('subscription.common.weekly')}</span>
+          </button>
+
+          {/* Monthly - Featured with glow */}
+          <button
+            onClick={() => setBillingPeriod('monthly')}
+            className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+              billingPeriod === 'monthly'
+                ? 'bg-rose-500 border-rose-500 text-white shadow-lg'
+                : 'bg-white/80 border-rose-400 text-rose-500'
+            }`}
+            style={{
+              boxShadow: '0 0 20px rgba(244, 63, 94, 0.4), 0 0 40px rgba(244, 63, 94, 0.2)',
+            }}
+          >
+            <span className={`text-xs mb-0.5 ${billingPeriod === 'monthly' ? 'opacity-90' : 'opacity-70'}`}>
+              {t('subscription.common.monthlyLabel')}
+            </span>
+            <span>{t('subscription.common.monthly')}</span>
+          </button>
+
+          {/* Yearly */}
+          <button
+            onClick={() => setBillingPeriod('yearly')}
+            className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+              billingPeriod === 'yearly'
+                ? 'bg-rose-50 border-rose-400 text-rose-600 shadow-sm'
+                : 'bg-white/80 border-gray-200 text-gray-500 hover:border-gray-300'
+            }`}
+          >
+            <span className="text-xs opacity-70 mb-0.5">{t('subscription.common.yearlyLabel')}</span>
+            <span className="flex items-center gap-1">
               {t('subscription.common.yearly')}
-              <span className="text-xs px-2 py-0.5 rounded-full bg-green-500 text-white">
+              <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-500 text-white">
                 {t('subscription.common.discount')}
               </span>
-            </button>
-          </div>
+            </span>
+          </button>
         </div>
 
         {/* Plan Cards */}
         <div className="space-y-4 mb-6">
           {plans.map((plan) => {
-            const price = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
+            const price = billingPeriod === 'weekly'
+              ? plan.weeklyPrice
+              : billingPeriod === 'monthly'
+                ? plan.monthlyPrice
+                : plan.yearlyPrice;
+            const periodLabel = billingPeriod === 'weekly'
+              ? t('subscription.common.wk')
+              : billingPeriod === 'monthly'
+                ? t('subscription.common.mo')
+                : t('subscription.common.yr');
             const isSelected = selectedPlan === plan.id;
 
             return (
@@ -240,7 +286,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                   <div className="text-right flex-shrink-0">
                     <div className="text-2xl font-bold text-gray-900">${price}</div>
                     <div className="text-xs text-gray-500">
-                      /{billingPeriod === 'monthly' ? t('subscription.common.mo') : t('subscription.common.yr')}
+                      /{periodLabel}
                     </div>
                     {billingPeriod === 'yearly' && (
                       <div className="text-xs text-green-600 mt-1">
