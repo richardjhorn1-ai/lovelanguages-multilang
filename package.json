@@ -15,9 +15,17 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
-    "test:e2e:debug": "playwright test --debug"
+    "test:e2e:debug": "playwright test --debug",
+    "cap:sync": "npm run build:app && npx cap sync",
+    "cap:ios": "npx cap open ios",
+    "cap:build:ios": "npm run build:app && npx cap sync ios && npx cap open ios"
   },
   "dependencies": {
+    "@capacitor/cli": "^8.0.1",
+    "@capacitor/core": "^8.0.1",
+    "@capacitor/haptics": "^8.0.0",
+    "@capacitor/ios": "^8.0.1",
+    "@capacitor/network": "^8.0.0",
     "@google/genai": "*",
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",

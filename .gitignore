@@ -41,3 +41,7 @@ test-results/
 # Local test files
 test-logins.local.txt
 blog/.astro/
+
+# Capacitor native projects (regenerate with `npx cap add ios/android`)
+ios/
+android/
