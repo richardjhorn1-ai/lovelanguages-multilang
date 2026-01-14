@@ -9,6 +9,14 @@ const config: CapacitorConfig = {
     // For local dev, comment this out and run `vercel dev`
     url: 'https://lovelanguages.xyz',
     cleartext: false
+  },
+  ios: {
+    // Prevent text size adjustment that can cause zoom
+    preferredContentMode: 'mobile',
+    // Scroll view configuration
+    scrollEnabled: true,
+    // Disable link previews (3D touch)
+    allowsLinkPreview: false
   }
 };
 

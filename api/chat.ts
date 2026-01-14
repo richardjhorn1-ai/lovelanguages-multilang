@@ -11,6 +11,7 @@ import {
 } from '../utils/api-middleware.js';
 import { extractLanguages, type LanguageParams } from '../utils/language-helpers.js';
 import { getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
+import { getExtractionInstructions } from '../utils/schema-builders.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
 import { buildVocabularySchema } from '../utils/schema-builders.js';
 
@@ -457,7 +458,9 @@ FORMAT:
 - Pronunciation in [brackets]: [pro-nun-see-AY-shun]
 - Example: **${targetConfig?.examples.hello || 'Hello'}** [pronunciation] means "${nativeConfig?.examples.hello || 'Hello'}"
 
-VOCABULARY: Extract new words taught into the newWords array. The schema defines the structure - fill all required fields completely.
+VOCABULARY EXTRACTION:
+Extract every new ${targetName} word you teach into the newWords array.
+${getExtractionInstructions(targetLanguage)}
 `;
 
     const MODE_DEFINITIONS = {
@@ -470,61 +473,28 @@ Be conversational and concise. 2-3 sentences max.
 - No tables, lists, or lectures - just natural chat
 `,
         learn: `
-### MODE: LEARN - Structured Lesson
-
-You MUST use special markdown syntax. This is NON-NEGOTIABLE.
+### MODE: LEARN - Structured Teaching
 
 Known vocabulary: [${sanitizedUserLog.slice(0, 30).join(', ')}]
 
-VERB TEACHING RULE:
-${hasConjugation ? `When teaching ANY verb, ALWAYS show ALL ${conjugationPersons.length} conjugations (${conjugationPersons.join(', ')}).
-This is essential - never show partial conjugations.` : `Show the base/infinitive form and any key variations.`}
+RESPONSE STYLE:
+- Keep explanations concise - teach one concept well, don't overwhelm
+- Use tables for conjugations/declensions (when teaching verbs or grammar)
+- Use drills sparingly - only for actionable practice challenges
+- Don't force both table AND drill into every response
 
-YOUR RESPONSE MUST CONTAIN THESE EXACT PATTERNS:
-
-PATTERN 1 - Table (copy this EXACT format):
+SPECIAL MARKDOWN (use when appropriate):
 ::: table
-Column1 | Column2 | Column3
----|---|---
-Row1Col1 | Row1Col2 | Row1Col3
+Header1 | Header2
+---|---
+Data1 | Data2
 :::
-
-PATTERN 2 - Drill (copy this EXACT format):
-::: drill
-Your challenge text here
-:::
-
-COMPLETE EXAMPLE FOR VERB TEACHING:
-"Let's master 'to love' - the most important verb in any language!
-
-::: table
-Person | ${targetName} | Pronunciation
----|---|---
-${conjugationPersons[0] || 'I'} | [I form] | [pronunciation]
-${conjugationPersons[1] || 'You'} | [You form] | [pronunciation]
-${conjugationPersons[2] || 'He/She/It'} | [He/She form] | [pronunciation]
-${conjugationPersons[3] || 'We'} | [We form] | [pronunciation]
-${conjugationPersons[4] || 'You (pl)'} | [You plural form] | [pronunciation]
-${conjugationPersons[5] || 'They'} | [They form] | [pronunciation]
-:::
-
-Try whispering 'We love each other' in ${targetName} while hugging.
 
 ::: drill
-Tonight's challenge: Say '${targetConfig?.examples.iLoveYou || 'I love you'}' while looking into their eyes.
+Practice challenge here
 :::
 
-Want me to show you the past and future tenses too?"
-
-ALWAYS END WITH A FOLLOW-UP QUESTION offering to teach related content (other tenses, similar words, etc.)
-
-VALIDATION:
-[ ] Table has "::: table" and ":::" markers
-[ ] Drill has "::: drill" and ":::" markers
-${hasConjugation ? `[ ] Verbs show ALL ${conjugationPersons.length} conjugations` : `[ ] Verbs show base form and key variations`}
-[ ] Ends with follow-up question
-
-If you write a table WITHOUT "::: markers, IT WILL NOT RENDER.
+${hasConjugation ? `VERBS: When teaching a verb, show all ${conjugationPersons.length} persons (${conjugationPersons.join(', ')}).` : ''}
 `,
         coach: '' // Placeholder - will be dynamically generated with partner context
     };
