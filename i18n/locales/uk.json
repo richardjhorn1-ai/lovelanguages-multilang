@@ -1737,6 +1737,8 @@
       "passwordLabel": "Пароль",
       "passwordPlaceholder": "••••••••",
       "entering": "Входимо...",
+      "signIn": "Увійти",
+      "createAccount": "Створити акаунт",
       "alreadyHaveAccount": "Вже маєш акаунт? Увійди",
       "newHere": "Тут вперше? Створи акаунт",
       "checkEmail": "Перевір пошту для підтвердження!"

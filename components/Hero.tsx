@@ -1399,7 +1399,8 @@ const LoginForm: React.FC<{
   onSubmit: (e: React.FormEvent) => void;
   selectedRole: HeroRole;
   setMessage: (v: string) => void;
-}> = ({ context, isStudent, email, setEmail, password, setPassword, loading, isSignUp, setIsSignUp, message, onSubmit, selectedRole, setMessage }) => {
+  currentStep: SelectionStep;
+}> = ({ context, isStudent, email, setEmail, password, setPassword, loading, isSignUp, setIsSignUp, message, onSubmit, selectedRole, setMessage, currentStep }) => {
   const [oauthLoading, setOauthLoading] = useState<'google' | 'apple' | null>(null);
 
   const handleOAuthSignIn = async (provider: 'google' | 'apple') => {
@@ -1504,7 +1505,11 @@ const LoginForm: React.FC<{
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
         >
-          {loading ? t('hero.login.entering') : context.cta}
+          {loading ? t('hero.login.entering') : (
+            currentStep === 'marketing' ? context.cta : (
+              isSignUp ? t('hero.login.createAccount') : t('hero.login.signIn')
+            )
+          )}
         </button>
       </form>
 
@@ -2423,7 +2428,7 @@ const Hero: React.FC = () => {
 
         {/* Bottom: Fixed Login Form (~45%) */}
         <div
-          className="flex-shrink-0 rounded-t-3xl shadow-2xl px-6 pt-4 pb-6 relative overflow-hidden"
+          className="flex-shrink-0 rounded-t-3xl shadow-2xl px-6 pt-4 pb-6 relative overflow-y-auto"
           style={{ backgroundColor: '#ffffff', maxHeight: '45vh', minHeight: '320px' }}
         >
           <ICONS.Heart className="absolute -bottom-16 -right-16 w-48 h-48 opacity-[0.03] pointer-events-none" style={{ color: accentColor }} />
@@ -2536,7 +2541,11 @@ const Hero: React.FC = () => {
                 className="w-full text-white font-black py-3 rounded-2xl shadow-xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.15em]"
                 style={{ backgroundColor: accentColor, boxShadow: `0 15px 30px -8px ${accentShadow}` }}
               >
-                {loading ? t('hero.login.entering') : currentContext.cta}
+                {loading ? t('hero.login.entering') : (
+                  currentStep === 'marketing' ? currentContext.cta : (
+                    isSignUp ? t('hero.login.createAccount') : t('hero.login.signIn')
+                  )
+                )}
               </button>
             </form>
 
@@ -2850,6 +2859,7 @@ const Hero: React.FC = () => {
             onSubmit={handleAuth}
             selectedRole={selectedRole}
             setMessage={setMessage}
+            currentStep={currentStep}
           />
 
           {/* Legal links */}

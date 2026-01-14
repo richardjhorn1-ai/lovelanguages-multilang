@@ -1737,6 +1737,8 @@
       "passwordLabel": "Heslo",
       "passwordPlaceholder": "••••••••",
       "entering": "Přihlašování...",
+      "signIn": "Přihlásit se",
+      "createAccount": "Vytvořit účet",
       "alreadyHaveAccount": "Už máš účet? Přihlas se",
       "newHere": "Jsi tu nový/á? Vytvoř si účet",
       "checkEmail": "Zkontroluj si e-mail pro potvrzení!"

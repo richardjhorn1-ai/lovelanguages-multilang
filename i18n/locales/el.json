@@ -1737,6 +1737,8 @@
       "passwordLabel": "Κωδικός πρόσβασης",
       "passwordPlaceholder": "••••••••",
       "entering": "Είσοδος...",
+      "signIn": "Σύνδεση",
+      "createAccount": "Δημιουργία λογαριασμού",
       "alreadyHaveAccount": "Έχεις ήδη λογαριασμό; Συνδέσου",
       "newHere": "Νέος/α εδώ; Δημιούργησε λογαριασμό",
       "checkEmail": "Έλεγξε το email σου για επιβεβαίωση!"

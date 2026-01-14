@@ -26,6 +26,7 @@
     "@capacitor/haptics": "^8.0.0",
     "@capacitor/ios": "^8.0.1",
     "@capacitor/network": "^8.0.0",
+    "@capacitor/status-bar": "^8.0.0",
     "@google/genai": "*",
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
