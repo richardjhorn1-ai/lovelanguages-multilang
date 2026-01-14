@@ -1709,7 +1709,23 @@
   "hero": {
     "languageSelector": {
       "nativePrompt": "Beszélek...",
-      "targetPrompt": "Tanulni akarok..."
+      "targetPrompt": "Tanulni akarok...",
+      "targetPromptTutor": "Tanítani akarok..."
+    },
+    "nativeStep": {
+      "header": "Milyen nyelven beszélsz?",
+      "subtext": "Mindent a te nyelveden mutatunk",
+      "cta": "Regisztráció"
+    },
+    "studentTargetStep": {
+      "header": "Milyen nyelvet szeretnél tanulni?",
+      "subtext": "Válaszd annak a nyelvét, akit szeretsz",
+      "cta": "Regisztráció"
+    },
+    "tutorTargetStep": {
+      "header": "Milyen nyelvet szeretnél tanítani?",
+      "subtext": "Oszd meg a nyelvedet valakivel, akit szeretsz",
+      "cta": "Regisztráció"
     },
     "toggle": {
       "learn": "Tanulás",

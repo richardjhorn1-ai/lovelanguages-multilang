@@ -1712,6 +1712,21 @@
       "targetPrompt": "Ik wil leren...",
       "targetPromptTutor": "Ik wil lesgeven..."
     },
+    "nativeStep": {
+      "header": "Welke taal spreek je?",
+      "subtext": "We tonen alles in jouw taal",
+      "cta": "Registreren"
+    },
+    "studentTargetStep": {
+      "header": "Welke taal wil je leren?",
+      "subtext": "Kies de taal van iemand van wie je houdt",
+      "cta": "Registreren"
+    },
+    "tutorTargetStep": {
+      "header": "Welke taal wil je onderwijzen?",
+      "subtext": "Deel je taal met iemand van wie je houdt",
+      "cta": "Registreren"
+    },
     "toggle": {
       "learn": "Leren",
       "teach": "Lesgeven"

@@ -1709,7 +1709,23 @@
   "hero": {
     "languageSelector": {
       "nativePrompt": "Kbu kişiyiştuğum dil...",
-      "targetPrompt": "Öğrenmek istiyorum..."
+      "targetPrompt": "Öğrenmek istiyorum...",
+      "targetPromptTutor": "Öğretmek istiyorum..."
+    },
+    "nativeStep": {
+      "header": "Hangi dili konuşuyorsunuz?",
+      "subtext": "Her şeyi sizin dilinizde göstereceğiz",
+      "cta": "Kayıt ol"
+    },
+    "studentTargetStep": {
+      "header": "Hangi dili öğrenmek istiyorsunuz?",
+      "subtext": "Sevdiğiniz birinin dilini seçin",
+      "cta": "Kayıt ol"
+    },
+    "tutorTargetStep": {
+      "header": "Hangi dili öğretmek istiyorsunuz?",
+      "subtext": "Dilinizi sevdiğiniz biriyle paylaşın",
+      "cta": "Kayıt ol"
     },
     "toggle": {
       "learn": "Öğren",

@@ -1712,6 +1712,21 @@
       "targetPrompt": "Chci se naučit...",
       "targetPromptTutor": "Chci učit..."
     },
+    "nativeStep": {
+      "header": "Jakým jazykem mluvíte?",
+      "subtext": "Vše vám ukážeme ve vašem jazyce",
+      "cta": "Zaregistrovat se"
+    },
+    "studentTargetStep": {
+      "header": "Jaký jazyk se chcete naučit?",
+      "subtext": "Vyberte jazyk někoho, koho milujete",
+      "cta": "Zaregistrovat se"
+    },
+    "tutorTargetStep": {
+      "header": "Jaký jazyk chcete vyučovat?",
+      "subtext": "Sdílejte svůj jazyk s někým, koho milujete",
+      "cta": "Zaregistrovat se"
+    },
     "toggle": {
       "learn": "Učit se",
       "teach": "Učit"

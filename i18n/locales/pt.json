@@ -1712,6 +1712,21 @@
       "targetPrompt": "Quero aprender...",
       "targetPromptTutor": "Quero ensinar..."
     },
+    "nativeStep": {
+      "header": "Que idioma você fala?",
+      "subtext": "Mostraremos tudo no seu idioma",
+      "cta": "Cadastrar"
+    },
+    "studentTargetStep": {
+      "header": "Que idioma você quer aprender?",
+      "subtext": "Escolha o idioma de alguém que você ama",
+      "cta": "Cadastrar"
+    },
+    "tutorTargetStep": {
+      "header": "Que idioma você quer ensinar?",
+      "subtext": "Compartilhe seu idioma com alguém que você ama",
+      "cta": "Cadastrar"
+    },
     "toggle": {
       "learn": "Aprender",
       "teach": "Ensinar"

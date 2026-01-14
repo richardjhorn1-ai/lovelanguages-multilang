@@ -1293,6 +1293,26 @@ const getTutorContexts = (t: TFunction) => [
   { header: t('hero.tutor.context7.header'), cta: t('hero.tutor.context7.cta'), subtext: t('hero.tutor.context7.subtext') },
 ];
 
+// Context for native language selection step (same for both roles)
+const getNativeStepContext = (t: TFunction) => ({
+  header: t('hero.nativeStep.header'),
+  cta: t('hero.nativeStep.cta'),
+  subtext: t('hero.nativeStep.subtext'),
+});
+
+// Context for target language selection step (different for student/tutor)
+const getStudentTargetStepContext = (t: TFunction) => ({
+  header: t('hero.studentTargetStep.header'),
+  cta: t('hero.studentTargetStep.cta'),
+  subtext: t('hero.studentTargetStep.subtext'),
+});
+
+const getTutorTargetStepContext = (t: TFunction) => ({
+  header: t('hero.tutorTargetStep.header'),
+  cta: t('hero.tutorTargetStep.cta'),
+  subtext: t('hero.tutorTargetStep.subtext'),
+});
+
 // Section component
 const Section: React.FC<{
   headline: string;
@@ -2119,8 +2139,19 @@ const Hero: React.FC = () => {
 
   const sections = selectedRole === 'student' ? getStudentSections(t) : getTutorSections(t);
   const contexts = selectedRole === 'student' ? getStudentContexts(t) : getTutorContexts(t);
-  const currentContext = contexts[activeSection] || contexts[0];
   const isStudent = selectedRole === 'student';
+
+  // Step-aware context: show different right-side content based on current step
+  const currentContext = (() => {
+    if (currentStep === 'native') {
+      return getNativeStepContext(t);
+    }
+    if (currentStep === 'target') {
+      return isStudent ? getStudentTargetStepContext(t) : getTutorTargetStepContext(t);
+    }
+    // Marketing step: use section-based contexts
+    return contexts[activeSection] || contexts[0];
+  })();
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
   const accentShadow = isStudent ? BRAND.shadow : BRAND.tealShadow;
 

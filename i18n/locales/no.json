@@ -1712,6 +1712,21 @@
       "targetPrompt": "Jeg vil lære...",
       "targetPromptTutor": "Jeg vil undervise..."
     },
+    "nativeStep": {
+      "header": "Hvilket språk snakker du?",
+      "subtext": "Vi viser alt på ditt språk",
+      "cta": "Registrer deg"
+    },
+    "studentTargetStep": {
+      "header": "Hvilket språk vil du lære?",
+      "subtext": "Velg språket til noen du elsker",
+      "cta": "Registrer deg"
+    },
+    "tutorTargetStep": {
+      "header": "Hvilket språk vil du undervise i?",
+      "subtext": "Del språket ditt med noen du elsker",
+      "cta": "Registrer deg"
+    },
     "toggle": {
       "learn": "Lær",
       "teach": "Undervis"
