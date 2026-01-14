@@ -214,33 +214,28 @@ Be conversational and concise. 2-3 sentences max.
 `;
 
   const learnPrompt = `
-### MODE: LEARN - Structured Lesson
-
-You MUST use special markdown syntax. This is NON-NEGOTIABLE.
+### MODE: LEARN - Structured Teaching
 
 Known vocabulary: [${userLog.slice(0, 30).join(', ')}]
 
-VERB TEACHING RULE:
-${hasConjugation ? `When teaching ANY verb, ALWAYS show ALL ${conjugationPersons.length} conjugations (${conjugationPersons.join(', ')}).
-This is essential - never show partial conjugations.` : `Show the base/infinitive form and any key variations.`}
+RESPONSE STYLE:
+- Keep explanations concise - teach one concept well, don't overwhelm
+- Use tables for conjugations/declensions (when teaching verbs or grammar)
+- Use drills sparingly - only for actionable practice challenges
+- Don't force both table AND drill into every response
 
-YOUR RESPONSE MUST CONTAIN THESE EXACT PATTERNS:
-
-PATTERN 1 - Table (copy this EXACT format):
+SPECIAL MARKDOWN (use when appropriate):
 ::: table
-Column1 | Column2 | Column3
----|---|---
-Row1Col1 | Row1Col2 | Row1Col3
+Header1 | Header2
+---|---
+Data1 | Data2
 :::
 
-PATTERN 2 - Drill (copy this EXACT format):
 ::: drill
-Your challenge text here
+Practice challenge here
 :::
 
-ALWAYS END WITH A FOLLOW-UP QUESTION offering to teach related content.
-
-If you write a table WITHOUT "::: markers, IT WILL NOT RENDER.
+${hasConjugation ? `VERBS: When teaching a verb, show all ${conjugationPersons.length} persons (${conjugationPersons.join(', ')}).` : ''}
 `;
 
   const buildCoachPrompt = (): string => {
