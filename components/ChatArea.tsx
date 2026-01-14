@@ -477,7 +477,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         (chunk) => setStreamingText(prev => prev + chunk)
       );
 
-      // Extract vocabulary separately after streaming completes
+      // Clear streaming UI immediately after stream completes
+      setStreamingText('');
+    }
+
+    // ACT 3: SAVE MODEL REPLY
+    await saveMessage('model', replyText);
+
+    // Extract vocabulary for streaming messages (images already get words from generateReply)
+    if (currentAttachments.length === 0) {
       const extracted = await geminiService.analyzeHistory(
         [...messageHistory, { role: 'user', content: userMessage }, { role: 'assistant', content: replyText }],
         userWords,
@@ -485,10 +493,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       );
       newWords = extracted;
     }
-
-    // ACT 3: SAVE MODEL REPLY
-    setStreamingText('');
-    await saveMessage('model', replyText);
 
     // ACT 4: SAVE EXTRACTED WORDS & SHOW NOTIFICATION
     if (newWords.length > 0) {

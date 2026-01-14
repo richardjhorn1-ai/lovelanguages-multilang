@@ -155,33 +155,38 @@ export const geminiService = {
 
       const decoder = new TextDecoder();
       let fullText = '';
-      let streamComplete = false;
+      let buffer = ''; // Buffer for incomplete lines split across chunks
 
-      while (!streamComplete) {
+      while (true) {
         const { done, value } = await reader.read();
-        if (done) break;
 
-        const chunk = decoder.decode(value, { stream: true });
-        const lines = chunk.split('\n');
+        // Process any data in this chunk (even if done is true)
+        if (value) {
+          // Flush decoder on final chunk (stream: false)
+          buffer += decoder.decode(value, { stream: !done });
+          const lines = buffer.split('\n');
 
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            try {
-              const data = JSON.parse(line.slice(6));
-              if (data.text) {
-                fullText += data.text;
-                onChunk?.(data.text);
+          // Keep the last potentially incomplete line in buffer
+          buffer = lines.pop() || '';
+
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              try {
+                const data = JSON.parse(line.slice(6));
+                if (data.text) {
+                  fullText += data.text;
+                  onChunk?.(data.text);
+                }
+                if (data.error) throw new Error(data.error);
+              } catch (e) {
+                // Skip malformed JSON lines
               }
-              if (data.done) {
-                streamComplete = true;
-                break;
-              }
-              if (data.error) throw new Error(data.error);
-            } catch (e) {
-              // Skip malformed JSON lines
             }
           }
         }
+
+        // Exit after processing final chunk
+        if (done) break;
       }
 
       return fullText || "I'm having a bit of trouble finding the words.";
