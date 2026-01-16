@@ -7,6 +7,7 @@
  */
 
 import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware';
+import { Resend } from 'resend';
 
 interface BugReportBody {
   title: string;
@@ -104,6 +105,58 @@ export default async function handler(req: any, res: any) {
         console.error('[submit-bug-report] Notification error:', err.message);
       }
     })();
+
+    // Send email notification to support (non-blocking)
+    if (process.env.RESEND_API_KEY) {
+      (async () => {
+        try {
+          const resend = new Resend(process.env.RESEND_API_KEY);
+          const severityEmoji = {
+            critical: '🚨',
+            high: '🔴',
+            medium: '🟡',
+            low: '🟢'
+          }[severity] || '🟡';
+
+          await resend.emails.send({
+            from: 'Love Languages Bugs <bugs@lovelanguages.xyz>',
+            to: 'support@lovelanguages.xyz',
+            subject: `${severityEmoji} [${severity.toUpperCase()}] Bug Report: ${body.title.trim().slice(0, 80)}`,
+            html: `
+              <h2>Bug Report #${report.id}</h2>
+              <p><strong>Severity:</strong> ${severityEmoji} ${severity.toUpperCase()}</p>
+              <p><strong>Title:</strong> ${body.title.trim()}</p>
+              <p><strong>Description:</strong></p>
+              <pre style="background: #f4f4f4; padding: 12px; border-radius: 4px; white-space: pre-wrap;">${body.description.trim()}</pre>
+              <hr />
+              <p><strong>User ID:</strong> ${auth.userId}</p>
+              <p><strong>Page URL:</strong> ${body.pageUrl || 'Not provided'}</p>
+              ${body.browserInfo ? `
+                <p><strong>Browser Info:</strong></p>
+                <ul>
+                  <li>Platform: ${body.browserInfo.platform}</li>
+                  <li>Screen: ${body.browserInfo.screenWidth}x${body.browserInfo.screenHeight}</li>
+                  <li>Language: ${body.browserInfo.language}</li>
+                  <li>User Agent: ${body.browserInfo.userAgent}</li>
+                </ul>
+              ` : ''}
+              ${body.appState ? `
+                <p><strong>App State:</strong></p>
+                <ul>
+                  <li>Role: ${body.appState.role}</li>
+                  <li>Level: ${body.appState.level}</li>
+                  <li>XP: ${body.appState.xp}</li>
+                  <li>Path: ${body.appState.currentPath}</li>
+                </ul>
+              ` : ''}
+            `
+          });
+          console.log(`[submit-bug-report] Email sent for report ${report.id}`);
+        } catch (err: any) {
+          console.error('[submit-bug-report] Email error:', err.message);
+        }
+      })();
+    }
 
     console.log(`[submit-bug-report] Report ${report.id} created by user ${auth.userId}`);
 
