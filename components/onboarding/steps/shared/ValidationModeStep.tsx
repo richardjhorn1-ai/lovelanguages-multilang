@@ -65,7 +65,7 @@ export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
         <h1 className="text-2xl md:text-3xl font-black text-gray-800 mb-3 font-header">
           {t('onboarding.validation.title')}
         </h1>
-        <p className="text-gray-500 text-sm md:text-base">
+        <p className="text-gray-500 text-scale-label">
           {t('onboarding.validation.subtitle')}
         </p>
       </div>
@@ -90,7 +90,7 @@ export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
                   <span
-                    className={`font-bold text-base md:text-lg ${
+                    className={`font-bold text-scale-body ${
                       selected === option.value ? '' : 'text-gray-700'
                     }`}
                     style={selected === option.value ? { color: accentColor } : {}}
