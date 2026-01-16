@@ -53,7 +53,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
             </div>
             <div>
               <h2 className="font-black text-[var(--text-primary)]">{t('scenarioSelector.title')}</h2>
-              <p className="text-xs text-[var(--text-secondary)]">{t('scenarioSelector.subtitle')}</p>
+              <p className="text-scale-caption text-[var(--text-secondary)]">{t('scenarioSelector.subtitle')}</p>
             </div>
           </div>
           <button
@@ -86,7 +86,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                           {t(`scenarioSelector.difficulty.${scenario.difficulty}`)}
                         </span>
                       </div>
-                      <p className="text-sm text-[var(--text-secondary)]">{t(`scenarioSelector.scenarios.${scenario.id}.description`)}</p>
+                      <p className="text-scale-label text-[var(--text-secondary)]">{t(`scenarioSelector.scenarios.${scenario.id}.description`)}</p>
                     </div>
                     <ICONS.ChevronRight className="w-5 h-5 text-[var(--text-secondary)] opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
@@ -104,7 +104,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-purple-700 dark:text-purple-300">{t('scenarioSelector.createOwn')}</h3>
-                    <p className="text-sm text-purple-600/70 dark:text-purple-400/70">{t('scenarioSelector.createOwnDesc')}</p>
+                    <p className="text-scale-label text-purple-600/70 dark:text-purple-400/70">{t('scenarioSelector.createOwnDesc')}</p>
                   </div>
                   <ICONS.ChevronRight className="w-5 h-5 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
@@ -116,7 +116,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
               <div>
                 <button
                   onClick={() => setShowCustom(false)}
-                  className="flex items-center gap-1 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] mb-4"
+                  className="flex items-center gap-1 text-scale-label text-[var(--text-secondary)] hover:text-[var(--text-primary)] mb-4"
                 >
                   <ICONS.ChevronLeft className="w-4 h-4" />
                   {t('scenarioSelector.backToScenarios')}
@@ -125,7 +125,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                 <div className="text-center mb-6">
                   <div className="text-4xl mb-2">✨</div>
                   <h3 className="font-black text-[var(--text-primary)]">{t('scenarioSelector.customScenario')}</h3>
-                  <p className="text-sm text-[var(--text-secondary)]">{t('scenarioSelector.describeScenario')}</p>
+                  <p className="text-scale-label text-[var(--text-secondary)]">{t('scenarioSelector.describeScenario')}</p>
                 </div>
 
                 <textarea
@@ -133,7 +133,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                   onChange={e => setCustomTopic(e.target.value)}
                   placeholder={t('scenarioSelector.customPlaceholder')}
                   rows={4}
-                  className="w-full p-4 border-2 border-[var(--border-color)] rounded-2xl text-sm focus:outline-none focus:border-purple-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] resize-none"
+                  className="w-full p-4 border-2 border-[var(--border-color)] rounded-2xl text-scale-label focus:outline-none focus:border-purple-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] resize-none"
                   autoFocus
                 />
 
@@ -152,7 +152,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
 
         {/* Footer Info */}
         <div className="p-4 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
-          <p className="text-xs text-center text-[var(--text-secondary)]">
+          <p className="text-scale-caption text-center text-[var(--text-secondary)]">
             {t('scenarioSelector.footerInfo', { targetLanguage: targetName, nativeLanguage: nativeName })}
           </p>
         </div>

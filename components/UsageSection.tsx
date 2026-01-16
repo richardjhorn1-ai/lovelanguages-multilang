@@ -119,7 +119,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
               {t('usage.unlimitedPlan')}
             </span>
           </div>
-          <p className="text-sm text-[var(--text-secondary)]">
+          <p className="text-scale-label text-[var(--text-secondary)]">
             {t('usage.noLimits')}
           </p>
         </div>
@@ -164,11 +164,11 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
         {limits.wordLimit !== null && (
           <div>
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
+              <span className="text-scale-label font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <ICONS.Book className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
                 {t('usage.vocabulary')}
               </span>
-              <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>
+              <span className="text-scale-caption font-bold" style={{ color: 'var(--text-secondary)' }}>
                 {usage.wordsAdded.toLocaleString()} / {limits.wordLimit.toLocaleString()}
               </span>
             </div>
@@ -188,11 +188,11 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
         {limits.voiceMinutesPerMonth !== null && (
           <div>
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
+              <span className="text-scale-label font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <ICONS.Mic className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
                 {t('usage.voiceChat')}
               </span>
-              <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>
+              <span className="text-scale-caption font-bold" style={{ color: 'var(--text-secondary)' }}>
                 {usage.voiceMinutes} / {limits.voiceMinutesPerMonth} min
               </span>
             </div>
@@ -212,11 +212,11 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
         {limits.listenMinutesPerMonth !== null && (
           <div>
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
+              <span className="text-scale-label font-bold text-[var(--text-primary)] flex items-center gap-2">
                 <ICONS.Volume2 className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
                 {t('usage.listenMode')}
               </span>
-              <span className="text-xs font-bold" style={{ color: 'var(--text-secondary)' }}>
+              <span className="text-scale-caption font-bold" style={{ color: 'var(--text-secondary)' }}>
                 {usage.listenMinutes} / {limits.listenMinutesPerMonth} min
               </span>
             </div>
@@ -241,7 +241,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
           className="mt-5 p-4 rounded-2xl text-center"
           style={{ backgroundColor: `${accentHex}10`, border: `1px solid ${accentHex}30` }}
         >
-          <p className="text-sm font-bold" style={{ color: accentHex }}>
+          <p className="text-scale-label font-bold" style={{ color: accentHex }}>
             {t('usage.upgradePrompt')}
           </p>
         </div>

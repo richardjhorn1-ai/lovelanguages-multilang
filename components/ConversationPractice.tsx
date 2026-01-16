@@ -123,7 +123,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
               {scenario?.icon || '🎙️'}
             </div>
             <div>
-              <h2 className="font-bold text-[var(--text-primary)] text-sm">
+              <h2 className="font-bold text-[var(--text-primary)] text-scale-label">
                 {scenario?.id === 'custom' ? t('scenarioSelector.customScenarioName') : t(`scenarioSelector.scenarios.${scenario?.id}.name`)}
               </h2>
               <div className="flex items-center gap-2">
@@ -133,7 +133,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                   state === 'connecting' ? 'bg-amber-500 animate-pulse' :
                   'bg-gray-400'
                 }`}></span>
-                <span className="text-xs text-[var(--text-secondary)]">
+                <span className="text-scale-caption text-[var(--text-secondary)]">
                   {state === 'listening' ? t('conversationPractice.states.listening') :
                    state === 'speaking' ? t('conversationPractice.states.speaking') :
                    state === 'connecting' ? t('conversationPractice.states.connecting') :
@@ -145,7 +145,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
           </div>
           <button
             onClick={handleEnd}
-            className="px-3 py-2 bg-red-500/10 text-red-500 font-bold text-xs rounded-xl hover:bg-red-500/20 transition-colors"
+            className="px-3 py-2 bg-red-500/10 text-red-500 font-bold text-scale-caption rounded-xl hover:bg-red-500/20 transition-colors"
           >
             {t('conversationPractice.end')}
           </button>
@@ -161,7 +161,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                   <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                   <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 </div>
-                <p className="text-sm text-[var(--text-secondary)]">{t('conversationPractice.startingConversation')}</p>
+                <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.startingConversation')}</p>
               </div>
             </div>
           )}
@@ -178,7 +178,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                     : 'bg-[var(--bg-primary)] text-[var(--text-primary)] border border-[var(--border-color)] rounded-bl-md'
                 }`}
               >
-                <p className="text-sm">{entry.text}</p>
+                <p className="text-scale-label">{entry.text}</p>
               </div>
             </div>
           ))}
@@ -187,7 +187,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
           {currentText && (
             <div className="flex justify-start">
               <div className="max-w-[80%] p-3 rounded-2xl bg-[var(--bg-primary)] border border-purple-300 dark:border-purple-700 rounded-bl-md">
-                <p className="text-sm text-[var(--text-secondary)] italic">{currentText}...</p>
+                <p className="text-scale-label text-[var(--text-secondary)] italic">{currentText}...</p>
               </div>
             </div>
           )}
@@ -198,10 +198,10 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
         {/* Error State */}
         {error && (
           <div className="p-4 bg-red-50 dark:bg-red-900/20 border-t border-red-200 dark:border-red-800">
-            <p className="text-sm text-red-600 dark:text-red-400 mb-2">{error}</p>
+            <p className="text-scale-label text-red-600 dark:text-red-400 mb-2">{error}</p>
             <button
               onClick={handleRetry}
-              className="text-xs font-bold text-red-600 dark:text-red-400 hover:underline"
+              className="text-scale-caption font-bold text-red-600 dark:text-red-400 hover:underline"
             >
               {t('conversationPractice.tryAgain')}
             </button>
@@ -217,7 +217,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                   <div className="absolute inset-0 bg-purple-500/10 rounded-full animate-ping"></div>
                   <ICONS.Mic className="w-8 h-8 text-purple-500" />
                 </div>
-                <p className="text-sm text-[var(--text-secondary)]">{t('conversationPractice.speakIn', { language: targetName })}</p>
+                <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.speakIn', { language: targetName })}</p>
               </>
             )}
             {state === 'speaking' && (
@@ -230,11 +230,11 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                     <div className="w-1.5 h-7 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
                   </div>
                 </div>
-                <p className="text-sm text-[var(--text-secondary)]">{t('conversationPractice.aiSpeaking')}</p>
+                <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.aiSpeaking')}</p>
               </>
             )}
             {state === 'disconnected' && !error && (
-              <p className="text-sm text-[var(--text-secondary)]">{t('conversationPractice.conversationEnded')}</p>
+              <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.conversationEnded')}</p>
             )}
           </div>
         </div>

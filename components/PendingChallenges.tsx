@@ -103,7 +103,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
                 ? t('pendingChallenges.sentYouSomething', { name: partnerName })
                 : t('pendingChallenges.sentYouThings', { name: partnerName, count: totalPending })}
             </h3>
-            <p className="text-white/80 text-sm">
+            <p className="text-white/80 text-scale-label">
               {challenges.length > 0 && t('pendingChallenges.challengeCount', { count: challenges.length })}
               {challenges.length > 0 && wordRequests.length > 0 && ' & '}
               {wordRequests.length > 0 && t('pendingChallenges.wordGiftCount', { count: wordRequests.length })}
@@ -124,11 +124,11 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
               </div>
               <div className="flex-1">
                 <p className="font-bold">{challenge.title}</p>
-                <p className="text-xs text-white/70">
+                <p className="text-scale-caption text-white/70">
                   {t('pendingChallenges.wordsCount', { count: challenge.words_data?.length || 0 })} • {challenge.challenge_type === 'quiz' ? t('pendingChallenges.quiz') : t('pendingChallenges.quickFire')}
                 </p>
               </div>
-              <div className="flex items-center gap-1 text-sm font-bold">
+              <div className="flex items-center gap-1 text-scale-label font-bold">
                 {t('pendingChallenges.play')} <ICONS.ChevronRight className="w-4 h-4" />
               </div>
             </button>
@@ -145,11 +145,11 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
               </div>
               <div className="flex-1">
                 <p className="font-bold">{t('pendingChallenges.wordGift')}</p>
-                <p className="text-xs text-white/70">
+                <p className="text-scale-caption text-white/70">
                   {t('pendingChallenges.wordsCount', { count: request.selected_words?.length || 0 })} • {t('pendingChallenges.xpBonus', { multiplier: request.xp_multiplier })}
                 </p>
               </div>
-              <div className="flex items-center gap-1 text-sm font-bold">
+              <div className="flex items-center gap-1 text-scale-label font-bold">
                 {t('pendingChallenges.learn')} <ICONS.ChevronRight className="w-4 h-4" />
               </div>
             </button>

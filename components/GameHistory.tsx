@@ -185,7 +185,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
       <div className="text-center py-8">
         <div className="text-4xl mb-3">📊</div>
         <p className="text-[var(--text-secondary)] font-medium">{t('gameHistory.noHistory')}</p>
-        <p className="text-sm text-[var(--text-secondary)] mt-1">{t('gameHistory.noHistoryDesc')}</p>
+        <p className="text-scale-label text-[var(--text-secondary)] mt-1">{t('gameHistory.noHistoryDesc')}</p>
       </div>
     );
   }
@@ -196,7 +196,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
     <div className="space-y-6">
       {Object.entries(groupedSessions).map(([dateKey, dateSessions]) => (
         <div key={dateKey}>
-          <h3 className="text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
+          <h3 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
             {formatDate(dateSessions[0].completed_at)}
           </h3>
 
@@ -236,14 +236,14 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                             {percentage}%
                           </span>
                         </div>
-                        <p className="text-xs text-[var(--text-secondary)]">
+                        <p className="text-scale-caption text-[var(--text-secondary)]">
                           {session.correct_count}/{total} correct
                           {session.total_time_seconds && ` · ${formatTime(session.total_time_seconds)}`}
                           {' · '}{formatTimestamp(session.completed_at)}
                         </p>
                       </div>
                       {session.wrong_answer_count > 0 && (
-                        <span className="text-xs font-bold px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full">
+                        <span className="text-scale-caption font-bold px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full">
                           {t('gameHistory.missed', { count: session.wrong_answer_count })}
                         </span>
                       )}
@@ -276,7 +276,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                         if (smartAccepted.length === 0) return null;
                         return (
                           <div className="pt-3 space-y-2 mb-4">
-                            <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+                            <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-widest mb-2">
                               {t('gameHistory.smartAccepted')}
                             </p>
                             {smartAccepted.map((answer, idx) => (
@@ -291,7 +291,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                                   <p className="font-bold text-[var(--text-primary)]">
                                     {answer.word_text}
                                   </p>
-                                  <p className="text-xs text-[var(--text-secondary)]">
+                                  <p className="text-scale-caption text-[var(--text-secondary)]">
                                     {answer.user_answer} → {answer.correct_answer}
                                   </p>
                                   <p className="text-[10px] text-green-600/70 dark:text-green-400/70 italic mt-0.5">
@@ -307,7 +307,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                       {/* Wrong answers */}
                       {wrongAnswers.length > 0 && (
                       <div className="pt-3 space-y-2">
-                        <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-widest mb-2">
+                        <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-widest mb-2">
                           {t('gameHistory.missedWords')}
                         </p>
                         {wrongAnswers.map((answer, idx) => {
@@ -324,7 +324,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                                 <p className="font-bold text-[var(--text-primary)]">
                                   {answer.word_text}
                                 </p>
-                                <p className="text-xs text-[var(--text-secondary)]">
+                                <p className="text-scale-caption text-[var(--text-secondary)]">
                                   {answer.user_answer ? (
                                     <>
                                       {t('gameHistory.youSaid')} <span className="text-red-500">{answer.user_answer}</span>
@@ -346,7 +346,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                         {onPracticeWords && wrongAnswers.length > 0 && (
                           <button
                             onClick={() => handlePracticeWrongWords(session.id)}
-                            className="w-full mt-3 py-3 bg-[var(--accent-light)] text-[var(--accent-color)] rounded-xl font-bold text-sm hover:bg-[var(--accent-color)] hover:text-white transition-colors"
+                            className="w-full mt-3 py-3 bg-[var(--accent-light)] text-[var(--accent-color)] rounded-xl font-bold text-scale-label hover:bg-[var(--accent-color)] hover:text-white transition-colors"
                           >
                             {t('gameHistory.practiceWords', { count: wrongAnswers.length })}
                           </button>
@@ -358,7 +358,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                       {wrongAnswers.length === 0 && !answers.some(a => a.is_correct && a.explanation && a.explanation !== 'Exact match') && (
                         <div className="pt-3 text-center py-4">
                           <div className="text-3xl mb-2">🎉</div>
-                          <p className="text-sm text-green-600 dark:text-green-400 font-medium">
+                          <p className="text-scale-label text-green-600 dark:text-green-400 font-medium">
                             {t('gameHistory.perfectScore')}
                           </p>
                         </div>

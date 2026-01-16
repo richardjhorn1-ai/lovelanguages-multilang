@@ -142,14 +142,14 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
         <span className="text-3xl">💕</span>
         <div>
           <h3 className="font-bold text-[var(--text-primary)]">{t('invite.title')}</h3>
-          <p className="text-sm text-[var(--text-secondary)]">
+          <p className="text-scale-label text-[var(--text-secondary)]">
             {t('invite.subtitle')}
           </p>
         </div>
       </div>
 
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-sm">
+        <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-scale-label">
           {error}
         </div>
       )}
@@ -157,32 +157,32 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
       {inviteLink ? (
         <div className="space-y-4">
           <div className="bg-white dark:bg-[var(--bg-primary)] rounded-xl p-4">
-            <p className="text-xs text-[var(--text-secondary)] mb-2">{t('invite.shareLinkLabel')}</p>
+            <p className="text-scale-caption text-[var(--text-secondary)] mb-2">{t('invite.shareLinkLabel')}</p>
             <div className="flex gap-2">
               <input
                 type="text"
                 value={inviteLink}
                 readOnly
-                className="flex-1 px-3 py-2 rounded-lg bg-[var(--bg-primary)] border border-[var(--border-color)] text-sm text-[var(--text-primary)] truncate"
+                className="flex-1 px-3 py-2 rounded-lg bg-[var(--bg-primary)] border border-[var(--border-color)] text-scale-label text-[var(--text-primary)] truncate"
               />
               <button
                 onClick={handleCopyLink}
-                className="px-4 py-2 rounded-lg font-bold text-sm transition-colors text-white"
+                className="px-4 py-2 rounded-lg font-bold text-scale-label transition-colors text-white"
                 style={{ backgroundColor: copied ? '#22c55e' : accentHex }}
               >
                 {copied ? t('invite.copied') : t('invite.copy')}
               </button>
             </div>
             {expiresAt && (
-              <p className="text-xs text-[var(--text-secondary)] mt-2">
+              <p className="text-scale-caption text-[var(--text-secondary)] mt-2">
                 {formatExpiresAt(expiresAt)}
               </p>
             )}
           </div>
 
-          <div className="text-sm text-[var(--text-secondary)]">
+          <div className="text-scale-label text-[var(--text-secondary)]">
             <p className="font-medium mb-1">{t('invite.howItWorks')}</p>
-            <ol className="list-decimal list-inside space-y-1 text-xs">
+            <ol className="list-decimal list-inside space-y-1 text-scale-caption">
               <li>{t('invite.step1')}</li>
               <li>{t('invite.step2')}</li>
               <li>{t('invite.step3')}</li>

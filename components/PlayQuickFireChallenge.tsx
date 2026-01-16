@@ -246,7 +246,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
                   ? `💥 ${t('challengePlayer.quickFire.difficulty.hard')}`
                   : `🔥 ${t('challengePlayer.quickFire.difficulty.medium')}`}
             </p>
-            <p className="text-xs md:text-sm text-[var(--text-secondary)] mt-1">
+            <p className="text-xs md:text-scale-label text-[var(--text-secondary)] mt-1">
               {t('challengePlayer.quickFire.timePerWord', { time: (config.timeLimitSeconds / words.length).toFixed(1) })}
             </p>
           </div>
@@ -325,7 +325,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
           {answersWithExplanations.length > 0 && (
             <div className="mb-4 md:mb-6">
               <details className="text-left">
-                <summary className="cursor-pointer text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-center">
+                <summary className="cursor-pointer text-scale-label text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-center">
                   {t('challengePlayer.common.showDetails', { count: answersWithExplanations.length })}
                 </summary>
                 <div className="mt-3 space-y-2 max-h-48 overflow-y-auto">
