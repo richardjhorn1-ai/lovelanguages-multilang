@@ -50,7 +50,7 @@ const BreakupModal: React.FC<BreakupModalProps> = ({
               <p className="text-amber-800 dark:text-amber-200 font-medium mb-2">
                 {t('breakup.warning.whatHappens')}
               </p>
-              <ul className="text-amber-700 dark:text-amber-300 text-sm space-y-1">
+              <ul className="text-amber-700 dark:text-amber-300 text-scale-label space-y-1">
                 <li>• {t('breakup.warning.consequence1')}</li>
                 <li>• {t('breakup.warning.consequence2')}</li>
                 {isGranter ? (
@@ -90,7 +90,7 @@ const BreakupModal: React.FC<BreakupModalProps> = ({
             </p>
 
             {error && (
-              <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-sm">
+              <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-scale-label">
                 {error}
               </div>
             )}

@@ -128,7 +128,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
               </div>
               <div>
                 <h2 className="font-header font-bold text-lg text-[var(--text-primary)]">{t('bugReport.title')}</h2>
-                <p className="text-xs text-[var(--text-secondary)]">{t('bugReport.subtitle')}</p>
+                <p className="text-scale-caption text-[var(--text-secondary)]">{t('bugReport.subtitle')}</p>
               </div>
             </div>
             <button
@@ -150,7 +150,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                   <ICONS.Check className="w-8 h-8" style={{ color: accentHex }} />
                 </div>
                 <h3 className="font-bold text-lg text-[var(--text-primary)] mb-2">{t('bugReport.success.title')}</h3>
-                <p className="text-sm text-[var(--text-secondary)] mb-6">
+                <p className="text-scale-label text-[var(--text-secondary)] mb-6">
                   {t('bugReport.success.message')}
                 </p>
                 <button
@@ -165,7 +165,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Title */}
                 <div>
-                  <label className="block text-sm font-medium text-[var(--text-primary)] mb-1.5">
+                  <label className="block text-scale-label font-medium text-[var(--text-primary)] mb-1.5">
                     {t('bugReport.titleLabel')} <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -181,7 +181,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
 
                 {/* Description */}
                 <div>
-                  <label className="block text-sm font-medium text-[var(--text-primary)] mb-1.5">
+                  <label className="block text-scale-label font-medium text-[var(--text-primary)] mb-1.5">
                     {t('bugReport.detailsLabel')} <span className="text-red-500">*</span>
                   </label>
                   <textarea
@@ -196,7 +196,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
 
                 {/* Severity */}
                 <div>
-                  <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">
+                  <label className="block text-scale-label font-medium text-[var(--text-primary)] mb-2">
                     {t('bugReport.severity.label')}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
@@ -212,8 +212,8 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                             : 'border-[var(--border-color)] bg-[var(--bg-primary)] hover:border-[var(--accent-color)]'
                         }`}
                       >
-                        <span className={`text-sm font-medium ${option.color}`}>{option.label}</span>
-                        <p className="text-xs text-[var(--text-secondary)] mt-0.5">{option.description}</p>
+                        <span className={`text-scale-label font-medium ${option.color}`}>{option.label}</span>
+                        <p className="text-scale-caption text-[var(--text-secondary)] mt-0.5">{option.description}</p>
                       </button>
                     ))}
                   </div>
@@ -222,7 +222,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 {/* Auto-captured info note */}
                 <div className="flex items-start gap-2 p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)]">
                   <ICONS.HelpCircle className="w-4 h-4 text-[var(--text-secondary)] flex-shrink-0 mt-0.5" />
-                  <p className="text-xs text-[var(--text-secondary)]">
+                  <p className="text-scale-caption text-[var(--text-secondary)]">
                     {t('bugReport.autoCaptureNote')}
                   </p>
                 </div>
@@ -230,7 +230,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 {/* Error */}
                 {error && (
                   <div className="p-3 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
-                    <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+                    <p className="text-scale-label text-red-600 dark:text-red-400">{error}</p>
                   </div>
                 )}
 

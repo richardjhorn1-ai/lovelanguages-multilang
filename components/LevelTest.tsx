@@ -163,10 +163,10 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
               <ICONS.X className="w-8 h-8 text-red-400" />
             </div>
             <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">{t('levelTest.oops')}</h2>
-            <p className="text-[var(--text-secondary)] text-sm mb-6">{error}</p>
+            <p className="text-[var(--text-secondary)] text-scale-label mb-6">{error}</p>
             <button
               onClick={() => navigate('/progress')}
-              className="bg-[var(--bg-primary)] text-[var(--text-primary)] px-6 py-3 rounded-xl font-bold text-sm"
+              className="bg-[var(--bg-primary)] text-[var(--text-primary)] px-6 py-3 rounded-xl font-bold text-scale-label"
             >
               {t('levelTest.backToProgress')}
             </button>
@@ -187,14 +187,14 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
           <p className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-2">{t('levelTest.levelUpTest')}</p>
           <h2 className="text-2xl font-black text-[var(--text-primary)] mb-1">{themeName}</h2>
-          <p className="text-sm text-[var(--text-secondary)] mb-6">{translateLevel(fromLevel, t)} → {translateLevel(toLevel, t)}</p>
+          <p className="text-scale-label text-[var(--text-secondary)] mb-6">{translateLevel(fromLevel, t)} → {translateLevel(toLevel, t)}</p>
 
           <div className="bg-[var(--bg-primary)] rounded-2xl p-4 mb-6 text-left">
-            <div className="flex justify-between text-sm mb-2">
+            <div className="flex justify-between text-scale-label mb-2">
               <span className="text-[var(--text-secondary)]">{t('levelTest.questions')}</span>
               <span className="font-bold text-[var(--text-primary)]">{questions.length}</span>
             </div>
-            <div className="flex justify-between text-sm mb-2">
+            <div className="flex justify-between text-scale-label mb-2">
               <span className="text-[var(--text-secondary)]">{t('levelTest.passThreshold')}</span>
               <span className="font-bold text-[var(--text-primary)]">80%</span>
             </div>
@@ -206,7 +206,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
           <button
             onClick={startTest}
-            className="w-full py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest shadow-lg transition-all active:scale-95"
+            className="w-full py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest shadow-lg transition-all active:scale-95"
             style={{ backgroundColor: tierColor }}
           >
             {t('levelTest.startTest')}
@@ -268,14 +268,14 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
           <div className="flex gap-3">
             <button
               onClick={() => navigate('/progress')}
-              className="flex-1 py-4 rounded-2xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] text-sm"
+              className="flex-1 py-4 rounded-2xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] text-scale-label"
             >
               {t('levelTest.backToProgress')}
             </button>
             {!passed && (
               <button
                 onClick={() => generateTest(fromLevel, toLevel)}
-                className="flex-1 py-4 rounded-2xl font-bold text-white text-sm"
+                className="flex-1 py-4 rounded-2xl font-bold text-white text-scale-label"
                 style={{ backgroundColor: tierColor }}
               >
                 {t('levelTest.tryAgain')}
@@ -286,7 +286,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
           {/* View Full Results */}
           <button
             onClick={() => navigate('/progress')}
-            className="mt-6 text-sm text-[var(--text-secondary)] hover:text-[var(--text-secondary)] transition-colors flex items-center justify-center gap-2 w-full"
+            className="mt-6 text-scale-label text-[var(--text-secondary)] hover:text-[var(--text-secondary)] transition-colors flex items-center justify-center gap-2 w-full"
           >
             <ICONS.List className="w-4 h-4" />
             {t('levelTest.viewDetailed')}
@@ -363,7 +363,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
                         : 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]'
                     }`}
                   >
-                    <span className="text-xs font-bold text-[var(--text-secondary)] mr-3">
+                    <span className="text-scale-caption font-bold text-[var(--text-secondary)] mr-3">
                       {String.fromCharCode(65 + idx)}
                     </span>
                     {option}
@@ -375,7 +375,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             {(currentQuestion?.type === 'fill_blank' || currentQuestion?.type === 'translation') && (
               <div>
                 {currentQuestion.context && (
-                  <p className="text-[var(--text-secondary)] text-sm mb-4 italic">{currentQuestion.context}</p>
+                  <p className="text-[var(--text-secondary)] text-scale-label mb-4 italic">{currentQuestion.context}</p>
                 )}
                 <input
                   type="text"
@@ -397,7 +397,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
               {currentIndex > 0 && (
                 <button
                   onClick={prevQuestion}
-                  className="px-6 py-3 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] text-sm"
+                  className="px-6 py-3 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] text-scale-label"
                 >
                   {t('levelTest.back')}
                 </button>
@@ -405,7 +405,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
               <button
                 onClick={nextQuestion}
                 disabled={!currentAnswer || state === 'submitting'}
-                className="flex-1 py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50 transition-all"
+                className="flex-1 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50 transition-all"
                 style={{ backgroundColor: tierColor }}
               >
                 {state === 'submitting' ? (

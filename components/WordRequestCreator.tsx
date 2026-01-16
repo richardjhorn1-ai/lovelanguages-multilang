@@ -221,7 +221,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
             </div>
             <div>
               <h2 className="font-black text-[var(--text-primary)]">{t('challengeCreator.lovePackage.title')}</h2>
-              <p className="text-xs text-[var(--text-secondary)]">{t('challengeCreator.lovePackage.subtitle', { name: partnerName })}</p>
+              <p className="text-scale-caption text-[var(--text-secondary)]">{t('challengeCreator.lovePackage.subtitle', { name: partnerName })}</p>
             </div>
           </div>
           <button
@@ -238,9 +238,9 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
             <div className="flex items-center gap-2 mb-3">
               <ICONS.Plus className="w-4 h-4 text-[var(--accent-color)]" />
-              <p className="font-bold text-[var(--text-primary)] text-sm">{t('challengeCreator.common.addNewWords')}</p>
+              <p className="font-bold text-[var(--text-primary)] text-scale-label">{t('challengeCreator.common.addNewWords')}</p>
             </div>
-            <p className="text-xs text-[var(--text-secondary)] mb-3">
+            <p className="text-scale-caption text-[var(--text-secondary)] mb-3">
               {t('challengeCreator.common.enterTargetLanguage', { language: targetName })}
             </p>
 
@@ -257,7 +257,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                   }
                 }}
                 placeholder={t('challengeCreator.common.enterWordPlaceholder', { language: targetName })}
-                className="flex-1 p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                className="flex-1 p-3 border border-[var(--border-color)] rounded-xl text-scale-label focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                 onKeyDown={e => e.key === 'Enter' && newWord.trim() && !generatedWord && generateTranslation()}
                 disabled={generating || validating}
                 autoFocus
@@ -266,7 +266,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                 <button
                   onClick={generateTranslation}
                   disabled={!newWord.trim() || generating}
-                  className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-xl font-bold text-sm hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-xl font-bold text-scale-label hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
                 >
                   {generating ? (
                     <>
@@ -286,7 +286,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                     setGeneratedWord(null);
                     setNewTranslation('');
                   }}
-                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-xl font-bold text-sm transition-colors"
+                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-xl font-bold text-scale-label transition-colors"
                 >
                   {t('challengeCreator.common.clear')}
                 </button>
@@ -301,7 +301,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                     <div className="flex items-center gap-2 mb-1">
                       <span className="font-bold text-[var(--text-primary)]">{generatedWord.word}</span>
                       {generatedWord.pronunciation && (
-                        <span className="text-xs text-[var(--text-secondary)]">[{generatedWord.pronunciation}]</span>
+                        <span className="text-scale-caption text-[var(--text-secondary)]">[{generatedWord.pronunciation}]</span>
                       )}
                     </div>
                     <div className="flex items-center gap-2">
@@ -311,7 +311,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                         value={newTranslation}
                         onChange={e => setNewTranslation(e.target.value)}
                         placeholder={t('challengeCreator.common.editTranslation')}
-                        className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                        className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-scale-label focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                         onKeyDown={e => e.key === 'Enter' && newTranslation && addWord()}
                         disabled={validating}
                       />
@@ -320,7 +320,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                   <button
                     onClick={addWord}
                     disabled={!newTranslation.trim() || validating}
-                    className="px-3 py-2 bg-green-500 text-white rounded-xl font-bold text-sm hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    className="px-3 py-2 bg-green-500 text-white rounded-xl font-bold text-scale-label hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
                   >
                     {validating ? (
                       <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -338,7 +338,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
             {/* Correction notification */}
             {lastCorrection && (
               <div className="p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded-lg">
-                <p className="text-xs text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
+                <p className="text-scale-caption text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
                   <ICONS.Sparkles className="w-3 h-3" />
                   <span>{t('challengeCreator.lovePackage.corrected', { note: lastCorrection })}</span>
                 </p>
@@ -349,7 +349,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           {/* Selected Words */}
           {selectedWords.length > 0 && (
             <div className="bg-[var(--bg-primary)] rounded-2xl p-4">
-              <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
+              <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
                 {t('challengeCreator.lovePackage.packageCount', { count: selectedWords.length })}
               </p>
               <div className="space-y-2 max-h-40 overflow-y-auto">
@@ -374,7 +374,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                             </span>
                           )}
                         </div>
-                        <p className="text-xs text-[var(--text-secondary)] truncate">{word.translation}</p>
+                        <p className="text-scale-caption text-[var(--text-secondary)] truncate">{word.translation}</p>
                       </div>
                       <button
                         onClick={() => removeWord(word)}
@@ -393,7 +393,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           {selectedWords.length > 0 && (
             <div className="flex items-center gap-2 px-4 py-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
               <span className="text-lg">✨</span>
-              <p className="text-sm text-[var(--accent-color)]">
+              <p className="text-scale-label text-[var(--accent-color)]">
                 {partnerName} earns <span className="font-bold">2x XP</span> for learning these words!
               </p>
             </div>

@@ -232,7 +232,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           </p>
 
           <div className="bg-[var(--accent-light)] p-3 md:p-4 rounded-xl md:rounded-2xl mb-4 md:mb-6">
-            <p className="text-xs md:text-sm text-[var(--text-secondary)]">
+            <p className="text-xs md:text-scale-label text-[var(--text-secondary)]">
               {t('challengePlayer.quiz.startInstructions', { language: targetName })}
             </p>
           </div>
@@ -293,7 +293,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           {answersWithExplanations.length > 0 && (
             <div className="mb-4 md:mb-6">
               <details className="text-left">
-                <summary className="cursor-pointer text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-center">
+                <summary className="cursor-pointer text-scale-label text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-center">
                   {t('challengePlayer.common.showDetails', { count: answersWithExplanations.length })}
                 </summary>
                 <div className="mt-3 space-y-2 max-h-48 overflow-y-auto">
@@ -375,7 +375,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           {currentQuestion?.type === 'flashcard' ? (
             // Flashcard Mode
             <div className="text-center">
-              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quiz.flashcard.prompt')}</p>
+              <p className="text-xs md:text-scale-label text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quiz.flashcard.prompt')}</p>
               <div className="bg-[var(--accent-light)] p-6 md:p-8 rounded-xl md:rounded-2xl mb-4 md:mb-6">
                 <p className="text-2xl md:text-3xl font-black text-[var(--accent-color)]">{currentQuestion.word}</p>
               </div>
@@ -392,7 +392,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
                   <div className="bg-green-100 dark:bg-green-900/30 p-3 md:p-4 rounded-xl md:rounded-2xl mb-3 md:mb-4">
                     <p className="text-lg md:text-xl font-bold text-green-600 dark:text-green-400">{currentQuestion.translation}</p>
                   </div>
-                  <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quiz.flashcard.didYouGetIt')}</p>
+                  <p className="text-xs md:text-scale-label text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quiz.flashcard.didYouGetIt')}</p>
                   <div className="flex gap-2 md:gap-3">
                     <button
                       onClick={() => handleAnswer(currentQuestion.translation, false)}
@@ -413,7 +413,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           ) : currentQuestion?.type === 'multiple_choice' ? (
             // Multiple Choice Mode
             <div>
-              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4 text-center">{t('challengePlayer.quiz.multipleChoice.prompt')}</p>
+              <p className="text-xs md:text-scale-label text-[var(--text-secondary)] mb-3 md:mb-4 text-center">{t('challengePlayer.quiz.multipleChoice.prompt')}</p>
               <div className="bg-[var(--accent-light)] p-4 md:p-6 rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center">
                 <p className="text-2xl md:text-3xl font-black text-[var(--accent-color)]">{currentQuestion.word}</p>
               </div>
@@ -443,7 +443,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           ) : (
             // Type It Mode
             <div>
-              <p className="text-xs md:text-sm text-[var(--text-secondary)] mb-3 md:mb-4 text-center">{t('challengePlayer.quiz.typeIt.prompt')}</p>
+              <p className="text-xs md:text-scale-label text-[var(--text-secondary)] mb-3 md:mb-4 text-center">{t('challengePlayer.quiz.typeIt.prompt')}</p>
               <div className="bg-[var(--accent-light)] p-4 md:p-6 rounded-xl md:rounded-2xl mb-4 md:mb-6 text-center">
                 <p className="text-2xl md:text-3xl font-black text-[var(--accent-color)]">{currentQuestion?.word}</p>
               </div>

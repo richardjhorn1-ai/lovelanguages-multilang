@@ -123,14 +123,14 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
           <ICONS.Link className="w-5 h-5 text-[var(--accent-color)]" />
         </div>
         <div>
-          <h3 className="text-sm font-black text-gray-800">{t('inviteLink.title')}</h3>
+          <h3 className="text-scale-label font-black text-gray-800">{t('inviteLink.title')}</h3>
           <p className="text-[10px] text-gray-400 font-medium">{t('inviteLink.subtitle')}</p>
         </div>
       </div>
 
       {error && (
         <div className="mb-4 p-3 bg-red-50 border border-red-100 rounded-xl">
-          <p className="text-xs text-red-600 font-medium">{error}</p>
+          <p className="text-scale-caption text-red-600 font-medium">{error}</p>
         </div>
       )}
 
@@ -138,7 +138,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         <button
           onClick={generateInviteLink}
           disabled={loading}
-          className="w-full bg-[var(--accent-color)] text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg shadow-[var(--accent-shadow)] hover:bg-[var(--accent-hover)] disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+          className="w-full bg-[var(--accent-color)] text-white py-4 rounded-2xl font-black text-scale-label uppercase tracking-widest shadow-lg shadow-[var(--accent-shadow)] hover:bg-[var(--accent-hover)] disabled:opacity-50 transition-all flex items-center justify-center gap-2"
         >
           {loading ? (
             <>
@@ -157,15 +157,15 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
           {/* Link display */}
           <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-3">
             <div className="flex-1 truncate">
-              <p className="text-xs text-gray-400 font-medium mb-1">{t('inviteLink.yourLink')}</p>
-              <p className="text-sm font-mono text-gray-600 truncate">{inviteLink}</p>
+              <p className="text-scale-caption text-gray-400 font-medium mb-1">{t('inviteLink.yourLink')}</p>
+              <p className="text-scale-label font-mono text-gray-600 truncate">{inviteLink}</p>
             </div>
           </div>
 
           {/* Copy button */}
           <button
             onClick={copyToClipboard}
-            className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-lg transition-all flex items-center justify-center gap-2 ${
+            className={`w-full py-4 rounded-2xl font-black text-scale-label uppercase tracking-widest shadow-lg transition-all flex items-center justify-center gap-2 ${
               copied
                 ? 'bg-green-500 text-white shadow-green-100'
                 : 'bg-[var(--accent-color)] text-white shadow-[var(--accent-shadow)] hover:bg-[var(--accent-hover)]'
@@ -185,7 +185,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
           </button>
 
           {/* Expiry and regenerate */}
-          <div className="flex items-center justify-between text-xs">
+          <div className="flex items-center justify-between text-scale-caption">
             <span className="text-gray-400 font-medium">
               {expiresAt && formatExpiryDate(expiresAt)}
             </span>
