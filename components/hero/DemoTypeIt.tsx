@@ -68,7 +68,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
 
       {submitted && (
         <div
-          className="text-center mb-4 p-3 rounded-xl text-sm"
+          className="text-center mb-4 p-3 rounded-xl text-scale-label"
           style={{
             backgroundColor: isCorrect ? '#dcfce7' : '#fee2e2',
             color: isCorrect ? '#166534' : '#991b1b',
@@ -85,7 +85,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
                 <span>✗</span>
                 <span className="font-bold">{t('demoTypeIt.notQuite')}</span>
               </div>
-              <p className="text-xs">
+              <p className="text-scale-caption">
                 {t('demoTypeIt.answer')} <span className="font-black">{word.translation}</span>
               </p>
             </div>
@@ -101,7 +101,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
           onKeyDown={handleKeyDown}
           placeholder={t('demoTypeIt.typeIn', { language: nativeName })}
           disabled={submitted}
-          className="w-full p-3 rounded-xl border-2 focus:outline-none text-base font-medium text-center"
+          className="w-full p-3 rounded-xl border-2 focus:outline-none text-scale-body font-medium text-center"
           style={{
             borderColor: submitted
               ? isCorrect
@@ -118,7 +118,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
       <button
         onClick={handleSubmit}
         disabled={!answer.trim() && !submitted}
-        className="w-full mt-4 py-3 rounded-xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50 transition-all active:scale-[0.98]"
+        className="w-full mt-4 py-3 rounded-xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50 transition-all active:scale-[0.98]"
         style={{ backgroundColor: accentColor }}
       >
         {submitted ? t('demoTypeIt.next') : t('demoTypeIt.check')}

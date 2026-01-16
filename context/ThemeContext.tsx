@@ -9,7 +9,8 @@ import {
   DEFAULT_THEME,
   ACCENT_COLORS,
   FONT_WEIGHTS,
-  applyTheme
+  applyTheme,
+  setupResponsiveTextScale
 } from '../services/theme';
 import { supabase } from '../services/supabase';
 
@@ -56,10 +57,12 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
       };
       setTheme(userTheme);
       applyTheme(userTheme);
+      setupResponsiveTextScale(userTheme.fontSize);
     } else if (!userId) {
       // Not logged in: Use defaults (Hero applies its own curated theme)
       setTheme(DEFAULT_THEME);
       applyTheme(DEFAULT_THEME);
+      setupResponsiveTextScale(DEFAULT_THEME.fontSize);
     }
     setIsLoaded(true);
   }, [userId, profileTheme?.accent_color, profileTheme?.dark_mode, profileTheme?.font_size, profileTheme?.font_preset, profileTheme?.font_weight]);
@@ -70,6 +73,7 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
 
     // Apply theme to DOM
     applyTheme(theme);
+    setupResponsiveTextScale(theme.fontSize);
 
     // Sync to Supabase (profile is source of truth)
     supabase

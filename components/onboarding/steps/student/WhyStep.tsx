@@ -65,7 +65,7 @@ export const WhyStep: React.FC<WhyStepProps> = ({
           placeholder={t('onboarding.student.why.placeholder')}
           autoFocus
           rows={4}
-          className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-lg font-medium text-gray-800 placeholder:text-gray-300 transition-all resize-none"
+          className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-scale-heading font-medium text-gray-800 placeholder:text-gray-300 transition-all resize-none"
           style={{
             borderColor: isFocused ? `${accentColor}60` : '#f3f4f6'
           }}

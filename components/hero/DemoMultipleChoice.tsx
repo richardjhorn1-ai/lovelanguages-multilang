@@ -105,10 +105,10 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
               key={idx}
               onClick={() => handleSelect(option)}
               disabled={showFeedback}
-              className="w-full p-3 rounded-xl text-left font-medium transition-all border-2 text-sm"
+              className="w-full p-3 rounded-xl text-left font-medium transition-all border-2 text-scale-label"
               style={buttonStyle}
             >
-              <span className="text-xs font-bold mr-2" style={{ color: '#9ca3af' }}>
+              <span className="text-scale-caption font-bold mr-2" style={{ color: '#9ca3af' }}>
                 {String.fromCharCode(65 + idx)}
               </span>
               {option}

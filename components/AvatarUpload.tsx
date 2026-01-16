@@ -275,14 +275,14 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
 
         {/* Error message */}
         {error && (
-          <p className="text-red-500 text-xs text-center mt-2 max-w-[200px] mx-auto">
+          <p className="text-red-500 text-scale-caption text-center mt-2 max-w-[200px] mx-auto">
             {error}
           </p>
         )}
 
         {/* Helper text */}
         {editable && !error && (
-          <p className="text-[var(--text-secondary)] text-xs text-center mt-2">
+          <p className="text-[var(--text-secondary)] text-scale-caption text-center mt-2">
             {uploading ? t('avatar.uploading') : currentAvatarUrl ? t('avatar.clickToChange') : t('avatar.clickToUpload')}
           </p>
         )}
@@ -293,7 +293,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
         <div className="fixed inset-0 bg-black/90 z-50 flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between p-4 bg-black/50">
-            <h2 className="text-white font-bold text-lg">{t('avatar.adjustPhoto')}</h2>
+            <h2 className="text-white font-bold text-scale-heading">{t('avatar.adjustPhoto')}</h2>
             <button
               onClick={handleCancelCrop}
               className="text-white/70 hover:text-white p-2"

@@ -56,7 +56,7 @@ export const NameStep: React.FC<NameStepProps> = ({
           onChange={(e) => setName(e.target.value)}
           placeholder={t('onboarding.name.placeholder')}
           autoFocus
-          className="w-full px-6 py-4 rounded-2xl bg-white border-2 border-gray-100 focus:border-[var(--accent-border)] focus:outline-none text-lg font-medium text-gray-800 placeholder:text-gray-300 transition-all"
+          className="w-full px-6 py-4 rounded-2xl bg-white border-2 border-gray-100 focus:border-[var(--accent-border)] focus:outline-none text-scale-heading font-medium text-gray-800 placeholder:text-gray-300 transition-all"
           onKeyDown={(e) => e.key === 'Enter' && name.trim() && handleSubmit()}
         />
 

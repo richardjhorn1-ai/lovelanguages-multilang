@@ -84,23 +84,23 @@ const SaveProgressDialog: React.FC<SaveProgressDialogProps> = ({
             <ICONS.Heart className="w-8 h-8 text-[var(--accent-color)]" />
           </div>
 
-          <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
+          <h3 className="text-scale-heading font-bold text-[var(--text-primary)] mb-2">
             {t('tutorGames.saveDialog.title', { name: partnerName })}
           </h3>
 
           {isFirstTime ? (
-            <div className="text-left bg-[var(--bg-primary)] rounded-xl p-4 mb-4 text-sm text-[var(--text-secondary)]">
+            <div className="text-left bg-[var(--bg-primary)] rounded-xl p-4 mb-4 text-scale-label text-[var(--text-secondary)]">
               <p className="mb-2">
                 <strong className="text-[var(--text-primary)]">{t('tutorGames.saveDialog.howItWorks')}</strong>
               </p>
-              <ul className="space-y-1 text-xs">
+              <ul className="space-y-1 text-scale-caption">
                 <li>• {t('tutorGames.saveDialog.detail1', { name: partnerName })}</li>
                 <li>• {t('tutorGames.saveDialog.detail2')}</li>
                 <li>• {t('tutorGames.saveDialog.detail3')}</li>
               </ul>
             </div>
           ) : (
-            <p className="text-[var(--text-secondary)] text-sm mb-4">
+            <p className="text-[var(--text-secondary)] text-scale-label mb-4">
               {t('tutorGames.saveDialog.willUpdate', { name: partnerName })}
             </p>
           )}
@@ -113,7 +113,7 @@ const SaveProgressDialog: React.FC<SaveProgressDialogProps> = ({
               onChange={e => setRememberChoice(e.target.checked)}
               className="w-4 h-4 rounded border-[var(--border-color)] accent-[var(--accent-color)]"
             />
-            <span className="text-xs text-[var(--text-secondary)]">
+            <span className="text-scale-caption text-[var(--text-secondary)]">
               {t('tutorGames.saveDialog.remember', { name: partnerName })}
             </span>
           </label>
@@ -657,7 +657,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             {/* Save to Student Progress Section */}
             {profile.linked_user_id && !savedSuccess && pref !== 'always' && (
               <div className="mb-4 p-4 bg-[var(--bg-primary)] rounded-xl border border-[var(--border-color)]">
-                <p className="text-xs text-[var(--text-secondary)] mb-3">
+                <p className="text-scale-caption text-[var(--text-secondary)] mb-3">
                   {isFirstTime ? (
                     <>
                       <span className="font-bold text-[var(--text-primary)]">{t('tutorGames.gameOver.practicedTogether')}</span>
@@ -671,7 +671,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                 <button
                   onClick={() => setShowSaveDialog(true)}
                   disabled={savingProgress}
-                  className="w-full py-2 px-4 bg-[var(--accent-color)] text-white rounded-lg font-bold text-sm hover:bg-[var(--accent-hover)] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="w-full py-2 px-4 bg-[var(--accent-color)] text-white rounded-lg font-bold text-scale-label hover:bg-[var(--accent-hover)] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                   {savingProgress ? (
                     <>{t('tutorGames.gameOver.saving')}</>
@@ -688,7 +688,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             {/* Success message */}
             {savedSuccess && (
               <div className="mb-4 p-3 bg-green-50 dark:bg-green-900/30 rounded-xl border border-green-200 dark:border-green-800">
-                <p className="text-sm text-green-700 dark:text-green-400 font-bold flex items-center justify-center gap-2">
+                <p className="text-scale-label text-green-700 dark:text-green-400 font-bold flex items-center justify-center gap-2">
                   <ICONS.Check className="w-4 h-4" />
                   {t('tutorGames.gameOver.savedSuccess', { name: partnerName })}
                 </p>
@@ -698,7 +698,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             {/* Auto-saved message for 'always' preference */}
             {pref === 'always' && !savedSuccess && !savingProgress && (
               <div className="mb-4 p-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
-                <p className="text-xs text-[var(--accent-color)]">
+                <p className="text-scale-caption text-[var(--accent-color)]">
                   {t('tutorGames.gameOver.autoSaving', { name: partnerName })}
                 </p>
               </div>
@@ -744,7 +744,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
                 <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
               </button>
-              <span className="text-sm font-bold text-[var(--text-secondary)]">
+              <span className="text-scale-label font-bold text-[var(--text-secondary)]">
                 {localGameIndex + 1} / {localGameWords.length}
               </span>
               <div className="flex gap-2">
@@ -770,24 +770,24 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${localGameFlipped ? 'rotate-y-180' : ''}`}>
                 {/* Front */}
                 <div className="absolute inset-0 bg-[var(--bg-card)] rounded-[2rem] p-8 flex flex-col items-center justify-center shadow-lg backface-hidden border border-[var(--border-color)]">
-                  <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-bold mb-4">{targetName}</span>
+                  <span className="text-scale-micro uppercase tracking-widest text-[var(--text-secondary)] font-bold mb-4">{targetName}</span>
                   <h2 className="text-4xl font-black text-[var(--accent-color)] text-center">{currentWord?.word}</h2>
-                  <p className="text-[var(--text-secondary)] text-sm mt-8">{t('tutorGames.flashcard.tapToReveal')}</p>
+                  <p className="text-[var(--text-secondary)] text-scale-label mt-8">{t('tutorGames.flashcard.tapToReveal')}</p>
                 </div>
                 {/* Back */}
                 <div className="absolute inset-0 bg-[var(--accent-color)] text-white rounded-[2rem] p-8 flex flex-col items-center justify-center shadow-lg backface-hidden rotate-y-180">
-                  <span className="text-[10px] uppercase tracking-widest text-white/60 font-bold mb-4">{nativeName}</span>
+                  <span className="text-scale-micro uppercase tracking-widest text-white/60 font-bold mb-4">{nativeName}</span>
                   <h2 className="text-4xl font-black text-center">{currentWord?.translation}</h2>
                   <div className="mt-8 grid grid-cols-2 gap-3 w-full">
                     <button
                       onClick={(e) => { e.stopPropagation(); handleLocalQuizResponse(false); }}
-                      className="py-3 bg-[var(--bg-card)]/20 rounded-xl font-bold text-sm hover:bg-[var(--bg-card)]/30"
+                      className="py-3 bg-[var(--bg-card)]/20 rounded-xl font-bold text-scale-label hover:bg-[var(--bg-card)]/30"
                     >
                       ❌ {t('tutorGames.flashcard.hard')}
                     </button>
                     <button
                       onClick={(e) => { e.stopPropagation(); handleLocalQuizResponse(true); }}
-                      className="py-3 bg-[var(--bg-card)] rounded-xl font-bold text-sm text-[var(--accent-color)]"
+                      className="py-3 bg-[var(--bg-card)] rounded-xl font-bold text-scale-label text-[var(--accent-color)]"
                     >
                       ✓ {t('tutorGames.flashcard.gotIt')}
                     </button>
@@ -814,7 +814,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <div className="bg-[var(--bg-card)] p-8 rounded-[2rem] shadow-xl text-center max-w-sm w-full">
               <div className="text-6xl mb-4">⚡</div>
               <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">{t('tutorGames.quickFireGame.title')}</h2>
-              <p className="text-[var(--text-secondary)] mb-6">
+              <p className="text-[var(--text-secondary)] text-scale-body mb-6">
                 {t('tutorGames.quickFireGame.description')}
               </p>
               <div className="flex gap-3">
@@ -855,7 +855,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
                 <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
               </button>
-              <span className="text-sm font-bold text-[var(--text-secondary)]">
+              <span className="text-scale-label font-bold text-[var(--text-secondary)]">
                 {localGameIndex + 1} / {localGameWords.length}
               </span>
               <span className={`text-3xl font-black ${localQuickFireTimeLeft <= 10 ? 'text-red-500 animate-pulse' : 'text-amber-500'}`}>
@@ -876,7 +876,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               onKeyDown={e => e.key === 'Enter' && handleLocalQuickFireAnswer()}
               placeholder={t('tutorGames.quickFireGame.typeTranslation')}
               autoFocus
-              className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-xl font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+              className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
             />
 
             {/* Score */}
@@ -899,7 +899,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
                 <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
               </button>
-              <span className="text-sm font-bold text-[var(--text-secondary)]">
+              <span className="text-scale-label font-bold text-[var(--text-secondary)]">
                 {localGameIndex + 1} / {localGameWords.length}
               </span>
               <div className="flex gap-2">
@@ -919,7 +919,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
             {/* Question Card */}
             <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)]">
-              <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
+              <span className="text-scale-micro font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
                 {t('tutorGames.direction.label', { target: targetName, native: nativeName })}
               </span>
 
@@ -950,7 +950,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                       disabled={mcShowFeedback}
                       className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${buttonStyle}`}
                     >
-                      <span className="text-xs font-bold text-[var(--text-secondary)] mr-3">
+                      <span className="text-scale-caption font-bold text-[var(--text-secondary)] mr-3">
                         {String.fromCharCode(65 + idx)}
                       </span>
                       {option}
@@ -980,7 +980,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
                 <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
               </button>
-              <span className="text-sm font-bold text-[var(--text-secondary)]">
+              <span className="text-scale-label font-bold text-[var(--text-secondary)]">
                 {localGameIndex + 1} / {localGameWords.length}
               </span>
               <div className="flex gap-2">
@@ -1000,7 +1000,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
             {/* Question Card */}
             <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)]">
-              <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
+              <span className="text-scale-micro font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
                 {t('tutorGames.direction.label', { target: targetName, native: nativeName })}
               </span>
 
@@ -1019,7 +1019,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                         <span className="font-bold">{t('tutorGames.typeItGame.correct')}</span>
                       </div>
                       {typeItExplanation && typeItExplanation !== 'Exact match' && (
-                        <p className="text-sm mt-1 opacity-80">{typeItExplanation}</p>
+                        <p className="text-scale-label mt-1 opacity-80">{typeItExplanation}</p>
                       )}
                     </div>
                   ) : (
@@ -1028,11 +1028,11 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                         <ICONS.X className="w-5 h-5" />
                         <span className="font-bold">{t('tutorGames.typeItGame.notQuite')}</span>
                       </div>
-                      <p className="text-sm">
+                      <p className="text-scale-label">
                         {t('tutorGames.typeItGame.correctAnswer', { answer: currentWord?.translation })}
                       </p>
                       {typeItExplanation && typeItExplanation !== 'No match' && (
-                        <p className="text-sm mt-1 opacity-80">{typeItExplanation}</p>
+                        <p className="text-scale-label mt-1 opacity-80">{typeItExplanation}</p>
                       )}
                     </div>
                   )}
@@ -1047,7 +1047,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                   onKeyDown={(e) => e.key === 'Enter' && handleTypeItSubmit()}
                   placeholder={t('tutorGames.typeItGame.typeIn', { language: nativeName })}
                   disabled={typeItSubmitted}
-                  className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-lg font-medium text-center bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                  className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-scale-heading font-medium text-center bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                   autoFocus
                 />
               </div>
@@ -1055,7 +1055,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               <button
                 onClick={handleTypeItSubmit}
                 disabled={!typeItAnswer.trim() && !typeItSubmitted}
-                className="w-full mt-6 py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50 transition-all bg-[var(--accent-color)] hover:bg-[var(--accent-hover)]"
+                className="w-full mt-6 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50 transition-all bg-[var(--accent-color)] hover:bg-[var(--accent-hover)]"
               >
                 {typeItSubmitted ? t('tutorGames.typeItGame.next') : t('tutorGames.typeItGame.check')}
               </button>
@@ -1078,7 +1078,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           <div className="inline-flex bg-[var(--bg-primary)] p-1 rounded-xl">
             <button
               onClick={() => setPlayMode('send')}
-              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-lg text-scale-caption font-bold transition-all ${
                 playMode === 'send'
                   ? 'bg-[var(--bg-card)] text-[var(--accent-color)] shadow-sm'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -1088,7 +1088,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             </button>
             <button
               onClick={() => setPlayMode('local')}
-              className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+              className={`px-4 py-2 rounded-lg text-scale-caption font-bold transition-all ${
                 playMode === 'local'
                   ? 'bg-[var(--bg-card)] text-teal-600 shadow-sm'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -1098,7 +1098,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             </button>
           </div>
 
-          <p className="text-[var(--text-secondary)] text-xs mt-2">
+          <p className="text-[var(--text-secondary)] text-scale-caption mt-2">
             {playMode === 'send'
               ? t('tutorGames.sendDescription', { name: partnerName })
               : t('tutorGames.playDescription')}
@@ -1119,10 +1119,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.local.quiz', { name: partnerName })}</h3>
-                  <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.local.quizDesc')}</p>
+                  <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.quizDesc')}</p>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-xs font-bold">
+              <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
                 <ICONS.Play className="w-3 h-3" />
                 <span>{t('tutorGames.startNow')}</span>
               </div>
@@ -1139,10 +1139,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.local.quickFire')}</h3>
-                  <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.local.quickFireDesc')}</p>
+                  <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.quickFireDesc')}</p>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2 text-amber-500 text-xs font-bold">
+              <div className="mt-4 flex items-center gap-2 text-amber-500 text-scale-caption font-bold">
                 <ICONS.Play className="w-3 h-3" />
                 <span>{t('tutorGames.startNow')}</span>
               </div>
@@ -1159,10 +1159,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.local.multipleChoice')}</h3>
-                  <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.local.multipleChoiceDesc')}</p>
+                  <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.multipleChoiceDesc')}</p>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2 text-purple-500 text-xs font-bold">
+              <div className="mt-4 flex items-center gap-2 text-purple-500 text-scale-caption font-bold">
                 <ICONS.Play className="w-3 h-3" />
                 <span>{t('tutorGames.startNow')}</span>
               </div>
@@ -1179,17 +1179,17 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.local.typeIt')}</h3>
-                  <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.local.typeItDesc')}</p>
+                  <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.typeItDesc')}</p>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2 text-blue-500 text-xs font-bold">
+              <div className="mt-4 flex items-center gap-2 text-blue-500 text-scale-caption font-bold">
                 <ICONS.Play className="w-3 h-3" />
                 <span>{t('tutorGames.startNow')}</span>
               </div>
             </button>
 
             {partnerVocab.length < 4 && (
-              <p className="text-xs text-[var(--text-secondary)] text-center col-span-2">
+              <p className="text-scale-caption text-[var(--text-secondary)] text-center col-span-2">
                 {t('tutorGames.local.needWords', { name: partnerName })}
               </p>
             )}
@@ -1211,10 +1211,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               </div>
               <div className="flex-1">
                 <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.send.doYouRemember')}</h3>
-                <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.send.quizPartner', { name: partnerName })}</p>
+                <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.quizPartner', { name: partnerName })}</p>
               </div>
             </div>
-            <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-xs font-bold">
+            <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
               <span>{t('tutorGames.send.createQuiz')}</span>
               <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -1231,10 +1231,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               </div>
               <div className="flex-1">
                 <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.send.quickFire')}</h3>
-                <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.send.timedChallenge')}</p>
+                <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.timedChallenge')}</p>
               </div>
             </div>
-            <div className="mt-4 flex items-center gap-2 text-amber-500 text-xs font-bold">
+            <div className="mt-4 flex items-center gap-2 text-amber-500 text-scale-caption font-bold">
               <span>{t('tutorGames.send.createChallenge')}</span>
               <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -1251,10 +1251,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               </div>
               <div className="flex-1">
                 <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.send.giftWords')}</h3>
-                <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.send.sendWords', { name: partnerName })}</p>
+                <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.sendWords', { name: partnerName })}</p>
               </div>
             </div>
-            <div className="mt-4 flex items-center gap-2 text-teal-500 text-xs font-bold">
+            <div className="mt-4 flex items-center gap-2 text-teal-500 text-scale-caption font-bold">
               <span>{t('tutorGames.send.sendGift')}</span>
               <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -1265,7 +1265,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         {/* Pending Challenges Section - Only in send mode */}
         {playMode === 'send' && pendingChallenges.length > 0 && (
           <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm p-6">
-            <h3 className="text-sm font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
+            <h3 className="text-scale-label font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
               <ICONS.Clock className="w-4 h-4" />
               {t('tutorGames.pending.waitingFor', { name: partnerName })}
             </h3>
@@ -1276,12 +1276,12 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                     {challenge.challenge_type === 'quiz' ? '🎯' : '⚡'}
                   </div>
                   <div className="flex-1">
-                    <p className="font-bold text-[var(--text-primary)] text-sm">{challenge.title}</p>
-                    <p className="text-xs text-[var(--text-secondary)]">
+                    <p className="font-bold text-[var(--text-primary)] text-scale-label">{challenge.title}</p>
+                    <p className="text-scale-caption text-[var(--text-secondary)]">
                       {t('tutorGames.pending.words', { count: challenge.words_data?.length || 0 })} • {t('tutorGames.pending.sent', { date: new Date(challenge.created_at).toLocaleDateString() })}
                     </p>
                   </div>
-                  <span className="text-xs font-bold text-amber-500 bg-amber-500/20 px-2 py-1 rounded-full">
+                  <span className="text-scale-caption font-bold text-amber-500 bg-amber-500/20 px-2 py-1 rounded-full">
                     {t('tutorGames.pending.pending')}
                   </span>
                 </div>
@@ -1293,7 +1293,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         {/* Pending Word Gifts - Only in send mode */}
         {playMode === 'send' && pendingRequests.length > 0 && (
           <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm p-6">
-            <h3 className="text-sm font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
+            <h3 className="text-scale-label font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
               <ICONS.Heart className="w-4 h-4 text-[var(--accent-color)]" />
               {t('tutorGames.gifts.title')}
             </h3>
@@ -1304,14 +1304,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                     🎁
                   </div>
                   <div className="flex-1">
-                    <p className="font-bold text-[var(--text-primary)] text-sm">
+                    <p className="font-bold text-[var(--text-primary)] text-scale-label">
                       {t('tutorGames.gifts.word', { count: request.selected_words?.length || 0 })}
                     </p>
-                    <p className="text-xs text-[var(--text-secondary)]">
+                    <p className="text-scale-caption text-[var(--text-secondary)]">
                       {request.request_type === 'ai_topic' ? t('tutorGames.gifts.topic', { topic: request.input_text }) : t('tutorGames.gifts.custom')}
                     </p>
                   </div>
-                  <span className="text-xs font-bold text-teal-500 bg-teal-500/20 px-2 py-1 rounded-full">
+                  <span className="text-scale-caption font-bold text-teal-500 bg-teal-500/20 px-2 py-1 rounded-full">
                     {t('tutorGames.gifts.xpMultiplier', { multiplier: request.xp_multiplier })}
                   </span>
                 </div>
@@ -1323,7 +1323,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         {/* Recent Results - Only in send mode */}
         {playMode === 'send' && completedChallenges.length > 0 && (
           <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm p-6">
-            <h3 className="text-sm font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
+            <h3 className="text-scale-label font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
               <ICONS.Check className="w-4 h-4 text-green-500" />
               {t('tutorGames.results.title')}
             </h3>
@@ -1334,13 +1334,13 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                     {challenge.challenge_type === 'quiz' ? '🎯' : '⚡'}
                   </div>
                   <div className="flex-1">
-                    <p className="font-bold text-[var(--text-primary)] text-sm">{challenge.title}</p>
-                    <p className="text-xs text-[var(--text-secondary)]">
+                    <p className="font-bold text-[var(--text-primary)] text-scale-label">{challenge.title}</p>
+                    <p className="text-scale-caption text-[var(--text-secondary)]">
                       {t('tutorGames.results.completed', { date: new Date(challenge.completed_at || '').toLocaleDateString() })}
                     </p>
                   </div>
                   {(challenge as any).result && (
-                    <span className="text-xs font-bold text-green-500 bg-green-500/20 px-2 py-1 rounded-full">
+                    <span className="text-scale-caption font-bold text-green-500 bg-green-500/20 px-2 py-1 rounded-full">
                       {(challenge as any).result.score}%
                     </span>
                   )}
@@ -1355,7 +1355,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           <div className="text-center py-12 text-[var(--text-secondary)]">
             <div className="text-6xl mb-4">🎮</div>
             <p className="font-bold">{t('tutorGames.empty.noChallenges')}</p>
-            <p className="text-sm">{t('tutorGames.empty.createFirst', { name: partnerName })}</p>
+            <p className="text-scale-label">{t('tutorGames.empty.createFirst', { name: partnerName })}</p>
           </div>
         )}
       </div>

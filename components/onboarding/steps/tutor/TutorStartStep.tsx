@@ -38,13 +38,13 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
           {t('onboarding.tutor.start.title', { learnerName, userName })}
         </h1>
 
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-scale-heading text-gray-600 mb-8">
           {t('onboarding.tutor.start.subtitle')}
         </p>
 
         {/* What's unlocked */}
         <div className="bg-gray-50 rounded-2xl p-6 mb-8 text-left">
-          <div className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">
+          <div className="text-scale-label font-bold text-gray-500 uppercase tracking-wider mb-4">
             {t('onboarding.tutor.start.toolkitTitle')}
           </div>
           <div className="space-y-3">

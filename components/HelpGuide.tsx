@@ -35,13 +35,13 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
           </p>
           <div className="bg-[var(--accent-light)] rounded-xl p-4">
             <h4 className="font-bold text-[var(--text-primary)] mb-2">{t('helpGuide.sections.gettingStarted.cupidTitle')}</h4>
-            <p className="text-sm text-[var(--text-secondary)]">
+            <p className="text-scale-label text-[var(--text-secondary)]">
               {t('helpGuide.sections.gettingStarted.cupidDescription')}
             </p>
           </div>
           <div className="space-y-2">
             <h4 className="font-bold text-[var(--text-primary)]">{t('helpGuide.sections.gettingStarted.rolesTitle')}</h4>
-            <ul className="text-sm text-[var(--text-secondary)] space-y-1 ml-4">
+            <ul className="text-scale-label text-[var(--text-secondary)] space-y-1 ml-4">
               <li><strong>Students</strong> {t('helpGuide.sections.gettingStarted.studentRole', { language: targetName })}</li>
               <li><strong>Tutors</strong> {t('helpGuide.sections.gettingStarted.tutorRole')}</li>
             </ul>
@@ -56,27 +56,27 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
       content: (
         <div className="space-y-4">
           <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-            <h4 className="font-bold text-[var(--accent-color)] mb-2">{t('helpGuide.sections.chatModes.askTitle')} <span className="text-xs text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.askSubtitle')}</span></h4>
-            <p className="text-sm text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.askDescription')}</p>
-            <ul className="text-sm text-[var(--text-secondary)] ml-4 space-y-1">
+            <h4 className="font-bold text-[var(--accent-color)] mb-2">{t('helpGuide.sections.chatModes.askTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.askSubtitle')}</span></h4>
+            <p className="text-scale-label text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.askDescription')}</p>
+            <ul className="text-scale-label text-[var(--text-secondary)] ml-4 space-y-1">
               <li>{t('helpGuide.sections.chatModes.askExample1')}</li>
               <li>{t('helpGuide.sections.chatModes.askExample2')}</li>
               <li>{t('helpGuide.sections.chatModes.askExample3')}</li>
             </ul>
           </div>
           <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-            <h4 className="font-bold text-teal-500 mb-2">{t('helpGuide.sections.chatModes.learnTitle')} <span className="text-xs text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.learnSubtitle')}</span></h4>
-            <p className="text-sm text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.learnDescription')}</p>
-            <ul className="text-sm text-[var(--text-secondary)] ml-4 space-y-1">
+            <h4 className="font-bold text-teal-500 mb-2">{t('helpGuide.sections.chatModes.learnTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.learnSubtitle')}</span></h4>
+            <p className="text-scale-label text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.learnDescription')}</p>
+            <ul className="text-scale-label text-[var(--text-secondary)] ml-4 space-y-1">
               <li>{t('helpGuide.sections.chatModes.learnExample1')}</li>
               <li>{t('helpGuide.sections.chatModes.learnExample2')}</li>
               <li>{t('helpGuide.sections.chatModes.learnExample3')}</li>
             </ul>
           </div>
           <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-            <h4 className="font-bold text-teal-500 mb-2">{t('helpGuide.sections.chatModes.coachTitle')} <span className="text-xs text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.coachSubtitle')}</span></h4>
-            <p className="text-sm text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.coachDescription')}</p>
-            <ul className="text-sm text-[var(--text-secondary)] ml-4 space-y-1">
+            <h4 className="font-bold text-teal-500 mb-2">{t('helpGuide.sections.chatModes.coachTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.coachSubtitle')}</span></h4>
+            <p className="text-scale-label text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.coachDescription')}</p>
+            <ul className="text-scale-label text-[var(--text-secondary)] ml-4 space-y-1">
               <li>{t('helpGuide.sections.chatModes.coachExample1')}</li>
               <li>{t('helpGuide.sections.chatModes.coachExample2')}</li>
               <li>{t('helpGuide.sections.chatModes.coachExample3')}</li>
@@ -100,8 +100,8 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
                 <ICONS.RefreshCw className="w-4 h-4 text-[var(--accent-color)]" />
               </div>
               <div>
-                <h4 className="font-bold text-[var(--text-primary)] text-sm">{t('helpGuide.sections.vocabulary.syncTitle')}</h4>
-                <p className="text-xs text-[var(--text-secondary)]">{t('helpGuide.sections.vocabulary.syncDescription')}</p>
+                <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.vocabulary.syncTitle')}</h4>
+                <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.vocabulary.syncDescription')}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -109,8 +109,8 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
                 <ICONS.Star className="w-4 h-4 text-[var(--accent-color)]" />
               </div>
               <div>
-                <h4 className="font-bold text-[var(--text-primary)] text-sm">{t('helpGuide.sections.vocabulary.masteryTitle')}</h4>
-                <p className="text-xs text-[var(--text-secondary)]">{t('helpGuide.sections.vocabulary.masteryDescription')}</p>
+                <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.vocabulary.masteryTitle')}</h4>
+                <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.vocabulary.masteryDescription')}</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -118,8 +118,8 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
                 <ICONS.Clock className="w-4 h-4 text-[var(--accent-color)]" />
               </div>
               <div>
-                <h4 className="font-bold text-[var(--text-primary)] text-sm">{t('helpGuide.sections.vocabulary.tenseTitle')}</h4>
-                <p className="text-xs text-[var(--text-secondary)]">{t('helpGuide.sections.vocabulary.tenseDescription')}</p>
+                <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.vocabulary.tenseTitle')}</h4>
+                <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.vocabulary.tenseDescription')}</p>
               </div>
             </div>
           </div>
@@ -137,20 +137,20 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
           </p>
           <div className="grid gap-3">
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-3">
-              <h4 className="font-bold text-[var(--text-primary)] text-sm">{t('helpGuide.sections.games.flashcards')}</h4>
-              <p className="text-xs text-[var(--text-secondary)]">{t('helpGuide.sections.games.flashcardsDescription', { language: targetName, native: nativeName })}</p>
+              <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.games.flashcards')}</h4>
+              <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.games.flashcardsDescription', { language: targetName, native: nativeName })}</p>
             </div>
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-3">
-              <h4 className="font-bold text-[var(--text-primary)] text-sm">{t('helpGuide.sections.games.multipleChoice')}</h4>
-              <p className="text-xs text-[var(--text-secondary)]">{t('helpGuide.sections.games.multipleChoiceDescription')}</p>
+              <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.games.multipleChoice')}</h4>
+              <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.games.multipleChoiceDescription')}</p>
             </div>
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-3">
-              <h4 className="font-bold text-[var(--text-primary)] text-sm">{t('helpGuide.sections.games.typeIt')}</h4>
-              <p className="text-xs text-[var(--text-secondary)]">{t('helpGuide.sections.games.typeItDescription', { language: targetName })}</p>
+              <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.games.typeIt')}</h4>
+              <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.games.typeItDescription', { language: targetName })}</p>
             </div>
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-3">
-              <h4 className="font-bold text-[var(--text-primary)] text-sm">{t('helpGuide.sections.games.aiChallenge')}</h4>
-              <p className="text-xs text-[var(--text-secondary)]">{t('helpGuide.sections.games.aiChallengeDescription')}</p>
+              <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.games.aiChallenge')}</h4>
+              <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.games.aiChallengeDescription')}</p>
             </div>
           </div>
         </div>
@@ -164,13 +164,13 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
         <div className="space-y-4">
           <div className="bg-[var(--accent-light)] rounded-xl p-4">
             <h4 className="font-bold text-[var(--text-primary)] mb-2">{t('helpGuide.sections.progress.xpTitle')}</h4>
-            <p className="text-sm text-[var(--text-secondary)]">
+            <p className="text-scale-label text-[var(--text-secondary)]">
               {t('helpGuide.sections.progress.xpDescription')}
             </p>
           </div>
           <div className="space-y-2">
             <h4 className="font-bold text-[var(--text-primary)]">{t('helpGuide.sections.progress.tiersTitle')}</h4>
-            <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="grid grid-cols-2 gap-2 text-scale-caption">
               <div className="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 rounded-lg px-3 py-2">{t('helpGuide.sections.progress.beginner')}</div>
               <div className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg px-3 py-2">{t('helpGuide.sections.progress.elementary')}</div>
               <div className="bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 rounded-lg px-3 py-2">{t('helpGuide.sections.progress.conversational')}</div>
@@ -179,7 +179,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
               <div className="bg-slate-50 dark:bg-slate-900/20 text-slate-700 dark:text-slate-300 rounded-lg px-3 py-2">{t('helpGuide.sections.progress.master')}</div>
             </div>
           </div>
-          <p className="text-sm text-[var(--text-secondary)]">
+          <p className="text-scale-label text-[var(--text-secondary)]">
             {t('helpGuide.sections.progress.testsNote')}
           </p>
         </div>
@@ -227,8 +227,8 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
               <ICONS.BookOpen className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="font-header font-bold text-lg text-[var(--text-primary)]">{t('helpGuide.title')}</h2>
-              <p className="text-xs text-[var(--text-secondary)]">{t('helpGuide.subtitle')}</p>
+              <h2 className="font-header font-bold text-scale-heading text-[var(--text-primary)]">{t('helpGuide.title')}</h2>
+              <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.subtitle')}</p>
             </div>
           </div>
           <button
@@ -245,7 +245,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
             <div className="space-y-6">
               {/* Section Index */}
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-4">
+                <h3 className="text-scale-caption font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-4">
                   {t('helpGuide.contents')}
                 </h3>
                 <div className="space-y-2">
@@ -260,7 +260,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
                         <div className="w-8 h-8 rounded-lg bg-[var(--accent-light)] flex items-center justify-center group-hover:scale-110 transition-transform">
                           <Icon className="w-4 h-4 text-[var(--accent-color)]" />
                         </div>
-                        <span className="font-medium text-sm text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">
+                        <span className="font-medium text-scale-label text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">
                           {section.title}
                         </span>
                         <ICONS.ChevronRight className="w-4 h-4 text-[var(--text-secondary)] ml-auto" />
@@ -272,7 +272,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
 
               {/* Quick Tips */}
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-4">
+                <h3 className="text-scale-caption font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-4">
                   {t('helpGuide.quickTips')}
                 </h3>
                 <div className="space-y-3">
@@ -280,10 +280,10 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
                     <details key={i} className="group">
                       <summary className="flex items-center gap-2 p-3 rounded-xl bg-white dark:bg-[var(--bg-primary)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--accent-color)] transition-all list-none">
                         <ICONS.HelpCircle className="w-4 h-4 text-[var(--accent-color)] flex-shrink-0" />
-                        <span className="text-sm font-medium text-[var(--text-primary)]">{tip.question}</span>
+                        <span className="text-scale-label font-medium text-[var(--text-primary)]">{tip.question}</span>
                         <ICONS.ChevronDown className="w-4 h-4 text-[var(--text-secondary)] ml-auto group-open:rotate-180 transition-transform" />
                       </summary>
-                      <div className="mt-2 ml-6 p-3 text-sm text-[var(--text-secondary)] bg-[var(--accent-light)] rounded-xl">
+                      <div className="mt-2 ml-6 p-3 text-scale-label text-[var(--text-secondary)] bg-[var(--accent-light)] rounded-xl">
                         {tip.answer}
                       </div>
                     </details>
@@ -296,7 +296,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
               {/* Back button */}
               <button
                 onClick={() => setActiveSection('index')}
-                className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--accent-color)] mb-6 transition-colors"
+                className="flex items-center gap-2 text-scale-label text-[var(--text-secondary)] hover:text-[var(--accent-color)] mb-6 transition-colors"
               >
                 <ICONS.ArrowLeft className="w-4 h-4" />
                 {t('helpGuide.backToContents')}
@@ -314,7 +314,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
                         </div>
                       );
                     })()}
-                    <h3 className="font-header font-bold text-xl text-[var(--text-primary)]">
+                    <h3 className="font-header font-bold text-scale-heading text-[var(--text-primary)]">
                       {currentSection.title}
                     </h3>
                   </div>
@@ -327,7 +327,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
 
         {/* Footer */}
         <div className="p-4 border-t border-[var(--border-color)] bg-white dark:bg-[var(--bg-primary)]">
-          <p className="text-xs text-center text-[var(--text-secondary)]">
+          <p className="text-scale-caption text-center text-[var(--text-secondary)]">
             {t('helpGuide.footer')}
           </p>
         </div>

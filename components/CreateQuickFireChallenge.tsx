@@ -201,10 +201,10 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
         {/* Header */}
         <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-black text-[var(--text-primary)] flex items-center gap-2">
+            <h2 className="text-scale-heading font-black text-[var(--text-primary)] flex items-center gap-2">
               <span>⚡</span> {t('challengeCreator.quickFire.title')}
             </h2>
-            <p className="text-sm text-[var(--text-secondary)]">{t('challengeCreator.quickFire.subtitle', { name: partnerName })}</p>
+            <p className="text-scale-label text-[var(--text-secondary)]">{t('challengeCreator.quickFire.subtitle', { name: partnerName })}</p>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors">
             <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -216,7 +216,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
 
           {/* Title Input */}
           <div>
-            <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
+            <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
               {t('challengeCreator.quickFire.titleLabel')}
             </label>
             <input
@@ -224,13 +224,13 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
               value={title}
               onChange={e => setTitle(e.target.value)}
               placeholder={t('challengeCreator.quickFire.titlePlaceholder')}
-              className="w-full p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+              className="w-full p-3 border border-[var(--border-color)] rounded-xl text-scale-label focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
             />
           </div>
 
           {/* Difficulty Selection */}
           <div>
-            <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
+            <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
               {t('challengeCreator.quickFire.difficulty')}
             </label>
             <div className="grid grid-cols-3 gap-2">
@@ -251,8 +251,8 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   <div className="text-2xl mb-1">
                     {diff === 'easy' ? '🌿' : diff === 'medium' ? '🔥' : '💥'}
                   </div>
-                  <p className="font-bold text-[var(--text-primary)] text-sm capitalize">{t(`challengeCreator.quickFire.difficultyLevels.${diff}`)}</p>
-                  <p className="text-xs text-[var(--text-secondary)]">{difficultySettings[diff].time}s</p>
+                  <p className="font-bold text-[var(--text-primary)] text-scale-label capitalize">{t(`challengeCreator.quickFire.difficultyLevels.${diff}`)}</p>
+                  <p className="text-scale-caption text-[var(--text-secondary)]">{difficultySettings[diff].time}s</p>
                 </button>
               ))}
             </div>
@@ -260,7 +260,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
 
           {/* Word Count */}
           <div>
-            <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
+            <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
               {t('challengeCreator.quickFire.targetWords', { count: wordCount })}
             </label>
             <input
@@ -271,7 +271,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
               onChange={e => setWordCount(parseInt(e.target.value))}
               className="w-full h-2 bg-[var(--bg-primary)] rounded-lg appearance-none cursor-pointer accent-amber-500"
             />
-            <div className="flex justify-between text-xs text-[var(--text-secondary)] mt-1">
+            <div className="flex justify-between text-scale-caption text-[var(--text-secondary)] mt-1">
               <span>{t('challengeCreator.quickFire.minWords', { count: 5 })}</span>
               <span>{t('challengeCreator.quickFire.maxWords', { count: 20 })}</span>
             </div>
@@ -281,9 +281,9 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-2xl border border-amber-200 dark:border-amber-800">
             <div className="flex items-center gap-2 mb-3">
               <ICONS.Plus className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-              <p className="font-bold text-amber-800 dark:text-amber-200 text-sm">{t('challengeCreator.common.addNewWords')}</p>
+              <p className="font-bold text-amber-800 dark:text-amber-200 text-scale-label">{t('challengeCreator.common.addNewWords')}</p>
             </div>
-            <p className="text-xs text-amber-700 dark:text-amber-300 mb-3">
+            <p className="text-scale-caption text-amber-700 dark:text-amber-300 mb-3">
               {t('challengeCreator.common.enterTargetLanguage', { language: targetName })}
             </p>
 
@@ -300,7 +300,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   }
                 }}
                 placeholder={t('challengeCreator.common.enterWordPlaceholder', { language: targetName })}
-                className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                className="flex-1 p-2 border border-[var(--border-color)] rounded-lg text-scale-label focus:outline-none focus:border-amber-500 bg-[var(--bg-card)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                 onKeyDown={e => e.key === 'Enter' && newWord.trim() && !generatedWord && generateTranslation()}
                 disabled={generating}
               />
@@ -308,7 +308,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                 <button
                   onClick={generateTranslation}
                   disabled={!newWord.trim() || generating}
-                  className="px-4 py-2 bg-amber-500 text-white rounded-lg font-bold text-sm hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  className="px-4 py-2 bg-amber-500 text-white rounded-lg font-bold text-scale-label hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
                 >
                   {generating ? (
                     <>
@@ -328,7 +328,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                     setGeneratedWord(null);
                     setNewTranslation('');
                   }}
-                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-lg font-bold text-sm transition-colors"
+                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-lg font-bold text-scale-label transition-colors"
                 >
                   {t('challengeCreator.common.clear')}
                 </button>
@@ -343,7 +343,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                     <div className="flex items-center gap-2 mb-1">
                       <span className="font-bold text-[var(--text-primary)]">{generatedWord.word}</span>
                       {generatedWord.pronunciation && (
-                        <span className="text-xs text-[var(--text-secondary)]">[{generatedWord.pronunciation}]</span>
+                        <span className="text-scale-caption text-[var(--text-secondary)]">[{generatedWord.pronunciation}]</span>
                       )}
                     </div>
                     <div className="flex items-center gap-2">
@@ -353,7 +353,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                         value={newTranslation}
                         onChange={e => setNewTranslation(e.target.value)}
                         placeholder={t('challengeCreator.common.editTranslation')}
-                        className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-sm focus:outline-none focus:border-amber-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                        className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-scale-label focus:outline-none focus:border-amber-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                         onKeyDown={e => e.key === 'Enter' && newTranslation && addNewWord()}
                       />
                     </div>
@@ -361,7 +361,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   <button
                     onClick={addNewWord}
                     disabled={!newTranslation.trim()}
-                    className="px-3 py-2 bg-green-500 text-white rounded-lg font-bold text-sm hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    className="px-3 py-2 bg-green-500 text-white rounded-lg font-bold text-scale-label hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
                   >
                     <ICONS.Check className="w-4 h-4" />
                     {t('challengeCreator.common.add')}
@@ -378,9 +378,9 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                     className="flex items-center justify-between p-2 bg-[var(--bg-card)] rounded-lg border border-[var(--border-color)]"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-[var(--text-primary)] text-sm">{word.word}</span>
+                      <span className="font-bold text-[var(--text-primary)] text-scale-label">{word.word}</span>
                       <span className="text-[var(--text-secondary)]">→</span>
-                      <span className="text-[var(--text-secondary)] text-sm">{word.translation}</span>
+                      <span className="text-[var(--text-secondary)] text-scale-label">{word.translation}</span>
                     </div>
                     <button
                       onClick={() => removeNewWord(index)}
@@ -398,12 +398,12 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           {partnerVocab.length > 0 && (
             <div>
               <div className="flex items-center justify-between mb-3">
-                <label className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+                <label className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider">
                   {t('challengeCreator.quickFire.pickSpecificWords', { count: selectedWordIds.size })}
                 </label>
                 <button
                   onClick={() => setSelectedWordIds(new Set())}
-                  className="text-xs text-[var(--text-secondary)] font-bold hover:underline"
+                  className="text-scale-caption text-[var(--text-secondary)] font-bold hover:underline"
                 >
                   {t('challengeCreator.common.clear')}
                 </button>
@@ -416,7 +416,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder={t('challengeCreator.common.searchWords')}
-                  className="w-full p-3 border border-[var(--border-color)] rounded-xl text-sm focus:outline-none focus:border-[var(--accent-border)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                  className="w-full p-3 border border-[var(--border-color)] rounded-xl text-scale-label focus:outline-none focus:border-[var(--accent-border)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                 />
               </div>
 
@@ -436,15 +436,15 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <p className="font-bold text-[var(--text-primary)] text-sm truncate">{word.word}</p>
-                        {isWeak && <span className="text-xs">🔴</span>}
+                        <p className="font-bold text-[var(--text-primary)] text-scale-label truncate">{word.word}</p>
+                        {isWeak && <span className="text-scale-caption">🔴</span>}
                       </div>
-                      <p className="text-xs text-[var(--text-secondary)] truncate">{word.translation}</p>
+                      <p className="text-scale-caption text-[var(--text-secondary)] truncate">{word.translation}</p>
                     </button>
                   );
                 })}
               </div>
-              <p className="text-xs text-[var(--text-secondary)] mt-2">
+              <p className="text-scale-caption text-[var(--text-secondary)] mt-2">
                 {t('challengeCreator.quickFire.weakWordIndicator')}
               </p>
             </div>
@@ -452,10 +452,10 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
 
           {/* Auto-fill Info */}
           <div className="bg-[var(--bg-primary)] p-4 rounded-2xl border border-[var(--border-color)]">
-            <p className="text-sm text-[var(--text-secondary)]">
+            <p className="text-scale-label text-[var(--text-secondary)]">
               <span className="font-bold text-[var(--text-primary)]">{t('challengeCreator.quickFire.wordSelectionLabel')}</span>
             </p>
-            <ul className="text-xs text-[var(--text-secondary)] mt-2 space-y-1">
+            <ul className="text-scale-caption text-[var(--text-secondary)] mt-2 space-y-1">
               <li>• {t('challengeCreator.quickFire.newWordsCount')}: <span className="font-bold text-amber-600">{newWords.length}</span></li>
               <li>• {t('challengeCreator.quickFire.manuallyPicked')}: <span className="font-bold text-amber-600">{selectedWordIds.size}</span></li>
               {autoFillCount > 0 && (
@@ -469,17 +469,17 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
 
           {/* Preview Stats */}
           <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-2xl border border-amber-200 dark:border-amber-800">
-            <p className="text-sm text-amber-800 dark:text-amber-200">
+            <p className="text-scale-label text-amber-800 dark:text-amber-200">
               {t('challengeCreator.quickFire.previewStats', { name: partnerName, seconds: timeLimit })}
             </p>
-            <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">
+            <p className="text-scale-caption text-amber-600 dark:text-amber-400 mt-1">
               {t('challengeCreator.quickFire.averageTime', { time: (timeLimit / Math.max(1, manuallySelectedCount + autoFillCount)).toFixed(1) })}
             </p>
           </div>
 
           {!canCreate && (
             <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-200 dark:border-red-800">
-              <p className="text-sm text-red-600 dark:text-red-400 font-bold">
+              <p className="text-scale-label text-red-600 dark:text-red-400 font-bold">
                 {t('challengeCreator.quickFire.needMinWords', { count: 5 })}
               </p>
             </div>
@@ -490,14 +490,14 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
         <div className="p-6 border-t border-[var(--border-color)] flex items-center justify-between bg-[var(--bg-primary)]">
           <button
             onClick={onClose}
-            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-sm hover:bg-[var(--bg-card)] rounded-xl transition-colors"
+            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-scale-label hover:bg-[var(--bg-card)] rounded-xl transition-colors"
           >
             {t('challengeCreator.common.cancel')}
           </button>
           <button
             onClick={handleCreate}
             disabled={creating || !canCreate}
-            className="px-8 py-3 bg-amber-500 text-white font-bold text-sm rounded-xl hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            className="px-8 py-3 bg-amber-500 text-white font-bold text-scale-label rounded-xl hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
           >
             {creating ? (
               <>

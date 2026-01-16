@@ -92,24 +92,24 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
           xpAnimated ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
         }`}>
           <span className="text-2xl">⭐</span>
-          <span className="font-black text-amber-700 text-lg">{t('onboarding.student.celebration.xpEarned')}</span>
+          <span className="font-black text-amber-700 text-scale-heading">{t('onboarding.student.celebration.xpEarned')}</span>
         </div>
 
-        <div className="mt-4 mb-8 text-gray-400 text-sm">
+        <div className="mt-4 mb-8 text-gray-400 text-scale-label">
           {t('onboarding.student.celebration.firstXp')}
         </div>
 
         {/* Words learned summary */}
         <div className="bg-gray-50 rounded-2xl p-6 mb-8">
-          <div className="text-sm text-gray-500 mb-3">{t('onboarding.student.celebration.wordsLearned')}</div>
+          <div className="text-scale-label text-gray-500 mb-3">{t('onboarding.student.celebration.wordsLearned')}</div>
           <div className="flex justify-center gap-4">
             <div className="bg-white px-4 py-2 rounded-xl shadow-sm">
               <span style={{ color: accentColor }} className="font-bold">{helloWord}</span>
-              <span className="text-gray-400 text-sm ml-2">{helloTranslation}</span>
+              <span className="text-gray-400 text-scale-label ml-2">{helloTranslation}</span>
             </div>
             <div className="bg-white px-4 py-2 rounded-xl shadow-sm">
               <span style={{ color: accentColor }} className="font-bold">{lovePhrase}</span>
-              <span className="text-gray-400 text-sm ml-2">{loveTranslation}</span>
+              <span className="text-gray-400 text-scale-label ml-2">{loveTranslation}</span>
             </div>
           </div>
         </div>

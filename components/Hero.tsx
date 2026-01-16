@@ -1365,12 +1365,12 @@ const Section: React.FC<{
         </h2>
 
         {subhead && (
-          <p className="text-lg md:text-xl mb-6 font-semibold italic" style={{ color: accentColor }}>
+          <p className="text-scale-heading mb-6 font-semibold italic" style={{ color: accentColor }}>
             {subhead}
           </p>
         )}
 
-        <p className="text-base md:text-lg leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+        <p className="text-scale-body leading-relaxed font-medium" style={{ color: '#4b5563' }}>
           {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase)}
         </p>
 
@@ -1447,7 +1447,7 @@ const LoginForm: React.FC<{
         >
           {context.header}
         </h3>
-        <p className="font-semibold text-base transition-all duration-300" style={{ color: '#9ca3af' }}>
+        <p className="font-semibold text-scale-body transition-all duration-300" style={{ color: '#9ca3af' }}>
           {context.subtext}
         </p>
       </div>
@@ -1455,7 +1455,7 @@ const LoginForm: React.FC<{
       <form onSubmit={onSubmit} className="space-y-5">
         {/* Inline error message */}
         {hasError && (
-          <div className="flex items-center gap-2 text-red-500 text-sm font-semibold animate-shake">
+          <div className="flex items-center gap-2 text-red-500 text-scale-label font-semibold animate-shake">
             <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
             </svg>
@@ -1464,7 +1464,7 @@ const LoginForm: React.FC<{
         )}
 
         <div>
-          <label className="block text-[11px] font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: hasError ? '#ef4444' : '#9ca3af' }}>
+          <label className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: hasError ? '#ef4444' : '#9ca3af' }}>
             {t('hero.login.emailLabel')}
           </label>
           <input
@@ -1472,7 +1472,7 @@ const LoginForm: React.FC<{
             value={email}
             onChange={(e) => { setEmail(e.target.value); if (message) setMessage(''); }}
             required
-            className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-base"
+            className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
             style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: hasError ? errorBorderColor : '#e5e7eb' }}
             onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
             onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : '#e5e7eb'}
@@ -1480,7 +1480,7 @@ const LoginForm: React.FC<{
           />
         </div>
         <div>
-          <label className="block text-[11px] font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: hasError ? '#ef4444' : '#9ca3af' }}>
+          <label className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: hasError ? '#ef4444' : '#9ca3af' }}>
             {t('hero.login.passwordLabel')}
           </label>
           <input
@@ -1489,7 +1489,7 @@ const LoginForm: React.FC<{
             value={password}
             onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); }}
             required
-            className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-base"
+            className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
             style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: hasError ? errorBorderColor : '#e5e7eb' }}
             onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
             onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : '#e5e7eb'}
@@ -1500,7 +1500,7 @@ const LoginForm: React.FC<{
         <button
           type="submit"
           disabled={loading || oauthLoading !== null}
-          className="w-full text-white font-black py-5 rounded-[2rem] shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-base uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
+          className="w-full text-white font-black py-5 rounded-[2rem] shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
           style={{ backgroundColor: accentColor, boxShadow: `0 20px 40px -10px ${accentShadow}` }}
           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
@@ -1516,7 +1516,7 @@ const LoginForm: React.FC<{
       {/* OAuth Divider */}
       <div className="flex items-center gap-4 mt-6">
         <div className="flex-1 h-px bg-gray-200" />
-        <span className="text-xs font-bold uppercase tracking-widest text-gray-400">
+        <span className="text-scale-caption font-bold uppercase tracking-widest text-gray-400">
           {t('hero.login.orContinueWith', 'or continue with')}
         </span>
         <div className="flex-1 h-px bg-gray-200" />
@@ -1546,7 +1546,7 @@ const LoginForm: React.FC<{
 
       {/* Success messages (like email confirmation) */}
       {message && message.toLowerCase().includes('check') && (
-        <div className="mt-6 p-4 rounded-2xl text-sm font-bold text-center bg-green-50 text-green-700">
+        <div className="mt-6 p-4 rounded-2xl text-scale-label font-bold text-center bg-green-50 text-green-700">
           {message}
         </div>
       )}
@@ -1554,7 +1554,7 @@ const LoginForm: React.FC<{
       <div className="mt-6 text-center">
         <button
           onClick={() => { setIsSignUp(!isSignUp); setMessage(''); }}
-          className={`text-sm font-black uppercase tracking-widest transition-all hover:opacity-70 ${
+          className={`text-scale-label font-black uppercase tracking-widest transition-all hover:opacity-70 ${
             isCredentialsError && !isSignUp ? 'animate-pulse-glow' : ''
           }`}
           style={{
@@ -1609,7 +1609,7 @@ const MobileSection: React.FC<{
                 <path d="M3305 3131 c-22 -49 -49 -75 -97 -96 -81 -33 -206 -8 -218 45 -5 22 -37 42 -52 33 -5 -2 -8 -15 -8 -28 0 -14 -13 -34 -31 -49 -19 -16 -29 -32 -25 -41 7 -19 40 -19 60 0 21 21 32 19 73 -12 32 -25 44 -28 113 -27 118 1 198 48 242 141 23 50 18 73 -15 73 -18 0 -28 -10 -42 -39z"/>
               </g>
             </svg>
-            <h1 className="text-xl font-black font-header tracking-tight" style={{ color: accentColor }}>
+            <h1 className="text-scale-heading font-black font-header tracking-tight" style={{ color: accentColor }}>
               Love Languages
             </h1>
           </div>
@@ -1623,12 +1623,12 @@ const MobileSection: React.FC<{
         </h2>
 
         {subhead && (
-          <p className="text-base mb-3 font-semibold italic" style={{ color: accentColor }}>
+          <p className="text-scale-body mb-3 font-semibold italic" style={{ color: accentColor }}>
             {subhead}
           </p>
         )}
 
-        <p className="text-sm leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+        <p className="text-scale-label leading-relaxed font-medium" style={{ color: '#4b5563' }}>
           {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase)}
         </p>
 
@@ -1679,7 +1679,7 @@ const LanguageGrid: React.FC<{
       {showBackButton && onBack && (
         <button
           onClick={onBack}
-          className="flex items-center gap-2 mb-6 text-sm font-bold transition-all hover:opacity-70"
+          className="flex items-center gap-2 mb-6 text-scale-label font-bold transition-all hover:opacity-70"
           style={{ color: accentColor }}
         >
           <ICONS.ChevronLeft className="w-4 h-4" />
@@ -1690,7 +1690,7 @@ const LanguageGrid: React.FC<{
       <h2 className="text-2xl md:text-3xl font-black font-header mb-2" style={{ color: '#1a1a2e' }}>
         {title}
       </h2>
-      <p className="text-base mb-6 font-medium" style={{ color: '#6b7280' }}>
+      <p className="text-scale-body mb-6 font-medium" style={{ color: '#6b7280' }}>
         {subtitle}
       </p>
 
@@ -1708,7 +1708,7 @@ const LanguageGrid: React.FC<{
             }}
           >
             <span className="text-2xl">{lang.flag}</span>
-            <span className="text-[10px] font-bold text-gray-700">{lang.nativeName}</span>
+            <span className="text-scale-micro font-bold text-gray-700">{lang.nativeName}</span>
           </button>
         ))}
       </div>
@@ -1723,10 +1723,10 @@ const LanguageGrid: React.FC<{
             backgroundColor: 'transparent',
           }}
         >
-          <span className="text-sm font-bold" style={{ color: accentColor }}>
+          <span className="text-scale-label font-bold" style={{ color: accentColor }}>
             {t('hero.languageSelector.showAll')}
           </span>
-          <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: accentLight, color: accentColor }}>
+          <span className="text-scale-caption font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: accentLight, color: accentColor }}>
             +{otherLanguages.length}
           </span>
           <svg
@@ -1750,7 +1750,7 @@ const LanguageGrid: React.FC<{
         {/* Divider with label */}
         <div className="flex items-center gap-3 mb-4">
           <div className="flex-1 h-px bg-gray-200" />
-          <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">More languages</span>
+          <span className="text-scale-caption font-bold text-gray-400 uppercase tracking-wider">More languages</span>
           <div className="flex-1 h-px bg-gray-200" />
         </div>
 
@@ -1768,7 +1768,7 @@ const LanguageGrid: React.FC<{
               }}
             >
               <span className="text-xl">{lang.flag}</span>
-              <span className="text-[9px] font-bold text-gray-600 truncate w-full text-center">{lang.nativeName}</span>
+              <span className="text-scale-micro font-bold text-gray-600 truncate w-full text-center">{lang.nativeName}</span>
             </button>
           ))}
         </div>
@@ -1779,7 +1779,7 @@ const LanguageGrid: React.FC<{
           className="mt-4 mx-auto flex items-center gap-1.5 px-4 py-2 rounded-full transition-all duration-200 hover:opacity-70"
           style={{ backgroundColor: accentLight, color: accentColor }}
         >
-          <span className="text-xs font-bold">{t('hero.languageSelector.showLess')}</span>
+          <span className="text-scale-caption font-bold">{t('hero.languageSelector.showLess')}</span>
           <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
           </svg>
@@ -1805,16 +1805,16 @@ const LanguageIndicator: React.FC<{
     <div className="flex items-center justify-center gap-4 mt-8 p-4 rounded-2xl bg-white/50">
       <div className="flex items-center gap-2">
         <span className="text-xl">{nativeConfig?.flag}</span>
-        <span className="text-sm font-bold text-gray-700">{nativeConfig?.nativeName}</span>
+        <span className="text-scale-label font-bold text-gray-700">{nativeConfig?.nativeName}</span>
       </div>
       <span className="text-gray-400">→</span>
       <div className="flex items-center gap-2">
         <span className="text-xl">{targetConfig?.flag}</span>
-        <span className="text-sm font-bold text-gray-700">{targetConfig?.nativeName}</span>
+        <span className="text-scale-label font-bold text-gray-700">{targetConfig?.nativeName}</span>
       </div>
       <button
         onClick={onChangeClick}
-        className="ml-2 text-xs font-bold transition-all hover:opacity-70"
+        className="ml-2 text-scale-caption font-bold transition-all hover:opacity-70"
         style={{ color: accentColor }}
       >
         {t('hero.languageSelector.change')}
@@ -2248,7 +2248,7 @@ const Hero: React.FC = () => {
                 <path d="M3305 3131 c-22 -49 -49 -75 -97 -96 -81 -33 -206 -8 -218 45 -5 22 -37 42 -52 33 -5 -2 -8 -15 -8 -28 0 -14 -13 -34 -31 -49 -19 -16 -29 -32 -25 -41 7 -19 40 -19 60 0 21 21 32 19 73 -12 32 -25 44 -28 113 -27 118 1 198 48 242 141 23 50 18 73 -15 73 -18 0 -28 -10 -42 -39z"/>
               </g>
             </svg>
-            <span className="text-base font-black font-header tracking-tight" style={{ color: accentColor }}>
+            <span className="text-scale-body font-black font-header tracking-tight" style={{ color: accentColor }}>
               Love Languages
             </span>
           </div>
@@ -2256,7 +2256,7 @@ const Hero: React.FC = () => {
           <div className="flex gap-1.5">
             <button
               onClick={() => { setSelectedRole('student'); setActiveSection(0); }}
-              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-scale-caption font-bold transition-all"
               style={isStudent
                 ? { backgroundColor: BRAND.primary, boxShadow: `0 4px 8px -2px ${BRAND.shadow}`, color: '#ffffff' }
                 : { backgroundColor: '#f3f4f6', color: '#4b5563' }
@@ -2267,7 +2267,7 @@ const Hero: React.FC = () => {
             </button>
             <button
               onClick={() => { setSelectedRole('tutor'); setActiveSection(0); }}
-              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-scale-caption font-bold transition-all"
               style={!isStudent
                 ? { backgroundColor: BRAND.teal, boxShadow: `0 4px 8px -2px ${BRAND.tealShadow}`, color: '#ffffff' }
                 : { backgroundColor: '#f3f4f6', color: '#4b5563' }
@@ -2305,7 +2305,7 @@ const Hero: React.FC = () => {
           >
             {/* Step 1: Native Language Selection */}
             <div className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center px-6 py-4 overflow-y-auto">
-              <p className="text-base font-bold mb-4" style={{ color: '#4b5563' }}>
+              <p className="text-scale-body font-bold mb-4" style={{ color: '#4b5563' }}>
                 {t('hero.languageSelector.nativePrompt')}
               </p>
               {/* Paginated language grid with arrows */}
@@ -2343,7 +2343,7 @@ const Hero: React.FC = () => {
                             }}
                           >
                             <span className="text-2xl">{lang.flag}</span>
-                            <span className="text-[11px] font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
+                            <span className="text-scale-micro font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
                           </button>
                         ))}
                       </div>
@@ -2377,7 +2377,7 @@ const Hero: React.FC = () => {
 
             {/* Step 2: Target Language Selection */}
             <div className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center px-6 py-4 overflow-y-auto">
-              <p className="text-base font-bold mb-4" style={{ color: '#4b5563' }}>
+              <p className="text-scale-body font-bold mb-4" style={{ color: '#4b5563' }}>
                 {isStudent ? t('hero.languageSelector.targetPrompt') : t('hero.languageSelector.targetPromptTutor')}
               </p>
               {/* Paginated language grid with arrows */}
@@ -2415,7 +2415,7 @@ const Hero: React.FC = () => {
                             }}
                           >
                             <span className="text-2xl">{lang.flag}</span>
-                            <span className="text-[11px] font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
+                            <span className="text-scale-micro font-bold text-gray-700 truncate w-full text-center">{lang.nativeName}</span>
                           </button>
                         ))}
                       </div>
@@ -2577,7 +2577,7 @@ const Hero: React.FC = () => {
               >
                 {currentContext.header}
               </h3>
-              <p className="font-semibold text-sm transition-all duration-300" style={{ color: '#9ca3af' }}>
+              <p className="font-semibold text-scale-label transition-all duration-300" style={{ color: '#9ca3af' }}>
                 {currentContext.subtext}
               </p>
             </div>
@@ -2586,7 +2586,7 @@ const Hero: React.FC = () => {
             <form onSubmit={handleAuth} className="space-y-3">
               {/* Inline error message */}
               {mobileHasError && (
-                <div className="flex items-center gap-2 text-red-500 text-xs font-semibold animate-shake">
+                <div className="flex items-center gap-2 text-red-500 text-scale-caption font-semibold animate-shake">
                   <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                   </svg>
@@ -2600,7 +2600,7 @@ const Hero: React.FC = () => {
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); if (message) setMessage(''); }}
                 required
-                className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-sm"
+                className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-label"
                 style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: mobileHasError ? '#ef4444' : '#e5e7eb' }}
                 onFocus={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : accentColor}
                 onBlur={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : '#e5e7eb'}
@@ -2612,7 +2612,7 @@ const Hero: React.FC = () => {
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); }}
                 required
-                className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-sm"
+                className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-label"
                 style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: mobileHasError ? '#ef4444' : '#e5e7eb' }}
                 onFocus={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : accentColor}
                 onBlur={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : '#e5e7eb'}
@@ -2622,7 +2622,7 @@ const Hero: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading || oauthLoading !== null}
-                className="w-full text-white font-black py-3 rounded-2xl shadow-xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.15em]"
+                className="w-full text-white font-black py-3 rounded-2xl shadow-xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-label uppercase tracking-[0.15em]"
                 style={{ backgroundColor: accentColor, boxShadow: `0 15px 30px -8px ${accentShadow}` }}
               >
                 {loading ? t('hero.login.entering') : (
@@ -2636,7 +2636,7 @@ const Hero: React.FC = () => {
             {/* Mobile OAuth Divider */}
             <div className="flex items-center gap-3 my-4">
               <div className="flex-1 h-px bg-gray-200" />
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+              <span className="text-scale-micro font-bold uppercase tracking-widest text-gray-400">
                 {t('hero.login.orContinueWith', 'or')}
               </span>
               <div className="flex-1 h-px bg-gray-200" />
@@ -2648,7 +2648,7 @@ const Hero: React.FC = () => {
                 type="button"
                 onClick={() => handleMobileOAuthSignIn('google')}
                 disabled={loading || oauthLoading !== null}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-gray-200 bg-white font-bold text-gray-700 text-sm transition-all hover:border-gray-300 disabled:opacity-50"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-gray-200 bg-white font-bold text-gray-700 text-scale-label transition-all hover:border-gray-300 disabled:opacity-50"
               >
                 {oauthLoading === 'google' ? (
                   <div className="w-4 h-4 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
@@ -2666,7 +2666,7 @@ const Hero: React.FC = () => {
 
             {/* Success messages only */}
             {message && message.toLowerCase().includes('check') && (
-              <div className="mt-3 p-3 rounded-xl text-xs font-bold text-center bg-green-50 text-green-700">
+              <div className="mt-3 p-3 rounded-xl text-scale-caption font-bold text-center bg-green-50 text-green-700">
                 {message}
               </div>
             )}
@@ -2674,7 +2674,7 @@ const Hero: React.FC = () => {
             <div className="mt-3 text-center">
               <button
                 onClick={() => { setIsSignUp(!isSignUp); setMessage(''); }}
-                className={`text-xs font-bold transition-all hover:opacity-70 ${
+                className={`text-scale-caption font-bold transition-all hover:opacity-70 ${
                   mobileIsCredentialsError && !isSignUp ? 'animate-pulse-glow' : ''
                 }`}
                 style={{
@@ -2688,7 +2688,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Legal links */}
-            <div className="mt-4 flex justify-center gap-4 text-xs" style={{ color: '#9ca3af' }}>
+            <div className="mt-4 flex justify-center gap-4 text-scale-caption" style={{ color: '#9ca3af' }}>
               <a href="#/terms" className="hover:underline">{t('hero.legal.terms')}</a>
               <span>|</span>
               <a href="#/privacy" className="hover:underline">{t('hero.legal.privacy')}</a>
@@ -2803,7 +2803,7 @@ const Hero: React.FC = () => {
                       title={t('hero.languageSelector.changeNative')}
                     >
                       <span className="text-lg">{LANGUAGE_CONFIGS[nativeLanguage]?.flag}</span>
-                      <span className="text-sm font-bold text-gray-600">{LANGUAGE_CONFIGS[nativeLanguage]?.nativeName}</span>
+                      <span className="text-scale-label font-bold text-gray-600">{LANGUAGE_CONFIGS[nativeLanguage]?.nativeName}</span>
                     </button>
                     <span className="text-gray-400">→</span>
                     {/* Target language - click to change */}
@@ -2813,7 +2813,7 @@ const Hero: React.FC = () => {
                       title={t('hero.languageSelector.changeTarget')}
                     >
                       <span className="text-lg">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.flag}</span>
-                      <span className="text-sm font-bold text-gray-600">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.nativeName}</span>
+                      <span className="text-scale-label font-bold text-gray-600">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.nativeName}</span>
                     </button>
                   </div>
                 </div>
@@ -2915,7 +2915,7 @@ const Hero: React.FC = () => {
               }
             >
               <ICONS.Heart className="w-5 h-5" style={{ color: isStudent ? '#ffffff' : '#9ca3af', fill: isStudent ? '#ffffff' : 'none' }} />
-              <span className="font-bold text-sm">{t('hero.toggle.learn')}</span>
+              <span className="font-bold text-scale-label">{t('hero.toggle.learn')}</span>
             </button>
             <button
               onClick={() => { setSelectedRole('tutor'); setActiveSection(0); scrollRef.current?.scrollTo({ top: 0 }); }}
@@ -2926,7 +2926,7 @@ const Hero: React.FC = () => {
               }
             >
               <ICONS.Sparkles className="w-5 h-5" style={{ color: !isStudent ? '#ffffff' : '#9ca3af' }} />
-              <span className="font-bold text-sm">{t('hero.toggle.teach')}</span>
+              <span className="font-bold text-scale-label">{t('hero.toggle.teach')}</span>
             </button>
           </div>
 
@@ -2948,7 +2948,7 @@ const Hero: React.FC = () => {
           />
 
           {/* Legal links */}
-          <div className="mt-6 flex justify-center gap-6 text-sm" style={{ color: '#9ca3af' }}>
+          <div className="mt-6 flex justify-center gap-6 text-scale-label" style={{ color: '#9ca3af' }}>
             <a href="#/terms" className="hover:underline">{t('hero.legal.termsOfService')}</a>
             <span>|</span>
             <a href="#/privacy" className="hover:underline">{t('hero.legal.privacyPolicy')}</a>

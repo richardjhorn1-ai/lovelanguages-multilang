@@ -41,7 +41,7 @@ const CookieConsent: React.FC = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-slideUp">
       <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-100 p-4 flex flex-col sm:flex-row items-center gap-4">
-        <p className="text-sm text-gray-600 flex-1 text-center sm:text-left">
+        <p className="text-scale-label text-gray-600 flex-1 text-center sm:text-left">
           {t('cookies.message', 'We use cookies to improve your experience.')}{' '}
           <a
             href="#/privacy"
@@ -52,7 +52,7 @@ const CookieConsent: React.FC = () => {
         </p>
         <button
           onClick={handleAccept}
-          className="px-6 py-2 bg-[var(--accent-color)] text-white font-bold rounded-xl text-sm hover:opacity-90 transition-opacity whitespace-nowrap"
+          className="px-6 py-2 bg-[var(--accent-color)] text-white font-bold rounded-xl text-scale-label hover:opacity-90 transition-opacity whitespace-nowrap"
         >
           {t('cookies.accept', 'Accept')}
         </button>

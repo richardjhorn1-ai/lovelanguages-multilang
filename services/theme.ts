@@ -151,11 +151,85 @@ export const DARK_MODE_STYLES: Record<DarkModeStyle, {
   },
 };
 
-// Font size values
-export const FONT_SIZES: Record<FontSize, { name: string; base: string }> = {
-  small: { name: 'Small', base: '14px' },
-  medium: { name: 'Medium', base: '16px' },
-  large: { name: 'Large', base: '18px' },
+// Text scale type for mobile and desktop values
+interface TextScale {
+  micro: string;
+  caption: string;
+  label: string;
+  button: string;
+  body: string;
+  heading: string;
+}
+
+// Font size values with full text scale system
+// Each theme size defines mobile and desktop text scales
+// Desktop adds approximately +2px to each category for better readability on larger screens
+export const FONT_SIZES: Record<FontSize, {
+  name: string;
+  base: string;
+  mobile: TextScale;
+  desktop: TextScale;
+}> = {
+  small: {
+    name: 'Small',
+    base: '14px',
+    mobile: {
+      micro: '10px',
+      caption: '11px',
+      label: '13px',
+      button: '14px',
+      body: '14px',
+      heading: '18px',
+    },
+    desktop: {
+      micro: '12px',
+      caption: '13px',
+      label: '15px',
+      button: '16px',
+      body: '16px',
+      heading: '20px',
+    },
+  },
+  medium: {
+    name: 'Medium',
+    base: '16px',
+    mobile: {
+      micro: '11px',
+      caption: '12px',
+      label: '14px',
+      button: '15px',
+      body: '16px',
+      heading: '20px',
+    },
+    desktop: {
+      micro: '13px',
+      caption: '14px',
+      label: '16px',
+      button: '17px',
+      body: '18px',
+      heading: '22px',
+    },
+  },
+  large: {
+    name: 'Large',
+    base: '18px',
+    mobile: {
+      micro: '12px',
+      caption: '14px',
+      label: '16px',
+      button: '17px',
+      body: '18px',
+      heading: '24px',
+    },
+    desktop: {
+      micro: '14px',
+      caption: '16px',
+      label: '18px',
+      button: '19px',
+      body: '20px',
+      heading: '26px',
+    },
+  },
 };
 
 // Font presets - all support Latin, Cyrillic, Greek (18 languages)
@@ -266,9 +340,19 @@ export function applyTheme(theme: ThemeSettings): void {
   root.style.setProperty('--text-secondary', darkMode.textSecondary);
   root.style.setProperty('--border-color', darkMode.border);
 
-  // Font size
+  // Font size base
   root.style.setProperty('--font-size-base', fontSize.base);
   root.style.fontSize = fontSize.base;
+
+  // Text scale system - apply values based on screen size
+  const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+  const scale = isDesktop ? fontSize.desktop : fontSize.mobile;
+  root.style.setProperty('--text-micro', scale.micro);
+  root.style.setProperty('--text-caption', scale.caption);
+  root.style.setProperty('--text-label', scale.label);
+  root.style.setProperty('--text-button', scale.button);
+  root.style.setProperty('--text-body', scale.body);
+  root.style.setProperty('--text-heading', scale.heading);
 
   // Font preset (header and body fonts)
   root.style.setProperty('--font-header', fontPreset.header);
@@ -284,4 +368,43 @@ export function applyTheme(theme: ThemeSettings): void {
   } else {
     root.classList.remove('dark');
   }
+}
+
+// Helper to update only text scale values (for resize events)
+function applyTextScale(fontSize: FontSize): void {
+  const root = document.documentElement;
+  const fontSizeConfig = FONT_SIZES[fontSize];
+  const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+  const scale = isDesktop ? fontSizeConfig.desktop : fontSizeConfig.mobile;
+
+  root.style.setProperty('--text-micro', scale.micro);
+  root.style.setProperty('--text-caption', scale.caption);
+  root.style.setProperty('--text-label', scale.label);
+  root.style.setProperty('--text-button', scale.button);
+  root.style.setProperty('--text-body', scale.body);
+  root.style.setProperty('--text-heading', scale.heading);
+}
+
+// Set up responsive text scale listener
+// Call this once on app initialization to handle screen resize
+let resizeCleanup: (() => void) | null = null;
+
+export function setupResponsiveTextScale(fontSize: FontSize): void {
+  // Clean up previous listener if exists
+  if (resizeCleanup) {
+    resizeCleanup();
+  }
+
+  const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+  const handleChange = () => {
+    applyTextScale(fontSize);
+  };
+
+  // Use addEventListener for better browser support
+  mediaQuery.addEventListener('change', handleChange);
+
+  resizeCleanup = () => {
+    mediaQuery.removeEventListener('change', handleChange);
+  };
 }

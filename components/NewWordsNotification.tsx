@@ -36,7 +36,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onCl
               <ICONS.Sparkles className="w-5 h-5 text-[var(--accent-color)] opacity-50" />
             </div>
           </div>
-          <span className="text-sm font-bold text-[var(--text-primary)]">
+          <span className="text-scale-label font-bold text-[var(--text-primary)]">
             {t('newWords.added', { count: words.length })}
           </span>
           <button onClick={(e) => { e.stopPropagation(); onClose(); }} className="ml-auto text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
@@ -54,12 +54,12 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onCl
                 className="w-full text-left px-3 py-2 rounded-xl bg-gradient-to-r from-[var(--accent-light)] to-transparent hover:from-[var(--accent-light)] transition-all group"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-[var(--accent-color)] sparkle-text">
+                  <span className="text-scale-label font-bold text-[var(--accent-color)] sparkle-text">
                     {word.translation}
                   </span>
                   <ICONS.ChevronRight className="w-3 h-3 text-[var(--text-secondary)] group-hover:text-[var(--accent-color)] transition-colors" />
                 </div>
-                <span className="text-[10px] text-[var(--text-secondary)] uppercase tracking-wider">
+                <span className="text-scale-micro text-[var(--text-secondary)] uppercase tracking-wider">
                   {word.type}
                 </span>
               </button>
@@ -68,7 +68,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onCl
           <div className="px-3 pb-3">
             <button
               onClick={() => { navigate('/log'); onClose(); }}
-              className="w-full py-2 text-[10px] font-bold uppercase tracking-wider text-[var(--accent-color)] hover:opacity-80 transition-colors"
+              className="w-full py-2 text-scale-micro font-bold uppercase tracking-wider text-[var(--accent-color)] hover:opacity-80 transition-colors"
             >
               {t('newWords.viewAll')} →
             </button>

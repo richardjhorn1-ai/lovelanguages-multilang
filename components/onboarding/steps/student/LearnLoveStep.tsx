@@ -60,7 +60,7 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
           <div className="text-4xl font-black mb-4" style={{ color: accentColor }}>
             {lovePhrase}
           </div>
-          <div className="text-gray-600 font-medium text-xl mb-6">
+          <div className="text-gray-600 font-medium text-scale-heading mb-6">
             "{loveTranslation}"
           </div>
 
@@ -84,7 +84,7 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
         <div className="flex gap-3">
           <span className="text-xl">💡</span>
           <div
-            className="text-sm text-amber-800"
+            className="text-scale-label text-amber-800"
             dangerouslySetInnerHTML={{
               __html: t('onboarding.student.learnLove.proTip', { name: partnerName, language: targetName })
             }}
