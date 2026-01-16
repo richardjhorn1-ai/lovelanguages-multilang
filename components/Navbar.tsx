@@ -190,7 +190,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               <path d="M3305 3131 c-22 -49 -49 -75 -97 -96 -81 -33 -206 -8 -218 45 -5 22 -37 42 -52 33 -5 -2 -8 -15 -8 -28 0 -14 -13 -34 -31 -49 -19 -16 -29 -32 -25 -41 7 -19 40 -19 60 0 21 21 32 19 73 -12 32 -25 44 -28 113 -27 118 1 198 48 242 141 23 50 18 73 -15 73 -18 0 -28 -10 -42 -39z"/>
             </g>
           </svg>
-          <span className="font-header font-bold text-xl hidden sm:inline text-[var(--text-primary)]">Love Languages</span>
+          <span className="font-header font-bold text-scale-heading hidden sm:inline text-[var(--text-primary)]">Love Languages</span>
         </div>
 
         {/* Center: Nav items - centered on mobile */}
@@ -209,7 +209,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               style={({ isActive }) => isActive ? { backgroundColor: `${accentHex}15`, color: accentHex } : {}}
             >
               <item.icon className="w-5 h-5" />
-              <span className="hidden md:inline text-xs uppercase font-black tracking-widest">{item.label}</span>
+              <span className="hidden md:inline text-scale-caption uppercase font-black tracking-widest">{item.label}</span>
             </NavLink>
           ))}
         </div>
@@ -253,7 +253,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               <ICONS.Bell className="w-5 h-5 text-[var(--text-secondary)]" />
               {unreadCount > 0 && (
                 <span
-                  className="absolute -top-0.5 -right-0.5 w-4 h-4 text-white text-[9px] flex items-center justify-center rounded-full border-2 border-[var(--bg-card)] font-bold"
+                  className="absolute -top-0.5 -right-0.5 w-4 h-4 text-white text-scale-micro flex items-center justify-center rounded-full border-2 border-[var(--bg-card)] font-bold"
                   style={{ backgroundColor: accentHex }}
                 >
                   {unreadCount > 9 ? '9+' : unreadCount}
@@ -265,10 +265,10 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
             {isNotificationsOpen && (
               <div className="absolute right-0 mt-2 w-80 bg-[var(--bg-card)] rounded-2xl shadow-xl border border-[var(--border-color)] overflow-hidden z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
                 <div className="px-4 py-3 border-b border-[var(--border-color)] flex items-center justify-between">
-                  <span className="text-sm font-bold text-[var(--text-primary)]">{t('nav.notifications')}</span>
+                  <span className="text-scale-label font-bold text-[var(--text-primary)]">{t('nav.notifications')}</span>
                   {unreadCount > 0 && (
                     <span
-                      className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                      className="text-scale-micro font-bold px-2 py-0.5 rounded-full"
                       style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
                     >
                       {t('nav.newCount', { count: unreadCount })}
@@ -280,7 +280,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   {notifications.length === 0 ? (
                     <div className="py-8 text-center">
                       <span className="text-2xl mb-2 block">🔔</span>
-                      <p className="text-sm text-[var(--text-secondary)]">{t('nav.noNotifications')}</p>
+                      <p className="text-scale-label text-[var(--text-secondary)]">{t('nav.noNotifications')}</p>
                     </div>
                   ) : (
                     notifications.map(notification => (
@@ -302,11 +302,11 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                         <div className="flex items-start gap-3">
                           <span className="text-lg shrink-0">{getNotificationIcon(notification.type)}</span>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-[var(--text-primary)] truncate">{notification.title}</p>
+                            <p className="text-scale-label font-medium text-[var(--text-primary)] truncate">{notification.title}</p>
                             {notification.message && (
-                              <p className="text-xs text-[var(--text-secondary)] line-clamp-2">{notification.message}</p>
+                              <p className="text-scale-caption text-[var(--text-secondary)] line-clamp-2">{notification.message}</p>
                             )}
-                            <p className="text-[10px] text-[var(--text-secondary)] mt-1">
+                            <p className="text-scale-micro text-[var(--text-secondary)] mt-1">
                               {new Date(notification.created_at).toLocaleDateString()}
                             </p>
                           </div>
@@ -335,8 +335,8 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
             className="flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] rounded-xl px-1 md:px-2 py-1 md:py-1.5 transition-all"
           >
             <div className="hidden sm:flex flex-col items-end">
-              <span className="text-xs font-black truncate max-w-[120px] text-[var(--text-primary)]">{profile.full_name}</span>
-              <span className="text-[8px] uppercase tracking-[0.2em] font-black" style={{ color: tierColor }}>{translateLevel(levelInfo.displayName, t)} {profile.role}</span>
+              <span className="text-scale-caption font-black truncate max-w-[120px] text-[var(--text-primary)]">{profile.full_name}</span>
+              <span className="text-scale-micro uppercase tracking-[0.2em] font-black" style={{ color: tierColor }}>{translateLevel(levelInfo.displayName, t)} {profile.role}</span>
             </div>
             <div className="relative">
               <div
@@ -356,7 +356,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               {/* Mobile badge: combined requests + notifications */}
               {(requestCount + unreadCount > 0) && (
                 <span
-                  className="md:hidden absolute -top-1 -right-1 w-4 h-4 text-white text-[8px] flex items-center justify-center rounded-full border-2 border-[var(--bg-card)] animate-pulse"
+                  className="md:hidden absolute -top-1 -right-1 w-4 h-4 text-white text-scale-micro flex items-center justify-center rounded-full border-2 border-[var(--bg-card)] animate-pulse"
                   style={{ backgroundColor: accentHex }}
                 >
                   {requestCount + unreadCount > 9 ? '9+' : requestCount + unreadCount}
@@ -365,7 +365,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               {/* Desktop badge: just requests (notifications have their own bell) */}
               {requestCount > 0 && (
                 <span
-                  className="hidden md:flex absolute -top-1 -right-1 w-4 h-4 text-white text-[8px] items-center justify-center rounded-full border-2 border-[var(--bg-card)] animate-pulse"
+                  className="hidden md:flex absolute -top-1 -right-1 w-4 h-4 text-white text-scale-micro items-center justify-center rounded-full border-2 border-[var(--bg-card)] animate-pulse"
                   style={{ backgroundColor: accentHex }}
                 >
                   {requestCount > 9 ? '9+' : requestCount}
@@ -379,8 +379,8 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           {isProfileDropdownOpen && (
             <div className="absolute right-0 mt-1.5 md:mt-2 w-48 md:w-56 bg-[var(--bg-card)] rounded-xl md:rounded-2xl shadow-xl border border-[var(--border-color)] py-1.5 md:py-2 z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
               <div className="px-3 md:px-4 py-2 md:py-3 border-b border-[var(--border-color)]">
-                <p className="text-xs md:text-sm font-bold text-[var(--text-primary)] truncate">{profile.full_name}</p>
-                <p className="text-[9px] md:text-[10px] text-[var(--text-secondary)] truncate">{profile.email}</p>
+                <p className="text-scale-label font-bold text-[var(--text-primary)] truncate">{profile.full_name}</p>
+                <p className="text-scale-micro text-[var(--text-secondary)] truncate">{profile.email}</p>
               </div>
 
               <button
@@ -388,10 +388,10 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.User className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
-                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">{t('nav.viewProfile')}</span>
+                <span className="text-scale-label font-medium text-[var(--text-primary)]">{t('nav.viewProfile')}</span>
                 {requestCount > 0 && (
                   <span
-                    className="ml-auto text-[8px] md:text-[10px] font-bold px-1.5 md:px-2 py-0.5 rounded-full"
+                    className="ml-auto text-scale-micro font-bold px-1.5 md:px-2 py-0.5 rounded-full"
                     style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
                   >
                     {requestCount}
@@ -404,7 +404,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
-                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">{t('nav.myProgress')}</span>
+                <span className="text-scale-label font-medium text-[var(--text-primary)]">{t('nav.myProgress')}</span>
               </button>
 
               <button
@@ -412,7 +412,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
-                <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">{t('nav.log')}</span>
+                <span className="text-scale-label font-medium text-[var(--text-primary)]">{t('nav.log')}</span>
               </button>
 
               {/* Mobile-only: Help, Bug Report & Notifications (hidden on desktop where they have dedicated buttons) */}
@@ -425,7 +425,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
                 >
                   <ICONS.Bug className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
-                  <span className="text-xs font-medium text-[var(--text-primary)]">{t('nav.reportBug')}</span>
+                  <span className="text-scale-label font-medium text-[var(--text-primary)]">{t('nav.reportBug')}</span>
                 </button>
 
                 <button
@@ -436,7 +436,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
                 >
                   <ICONS.HelpCircle className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
-                  <span className="text-xs font-medium text-[var(--text-primary)]">{t('nav.helpGuide')}</span>
+                  <span className="text-scale-label font-medium text-[var(--text-primary)]">{t('nav.helpGuide')}</span>
                 </button>
 
                 <button
@@ -447,10 +447,10 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   className="w-full px-3 py-2 text-left flex items-center gap-2 hover:bg-[var(--bg-primary)] transition-colors"
                 >
                   <ICONS.Bell className="w-3.5 h-3.5 text-[var(--text-secondary)]" />
-                  <span className="text-xs font-medium text-[var(--text-primary)]">{t('nav.notifications')}</span>
+                  <span className="text-scale-label font-medium text-[var(--text-primary)]">{t('nav.notifications')}</span>
                   {unreadCount > 0 && (
                     <span
-                      className="ml-auto text-[8px] font-bold px-1.5 py-0.5 rounded-full"
+                      className="ml-auto text-scale-micro font-bold px-1.5 py-0.5 rounded-full"
                       style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
                     >
                       {unreadCount}
@@ -473,7 +473,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   ) : (
                     <ICONS.Volume2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
                   )}
-                  <span className="text-xs md:text-sm font-medium text-[var(--text-primary)]">
+                  <span className="text-scale-label font-medium text-[var(--text-primary)]">
                     {isSoundMuted ? t('nav.unmuteSounds') : t('nav.muteSounds')}
                   </span>
                 </button>
@@ -485,7 +485,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-red-500/10 transition-colors text-red-500"
                 >
                   <ICONS.LogOut className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  <span className="text-xs md:text-sm font-medium">{t('nav.signOut')}</span>
+                  <span className="text-scale-label font-medium">{t('nav.signOut')}</span>
                 </button>
               </div>
             </div>
@@ -516,10 +516,10 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           <div className="flex items-center justify-between px-4 py-4 border-b border-[var(--border-color)]">
             <div className="flex items-center gap-2">
               <ICONS.Bell className="w-5 h-5" style={{ color: accentHex }} />
-              <span className="text-base font-bold text-[var(--text-primary)]">{t('nav.notifications')}</span>
+              <span className="text-scale-body font-bold text-[var(--text-primary)]">{t('nav.notifications')}</span>
               {unreadCount > 0 && (
                 <span
-                  className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                  className="text-scale-micro font-bold px-2 py-0.5 rounded-full"
                   style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
                 >
                   {t('nav.newCount', { count: unreadCount })}
@@ -538,8 +538,8 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
             {notifications.length === 0 ? (
               <div className="py-12 text-center">
                 <span className="text-3xl mb-3 block">🔔</span>
-                <p className="text-sm text-[var(--text-secondary)]">{t('nav.noNotifications')}</p>
-                <p className="text-xs text-[var(--text-secondary)] mt-1">{t('nav.allCaughtUp')}</p>
+                <p className="text-scale-label text-[var(--text-secondary)]">{t('nav.noNotifications')}</p>
+                <p className="text-scale-caption text-[var(--text-secondary)] mt-1">{t('nav.allCaughtUp')}</p>
               </div>
             ) : (
               notifications.map(notification => (
@@ -558,11 +558,11 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   <div className="flex items-start gap-3">
                     <span className="text-xl shrink-0">{getNotificationIcon(notification.type)}</span>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-[var(--text-primary)]">{notification.title}</p>
+                      <p className="text-scale-label font-medium text-[var(--text-primary)]">{notification.title}</p>
                       {notification.message && (
-                        <p className="text-xs text-[var(--text-secondary)] mt-1 line-clamp-2">{notification.message}</p>
+                        <p className="text-scale-caption text-[var(--text-secondary)] mt-1 line-clamp-2">{notification.message}</p>
                       )}
-                      <p className="text-[10px] text-[var(--text-secondary)] mt-2">
+                      <p className="text-scale-micro text-[var(--text-secondary)] mt-2">
                         {new Date(notification.created_at).toLocaleDateString()}
                       </p>
                     </div>

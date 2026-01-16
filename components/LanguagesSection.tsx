@@ -113,14 +113,14 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
 
   return (
     <div className="bg-[var(--bg-card)] p-6 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
-      <h3 className="text-[11px] font-black mb-6 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
+      <h3 className="text-scale-micro font-black mb-6 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
         <ICONS.Globe style={{ color: accentHex }} className="w-4 h-4" />
         {t('profile.languages.title')}
       </h3>
 
       {/* Native Language */}
       <div className="mb-6">
-        <p className="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
+        <p className="text-scale-micro font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
           {t('profile.languages.nativeLanguage')}
         </p>
         <div
@@ -134,7 +134,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
 
       {/* Learning Languages */}
       <div>
-        <p className="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
+        <p className="text-scale-micro font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
           {t('profile.languages.learning')}
         </p>
         <div className="space-y-2">
@@ -159,7 +159,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
                     <span className="font-bold text-[var(--text-primary)]">{name}</span>
                     {isActive && (
                       <span
-                        className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full"
+                        className="text-scale-micro font-black uppercase tracking-wider px-2 py-0.5 rounded-full"
                         style={{ backgroundColor: accentHex, color: 'white' }}
                       >
                         {t('profile.languages.active')}
@@ -167,19 +167,19 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
                     )}
                   </div>
                   {!loading && stats && (
-                    <p className="text-xs text-[var(--text-secondary)]">
+                    <p className="text-scale-caption text-[var(--text-secondary)]">
                       {t('profile.languages.wordsLearned', { count: stats.wordCount })}
                     </p>
                   )}
                   {loading && (
-                    <p className="text-xs text-[var(--text-secondary)]">{t('profile.languages.loading')}</p>
+                    <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.languages.loading')}</p>
                   )}
                 </div>
                 {!isActive && (
                   <button
                     onClick={() => handleSwitchLanguage(langCode)}
                     disabled={isSwitching}
-                    className="px-4 py-2 rounded-xl text-xs font-bold transition-all disabled:opacity-50"
+                    className="px-4 py-2 rounded-xl text-scale-caption font-bold transition-all disabled:opacity-50"
                     style={{
                       backgroundColor: `${accentHex}15`,
                       color: accentHex,
@@ -224,7 +224,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
         }}
       >
         <ICONS.Plus className="w-4 h-4" />
-        <span className="text-sm font-bold">{t('profile.languages.addLanguage')}</span>
+        <span className="text-scale-label font-bold">{t('profile.languages.addLanguage')}</span>
       </button>
     </div>
   );

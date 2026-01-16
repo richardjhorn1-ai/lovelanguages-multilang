@@ -48,11 +48,11 @@ const GameResults: React.FC<GameResultsProps> = ({
         <div className="flex justify-center gap-8 mb-8">
           <div className="text-center">
             <div className="text-4xl font-black text-green-500">{correct}</div>
-            <div className="text-[10px] uppercase font-bold text-[var(--text-secondary)] tracking-widest">{t('gameResults.correct')}</div>
+            <div className="text-scale-micro uppercase font-bold text-[var(--text-secondary)] tracking-widest">{t('gameResults.correct')}</div>
           </div>
           <div className="text-center">
             <div className="text-4xl font-black text-red-400">{incorrect}</div>
-            <div className="text-[10px] uppercase font-bold text-[var(--text-secondary)] tracking-widest">{t('gameResults.missed')}</div>
+            <div className="text-scale-micro uppercase font-bold text-[var(--text-secondary)] tracking-widest">{t('gameResults.missed')}</div>
           </div>
         </div>
         <div className="text-2xl font-black mb-6" style={{ color: tierColor }}>
@@ -64,7 +64,7 @@ const GameResults: React.FC<GameResultsProps> = ({
           <div className="mb-6">
             <button
               onClick={() => setShowDetails(!showDetails)}
-              className="flex items-center justify-center gap-2 w-full text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="flex items-center justify-center gap-2 w-full text-scale-label text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
             >
               <span>{showDetails ? t('gameResults.hideDetails') : t('gameResults.showDetails')}</span>
               <ICONS.ChevronDown className={`w-4 h-4 transition-transform ${showDetails ? 'rotate-180' : ''}`} />
@@ -74,7 +74,7 @@ const GameResults: React.FC<GameResultsProps> = ({
                 {answersWithExplanations.map((answer, idx) => (
                   <div
                     key={idx}
-                    className={`p-2 rounded-lg text-xs ${
+                    className={`p-2 rounded-lg text-scale-caption ${
                       answer.isCorrect
                         ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400'
                         : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
@@ -99,14 +99,14 @@ const GameResults: React.FC<GameResultsProps> = ({
           {onExit && (
             <button
               onClick={onExit}
-              className="flex-1 py-4 border-2 border-[var(--border-color)] rounded-2xl font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] active:scale-95 transition-all uppercase tracking-widest text-sm"
+              className="flex-1 py-4 border-2 border-[var(--border-color)] rounded-2xl font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] active:scale-95 transition-all uppercase tracking-widest text-scale-label"
             >
               {t('gameResults.done')}
             </button>
           )}
           <button
             onClick={onPlayAgain}
-            className={`${onExit ? 'flex-1' : 'w-full'} text-white py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 active:scale-95 transition-all uppercase tracking-widest text-sm`}
+            className={`${onExit ? 'flex-1' : 'w-full'} text-white py-4 rounded-2xl font-bold shadow-lg hover:opacity-90 active:scale-95 transition-all uppercase tracking-widest text-scale-label`}
             style={{ backgroundColor: tierColor }}
           >
             {t('gameResults.playAgain')}

@@ -74,7 +74,7 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
         </div>
       </div>
 
-      <div className="text-center text-sm text-gray-400 mb-6">
+      <div className="text-center text-scale-label text-gray-400 mb-6">
         {t('onboarding.student.learnHello.tip', { language: targetName })}
       </div>
 

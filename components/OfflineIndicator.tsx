@@ -41,7 +41,7 @@ const OfflineIndicator: React.FC<OfflineIndicatorProps> = ({
 
   if (compact) {
     return (
-      <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full text-sm">
+      <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full text-scale-label">
         <WifiSlash className="w-4 h-4" />
         <span>{t('offline.offlineMode', 'Offline')}</span>
       </div>
@@ -58,13 +58,13 @@ const OfflineIndicator: React.FC<OfflineIndicatorProps> = ({
           <h3 className="font-bold text-amber-600 dark:text-amber-400">
             {t('offline.title', "You're offline")}
           </h3>
-          <p className="text-sm text-[var(--text-secondary)] mt-1">
+          <p className="text-scale-label text-[var(--text-secondary)] mt-1">
             {cachedWordCount > 0
               ? t('offline.canPractice', 'You can still practice with {{count}} cached words from your Love Log.', { count: cachedWordCount })
               : t('offline.noCache', 'No cached vocabulary available. Connect to the internet to sync your Love Log.')}
           </p>
           {lastSyncTime && (
-            <p className="text-xs text-[var(--text-tertiary)] mt-2">
+            <p className="text-scale-caption text-[var(--text-tertiary)] mt-2">
               {t('offline.lastSync', 'Last synced: {{time}}', { time: formatSyncTime(lastSyncTime) })}
             </p>
           )}

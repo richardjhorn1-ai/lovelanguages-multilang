@@ -59,7 +59,7 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
           autoFocus
           className="w-full px-5 py-4 rounded-xl bg-white border-2 border-gray-100 focus:border-rose-200 focus:outline-none text-gray-800 placeholder:text-gray-300 transition-all text-center"
         />
-        <p className="text-sm text-gray-400 mt-2 text-center">
+        <p className="text-scale-label text-gray-400 mt-2 text-center">
           {t('onboarding.tutor.dreamPhrase.note')}
         </p>
       </div>

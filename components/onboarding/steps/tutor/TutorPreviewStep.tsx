@@ -48,7 +48,7 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
           </div>
           <div>
             <h3 className="font-bold text-gray-800">{t('onboarding.tutor.preview.coachMode')}</h3>
-            <p className="text-sm text-gray-500">{t('onboarding.tutor.preview.coachModeDesc', { name: learnerName })}</p>
+            <p className="text-scale-label text-gray-500">{t('onboarding.tutor.preview.coachModeDesc', { name: learnerName })}</p>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
           </div>
           <div>
             <h3 className="font-bold text-gray-800">{t('onboarding.tutor.preview.progressTracking')}</h3>
-            <p className="text-sm text-gray-500">{t('onboarding.tutor.preview.progressTrackingDesc', { name: learnerName })}</p>
+            <p className="text-scale-label text-gray-500">{t('onboarding.tutor.preview.progressTrackingDesc', { name: learnerName })}</p>
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
           </div>
           <div>
             <h3 className="font-bold text-gray-800">{t('onboarding.tutor.preview.wordGifts')}</h3>
-            <p className="text-sm text-gray-500">{t('onboarding.tutor.preview.wordGiftsDesc', { name: learnerName })}</p>
+            <p className="text-scale-label text-gray-500">{t('onboarding.tutor.preview.wordGiftsDesc', { name: learnerName })}</p>
           </div>
         </div>
       </div>

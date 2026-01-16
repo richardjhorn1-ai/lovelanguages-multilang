@@ -1307,7 +1307,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         <p className="text-[var(--text-secondary)] font-medium mb-6">{t('play.empty.needMoreDesc', { count: deck.length })}</p>
         <button
           onClick={() => handleModeChange('flashcards')}
-          className="px-6 py-3 rounded-xl font-bold text-white text-sm"
+          className="px-6 py-3 rounded-xl font-bold text-white text-scale-label"
           style={{ backgroundColor: tierColor }}
         >
           {t('play.empty.tryFlashcards')}
@@ -1367,11 +1367,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           {/* Two-Tab Layout: Local Games | Love Notes */}
           {!localGameType && (
             <>
-              <h1 className="text-lg md:text-2xl font-black text-[var(--text-primary)] mb-2 md:mb-3 text-center">{t('play.title')}</h1>
+              <h1 className="text-scale-heading md:text-2xl font-black text-[var(--text-primary)] mb-2 md:mb-3 text-center">{t('play.title')}</h1>
               <div className="inline-flex w-full bg-[var(--bg-card)] border border-[var(--border-color)] p-0.5 md:p-1 rounded-lg md:rounded-xl mb-2 md:mb-3">
                 <button
                   onClick={() => setMainTab('local_games')}
-                  className={`flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
+                  className={`flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-scale-label font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
                     mainTab === 'local_games'
                       ? 'bg-[var(--bg-primary)] text-[var(--accent-color)] shadow-sm'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -1382,7 +1382,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 </button>
                 <button
                   onClick={() => setMainTab('love_notes')}
-                  className={`relative flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
+                  className={`relative flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-scale-label font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
                     mainTab === 'love_notes'
                       ? 'bg-[var(--accent-color)] text-white shadow-sm'
                       : pendingCount > 0
@@ -1399,7 +1399,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                   )}
                 </button>
               </div>
-              <p className="text-[var(--text-secondary)] text-[10px] md:text-xs text-center hidden md:block">
+              <p className="text-[var(--text-secondary)] text-scale-micro md:text-scale-caption text-center hidden md:block">
                 {mainTab === 'local_games'
                   ? t('play.tabs.gamesDesc')
                   : t('play.tabs.loveNotesDesc', { partner: partnerName || t('play.session.yourPartner') })}
@@ -1420,11 +1420,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-green-500" />
-                    <span className="text-xs font-bold text-[var(--text-secondary)]">{sessionScore.correct}</span>
+                    <span className="text-scale-caption font-bold text-[var(--text-secondary)]">{sessionScore.correct}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-red-400" />
-                    <span className="text-xs font-bold text-[var(--text-secondary)]">{sessionScore.incorrect}</span>
+                    <span className="text-scale-caption font-bold text-[var(--text-secondary)]">{sessionScore.incorrect}</span>
                   </div>
                 </div>
                 <span className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest">
@@ -1462,8 +1462,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     🎴
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.flashcards')}</h3>
-                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">{t('play.games.flashcardsDesc')}</p>
+                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.flashcards')}</h3>
+                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.flashcardsDesc')}</p>
                   </div>
                 </div>
               </button>
@@ -1479,8 +1479,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     🔘
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.multiChoice')}</h3>
-                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">{t('play.games.multiChoiceDesc')}</p>
+                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.multiChoice')}</h3>
+                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.multiChoiceDesc')}</p>
                   </div>
                 </div>
               </button>
@@ -1495,8 +1495,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     ⌨️
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.typeIt')}</h3>
-                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">{t('play.games.typeItDesc')}</p>
+                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.typeIt')}</h3>
+                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.typeItDesc')}</p>
                   </div>
                 </div>
               </button>
@@ -1512,8 +1512,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     ⚡
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.quickFire')}</h3>
-                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">{t('play.games.quickFireDesc')}</p>
+                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.quickFire')}</h3>
+                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.quickFireDesc')}</p>
                   </div>
                 </div>
               </button>
@@ -1528,8 +1528,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     🤖
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.aiChallenge')}</h3>
-                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">{t('play.games.aiChallengeDesc')}</p>
+                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.aiChallenge')}</h3>
+                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.aiChallengeDesc')}</p>
                   </div>
                 </div>
               </button>
@@ -1547,8 +1547,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     🎙️
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.conversation')}</h3>
-                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">{t('play.games.conversationDesc', { language: targetName })}</p>
+                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.conversation')}</h3>
+                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.conversationDesc', { language: targetName })}</p>
                   </div>
                 </div>
               </button>
@@ -1564,8 +1564,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     🔄
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-sm md:text-base font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.verbMastery')}</h3>
-                    <p className="text-[10px] md:text-sm text-[var(--text-secondary)] hidden md:block">
+                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.verbMastery')}</h3>
+                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">
                       {verbsWithConjugations.length > 0
                         ? t('play.games.verbMasteryVerbs', { count: verbsWithConjugations.length })
                         : t('play.games.learnVerbsFirst')}
@@ -1600,13 +1600,13 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                   <div className="mt-12 grid grid-cols-2 gap-3 w-full">
                     <button
                       onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(false); }}
-                      className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-xs font-black uppercase tracking-widest transition-colors"
+                      className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-scale-caption font-black uppercase tracking-widest transition-colors"
                     >
                       <ICONS.X className="w-4 h-4" /> {t('play.flashcard.hard')}
                     </button>
                     <button
                       onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(true); }}
-                      className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-xs shadow-lg transition-all active:scale-95"
+                      className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption shadow-lg transition-all active:scale-95"
                       style={{ color: tierColor }}
                     >
                       <ICONS.Check className="w-4 h-4" /> {t('play.flashcard.gotIt')}
@@ -1656,7 +1656,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                       disabled={mcShowFeedback}
                       className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${buttonStyle}`}
                     >
-                      <span className="text-xs font-bold text-[var(--text-secondary)] mr-3">
+                      <span className="text-scale-caption font-bold text-[var(--text-secondary)] mr-3">
                         {String.fromCharCode(65 + idx)}
                       </span>
                       {option}
@@ -1698,7 +1698,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                     </h3>
 
                     {showHint && !typeItSubmitted && (
-                      <p className="text-center text-[var(--text-secondary)] text-sm mb-4">
+                      <p className="text-center text-[var(--text-secondary)] text-scale-label mb-4">
                         {t('play.typeIt.hint')} {getHint()}
                       </p>
                     )}
@@ -1714,7 +1714,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                               <span className="font-bold">{t('play.typeIt.correct')}</span>
                             </div>
                             {typeItExplanation && typeItExplanation !== 'Exact match' && (
-                              <p className="text-sm mt-1 opacity-80">{typeItExplanation}</p>
+                              <p className="text-scale-label mt-1 opacity-80">{typeItExplanation}</p>
                             )}
                           </div>
                         ) : (
@@ -1723,11 +1723,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                               <ICONS.X className="w-5 h-5" />
                               <span className="font-bold">{t('play.typeIt.notQuite')}</span>
                             </div>
-                            <p className="text-sm">
+                            <p className="text-scale-label">
                               {t('play.typeIt.correctAnswer')} <span className="font-black">{correctAnswer}</span>
                             </p>
                             {typeItExplanation && typeItExplanation !== 'No match' && (
-                              <p className="text-sm mt-1 opacity-80">{typeItExplanation}</p>
+                              <p className="text-scale-label mt-1 opacity-80">{typeItExplanation}</p>
                             )}
                           </div>
                         )}
@@ -1744,7 +1744,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                           ? t('play.typeIt.typeIn', { language: nativeName })
                           : t('play.typeIt.typeIn', { language: targetName })}
                         disabled={typeItSubmitted}
-                        className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-lg font-medium text-center bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                        className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-scale-heading font-medium text-center bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                         autoFocus
                       />
                     </div>
@@ -1753,7 +1753,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                       {!typeItSubmitted && (
                         <button
                           onClick={() => setShowHint(true)}
-                          className="px-4 py-3 rounded-xl font-bold text-[var(--text-secondary)] bg-[var(--bg-primary)] text-sm"
+                          className="px-4 py-3 rounded-xl font-bold text-[var(--text-secondary)] bg-[var(--bg-primary)] text-scale-label"
                           disabled={showHint}
                         >
                           {showHint ? t('play.typeIt.hintShown') : t('play.typeIt.showHint')}
@@ -1762,7 +1762,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                       <button
                         onClick={handleTypeItSubmit}
                         disabled={!typeItAnswer.trim() && !typeItSubmitted}
-                        className="flex-1 py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50 transition-all"
+                        className="flex-1 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50 transition-all"
                         style={{ backgroundColor: tierColor }}
                       >
                         {typeItSubmitted ? t('play.typeIt.next') : t('play.typeIt.check')}
@@ -1777,7 +1777,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           {/* AI Challenge Mode */}
           {localGameType === 'ai_challenge' && !challengeStarted && (
             <div className="w-full">
-              <h2 className="text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">{t('play.aiChallenge.chooseMode')}</h2>
+              <h2 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">{t('play.aiChallenge.chooseMode')}</h2>
 
               {/* Side-by-side layout: Modes on left, Session Length on right */}
               <div className="flex gap-4">
@@ -1802,10 +1802,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className={`font-bold text-sm truncate ${isSelected ? 'text-[var(--accent-color)] dark:text-[var(--accent-color)]' : 'text-[var(--text-primary)]'}`}>{cm.name}</span>
+                            <span className={`font-bold text-scale-label truncate ${isSelected ? 'text-[var(--accent-color)] dark:text-[var(--accent-color)]' : 'text-[var(--text-primary)]'}`}>{cm.name}</span>
                             <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${isSelected ? 'bg-[var(--accent-light)] dark:bg-[var(--accent-light)] text-[var(--accent-text)] dark:text-[var(--accent-color)] opacity-60' : 'bg-[var(--bg-primary)] text-[var(--text-secondary)]'}`}>{count}</span>
                           </div>
-                          <p className="text-xs text-[var(--text-secondary)] truncate">{cm.description}</p>
+                          <p className="text-scale-caption text-[var(--text-secondary)] truncate">{cm.description}</p>
                         </div>
                         {isSelected && <ICONS.Check className="w-4 h-4 text-[var(--accent-color)] shrink-0" />}
                       </button>
@@ -1827,7 +1827,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                             onClick={() => setSessionLength(len)}
                             className={`flex-1 p-2 rounded-xl text-center transition-all border-2 ${sessionLength === len ? 'border-[var(--accent-color)] bg-[var(--accent-light)] dark:bg-[var(--accent-light)]' : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-secondary)]'}`}
                           >
-                            <div className={`text-lg font-black ${sessionLength === len ? 'text-[var(--accent-color)] dark:text-[var(--accent-color)]' : 'text-[var(--text-primary)]'}`}>{actualCount}</div>
+                            <div className={`text-scale-heading font-black ${sessionLength === len ? 'text-[var(--accent-color)] dark:text-[var(--accent-color)]' : 'text-[var(--text-primary)]'}`}>{actualCount}</div>
                             <div className="text-[8px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">{len === 'all' ? t('play.aiChallenge.all') : t('play.aiChallenge.qs')}</div>
                           </button>
                         );
@@ -1841,10 +1841,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 loadingPhrases ? (
                   <div className="text-center py-4 mt-4">
                     <div className="animate-spin w-6 h-6 border-2 border-pink-500 border-t-transparent rounded-full mx-auto mb-2" />
-                    <p className="text-sm text-[var(--text-secondary)]">{t('play.aiChallenge.generatingPhrases')}</p>
+                    <p className="text-scale-label text-[var(--text-secondary)]">{t('play.aiChallenge.generatingPhrases')}</p>
                   </div>
                 ) : (
-                  <button onClick={startChallenge} className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-sm mt-4" style={{ backgroundColor: tierColor }}>
+                  <button onClick={startChallenge} className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label mt-4" style={{ backgroundColor: tierColor }}>
                     {t('play.aiChallenge.startChallenge')}
                   </button>
                 )
@@ -1862,22 +1862,22 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                   {t('play.quickFire.description')}
                 </p>
                 <div className="bg-amber-50 dark:bg-amber-900/30 p-4 rounded-2xl mb-6">
-                  <p className="text-lg font-bold text-amber-600 dark:text-amber-400">
+                  <p className="text-scale-heading font-bold text-amber-600 dark:text-amber-400">
                     🔥 {t('play.quickFire.wordsAvailable', { count: deck.length })}
                   </p>
-                  <p className="text-sm text-[var(--text-secondary)] mt-1">
+                  <p className="text-scale-label text-[var(--text-secondary)] mt-1">
                     {t('play.quickFire.upTo20')}
                   </p>
                 </div>
                 <button
                   onClick={startQuickFire}
                   disabled={deck.length < 5}
-                  className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-sm bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   {t('play.quickFire.start')}
                 </button>
                 {deck.length < 5 && (
-                  <p className="text-sm text-red-500 mt-3">{t('play.quickFire.needAtLeast5')}</p>
+                  <p className="text-scale-label text-red-500 mt-3">{t('play.quickFire.needAtLeast5')}</p>
                 )}
               </div>
             </div>
@@ -1901,7 +1901,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
               {/* Header */}
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-bold text-[var(--text-secondary)]">
+                <span className="text-scale-label font-bold text-[var(--text-secondary)]">
                   {quickFireIndex + 1} / {quickFireWords.length}
                 </span>
                 <span className={`text-3xl font-black ${
@@ -1926,7 +1926,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 onKeyDown={e => e.key === 'Enter' && handleQuickFireAnswer()}
                 placeholder={t('play.quickFire.typeTranslation')}
                 autoFocus
-                className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-xl font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
               />
 
               {/* Progress */}
@@ -1953,7 +1953,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               </div>
 
               <div className="space-y-3 mb-8">
-                <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
+                <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
                   {t('play.verbMastery.selectTense')}
                 </p>
                 {(['present', 'past', 'future'] as VerbTense[]).map(tense => {
@@ -1973,7 +1973,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                       <div className="flex items-center justify-between">
                         <div>
                           <h3 className="font-black text-[var(--text-primary)] capitalize">{t(`play.verbMastery.${tense}Tense`)}</h3>
-                          <p className="text-sm text-[var(--text-secondary)]">
+                          <p className="text-scale-label text-[var(--text-secondary)]">
                             {isDisabled
                               ? t('play.verbMastery.noVerbsWithTense')
                               : t('play.verbMastery.verbsAvailable', { count: verbsWithTense.length })}
@@ -1992,7 +1992,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
               <button
                 onClick={exitLocalGame}
-                className="w-full p-3 text-[var(--text-secondary)] font-bold text-sm hover:text-[var(--text-primary)] transition-colors"
+                className="w-full p-3 text-[var(--text-secondary)] font-bold text-scale-label hover:text-[var(--text-primary)] transition-colors"
               >
                 {t('play.verbMastery.backToGames')}
               </button>
@@ -2004,34 +2004,34 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             <div className="w-full max-w-md mx-auto">
               {/* Progress Header */}
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-bold text-[var(--text-secondary)]">
+                <span className="text-scale-label font-bold text-[var(--text-secondary)]">
                   {verbMasteryIndex + 1} / {verbMasteryQuestions.length}
                 </span>
-                <span className="px-3 py-1 bg-orange-500/20 text-orange-600 dark:text-orange-400 rounded-full text-xs font-black uppercase">
+                <span className="px-3 py-1 bg-orange-500/20 text-orange-600 dark:text-orange-400 rounded-full text-scale-caption font-black uppercase">
                   {verbMasteryTense} tense
                 </span>
               </div>
 
               {/* Question Card */}
               <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-2xl border border-orange-200 dark:border-orange-800 mb-6">
-                <p className="text-xs font-bold text-orange-500 uppercase tracking-wider mb-2">
+                <p className="text-scale-caption font-bold text-orange-500 uppercase tracking-wider mb-2">
                   {t('play.verbMastery.conjugateVerb')}
                 </p>
                 <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2">
                   {verbMasteryQuestions[verbMasteryIndex]?.infinitive}
                 </h3>
-                <p className="text-sm text-[var(--text-secondary)] italic mb-4">
+                <p className="text-scale-label text-[var(--text-secondary)] italic mb-4">
                   "{verbMasteryQuestions[verbMasteryIndex]?.translation}"
                 </p>
 
                 <div className="bg-[var(--bg-card)] p-4 rounded-xl">
-                  <p className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-1">
+                  <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-1">
                     {t('play.verbMastery.forPronoun')}
                   </p>
                   <p className="text-2xl font-black text-orange-500">
                     {VERB_PERSONS.find(p => p.key === verbMasteryQuestions[verbMasteryIndex]?.person)?.label}
                   </p>
-                  <p className="text-xs text-[var(--text-secondary)]">
+                  <p className="text-scale-caption text-[var(--text-secondary)]">
                     ({VERB_PERSONS.find(p => p.key === verbMasteryQuestions[verbMasteryIndex]?.person)?.nativeLabel})
                   </p>
                 </div>
@@ -2055,7 +2055,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                   placeholder={t('play.verbMastery.typeConjugation')}
                   autoFocus
                   disabled={verbMasterySubmitted}
-                  className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-xl font-bold focus:outline-none focus:border-orange-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] disabled:opacity-50"
+                  className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-orange-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] disabled:opacity-50"
                 />
 
                 {/* Feedback */}
@@ -2067,7 +2067,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                           ✓ {t('play.typeIt.correct')}
                         </p>
                         {verbMasteryExplanation && (
-                          <p className="text-sm text-green-600/80 dark:text-green-400/80 mt-1">
+                          <p className="text-scale-label text-green-600/80 dark:text-green-400/80 mt-1">
                             {verbMasteryExplanation}
                           </p>
                         )}
@@ -2079,7 +2079,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                           {t('play.typeIt.correctAnswer')} <span className="font-black">{verbMasteryQuestions[verbMasteryIndex]?.correctAnswer}</span>
                         </p>
                         {verbMasteryExplanation && (
-                          <p className="text-sm text-red-600/80 dark:text-red-400/80 mt-1">
+                          <p className="text-scale-label text-red-600/80 dark:text-red-400/80 mt-1">
                             {verbMasteryExplanation}
                           </p>
                         )}
@@ -2119,23 +2119,23 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 <div className="w-16 h-16 bg-[var(--accent-light)] rounded-full flex items-center justify-center text-3xl mx-auto mb-3 animate-pulse">
                   💌
                 </div>
-                <h2 className="text-xl font-black text-[var(--text-primary)]">{t('play.loveNotes.title', { partner: partnerName })}</h2>
-                <p className="text-sm text-[var(--text-secondary)]">{t('play.loveNotes.subtitle')}</p>
+                <h2 className="text-scale-heading font-black text-[var(--text-primary)]">{t('play.loveNotes.title', { partner: partnerName })}</h2>
+                <p className="text-scale-label text-[var(--text-secondary)]">{t('play.loveNotes.subtitle')}</p>
               </div>
 
               {/* Empty State */}
               {pendingChallenges.length === 0 && pendingWordRequests.length === 0 && (
                 <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-sm border border-[var(--border-color)] text-center">
                   <div className="text-4xl mb-4">✨</div>
-                  <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">{t('play.loveNotes.empty')}</h3>
-                  <p className="text-sm text-[var(--text-secondary)]">{t('play.loveNotes.emptyDesc', { partner: partnerName })}</p>
+                  <h3 className="text-scale-heading font-bold text-[var(--text-primary)] mb-2">{t('play.loveNotes.empty')}</h3>
+                  <p className="text-scale-label text-[var(--text-secondary)]">{t('play.loveNotes.emptyDesc', { partner: partnerName })}</p>
                 </div>
               )}
 
               {/* Pending Challenges */}
               {pendingChallenges.length > 0 && (
                 <div className="space-y-3">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                  <h3 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                     <ICONS.Zap className="w-3.5 h-3.5" /> {t('play.loveNotes.challenges')}
                   </h3>
                   {pendingChallenges.map(challenge => (
@@ -2157,7 +2157,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                               {t('play.loveNotes.words', { count: challenge.words_data?.length || 0 })}
                             </span>
                           </div>
-                          <p className="text-xs text-[var(--text-secondary)]">
+                          <p className="text-scale-caption text-[var(--text-secondary)]">
                             {t('play.loveNotes.from', { partner: partnerName })} · {new Date(challenge.created_at).toLocaleDateString()}
                           </p>
                         </div>
@@ -2171,7 +2171,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {/* Pending Word Gifts */}
               {pendingWordRequests.length > 0 && (
                 <div className="space-y-3">
-                  <h3 className="text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                  <h3 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                     <ICONS.Heart className="w-3.5 h-3.5 fill-[var(--text-secondary)]" /> {t('play.loveNotes.wordGifts')}
                   </h3>
                   {pendingWordRequests.map(request => (
@@ -2196,7 +2196,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                               {request.xp_multiplier}x XP
                             </span>
                           </div>
-                          <p className="text-xs text-[var(--text-secondary)]">
+                          <p className="text-scale-caption text-[var(--text-secondary)]">
                             {t('play.loveNotes.from', { partner: partnerName })} · {new Date(request.created_at).toLocaleDateString()}
                           </p>
                         </div>
@@ -2212,7 +2212,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 <div className="flex gap-2 mt-6">
                   <button
                     onClick={() => { setMainTab('local_games'); }}
-                    className="flex-1 py-3 rounded-xl font-bold text-sm text-white transition-colors"
+                    className="flex-1 py-3 rounded-xl font-bold text-scale-label text-white transition-colors"
                     style={{ backgroundColor: tierColor }}
                   >
                     {t('play.loveNotes.goToGames')}
@@ -2242,8 +2242,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                             <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">ENGLISH</span>
                             <h3 className="text-4xl font-black">{q.translation}</h3>
                             <div className="mt-12 grid grid-cols-2 gap-3 w-full">
-                              <button onClick={(e) => { e.stopPropagation(); handleChallengeFlashcardResponse(false); }} className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-xs font-black uppercase tracking-widest"><ICONS.X className="w-4 h-4" /> Hard</button>
-                              <button onClick={(e) => { e.stopPropagation(); handleChallengeFlashcardResponse(true); }} className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-xs" style={{ color: tierColor }}><ICONS.Check className="w-4 h-4" /> Got it!</button>
+                              <button onClick={(e) => { e.stopPropagation(); handleChallengeFlashcardResponse(false); }} className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-scale-caption font-black uppercase tracking-widest"><ICONS.X className="w-4 h-4" /> Hard</button>
+                              <button onClick={(e) => { e.stopPropagation(); handleChallengeFlashcardResponse(true); }} className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption" style={{ color: tierColor }}><ICONS.Check className="w-4 h-4" /> Got it!</button>
                             </div>
                           </div>
                         </div>
@@ -2267,7 +2267,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                             }
                             return (
                               <button key={idx} onClick={() => handleChallengeMcSelect(opt)} disabled={challengeMcFeedback} className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${style}`}>
-                                <span className="text-xs font-bold text-[var(--text-secondary)] mr-3">{String.fromCharCode(65 + idx)}</span>{opt}
+                                <span className="text-scale-caption font-bold text-[var(--text-secondary)] mr-3">{String.fromCharCode(65 + idx)}</span>{opt}
                                 {challengeMcFeedback && isCorrect && <ICONS.Check className="w-5 h-5 float-right text-green-500" />}
                                 {challengeMcFeedback && isSelected && !isCorrect && <ICONS.X className="w-5 h-5 float-right text-red-500" />}
                               </button>
@@ -2288,22 +2288,22 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                               <div>
                                 <div className="flex items-center justify-center gap-2"><ICONS.Check className="w-5 h-5" /><span className="font-bold">Correct!</span></div>
                                 {challengeTypeExplanation && challengeTypeExplanation !== 'Exact match' && (
-                                  <p className="text-sm mt-1 opacity-80">{challengeTypeExplanation}</p>
+                                  <p className="text-scale-label mt-1 opacity-80">{challengeTypeExplanation}</p>
                                 )}
                               </div>
                             ) : (
                               <div>
                                 <div className="flex items-center justify-center gap-2 mb-1"><ICONS.X className="w-5 h-5" /><span className="font-bold">Not quite</span></div>
-                                <p className="text-sm">Correct: <span className="font-black">{q.translation}</span></p>
+                                <p className="text-scale-label">Correct: <span className="font-black">{q.translation}</span></p>
                                 {challengeTypeExplanation && challengeTypeExplanation !== 'No match' && (
-                                  <p className="text-sm mt-1 opacity-80">{challengeTypeExplanation}</p>
+                                  <p className="text-scale-label mt-1 opacity-80">{challengeTypeExplanation}</p>
                                 )}
                               </div>
                             )}
                           </div>
                         )}
-                        <input type="text" value={challengeTypeAnswer} onChange={(e) => setChallengeTypeAnswer(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleChallengeTypeSubmit()} placeholder={t('play.typeIt.typeIn', { language: nativeName })} disabled={challengeTypeSubmitted} className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-lg font-medium text-center mt-4 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" autoFocus />
-                        <button onClick={handleChallengeTypeSubmit} disabled={!challengeTypeAnswer.trim() && !challengeTypeSubmitted} className="w-full mt-4 py-4 rounded-2xl font-black text-white text-sm uppercase tracking-widest disabled:opacity-50" style={{ backgroundColor: tierColor }}>{challengeTypeSubmitted ? 'Next' : 'Check'}</button>
+                        <input type="text" value={challengeTypeAnswer} onChange={(e) => setChallengeTypeAnswer(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleChallengeTypeSubmit()} placeholder={t('play.typeIt.typeIn', { language: nativeName })} disabled={challengeTypeSubmitted} className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-scale-heading font-medium text-center mt-4 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" autoFocus />
+                        <button onClick={handleChallengeTypeSubmit} disabled={!challengeTypeAnswer.trim() && !challengeTypeSubmitted} className="w-full mt-4 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50" style={{ backgroundColor: tierColor }}>{challengeTypeSubmitted ? 'Next' : 'Check'}</button>
                       </div>
                     )}
                   </div>

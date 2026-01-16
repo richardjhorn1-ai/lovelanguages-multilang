@@ -67,7 +67,7 @@ export const TeachingStyleStep: React.FC<TeachingStyleStepProps> = ({
               <span className={`font-bold block ${selected === option.id ? 'text-rose-700' : 'text-gray-700'}`}>
                 {option.label}
               </span>
-              <span className="text-sm text-gray-500">{option.description}</span>
+              <span className="text-scale-label text-gray-500">{option.description}</span>
             </div>
           </button>
         ))}

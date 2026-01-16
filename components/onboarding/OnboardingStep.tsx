@@ -53,14 +53,14 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
             className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors"
           >
             <ICONS.ChevronLeft className="w-5 h-5" />
-            <span className="text-sm font-medium">{t('onboarding.step.back')}</span>
+            <span className="text-scale-label font-medium">{t('onboarding.step.back')}</span>
           </button>
         ) : (
           <div />
         )}
 
         {/* Step counter */}
-        <span className="text-xs font-bold text-gray-300 uppercase tracking-widest">
+        <span className="text-scale-caption font-bold text-gray-300 uppercase tracking-widest">
           {t('onboarding.step.counter', { current: currentStep, total: totalSteps })}
         </span>
 
@@ -126,7 +126,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg transition-all active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed"
+      className="w-full py-4 rounded-2xl text-white font-bold text-scale-heading shadow-lg transition-all active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed"
       style={{ backgroundColor: disabled ? '#ccc' : accentColor }}
     >
       {buttonText}
@@ -150,7 +150,7 @@ export const SkipButton: React.FC<SkipButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className="mt-4 text-gray-400 text-sm font-medium hover:text-gray-600 transition-colors"
+      className="mt-4 text-gray-400 text-scale-label font-medium hover:text-gray-600 transition-colors"
     >
       {buttonText}
     </button>

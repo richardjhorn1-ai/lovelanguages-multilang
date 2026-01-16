@@ -73,7 +73,7 @@ export const FearStep: React.FC<FearStepProps> = ({
               >
                 {option.label}
               </div>
-              <div className="text-sm text-gray-400">{option.description}</div>
+              <div className="text-scale-label text-gray-400">{option.description}</div>
             </div>
           </button>
         ))}

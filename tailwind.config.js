@@ -15,6 +15,16 @@ export default {
         'header': ['Quicksand', 'sans-serif'],
         'body': ['Outfit', 'sans-serif'],
       },
+      fontSize: {
+        // Theme-aware text scale - respects user's size preference (small/medium/large)
+        // and automatically adjusts for mobile vs desktop
+        'scale-micro': ['var(--text-micro)', { lineHeight: 'var(--line-height-tight)' }],
+        'scale-caption': ['var(--text-caption)', { lineHeight: 'var(--line-height-tight)' }],
+        'scale-label': ['var(--text-label)', { lineHeight: 'var(--line-height-normal)' }],
+        'scale-button': ['var(--text-button)', { lineHeight: 'var(--line-height-tight)' }],
+        'scale-body': ['var(--text-body)', { lineHeight: 'var(--line-height-relaxed)' }],
+        'scale-heading': ['var(--text-heading)', { lineHeight: 'var(--line-height-tight)' }],
+      },
       colors: {
         accent: 'var(--accent-color)',
         'accent-light': 'var(--accent-light)',

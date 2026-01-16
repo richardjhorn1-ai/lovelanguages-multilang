@@ -99,7 +99,7 @@ export const LanguageConfirmStep: React.FC<LanguageConfirmStepProps> = ({
       <div className="space-y-5">
         {/* Native Language Selector */}
         <div ref={nativeRef} className="relative">
-          <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">
+          <label className="block text-scale-caption font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">
             {t(role === 'tutor' ? 'onboarding.languageConfirm.theySpeak' : 'onboarding.languageConfirm.iSpeak')}
           </label>
           <button
@@ -114,7 +114,7 @@ export const LanguageConfirmStep: React.FC<LanguageConfirmStepProps> = ({
               <span className="text-3xl">{nativeConfig?.flag}</span>
               <div className="text-left">
                 <div className="font-bold text-gray-800">{nativeConfig?.nativeName}</div>
-                <div className="text-xs text-gray-400">{nativeConfig?.name}</div>
+                <div className="text-scale-caption text-gray-400">{nativeConfig?.name}</div>
               </div>
             </div>
             <ICONS.ChevronDown
@@ -143,7 +143,7 @@ export const LanguageConfirmStep: React.FC<LanguageConfirmStepProps> = ({
                     <span className="text-2xl">{lang.flag}</span>
                     <div className="text-left flex-1">
                       <div className="font-semibold text-gray-800">{lang.nativeName}</div>
-                      <div className="text-xs text-gray-400">{lang.name}</div>
+                      <div className="text-scale-caption text-gray-400">{lang.name}</div>
                     </div>
                     {lang.code === nativeLanguage && (
                       <ICONS.Check className="w-5 h-5" style={{ color: accentColor }} />
@@ -177,7 +177,7 @@ export const LanguageConfirmStep: React.FC<LanguageConfirmStepProps> = ({
 
         {/* Target Language Selector */}
         <div ref={targetRef} className="relative">
-          <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">
+          <label className="block text-scale-caption font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">
             {t(role === 'tutor' ? 'onboarding.languageConfirm.iTeach' : 'onboarding.languageConfirm.iWantToLearn')}
           </label>
           <button
@@ -192,7 +192,7 @@ export const LanguageConfirmStep: React.FC<LanguageConfirmStepProps> = ({
               <span className="text-3xl">{targetConfig?.flag}</span>
               <div className="text-left">
                 <div className="font-bold text-gray-800">{targetConfig?.nativeName}</div>
-                <div className="text-xs text-gray-400">{targetConfig?.name}</div>
+                <div className="text-scale-caption text-gray-400">{targetConfig?.name}</div>
               </div>
             </div>
             <ICONS.ChevronDown
@@ -223,7 +223,7 @@ export const LanguageConfirmStep: React.FC<LanguageConfirmStepProps> = ({
                       <span className="text-2xl">{lang.flag}</span>
                       <div className="text-left flex-1">
                         <div className="font-semibold text-gray-800">{lang.nativeName}</div>
-                        <div className="text-xs text-gray-400">{lang.name}</div>
+                        <div className="text-scale-caption text-gray-400">{lang.name}</div>
                       </div>
                       {lang.code === targetLanguage && (
                         <ICONS.Check className="w-5 h-5" style={{ color: accentColor }} />
@@ -237,7 +237,7 @@ export const LanguageConfirmStep: React.FC<LanguageConfirmStepProps> = ({
 
         {/* Summary text */}
         <div className="text-center py-3">
-          <p className="text-sm text-gray-500">
+          <p className="text-scale-label text-gray-500">
             {t(role === 'tutor' ? 'onboarding.languageConfirm.tutorSummary' : 'onboarding.languageConfirm.summary', {
               native: nativeConfig?.name,
               target: targetConfig?.name

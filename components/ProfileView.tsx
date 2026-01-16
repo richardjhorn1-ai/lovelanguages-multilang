@@ -167,11 +167,11 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             />
           </div>
           <h2 className="text-2xl font-black text-[var(--text-primary)]">{profile.full_name}</h2>
-          <p className="text-[var(--text-secondary)] text-sm mb-4">{profile.email}</p>
+          <p className="text-[var(--text-secondary)] text-scale-label mb-4">{profile.email}</p>
 
           {/* Role Badge (display only, not toggleable) */}
           <div className="py-2 px-6 rounded-xl inline-block" style={{ backgroundColor: `${accentHex}15` }}>
-            <p className="text-[10px] font-black uppercase tracking-tighter" style={{ color: accentHex }}>
+            <p className="text-scale-micro font-black uppercase tracking-tighter" style={{ color: accentHex }}>
               {profile.role === 'student'
                 ? t('profile.roles.student', { language: targetName })
                 : t('profile.roles.tutor')}
@@ -210,14 +210,14 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
         {/* Connected Partner Card - Only show if linked */}
         {partner && (
           <div className="bg-[var(--bg-card)] p-8 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
-            <h3 className="text-[11px] font-black mb-6 flex items-center justify-between text-[var(--text-secondary)] uppercase tracking-[0.2em]">
+            <h3 className="text-scale-micro font-black mb-6 flex items-center justify-between text-[var(--text-secondary)] uppercase tracking-[0.2em]">
               <span className="flex items-center gap-2">
                 <ICONS.Heart style={{ color: accentHex }} className="w-4 h-4" />
                 {t('profile.partner.title')}
               </span>
               <button
                 onClick={() => setShowBreakupModal(true)}
-                className="text-red-400 hover:text-red-500 text-[10px] font-bold normal-case tracking-normal transition-colors"
+                className="text-red-400 hover:text-red-500 text-scale-micro font-bold normal-case tracking-normal transition-colors"
               >
                 {t('profile.partner.unlink')}
               </button>
@@ -236,8 +236,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 {(partner.full_name?.[0] || '?').toUpperCase()}
               </div>
               <div className="flex-1 z-10">
-                <p className="font-black text-[var(--text-primary)] text-sm leading-none mb-1">{partner.full_name}</p>
-                <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: accentHex }}>{partner.email}</p>
+                <p className="font-black text-[var(--text-primary)] text-scale-label leading-none mb-1">{partner.full_name}</p>
+                <p className="text-scale-micro font-bold uppercase tracking-wider" style={{ color: accentHex }}>{partner.email}</p>
               </div>
               <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-500 z-10">
                 <ICONS.Check className="w-4 h-4" />
@@ -258,7 +258,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               </div>
               <div className="text-left">
                 <h3 className="font-bold text-[var(--text-primary)]">{t('profile.customisation.title')}</h3>
-                <p className="text-xs text-[var(--text-secondary)]">{t('profile.customisation.subtitle')}</p>
+                <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.customisation.subtitle')}</p>
               </div>
             </div>
             <ICONS.ChevronDown className={`w-5 h-5 text-[var(--text-secondary)] transition-transform ${showCustomisation ? 'rotate-180' : ''}`} />
@@ -268,7 +268,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             <div className="px-6 pb-6 space-y-6 border-t border-[var(--border-color)] pt-4">
               {/* Accent Color */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.accentColor')}</label>
+                <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.accentColor')}</label>
                 <div className="flex gap-3">
                   {(Object.keys(ACCENT_COLORS) as AccentColor[]).map((color) => (
                     <button
@@ -286,12 +286,12 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     </button>
                   ))}
                 </div>
-                <p className="text-xs text-[var(--text-secondary)] mt-2">{ACCENT_COLORS[theme.accentColor].name}</p>
+                <p className="text-scale-caption text-[var(--text-secondary)] mt-2">{ACCENT_COLORS[theme.accentColor].name}</p>
               </div>
 
               {/* Dark Mode */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.darkMode')}</label>
+                <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.darkMode')}</label>
                 <div className="grid grid-cols-2 gap-2">
                   {(Object.keys(DARK_MODE_STYLES) as DarkModeStyle[]).map((style) => (
                     <button
@@ -307,7 +307,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                         className="w-8 h-8 rounded-lg border border-gray-300"
                         style={{ backgroundColor: DARK_MODE_STYLES[style].bgPrimary }}
                       />
-                      <span className="text-sm font-medium text-[var(--text-primary)]">
+                      <span className="text-scale-label font-medium text-[var(--text-primary)]">
                         {DARK_MODE_STYLES[style].name}
                       </span>
                     </button>
@@ -317,7 +317,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Font Size */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontSize')}</label>
+                <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontSize')}</label>
                 <div className="flex gap-2">
                   {(Object.keys(FONT_SIZES) as FontSize[]).map((size) => (
                     <button
@@ -335,7 +335,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       >
                         Aa
                       </span>
-                      <p className="text-xs text-[var(--text-secondary)] mt-1">{FONT_SIZES[size].name}</p>
+                      <p className="text-scale-caption text-[var(--text-secondary)] mt-1">{FONT_SIZES[size].name}</p>
                     </button>
                   ))}
                 </div>
@@ -343,7 +343,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Font Style */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontStyle', 'Font Style')}</label>
+                <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontStyle', 'Font Style')}</label>
                 <div className="grid grid-cols-3 gap-2">
                   {(Object.keys(FONT_PRESETS) as FontPreset[]).map((preset) => (
                     <button
@@ -364,7 +364,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       >
                         Aa
                       </span>
-                      <span className="text-xs mt-1 block text-[var(--text-secondary)]">
+                      <span className="text-scale-caption mt-1 block text-[var(--text-secondary)]">
                         {FONT_PRESETS[preset].name}
                       </span>
                     </button>
@@ -374,7 +374,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Font Weight */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontWeight', 'Font Weight')}</label>
+                <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.fontWeight', 'Font Weight')}</label>
                 <div className="grid grid-cols-3 gap-2">
                   {(Object.keys(FONT_WEIGHTS) as FontWeight[]).map((weight) => (
                     <button
@@ -395,7 +395,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       >
                         Aa
                       </span>
-                      <span className="text-xs mt-1 block text-[var(--text-secondary)]">
+                      <span className="text-scale-caption mt-1 block text-[var(--text-secondary)]">
                         {FONT_WEIGHTS[weight].name}
                       </span>
                     </button>
@@ -405,7 +405,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Sound Effects */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.sounds')}</label>
+                <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.sounds')}</label>
                 <button
                   onClick={() => {
                     const newMuted = sounds.toggleMute();
@@ -424,7 +424,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       <p className="font-bold text-[var(--text-primary)]">
                         {isSoundMuted ? t('profile.customisation.soundsOff') : t('profile.customisation.soundsOn')}
                       </p>
-                      <p className="text-xs text-[var(--text-secondary)]">
+                      <p className="text-scale-caption text-[var(--text-secondary)]">
                         {isSoundMuted
                           ? t('profile.customisation.soundsOffDesc')
                           : t('profile.customisation.soundsOnDesc')}
@@ -447,7 +447,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               {/* Haptic Feedback (only shown on native platforms) */}
               {isHapticsAvailable && (
                 <div>
-                  <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.haptics', 'Haptic Feedback')}</label>
+                  <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.haptics', 'Haptic Feedback')}</label>
                   <button
                     onClick={() => {
                       const newEnabled = haptics.toggle();
@@ -466,7 +466,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                         <p className="font-bold text-[var(--text-primary)]">
                           {isHapticsEnabled ? t('profile.customisation.hapticsOn', 'Vibration On') : t('profile.customisation.hapticsOff', 'Vibration Off')}
                         </p>
-                        <p className="text-xs text-[var(--text-secondary)]">
+                        <p className="text-scale-caption text-[var(--text-secondary)]">
                           {isHapticsEnabled
                             ? t('profile.customisation.hapticsOnDesc', 'Feel taps when you get answers right or wrong')
                             : t('profile.customisation.hapticsOffDesc', 'No vibration feedback during games')}
@@ -489,7 +489,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Answer Validation Mode */}
               <div>
-                <label className="block text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.answerChecking')}</label>
+                <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.answerChecking')}</label>
                 <button
                   onClick={toggleSmartValidation}
                   disabled={savingValidation}
@@ -505,7 +505,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       <p className="font-bold text-[var(--text-primary)]">
                         {smartValidation ? t('profile.customisation.smartMode') : t('profile.customisation.strictMode')}
                       </p>
-                      <p className="text-xs text-[var(--text-secondary)]">
+                      <p className="text-scale-caption text-[var(--text-secondary)]">
                         {smartValidation
                           ? t('profile.customisation.smartModeDesc')
                           : t('profile.customisation.strictModeDesc')}
@@ -529,7 +529,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               {/* Preview */}
               <div className="p-4 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)]">
-                <p className="text-xs text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.customisation.preview')}</p>
+                <p className="text-scale-caption text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.customisation.preview')}</p>
                 <p
                   className="text-[var(--text-primary)]"
                   dangerouslySetInnerHTML={{
@@ -553,7 +553,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               </div>
               <div className="text-left">
                 <h3 className="font-bold text-[var(--text-primary)]">{t('profile.advanced.title')}</h3>
-                <p className="text-xs text-[var(--text-secondary)]">{t('profile.advanced.subtitle')}</p>
+                <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.advanced.subtitle')}</p>
               </div>
             </div>
             <ICONS.ChevronDown className={`w-5 h-5 text-[var(--text-secondary)] transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
@@ -563,7 +563,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             <div className="px-6 pb-6 space-y-4 border-t border-[var(--border-color)] pt-4">
               {/* Common fields */}
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.yourName')}</label>
+                <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.yourName')}</label>
                 <input
                   type="text"
                   value={editData.userName || ''}
@@ -576,7 +576,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <>
                   {/* Student-specific fields */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.partnerName')}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.partnerName')}</label>
                     <input
                       type="text"
                       value={editData.partnerName || ''}
@@ -586,7 +586,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.relationshipVibe')}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.relationshipVibe')}</label>
                     <select
                       value={editData.relationshipVibe || ''}
                       onChange={(e) => updateField('relationshipVibe', e.target.value)}
@@ -598,7 +598,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.learningReason', { language: targetName })}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.learningReason', { language: targetName })}</label>
                     <textarea
                       value={editData.learningReason || ''}
                       onChange={(e) => updateField('learningReason', e.target.value)}
@@ -610,7 +610,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.dailyTime')}</label>
+                      <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.dailyTime')}</label>
                       <select
                         value={editData.dailyTime || ''}
                         onChange={(e) => updateField('dailyTime', e.target.value)}
@@ -621,7 +621,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.preferredTime')}</label>
+                      <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.preferredTime')}</label>
                       <select
                         value={editData.preferredTime || ''}
                         onChange={(e) => updateField('preferredTime', e.target.value)}
@@ -634,7 +634,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.biggestChallenge')}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.biggestChallenge')}</label>
                     <select
                       value={editData.biggestFear || ''}
                       onChange={(e) => updateField('biggestFear', e.target.value)}
@@ -646,7 +646,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.firstGoal')}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.firstGoal')}</label>
                     <input
                       type="text"
                       value={editData.firstGoal || ''}
@@ -660,7 +660,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <>
                   {/* Tutor-specific fields */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.learnerName')}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.learnerName')}</label>
                     <input
                       type="text"
                       value={editData.learnerName || ''}
@@ -670,7 +670,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.relationshipType')}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.relationshipType')}</label>
                     <select
                       value={editData.relationshipType || ''}
                       onChange={(e) => updateField('relationshipType', e.target.value)}
@@ -682,7 +682,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.languageConnection', { language: targetName })}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.languageConnection', { language: targetName })}</label>
                     <select
                       value={editData.languageConnection || editData.polishConnection || ''}
                       onChange={(e) => updateField('languageConnection', e.target.value)}
@@ -694,7 +694,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.howYouLearned', { language: targetName })}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.howYouLearned', { language: targetName })}</label>
                     <select
                       value={editData.languageOrigin || editData.polishOrigin || ''}
                       onChange={(e) => updateField('languageOrigin', e.target.value)}
@@ -709,7 +709,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.dreamPhrase')}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.dreamPhrase')}</label>
                     <input
                       type="text"
                       value={editData.dreamPhrase || ''}
@@ -720,7 +720,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.teachingStyle')}</label>
+                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.teachingStyle')}</label>
                     <select
                       value={editData.teachingStyle || ''}
                       onChange={(e) => updateField('teachingStyle', e.target.value)}
@@ -763,7 +763,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               </div>
               <div>
                 <h3 className="font-bold text-[var(--text-primary)]">Extras</h3>
-                <p className="text-xs text-[var(--text-secondary)]">Resources & more</p>
+                <p className="text-scale-caption text-[var(--text-secondary)]">Resources & more</p>
               </div>
             </div>
 
@@ -775,7 +775,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <span className="text-xl">📖</span>
                 <div className="flex-1">
                   <p className="font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">{t('profile.links.blog', { language: targetName })}</p>
-                  <p className="text-xs text-[var(--text-secondary)]">Free articles, phrases & culture guides</p>
+                  <p className="text-scale-caption text-[var(--text-secondary)]">Free articles, phrases & culture guides</p>
                 </div>
                 <ICONS.ChevronDown className="w-4 h-4 text-[var(--text-secondary)] -rotate-90" />
               </a>
@@ -783,13 +783,13 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               <div className="flex gap-2 pt-2">
                 <a
                   href="/#/terms"
-                  className="flex-1 text-center py-2 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                  className="flex-1 text-center py-2 text-scale-caption text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 >
                   Terms of Service
                 </a>
                 <a
                   href="/#/privacy"
-                  className="flex-1 text-center py-2 text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                  className="flex-1 text-center py-2 text-scale-caption text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 >
                   Privacy Policy
                 </a>
@@ -800,7 +800,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
         <button
           onClick={() => supabase.auth.signOut({ scope: 'local' })}
-          className="w-full py-6 text-[var(--text-secondary)] text-[10px] font-black hover:opacity-70 transition-all uppercase tracking-[0.3em]"
+          className="w-full py-6 text-[var(--text-secondary)] text-scale-micro font-black hover:opacity-70 transition-all uppercase tracking-[0.3em]"
         >
           {t('profile.buttons.signOut')}
         </button>
