@@ -5,7 +5,9 @@ import {
   requireSubscription,
   checkRateLimit,
   incrementUsage,
-  RATE_LIMITS
+  RATE_LIMITS,
+  logSecurityEvent,
+  getClientIp
 } from '../utils/api-middleware.js';
 
 // Per-table export limits to prevent memory exhaustion
@@ -310,6 +312,14 @@ export default async function handler(req: any, res: any) {
       console.log(`[export-user-data] Export truncated for user ${userId.substring(0, 8)}:`, truncations);
     }
     console.log(`[export-user-data] Export complete for user ${userId.substring(0, 8)}:`, summary);
+
+    // Log data export for security audit trail
+    logSecurityEvent(supabase, 'data_exported', {
+      userId: userId,
+      ipAddress: getClientIp(req),
+      userAgent: req.headers['user-agent'],
+      totalRecords: summary.totalChats + summary.totalWords + summary.totalGameSessions
+    });
 
     incrementUsage(supabase, auth.userId, RATE_LIMITS.exportUserData.type);
 
