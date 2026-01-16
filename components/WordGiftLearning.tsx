@@ -228,7 +228,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
         <div className="p-3 md:p-4 border-b border-[var(--border-color)]">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <span className="text-base md:text-lg">🎁</span>
+              <span className="text-scale-body">🎁</span>
               <span className="text-scale-caption font-bold text-[var(--text-secondary)]">
                 {t('wordGift.card.wordOf', { current: currentIndex + 1, total: words.length })}
               </span>
