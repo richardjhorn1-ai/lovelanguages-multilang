@@ -6,7 +6,9 @@ import {
   requireSubscription,
   checkRateLimit,
   incrementUsage,
-  RATE_LIMITS
+  RATE_LIMITS,
+  logSecurityEvent,
+  getClientIp
 } from '../utils/api-middleware.js';
 
 const CONFIRMATION_STRING = 'DELETE MY ACCOUNT';
@@ -53,6 +55,14 @@ export default async function handler(req: any, res: any) {
 
     // Require explicit confirmation
     if (confirmation !== CONFIRMATION_STRING) {
+      // Log failed attempt (could indicate automated attack)
+      logSecurityEvent(supabase, 'account_deletion_failed', {
+        userId: auth.userId,
+        ipAddress: getClientIp(req),
+        userAgent: req.headers['user-agent'],
+        reason: 'invalid_confirmation'
+      });
+
       return res.status(400).json({
         error: 'Invalid confirmation',
         message: `Please type "${CONFIRMATION_STRING}" to confirm account deletion.`
@@ -198,6 +208,16 @@ export default async function handler(req: any, res: any) {
     }
 
     console.log(`[delete-account] Account deletion complete for user ${userId.substring(0, 8)}`);
+
+    // Log security event for audit trail
+    await logSecurityEvent(supabase, 'account_deleted', {
+      userId: userId,
+      ipAddress: getClientIp(req),
+      userAgent: req.headers['user-agent'],
+      email: profile.email,
+      hadPartner: !!profile.linked_user_id,
+      hadStripeSubscription: !!profile.stripe_customer_id
+    });
 
     incrementUsage(supabase, auth.userId, RATE_LIMITS.deleteAccount.type);
 

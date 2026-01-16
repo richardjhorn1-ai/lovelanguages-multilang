@@ -16,6 +16,113 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 // =============================================================================
+// SECURITY HEADERS
+// =============================================================================
+
+/**
+ * Standard security headers that should be set on all API responses.
+ * Addresses: #4 Content-Type Sniffing, #8 Security Headers Missing
+ */
+export const SECURITY_HEADERS = {
+  'X-Content-Type-Options': 'nosniff',           // Prevent MIME sniffing
+  'X-Frame-Options': 'DENY',                      // Prevent clickjacking
+  'X-XSS-Protection': '1; mode=block',            // Legacy XSS protection
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  // Note: CSP omitted for JSON APIs - it's meant for HTML pages
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', // Force HTTPS
+  'Cache-Control': 'no-store, no-cache, must-revalidate', // Don't cache sensitive data
+  'Pragma': 'no-cache',
+} as const;
+
+/**
+ * Sets security headers on the response.
+ * Call this at the start of every API handler.
+ */
+export function setSecurityHeaders(res: VercelResponse): void {
+  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
+    res.setHeader(key, value);
+  });
+}
+
+// =============================================================================
+// SAFE ERROR RESPONSES
+// Addresses: #6 Error Message Information Leakage, #11 Credentials in Error Messages
+// =============================================================================
+
+/**
+ * Generic error messages that don't leak implementation details.
+ * Use these instead of raw error messages from databases/services.
+ */
+export const SAFE_ERROR_MESSAGES = {
+  unauthorized: 'Authentication required',
+  forbidden: 'Access denied',
+  not_found: 'Resource not found',
+  rate_limited: 'Too many requests. Please try again later.',
+  invalid_request: 'Invalid request',
+  server_error: 'An error occurred. Please try again.',
+  validation_error: 'Invalid input provided',
+  subscription_required: 'Subscription required for this feature',
+} as const;
+
+/**
+ * Sanitizes error messages before sending to client.
+ * Removes stack traces, SQL details, and other sensitive info.
+ */
+export function sanitizeErrorMessage(error: unknown): string {
+  // Never expose raw error messages
+  if (!error) return SAFE_ERROR_MESSAGES.server_error;
+
+  // Check for known safe error types
+  const err = error as { message?: string; code?: string };
+
+  // PostgreSQL/Supabase error codes we can translate
+  if (err.code === 'PGRST301') return SAFE_ERROR_MESSAGES.rate_limited;
+  if (err.code === '23505') return 'This item already exists';
+  if (err.code === '23503') return SAFE_ERROR_MESSAGES.not_found;
+  if (err.code === '42501') return SAFE_ERROR_MESSAGES.forbidden;
+
+  // Don't expose database or internal error messages
+  const message = err.message || '';
+  if (
+    message.includes('pg_') ||
+    message.includes('SQL') ||
+    message.includes('relation') ||
+    message.includes('column') ||
+    message.includes('constraint') ||
+    message.includes('password') ||
+    message.includes('token') ||
+    message.includes('key') ||
+    message.includes('secret')
+  ) {
+    console.error('[api-middleware] Sanitized sensitive error:', message);
+    return SAFE_ERROR_MESSAGES.server_error;
+  }
+
+  // For known application errors, return a generic version
+  return SAFE_ERROR_MESSAGES.server_error;
+}
+
+/**
+ * Creates a safe error response without leaking sensitive information.
+ */
+export function createErrorResponse(
+  res: VercelResponse,
+  statusCode: number,
+  errorType: keyof typeof SAFE_ERROR_MESSAGES,
+  logError?: unknown
+): void {
+  if (logError) {
+    // Log the full error server-side for debugging
+    console.error(`[api-middleware] ${errorType}:`, logError);
+  }
+
+  setSecurityHeaders(res);
+  res.status(statusCode).json({
+    error: SAFE_ERROR_MESSAGES[errorType]
+  });
+}
+
+// =============================================================================
 // TYPES
 // =============================================================================
 
@@ -73,6 +180,9 @@ export interface AuthResult {
  * ```
  */
 export function setCorsHeaders(req: VercelRequest, res: VercelResponse): boolean {
+  // Always set security headers first
+  setSecurityHeaders(res);
+
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
   const origin = req.headers.origin || '';
 
@@ -112,6 +222,13 @@ export function setCorsHeaders(req: VercelRequest, res: VercelResponse): boolean
  * @returns true if this is an OPTIONS request (handler should return early)
  */
 export function setStreamingCorsHeaders(req: VercelRequest, res: VercelResponse): boolean {
+  // Set security headers (except Content-Type which SSE needs to override)
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+
   // Set SSE-specific headers
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
@@ -581,4 +698,163 @@ export function incrementUsage(
       // Don't throw - this is non-blocking
     }
   })();
+}
+
+// =============================================================================
+// AUTH RATE LIMITING
+// Addresses: #1 Login Rate Limiting, #3 OTP Brute Force, #12 Password Reset Abuse
+// =============================================================================
+
+export type AuthRateLimitAction = 'login' | 'otp_verify' | 'password_reset';
+
+export interface AuthRateLimitResult {
+  allowed: boolean;
+  remainingAttempts: number;
+  blockedUntil: string | null;
+  waitSeconds: number;
+}
+
+/**
+ * Check if an auth action is rate limited.
+ * Uses IP address or email as identifier.
+ *
+ * @param supabase - Supabase client with service key
+ * @param identifier - IP address or email to check
+ * @param action - Type of auth action ('login', 'otp_verify', 'password_reset')
+ * @param options - Optional rate limit thresholds
+ * @returns AuthRateLimitResult with allowed status and retry info
+ *
+ * @example
+ * ```typescript
+ * const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+ * const rateLimit = await checkAuthRateLimit(supabase, ipAddress, 'login');
+ * if (!rateLimit.allowed) {
+ *   res.setHeader('Retry-After', rateLimit.waitSeconds.toString());
+ *   return res.status(429).json({ error: 'Too many attempts' });
+ * }
+ * ```
+ */
+export async function checkAuthRateLimit(
+  supabase: SupabaseClient,
+  identifier: string,
+  action: AuthRateLimitAction,
+  options?: {
+    maxAttempts?: number;
+    windowMinutes?: number;
+    blockMinutes?: number;
+  }
+): Promise<AuthRateLimitResult> {
+  const maxAttempts = options?.maxAttempts ?? 5;
+  const windowMinutes = options?.windowMinutes ?? 15;
+  const blockMinutes = options?.blockMinutes ?? 30;
+
+  try {
+    const { data, error } = await supabase.rpc('check_auth_rate_limit', {
+      p_identifier: identifier,
+      p_action_type: action,
+      p_max_attempts: maxAttempts,
+      p_window_minutes: windowMinutes,
+      p_block_minutes: blockMinutes,
+    });
+
+    if (error) {
+      console.error('[api-middleware] Rate limit check failed:', error.message);
+      // Fail open - don't block legitimate users due to DB errors
+      return { allowed: true, remainingAttempts: maxAttempts, blockedUntil: null, waitSeconds: 0 };
+    }
+
+    const result = data?.[0];
+    if (!result) {
+      return { allowed: true, remainingAttempts: maxAttempts, blockedUntil: null, waitSeconds: 0 };
+    }
+
+    return {
+      allowed: result.allowed,
+      remainingAttempts: result.remaining_attempts || 0,
+      blockedUntil: result.blocked_until,
+      waitSeconds: result.wait_seconds || 0,
+    };
+  } catch (err: any) {
+    console.error('[api-middleware] Rate limit check error:', err.message);
+    // Fail open
+    return { allowed: true, remainingAttempts: maxAttempts, blockedUntil: null, waitSeconds: 0 };
+  }
+}
+
+/**
+ * Clear rate limit after successful authentication.
+ * Call this after a successful login/OTP verification.
+ */
+export async function clearAuthRateLimit(
+  supabase: SupabaseClient,
+  identifier: string,
+  action: AuthRateLimitAction
+): Promise<void> {
+  try {
+    await supabase.rpc('clear_auth_rate_limit', {
+      p_identifier: identifier,
+      p_action_type: action,
+    });
+  } catch (err: any) {
+    // Non-critical, log and continue
+    console.error('[api-middleware] Failed to clear rate limit:', err.message);
+  }
+}
+
+/**
+ * Log a security event to the audit log.
+ * Use for failed logins, rate limit hits, suspicious activity.
+ */
+export async function logSecurityEvent(
+  supabase: SupabaseClient,
+  eventType: string,
+  details: {
+    userId?: string;
+    ipAddress?: string;
+    userAgent?: string;
+    [key: string]: unknown;
+  }
+): Promise<void> {
+  try {
+    const { userId, ipAddress, userAgent, ...rest } = details;
+
+    await supabase.from('security_audit_log').insert({
+      event_type: eventType,
+      user_id: userId || null,
+      ip_address: ipAddress || null,
+      user_agent: userAgent || null,
+      details: rest,
+    });
+  } catch (err: any) {
+    // Non-critical, log and continue
+    console.error('[api-middleware] Failed to log security event:', err.message);
+  }
+}
+
+/**
+ * Extract client IP address from request headers.
+ * Handles common proxy headers (Vercel, Cloudflare, etc.)
+ */
+export function getClientIp(req: VercelRequest): string {
+  // Vercel/common proxy headers
+  const forwardedFor = req.headers['x-forwarded-for'];
+  if (forwardedFor) {
+    // x-forwarded-for can be comma-separated list, take first
+    const ips = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor;
+    return ips.split(',')[0].trim();
+  }
+
+  // Cloudflare
+  const cfConnectingIp = req.headers['cf-connecting-ip'];
+  if (cfConnectingIp) {
+    return Array.isArray(cfConnectingIp) ? cfConnectingIp[0] : cfConnectingIp;
+  }
+
+  // Real IP (nginx)
+  const realIp = req.headers['x-real-ip'];
+  if (realIp) {
+    return Array.isArray(realIp) ? realIp[0] : realIp;
+  }
+
+  return 'unknown';
 }
