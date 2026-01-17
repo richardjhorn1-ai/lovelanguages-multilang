@@ -180,14 +180,14 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
       </div>
 
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-sm">
+        <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-scale-label">
           {error}
         </div>
       )}
 
       {showWarning && hasPartner && (
         <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 mb-4">
-          <p className="text-amber-800 dark:text-amber-200 text-sm font-medium">
+          <p className="text-amber-800 dark:text-amber-200 text-scale-label font-medium">
             {t('subscription.manager.cancelWarning', { name: partnerName || t('subscription.manager.yourPartner') })}
           </p>
         </div>
