@@ -295,7 +295,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-[var(--text-primary)] text-scale-label">{word.word}</span>
                       <span className="text-[var(--text-secondary)]">→</span>
-                      <span className="text-[var(--text-secondary)] text-sm">{word.translation}</span>
+                      <span className="text-[var(--text-secondary)] text-scale-label">{word.translation}</span>
                     </div>
                     <button
                       onClick={() => removeNewWord(index)}
@@ -391,7 +391,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
             {partnerVocab.length === 0 && (
               <div className="text-center py-8 text-[var(--text-secondary)]">
                 <p className="font-bold">{t('challengeCreator.quiz.noWordsYet', { name: partnerName })}</p>
-                <p className="text-sm">{t('challengeCreator.quiz.addNewWordsHint')}</p>
+                <p className="text-scale-label">{t('challengeCreator.quiz.addNewWordsHint')}</p>
               </div>
             )}
           </div>

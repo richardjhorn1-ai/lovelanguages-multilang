@@ -147,7 +147,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             <ICONS.Sparkles className="w-8 h-8 text-[var(--accent-color)] animate-pulse" />
           </div>
           <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">{t('levelTest.preparing')}</h2>
-          <p className="text-[var(--text-secondary)] text-sm">{t('levelTest.generatingQuestions')}</p>
+          <p className="text-[var(--text-secondary)] text-scale-label">{t('levelTest.generatingQuestions')}</p>
         </div>
       </div>
     );
@@ -198,7 +198,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
               <span className="text-[var(--text-secondary)]">{t('levelTest.passThreshold')}</span>
               <span className="font-bold text-[var(--text-primary)]">80%</span>
             </div>
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-scale-label">
               <span className="text-[var(--text-secondary)]">{t('levelTest.timeLimit')}</span>
               <span className="font-bold text-[var(--text-primary)]">{t('levelTest.none')}</span>
             </div>
@@ -249,7 +249,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
           {/* Show warning if level update failed */}
           {passed && results.levelUpdateError && (
-            <div className="mb-6 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl text-amber-700 dark:text-amber-400 text-sm">
+            <div className="mb-6 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl text-amber-700 dark:text-amber-400 text-scale-label">
               {results.levelUpdateError}
             </div>
           )}
@@ -259,7 +259,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
           </div>
 
           <div className="bg-[var(--bg-primary)] rounded-2xl p-4 mb-6">
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-scale-label">
               <span className="text-[var(--text-secondary)]">{t('levelTest.correctAnswers')}</span>
               <span className="font-bold text-[var(--text-primary)]">{results.correctAnswers} / {results.totalQuestions}</span>
             </div>
