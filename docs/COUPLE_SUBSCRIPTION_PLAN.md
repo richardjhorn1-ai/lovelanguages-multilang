@@ -544,7 +544,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Determine return URL
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.lovelanguages.xyz';
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://www.lovelanguages.io';
     const returnUrl = `${baseUrl}/profile?tab=subscription`;
 
     // Create Stripe portal session

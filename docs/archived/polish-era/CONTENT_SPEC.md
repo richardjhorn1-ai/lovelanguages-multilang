@@ -41,7 +41,7 @@ content/
 
 Each article is a single `.json` file. The filename becomes the URL slug.
 
-**Example:** `polish-pet-names.json` → `lovelanguages.xyz/#/learn/polish-pet-names`
+**Example:** `polish-pet-names.json` → `lovelanguages.io/#/learn/polish-pet-names`
 
 ```json
 {

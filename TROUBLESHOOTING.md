@@ -151,7 +151,7 @@ SUPABASE_SERVICE_KEY=eyJ...
 GEMINI_API_KEY=your-key
 
 # CORS
-ALLOWED_ORIGINS=https://lovelanguages.xyz,http://localhost:3000,http://localhost:5173
+ALLOWED_ORIGINS=https://lovelanguages.io,http://localhost:3000,http://localhost:5173
 ```
 
 ---
@@ -207,7 +207,7 @@ Required policies:
 
 **Error:**
 ```
-POST https://www.lovelanguages.xyz/api/chat 500 (Internal Server Error)
+POST https://www.lovelanguages.io/api/chat 500 (Internal Server Error)
 ```
 
 **Cause:**
@@ -2386,16 +2386,16 @@ responseSchema: {
 **Problem:**
 Stripe webhooks were failing with a 307 redirect response. The webhook showed successful delivery but returned:
 ```json
-{"redirect": "https://www.lovelanguages.xyz/api/webhooks/stripe", "status": "307"}
+{"redirect": "https://www.lovelanguages.io/api/webhooks/stripe", "status": "307"}
 ```
 
 **Root Cause:**
-Domain `lovelanguages.xyz` was configured to redirect to `www.lovelanguages.xyz`. Stripe was sending webhooks to the non-www domain and receiving a redirect instead of reaching the endpoint.
+Domain `lovelanguages.io` was configured to redirect to `www.lovelanguages.io`. Stripe was sending webhooks to the non-www domain and receiving a redirect instead of reaching the endpoint.
 
 **The Fix:**
 Updated the webhook URL in Stripe Dashboard to include `www`:
-- **Before:** `https://lovelanguages.xyz/api/webhooks/stripe`
-- **After:** `https://www.lovelanguages.xyz/api/webhooks/stripe`
+- **Before:** `https://lovelanguages.io/api/webhooks/stripe`
+- **After:** `https://www.lovelanguages.io/api/webhooks/stripe`
 
 **Key Lesson:** Always use the canonical domain (with or without www) for webhooks. Check for redirects by testing the webhook URL directly in a browser.
 

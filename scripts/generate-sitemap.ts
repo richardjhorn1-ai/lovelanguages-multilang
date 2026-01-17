@@ -22,7 +22,7 @@ for (const match of slugMatches) {
   articleSlugs.push(match[1]);
 }
 
-const BASE_URL = 'https://lovelanguages.xyz';
+const BASE_URL = 'https://lovelanguages.io';
 const TODAY = new Date().toISOString().split('T')[0];
 
 // Static pages

@@ -55,8 +55,8 @@ Examples:
 
 ### Option B: Subdomain per Native Language
 ```
-es.lovelanguages.xyz/learn/de/como-decir-te-amo-en-aleman/
-fr.lovelanguages.xyz/learn/it/comment-dire-je-taime-en-italien/
+es.lovelanguages.io/learn/de/como-decir-te-amo-en-aleman/
+fr.lovelanguages.io/learn/it/comment-dire-je-taime-en-italien/
 ```
 
 **Recommendation:** Option A - simpler setup, shared domain authority

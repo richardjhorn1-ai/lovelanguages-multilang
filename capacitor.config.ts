@@ -7,7 +7,7 @@ const config: CapacitorConfig = {
   server: {
     // Load from production server so APIs work
     // For local dev, comment this out and run `vercel dev`
-    url: 'https://lovelanguages.xyz',
+    url: 'https://lovelanguages.io',
     cleartext: false
   },
   ios: {

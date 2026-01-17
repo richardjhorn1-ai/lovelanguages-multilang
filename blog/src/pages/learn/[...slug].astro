@@ -91,9 +91,39 @@ const alternateVersions = allArticles
     const altParts = altArticle.slug.split('/');
     return {
       nativeLang: altParts[0],
-      href: `https://lovelanguages.xyz/learn/${altArticle.slug}/`
+      href: `https://lovelanguages.io/learn/${altArticle.slug}/`
     };
   });
+
+// SEO: Find reverse language pair article (e.g., EN→PT article links to PT→EN equivalent)
+const reverseArticle = allArticles.find((a) => {
+  const aParts = a.slug.split('/');
+  const aNativeLang = aParts[0];
+  const aTargetLang = aParts[1];
+  const aBaseSlug = aParts.slice(2).join('/');
+  // Reverse pair with same or similar topic
+  return aNativeLang === targetLanguageCode &&
+         aTargetLang === nativeLanguageCode &&
+         (aBaseSlug === baseArticleSlug || aBaseSlug.includes(baseArticleSlug.split('-').slice(0, 3).join('-')));
+});
+
+// SEO: Find topically similar articles across different language pairs
+const topicKeywords = baseArticleSlug.split('-').filter(w =>
+  !['how', 'to', 'in', 'for', 'the', 'a', 'an', 'and', 'your', 'with'].includes(w)
+).slice(0, 3);
+
+const crossPairArticles = allArticles
+  .filter((a) => {
+    const aParts = a.slug.split('/');
+    const aNativeLang = aParts[0];
+    const aTargetLang = aParts[1];
+    const aBaseSlug = aParts.slice(2).join('/');
+    // Different language pair but similar topic
+    const isDifferentPair = !(aNativeLang === nativeLanguageCode && aTargetLang === targetLanguageCode);
+    const hasSimilarTopic = topicKeywords.some(kw => aBaseSlug.includes(kw));
+    return a.slug !== article.slug && isDifferentPair && hasSimilarTopic;
+  })
+  .slice(0, 2);
 ---
 
 <ArticleLayout
@@ -111,6 +141,8 @@ const alternateVersions = allArticles
   nativeLanguageCode={nativeLanguageCode}
   nativeLanguageInfo={nativeLanguageInfo}
   alternateVersions={alternateVersions}
+  reverseArticle={reverseArticle}
+  crossPairArticles={crossPairArticles}
 >
   <Content />
 </ArticleLayout>

@@ -145,7 +145,7 @@ describe('generate-invite base URL selection', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.payload.inviteLink).toBe(`https://lovelanguages.xyz/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://lovelanguages.io/#/join/${mockExistingToken.token}`);
   });
 
   it('falls back to production URL when ALLOWED_ORIGINS is only wildcard', async () => {
@@ -161,7 +161,7 @@ describe('generate-invite base URL selection', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.payload.inviteLink).toBe(`https://lovelanguages.xyz/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://lovelanguages.io/#/join/${mockExistingToken.token}`);
   });
 
   it('uses first valid origin from ALLOWED_ORIGINS when APP_URL is not set', async () => {

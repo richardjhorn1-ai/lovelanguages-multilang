@@ -6,13 +6,16 @@ interface Props {
 
 const { nativeLang = 'en', targetLang } = Astro.props;
 
-// Supported native languages for content
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr'];
+// Supported native languages for content (languages with translated articles)
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
 
 const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   en: { flag: '🇬🇧', nativeName: 'English' },
   es: { flag: '🇪🇸', nativeName: 'Español' },
   fr: { flag: '🇫🇷', nativeName: 'Français' },
+  de: { flag: '🇩🇪', nativeName: 'Deutsch' },
+  it: { flag: '🇮🇹', nativeName: 'Italiano' },
+  pt: { flag: '🇵🇹', nativeName: 'Português' },
 };
 
 // Build logo href - go to current language hub page
