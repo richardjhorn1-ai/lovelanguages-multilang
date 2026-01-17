@@ -28,6 +28,12 @@ import {
 import { sounds } from '../services/sounds';
 import { haptics } from '../services/haptics';
 
+// Extend Window interface for PWA install prompt
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
+
 interface ProfileViewProps {
   profile: Profile;
   onRefresh: () => void;
@@ -56,6 +62,11 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const [isSoundMuted, setIsSoundMuted] = useState(sounds.isMuted());
   const [isHapticsEnabled, setIsHapticsEnabled] = useState(haptics.isEnabled());
   const isHapticsAvailable = haptics.isAvailable();
+  const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [isInstalled, setIsInstalled] = useState(false);
+
+  // Check if running in Capacitor (native app)
+  const isNativeApp = !!(window as any).Capacitor?.isNativePlatform?.();
 
   const { theme, setAccentColor, setDarkMode, setFontSize, setFontPreset, setFontWeight, accentHex, isDark } = useTheme();
   const { t } = useTranslation();
@@ -71,6 +82,36 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
     // Initialize edit data from profile
     setEditData(profile.onboarding_data || {});
   }, [profile]);
+
+  // PWA Install prompt listener
+  useEffect(() => {
+    // Skip if in native app
+    if (isNativeApp) return;
+
+    // Check if already installed (standalone mode)
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      setIsInstalled(true);
+      return;
+    }
+
+    const handleBeforeInstall = (e: Event) => {
+      e.preventDefault();
+      setInstallPrompt(e as BeforeInstallPromptEvent);
+    };
+
+    const handleAppInstalled = () => {
+      setInstallPrompt(null);
+      setIsInstalled(true);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+    window.addEventListener('appinstalled', handleAppInstalled);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
+  }, [isNativeApp]);
 
   const fetchPartner = async () => {
     const { data } = await supabase
@@ -123,6 +164,18 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
       console.error('Error saving preferences:', err);
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleInstallApp = async () => {
+    if (!installPrompt) return;
+
+    await installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+
+    if (outcome === 'accepted') {
+      setInstallPrompt(null);
+      setIsInstalled(true);
     }
   };
 
@@ -768,6 +821,41 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             </div>
 
             <div className="space-y-2">
+              {/* Install App Button - Only show on web when install is available */}
+              {!isNativeApp && installPrompt && (
+                <button
+                  onClick={handleInstallApp}
+                  className="w-full flex items-center gap-3 p-4 rounded-xl border-2 transition-all group"
+                  style={{
+                    borderColor: accentHex,
+                    backgroundColor: `${accentHex}10`
+                  }}
+                >
+                  <span className="text-xl">📲</span>
+                  <div className="flex-1 text-left">
+                    <p className="font-bold text-[var(--text-primary)]">Install App</p>
+                    <p className="text-scale-caption text-[var(--text-secondary)]">Add to home screen for faster access</p>
+                  </div>
+                  <div
+                    className="px-3 py-1 rounded-full text-scale-caption font-bold text-white"
+                    style={{ backgroundColor: accentHex }}
+                  >
+                    Install
+                  </div>
+                </button>
+              )}
+
+              {/* Installed confirmation */}
+              {!isNativeApp && isInstalled && !installPrompt && (
+                <div className="flex items-center gap-3 p-4 rounded-xl border border-green-200 bg-green-50">
+                  <span className="text-xl">✅</span>
+                  <div className="flex-1">
+                    <p className="font-bold text-green-700">App Installed</p>
+                    <p className="text-scale-caption text-green-600">Open from your home screen anytime</p>
+                  </div>
+                </div>
+              )}
+
               <a
                 href="/learn"
                 className="flex items-center gap-3 p-4 rounded-xl border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all group"
