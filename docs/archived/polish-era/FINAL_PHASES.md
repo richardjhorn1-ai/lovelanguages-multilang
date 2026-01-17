@@ -1,7 +1,7 @@
 # Final Phases: Deployment Readiness
 
 **Updated:** January 10, 2026
-**Status:** 🚀 LIVE at lovelanguages.xyz - English → Polish
+**Status:** 🚀 LIVE at lovelanguages.io - English → Polish
 
 > Multi-language support moved to separate fork. See `docs/MULTI_LANGUAGE_LEARNINGS.md`.
 
@@ -125,8 +125,8 @@ Not needed: Cookie consent (essential cookies only)
 
 ## Phase 14: Launch ✅ LIVE
 
-**Domain:** lovelanguages.xyz
-**Support:** support@lovelanguages.xyz, hey@lovelanguages.xyz
+**Domain:** lovelanguages.io
+**Support:** support@lovelanguages.io, hey@lovelanguages.io
 
 ### Completed
 - [x] Phase 8 cleanup (14/16)

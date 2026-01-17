@@ -23,10 +23,34 @@ interface AlternateVersion {
   href: string;
 }
 
+interface CrossPairArticle {
+  slug: string;
+  data: {
+    title: string;
+    description: string;
+    category: string;
+    readTime: number;
+    language?: string;
+    nativeLanguage?: string;
+  };
+}
+
+interface ReverseArticle {
+  slug: string;
+  data: {
+    title: string;
+    description: string;
+    category: string;
+    readTime: number;
+    language?: string;
+    nativeLanguage?: string;
+  };
+}
+
 interface Props {
   title: string;
   description: string;
-  category: 'phrases' | 'vocabulary' | 'grammar' | 'culture' | 'situations';
+  category: 'phrases' | 'vocabulary' | 'grammar' | 'culture' | 'situations' | 'pronunciation';
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   readTime: number;
   image?: string;
@@ -38,6 +62,68 @@ interface Props {
   nativeLanguageCode?: string;
   nativeLanguageInfo?: LanguageInfo;
   alternateVersions?: AlternateVersion[];  // For hreflang support
+  reverseArticle?: ReverseArticle;  // SEO: Link to reverse language pair
+  crossPairArticles?: CrossPairArticle[];  // SEO: Similar topics in other pairs
+}
+
+// AEO: Detect if article is a "How to" guide (multilingual patterns)
+function isHowToArticle(title: string): boolean {
+  const howToPatterns = [
+    /^how to /i,           // English
+    /^comment /i,          // French
+    /^cómo /i,             // Spanish
+    /^wie man /i,          // German
+    /^come /i,             // Italian
+    /^como /i,             // Portuguese
+    /^jak /i,              // Polish
+    /^πώς να /i,           // Greek
+    /^nasıl /i,            // Turkish
+    /^как /i,              // Russian
+    /^hoe /i,              // Dutch
+  ];
+  return howToPatterns.some(pattern => pattern.test(title));
+}
+
+// AEO: Generate FAQ items based on article category and language
+function generateFAQItems(title: string, languageName: string, category: string): Array<{question: string, answer: string}> {
+  const faqs: Array<{question: string, answer: string}> = [];
+
+  // Category-specific FAQs
+  if (category === 'phrases') {
+    faqs.push({
+      question: `How do I practice these ${languageName} phrases with my partner?`,
+      answer: `The best way is to use them in daily conversations. Start with simple phrases like greetings and gradually add romantic expressions. Practice during meals, morning routines, or before bed to build consistency.`
+    });
+  }
+
+  if (category === 'vocabulary') {
+    faqs.push({
+      question: `How long does it take to memorize ${languageName} vocabulary?`,
+      answer: `With regular practice as a couple, you can learn 5-10 new words per week effectively. Spaced repetition and using words in real conversations with your partner accelerates retention significantly.`
+    });
+  }
+
+  if (category === 'grammar') {
+    faqs.push({
+      question: `Is ${languageName} grammar difficult to learn?`,
+      answer: `Every language has challenging aspects, but learning together with a partner makes it easier. Focus on patterns used in everyday conversation first, then expand to more complex structures over time.`
+    });
+  }
+
+  if (category === 'pronunciation') {
+    faqs.push({
+      question: `How can I improve my ${languageName} pronunciation?`,
+      answer: `Practice with your partner daily, listen to native speakers, and record yourself speaking. Having a native-speaking partner or using language learning apps with audio can help perfect difficult sounds.`
+    });
+  }
+
+  // Universal FAQ for all articles
+  faqs.push({
+    question: `Can couples really learn ${languageName} together effectively?`,
+    answer: `Absolutely! Couples who learn together have built-in practice partners, natural motivation, and can incorporate the language into daily life. Studies show social learning significantly improves retention and enjoyment.`
+  });
+
+  return faqs;
 }
 
 const {
@@ -47,11 +133,20 @@ const {
   languageInfo = { flag: '🇵🇱', name: 'Polish', nativeName: 'Polski' },
   nativeLanguageCode = 'en',
   nativeLanguageInfo = { flag: '🇬🇧', name: 'English', nativeName: 'English' },
-  alternateVersions = []
+  alternateVersions = [],
+  reverseArticle,
+  crossPairArticles = []
 } = Astro.props;
 
+// Language info lookup for cross-pair display
+const LANG_FLAGS: Record<string, string> = {
+  en: '🇬🇧', es: '🇪🇸', fr: '🇫🇷', de: '🇩🇪', it: '🇮🇹', pt: '🇵🇹',
+  pl: '🇵🇱', nl: '🇳🇱', ru: '🇷🇺', uk: '🇺🇦', el: '🇬🇷', tr: '🇹🇷',
+  cs: '🇨🇿', hu: '🇭🇺', ro: '🇷🇴', sv: '🇸🇪', no: '🇳🇴', da: '🇩🇰'
+};
+
 // Build canonical URL
-const canonicalUrl = `https://lovelanguages.xyz${Astro.url.pathname}`;
+const canonicalUrl = `https://lovelanguages.io${Astro.url.pathname}`;
 
 // Use language flag for culture category
 const categoryConfig = {
@@ -77,25 +172,25 @@ const jsonLd = {
   "@type": "BlogPosting",
   "headline": title,
   "description": description,
-  "image": image ? `https://lovelanguages.xyz${image}` : "https://lovelanguages.xyz/og-image.png",
+  "image": image ? `https://lovelanguages.io${image}` : "https://lovelanguages.io/og-image.png",
   "datePublished": date,
   "dateModified": date,
   "author": {
     "@type": "Organization",
     "name": "Love Languages",
-    "url": "https://lovelanguages.xyz"
+    "url": "https://lovelanguages.io"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://lovelanguages.xyz/favicon.svg"
+      "url": "https://lovelanguages.io/favicon.svg"
     }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://lovelanguages.xyz${Astro.url.pathname}`
+    "@id": `https://lovelanguages.io${Astro.url.pathname}`
   },
   "articleSection": category,
   "keywords": tags?.join(', ')
@@ -112,19 +207,19 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://lovelanguages.xyz"
+      "item": "https://lovelanguages.io"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Learn",
-      "item": "https://lovelanguages.xyz/learn/"
+      "item": "https://lovelanguages.io/learn/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": `Learn ${languageInfo.name}`,
-      "item": `https://lovelanguages.xyz${languageHubUrl}`
+      "item": `https://lovelanguages.io${languageHubUrl}`
     },
     {
       "@type": "ListItem",
@@ -133,6 +228,71 @@ const breadcrumbJsonLd = {
       "item": canonicalUrl
     }
   ]
+};
+
+// AEO: HowTo Schema for instructional articles
+const isHowTo = isHowToArticle(title);
+const howToJsonLd = isHowTo ? {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": title,
+  "description": description,
+  "image": image ? `https://lovelanguages.io${image}` : "https://lovelanguages.io/og-image.png",
+  "totalTime": `PT${readTime}M`,
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "0"
+  },
+  "supply": [{
+    "@type": "HowToSupply",
+    "name": "Love Languages app or practice partner"
+  }],
+  "tool": [{
+    "@type": "HowToTool",
+    "name": "Notebook or digital notes for vocabulary"
+  }],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Read and understand",
+      "text": `Read through this ${languageInfo.name} guide with your partner to understand the key concepts and vocabulary.`
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Practice pronunciation",
+      "text": `Practice saying the ${languageInfo.name} words and phrases out loud together. Use the pronunciation guides provided.`
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Use in conversation",
+      "text": `Start using these ${languageInfo.name} expressions in your daily conversations with your partner.`
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Review and reinforce",
+      "text": "Return to this guide regularly to reinforce your learning and add new vocabulary to your practice."
+    }
+  ]
+} : null;
+
+// AEO: FAQ Schema for enhanced search visibility
+const faqItems = generateFAQItems(title, languageInfo.name, category);
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
 };
 ---
 
@@ -149,8 +309,17 @@ const breadcrumbJsonLd = {
   targetLang={languageCode}
 >
   <Fragment slot="head">
+    {/* Core Article Schema */}
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+    {/* AEO: HowTo Schema for instructional articles */}
+    {howToJsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(howToJsonLd)} />
+    )}
+
+    {/* AEO: FAQ Schema for enhanced search visibility */}
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
     {/* Canonical URL */}
     <link rel="canonical" href={canonicalUrl} />
@@ -286,6 +455,64 @@ const breadcrumbJsonLd = {
                   {related.data.title}
                 </h3>
                 <p class="text-sm text-gray-500 mt-1">{related.data.readTime} min read</p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
+  <!-- SEO: Reverse Language Pair Link -->
+  {reverseArticle && (
+    <section class="max-w-3xl mx-auto px-4 pb-8">
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-2xl">🔄</span>
+          <h3 class="font-bold text-gray-900">Learn the Reverse!</h3>
+        </div>
+        <p class="text-gray-600 text-sm mb-4">
+          {nativeLanguageInfo.flag} {nativeLanguageInfo.name} speaker learning {languageInfo.flag} {languageInfo.name}?
+          Check out the reverse perspective:
+        </p>
+        <a
+          href={`/learn/${reverseArticle.slug}/`}
+          class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow text-sm font-medium text-gray-900"
+        >
+          <span>{languageInfo.flag} → {nativeLanguageInfo.flag}</span>
+          <span class="text-gray-600 truncate max-w-[200px]">{reverseArticle.data.title}</span>
+          <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- SEO: Cross-Language Pair Articles (Similar Topics) -->
+  {crossPairArticles.length > 0 && (
+    <section class="max-w-3xl mx-auto px-4 pb-12">
+      <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+        <span>🌍</span> Similar Topics in Other Languages
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {crossPairArticles.map((article) => {
+          const parts = article.slug.split('/');
+          const fromLang = parts[0];
+          const toLang = parts[1];
+          return (
+            <a
+              href={`/learn/${article.slug}/`}
+              class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-accent/30 hover:shadow-sm transition-all group"
+            >
+              <span class="text-lg">
+                {LANG_FLAGS[fromLang] || '🌐'} → {LANG_FLAGS[toLang] || '🌐'}
+              </span>
+              <div class="flex-1 min-w-0">
+                <p class="font-medium text-gray-900 group-hover:text-accent transition-colors text-sm truncate">
+                  {article.data.title}
+                </p>
+                <p class="text-xs text-gray-500">{article.data.readTime} min read</p>
               </div>
             </a>
           );

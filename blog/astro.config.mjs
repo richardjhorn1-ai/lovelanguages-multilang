@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 import path from 'path';
 
 export default defineConfig({
-  site: 'https://lovelanguages.xyz',
+  site: 'https://lovelanguages.io',
   output: 'static',
   vite: {
     resolve: {

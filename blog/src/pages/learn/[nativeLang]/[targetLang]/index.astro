@@ -86,18 +86,18 @@ const jsonLd = {
   "@type": "Blog",
   "name": `Love Languages - Learn ${targetInfo.name} Blog`,
   "description": `Free ${targetInfo.name} lessons, vocabulary guides, and cultural tips for couples learning together.`,
-  "url": `https://lovelanguages.xyz/learn/${nativeLanguageCode}/${targetLanguageCode}/`,
+  "url": `https://lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
-    "url": "https://lovelanguages.xyz"
+    "url": "https://lovelanguages.io"
   },
   "blogPost": articles.map(article => ({
     "@type": "BlogPosting",
     "headline": article.data.title,
     "description": article.data.description,
-    "url": `https://lovelanguages.xyz/learn/${article.slug}/`,
+    "url": `https://lovelanguages.io/learn/${article.slug}/`,
     "datePublished": article.data.date
   }))
 };

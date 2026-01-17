@@ -363,7 +363,7 @@ function updateSitemap(newArticles) {
 
   // Generate new entries
   const newEntries = newArticles.map(a => `  <url>
-    <loc>https://lovelanguages.xyz/#/learn/${a.slug}</loc>
+    <loc>https://lovelanguages.io/#/learn/${a.slug}</loc>
     <lastmod>${today}</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
