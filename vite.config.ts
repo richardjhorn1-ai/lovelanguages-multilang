@@ -49,6 +49,15 @@ export default defineConfig(() => ({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB limit for large bundles
+        // Don't use SPA fallback for blog/static routes - let them serve their own HTML
+        navigateFallback: '/index.html',
+        navigateFallbackDenylist: [
+          /^\/learn/,
+          /^\/compare/,
+          /^\/tools/,
+          /^\/dictionary/,
+          /^\/api/
+        ],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
