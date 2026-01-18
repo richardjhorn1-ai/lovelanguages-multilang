@@ -13,46 +13,6 @@
       "permanent": true
     },
     {
-      "source": "/learn/it",
-      "destination": "/learn/en/it/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/it/",
-      "destination": "/learn/en/it/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/it/:slug",
-      "destination": "/learn/en/it/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/it/:slug/",
-      "destination": "/learn/en/it/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/pt",
-      "destination": "/learn/en/pt/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/pt/",
-      "destination": "/learn/en/pt/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/pt/:slug",
-      "destination": "/learn/en/pt/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/pt/:slug/",
-      "destination": "/learn/en/pt/:slug/",
-      "permanent": true
-    },
-    {
       "source": "/learn/ro",
       "destination": "/learn/en/ro/",
       "permanent": true
@@ -70,26 +30,6 @@
     {
       "source": "/learn/ro/:slug/",
       "destination": "/learn/en/ro/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/de",
-      "destination": "/learn/en/de/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/de/",
-      "destination": "/learn/en/de/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/de/:slug",
-      "destination": "/learn/en/de/:slug/",
-      "permanent": true
-    },
-    {
-      "source": "/learn/de/:slug/",
-      "destination": "/learn/en/de/:slug/",
       "permanent": true
     },
     {
