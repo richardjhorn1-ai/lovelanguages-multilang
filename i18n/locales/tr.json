@@ -44,6 +44,8 @@
     "myProgress": "İlerlemem",
     "reportBug": "Hata Bildir",
     "helpGuide": "Yardım ve Rehber",
+    "muteSounds": "Sesleri kapat",
+    "unmuteSounds": "Sesleri aç",
     "signOut": "Çıkış Yap"
   },
   "chat": {

@@ -44,6 +44,8 @@
     "myProgress": "Min fremgang",
     "reportBug": "Rapporter en feil",
     "helpGuide": "Hjelp og guide",
+    "muteSounds": "Demp lyder",
+    "unmuteSounds": "Slå på lyder",
     "signOut": "Logg ut"
   },
   "chat": {

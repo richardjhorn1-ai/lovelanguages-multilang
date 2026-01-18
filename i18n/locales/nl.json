@@ -44,6 +44,8 @@
     "myProgress": "Mijn Voortgang",
     "reportBug": "Meld een Bug",
     "helpGuide": "Help & Gids",
+    "muteSounds": "Geluiden dempen",
+    "unmuteSounds": "Geluiden inschakelen",
     "signOut": "Uitloggen"
   },
   "chat": {

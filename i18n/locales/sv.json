@@ -44,6 +44,8 @@
     "myProgress": "Min framsteg",
     "reportBug": "Rapportera en bugg",
     "helpGuide": "Hjälp och guide",
+    "muteSounds": "Stäng av ljud",
+    "unmuteSounds": "Slå på ljud",
     "signOut": "Logga ut"
   },
   "chat": {

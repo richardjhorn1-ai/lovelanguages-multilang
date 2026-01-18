@@ -44,6 +44,8 @@
     "myProgress": "Můj pokrok",
     "reportBug": "Nahlásit chybu",
     "helpGuide": "Nápověda a průvodce",
+    "muteSounds": "Ztlumit zvuky",
+    "unmuteSounds": "Zapnout zvuky",
     "signOut": "Odhlásit se"
   },
   "chat": {

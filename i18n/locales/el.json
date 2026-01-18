@@ -44,6 +44,8 @@
     "myProgress": "Η πρόοδός μου",
     "reportBug": "Αναφορά σφάλματος",
     "helpGuide": "Βοήθεια και οδηγός",
+    "muteSounds": "Σίγαση ήχων",
+    "unmuteSounds": "Ενεργοποίηση ήχων",
     "signOut": "Αποσύνδεση"
   },
   "chat": {

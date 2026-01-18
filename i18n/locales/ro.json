@@ -44,6 +44,8 @@
     "myProgress": "Progresul Meu",
     "reportBug": "Raporteaza o Eroare",
     "helpGuide": "Ajutor si Ghid",
+    "muteSounds": "Dezactivează sunetele",
+    "unmuteSounds": "Activează sunetele",
     "signOut": "Deconectare"
   },
   "chat": {
