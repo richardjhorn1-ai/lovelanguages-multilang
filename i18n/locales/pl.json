@@ -44,6 +44,8 @@
     "myProgress": "Moje postępy",
     "reportBug": "Zgłoś błąd",
     "helpGuide": "Pomoc i przewodnik",
+    "muteSounds": "Wycisz dźwięki",
+    "unmuteSounds": "Włącz dźwięki",
     "signOut": "Wyloguj się"
   },
   "chat": {

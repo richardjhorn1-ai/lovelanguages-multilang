@@ -44,6 +44,8 @@
     "myProgress": "Мій прогрес",
     "reportBug": "Повідомити про помилку",
     "helpGuide": "Довідка та посібник",
+    "muteSounds": "Вимкнути звуки",
+    "unmuteSounds": "Увімкнути звуки",
     "signOut": "Вийти"
   },
   "chat": {

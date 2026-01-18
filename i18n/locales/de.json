@@ -44,6 +44,8 @@
     "myProgress": "Mein Fortschritt",
     "reportBug": "Fehler melden",
     "helpGuide": "Hilfe & Anleitung",
+    "muteSounds": "Töne stummschalten",
+    "unmuteSounds": "Töne aktivieren",
     "signOut": "Abmelden"
   },
   "chat": {

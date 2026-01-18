@@ -44,6 +44,8 @@
     "myProgress": "Haladásom",
     "reportBug": "Hiba jelentése",
     "helpGuide": "Súgó és útmutató",
+    "muteSounds": "Hangok némítása",
+    "unmuteSounds": "Hangok bekapcsolása",
     "signOut": "Kijelentkezés"
   },
   "chat": {
