@@ -11,6 +11,26 @@
     "delete": "Usuń",
     "edit": "Edytuj"
   },
+  "languageNames": {
+    "en": "angielski",
+    "es": "hiszpański",
+    "fr": "francuski",
+    "de": "niemiecki",
+    "it": "włoski",
+    "pt": "portugalski",
+    "nl": "holenderski",
+    "ru": "rosyjski",
+    "pl": "polski",
+    "uk": "ukraiński",
+    "cs": "czeski",
+    "sv": "szwedzki",
+    "no": "norweski",
+    "da": "duński",
+    "el": "grecki",
+    "hu": "węgierski",
+    "tr": "turecki",
+    "ro": "rumuński"
+  },
   "nav": {
     "chat": "Czat",
     "log": "Dziennik miłości",

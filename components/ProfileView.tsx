@@ -226,7 +226,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
           <div className="py-2 px-6 rounded-xl inline-block" style={{ backgroundColor: `${accentHex}15` }}>
             <p className="text-scale-micro font-black uppercase tracking-tighter" style={{ color: accentHex }}>
               {profile.role === 'student'
-                ? t('profile.roles.student', { language: targetName })
+                ? t('profile.roles.student', { language: t(`languageNames.${targetLanguage}`) })
                 : t('profile.roles.tutor')}
             </p>
           </div>

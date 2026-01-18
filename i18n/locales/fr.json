@@ -11,6 +11,26 @@
     "delete": "Supprimer",
     "edit": "Modifier"
   },
+  "languageNames": {
+    "en": "anglais",
+    "es": "espagnol",
+    "fr": "français",
+    "de": "allemand",
+    "it": "italien",
+    "pt": "portugais",
+    "nl": "néerlandais",
+    "ru": "russe",
+    "pl": "polonais",
+    "uk": "ukrainien",
+    "cs": "tchèque",
+    "sv": "suédois",
+    "no": "norvégien",
+    "da": "danois",
+    "el": "grec",
+    "hu": "hongrois",
+    "tr": "turc",
+    "ro": "roumain"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Journal d'amour",
@@ -24,6 +44,8 @@
     "myProgress": "Mes progrès",
     "reportBug": "Signaler un bug",
     "helpGuide": "Aide et guide",
+    "muteSounds": "Désactiver les sons",
+    "unmuteSounds": "Activer les sons",
     "signOut": "Se déconnecter"
   },
   "chat": {

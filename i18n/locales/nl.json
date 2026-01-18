@@ -11,6 +11,26 @@
     "delete": "Verwijderen",
     "edit": "Bewerken"
   },
+  "languageNames": {
+    "en": "Engels",
+    "es": "Spaans",
+    "fr": "Frans",
+    "de": "Duits",
+    "it": "Italiaans",
+    "pt": "Portugees",
+    "nl": "Nederlands",
+    "ru": "Russisch",
+    "pl": "Pools",
+    "uk": "Oekraïens",
+    "cs": "Tsjechisch",
+    "sv": "Zweeds",
+    "no": "Noors",
+    "da": "Deens",
+    "el": "Grieks",
+    "hu": "Hongaars",
+    "tr": "Turks",
+    "ro": "Roemeens"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Liefdesdagboek",

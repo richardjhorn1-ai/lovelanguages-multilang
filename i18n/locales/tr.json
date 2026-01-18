@@ -11,6 +11,26 @@
     "delete": "Sil",
     "edit": "Düzenle"
   },
+  "languageNames": {
+    "en": "İngilizce",
+    "es": "İspanyolca",
+    "fr": "Fransızca",
+    "de": "Almanca",
+    "it": "İtalyanca",
+    "pt": "Portekizce",
+    "nl": "Hollandaca",
+    "ru": "Rusça",
+    "pl": "Lehçe",
+    "uk": "Ukraynaca",
+    "cs": "Çekçe",
+    "sv": "İsveççe",
+    "no": "Norveççe",
+    "da": "Danca",
+    "el": "Yunanca",
+    "hu": "Macarca",
+    "tr": "Türkçe",
+    "ro": "Romence"
+  },
   "nav": {
     "chat": "Sohbet",
     "log": "Love Log",

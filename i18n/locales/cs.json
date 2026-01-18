@@ -11,6 +11,26 @@
     "delete": "Smazat",
     "edit": "Upravit"
   },
+  "languageNames": {
+    "en": "angličtina",
+    "es": "španělština",
+    "fr": "francouzština",
+    "de": "němčina",
+    "it": "italština",
+    "pt": "portugalština",
+    "nl": "holandština",
+    "ru": "ruština",
+    "pl": "polština",
+    "uk": "ukrajinština",
+    "cs": "čeština",
+    "sv": "švédština",
+    "no": "norština",
+    "da": "dánština",
+    "el": "řečtina",
+    "hu": "maďarština",
+    "tr": "turečtina",
+    "ro": "rumunština"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Love Log",

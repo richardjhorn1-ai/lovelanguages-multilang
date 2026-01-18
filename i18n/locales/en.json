@@ -11,6 +11,26 @@
     "delete": "Delete",
     "edit": "Edit"
   },
+  "languageNames": {
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German",
+    "it": "Italian",
+    "pt": "Portuguese",
+    "nl": "Dutch",
+    "ru": "Russian",
+    "pl": "Polish",
+    "uk": "Ukrainian",
+    "cs": "Czech",
+    "sv": "Swedish",
+    "no": "Norwegian",
+    "da": "Danish",
+    "el": "Greek",
+    "hu": "Hungarian",
+    "tr": "Turkish",
+    "ro": "Romanian"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Love Log",

@@ -11,6 +11,26 @@
     "delete": "Eliminar",
     "edit": "Editar"
   },
+  "languageNames": {
+    "en": "inglés",
+    "es": "español",
+    "fr": "francés",
+    "de": "alemán",
+    "it": "italiano",
+    "pt": "portugués",
+    "nl": "neerlandés",
+    "ru": "ruso",
+    "pl": "polaco",
+    "uk": "ucraniano",
+    "cs": "checo",
+    "sv": "sueco",
+    "no": "noruego",
+    "da": "danés",
+    "el": "griego",
+    "hu": "húngaro",
+    "tr": "turco",
+    "ro": "rumano"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Love Log",

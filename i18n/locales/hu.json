@@ -11,6 +11,26 @@
     "delete": "Törlés",
     "edit": "Szerkesztés"
   },
+  "languageNames": {
+    "en": "angol",
+    "es": "spanyol",
+    "fr": "francia",
+    "de": "német",
+    "it": "olasz",
+    "pt": "portugál",
+    "nl": "holland",
+    "ru": "orosz",
+    "pl": "lengyel",
+    "uk": "ukrán",
+    "cs": "cseh",
+    "sv": "svéd",
+    "no": "norvég",
+    "da": "dán",
+    "el": "görög",
+    "hu": "magyar",
+    "tr": "török",
+    "ro": "román"
+  },
   "nav": {
     "chat": "Csevegés",
     "log": "Love Log",
