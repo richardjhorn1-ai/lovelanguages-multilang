@@ -11,6 +11,26 @@
     "delete": "Excluir",
     "edit": "Editar"
   },
+  "languageNames": {
+    "en": "inglês",
+    "es": "espanhol",
+    "fr": "francês",
+    "de": "alemão",
+    "it": "italiano",
+    "pt": "português",
+    "nl": "holandês",
+    "ru": "russo",
+    "pl": "polaco",
+    "uk": "ucraniano",
+    "cs": "checo",
+    "sv": "sueco",
+    "no": "norueguês",
+    "da": "dinamarquês",
+    "el": "grego",
+    "hu": "húngaro",
+    "tr": "turco",
+    "ro": "romeno"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Diário do Amor",

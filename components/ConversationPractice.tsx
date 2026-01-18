@@ -18,7 +18,7 @@ interface TranscriptEntry {
 
 const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, onClose }) => {
   const { t } = useTranslation();
-  const { targetName } = useLanguage();
+  const { targetName, targetLanguage, nativeLanguage } = useLanguage();
   const [showSelector, setShowSelector] = useState(true);
   const [scenario, setScenario] = useState<ConversationScenario | null>(null);
   const [state, setState] = useState<LiveSessionState>('disconnected');
@@ -51,6 +51,8 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
           difficulty: selectedScenario.difficulty
         },
         userName,
+        targetLanguage,
+        nativeLanguage,
         onTranscript: (role, text, isFinal) => {
           if (isFinal && text.trim()) {
             setTranscript(prev => [...prev, {

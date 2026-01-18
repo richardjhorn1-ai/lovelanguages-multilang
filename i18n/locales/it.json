@@ -11,6 +11,26 @@
     "delete": "Elimina",
     "edit": "Modifica"
   },
+  "languageNames": {
+    "en": "inglese",
+    "es": "spagnolo",
+    "fr": "francese",
+    "de": "tedesco",
+    "it": "italiano",
+    "pt": "portoghese",
+    "nl": "olandese",
+    "ru": "russo",
+    "pl": "polacco",
+    "uk": "ucraino",
+    "cs": "ceco",
+    "sv": "svedese",
+    "no": "norvegese",
+    "da": "danese",
+    "el": "greco",
+    "hu": "ungherese",
+    "tr": "turco",
+    "ro": "rumeno"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Diario d'Amore",

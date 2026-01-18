@@ -11,6 +11,26 @@
     "delete": "Löschen",
     "edit": "Bearbeiten"
   },
+  "languageNames": {
+    "en": "Englisch",
+    "es": "Spanisch",
+    "fr": "Französisch",
+    "de": "Deutsch",
+    "it": "Italienisch",
+    "pt": "Portugiesisch",
+    "nl": "Niederländisch",
+    "ru": "Russisch",
+    "pl": "Polnisch",
+    "uk": "Ukrainisch",
+    "cs": "Tschechisch",
+    "sv": "Schwedisch",
+    "no": "Norwegisch",
+    "da": "Dänisch",
+    "el": "Griechisch",
+    "hu": "Ungarisch",
+    "tr": "Türkisch",
+    "ro": "Rumänisch"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Liebestagebuch",

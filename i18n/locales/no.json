@@ -11,6 +11,26 @@
     "delete": "Slett",
     "edit": "Rediger"
   },
+  "languageNames": {
+    "en": "engelsk",
+    "es": "spansk",
+    "fr": "fransk",
+    "de": "tysk",
+    "it": "italiensk",
+    "pt": "portugisisk",
+    "nl": "nederlandsk",
+    "ru": "russisk",
+    "pl": "polsk",
+    "uk": "ukrainsk",
+    "cs": "tsjekkisk",
+    "sv": "svensk",
+    "no": "norsk",
+    "da": "dansk",
+    "el": "gresk",
+    "hu": "ungarsk",
+    "tr": "tyrkisk",
+    "ro": "rumensk"
+  },
   "nav": {
     "chat": "Chat",
     "log": "Love Log",

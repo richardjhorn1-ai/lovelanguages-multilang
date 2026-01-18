@@ -488,7 +488,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                   {/* Word type pill */}
                   <div className="flex justify-center">
-                    <span className="text-[7px] md:text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] px-2 md:px-3 py-0.5 md:py-1 rounded-full">{e.word_type}</span>
+                    <span className="text-[7px] md:text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] px-2 md:px-3 py-0.5 md:py-1 rounded-full">{t(`loveLog.filters.${e.word_type}`)}</span>
                   </div>
 
                   {/* Main content */}
@@ -560,7 +560,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 <div className="text-center">
                   <p className="text-scale-heading text-[var(--text-primary)] font-medium">{entry.translation}</p>
                   <span className="inline-block mt-2 text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] px-3 py-1 rounded-full">
-                    {entry.word_type}
+                    {t(`loveLog.filters.${entry.word_type}`)}
                   </span>
                 </div>
 

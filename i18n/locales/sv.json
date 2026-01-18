@@ -11,6 +11,26 @@
     "delete": "Ta bort",
     "edit": "Redigera"
   },
+  "languageNames": {
+    "en": "engelska",
+    "es": "spanska",
+    "fr": "franska",
+    "de": "tyska",
+    "it": "italienska",
+    "pt": "portugisiska",
+    "nl": "holländska",
+    "ru": "ryska",
+    "pl": "polska",
+    "uk": "ukrainska",
+    "cs": "tjeckiska",
+    "sv": "svenska",
+    "no": "norska",
+    "da": "danska",
+    "el": "grekiska",
+    "hu": "ungerska",
+    "tr": "turkiska",
+    "ro": "rumänska"
+  },
   "nav": {
     "chat": "Chatt",
     "log": "Love Log",
