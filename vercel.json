@@ -1,4 +1,6 @@
 {
+  "cleanUrls": false,
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/learn/polish-pet-names",
@@ -314,10 +316,34 @@
   "rewrites": [
     { "source": "/learn", "destination": "/learn/index.html" },
     { "source": "/learn/", "destination": "/learn/index.html" },
+    { "source": "/learn/language/:lang", "destination": "/learn/language/:lang/index.html" },
+    { "source": "/learn/language/:lang/", "destination": "/learn/language/:lang/index.html" },
+    { "source": "/learn/easiest-languages", "destination": "/learn/easiest-languages/index.html" },
+    { "source": "/learn/easiest-languages/", "destination": "/learn/easiest-languages/index.html" },
+    { "source": "/learn/romance-languages", "destination": "/learn/romance-languages/index.html" },
+    { "source": "/learn/romance-languages/", "destination": "/learn/romance-languages/index.html" },
+    { "source": "/learn/slavic-languages", "destination": "/learn/slavic-languages/index.html" },
+    { "source": "/learn/slavic-languages/", "destination": "/learn/slavic-languages/index.html" },
+    { "source": "/learn/romantic-phrases", "destination": "/learn/romantic-phrases/index.html" },
+    { "source": "/learn/romantic-phrases/", "destination": "/learn/romantic-phrases/index.html" },
+    { "source": "/learn/couples-language-learning", "destination": "/learn/couples-language-learning/index.html" },
+    { "source": "/learn/couples-language-learning/", "destination": "/learn/couples-language-learning/index.html" },
+    { "source": "/learn/:native", "destination": "/learn/:native/index.html" },
+    { "source": "/learn/:native/", "destination": "/learn/:native/index.html" },
     { "source": "/learn/:native/:target", "destination": "/learn/:native/:target/index.html" },
     { "source": "/learn/:native/:target/", "destination": "/learn/:native/:target/index.html" },
     { "source": "/learn/:native/:target/:slug", "destination": "/learn/:native/:target/:slug/index.html" },
-    { "source": "/learn/:native/:target/:slug/", "destination": "/learn/:native/:target/:slug/index.html" }
+    { "source": "/learn/:native/:target/:slug/", "destination": "/learn/:native/:target/:slug/index.html" },
+    { "source": "/compare", "destination": "/compare/index.html" },
+    { "source": "/compare/", "destination": "/compare/index.html" },
+    { "source": "/compare/:lang", "destination": "/compare/:lang/index.html" },
+    { "source": "/compare/:lang/", "destination": "/compare/:lang/index.html" },
+    { "source": "/compare/:lang/:slug", "destination": "/compare/:lang/:slug/index.html" },
+    { "source": "/compare/:lang/:slug/", "destination": "/compare/:lang/:slug/index.html" },
+    { "source": "/tools", "destination": "/tools/index.html" },
+    { "source": "/tools/", "destination": "/tools/index.html" },
+    { "source": "/tools/:slug", "destination": "/tools/:slug/index.html" },
+    { "source": "/tools/:slug/", "destination": "/tools/:slug/index.html" }
   ],
   "headers": [
     {
