@@ -2286,15 +2286,15 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                           <div className={`text-center mb-4 p-3 rounded-xl ${challengeTypeCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'}`}>
                             {challengeTypeCorrect ? (
                               <div>
-                                <div className="flex items-center justify-center gap-2"><ICONS.Check className="w-5 h-5" /><span className="font-bold">Correct!</span></div>
+                                <div className="flex items-center justify-center gap-2"><ICONS.Check className="w-5 h-5" /><span className="font-bold">{t('play.typeIt.correct')}</span></div>
                                 {challengeTypeExplanation && challengeTypeExplanation !== 'Exact match' && (
                                   <p className="text-scale-label mt-1 opacity-80">{challengeTypeExplanation}</p>
                                 )}
                               </div>
                             ) : (
                               <div>
-                                <div className="flex items-center justify-center gap-2 mb-1"><ICONS.X className="w-5 h-5" /><span className="font-bold">Not quite</span></div>
-                                <p className="text-scale-label">Correct: <span className="font-black">{q.translation}</span></p>
+                                <div className="flex items-center justify-center gap-2 mb-1"><ICONS.X className="w-5 h-5" /><span className="font-bold">{t('play.typeIt.notQuite')}</span></div>
+                                <p className="text-scale-label">{t('play.typeIt.correctAnswer')} <span className="font-black">{q.translation}</span></p>
                                 {challengeTypeExplanation && challengeTypeExplanation !== 'No match' && (
                                   <p className="text-scale-label mt-1 opacity-80">{challengeTypeExplanation}</p>
                                 )}
@@ -2303,7 +2303,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                           </div>
                         )}
                         <input type="text" value={challengeTypeAnswer} onChange={(e) => setChallengeTypeAnswer(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleChallengeTypeSubmit()} placeholder={t('play.typeIt.typeIn', { language: nativeName })} disabled={challengeTypeSubmitted} className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-scale-heading font-medium text-center mt-4 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" autoFocus />
-                        <button onClick={handleChallengeTypeSubmit} disabled={!challengeTypeAnswer.trim() && !challengeTypeSubmitted} className="w-full mt-4 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50" style={{ backgroundColor: tierColor }}>{challengeTypeSubmitted ? 'Next' : 'Check'}</button>
+                        <button onClick={handleChallengeTypeSubmit} disabled={!challengeTypeAnswer.trim() && !challengeTypeSubmitted} className="w-full mt-4 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50" style={{ backgroundColor: tierColor }}>{challengeTypeSubmitted ? t('play.typeIt.next') : t('play.typeIt.check')}</button>
                       </div>
                     )}
                   </div>

@@ -1818,7 +1818,8 @@
       "createAccount": "Create account",
       "alreadyHaveAccount": "Already have an account? Sign in",
       "newHere": "New here? Create an account",
-      "checkEmail": "Check your email for confirmation!"
+      "checkEmail": "Check your email for confirmation!",
+      "continueWithGoogle": "Continue with Google"
     },
     "legal": {
       "terms": "Terms",

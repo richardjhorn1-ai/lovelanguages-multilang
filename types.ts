@@ -11,6 +11,7 @@ export interface Profile {
   xp?: number;
   level?: number;
   partner_name?: string;
+  role_confirmed_at?: string;       // When user confirmed role in RoleSelection
   onboarding_completed_at?: string;
   onboarding_data?: OnboardingData;
   // Theme settings

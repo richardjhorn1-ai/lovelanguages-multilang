@@ -412,6 +412,11 @@
       "accentColor": "Barva zvýraznění",
       "darkMode": "Tmavý režim",
       "fontSize": "Velikost písma",
+      "sounds": "Zvukové efekty",
+      "soundsOn": "Zvuky zapnuty",
+      "soundsOff": "Zvuky vypnuty",
+      "soundsOnDesc": "Zvuky zpětné vazby pro hry a akce",
+      "soundsOffDesc": "Tichý režim - žádné zvukové efekty",
       "answerChecking": "Kontrola odpovědí",
       "smartMode": "Chytrý režim",
       "strictMode": "Přísný režim",
@@ -573,6 +578,17 @@
       "studentSubtitle": "To je ten, koho překvapíš svými novými dovednostmi.",
       "tutorSubtitle": "To je ten, koho budeš provázet {{language}}.",
       "placeholder": "Jejich jméno"
+    },
+
+    "languageConfirm": {
+      "title": "Potvrď své jazyky, {{name}}",
+      "subtitle": "Ujisti se, že tvá jazyková cesta je správná.",
+      "iSpeak": "Mluvím",
+      "iTeach": "Učím",
+      "iWantToLearn": "Chci se naučit",
+      "theySpeak": "Mluví",
+      "summary": "Učím se {{target}} jako rodilý mluvčí {{native}}",
+      "tutorSummary": "Učím {{target}} rodilého mluvčího {{native}}"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Týdně",
       "monthly": "Měsíčně",
       "yearly": "Ročně",
+      "wk": "týd.",
       "mo": "měs.",
       "yr": "rok",
+      "weeklyLabel": "Nejflexibilnější",
+      "monthlyLabel": "Nejoblíbenější",
+      "yearlyLabel": "Nejlepší Závazek",
       "discount": "70% sleva",
       "savePercent": "Ušetři {{percent}}%",
       "perMonth": "/měs.",
@@ -1763,7 +1784,8 @@
       "createAccount": "Vytvořit účet",
       "alreadyHaveAccount": "Už máš účet? Přihlas se",
       "newHere": "Jsi tu nový/á? Vytvoř si účet",
-      "checkEmail": "Zkontroluj si e-mail pro potvrzení!"
+      "checkEmail": "Zkontroluj si e-mail pro potvrzení!",
+      "continueWithGoogle": "Pokračovat s Google"
     },
     "legal": {
       "terms": "Podmínky",

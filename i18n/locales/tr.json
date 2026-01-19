@@ -53,8 +53,8 @@
       "newSession": "Yeni Oturum",
       "collapse": "Kenar çubuğunu daralt",
       "expand": "Kenar çubuğunu genişlet",
-      "conversations": "Kbu kişiyişmalar",
-      "noConversations": "Henüz kbu kişiyişma yok",
+      "conversations": "Konuşmalar",
+      "noConversations": "Henüz konuşma yok",
       "startSession": "Yukarıdan yeni bir oturum başlat",
       "items": "{{count}} öğe",
       "items_other": "{{count}} öğe"
@@ -66,7 +66,7 @@
     },
     "status": {
       "listening": "Dinliyor",
-      "speaking": "Kbu kişiyişuyor",
+      "speaking": "Konuşuyor",
       "connecting": "Bağlanıyor"
     },
     "input": {
@@ -74,12 +74,12 @@
       "learnPlaceholder": "Bir sonraki derse hazır mısın?",
       "tutorPlaceholder": "Bugün partnerine nasıl yardımcı olabilirsin?",
       "listeningPlaceholder": "Dinliyor...",
-      "speakingPlaceholder": "Cupid kbu kişiyişuyor...",
+      "speakingPlaceholder": "Cupid konuşuyor...",
       "connectingPlaceholder": "Bağlanıyor..."
     },
     "session": {
       "deleteConfirm": "Bu oturumu silmek istediğinden emin misin?",
-      "longConversation": "Bu kbu kişiyişma uzuyor!",
+      "longConversation": "Bu konuşma uzuyor!",
       "startFresh": "Yeniden Başla"
     },
     "listen": {
@@ -89,8 +89,8 @@
       "stop": "Durdur",
       "stopSave": "Durdur ve Kaydet",
       "sessionLabel": "Dinleme Oturumu",
-      "listeningFor": "{{language}} kbu kişiyişması dinleniyor...",
-      "modeTooltip": "Dinleme Modu - Gerçek {{language}} kbu kişiyişmalarını yakala",
+      "listeningFor": "{{language}} konuşması dinleniyor...",
+      "modeTooltip": "Dinleme Modu - Gerçek {{language}} konuşmalarını yakala",
       "deleteConfirm": "Bu dinleme oturumunu silmek istediğinden emin misin?",
       "bookmarkAdd": "Bu ifadeyi yer imlerine ekle",
       "bookmarkRemove": "Yer imini kaldır",
@@ -104,7 +104,7 @@
     },
     "listenPrompt": {
       "title": "Dinlemeye Hazır mısın?",
-      "description": "Canlı transkripsiyon ve çeviri ile gerçek {{language}} kbu kişiyişmalarını yakala.",
+      "description": "Canlı transkripsiyon ve çeviri ile gerçek {{language}} konuşmalarını yakala.",
       "contextLabel": "Ne dinliyorsun?",
       "contextOptional": "(isteğe bağlı)",
       "contextPlaceholder": "örn., Büyükannenin evinde akşam yemeği, TV programı...",
@@ -151,7 +151,7 @@
       "viewAttempts": "Önceki denemeleri görüntüle"
     },
     "motivation": {
-      "title": "Motivasybu kişiyim",
+      "title": "Motivasyonum",
       "learningFor": "Şunun için öğreniyorum:"
     },
     "stats": {
@@ -184,7 +184,7 @@
     "summary": {
       "words": "Kelimeler",
       "youCanSay": "Artık Söyleyebilirsin",
-      "topics": "Kbu kişiyilar",
+      "topics": "Konular",
       "grammar": "Dilbilgisi",
       "upNext": "Sırada",
       "answerInsights": "Cevap Analizi",
@@ -201,7 +201,7 @@
       "loveLogDesc": "Kelime hazinen"
     },
     "testResults": {
-      "title": "Test Sbu kişiyiçları",
+      "title": "Test Sonuçları",
       "correct": "doğru",
       "yourAnswers": "Cevapların",
       "yourAnswer": "Senin cevabın: {{answer}}",
@@ -222,7 +222,7 @@
       "theirVocabulary": "Kelime Hazinesi",
       "browseLoveLog": "Love Log'a Göz At",
       "useItTonight": "{{word}} - bu gece kullan!",
-      "tryInConversation": "Bunu kbu kişiyişmada kullanmayı dene",
+      "tryInConversation": "Bunu konuşmada kullanmayı dene",
       "complimentThem": "Bununla iltifat et!",
       "whisperBeforeBed": "Yatmadan önce fısılda",
       "iLoveYouVeryMuch": "Seni çok seviyorum"
@@ -231,7 +231,7 @@
       "wordsMastered": "{{count}} kelime öğrenildi! Kutlama zamanı!",
       "wordsNeedWork": "Sadece {{count}} kelime çalışma istiyor - bu gece test edebilirsin!",
       "milestone": "Kelime hazinesinde {{count}} kelime var - bu kilometre taşını kutla!",
-      "justLearned": "\"{{word}}\" kelimesini yeni öğrendi - bugün kbu kişiyişmada kullan!"
+      "justLearned": "\"{{word}}\" kelimesini yeni öğrendi - bugün konuşmada kullan!"
     },
     "levelThemes": {
       "firstWords": "Aşkın İlk Kelimeleri",
@@ -242,7 +242,7 @@
       "makingPlans": "Plan Yapma",
       "tellingStories": "Hikaye Anlatma",
       "deeperFeelings": "Derin Duygular",
-      "complexConversations": "Karmaşık Kbu kişiyişmalar",
+      "complexConversations": "Karmaşık Konuşmalar",
       "futureDreams": "Gelecek Hayalleri",
       "problemSolving": "Problem Çözme",
       "culturalNuance": "Kültürel İncelik",
@@ -256,7 +256,7 @@
     "tiers": {
       "Beginner": "Başlangıç",
       "Elementary": "Temel",
-      "Conversational": "Kbu kişiyişma",
+      "Conversational": "Konuşma",
       "Proficient": "İleri",
       "Fluent": "Akıcı",
       "Master": "Usta"
@@ -290,8 +290,8 @@
       "quickFireDesc": "60 saniye meydan okuma",
       "aiChallenge": "Yapay Zeka Meydan Okuması",
       "aiChallengeDesc": "Akıllı kelime seçimi",
-      "conversation": "Kbu kişiyişma",
-      "conversationDesc": "{{language}} dilinde yapay zeka ile kbu kişiyiş",
+      "conversation": "Konuşma",
+      "conversationDesc": "{{language}} dilinde yapay zeka ile konuş",
       "verbMastery": "Fiil Ustalığı",
       "verbMasteryVerbs": "{{count}} fiil",
       "learnVerbsFirst": "Önce fiilleri öğren"
@@ -377,7 +377,7 @@
       "typeConjugation": "Çekimli hali yaz...",
       "checkAnswer": "Cevabı Kontrol Et",
       "nextQuestion": "Sonraki Soru",
-      "seeResults": "Sbu kişiyiçları Gör",
+      "seeResults": "Sonuçları Gör",
       "backToGames": "← Oyunlara Dön"
     },
     "session": {
@@ -412,6 +412,11 @@
       "accentColor": "Vurgu Rengi",
       "darkMode": "Karanlık Mod",
       "fontSize": "Yazı Boyutu",
+      "sounds": "Ses Efektleri",
+      "soundsOn": "Sesler Açık",
+      "soundsOff": "Sesler Kapalı",
+      "soundsOnDesc": "Oyunlar ve eylemler için geri bildirim sesleri",
+      "soundsOffDesc": "Sessiz mod - ses efekti yok",
       "answerChecking": "Cevap Kontrolü",
       "smartMode": "Akıllı Mod",
       "strictMode": "Katı Mod",
@@ -428,7 +433,7 @@
       "learnerName": "Öğrencinin Adı",
       "relationshipVibe": "İlişki Havası",
       "learningReason": "Neden {{language}} öğreniyorsun?",
-      "motivationPlaceholder": "Motivasybu kişiyin...",
+      "motivationPlaceholder": "Motivasyonun...",
       "dailyTime": "Günlük Süre",
       "preferredTime": "Tercih Edilen Zaman",
       "biggestChallenge": "En Büyük Zorluk",
@@ -575,6 +580,17 @@
       "placeholder": "Onun adı"
     },
 
+    "languageConfirm": {
+      "title": "Dillerini onayla, {{name}}",
+      "subtitle": "Dil yolculuğunun doğru olduğundan emin ol.",
+      "iSpeak": "Konuşuyorum",
+      "iTeach": "Öğretiyorum",
+      "iWantToLearn": "Öğrenmek istiyorum",
+      "theySpeak": "Konuşuyor",
+      "summary": "{{native}} konuşan biri olarak {{target}} öğreniyorum",
+      "tutorSummary": "{{native}} konuşana {{target}} öğretiyorum"
+    },
+
     "validation": {
       "title": "Cevapların nasıl kontrol edilsin?",
       "subtitle": "Notlandırmada uygulamanın ne kadar hoşgörülü olacağını seç.",
@@ -619,7 +635,7 @@
         "feature1": "Love Log'da 2.000 kelime",
         "feature2": "Ayda 60 dk sesli sohbet",
         "feature3": "Ayda 30 dk Dinleme Modu",
-        "feature4": "Tüm kbu kişiyişma senaryoları",
+        "feature4": "Tüm konuşma senaryoları",
         "feature5": "Partner daveti"
       },
       "unlimited": {
@@ -628,7 +644,7 @@
         "feature1": "Sınırsız her şey",
         "feature2": "Sınırsız sesli sohbet",
         "feature3": "Sınırsız Dinleme Modu",
-        "feature4": "Tüm kbu kişiyişma senaryoları",
+        "feature4": "Tüm konuşma senaryoları",
         "feature5": "Başka bir çift için hediye kartı (yıllık)"
       }
     },
@@ -636,7 +652,7 @@
     "student": {
       "start": {
         "title": "{{name}}, başlamaya hazır mısın?",
-        "subtitle": "{{partnerName}}'in dilini kbu kişiyişma yolculuğun şimdi başlıyor.",
+        "subtitle": "{{partnerName}}'in dilini konuşma yolculuğun şimdi başlıyor.",
         "accessTitle": "Erişimin olacaklar:",
         "feature1": "Cupid ile yapay zeka sohbetleri",
         "feature2": "Love Log kelime takipçin",
@@ -691,8 +707,8 @@
       "fear": {
         "title": "{{language}} öğrenmekle ilgili en büyük korkunz ne?",
         "subtitle": "Herkesin bir korkusu var. Seninkiyle birlikte başa çıkalım.",
-        "prbu kişiyinciation": "Telaffuz",
-        "prbu kişiyinciationDesc": "Yanlış veya komik ses çıkarmak",
+        "pronunciation": "Telaffuz",
+        "pronunciationDesc": "Yanlış veya komik ses çıkarmak",
         "grammar": "Dilbilgisi kuralları",
         "grammarDesc": "Çekimler, haller, cinsiyet",
         "silly": "Komik görünmek",
@@ -713,7 +729,7 @@
         "subtitle": "{{name}} ile çalışacağın bir hedef",
         "love": "\"Seni seviyorum\"u mükemmel söyle",
         "phrases": "10 romantik ifade öğren",
-        "surprise": "{{language}} bir selamlamayla bu kişiyi şaşırt",
+        "surprise": "{{language}} bir selamlamayla onu şaşırt",
         "custom": "Kendi hedefimi belirle",
         "customPlaceholder": "örn., \"En sevdiği restoranda {{language}} sipariş ver\""
       },
@@ -780,14 +796,14 @@
       "connection": {
         "title": "{{language}} ile bağlantın ne?",
         "subtitle": "Dil geçmişini anlamamıza yardım et",
-        "native": "Anadil kbu kişiyişucusu",
-        "nativeDesc": "{{language}} kbu kişiyişarak doğup büyüdüm",
-        "heritage": "Miras kbu kişiyişucusu",
+        "native": "Anadil konuşucusu",
+        "nativeDesc": "{{language}} konuşarak doğup büyüdüm",
+        "heritage": "Miras konuşucusu",
         "heritageDesc": "{{language}} aile geçmişi",
-        "fluent": "Akıcı kbu kişiyişucu",
+        "fluent": "Akıcı konuşucu",
         "fluentDesc": "{{language}} öğrendim ve ustalaştım",
         "bilingual": "İki dilli",
-        "bilingualDesc": "{{language}} ve başka bir dil kbu kişiyişarak büyüdüm"
+        "bilingualDesc": "{{language}} ve başka bir dil konuşarak büyüdüm"
       },
 
       "origin": {
@@ -851,7 +867,7 @@
     "scoreNeeded": "%{{score}} aldın. Geçmek için %80 gerekli.",
     "correctAnswers": "Doğru cevaplar",
     "tryAgain": "Tekrar Dene",
-    "viewDetailed": "Detaylı sbu kişiyiçları İlerleme'de gör",
+    "viewDetailed": "Detaylı sonuçları İlerleme'de gör",
     "questionTypes": {
       "multipleChoice": "Çoktan Seçmeli",
       "fillBlank": "Boşluk Doldur",
@@ -909,13 +925,13 @@
       "title": "Gönderilen Kelime Hediyeleri",
       "word": "{{count}} kelime",
       "word_other": "{{count}} kelime",
-      "topic": "Kbu kişiyi: {{topic}}",
+      "topic": "Konu: {{topic}}",
       "custom": "Özel kelimeler",
       "xpMultiplier": "{{multiplier}}x XP"
     },
 
     "results": {
-      "title": "Son Sbu kişiyiçlar",
+      "title": "Son Sonuçlar",
       "completed": "{{date}} tamamlandı"
     },
 
@@ -970,7 +986,7 @@
     "saveDialog": {
       "title": "{{name}}'in İlerlemesine Kaydedilsin mi?",
       "howItWorks": "Nasıl çalışır:",
-      "detail1": "Oyun sbu kişiyiçları {{name}}'in öğrenme geçmişine kaydedilir",
+      "detail1": "Oyun sonuçları {{name}}'in öğrenme geçmişine kaydedilir",
       "detail2": "Kelime puanları güncellenecek (seriler, ustalık)",
       "detail3": "Birlikte pratik yaptığınızda harika!",
       "willUpdate": "Bu, {{name}}'in kelime puanlarını ve öğrenme geçmişini güncelleyecek.",
@@ -982,7 +998,7 @@
 
   "gameResults": {
     "greatJob": "Harika İş!",
-    "sessionResults": "Oturum sbu kişiyiçları:",
+    "sessionResults": "Oturum sonuçları:",
     "correct": "Doğru",
     "missed": "Yanlış",
     "showDetails": "Detayları göster",
@@ -994,21 +1010,21 @@
   "conversationPractice": {
     "states": {
       "listening": "Dinliyor...",
-      "speaking": "Kbu kişiyişuyor...",
+      "speaking": "Konuşuyor...",
       "connecting": "Bağlanıyor...",
       "error": "Hata",
       "disconnected": "Bağlantı Kesildi"
     },
     "end": "Bitir",
-    "startingConversation": "Kbu kişiyişma başlatılıyor...",
+    "startingConversation": "Konuşma başlatılıyor...",
     "tryAgain": "Tekrar Dene",
-    "speakIn": "{{language}} dilinde kbu kişiyiş...",
-    "aiSpeaking": "Yapay zeka kbu kişiyişuyor...",
-    "conversationEnded": "Kbu kişiyişma sona erdi"
+    "speakIn": "{{language}} dilinde konuş...",
+    "aiSpeaking": "Yapay zeka konuşuyor...",
+    "conversationEnded": "Konuşma sona erdi"
   },
 
   "scenarioSelector": {
-    "title": "Kbu kişiyişma Pratiği",
+    "title": "Konuşma Pratiği",
     "subtitle": "Bir senaryo seç",
     "beta": "Beta",
     "difficulty": {
@@ -1024,9 +1040,9 @@
       "pharmacy": { "name": "Eczanede", "description": "İlaç sor ve semptomları anlat" },
       "hotel": { "name": "Otel Check-in", "description": "Giriş yap ve olanakları sor" },
       "family_dinner": { "name": "Aile Yemeği", "description": "Partnerinin ailesiyle tanış" },
-      "train_station": { "name": "Tren İstasybu kişiyi", "description": "Bilet al ve tarifeleri kontrol et" }
+      "train_station": { "name": "Tren İstasyonu", "description": "Bilet al ve tarifeleri kontrol et" }
     },
-    "createOwn": "Kendi Senarybu kişiyi Oluştur",
+    "createOwn": "Kendi Senaryonu Oluştur",
     "createOwnDesc": "Pratik yapmak istediğin herhangi bir senaryoyu tanımla",
     "backToScenarios": "Senaryolara dön",
     "customScenario": "Özel Senaryo",
@@ -1034,7 +1050,7 @@
     "describeScenario": "Pratik yapmak istediğin durumu tanımla",
     "customPlaceholder": "örn., Bir fırındayım, ekmek almaya çalışıyorum ve içindekiler hakkında soruyorum...",
     "startPractice": "Pratiğe Başla",
-    "footerInfo": "Yapay zeka varsayılan olarak {{targetLanguage}} kbu kişiyişacak. Zorlanırsan, {{nativeLanguage}} dilinde yardım edecek.",
+    "footerInfo": "Yapay zeka varsayılan olarak {{targetLanguage}} konuşacak. Zorlanırsan, {{nativeLanguage}} dilinde yardım edecek.",
     "customPersona": "{{language}} dilinde pratik yapmasına yardım eden samimi bir {{language}} kişisisin. Sabırlısın, cesaretlendiricisin ve dilini onların seviyesine göre ayarlarsın."
   },
 
@@ -1114,7 +1130,7 @@
       "packageCount": "Aşk Paketi ({{count}} kelime)",
       "packageCount_other": "Aşk Paketi ({{count}} kelime)",
       "hasData": "+veri",
-      "xpBbu kişiyis": "{{name}} bu kelimeleri öğrenerek 2 kat XP kazanır!",
+      "xpBonus": "{{name}} bu kelimeleri öğrenerek 2 kat XP kazanır!",
       "corrected": "Düzeltildi: {{note}}",
       "sendLovePackage": "Aşk Paketi Gönder",
       "alreadyInPackage": "Bu kelime zaten paketinde!",
@@ -1174,7 +1190,7 @@
       "startButton": "Başla!",
       "getReady": "Hazır Ol!",
       "resultScore": "{{time}}sn'de {{total}} içinden {{correct}} doğru",
-      "timeBbu kişiyis": "(Zaman Bbu kişiyisu!)",
+      "timeBonus": "(Zaman Bonusu!)",
       "quitChallenge": "Meydan okumadan çık",
       "typePlaceholder": "Çeviriyi yaz..."
     }
@@ -1188,7 +1204,7 @@
     "welcomeSubtitle": "Uygulamayı nasıl kullanacaksın?",
     "student": {
       "title": "{{language}} Öğreniyorum",
-      "subtitle": "{{language}} kbu kişiyişan partnerim için",
+      "subtitle": "{{language}} konuşan partnerim için",
       "confirmMessage": "Aşk için {{language}} öğreniyorsun!",
       "confirmSubtext": "Partnerini yeni yeteneklerinle şaşırtmaya hazır mısın?"
     },
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Haftalık",
       "monthly": "Aylık",
       "yearly": "Yıllık",
+      "wk": "hf",
       "mo": "ay",
       "yr": "yıl",
+      "weeklyLabel": "En Esnek",
+      "monthlyLabel": "En Popüler",
+      "yearlyLabel": "En İyi Taahhüt",
       "discount": "%70 indirim",
       "savePercent": "%{{percent}} tasarruf",
       "perMonth": "/ay",
@@ -1241,8 +1262,8 @@
       "listenMinutes": "Ayda {{minutes}} dk Dinleme Modu",
       "unlimitedListen": "Sınırsız Dinleme Modu",
       "unlimitedChallenges": "Sınırsız yapay zeka meydan okumaları",
-      "allScenarios": "Tüm kbu kişiyişma senaryoları",
-      "allScenariosCount": "Tüm {{count}} kbu kişiyişma senaryosu",
+      "allScenarios": "Tüm konuşma senaryoları",
+      "allScenariosCount": "Tüm {{count}} konuşma senaryosu",
       "partnerInvite": "Partner daveti",
       "giftPass": "Başka bir çift için hediye kartı (yıllık)",
       "unlimitedEverything": "Sınırsız her şey"
@@ -1286,7 +1307,7 @@
       "voiceChatPerMonth": "Ayda {{minutes}} dk sesli sohbet",
       "listenModePerMonth": "Ayda {{minutes}} dk Dinleme Modu",
       "unlimitedChallenges": "Sınırsız yapay zeka meydan okumaları",
-      "allScenarios": "Tüm 8 kbu kişiyişma senaryosu",
+      "allScenarios": "Tüm 8 konuşma senaryosu",
       "partnerInvite": "Partner daveti",
       "unlimitedWords": "Sınırsız kelime",
       "unlimitedVoiceChat": "Sınırsız sesli sohbet",
@@ -1333,7 +1354,7 @@
     "wordGift": "Kelime Hediyesi",
     "play": "Oyna",
     "learn": "Öğren",
-    "xpBbu kişiyis": "{{multiplier}}x XP bbu kişiyisu"
+    "xpBonus": "{{multiplier}}x XP bonusu"
   },
 
   "invite": {
@@ -1393,8 +1414,8 @@
       },
       "vocabulary": {
         "title": "Kelime Hazinesi Oluşturma",
-        "intro": "Kbu kişiyişmalarındaki kelimeler otomatik olarak Love Log'una kaydedilir.",
-        "syncTitle": "Senkronize Butbu kişiyi",
+        "intro": "Konuşmalarındaki kelimeler otomatik olarak Love Log'una kaydedilir.",
+        "syncTitle": "Senkronize Butonu",
         "syncDescription": "Son sohbetlerden yeni kelimeleri çıkarmak için Love Log'da senkronize'ye tıkla",
         "masteryTitle": "Ustalık Seviyeleri",
         "masteryDescription": "Ustalığı 0-5 yıldıza çıkarmak için oyunlarda kelimeleri çalış",
@@ -1420,7 +1441,7 @@
         "tiersTitle": "Seviye Kademeleri",
         "beginner": "Başlangıç 1-3",
         "elementary": "Temel 1-3",
-        "conversational": "Kbu kişiyişma 1-3",
+        "conversational": "Konuşma 1-3",
         "proficient": "Yetkin 1-3",
         "fluent": "Akıcı 1-3",
         "master": "Usta 1-3",
@@ -1431,7 +1452,7 @@
       "verbsQuestion": "Fiilleri öğrenmenin en iyi yolu ne?",
       "verbsAnswer": "Öğren modunu kullan ve çekim tabloları iste. 6 kişiyi (ben, sen, o, biz, siz, onlar) birlikte çalış.",
       "partnerQuestion": "Partnerimle nasıl pratik yaparım?",
-      "partnerAnswer": "Öğrendiğin ifadeleri günlük kbu kişiyişmalarda kullan. Basit selamlaşmalar bile sayılır! Oyna bölümünde birbirinize meydan okumalar oluşturun.",
+      "partnerAnswer": "Öğrendiğin ifadeleri günlük konuşmalarda kullan. Basit selamlaşmalar bile sayılır! Oyna bölümünde birbirinize meydan okumalar oluşturun.",
       "progressQuestion": "Ne kadar hızlı ilerleyebilirim?",
       "progressAnswer": "Günde 15-20 dakika pratik harikalar yaratır. Tutarlılık sıkıştırmayı yener!",
       "forgetQuestion": "Bir kelimeyi unutursam ne olur?",
@@ -1478,8 +1499,8 @@
       "title": "{{name}}'dan Hediye!",
       "subtitle": "{{count}} özel kelime öğrenmeni istiyor",
       "subtitle_plural": "{{count}} özel kelime öğrenmeni istiyor",
-      "topic": "Kbu kişiyi:",
-      "xpBbu kişiyis": "Bu kelimeler için {{multiplier}}x XP kazan!",
+      "topic": "Konu:",
+      "xpBonus": "Bu kelimeler için {{multiplier}}x XP kazan!",
       "later": "Sonra",
       "openGift": "Hediyeyi Aç"
     },
@@ -1579,7 +1600,7 @@
     "learningToConnect": "Seninle daha derin bağlantı kurmak için {{language}} öğreniyorlar. Dil koçları olarak:",
     "trackProgress": "İlerlemelerini Takip Et",
     "trackProgressDesc": "Hangi kelimeleri öğrendiklerini ve nerede yardıma ihtiyaçları olduğunu gör",
-    "conversationStarters": "Kbu kişiyişma Başlatıcıları Al",
+    "conversationStarters": "Konuşma Başlatıcıları Al",
     "conversationStartersDesc": "Yapay zeka kelime hazinelerine göre birlikte kullanacağınız {{language}} ifadeleri önerir",
     "encourageCelebrate": "Cesaretlendir ve Kutla",
     "encourageCelebrateDesc": "Motive kalmalarına yardım et ve kilometre taşlarını birlikte kutla",
@@ -1730,7 +1751,7 @@
 
   "hero": {
     "languageSelector": {
-      "nativePrompt": "Kbu kişiyiştuğum dil...",
+      "nativePrompt": "Konuştuğum dil...",
       "targetPrompt": "Öğrenmek istiyorum...",
       "targetPromptTutor": "Öğretmek istiyorum..."
     },
@@ -1763,7 +1784,8 @@
       "createAccount": "Hesap oluştur",
       "alreadyHaveAccount": "Zaten hesabın var mı? Giriş yap",
       "newHere": "Yeni misin? Hesap oluştur",
-      "checkEmail": "Onay için e-postanı kontrol et!"
+      "checkEmail": "Onay için e-postanı kontrol et!",
+      "continueWithGoogle": "Google ile devam et"
     },
     "legal": {
       "terms": "Şartlar",
@@ -1784,7 +1806,7 @@
         "underline": "Kimse dinlemezken 'Seni seviyorum' deme şekilleri"
       },
       "section2": {
-        "headline": "Dahil olmadığın bir kbu kişiyişma var. Henüz.",
+        "headline": "Dahil olmadığın bir konuşma var. Henüz.",
         "highlight1": "Henüz",
         "copy": "Anlamadan güldüğün şakalar. Çeviride bir şeyler kaybeden aile hikayeleri. Artık gerçekten anlama zamanı.",
         "copyHighlight1": "aile hikayeleri",
@@ -1812,7 +1834,7 @@
         "headline": "Ailesini güldürdüğün an? Muhteşem.",
         "highlight1": "ailesini güldürdüğün",
         "highlight2": "Muhteşem",
-        "copy": "Şakayı gerçekten anladığın ilk an. Tam doğru duyan ilk 'Seni seviyorum'. Annesinin seninle doğrudan kendi dilinde kbu kişiyişmaya başladığı an. Geliyor.",
+        "copy": "Şakayı gerçekten anladığın ilk an. Tam doğru duyan ilk 'Seni seviyorum'. Annesinin seninle doğrudan kendi dilinde konuşmaya başladığı an. Geliyor.",
         "copyHighlight1": "Seni seviyorum",
         "copyHighlight2": "Annesinin",
         "copyHighlight3": "Geliyor",
@@ -1853,11 +1875,11 @@
         "highlight1": "Açıklamayı",
         "highlight2": "salladılar",
         "highlight3": "düzeltelim",
-        "copy": "Gerçekten mutlu olduğunda söylediğin şeyler. Ya da gerçekten sinirlendiğinde. Ev gibi hissettiren kelimeler. Seni - sadece çevrilmiş versiybu kişiyinu değil - tamamen anlamak istiyorlar.",
+        "copy": "Gerçekten mutlu olduğunda söylediğin şeyler. Ya da gerçekten sinirlendiğinde. Ev gibi hissettiren kelimeler. Seni - sadece çevrilmiş versiyonunu değil - tamamen anlamak istiyorlar.",
         "copyHighlight1": "gerçekten mutlu",
         "copyHighlight2": "gerçekten sinirlendiğinde",
         "copyHighlight3": "tamamen",
-        "underline": "sadece çevrilmiş versiybu kişiyinu değil"
+        "underline": "sadece çevrilmiş versiyonunu değil"
       },
       "section3": {
         "headline": "Paylaştığın her kelime bir köprü.",
@@ -1883,7 +1905,7 @@
         "headline": "Hiç öğretmediğin bir ifadeyle seni şaşırttıkları an? Sihir.",
         "highlight1": "şaşırttıkları",
         "highlight2": "Sihir",
-        "copy": "Bir şaka yapıp ailen gerçekten güldüğünde. Annen onlarla doğrudan senin dilinde kbu kişiyişmaya başladığında. Çeneni düşüren bir ifade söylediklerinde. Bunu sen yaptın.",
+        "copy": "Bir şaka yapıp ailen gerçekten güldüğünde. Annen onlarla doğrudan senin dilinde konuşmaya başladığında. Çeneni düşüren bir ifade söylediklerinde. Bunu sen yaptın.",
         "copyHighlight1": "ailen gerçekten güldüğünde",
         "copyHighlight2": "Annen",
         "copyHighlight3": "Bunu sen yaptın"

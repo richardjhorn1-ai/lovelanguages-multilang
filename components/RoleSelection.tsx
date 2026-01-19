@@ -40,24 +40,29 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Check for intended role from signup (pre-select but don't auto-save)
+  // Pre-select role from profile (set during signup) or fall back to metadata/localStorage
   useEffect(() => {
     const checkIntendedRole = async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
-        const userMeta = user?.user_metadata || {};
-
         // Sync i18n with native language from profile
         if (profile.native_language && i18n.language !== profile.native_language) {
           i18n.changeLanguage(profile.native_language);
         }
 
-        // Check for intended role (from Hero signup) - pre-select but DON'T auto-save
-        // User must confirm their settings first
+        // Priority 1: Use role already set in profile (from signup trigger)
+        if (profile.role === 'student' || profile.role === 'tutor') {
+          setSelectedRole(profile.role);
+          setLoading(false);
+          return;
+        }
+
+        // Priority 2: Check user metadata (for email signups)
+        const { data: { user } } = await supabase.auth.getUser();
+        const userMeta = user?.user_metadata || {};
         let intendedRole = userMeta.intended_role;
 
+        // Priority 3: Check localStorage (for OAuth signups)
         if (!intendedRole) {
-          // Check localStorage for OAuth signups
           const storedRole = localStorage.getItem('intended_role');
           if (storedRole === 'student' || storedRole === 'tutor') {
             intendedRole = storedRole;
@@ -76,7 +81,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
     };
 
     checkIntendedRole();
-  }, [userId, i18n, profile.native_language]);
+  }, [userId, i18n, profile.native_language, profile.role]);
 
   const handleNativeSelect = (code: string) => {
     setNativeLanguage(code);
@@ -95,11 +100,12 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
 
     setSaving(true);
     try {
-      // Save role AND confirmed languages
+      // Save role, languages, and mark as confirmed
       const { error } = await supabase
         .from('profiles')
         .update({
           role: selectedRole,
+          role_confirmed_at: new Date().toISOString(),
           native_language: nativeLanguage,
           active_language: targetLanguage,
           languages: [targetLanguage]

@@ -412,6 +412,11 @@
       "accentColor": "Cor de Destaque",
       "darkMode": "Modo Escuro",
       "fontSize": "Tamanho da Fonte",
+      "sounds": "Efeitos sonoros",
+      "soundsOn": "Sons ativados",
+      "soundsOff": "Sons desativados",
+      "soundsOnDesc": "Sons de feedback para jogos e ações",
+      "soundsOffDesc": "Modo silencioso - sem efeitos sonoros",
       "answerChecking": "Verificação de Respostas",
       "smartMode": "Modo Inteligente",
       "strictMode": "Modo Rigoroso",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Esta é a pessoa que você vai surpreender com suas novas habilidades.",
       "tutorSubtitle": "Esta é a pessoa que você vai guiar através do {{language}}.",
       "placeholder": "Nome dele/dela"
+    },
+
+    "languageConfirm": {
+      "title": "Confirme seus idiomas, {{name}}",
+      "subtitle": "Certifique-se de que sua jornada de aprendizado está correta.",
+      "iSpeak": "Eu falo",
+      "iTeach": "Eu ensino",
+      "iWantToLearn": "Quero aprender",
+      "theySpeak": "Fala",
+      "summary": "Aprendendo {{target}} como falante de {{native}}",
+      "tutorSummary": "Ensinando {{target}} para um falante de {{native}}"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Semanal",
       "monthly": "Mensal",
       "yearly": "Anual",
+      "wk": "sem",
       "mo": "mês",
       "yr": "ano",
+      "weeklyLabel": "Mais Flexível",
+      "monthlyLabel": "Mais Popular",
+      "yearlyLabel": "Melhor Compromisso",
       "discount": "70% de desconto",
       "savePercent": "Economize {{percent}}%",
       "perMonth": "/mês",
@@ -1763,7 +1784,8 @@
       "createAccount": "Criar conta",
       "alreadyHaveAccount": "Já tem uma conta? Entre",
       "newHere": "Novo por aqui? Crie uma conta",
-      "checkEmail": "Verifique seu email para confirmação!"
+      "checkEmail": "Verifique seu email para confirmação!",
+      "continueWithGoogle": "Continuar com Google"
     },
     "legal": {
       "terms": "Termos",

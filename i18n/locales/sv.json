@@ -412,6 +412,11 @@
       "accentColor": "Accentfärg",
       "darkMode": "Mörkt läge",
       "fontSize": "Teckenstorlek",
+      "sounds": "Ljudeffekter",
+      "soundsOn": "Ljud på",
+      "soundsOff": "Ljud av",
+      "soundsOnDesc": "Feedbackljud för spel och åtgärder",
+      "soundsOffDesc": "Tyst läge - inga ljudeffekter",
       "answerChecking": "Svarskontroll",
       "smartMode": "Smart läge",
       "strictMode": "Strikt läge",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Det är den du kommer överraska med dina nya kunskaper.",
       "tutorSubtitle": "Det är den du kommer guida genom {{language}}.",
       "placeholder": "Deras namn"
+    },
+
+    "languageConfirm": {
+      "title": "Bekräfta dina språk, {{name}}",
+      "subtitle": "Se till att din språkresa är korrekt.",
+      "iSpeak": "Jag talar",
+      "iTeach": "Jag undervisar",
+      "iWantToLearn": "Jag vill lära mig",
+      "theySpeak": "Talar",
+      "summary": "Lär mig {{target}} som {{native}}-talare",
+      "tutorSummary": "Undervisar {{target}} till en {{native}}-talare"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Veckovis",
       "monthly": "Månadsvis",
       "yearly": "Årsvis",
+      "wk": "v",
       "mo": "mån",
       "yr": "år",
+      "weeklyLabel": "Mest Flexibel",
+      "monthlyLabel": "Mest Populär",
+      "yearlyLabel": "Bästa Åtagandet",
       "discount": "70% rabatt",
       "savePercent": "Spara {{percent}}%",
       "perMonth": "/mån",
@@ -1763,7 +1784,8 @@
       "createAccount": "Skapa konto",
       "alreadyHaveAccount": "Har du redan ett konto? Logga in",
       "newHere": "Ny här? Skapa ett konto",
-      "checkEmail": "Kolla din e-post för bekräftelse!"
+      "checkEmail": "Kolla din e-post för bekräftelse!",
+      "continueWithGoogle": "Fortsätt med Google"
     },
     "legal": {
       "terms": "Villkor",

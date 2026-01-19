@@ -412,6 +412,11 @@
       "accentColor": "Kiemelő szín",
       "darkMode": "Sötét mód",
       "fontSize": "Betűméret",
+      "sounds": "Hangeffektusok",
+      "soundsOn": "Hangok bekapcsolva",
+      "soundsOff": "Hangok kikapcsolva",
+      "soundsOnDesc": "Visszajelző hangok játékokhoz és műveletekhez",
+      "soundsOffDesc": "Csendes mód - nincsenek hangeffektusok",
       "answerChecking": "Válasz ellenőrzés",
       "smartMode": "Okos mód",
       "strictMode": "Szigorú mód",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Őt fogod meglepni az új tudásoddal.",
       "tutorSubtitle": "Őt fogod végigkísérni a {{language}} nyelv tanulásán.",
       "placeholder": "Az ő neve"
+    },
+
+    "languageConfirm": {
+      "title": "Erősítsd meg a nyelveidet, {{name}}",
+      "subtitle": "Győződj meg róla, hogy a nyelvi utad helyes.",
+      "iSpeak": "Beszélek",
+      "iTeach": "Tanítok",
+      "iWantToLearn": "Szeretnék megtanulni",
+      "theySpeak": "Beszél",
+      "summary": "{{target}} nyelvet tanulok {{native}} anyanyelvűként",
+      "tutorSummary": "{{target}} nyelvet tanítok {{native}} anyanyelvűnek"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Heti",
       "monthly": "Havi",
       "yearly": "Éves",
+      "wk": "hét",
       "mo": "hó",
       "yr": "év",
+      "weeklyLabel": "Legrugalmasabb",
+      "monthlyLabel": "Legnépszerűbb",
+      "yearlyLabel": "Legjobb Elköteleződés",
       "discount": "70% kedvezmény",
       "savePercent": "{{percent}}% megtakarítás",
       "perMonth": "/hó",
@@ -1763,7 +1784,8 @@
       "createAccount": "Fiók létrehozása",
       "alreadyHaveAccount": "Már van fiókod? Jelentkezz be",
       "newHere": "Új vagy itt? Hozz létre fiókot",
-      "checkEmail": "Nézd meg az e-mailed a megerősítéshez!"
+      "checkEmail": "Nézd meg az e-mailed a megerősítéshez!",
+      "continueWithGoogle": "Folytatás a Google-lal"
     },
     "legal": {
       "terms": "Feltételek",

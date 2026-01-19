@@ -38,30 +38,33 @@ interface TestAttempt {
   questions: any[];
 }
 
-// Get all level transitions up to current level for practice
-function getPreviousLevelTests(currentLevel: string): { from: string; to: string; theme: string }[] {
-  const tiers = ['Beginner', 'Elementary', 'Conversational', 'Proficient', 'Fluent', 'Master'];
-  const allTransitions: { from: string; to: string; theme: string }[] = [];
+// Theme keys for translation - maps level transitions to i18n keys
+const THEME_KEYS: Record<string, string> = {
+  'Beginner 1->2': 'firstWords',
+  'Beginner 2->3': 'checkingIn',
+  'Beginner 3->Elementary 1': 'feelings',
+  'Elementary 1->2': 'dailyLife',
+  'Elementary 2->3': 'preferences',
+  'Elementary 3->Conversational 1': 'makingPlans',
+  'Conversational 1->2': 'tellingStories',
+  'Conversational 2->3': 'deeperFeelings',
+  'Conversational 3->Proficient 1': 'complexConversations',
+  'Proficient 1->2': 'futureDreams',
+  'Proficient 2->3': 'problemSolving',
+  'Proficient 3->Fluent 1': 'culturalNuance',
+  'Fluent 1->2': 'advancedExpression',
+  'Fluent 2->3': 'nativeFluency',
+  'Fluent 3->Master 1': 'expertLevel',
+  'Master 1->2': 'culturalMastery',
+  'Master 2->3': 'completeMastery'
+};
 
-  const themes: Record<string, string> = {
-    'Beginner 1->2': 'First Words of Love',
-    'Beginner 2->3': 'Checking In',
-    'Beginner 3->Elementary 1': 'Feelings',
-    'Elementary 1->2': 'Daily Life',
-    'Elementary 2->3': 'Preferences',
-    'Elementary 3->Conversational 1': 'Making Plans',
-    'Conversational 1->2': 'Telling Stories',
-    'Conversational 2->3': 'Deeper Feelings',
-    'Conversational 3->Proficient 1': 'Complex Conversations',
-    'Proficient 1->2': 'Future Dreams',
-    'Proficient 2->3': 'Problem Solving',
-    'Proficient 3->Fluent 1': 'Cultural Nuance',
-    'Fluent 1->2': 'Advanced Expression',
-    'Fluent 2->3': 'Native-Like Fluency',
-    'Fluent 3->Master 1': 'Expert Level',
-    'Master 1->2': 'Cultural Mastery',
-    'Master 2->3': 'Complete Mastery'
-  };
+// Tier names for data matching (stored in DB as English)
+const TIER_NAMES = ['Beginner', 'Elementary', 'Conversational', 'Proficient', 'Fluent', 'Master'];
+
+// Get all level transitions up to current level for practice
+function getPreviousLevelTests(currentLevel: string): { from: string; to: string; themeKey: string }[] {
+  const allTransitions: { from: string; to: string; themeKey: string }[] = [];
 
   // Parse current level
   const match = currentLevel.match(/^(.+)\s+(\d)$/);
@@ -69,29 +72,29 @@ function getPreviousLevelTests(currentLevel: string): { from: string; to: string
 
   const currentTier = match[1];
   const currentSubLevel = parseInt(match[2], 10);
-  const currentTierIndex = tiers.indexOf(currentTier);
+  const currentTierIndex = TIER_NAMES.indexOf(currentTier);
 
   // Generate all transitions up to current level
   for (let tierIdx = 0; tierIdx <= currentTierIndex; tierIdx++) {
-    const tier = tiers[tierIdx];
+    const tier = TIER_NAMES[tierIdx];
     const maxSubLevel = tierIdx === currentTierIndex ? currentSubLevel : 3;
 
     for (let subLevel = 1; subLevel < maxSubLevel; subLevel++) {
       const from = `${tier} ${subLevel}`;
       const to = `${tier} ${subLevel + 1}`;
       // Theme key uses short format: "Beginner 1->2"
-      const themeKey = `${tier} ${subLevel}->${subLevel + 1}`;
-      allTransitions.push({ from, to, theme: themes[themeKey] || 'Practice' });
+      const transitionKey = `${tier} ${subLevel}->${subLevel + 1}`;
+      allTransitions.push({ from, to, themeKey: THEME_KEYS[transitionKey] || 'practice' });
     }
 
     // Add tier transition (e.g., Beginner 3 -> Elementary 1)
     if (tierIdx < currentTierIndex) {
       const from = `${tier} 3`;
-      const nextTier = tiers[tierIdx + 1];
+      const nextTier = TIER_NAMES[tierIdx + 1];
       const to = `${nextTier} 1`;
       // Theme key for tier transitions: "Beginner 3->Elementary 1"
-      const themeKey = `${from}->${to}`;
-      allTransitions.push({ from, to, theme: themes[themeKey] || 'Practice' });
+      const transitionKey = `${from}->${to}`;
+      allTransitions.push({ from, to, themeKey: THEME_KEYS[transitionKey] || 'practice' });
     }
   }
 
@@ -136,30 +139,6 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   const { targetLanguage, targetName, languageParams } = useLanguage();
   const previousTests = getPreviousLevelTests(levelInfo.displayName);
 
-  // Helper to get localized theme names
-  const getLocalizedTheme = (themeKey: string): string => {
-    const themeMap: Record<string, string> = {
-      'First Words of Love': t('progress.levelThemes.firstWords'),
-      'Checking In': t('progress.levelThemes.checkingIn'),
-      'Feelings': t('progress.levelThemes.feelings'),
-      'Daily Life': t('progress.levelThemes.dailyLife'),
-      'Preferences': t('progress.levelThemes.preferences'),
-      'Making Plans': t('progress.levelThemes.makingPlans'),
-      'Telling Stories': t('progress.levelThemes.tellingStories'),
-      'Deeper Feelings': t('progress.levelThemes.deeperFeelings'),
-      'Complex Conversations': t('progress.levelThemes.complexConversations'),
-      'Future Dreams': t('progress.levelThemes.futureDreams'),
-      'Problem Solving': t('progress.levelThemes.problemSolving'),
-      'Cultural Nuance': t('progress.levelThemes.culturalNuance'),
-      'Advanced Expression': t('progress.levelThemes.advancedExpression'),
-      'Native-Like Fluency': t('progress.levelThemes.nativeFluency'),
-      'Expert Level': t('progress.levelThemes.expertLevel'),
-      'Cultural Mastery': t('progress.levelThemes.culturalMastery'),
-      'Complete Mastery': t('progress.levelThemes.completeMastery'),
-      'Practice': t('progress.levelThemes.practice'),
-    };
-    return themeMap[themeKey] || themeKey;
-  };
 
   // Tutor dashboard computed values
   const masteredWords = useMemo(() =>
@@ -680,7 +659,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                               className="flex-1 text-left px-4 py-3 hover:bg-white/10 transition-all flex items-center justify-between group"
                             >
                               <div>
-                                <p className="text-white text-scale-caption font-bold">{getLocalizedTheme(test.theme)}</p>
+                                <p className="text-white text-scale-caption font-bold">{t(`progress.levelThemes.${test.themeKey}`)}</p>
                                 <p className="text-white/60 text-[10px]">{test.from} → {test.to}</p>
                               </div>
                               <ICONS.Play className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
