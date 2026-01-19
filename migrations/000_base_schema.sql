@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS profiles (
   avatar_url TEXT,
 
   -- User role and partner linking
-  role VARCHAR(20) DEFAULT 'student',  -- 'student' or 'tutor'
+  role VARCHAR(20),  -- 'student' or 'tutor' (NULL until confirmed in RoleSelection)
   linked_user_id UUID REFERENCES profiles(id),
   partner_name TEXT,
 

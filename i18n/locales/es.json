@@ -412,6 +412,11 @@
       "accentColor": "Color de Acento",
       "darkMode": "Modo Oscuro",
       "fontSize": "Tamaño de Fuente",
+      "sounds": "Efectos de sonido",
+      "soundsOn": "Sonidos activados",
+      "soundsOff": "Sonidos desactivados",
+      "soundsOnDesc": "Sonidos de retroalimentación para juegos y acciones",
+      "soundsOffDesc": "Modo silencioso - sin efectos de sonido",
       "answerChecking": "Verificación de Respuestas",
       "smartMode": "Modo Inteligente",
       "strictMode": "Modo Estricto",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Esta es la persona que sorprenderás con tus nuevas habilidades.",
       "tutorSubtitle": "Esta es la persona que guiarás a través de {{language}}.",
       "placeholder": "Su nombre"
+    },
+
+    "languageConfirm": {
+      "title": "Confirma tus idiomas, {{name}}",
+      "subtitle": "Asegúrate de que tu camino de aprendizaje sea correcto.",
+      "iSpeak": "Yo hablo",
+      "iTeach": "Yo enseño",
+      "iWantToLearn": "Quiero aprender",
+      "theySpeak": "Habla",
+      "summary": "Aprendiendo {{target}} como hablante de {{native}}",
+      "tutorSummary": "Enseñando {{target}} a un hablante de {{native}}"
     },
 
     "validation": {
@@ -1212,10 +1228,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Semanal",
       "monthly": "Mensual",
       "yearly": "Anual",
+      "wk": "sem",
       "mo": "mes",
       "yr": "año",
+      "weeklyLabel": "Más Flexible",
+      "monthlyLabel": "Más Popular",
+      "yearlyLabel": "Mejor Compromiso",
       "discount": "70% desc",
       "savePercent": "Ahorra {{percent}}%",
       "perMonth": "/mes",
@@ -1770,7 +1791,8 @@
       "createAccount": "Crear cuenta",
       "alreadyHaveAccount": "¿Ya tienes cuenta? Inicia sesión",
       "newHere": "¿Nuevo aquí? Crea una cuenta",
-      "checkEmail": "¡Revisa tu correo para confirmación!"
+      "checkEmail": "¡Revisa tu correo para confirmación!",
+      "continueWithGoogle": "Continuar con Google"
     },
     "legal": {
       "terms": "Términos",

@@ -412,6 +412,11 @@
       "accentColor": "Χρώμα έμφασης",
       "darkMode": "Σκοτεινή λειτουργία",
       "fontSize": "Μέγεθος γραμματοσειράς",
+      "sounds": "Ηχητικά εφέ",
+      "soundsOn": "Ήχοι ενεργοί",
+      "soundsOff": "Ήχοι ανενεργοί",
+      "soundsOnDesc": "Ήχοι ανατροφοδότησης για παιχνίδια και ενέργειες",
+      "soundsOffDesc": "Αθόρυβη λειτουργία - χωρίς ηχητικά εφέ",
       "answerChecking": "Έλεγχος απαντήσεων",
       "smartMode": "Έξυπνη λειτουργία",
       "strictMode": "Αυστηρή λειτουργία",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Αυτόν/ή θα εκπλήξεις με τις νέες σου γνώσεις.",
       "tutorSubtitle": "Αυτόν/ή θα καθοδηγήσεις στην εκμάθηση {{language}}.",
       "placeholder": "Το όνομά του/της"
+    },
+
+    "languageConfirm": {
+      "title": "Επιβεβαίωσε τις γλώσσες σου, {{name}}",
+      "subtitle": "Βεβαιώσου ότι το γλωσσικό σου ταξίδι είναι σωστό.",
+      "iSpeak": "Μιλάω",
+      "iTeach": "Διδάσκω",
+      "iWantToLearn": "Θέλω να μάθω",
+      "theySpeak": "Μιλάει",
+      "summary": "Μαθαίνω {{target}} ως ομιλητής {{native}}",
+      "tutorSummary": "Διδάσκω {{target}} σε ομιλητή {{native}}"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Εβδομαδιαίο",
       "monthly": "Μηνιαίο",
       "yearly": "Ετήσιο",
+      "wk": "εβδ",
       "mo": "μήνα",
       "yr": "έτος",
+      "weeklyLabel": "Πιο Ευέλικτο",
+      "monthlyLabel": "Δημοφιλέστερο",
+      "yearlyLabel": "Καλύτερη Δέσμευση",
       "discount": "70% έκπτωση",
       "savePercent": "{{percent}}% εξοικονόμηση",
       "perMonth": "/μήνα",
@@ -1763,7 +1784,8 @@
       "createAccount": "Δημιουργία λογαριασμού",
       "alreadyHaveAccount": "Έχεις ήδη λογαριασμό; Συνδέσου",
       "newHere": "Νέος/α εδώ; Δημιούργησε λογαριασμό",
-      "checkEmail": "Έλεγξε το email σου για επιβεβαίωση!"
+      "checkEmail": "Έλεγξε το email σου για επιβεβαίωση!",
+      "continueWithGoogle": "Συνέχεια με Google"
     },
     "legal": {
       "terms": "Όροι",

@@ -412,6 +412,11 @@
       "accentColor": "Couleur d'accent",
       "darkMode": "Mode sombre",
       "fontSize": "Taille de police",
+      "sounds": "Effets sonores",
+      "soundsOn": "Sons activés",
+      "soundsOff": "Sons désactivés",
+      "soundsOnDesc": "Sons de retour pour les jeux et actions",
+      "soundsOffDesc": "Mode silencieux - pas d'effets sonores",
       "answerChecking": "Vérification des réponses",
       "smartMode": "Mode intelligent",
       "strictMode": "Mode strict",
@@ -573,6 +578,17 @@
       "studentSubtitle": "C'est la personne que tu vas surprendre avec tes nouvelles compétences.",
       "tutorSubtitle": "C'est la personne que tu vas guider à travers le {{language}}.",
       "placeholder": "Son nom"
+    },
+
+    "languageConfirm": {
+      "title": "Confirme tes langues, {{name}}",
+      "subtitle": "Assure-toi que ton parcours linguistique est correct.",
+      "iSpeak": "Je parle",
+      "iTeach": "J'enseigne",
+      "iWantToLearn": "Je veux apprendre",
+      "theySpeak": "Cette personne parle",
+      "summary": "Apprendre le {{target}} en tant que locuteur {{native}}",
+      "tutorSummary": "Enseigner le {{target}} à un locuteur {{native}}"
     },
 
     "validation": {
@@ -1212,10 +1228,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Hebdomadaire",
       "monthly": "Mensuel",
       "yearly": "Annuel",
+      "wk": "sem",
       "mo": "mois",
       "yr": "an",
+      "weeklyLabel": "Le plus flexible",
+      "monthlyLabel": "Le plus populaire",
+      "yearlyLabel": "Meilleur engagement",
       "discount": "70 % de réduction",
       "savePercent": "Économise {{percent}} %",
       "perMonth": "/mois",
@@ -1770,7 +1791,8 @@
       "createAccount": "Créer un compte",
       "alreadyHaveAccount": "Tu as déjà un compte ? Connecte-toi",
       "newHere": "Nouveau ici ? Crée un compte",
-      "checkEmail": "Vérifie ton e-mail pour la confirmation !"
+      "checkEmail": "Vérifie ton e-mail pour la confirmation !",
+      "continueWithGoogle": "Continuer avec Google"
     },
     "legal": {
       "terms": "Conditions",

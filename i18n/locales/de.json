@@ -412,6 +412,11 @@
       "accentColor": "Akzentfarbe",
       "darkMode": "Dunkelmodus",
       "fontSize": "Schriftgröße",
+      "sounds": "Soundeffekte",
+      "soundsOn": "Töne an",
+      "soundsOff": "Töne aus",
+      "soundsOnDesc": "Feedback-Töne für Spiele und Aktionen",
+      "soundsOffDesc": "Stiller Modus - keine Soundeffekte",
       "answerChecking": "Antwortprüfung",
       "smartMode": "Intelligenter Modus",
       "strictMode": "Strenger Modus",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Das ist die Person, die du mit deinen neuen Fähigkeiten überraschen wirst.",
       "tutorSubtitle": "Das ist die Person, die du durch {{language}} führen wirst.",
       "placeholder": "Sein/Ihr Name"
+    },
+
+    "languageConfirm": {
+      "title": "Bestätige deine Sprachen, {{name}}",
+      "subtitle": "Stelle sicher, dass dein Sprachweg richtig ist.",
+      "iSpeak": "Ich spreche",
+      "iTeach": "Ich unterrichte",
+      "iWantToLearn": "Ich möchte lernen",
+      "theySpeak": "Diese Person spricht",
+      "summary": "{{target}} lernen als {{native}}-Sprecher",
+      "tutorSummary": "{{target}} unterrichten für einen {{native}}-Sprecher"
     },
 
     "validation": {
@@ -1212,10 +1228,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Wöchentlich",
       "monthly": "Monatlich",
       "yearly": "Jährlich",
+      "wk": "Wo.",
       "mo": "Mo.",
       "yr": "Jahr",
+      "weeklyLabel": "Am Flexibelsten",
+      "monthlyLabel": "Am Beliebtesten",
+      "yearlyLabel": "Beste Verpflichtung",
       "discount": "70% Rabatt",
       "savePercent": "Spare {{percent}}%",
       "perMonth": "/Mo.",
@@ -1770,7 +1791,8 @@
       "createAccount": "Konto erstellen",
       "alreadyHaveAccount": "Schon ein Konto? Anmelden",
       "newHere": "Neu hier? Konto erstellen",
-      "checkEmail": "Prüfe deine E-Mail zur Bestätigung!"
+      "checkEmail": "Prüfe deine E-Mail zur Bestätigung!",
+      "continueWithGoogle": "Weiter mit Google"
     },
     "legal": {
       "terms": "AGB",

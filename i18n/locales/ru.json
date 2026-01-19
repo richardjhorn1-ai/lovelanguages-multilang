@@ -412,6 +412,11 @@
       "accentColor": "Акцентный цвет",
       "darkMode": "Тёмная тема",
       "fontSize": "Размер шрифта",
+      "sounds": "Звуковые эффекты",
+      "soundsOn": "Звуки включены",
+      "soundsOff": "Звуки выключены",
+      "soundsOnDesc": "Звуки обратной связи для игр и действий",
+      "soundsOffDesc": "Тихий режим - без звуковых эффектов",
       "answerChecking": "Проверка ответов",
       "smartMode": "Умный режим",
       "strictMode": "Строгий режим",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Этого человека ты удивишь своими новыми навыками.",
       "tutorSubtitle": "Этого человека ты будешь вести по {{language}}.",
       "placeholder": "Их имя"
+    },
+
+    "languageConfirm": {
+      "title": "Подтверди свои языки, {{name}}",
+      "subtitle": "Убедись, что твой языковой путь правильный.",
+      "iSpeak": "Я говорю на",
+      "iTeach": "Я преподаю",
+      "iWantToLearn": "Хочу выучить",
+      "theySpeak": "Говорит на",
+      "summary": "Изучаю {{target}} как носитель {{native}}",
+      "tutorSummary": "Преподаю {{target}} носителю {{native}}"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Еженедельно",
       "monthly": "Ежемесячно",
       "yearly": "Ежегодно",
+      "wk": "нед",
       "mo": "мес",
       "yr": "год",
+      "weeklyLabel": "Самый Гибкий",
+      "monthlyLabel": "Самый Популярный",
+      "yearlyLabel": "Лучшее Обязательство",
       "discount": "скидка 70%",
       "savePercent": "Экономия {{percent}}%",
       "perMonth": "/мес",
@@ -1763,7 +1784,8 @@
       "createAccount": "Создать аккаунт",
       "alreadyHaveAccount": "Уже есть аккаунт? Войди",
       "newHere": "Новенький? Создай аккаунт",
-      "checkEmail": "Проверь почту для подтверждения!"
+      "checkEmail": "Проверь почту для подтверждения!",
+      "continueWithGoogle": "Продолжить с Google"
     },
     "legal": {
       "terms": "Условия",

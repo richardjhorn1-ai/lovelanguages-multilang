@@ -412,6 +412,11 @@
       "accentColor": "Accentkleur",
       "darkMode": "Donkere Modus",
       "fontSize": "Lettergrootte",
+      "sounds": "Geluidseffecten",
+      "soundsOn": "Geluiden aan",
+      "soundsOff": "Geluiden uit",
+      "soundsOnDesc": "Feedbackgeluiden voor spellen en acties",
+      "soundsOffDesc": "Stille modus - geen geluidseffecten",
       "answerChecking": "Antwoordcontrole",
       "smartMode": "Slimme Modus",
       "strictMode": "Strikte Modus",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Dit is degene die je gaat verrassen met je nieuwe vaardigheden.",
       "tutorSubtitle": "Dit is degene die je door {{language}} gaat begeleiden.",
       "placeholder": "Zijn/haar naam"
+    },
+
+    "languageConfirm": {
+      "title": "Bevestig je talen, {{name}}",
+      "subtitle": "Controleer of je taalreis correct is.",
+      "iSpeak": "Ik spreek",
+      "iTeach": "Ik geef les in",
+      "iWantToLearn": "Ik wil leren",
+      "theySpeak": "Spreekt",
+      "summary": "{{target}} leren als {{native}} spreker",
+      "tutorSummary": "{{target}} onderwijzen aan een {{native}} spreker"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Wekelijks",
       "monthly": "Maandelijks",
       "yearly": "Jaarlijks",
+      "wk": "wk",
       "mo": "ma",
       "yr": "jr",
+      "weeklyLabel": "Meest Flexibel",
+      "monthlyLabel": "Meest Populair",
+      "yearlyLabel": "Beste Keuze",
       "discount": "70% korting",
       "savePercent": "Bespaar {{percent}}%",
       "perMonth": "/ma",
@@ -1763,7 +1784,8 @@
       "createAccount": "Account aanmaken",
       "alreadyHaveAccount": "Heb je al een account? Log in",
       "newHere": "Nieuw hier? Maak een account",
-      "checkEmail": "Controleer je e-mail voor bevestiging!"
+      "checkEmail": "Controleer je e-mail voor bevestiging!",
+      "continueWithGoogle": "Doorgaan met Google"
     },
     "legal": {
       "terms": "Voorwaarden",

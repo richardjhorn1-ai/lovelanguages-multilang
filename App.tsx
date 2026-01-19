@@ -177,6 +177,16 @@ const App: React.FC = () => {
               || localStorage.getItem('preferredLanguage')
               || 'en';
 
+            // Read intended role from user metadata (set during signup in Hero)
+            // Fall back to localStorage for OAuth signups
+            const intendedRole = userMeta.intended_role
+              || localStorage.getItem('intended_role')
+              || null;
+            // Clear localStorage after reading
+            if (localStorage.getItem('intended_role')) {
+              localStorage.removeItem('intended_role');
+            }
+
             const { data: newProfile, error: createError } = await supabase
               .from('profiles')
               .insert({
@@ -186,15 +196,39 @@ const App: React.FC = () => {
                 // Set languages from signup metadata or localStorage selection
                 active_language: storedTarget,
                 native_language: storedNative,
-                languages: [storedTarget]
-                // role intentionally not set - user will choose in RoleSelection
+                languages: [storedTarget],
+                // Set role from signup selection (tutor or student)
+                role: intendedRole === 'tutor' || intendedRole === 'student' ? intendedRole : null
               })
               .select()
               .single();
 
             if (createError) {
-              // Duplicate key error (23505) means profile was created by auth trigger - fetch it instead
+              // Duplicate key error (23505) means profile was created by auth trigger - fetch and update it
               if (createError.code === '23505') {
+                // If we have an intended role from signup, update the profile with it
+                const validRole = intendedRole === 'tutor' || intendedRole === 'student' ? intendedRole : null;
+                if (validRole) {
+                  const { data: updatedProfile, error: updateError } = await supabase
+                    .from('profiles')
+                    .update({
+                      role: validRole,
+                      active_language: storedTarget,
+                      native_language: storedNative,
+                      languages: [storedTarget]
+                    })
+                    .eq('id', userData.user.id)
+                    .select()
+                    .single();
+                  if (updatedProfile) {
+                    setProfile(updatedProfile);
+                    return;
+                  }
+                  if (updateError) {
+                    console.error('Failed to update profile with role:', updateError);
+                  }
+                }
+                // Fallback: just fetch the existing profile
                 const { data: existingProfile, error: fetchError } = await supabase
                   .from('profiles')
                   .select('*')
@@ -290,8 +324,8 @@ const App: React.FC = () => {
             {/* All other routes */}
             <Route path="*" element={
               session && profile ? (
-                // Step 1: Check if user has selected a role
-                !profile.role ? (
+                // Step 1: Check if user has confirmed their role (shows even if role is pre-set from signup)
+                !profile.role_confirmed_at ? (
                   <RoleSelection
                     userId={profile.id}
                     profile={profile}

@@ -412,6 +412,11 @@
       "accentColor": "Culoare Accent",
       "darkMode": "Mod Intunecat",
       "fontSize": "Marime Font",
+      "sounds": "Efecte sonore",
+      "soundsOn": "Sunete activate",
+      "soundsOff": "Sunete dezactivate",
+      "soundsOnDesc": "Sunete de feedback pentru jocuri și acțiuni",
+      "soundsOffDesc": "Mod silențios - fără efecte sonore",
       "answerChecking": "Verificare Raspunsuri",
       "smartMode": "Mod Inteligent",
       "strictMode": "Mod Strict",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Aceasta este persoana pe care o vei surprinde cu noile tale abilitati.",
       "tutorSubtitle": "Aceasta este persoana pe care o vei ghida prin {{language}}.",
       "placeholder": "Numele lor"
+    },
+
+    "languageConfirm": {
+      "title": "Confirma limbile tale, {{name}}",
+      "subtitle": "Asigura-te ca drumul tau lingvistic este corect.",
+      "iSpeak": "Vorbesc",
+      "iTeach": "Predau",
+      "iWantToLearn": "Vreau sa invat",
+      "theySpeak": "Vorbeste",
+      "summary": "Invat {{target}} ca vorbitor de {{native}}",
+      "tutorSummary": "Predau {{target}} unui vorbitor de {{native}}"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Saptamanal",
       "monthly": "Lunar",
       "yearly": "Anual",
+      "wk": "sapt",
       "mo": "luna",
       "yr": "an",
+      "weeklyLabel": "Cel mai Flexibil",
+      "monthlyLabel": "Cel mai Popular",
+      "yearlyLabel": "Cel mai bun Angajament",
       "discount": "70% reducere",
       "savePercent": "Economisesti {{percent}}%",
       "perMonth": "/luna",
@@ -1763,7 +1784,8 @@
       "createAccount": "Creează cont",
       "alreadyHaveAccount": "Ai deja un cont? Logheaza-te",
       "newHere": "Esti nou? Creeaza un cont",
-      "checkEmail": "Verifica emailul pentru confirmare!"
+      "checkEmail": "Verifica emailul pentru confirmare!",
+      "continueWithGoogle": "Continuă cu Google"
     },
     "legal": {
       "terms": "Termeni",

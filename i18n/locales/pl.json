@@ -412,6 +412,11 @@
       "accentColor": "Kolor akcentu",
       "darkMode": "Tryb ciemny",
       "fontSize": "Rozmiar czcionki",
+      "sounds": "Efekty dźwiękowe",
+      "soundsOn": "Dźwięki włączone",
+      "soundsOff": "Dźwięki wyłączone",
+      "soundsOnDesc": "Dźwięki zwrotne dla gier i akcji",
+      "soundsOffDesc": "Tryb cichy - bez efektów dźwiękowych",
       "answerChecking": "Sprawdzanie odpowiedzi",
       "smartMode": "Tryb inteligentny",
       "strictMode": "Tryb ścisły",
@@ -573,6 +578,17 @@
       "studentSubtitle": "To osoba, którą zaskoczysz swoimi nowymi umiejętnościami.",
       "tutorSubtitle": "To osoba, którą będziesz prowadzić przez {{language}}.",
       "placeholder": "Jego/Jej imię"
+    },
+
+    "languageConfirm": {
+      "title": "Potwierdź swoje języki, {{name}}",
+      "subtitle": "Upewnij się, że Twoja ścieżka językowa jest prawidłowa.",
+      "iSpeak": "Mówię po",
+      "iTeach": "Uczę",
+      "iWantToLearn": "Chcę się nauczyć",
+      "theySpeak": "Mówi po",
+      "summary": "Nauka {{target}} jako osoba mówiąca po {{native}}",
+      "tutorSummary": "Nauczanie {{target}} osoby mówiącej po {{native}}"
     },
 
     "validation": {
@@ -1212,10 +1228,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Tygodniowy",
       "monthly": "Miesięczny",
       "yearly": "Roczny",
+      "wk": "tydz.",
       "mo": "mies.",
       "yr": "rok",
+      "weeklyLabel": "Najbardziej Elastyczny",
+      "monthlyLabel": "Najpopularniejszy",
+      "yearlyLabel": "Najlepsze Zobowiązanie",
       "discount": "70% zniżki",
       "savePercent": "Oszczędź {{percent}}%",
       "perMonth": "/mies.",
@@ -1770,7 +1791,8 @@
       "createAccount": "Utwórz konto",
       "alreadyHaveAccount": "Masz już konto? Zaloguj się",
       "newHere": "Nowy tutaj? Stwórz konto",
-      "checkEmail": "Sprawdź e-mail po potwierdzenie!"
+      "checkEmail": "Sprawdź e-mail po potwierdzenie!",
+      "continueWithGoogle": "Kontynuuj z Google"
     },
     "legal": {
       "terms": "Regulamin",

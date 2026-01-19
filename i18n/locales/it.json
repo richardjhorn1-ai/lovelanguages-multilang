@@ -412,6 +412,11 @@
       "accentColor": "Colore Accento",
       "darkMode": "Modalità Scura",
       "fontSize": "Dimensione Carattere",
+      "sounds": "Effetti sonori",
+      "soundsOn": "Suoni attivi",
+      "soundsOff": "Suoni disattivati",
+      "soundsOnDesc": "Suoni di feedback per giochi e azioni",
+      "soundsOffDesc": "Modalità silenziosa - nessun effetto sonoro",
       "answerChecking": "Verifica Risposte",
       "smartMode": "Modalità Intelligente",
       "strictMode": "Modalità Rigorosa",
@@ -573,6 +578,17 @@
       "studentSubtitle": "È la persona che sorprenderai con le tue nuove abilità.",
       "tutorSubtitle": "È la persona che guiderai attraverso il {{language}}.",
       "placeholder": "Il suo nome"
+    },
+
+    "languageConfirm": {
+      "title": "Conferma le tue lingue, {{name}}",
+      "subtitle": "Assicurati che il tuo percorso linguistico sia corretto.",
+      "iSpeak": "Parlo",
+      "iTeach": "Insegno",
+      "iWantToLearn": "Voglio imparare",
+      "theySpeak": "Parla",
+      "summary": "Sto imparando {{target}} come parlante {{native}}",
+      "tutorSummary": "Sto insegnando {{target}} a un parlante {{native}}"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Settimanale",
       "monthly": "Mensile",
       "yearly": "Annuale",
+      "wk": "sett",
       "mo": "mese",
       "yr": "anno",
+      "weeklyLabel": "Più Flessibile",
+      "monthlyLabel": "Più Popolare",
+      "yearlyLabel": "Miglior Impegno",
       "discount": "70% di sconto",
       "savePercent": "Risparmia {{percent}}%",
       "perMonth": "/mese",
@@ -1763,7 +1784,8 @@
       "createAccount": "Crea account",
       "alreadyHaveAccount": "Hai già un account? Accedi",
       "newHere": "Nuovo/a qui? Crea un account",
-      "checkEmail": "Controlla la tua email per la conferma!"
+      "checkEmail": "Controlla la tua email per la conferma!",
+      "continueWithGoogle": "Continua con Google"
     },
     "legal": {
       "terms": "Termini",

@@ -412,6 +412,11 @@
       "accentColor": "Колір акценту",
       "darkMode": "Темний режим",
       "fontSize": "Розмір шрифту",
+      "sounds": "Звукові ефекти",
+      "soundsOn": "Звуки увімкнено",
+      "soundsOff": "Звуки вимкнено",
+      "soundsOnDesc": "Звуки зворотного зв'язку для ігор та дій",
+      "soundsOffDesc": "Тихий режим - без звукових ефектів",
       "answerChecking": "Перевірка відповідей",
       "smartMode": "Розумний режим",
       "strictMode": "Суворий режим",
@@ -573,6 +578,17 @@
       "studentSubtitle": "Це той, кого ти здивуєш своїми новими навичками.",
       "tutorSubtitle": "Це той, кого ти проводитимеш через {{language}}.",
       "placeholder": "Їхнє ім'я"
+    },
+
+    "languageConfirm": {
+      "title": "Підтверди свої мови, {{name}}",
+      "subtitle": "Переконайся, що твій мовний шлях правильний.",
+      "iSpeak": "Я розмовляю",
+      "iTeach": "Я викладаю",
+      "iWantToLearn": "Хочу вивчити",
+      "theySpeak": "Розмовляє",
+      "summary": "Вивчаю {{target}} як носій {{native}}",
+      "tutorSummary": "Викладаю {{target}} носію {{native}}"
     },
 
     "validation": {
@@ -1205,10 +1221,15 @@
 
   "subscription": {
     "common": {
+      "weekly": "Щотижня",
       "monthly": "Щомісяця",
       "yearly": "Щороку",
+      "wk": "тиж.",
       "mo": "міс.",
       "yr": "рік",
+      "weeklyLabel": "Найгнучкіший",
+      "monthlyLabel": "Найпопулярніший",
+      "yearlyLabel": "Найкраще Зобов'язання",
       "discount": "70% знижка",
       "savePercent": "Збережи {{percent}}%",
       "perMonth": "/міс.",
@@ -1763,7 +1784,8 @@
       "createAccount": "Створити акаунт",
       "alreadyHaveAccount": "Вже маєш акаунт? Увійди",
       "newHere": "Тут вперше? Створи акаунт",
-      "checkEmail": "Перевір пошту для підтвердження!"
+      "checkEmail": "Перевір пошту для підтвердження!",
+      "continueWithGoogle": "Продовжити з Google"
     },
     "legal": {
       "terms": "Умови",
