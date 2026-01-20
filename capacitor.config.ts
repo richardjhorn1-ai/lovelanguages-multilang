@@ -6,8 +6,8 @@ const config: CapacitorConfig = {
   webDir: 'dist',
   server: {
     // Load from production server so APIs work
-    // For local dev, comment this out and run `vercel dev`
-    url: 'https://lovelanguages.io',
+    // Use www. to avoid redirect which triggers Safari
+    url: 'https://www.lovelanguages.io',
     cleartext: false
   },
   ios: {
@@ -16,7 +16,9 @@ const config: CapacitorConfig = {
     // Scroll view configuration
     scrollEnabled: true,
     // Disable link previews (3D touch)
-    allowsLinkPreview: false
+    allowsLinkPreview: false,
+    // Keep navigation within WKWebView for app-bound domains
+    limitsNavigationsToAppBoundDomains: true
   }
 };
 

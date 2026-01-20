@@ -1897,6 +1897,35 @@ const Hero: React.FC = () => {
   const sheetDragStart = useRef<{ y: number; expanded: boolean } | null>(null);
   const bottomSheetRef = useRef<HTMLDivElement>(null);
 
+  // Touch direction detection for bottom sections (FAQ, RALL, Blog)
+  // Allows horizontal swipes to pass through to parent carousel
+  const bottomSectionTouchStart = useRef<{ x: number; y: number; decided: boolean } | null>(null);
+
+  const handleBottomSectionTouchStart = (e: React.TouchEvent) => {
+    bottomSectionTouchStart.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+      decided: false
+    };
+  };
+
+  const handleBottomSectionTouchMove = (e: React.TouchEvent) => {
+    if (!bottomSectionTouchStart.current || bottomSectionTouchStart.current.decided) return;
+
+    const deltaX = Math.abs(e.touches[0].clientX - bottomSectionTouchStart.current.x);
+    const deltaY = Math.abs(e.touches[0].clientY - bottomSectionTouchStart.current.y);
+
+    // Need at least 10px movement to decide direction
+    if (deltaX < 10 && deltaY < 10) return;
+
+    bottomSectionTouchStart.current.decided = true;
+
+    // If horizontal movement is greater, prevent default to allow carousel swipe
+    if (deltaX > deltaY) {
+      e.preventDefault();
+    }
+  };
+
   // Bottom sheet touch handlers
   const handleSheetTouchStart = (e: React.TouchEvent) => {
     sheetDragStart.current = {
@@ -2485,7 +2514,12 @@ const Hero: React.FC = () => {
                   className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
+                  <div
+                    className="flex-1 overflow-y-auto overflow-x-hidden"
+                    style={{ WebkitOverflowScrolling: 'touch' }}
+                    onTouchStart={handleBottomSectionTouchStart}
+                    onTouchMove={handleBottomSectionTouchMove}
+                  >
                     <HeroFAQ isStudent={isStudent} sectionIndex={6} isVisible={true} />
                   </div>
                 </div>
@@ -2494,7 +2528,12 @@ const Hero: React.FC = () => {
                   className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
+                  <div
+                    className="flex-1 overflow-y-auto overflow-x-hidden"
+                    style={{ WebkitOverflowScrolling: 'touch' }}
+                    onTouchStart={handleBottomSectionTouchStart}
+                    onTouchMove={handleBottomSectionTouchMove}
+                  >
                     <HeroRALL isStudent={isStudent} sectionIndex={7} isVisible={true} />
                   </div>
                 </div>
@@ -2503,7 +2542,12 @@ const Hero: React.FC = () => {
                   className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
+                  <div
+                    className="flex-1 overflow-y-auto overflow-x-hidden"
+                    style={{ WebkitOverflowScrolling: 'touch' }}
+                    onTouchStart={handleBottomSectionTouchStart}
+                    onTouchMove={handleBottomSectionTouchMove}
+                  >
                     <HeroBlog isStudent={isStudent} sectionIndex={8} isVisible={true} />
                     <HeroFooter isStudent={isStudent} sectionIndex={9} isVisible={true} />
                   </div>
