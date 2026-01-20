@@ -472,7 +472,6 @@
     "search": "Buscar...",
     "searchWords": "Buscar palabras...",
     "wordsCount": "{{count}} palabras",
-
     "sync": {
       "scanChats": "Escanear Chats",
       "scanTooltip": "Escanear historial de chat para nuevo vocabulario",
@@ -483,7 +482,6 @@
       "newWords_other": "¡+{{count}} palabras nuevas!",
       "syncError": "Error de sincronización"
     },
-
     "filters": {
       "all": "Todas",
       "noun": "Sustantivo",
@@ -494,7 +492,6 @@
       "gifts": "Regalos",
       "clear": "Limpiar"
     },
-
     "card": {
       "gift": "Regalo",
       "giftFrom": "Regalo de {{name}}",
@@ -507,7 +504,6 @@
       "conjugations": "Conjugaciones",
       "forms": "Formas"
     },
-
     "modal": {
       "present": "Presente",
       "past": "Pasado",
@@ -516,7 +512,6 @@
       "unlockTense": "Desbloquear Tiempo {{tense}}",
       "unlocked": "Desbloqueado {{date}}"
     },
-
     "unlock": {
       "title": "¿Desbloquear Tiempo {{tense}}?",
       "descriptionBefore": "¿Listo para aprender cómo decir",
@@ -526,7 +521,6 @@
       "unlockNow": "Desbloquear Ahora",
       "unlocking": "Desbloqueando..."
     },
-
     "pronouns": {
       "singular1": "(yo)",
       "singular2": "(tú)",
@@ -535,19 +529,16 @@
       "plural2": "(vosotros)",
       "plural3": "(ellos)"
     },
-
     "tableHeaders": {
       "person": "Persona",
       "masculine": "Masc.",
       "feminine": "Fem."
     },
-
     "nounForms": {
       "gender": "Género",
       "singular": "Singular",
       "plural": "Plural"
     },
-
     "adjectiveForms": {
       "title": "Formas de Género",
       "masculine": "Masculino",
@@ -556,7 +547,6 @@
       "plural": "Plural"
     }
   },
-
   "onboarding": {
     "step": {
       "back": "Atrás",
@@ -565,13 +555,11 @@
       "continue": "Continuar",
       "skipForNow": "Saltar por ahora"
     },
-
     "name": {
       "title": "¿Cómo debería llamarte Cupid?",
       "subtitle": "Tu nombre ayuda a hacer este viaje personal.",
       "placeholder": "Tu nombre"
     },
-
     "partnerName": {
       "studentTitle": "¿Para quién estás aprendiendo {{language}}, {{name}}?",
       "tutorTitle": "¿A quién estás ayudando a aprender {{language}}, {{name}}?",
@@ -579,7 +567,6 @@
       "tutorSubtitle": "Esta es la persona que guiarás a través de {{language}}.",
       "placeholder": "Su nombre"
     },
-
     "languageConfirm": {
       "title": "Confirma tus idiomas, {{name}}",
       "subtitle": "Asegúrate de que tu camino de aprendizaje sea correcto.",
@@ -590,7 +577,6 @@
       "summary": "Aprendiendo {{target}} como hablante de {{native}}",
       "tutorSummary": "Enseñando {{target}} a un hablante de {{native}}"
     },
-
     "validation": {
       "title": "¿Cómo deberíamos verificar tus respuestas?",
       "subtitle": "Elige qué tan indulgente debería ser la app al calificar.",
@@ -614,7 +600,6 @@
         "detail4": "Experiencia tradicional de tarjetas"
       }
     },
-
     "plan": {
       "title": "Elige tu plan, {{name}}",
       "subtitle": "Comienza tu viaje de aprendizaje de {{language}} hoy",
@@ -648,7 +633,6 @@
         "feature5": "Pase regalo para otra pareja (anual)"
       }
     },
-
     "student": {
       "start": {
         "title": "¿Listo para empezar, {{name}}?",
@@ -660,7 +644,6 @@
         "feature4": "Seguimiento de progreso y tests de nivel",
         "button": "¡Vamos! 🚀"
       },
-
       "vibe": {
         "title": "Una palabra para tu relación con {{name}}",
         "subtitle": "Elige la vibra que se sienta más verdadera.",
@@ -671,7 +654,6 @@
         "longDistance": "A distancia",
         "newLove": "Amor nuevo"
       },
-
       "time": {
         "title": "¿Cuánto tiempo puedes dedicar diariamente?",
         "subtitle": "Incluso pequeños momentos suman grandes progresos.",
@@ -682,7 +664,6 @@
         "walk": "Un paseo largo",
         "walkDesc": "20+ minutos"
       },
-
       "when": {
         "title": "¿Cuándo prefieres practicar?",
         "subtitle": "Te recordaremos en el momento perfecto.",
@@ -691,19 +672,16 @@
         "evening": "Noche",
         "whenever": "Cuando sea"
       },
-
       "photo": {
         "title": "Añade tu foto",
         "subtitleWithPhoto": "¡Te ves genial! Esto aparecerá en tu perfil.",
         "subtitleNoPhoto": "Una foto ayuda a que tu perfil se sienta más personal."
       },
-
       "why": {
         "title": "¿Por qué quieres aprender {{language}} para {{name}}?",
         "subtitle": "Esto se convierte en tu recordatorio personal en tu viaje.",
         "placeholder": "Quiero sorprenderles cuando visitemos a su familia... Quiero susurrarles cosas dulces... Quiero entender su mundo..."
       },
-
       "fear": {
         "title": "¿Cuál es tu mayor miedo sobre aprender {{language}}?",
         "subtitle": "Todos tienen uno. Enfrentemos el tuyo juntos.",
@@ -716,14 +694,12 @@
         "forgetting": "Olvidar todo",
         "forgettingDesc": "Aprender pero no retener"
       },
-
       "prior": {
         "title": "¿Has intentado aprender {{language}} antes?",
         "subtitle": "Esto nos ayuda a empezar en el lugar correcto.",
         "yes": "Sí, un poco",
         "beginner": "Principiante total"
       },
-
       "goal": {
         "title": "¿Cuál es tu primera meta?",
         "subtitle": "Un objetivo para trabajar con {{name}}",
@@ -733,7 +709,6 @@
         "custom": "Establecer mi propia meta",
         "customPlaceholder": "ej., \"Pedir en {{language}} en su restaurante favorito\""
       },
-
       "learnHello": {
         "title": "¡Aprendamos tu primera palabra!",
         "subtitle": "Saluda a {{name}} en {{language}}",
@@ -742,7 +717,6 @@
         "gotIt": "¡Lo tengo!",
         "listenFirst": "Escucha primero"
       },
-
       "learnLove": {
         "title": "Ahora, la frase más importante...",
         "subtitle": "La que {{name}} nunca olvidará",
@@ -752,7 +726,6 @@
         "ready": "¡Estoy listo!",
         "listenFirst": "Escucha primero"
       },
-
       "tryIt": {
         "title": "¡Intenta decirlo!",
         "subtitle": "No te preocupes, solo tú puedes escucharte.",
@@ -760,7 +733,6 @@
         "success": "¡Increíble! ¡Lo dijiste! 🎉",
         "practiceLater": "Practicaré después"
       },
-
       "celebration": {
         "title": "¡Lo lograste!",
         "subtitle": "¡Acabas de aprender tu primer {{language}}!",
@@ -771,7 +743,6 @@
         "keepGoing": "¡Sigue adelante!"
       }
     },
-
     "tutor": {
       "start": {
         "title": "¿Listo para ser el guía de {{learnerName}}, {{userName}}?",
@@ -783,7 +754,6 @@
         "feature4": "Vincula cuentas para ver su viaje",
         "button": "¡Empezar a ayudar a {{learnerName}}! 🎯"
       },
-
       "relation": {
         "title": "¿Cuál es tu relación con {{name}}?",
         "subtitle": "Esto nos ayuda a personalizar tu experiencia de enseñanza",
@@ -792,7 +762,6 @@
         "friend": "Amigo/a",
         "family": "Familia"
       },
-
       "connection": {
         "title": "¿Cuál es tu conexión con {{language}}?",
         "subtitle": "Ayúdanos a entender tu trasfondo lingüístico",
@@ -805,7 +774,6 @@
         "bilingual": "Bilingüe",
         "bilingualDesc": "Creció hablando {{language}} y otro idioma"
       },
-
       "origin": {
         "title": "¿Cómo aprendiste {{language}}?",
         "subtitle": "Tu viaje nos ayuda a sugerir enfoques de enseñanza",
@@ -814,14 +782,12 @@
         "school": "Estudié formalmente",
         "self": "Autodidacta"
       },
-
       "dreamPhrase": {
         "title": "Momento soñado 💭",
         "subtitle": "¿Qué es lo primero que quieres escuchar a {{name}} decir en {{language}}?",
         "placeholder": "ej., \"Te quiero\" o \"Buenos días\"",
         "note": "Esto se convierte en tu primera meta de enseñanza juntos"
       },
-
       "style": {
         "title": "¿Tu estilo de enseñanza?",
         "subtitle": "¿Cómo ayudas naturalmente a alguien a aprender?",
@@ -834,7 +800,6 @@
         "immersive": "Inmersivo",
         "immersiveDesc": "Zambullirse y aprender haciendo"
       },
-
       "preview": {
         "title": "Tu kit de herramientas de enseñanza",
         "subtitle": "Esto es lo que puedes hacer por {{name}}",
@@ -848,7 +813,6 @@
       }
     }
   },
-
   "levelTest": {
     "preparing": "Preparando Tu Test",
     "generatingQuestions": "Generando preguntas basadas en tu nivel...",
@@ -881,7 +845,6 @@
     "submitTest": "Enviar Test",
     "next": "Siguiente"
   },
-
   "tutorGames": {
     "playTogether": "Jugar Juntos",
     "sendChallenge": "Enviar Desafío",
@@ -889,7 +852,6 @@
     "sendDescription": "Envía desafíos para que {{name}} complete después",
     "playDescription": "Practica juntos ahora mismo",
     "startNow": "Empezar Ahora",
-
     "local": {
       "quiz": "Quiz a {{name}}",
       "quizDesc": "Quiz de tarjetas juntos",
@@ -901,7 +863,6 @@
       "typeItDesc": "Escribe la traducción",
       "needWords": "{{name}} necesita al menos 4 palabras en su vocabulario para jugar"
     },
-
     "send": {
       "doYouRemember": "¿Recuerdas?",
       "quizPartner": "Haz un quiz a {{name}} sobre su vocabulario",
@@ -913,14 +874,12 @@
       "sendWords": "Envía palabras para que {{name}} aprenda",
       "sendGift": "Enviar Regalo"
     },
-
     "pending": {
       "waitingFor": "Esperando a {{name}}",
       "words": "{{count}} palabras",
       "sent": "Enviado {{date}}",
       "pending": "Pendiente"
     },
-
     "gifts": {
       "title": "Regalos de Palabras Enviados",
       "word": "{{count}} palabra",
@@ -929,17 +888,14 @@
       "custom": "Palabras personalizadas",
       "xpMultiplier": "{{multiplier}}x XP"
     },
-
     "results": {
       "title": "Resultados Recientes",
       "completed": "Completado {{date}}"
     },
-
     "empty": {
       "noChallenges": "Sin desafíos aún",
       "createFirst": "¡Crea tu primer desafío para {{name}}!"
     },
-
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
@@ -947,11 +903,9 @@
       "hard": "Difícil",
       "gotIt": "¡Lo tengo!"
     },
-
     "direction": {
       "label": "{{target}} → {{native}}"
     },
-
     "quickFireGame": {
       "title": "¡Rápido!",
       "description": "¡Traduce tantas palabras como puedas en 60 segundos!",
@@ -959,7 +913,6 @@
       "start": "¡Empezar!",
       "typeTranslation": "Escribe la traducción..."
     },
-
     "typeItGame": {
       "correct": "¡Correcto!",
       "notQuite": "No exactamente",
@@ -968,7 +921,6 @@
       "next": "Siguiente",
       "check": "Verificar"
     },
-
     "gameOver": {
       "greatJob": "¡Buen Trabajo!",
       "keepPracticing": "¡Sigue Practicando!",
@@ -982,7 +934,6 @@
       "done": "Listo",
       "playAgain": "Jugar de Nuevo"
     },
-
     "saveDialog": {
       "title": "¿Guardar en Progreso de {{name}}?",
       "howItWorks": "Cómo funciona:",
@@ -995,7 +946,6 @@
       "save": "Guardar"
     }
   },
-
   "gameResults": {
     "greatJob": "¡Buen Trabajo!",
     "sessionResults": "Resultados de la sesión:",
@@ -1006,7 +956,6 @@
     "done": "Listo",
     "playAgain": "Jugar de Nuevo"
   },
-
   "conversationPractice": {
     "states": {
       "listening": "Escuchando...",
@@ -1022,7 +971,6 @@
     "aiSpeaking": "La IA está hablando...",
     "conversationEnded": "Conversación terminada"
   },
-
   "scenarioSelector": {
     "title": "Práctica de Conversación",
     "subtitle": "Elige un escenario",
@@ -1033,14 +981,38 @@
       "advanced": "avanzado"
     },
     "scenarios": {
-      "cafe": { "name": "En la Cafetería", "description": "Pedir café y un aperitivo" },
-      "restaurant": { "name": "Cena en Restaurante", "description": "Pedir comida y recomendaciones" },
-      "market": { "name": "En el Mercado", "description": "Comprar frutas y verduras" },
-      "taxi": { "name": "Viaje en Taxi", "description": "Dar direcciones y charlar con el conductor" },
-      "pharmacy": { "name": "En la Farmacia", "description": "Pedir medicamentos y describir síntomas" },
-      "hotel": { "name": "Check-in en Hotel", "description": "Registrarse y preguntar sobre servicios" },
-      "family_dinner": { "name": "Cena Familiar", "description": "Conocer a los padres de tu pareja" },
-      "train_station": { "name": "Estación de Tren", "description": "Comprar billetes y consultar horarios" }
+      "cafe": {
+        "name": "En la Cafetería",
+        "description": "Pedir café y un aperitivo"
+      },
+      "restaurant": {
+        "name": "Cena en Restaurante",
+        "description": "Pedir comida y recomendaciones"
+      },
+      "market": {
+        "name": "En el Mercado",
+        "description": "Comprar frutas y verduras"
+      },
+      "taxi": {
+        "name": "Viaje en Taxi",
+        "description": "Dar direcciones y charlar con el conductor"
+      },
+      "pharmacy": {
+        "name": "En la Farmacia",
+        "description": "Pedir medicamentos y describir síntomas"
+      },
+      "hotel": {
+        "name": "Check-in en Hotel",
+        "description": "Registrarse y preguntar sobre servicios"
+      },
+      "family_dinner": {
+        "name": "Cena Familiar",
+        "description": "Conocer a los padres de tu pareja"
+      },
+      "train_station": {
+        "name": "Estación de Tren",
+        "description": "Comprar billetes y consultar horarios"
+      }
     },
     "createOwn": "Crea el Tuyo",
     "createOwnDesc": "Describe cualquier escenario que quieras practicar",
@@ -1053,7 +1025,6 @@
     "footerInfo": "La IA hablará en {{targetLanguage}} por defecto. Si tienes dificultades, te ayudará en {{nativeLanguage}}.",
     "customPersona": "Eres una persona amigable de {{language}} ayudando a alguien a practicar {{language}}. Eres paciente, alentador, y ajustas tu lenguaje a su nivel."
   },
-
   "challengeCreator": {
     "common": {
       "addNewWords": "Añadir Nuevas Palabras",
@@ -1073,7 +1044,6 @@
       "failedCreateChallenge": "Error al crear desafío",
       "needMinWords": "¡Se necesitan al menos 5 palabras para el desafío!"
     },
-
     "quiz": {
       "title": "Crear Quiz",
       "subtitle": "Selecciona palabras para que {{name}} practique",
@@ -1091,7 +1061,6 @@
       "noWordsYet": "¡{{name}} no ha aprendido ninguna palabra aún!",
       "addWordsToStart": "Añade nuevas palabras arriba para empezar."
     },
-
     "quickFire": {
       "title": "Rápido",
       "subtitle": "Desafío cronometrado para {{name}}",
@@ -1123,7 +1092,6 @@
       "averageTime": "Promedio: {{time}}s por palabra",
       "needMoreWords": "¡Se necesitan al menos 5 palabras en total para crear un desafío!"
     },
-
     "lovePackage": {
       "title": "Paquete de Amor",
       "subtitle": "Envía palabras a {{name}}",
@@ -1137,7 +1105,6 @@
       "alreadyInLoveLog": "\"{{word}}\" ya está en el Love Log de {{name}}!"
     }
   },
-
   "challengePlayer": {
     "common": {
       "later": "Después",
@@ -1146,7 +1113,6 @@
       "showDetails": "Mostrar detalles ({{count}})",
       "xpEarned": "¡+{{xp}} XP ganados!"
     },
-
     "results": {
       "perfect": "¡Perfecto!",
       "perfectScore": "¡Puntuación Perfecta!",
@@ -1154,7 +1120,6 @@
       "greatJob": "¡Buen Trabajo!",
       "keepPracticing": "¡Sigue Practicando!"
     },
-
     "quiz": {
       "startDescription": "¡{{name}} quiere hacerte un quiz sobre {{count}} palabras!",
       "startInstructions": "Responde preguntas sobre palabras en {{language}} que has aprendido. ¡Acértalas para construir tu racha!",
@@ -1177,7 +1142,6 @@
         "submit": "Enviar"
       }
     },
-
     "quickFire": {
       "title": "¡Rápido!",
       "startDescription": "¡{{name}} te desafía a traducir {{count}} palabras en {{time}} segundos!",
@@ -1195,7 +1159,6 @@
       "typePlaceholder": "Escribe la traducción..."
     }
   },
-
   "roleSelection": {
     "loading": "Preparando todo...",
     "confirmSettings": "Confirma tu Configuración",
@@ -1225,7 +1188,6 @@
     "letsGo": "¡Ese soy yo! Vamos",
     "chooseRole": "Elige tu rol para continuar"
   },
-
   "subscription": {
     "common": {
       "weekly": "Semanal",
@@ -1254,13 +1216,11 @@
       "friend": "Amigo",
       "copy": "Copiar"
     },
-
     "plans": {
       "standard": "Estándar",
       "unlimited": "Ilimitado",
       "none": "Ninguno"
     },
-
     "features": {
       "wordsLimit": "{{limit}} palabras en Love Log",
       "unlimitedWords": "Palabras ilimitadas",
@@ -1275,7 +1235,6 @@
       "giftPass": "Pase regalo para otra pareja (anual)",
       "unlimitedEverything": "Todo ilimitado"
     },
-
     "manager": {
       "couplePass": "Pase de Pareja",
       "freeAccess": "Acceso gratuito de {{name}}",
@@ -1295,7 +1254,6 @@
       "manageSubscription": "Gestionar Suscripción",
       "continueToManage": "Continuar para Gestionar"
     },
-
     "required": {
       "title": "¡Un paso más, {{name}}!",
       "subtitle": "Completa tu suscripción para empezar a aprender {{language}} juntos",
@@ -1305,7 +1263,6 @@
       "logoutOption": "Cerrar sesión y usar otra cuenta",
       "signOutOption": "Cerrar sesión y usar otra cuenta"
     },
-
     "pricing": {
       "title": "Aprende {{language}} por Amor",
       "subtitle": "Elige el plan que se ajuste a tu viaje de aprendizaje",
@@ -1335,7 +1292,6 @@
       "questionsEmail": "¿Preguntas? Escríbenos a",
       "copy": "Copiar"
     },
-
     "errors": {
       "loginRequired": "Por favor inicia sesión para suscribirte",
       "loginAgain": "Por favor inicia sesión de nuevo",
@@ -1346,7 +1302,6 @@
       "somethingWrong": "Algo salió mal"
     }
   },
-
   "pendingChallenges": {
     "yourPartner": "Tu Pareja",
     "sentYouSomething": "¡{{name}} te envió algo!",
@@ -1363,7 +1318,6 @@
     "learn": "Aprender",
     "xpBonus": "{{multiplier}}x bonus de XP"
   },
-
   "invite": {
     "title": "Invita a Tu Pareja",
     "subtitle": "¡Tu suscripción incluye acceso gratuito para tu pareja!",
@@ -1380,7 +1334,6 @@
     "generateButton": "Generar Enlace de Invitación",
     "generating": "Generando..."
   },
-
   "helpGuide": {
     "title": "Tu Guía",
     "subtitle": "Love Languages",
@@ -1466,7 +1419,6 @@
       "forgetAnswer": "Juega juegos - automáticamente resurgen las palabras con las que tienes dificultades. La repetición espaciada ayuda a fijarlas."
     }
   },
-
   "bugReport": {
     "title": "Reportar un Error",
     "subtitle": "Ayúdanos a mejorar Love Languages",
@@ -1500,7 +1452,6 @@
       "close": "Cerrar"
     }
   },
-
   "wordGift": {
     "intro": {
       "title": "¡Regalo de {{name}}!",
@@ -1540,7 +1491,6 @@
       "network": "Error de red. Por favor verifica tu conexión e intenta de nuevo."
     }
   },
-
   "chatSuggestions": {
     "student": {
       "askTitle": "Pregunta a Cupid lo que quieras",
@@ -1574,13 +1524,11 @@
       }
     }
   },
-
   "newWords": {
     "added": "{{count}} palabra nueva añadida",
     "added_other": "{{count}} palabras nuevas añadidas",
     "viewAll": "Ver todas en Love Log"
   },
-
   "avatar": {
     "clickToUpload": "Clic para subir",
     "clickToChange": "Clic para cambiar",
@@ -1597,7 +1545,6 @@
       "uploadFailed": "Error al subir la imagen"
     }
   },
-
   "joinInvite": {
     "validating": "Validando invitación...",
     "invalidInvite": "Invitación Inválida",
@@ -1624,7 +1571,6 @@
     "checkEmail": "¡Revisa tu correo para confirmación, luego inicia sesión!",
     "yourPartner": "Tu pareja"
   },
-
   "gameHistory": {
     "loading": "Cargando...",
     "noHistory": "Sin historial de juegos aún",
@@ -1646,7 +1592,6 @@
     "practiceWords": "Practicar Estas {{count}} Palabras",
     "perfectScore": "¡Puntuación perfecta! Sin palabras falladas."
   },
-
   "usage": {
     "title": "Uso Mensual",
     "unlimitedPlan": "Plan Ilimitado",
@@ -1660,7 +1605,6 @@
     "upgradePrompt": "¿Te estás quedando sin espacio? ¡Actualiza a Ilimitado para sin límites!",
     "resetsMonthly": "El uso se reinicia el 1ro de cada mes"
   },
-
   "inviteLink": {
     "title": "Enlace Mágico de Invitación",
     "subtitle": "Comparte con tu pareja para conectar al instante",
@@ -1675,7 +1619,6 @@
     "newLink": "Nuevo Enlace",
     "description": "Cuando tu pareja haga clic en este enlace, ¡será invitado a unirse como tu coach de idiomas!"
   },
-
   "breakup": {
     "warning": {
       "title": "¿Terminar tu viaje de aprendizaje juntos?",
@@ -1702,7 +1645,6 @@
       "messageGrantee": "Cuídate. Necesitarás tu propia suscripción para seguir aprendiendo."
     }
   },
-
   "gameShowcase": {
     "studentHeadline": {
       "part1": "Ah, y si quieres aprender ",
@@ -1728,13 +1670,11 @@
       "quick": "Rápido"
     }
   },
-
   "demoFlashcard": {
     "tapToReveal": "Toca para revelar",
     "hard": "Difícil",
     "gotIt": "¡Lo tengo!"
   },
-
   "demoTypeIt": {
     "correct": "¡Correcto!",
     "notQuite": "No exactamente",
@@ -1743,7 +1683,6 @@
     "next": "Siguiente",
     "check": "Verificar"
   },
-
   "demoQuickFire": {
     "title": "¡Rápido!",
     "instructions": "¡Escribe traducciones lo más rápido que puedas!",
@@ -1755,7 +1694,6 @@
     "keepPracticing": "¡Sigue practicando!",
     "timesUp": "¡Se acabó el tiempo!"
   },
-
   "hero": {
     "languageSelector": {
       "nativePrompt": "Yo hablo...",
@@ -1800,139 +1738,212 @@
       "privacy": "Privacidad",
       "privacyPolicy": "Política de Privacidad"
     },
+    "shared": {
+      "section0": {
+        "headline": "Aprender idiomas empieza con amor.",
+        "highlight1": "amor",
+        "copy": "Basado en el Aprendizaje de Idiomas Centrado en la Relacion (RALL), Love Languages ayuda a las parejas a superar la barrera del idioma—una palabra significativa a la vez.",
+        "copyHighlight1": "RALL",
+        "copyHighlight2": "parejas",
+        "copyHighlight3": "significativa",
+        "underline": "Aprendizaje de Idiomas Centrado en la Relacion"
+      },
+      "context0": {
+        "header": "Aprende con amor",
+        "cta": "Empezar",
+        "subtext": "El aprendizaje de idiomas reinventado para parejas."
+      }
+    },
     "student": {
       "section1": {
-        "headline": "Olvida lo aburrido. Aprende las palabras que importan. Las que les hacen sonreír.",
-        "highlight1": "palabras que importan",
-        "highlight2": "les hacen sonreír",
-        "subhead": "Las que solo usan con la gente que aman.",
-        "copy": "Sus chistes internos. Sus frases familiares. La forma en que dicen 'te quiero' cuando nadie escucha.",
-        "copyHighlight1": "chistes internos",
-        "copyHighlight2": "frases familiares",
-        "copyHighlight3": "te quiero",
-        "underline": "La forma en que dicen 'te quiero' cuando nadie escucha"
+        "headline": "Aprende las palabras dulces, las picantes, y todo lo que hay en medio.",
+        "highlight1": "palabras dulces",
+        "highlight2": "las picantes",
+        "highlight3": "todo lo que hay en medio",
+        "copy": "Cada palabra que te enseñan se guarda automáticamente en tu Love Log. Palabras reales de tu relación real—no de un libro de texto."
       },
       "section2": {
-        "headline": "Hay una conversación de la que no eres parte. Todavía.",
-        "highlight1": "Todavía",
-        "copy": "Los chistes que sonríes sin entender. Las historias familiares que pierden algo en la traducción. Es hora de realmente entenderlo.",
-        "copyHighlight1": "historias familiares",
-        "copyHighlight2": "realmente entenderlo",
-        "underline": "Es hora de realmente entenderlo"
+        "headline": "Todos se ríen. Tú sigues traduciendo.",
+        "highlight1": "se ríen",
+        "highlight2": "traduciendo",
+        "copy": "El Modo Escucha capta cada palabra que te perdiste. Repásalas después de cenar. La próxima vez, estarás en el ajo."
       },
       "section3": {
-        "headline": "No estás aprendiendo un idioma. Les estás aprendiendo a ellos.",
-        "highlight1": "aprendiendo a ellos",
-        "copy": "Sus palabras. Sus chistes. Su forma de molestarte con cariño. Hecho para gente que lo hace por amor, no por notas.",
-        "copyHighlight1": "Sus palabras",
-        "copyHighlight2": "Sus chistes",
-        "copyHighlight3": "amor",
-        "underline": "Hecho para gente que lo hace por amor"
+        "headline": "Dentro de seis meses: tu primera conversación de verdad.",
+        "highlight1": "primera conversación de verdad",
+        "copy": "Íntima. Sin interrupciones. En su idioma. Con su ayuda, lo lograrás."
       },
       "section4": {
-        "headline": "Aprender su idioma = coquetear con pasos extra.",
-        "highlight1": "coquetear",
-        "copy": "Esto no es la escuela. No hay examen. Solo tú, presentándote para ellos de una manera completamente nueva. Bastante romántico, la verdad.",
-        "copyHighlight1": "presentándote para ellos",
-        "copyHighlight2": "romántico",
-        "underline": "Bastante romántico, la verdad"
+        "headline": "Están al otro lado. Deja que te lleven.",
+        "highlight1": "te lleven",
+        "copy": "Tu pareja elige las palabras. Tú las aprendes. En algún momento entre los quizzes y el coqueteo, dejas de ser un invitado en su mundo."
       },
-      "section5": {
-        "headline": "¿El momento en que haces reír a su familia? Perfección.",
-        "highlight1": "haces reír a su familia",
-        "highlight2": "Perfección",
-        "copy": "La primera vez que realmente entiendes el chiste. El primer 'te quiero' en su idioma que suena perfecto. El momento en que su mamá empieza a hablarte directamente en su idioma. Está llegando.",
-        "copyHighlight1": "te quiero",
-        "copyHighlight2": "mamá",
-        "copyHighlight3": "Está llegando",
-        "underline": "Está llegando"
+      "context1": {
+        "header": "Las de verdad",
+        "cta": "Empezar a aprender",
+        "subtext": "No frases de libro."
       },
-      "section6": {
-        "headline": "Aprende juntos. Ama juntos. Ríe juntos.",
-        "highlight1": "juntos",
-        "highlight2": "Ama",
-        "highlight3": "Ríe",
-        "copy": "Te enviarán palabras que importan. Te desafiarán a juegos. Se burlarán de tu pronunciación (con cariño). Esto no es estudiar solo—es construir su propio mundito juntos.",
-        "copyHighlight1": "palabras que importan",
-        "copyHighlight2": "su propio mundito",
-        "underline": "construir su propio mundito juntos"
+      "context2": {
+        "header": "Basta de risas falsas",
+        "cta": "Empezar a aprender",
+        "subtext": "Por fin entiende el chiste."
       },
-      "context1": { "header": "¿Listo para conectar más profundamente?", "cta": "Empezar a aprender", "subtext": "2 minutos para tu primera palabra." },
-      "context2": { "header": "Te cubrimos", "cta": "Empezar a aprender", "subtext": "No más risas falsas." },
-      "context3": { "header": "Hecho para amantes", "cta": "Comienza tu viaje", "subtext": "No turistas. Familia." },
-      "context4": { "header": "Juega a tu manera", "cta": "Explorar juegos", "subtext": "Tarjetas, desafíos y más." },
-      "context5": { "header": "Que cuente", "cta": "Comienza tu viaje", "subtext": "Cada palabra importa." },
-      "context6": { "header": "Hazlo realidad", "cta": "Empezar ahora", "subtext": "Ese momento está llegando." },
-      "context7": { "header": "Empiecen juntos", "cta": "Crea tu mundo", "subtext": "Te están esperando." }
+      "context3": {
+        "header": "Estar de verdad",
+        "cta": "Empezar",
+        "subtext": "Esta vez de verdad."
+      },
+      "context4": {
+        "header": "Aprendan juntos",
+        "cta": "Empezar ahora",
+        "subtext": "Te están esperando."
+      }
     },
     "tutor": {
       "section1": {
-        "headline": "Te aman. Ahora ayúdales a amar tu idioma también.",
-        "highlight1": "aman",
-        "highlight2": "tu idioma",
-        "copy": "Tus palabras. Tus chistes. La forma en que maldices cuando te golpeas el dedo. Hay un tú completo que aún no han conocido—un tú completamente nuevo. Déjales entrar.",
-        "copyHighlight1": "Tus palabras",
-        "copyHighlight2": "Tus chistes",
-        "copyHighlight3": "un tú completamente nuevo",
-        "copyHighlight4": "Déjales entrar",
-        "underline": "Déjales entrar"
+        "headline": "Hay todo un tú que nunca han conocido.",
+        "highlight1": "todo un tú",
+        "copy": "La forma en que discutes. La forma en que bromeas. Las cosas que solo puedes decir en tu idioma. Déjalos entrar."
       },
       "section2": {
-        "headline": "Has intentado explicar. Han intentado asentir. Arreglemos esto.",
-        "highlight1": "explicar",
-        "highlight2": "asentir",
-        "highlight3": "Arreglemos esto",
-        "copy": "Las cosas que dices cuando estás muy feliz. O muy molesto. Las palabras que se sienten como casa. Quieren entenderte por completo—no solo la versión traducida.",
-        "copyHighlight1": "muy feliz",
-        "copyHighlight2": "muy molesto",
-        "copyHighlight3": "por completo",
-        "underline": "no solo la versión traducida"
+        "headline": "Algunas cosas mueren en la traducción. Deja de permitirlo.",
+        "highlight1": "mueren en la traducción",
+        "copy": "Explicas. Asienten. El sentimiento desaparece. No quieren tus subtítulos—quieren el original."
       },
       "section3": {
-        "headline": "Cada palabra que compartes es un puente.",
-        "highlight1": "puente",
-        "copy": "Comparte palabras. Crea desafíos. Celebra victorias juntos. La app maneja lo aburrido—tú solo tienes que ser el divertido.",
-        "copyHighlight1": "Comparte palabras",
-        "copyHighlight2": "Crea desafíos",
-        "copyHighlight3": "Celebra victorias",
-        "copyHighlight4": "el divertido",
-        "underline": "tú solo tienes que ser el divertido"
+        "headline": "La primera vez que hacen reír a tu familia sin ti.",
+        "highlight1": "sin ti",
+        "copy": "Lo dijeron. Tu gente lo escuchó. Y te diste cuenta—tú les diste eso."
       },
       "section4": {
-        "headline": "Envía una palabra. Empieza un juego. Míralos crecer.",
-        "highlight1": "juego",
-        "highlight2": "crecer",
-        "copy": "Desafíales con la frase favorita de tu mamá. Hazles un quiz antes de cenar. Celebra cuando lo claven. Esto es tiempo de pareja disfrazado de aprendizaje—y es realmente divertido.",
-        "copyHighlight1": "frase favorita de tu mamá",
-        "copyHighlight2": "tiempo de pareja",
-        "copyHighlight3": "realmente divertido",
-        "underline": "Esto es tiempo de pareja disfrazado de aprendizaje"
+        "headline": "Tu idioma es una puerta. Dales la llave.",
+        "highlight1": "la llave",
+        "copy": "Cada palabra es un pedazo de ti que pueden quedarse. Tus recuerdos. Tu gente. Tu hogar."
       },
-      "section5": {
-        "headline": "¿El momento en que te sorprenden con una frase que nunca les enseñaste? Magia.",
-        "highlight1": "te sorprenden",
-        "highlight2": "Magia",
-        "copy": "Cuando hacen un chiste y tu familia realmente se ríe. Cuando tu mamá empieza a hablarles directamente en tu idioma. Cuando sueltan una frase que te deja boquiabierto. Tú hiciste que eso pasara.",
-        "copyHighlight1": "familia realmente se ríe",
-        "copyHighlight2": "mamá",
-        "copyHighlight3": "Tú hiciste que eso pasara"
+      "context1": {
+        "header": "Déjalos entrar",
+        "cta": "Empezar a guiar",
+        "subtext": "Al verdadero tú."
       },
-      "section6": {
-        "headline": "Enseña juntos. Juega juntos. Enamórense más.",
-        "highlight1": "juntos",
-        "highlight2": "Enamórense",
-        "copy": "Así es como compartes quién eres realmente. Palabra por palabra. Juego por juego. Risa por risa. Y pueden enamorarse de todo eso.",
-        "copyHighlight1": "quién eres realmente",
-        "copyHighlight2": "enamorarse",
-        "underline": "Y pueden enamorarse de todo eso"
+      "context2": {
+        "header": "Deja de traducir",
+        "cta": "Empezar a guiar",
+        "subtext": "Empieza a compartir."
       },
-      "context1": { "header": "Comparte tu mundo", "cta": "Empezar a guiar", "subtext": "Conviértete en su guía de idiomas." },
-      "context2": { "header": "Déjales entrar", "cta": "Empezar a guiar", "subtext": "Algunas cosas se traducen mejor cuando se aprenden." },
-      "context3": { "header": "Enseña con amor", "cta": "Comenzar", "subtext": "No lecciones. Cartas de amor." },
-      "context4": { "header": "Desafíales", "cta": "Enviar desafío", "subtext": "Juegos, desafíos, sorpresas." },
-      "context5": { "header": "Míralos florecer", "cta": "Empezar a enviar", "subtext": "Una palabra a la vez." },
-      "context6": { "header": "Abre la puerta", "cta": "Empezar ahora", "subtext": "Ese momento está llegando." },
-      "context7": { "header": "Crezcan juntos", "cta": "Conviértete en su guía", "subtext": "Te están esperando." }
+      "context3": {
+        "header": "Mira cómo pertenecen",
+        "cta": "Empezar",
+        "subtext": "A tu gente."
+      },
+      "context4": {
+        "header": "Dales la llave",
+        "cta": "Empezar ahora",
+        "subtext": "Están listos."
+      }
+    },
+    "bottomSections": {
+      "faq": {
+        "title": "Preguntas Frecuentes",
+        "q1": {
+          "question": "¿Qué es el Aprendizaje de Idiomas Centrado en la Relación (RALL)?",
+          "answer": "RALL es nuestra metodología que combina técnicas probadas de adquisición de idiomas (Enseñanza Comunicativa de Idiomas, Aprendizaje Basado en Tareas) con psicología de relaciones. En lugar de aprender frases genéricas, aprendes las palabras que importan en TU relación—guiado por tu pareja, quien ayuda a formar tu \"Yo Ideal en L2\".",
+          "readMore": "Lee más abajo →"
+        },
+        "q2": {
+          "question": "¿En qué se diferencia Love Languages de Duolingo o Babbel?",
+          "intro": "Las apps tradicionales te enseñan a pedir café. Nosotros te enseñamos a hacer reír a la familia de tu pareja.",
+          "point1": "Guiado por tu pareja:",
+          "point1desc": "Tu pareja hablante nativo te envía palabras, crea desafíos y siguen tu progreso juntos",
+          "point2": "Vocabulario personalizado:",
+          "point2desc": "Aprende SUS palabras—frases familiares, chistes internos, expresiones de cariño",
+          "point3": "Cooperativo, no competitivo:",
+          "point3desc": "Sin tablas de clasificación contra extraños. Tú y tu pareja trabajan en equipo",
+          "point4": "Inversión en la relación:",
+          "point4desc": "Tu \"Love Log\" se convierte en un tesoro compartido que construyen juntos"
+        },
+        "q3": {
+          "question": "¿Cuáles son los roles de Estudiante y Tutor?",
+          "studentDesc": "Los Estudiantes están aprendiendo el idioma de su pareja. Tienen práctica de conversación con IA, juegos de vocabulario (Tarjetas, Opción Múltiple, Escríbelo, Rápido) y un diccionario personal.",
+          "tutorDesc": "Los Tutores son hablantes nativos que guían a su pareja. Envían \"regalos de palabras\", crean desafíos personalizados y usan el modo Coach para guiar conversaciones de aprendizaje. El Tutor no solo enseña—ayuda a esculpir la identidad lingüística de su pareja."
+        },
+        "q4": {
+          "question": "¿Qué idiomas admiten?",
+          "answer": "18 idiomas, cualquier combinación: inglés, español, francés, alemán, italiano, portugués, neerlandés, polaco, ruso, ucraniano, sueco, noruego, danés, checo, griego, húngaro, turco y rumano. Aprende polaco como hispanohablante, o español como hablante de polaco—toda la app se adapta a tu idioma nativo."
+        },
+        "q5": {
+          "question": "¿Cuánto cuesta?",
+          "intro": "Dos planes, facturación flexible:",
+          "standard": "Estándar",
+          "standardPrice": "$7/semana · $19/mes · $69/año",
+          "standardDesc": "2,000 palabras, 60 min de voz, invitación para pareja",
+          "unlimited": "Ilimitado",
+          "unlimitedPrice": "$12/semana · $39/mes · $139/año",
+          "unlimitedDesc": "Todo ilimitado + pases de regalo",
+          "cancelNote": "Cancela cuando quieras. Sin contratos."
+        },
+        "q6": {
+          "question": "¿Cómo invito a mi pareja?",
+          "answer": "Después de registrarte, ve a Configuración y genera un enlace de invitación. Cuando tu pareja se registre con tu enlace, sus cuentas se conectan automáticamente. Entonces pueden enviarse palabras, crear desafíos y seguir el progreso juntos."
+        }
+      },
+      "rall": {
+        "label": "Nuestro Método",
+        "title": "Aprendizaje de Idiomas Centrado en la Relación",
+        "description": "RALL sintetiza metodologías probadas de adquisición de idiomas con psicología de relaciones. El resultado: un aprendizaje que fortalece tanto tus habilidades lingüísticas COMO tu relación.",
+        "pillar1": {
+          "title": "Enseñanza Comunicativa de Idiomas",
+          "description": "El \"Modo Preguntar\" prioriza la interacción real sobre la memorización. Aprendes comunicándote, no memorizando.",
+          "citation": "Richards & Rodgers, 2001"
+        },
+        "pillar2": {
+          "title": "Aprendizaje Basado en Tareas",
+          "description": "Los escenarios del \"Playground\" usan el idioma como herramienta para completar tareas significativas—pedir la cena, conocer a la familia, resolver conflictos.",
+          "citation": "Ellis, 2003; Nunan, 2004"
+        },
+        "pillar3": {
+          "title": "El Fenómeno Miguel Ángel",
+          "description": "Tu pareja no solo enseña—esculpe. Las investigaciones muestran que cuando las parejas afirman tu \"Yo Ideal en L2\", progresas más rápido Y tu relación se fortalece.",
+          "citation": "Rusbult et al., 2009"
+        },
+        "pillar4": {
+          "title": "Teoría de la Interdependencia",
+          "description": "Tu Love Log es una inversión compartida. Cada palabra guardada aumenta el compromiso a través de interdependencia positiva, no del miedo.",
+          "citation": "Rusbult & Van Lange, 2003"
+        },
+        "quote": "\"Cuando las parejas afirman los yoes ideales del otro, los individuos tienen más probabilidades de alcanzar sus metas, y las parejas experimentan mayor bienestar.\"",
+        "quoteAttribution": "— Rusbult, Finkel & Kumashiro, \"The Michelangelo Phenomenon\" (2009)",
+        "anxietyTitle": "Reduciendo la Ansiedad del Idioma Extranjero:",
+        "anxietyDesc": "El miedo al juicio de tu pareja es real. Nuestra IA media las correcciones y retroalimentación, creando un espacio seguro para cometer errores sin dañar tu relación.",
+        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991"
+      },
+      "blog": {
+        "label": "Recursos Gratuitos",
+        "title": "Más de 1,000 Artículos para Parejas",
+        "description": "Inmersiones profundas en diferencias culturales, frases románticas y todo lo que enfrentan las parejas al superar la barrera del idioma.",
+        "topic1": {
+          "title": "Frases Románticas",
+          "description": "Di 'te quiero' en 18 idiomas"
+        },
+        "topic2": {
+          "title": "Guías Culturales",
+          "description": "Navega cenas familiares y festividades"
+        },
+        "topic3": {
+          "title": "Gramática Simplificada",
+          "description": "Casos, conjugaciones y más"
+        },
+        "cta": "Explora Nuestro Blog"
+      },
+      "footer": {
+        "tagline": "Aprende el idioma del amor",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "terms": "Términos",
+        "privacy": "Privacidad",
+        "blog": "Blog",
+        "contact": "Contacto",
+        "copyright": "Love Languages · Hecho con ♥ para amantes de todo el mundo"
+      }
     }
   }
 }

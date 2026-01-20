@@ -41,10 +41,12 @@ const { title, description, image, article, hideNavigation = false, nativeLang =
     nativeLang={nativeLang}
     targetLang={targetLang}
   />
+
+  <!-- Allow child layouts to inject hreflang and other head tags -->
+  <slot name="head" />
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased" style="font-family: 'Outfit', sans-serif;">
   {!hideNavigation && <Navigation nativeLang={nativeLang} targetLang={targetLang} />}
-  <slot name="head" />
   <slot />
 </body>
 </html>

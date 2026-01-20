@@ -22,6 +22,9 @@ import SubscriptionRequired from './components/SubscriptionRequired';
 import RoleSelection from './components/RoleSelection';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import FAQ from './components/FAQ';
+import Method from './components/Method';
+import Pricing from './components/Pricing';
 import CookieConsent from './components/CookieConsent';
 
 // Beta testers who get free access (add emails here)
@@ -307,6 +310,9 @@ const App: React.FC = () => {
             <Route path="/join/:token" element={<JoinInvite />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/method" element={<Method />} />
+            <Route path="/pricing" element={<Pricing />} />
 
             {/* Target language routes - /pl, /es, /fr, etc. */}
             {/* Only match actual language codes, not app routes like /log, /play */}

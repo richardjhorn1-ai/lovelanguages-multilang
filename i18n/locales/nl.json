@@ -472,7 +472,6 @@
     "search": "Zoeken...",
     "searchWords": "Zoek woorden...",
     "wordsCount": "{{count}} woorden",
-
     "sync": {
       "scanChats": "Chats Scannen",
       "scanTooltip": "Scan chatgeschiedenis voor nieuwe woordenschat",
@@ -483,7 +482,6 @@
       "newWords_other": "+{{count}} nieuwe woorden!",
       "syncError": "Synchronisatiefout"
     },
-
     "filters": {
       "all": "Alle",
       "noun": "Zelfstandig naamwoord",
@@ -494,7 +492,6 @@
       "gifts": "Cadeaus",
       "clear": "Wissen"
     },
-
     "card": {
       "gift": "Cadeau",
       "giftFrom": "Cadeau van {{name}}",
@@ -507,7 +504,6 @@
       "conjugations": "Vervoegingen",
       "forms": "Vormen"
     },
-
     "modal": {
       "present": "Tegenwoordig",
       "past": "Verleden",
@@ -516,7 +512,6 @@
       "unlockTense": "Ontgrendel {{tense}}",
       "unlocked": "Ontgrendeld op {{date}}"
     },
-
     "unlock": {
       "title": "{{tense}} Tijd Ontgrendelen?",
       "descriptionBefore": "Klaar om te leren hoe je",
@@ -526,7 +521,6 @@
       "unlockNow": "Nu Ontgrendelen",
       "unlocking": "Ontgrendelen..."
     },
-
     "pronouns": {
       "singular1": "(ik)",
       "singular2": "(jij)",
@@ -535,19 +529,16 @@
       "plural2": "(jullie)",
       "plural3": "(zij)"
     },
-
     "tableHeaders": {
       "person": "Persoon",
       "masculine": "Mann.",
       "feminine": "Vr."
     },
-
     "nounForms": {
       "gender": "Geslacht",
       "singular": "Enkelvoud",
       "plural": "Meervoud"
     },
-
     "adjectiveForms": {
       "title": "Geslachtsvormen",
       "masculine": "Mannelijk",
@@ -556,7 +547,6 @@
       "plural": "Meervoud"
     }
   },
-
   "onboarding": {
     "step": {
       "back": "Terug",
@@ -565,13 +555,11 @@
       "continue": "Doorgaan",
       "skipForNow": "Nu overslaan"
     },
-
     "name": {
       "title": "Hoe moet Cupido je noemen?",
       "subtitle": "Je naam maakt deze reis persoonlijk.",
       "placeholder": "Je naam"
     },
-
     "partnerName": {
       "studentTitle": "Voor wie leer je {{language}}, {{name}}?",
       "tutorTitle": "Wie help je {{language}} leren, {{name}}?",
@@ -579,7 +567,6 @@
       "tutorSubtitle": "Dit is degene die je door {{language}} gaat begeleiden.",
       "placeholder": "Zijn/haar naam"
     },
-
     "languageConfirm": {
       "title": "Bevestig je talen, {{name}}",
       "subtitle": "Controleer of je taalreis correct is.",
@@ -590,7 +577,6 @@
       "summary": "{{target}} leren als {{native}} spreker",
       "tutorSummary": "{{target}} onderwijzen aan een {{native}} spreker"
     },
-
     "validation": {
       "title": "Hoe moeten we je antwoorden controleren?",
       "subtitle": "Kies hoe soepel de app moet zijn bij het beoordelen.",
@@ -614,7 +600,6 @@
         "detail4": "Traditionele flashcard-ervaring"
       }
     },
-
     "plan": {
       "title": "Kies je plan, {{name}}",
       "subtitle": "Start vandaag je {{language}} leerreis",
@@ -648,7 +633,6 @@
         "feature5": "Cadeaupas voor ander koppel (jaarlijks)"
       }
     },
-
     "student": {
       "start": {
         "title": "Klaar om te beginnen, {{name}}?",
@@ -660,7 +644,6 @@
         "feature4": "Voortgang bijhouden en niveautests",
         "button": "Laten we gaan! 🚀"
       },
-
       "vibe": {
         "title": "Eén woord voor je relatie met {{name}}",
         "subtitle": "Kies de sfeer die het meest waar voelt.",
@@ -671,7 +654,6 @@
         "longDistance": "Lange afstand",
         "newLove": "Nieuwe liefde"
       },
-
       "time": {
         "title": "Hoeveel tijd kun je dagelijks besteden?",
         "subtitle": "Zelfs kleine momenten tellen op tot grote vooruitgang.",
@@ -682,7 +664,6 @@
         "walk": "Een lange wandeling",
         "walkDesc": "20+ minuten"
       },
-
       "when": {
         "title": "Wanneer oefen je het liefst?",
         "subtitle": "We herinneren je op het perfecte moment.",
@@ -691,19 +672,16 @@
         "evening": "Avond",
         "whenever": "Wanneer dan ook"
       },
-
       "photo": {
         "title": "Voeg je foto toe",
         "subtitleWithPhoto": "Je ziet er goed uit! Dit verschijnt op je profiel.",
         "subtitleNoPhoto": "Een foto helpt je profiel persoonlijker te maken."
       },
-
       "why": {
         "title": "Waarom wil je {{language}} leren voor {{name}}?",
         "subtitle": "Dit wordt je persoonlijke herinnering op je reis.",
         "placeholder": "Ik wil deze persoon verrassen als we zijn/haar familie bezoeken... Ik wil lieve woordjes fluisteren... Ik wil zijn/haar wereld begrijpen..."
       },
-
       "fear": {
         "title": "Wat is je grootste angst bij het leren van {{language}}?",
         "subtitle": "Iedereen heeft er een. Laten we de jouwe samen aanpakken.",
@@ -716,14 +694,12 @@
         "forgetting": "Alles vergeten",
         "forgettingDesc": "Leren maar niet onthouden"
       },
-
       "prior": {
         "title": "Heb je eerder geprobeerd {{language}} te leren?",
         "subtitle": "Dit helpt ons om op de juiste plek te beginnen.",
         "yes": "Ja, een beetje",
         "beginner": "Complete beginner"
       },
-
       "goal": {
         "title": "Wat is je eerste mijlpaal?",
         "subtitle": "Een doel om naartoe te werken met {{name}}",
@@ -733,7 +709,6 @@
         "custom": "Eigen doel instellen",
         "customPlaceholder": "bijv., 'Bestellen in {{language}} bij zijn/haar favoriete restaurant'"
       },
-
       "learnHello": {
         "title": "Laten we je eerste woord leren!",
         "subtitle": "Zeg hallo tegen {{name}} in {{language}}",
@@ -742,7 +717,6 @@
         "gotIt": "Begrepen!",
         "listenFirst": "Eerst luisteren"
       },
-
       "learnLove": {
         "title": "Nu, de belangrijkste zin...",
         "subtitle": "Degene die {{name}} nooit zal vergeten",
@@ -752,7 +726,6 @@
         "ready": "Ik ben klaar!",
         "listenFirst": "Eerst luisteren"
       },
-
       "tryIt": {
         "title": "Probeer het te zeggen!",
         "subtitle": "Maak je geen zorgen, alleen jij kunt jezelf horen.",
@@ -760,7 +733,6 @@
         "success": "Geweldig! Je hebt het gezegd! 🎉",
         "practiceLater": "Ik oefen later"
       },
-
       "celebration": {
         "title": "Je hebt het gedaan!",
         "subtitle": "Je hebt zojuist je eerste {{language}} geleerd!",
@@ -771,7 +743,6 @@
         "keepGoing": "Ga zo door!"
       }
     },
-
     "tutor": {
       "start": {
         "title": "Klaar om de gids van {{learnerName}} te zijn, {{userName}}?",
@@ -783,7 +754,6 @@
         "feature4": "Koppel accounts om zijn/haar reis te zien",
         "button": "Begin met helpen van {{learnerName}}! 🎯"
       },
-
       "relation": {
         "title": "Wat is je relatie met {{name}}?",
         "subtitle": "Dit helpt ons je leservaring te personaliseren",
@@ -792,7 +762,6 @@
         "friend": "Vriend(in)",
         "family": "Familie"
       },
-
       "connection": {
         "title": "Wat is je connectie met {{language}}?",
         "subtitle": "Help ons je taalachtegrond te begrijpen",
@@ -805,7 +774,6 @@
         "bilingual": "Tweetalig",
         "bilingualDesc": "Opgegroeid met {{language}} en een andere taal"
       },
-
       "origin": {
         "title": "Hoe heb je {{language}} geleerd?",
         "subtitle": "Je reis helpt ons lesbenaderingen voor te stellen",
@@ -814,14 +782,12 @@
         "school": "Formeel gestudeerd",
         "self": "Zelfgeleerd"
       },
-
       "dreamPhrase": {
         "title": "Droommoment 💭",
         "subtitle": "Wat is het eerste dat je {{name}} in {{language}} wilt horen zeggen?",
         "placeholder": "bijv., 'Ik hou van je' of 'Goedemorgen'",
         "note": "Dit wordt jullie eerste gezamenlijke leerdoel"
       },
-
       "style": {
         "title": "Je lesstijl?",
         "subtitle": "Hoe help je iemand van nature om te leren?",
@@ -834,7 +800,6 @@
         "immersive": "Onderdompelend",
         "immersiveDesc": "Erin duiken en leren door te doen"
       },
-
       "preview": {
         "title": "Je tutorkit",
         "subtitle": "Dit kun je doen voor {{name}}",
@@ -848,7 +813,6 @@
       }
     }
   },
-
   "levelTest": {
     "preparing": "Je Test Voorbereiden",
     "generatingQuestions": "Vragen genereren op basis van je niveau...",
@@ -881,7 +845,6 @@
     "submitTest": "Test Verzenden",
     "next": "Volgende"
   },
-
   "tutorGames": {
     "playTogether": "Samen Spelen",
     "sendChallenge": "Uitdaging Sturen",
@@ -889,7 +852,6 @@
     "sendDescription": "Stuur uitdagingen die {{name}} later kan voltooien",
     "playDescription": "Oefen nu samen",
     "startNow": "Nu Starten",
-
     "local": {
       "quiz": "Quiz {{name}}",
       "quizDesc": "Flashcard quiz samen",
@@ -901,7 +863,6 @@
       "typeItDesc": "Typ de vertaling",
       "needWords": "{{name}} heeft minstens 4 woorden in de woordenschat nodig om te spelen"
     },
-
     "send": {
       "doYouRemember": "Weet Je Nog?",
       "quizPartner": "Quiz {{name}} over de woordenschat",
@@ -913,14 +874,12 @@
       "sendWords": "Stuur woorden voor {{name}} om te leren",
       "sendGift": "Cadeau Sturen"
     },
-
     "pending": {
       "waitingFor": "Wacht op {{name}}",
       "words": "{{count}} woorden",
       "sent": "Verstuurd {{date}}",
       "pending": "In afwachting"
     },
-
     "gifts": {
       "title": "Verstuurde Woordcadeaus",
       "word": "{{count}} woord",
@@ -929,17 +888,14 @@
       "custom": "Aangepaste woorden",
       "xpMultiplier": "{{multiplier}}x XP"
     },
-
     "results": {
       "title": "Recente Resultaten",
       "completed": "Voltooid {{date}}"
     },
-
     "empty": {
       "noChallenges": "Nog geen uitdagingen",
       "createFirst": "Maak je eerste uitdaging voor {{name}}!"
     },
-
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
@@ -947,11 +903,9 @@
       "hard": "Moeilijk",
       "gotIt": "Begrepen!"
     },
-
     "direction": {
       "label": "{{target}} → {{native}}"
     },
-
     "quickFireGame": {
       "title": "Snelvuur!",
       "description": "Vertaal zoveel mogelijk woorden in 60 seconden!",
@@ -959,7 +913,6 @@
       "start": "Start!",
       "typeTranslation": "Typ de vertaling..."
     },
-
     "typeItGame": {
       "correct": "Correct!",
       "notQuite": "Niet helemaal",
@@ -968,7 +921,6 @@
       "next": "Volgende",
       "check": "Controleren"
     },
-
     "gameOver": {
       "greatJob": "Goed Gedaan!",
       "keepPracticing": "Blijf Oefenen!",
@@ -982,7 +934,6 @@
       "done": "Klaar",
       "playAgain": "Opnieuw Spelen"
     },
-
     "saveDialog": {
       "title": "Opslaan in {{name}}'s Voortgang?",
       "howItWorks": "Hoe het werkt:",
@@ -995,7 +946,6 @@
       "save": "Opslaan"
     }
   },
-
   "gameResults": {
     "greatJob": "Goed Gedaan!",
     "sessionResults": "Sessieresultaten:",
@@ -1006,7 +956,6 @@
     "done": "Klaar",
     "playAgain": "Opnieuw Spelen"
   },
-
   "conversationPractice": {
     "states": {
       "listening": "Luistert...",
@@ -1022,7 +971,6 @@
     "aiSpeaking": "AI spreekt...",
     "conversationEnded": "Gesprek beëindigd"
   },
-
   "scenarioSelector": {
     "title": "Gespreksoefen",
     "subtitle": "Kies een scenario",
@@ -1033,14 +981,38 @@
       "advanced": "gevorderd"
     },
     "scenarios": {
-      "cafe": { "name": "In het Café", "description": "Koffie en een snack bestellen" },
-      "restaurant": { "name": "Diner in Restaurant", "description": "Een maaltijd bestellen en aanbevelingen vragen" },
-      "market": { "name": "Op de Markt", "description": "Fruit en groenten kopen" },
-      "taxi": { "name": "Taxirit", "description": "Routebeschrijving geven en kletsen met de chauffeur" },
-      "pharmacy": { "name": "Bij de Apotheek", "description": "Medicijnen vragen en symptomen beschrijven" },
-      "hotel": { "name": "Hotel Inchecken", "description": "Inchecken en vragen over voorzieningen" },
-      "family_dinner": { "name": "Familiediner", "description": "De ouders van je partner ontmoeten" },
-      "train_station": { "name": "Treinstation", "description": "Kaartjes kopen en dienstregeling checken" }
+      "cafe": {
+        "name": "In het Café",
+        "description": "Koffie en een snack bestellen"
+      },
+      "restaurant": {
+        "name": "Diner in Restaurant",
+        "description": "Een maaltijd bestellen en aanbevelingen vragen"
+      },
+      "market": {
+        "name": "Op de Markt",
+        "description": "Fruit en groenten kopen"
+      },
+      "taxi": {
+        "name": "Taxirit",
+        "description": "Routebeschrijving geven en kletsen met de chauffeur"
+      },
+      "pharmacy": {
+        "name": "Bij de Apotheek",
+        "description": "Medicijnen vragen en symptomen beschrijven"
+      },
+      "hotel": {
+        "name": "Hotel Inchecken",
+        "description": "Inchecken en vragen over voorzieningen"
+      },
+      "family_dinner": {
+        "name": "Familiediner",
+        "description": "De ouders van je partner ontmoeten"
+      },
+      "train_station": {
+        "name": "Treinstation",
+        "description": "Kaartjes kopen en dienstregeling checken"
+      }
     },
     "createOwn": "Maak Je Eigen",
     "createOwnDesc": "Beschrijf elk scenario dat je wilt oefenen",
@@ -1053,7 +1025,6 @@
     "footerInfo": "De AI spreekt standaard {{targetLanguage}}. Als je moeite hebt, helpt het in {{nativeLanguage}}.",
     "customPersona": "Je bent een vriendelijke {{language}} persoon die iemand helpt {{language}} te oefenen. Je bent geduldig, bemoedigend en past je taal aan hun niveau aan."
   },
-
   "challengeCreator": {
     "common": {
       "addNewWords": "Nieuwe Woorden Toevoegen",
@@ -1073,7 +1044,6 @@
       "failedCreateChallenge": "Uitdaging maken mislukt",
       "needMinWords": "Minimaal 5 woorden nodig voor de uitdaging!"
     },
-
     "quiz": {
       "title": "Quiz Maken",
       "subtitle": "Selecteer woorden voor {{name}} om te oefenen",
@@ -1091,7 +1061,6 @@
       "noWordsYet": "{{name}} heeft nog geen woorden geleerd!",
       "addWordsToStart": "Voeg hierboven nieuwe woorden toe om te beginnen."
     },
-
     "quickFire": {
       "title": "Snelvuur",
       "subtitle": "Getimede uitdaging voor {{name}}",
@@ -1123,7 +1092,6 @@
       "averageTime": "Gemiddeld: {{time}}s per woord",
       "needMoreWords": "Minimaal 5 woorden totaal nodig om een uitdaging te maken!"
     },
-
     "lovePackage": {
       "title": "Liefdespakket",
       "subtitle": "Stuur woorden naar {{name}}",
@@ -1137,7 +1105,6 @@
       "alreadyInLoveLog": "'{{word}}' staat al in {{name}}'s Liefdesdagboek!"
     }
   },
-
   "challengePlayer": {
     "common": {
       "later": "Later",
@@ -1146,7 +1113,6 @@
       "showDetails": "Toon details ({{count}})",
       "xpEarned": "+{{xp}} XP verdiend!"
     },
-
     "results": {
       "perfect": "Perfect!",
       "perfectScore": "Perfecte Score!",
@@ -1154,7 +1120,6 @@
       "greatJob": "Goed Gedaan!",
       "keepPracticing": "Blijf Oefenen!"
     },
-
     "quiz": {
       "startDescription": "{{name}} wil je quizzen over {{count}} woorden!",
       "startInstructions": "Beantwoord vragen over {{language}} woorden die je hebt geleerd. Haal ze goed om je reeks op te bouwen!",
@@ -1177,7 +1142,6 @@
         "submit": "Verzenden"
       }
     },
-
     "quickFire": {
       "title": "Snelvuur!",
       "startDescription": "{{name}} daagt je uit om {{count}} woorden te vertalen in {{time}} seconden!",
@@ -1195,7 +1159,6 @@
       "typePlaceholder": "Typ vertaling..."
     }
   },
-
   "roleSelection": {
     "loading": "Alles klaar maken...",
     "confirmHeader": "Even zeker weten...",
@@ -1218,7 +1181,6 @@
     "letsGo": "Dat ben ik! Laten we gaan",
     "chooseRole": "Kies je rol om door te gaan"
   },
-
   "subscription": {
     "common": {
       "weekly": "Wekelijks",
@@ -1247,13 +1209,11 @@
       "friend": "Vriend(in)",
       "copy": "Kopiëren"
     },
-
     "plans": {
       "standard": "Standaard",
       "unlimited": "Onbeperkt",
       "none": "Geen"
     },
-
     "features": {
       "wordsLimit": "{{limit}} woorden in Liefdesdagboek",
       "unlimitedWords": "Onbeperkt woorden",
@@ -1268,7 +1228,6 @@
       "giftPass": "Cadeaupas voor ander koppel (jaarlijks)",
       "unlimitedEverything": "Alles onbeperkt"
     },
-
     "manager": {
       "couplePass": "Koppelpas",
       "freeAccess": "Gratis toegang van {{name}}",
@@ -1288,7 +1247,6 @@
       "manageSubscription": "Abonnement Beheren",
       "continueToManage": "Doorgaan naar Beheren"
     },
-
     "required": {
       "title": "Nog één stap, {{name}}!",
       "subtitle": "Voltooi je abonnement om samen {{language}} te leren",
@@ -1298,7 +1256,6 @@
       "logoutOption": "Uitloggen en ander account gebruiken",
       "signOutOption": "Uitloggen en ander account gebruiken"
     },
-
     "pricing": {
       "title": "Leer {{language}} voor de Liefde",
       "subtitle": "Kies het plan dat past bij je leerreis",
@@ -1328,7 +1285,6 @@
       "questionsEmail": "Vragen? Mail ons op",
       "copy": "Kopiëren"
     },
-
     "errors": {
       "loginRequired": "Log in om te abonneren",
       "loginAgain": "Log opnieuw in",
@@ -1339,7 +1295,6 @@
       "somethingWrong": "Er ging iets mis"
     }
   },
-
   "pendingChallenges": {
     "yourPartner": "Je Partner",
     "sentYouSomething": "{{name}} heeft je iets gestuurd!",
@@ -1356,7 +1311,6 @@
     "learn": "Leren",
     "xpBonus": "{{multiplier}}x XP bonus"
   },
-
   "invite": {
     "title": "Nodig Je Partner Uit",
     "subtitle": "Je abonnement bevat gratis toegang voor je partner!",
@@ -1373,7 +1327,6 @@
     "generateButton": "Genereer Uitnodigingslink",
     "generating": "Genereren..."
   },
-
   "helpGuide": {
     "title": "Je Gids",
     "subtitle": "Love Languages",
@@ -1459,7 +1412,6 @@
       "forgetAnswer": "Speel spelletjes - ze brengen automatisch woorden terug waar je moeite mee hebt. De gespreide herhaling helpt ze vast te zetten."
     }
   },
-
   "bugReport": {
     "title": "Meld een Bug",
     "subtitle": "Help ons Love Languages te verbeteren",
@@ -1493,7 +1445,6 @@
       "close": "Sluiten"
     }
   },
-
   "wordGift": {
     "intro": {
       "title": "Cadeau van {{name}}!",
@@ -1533,7 +1484,6 @@
       "network": "Netwerkfout. Controleer je verbinding en probeer opnieuw."
     }
   },
-
   "chatSuggestions": {
     "student": {
       "askTitle": "Vraag Cupido wat dan ook",
@@ -1567,13 +1517,11 @@
       }
     }
   },
-
   "newWords": {
     "added": "{{count}} nieuw woord toegevoegd",
     "added_other": "{{count}} nieuwe woorden toegevoegd",
     "viewAll": "Bekijk alles in Liefdesdagboek"
   },
-
   "avatar": {
     "clickToUpload": "Klik om te uploaden",
     "clickToChange": "Klik om te wijzigen",
@@ -1590,7 +1538,6 @@
       "uploadFailed": "Afbeelding uploaden mislukt"
     }
   },
-
   "joinInvite": {
     "validating": "Uitnodiging valideren...",
     "invalidInvite": "Ongeldige Uitnodiging",
@@ -1617,7 +1564,6 @@
     "checkEmail": "Controleer je e-mail voor bevestiging, log dan in!",
     "yourPartner": "Je partner"
   },
-
   "gameHistory": {
     "loading": "Laden...",
     "noHistory": "Nog geen spelgeschiedenis",
@@ -1639,7 +1585,6 @@
     "practiceWords": "Oefen Deze {{count}} Woorden",
     "perfectScore": "Perfecte score! Geen gemiste woorden."
   },
-
   "usage": {
     "title": "Maandelijks Gebruik",
     "unlimitedPlan": "Onbeperkt Plan",
@@ -1653,7 +1598,6 @@
     "upgradePrompt": "Bijna op? Upgrade naar Onbeperkt zonder limieten!",
     "resetsMonthly": "Gebruik wordt gereset op de 1e van elke maand"
   },
-
   "inviteLink": {
     "title": "Magische Uitnodigingslink",
     "subtitle": "Deel met je partner om direct te verbinden",
@@ -1668,7 +1612,6 @@
     "newLink": "Nieuwe Link",
     "description": "Als je partner op deze link klikt, wordt je geliefde uitgenodigd om als je taalcoach mee te doen!"
   },
-
   "breakup": {
     "warning": {
       "title": "Je leerreis samen beëindigen?",
@@ -1695,7 +1638,6 @@
       "messageGrantee": "Pas goed op jezelf. Je hebt je eigen abonnement nodig om door te gaan met leren."
     }
   },
-
   "gameShowcase": {
     "studentHeadline": {
       "part1": "Oh, en als je op ",
@@ -1721,13 +1663,11 @@
       "quick": "Snel"
     }
   },
-
   "demoFlashcard": {
     "tapToReveal": "Tik om te onthullen",
     "hard": "Moeilijk",
     "gotIt": "Begrepen!"
   },
-
   "demoTypeIt": {
     "correct": "Correct!",
     "notQuite": "Niet helemaal",
@@ -1736,7 +1676,6 @@
     "next": "Volgende",
     "check": "Controleren"
   },
-
   "demoQuickFire": {
     "title": "Snelvuur!",
     "instructions": "Typ vertalingen zo snel als je kunt!",
@@ -1748,7 +1687,6 @@
     "keepPracticing": "Blijf oefenen!",
     "timesUp": "Tijd voorbij!"
   },
-
   "hero": {
     "languageSelector": {
       "nativePrompt": "Ik spreek...",
@@ -1793,139 +1731,212 @@
       "privacy": "Privacy",
       "privacyPolicy": "Privacybeleid"
     },
+    "shared": {
+      "section0": {
+        "headline": "Talen leren begint met liefde.",
+        "highlight1": "liefde",
+        "copy": "Gebaseerd op Relatiegerichte Taalverwerving (RALL), helpt Love Languages koppels de taalbarriere te overbruggen—een betekenisvol woord per keer.",
+        "copyHighlight1": "RALL",
+        "copyHighlight2": "koppels",
+        "copyHighlight3": "betekenisvol",
+        "underline": "Relatiegerichte Taalverwerving"
+      },
+      "context0": {
+        "header": "Leer met liefde",
+        "cta": "Aan de slag",
+        "subtext": "Talen leren opnieuw uitgevonden voor koppels."
+      }
+    },
     "student": {
       "section1": {
-        "headline": "Sla het saaie over. Leer de woorden die ertoe doen. Degene die deze persoon laten glimlachen.",
-        "highlight1": "woorden die ertoe doen",
-        "highlight2": "deze persoon laten glimlachen",
-        "subhead": "Degene die je geliefde alleen gebruikt met mensen van wie je geliefde houdt.",
-        "copy": "Jullie inside jokes. Hun familie-uitdrukkingen. De manier waarop je geliefde 'ik hou van je' zegt als niemand luistert.",
-        "copyHighlight1": "inside jokes",
-        "copyHighlight2": "familie-uitdrukkingen",
-        "copyHighlight3": "ik hou van je",
-        "underline": "De manier waarop je geliefde 'ik hou van je' zegt als niemand luistert"
+        "headline": "Leer de lieve woordjes, de pikante dingen, en alles daartussenin.",
+        "highlight1": "lieve woordjes",
+        "highlight2": "pikante dingen",
+        "highlight3": "alles daartussenin",
+        "copy": "Elk woord dat ze je leren wordt automatisch opgeslagen in je Liefdesdagboek. Echte woorden uit jullie echte relatie—niet uit een leerboek."
       },
       "section2": {
-        "headline": "Er is een gesprek waar je geen deel van uitmaakt. Nog niet.",
-        "highlight1": "Nog niet",
-        "copy": "De grappen waar je om lacht zonder ze te begrijpen. De familieverhalen die iets verliezen in de vertaling. Tijd om het echt te begrijpen.",
-        "copyHighlight1": "familieverhalen",
-        "copyHighlight2": "echt te begrijpen",
-        "underline": "Tijd om het echt te begrijpen"
+        "headline": "Iedereen lacht. Jij bent nog aan het vertalen.",
+        "highlight1": "lacht",
+        "highlight2": "vertalen",
+        "copy": "Luistermodus vangt elk woord op dat je hebt gemist. Bekijk ze na het eten. De volgende keer doe je mee."
       },
       "section3": {
-        "headline": "Je leert geen taal. Je leert deze persoon kennen.",
-        "highlight1": "deze persoon kennen",
-        "copy": "Zijn/haar woorden. Zijn/haar grappen. Zijn/haar liefdevolle manier om je te plagen. Gemaakt voor mensen die het voor de liefde doen, niet voor cijfers.",
-        "copyHighlight1": "Zijn/haar woorden",
-        "copyHighlight2": "Zijn/haar grappen",
-        "copyHighlight3": "liefde",
-        "underline": "Gemaakt voor mensen die het voor de liefde doen"
+        "headline": "Over zes maanden: je eerste echte gesprek.",
+        "highlight1": "eerste echte gesprek",
+        "copy": "Intiem. Ononderbroken. In hun taal. Met hun hulp kom je er."
       },
       "section4": {
-        "headline": "Zijn/haar taal leren = flirten met extra stappen.",
-        "highlight1": "flirten",
-        "copy": "Dit is geen school. Er is geen toets. Alleen jij, die je voor deze persoon inzet op een heel nieuwe manier. Best romantisch, eigenlijk.",
-        "copyHighlight1": "voor deze persoon inzet",
-        "copyHighlight2": "romantisch",
-        "underline": "Best romantisch, eigenlijk"
+        "headline": "Ze staan aan de andere kant. Laat ze je erdoorheen trekken.",
+        "highlight1": "erdoorheen trekken",
+        "copy": "Je partner kiest de woorden. Jij leert ze. Ergens tussen de quizzen en het flirten stop je met een gast zijn in hun wereld."
       },
-      "section5": {
-        "headline": "Het moment dat je zijn/haar familie aan het lachen maakt? Perfectie.",
-        "highlight1": "zijn/haar familie aan het lachen",
-        "highlight2": "Perfectie",
-        "copy": "De eerste keer dat je de grap echt begrijpt. De eerste 'ik hou van je' in zijn/haar taal die precies goed klinkt. Het moment dat zijn/haar moeder direct tegen je begint te praten in hun taal. Het komt eraan.",
-        "copyHighlight1": "ik hou van je",
-        "copyHighlight2": "moeder",
-        "copyHighlight3": "Het komt eraan",
-        "underline": "Het komt eraan"
+      "context1": {
+        "header": "De echte woorden",
+        "cta": "Begin met leren",
+        "subtext": "Geen leerboekzinnen."
       },
-      "section6": {
-        "headline": "Samen leren. Samen liefhebben. Samen lachen.",
-        "highlight1": "samen",
-        "highlight2": "Liefhebben",
-        "highlight3": "Lachen",
-        "copy": "Hij/zij stuurt je woorden die ertoe doen. Daagt je uit met spelletjes. Pest je (liefdevol) met je uitspraak. Dit is niet alleen studeren—het is jullie eigen kleine wereld samen bouwen.",
-        "copyHighlight1": "woorden die ertoe doen",
-        "copyHighlight2": "jullie eigen kleine wereld",
-        "underline": "jullie eigen kleine wereld samen bouwen"
+      "context2": {
+        "header": "Geen nep-lachen meer",
+        "cta": "Begin met leren",
+        "subtext": "Eindelijk de grap snappen."
       },
-      "context1": { "header": "Klaar om dieper te verbinden?", "cta": "Begin met leren", "subtext": "2 minuten tot je eerste woord." },
-      "context2": { "header": "Wij helpen je", "cta": "Begin met leren", "subtext": "Geen fake lachen meer." },
-      "context3": { "header": "Gemaakt voor geliefden", "cta": "Begin je reis", "subtext": "Geen toeristen. Familie." },
-      "context4": { "header": "Speel op jouw manier", "cta": "Ontdek spelletjes", "subtext": "Flashcards, uitdagingen en meer." },
-      "context5": { "header": "Laat het tellen", "cta": "Begin je reis", "subtext": "Elk woord telt." },
-      "context6": { "header": "Laat het gebeuren", "cta": "Start nu", "subtext": "Dat moment komt eraan." },
-      "context7": { "header": "Begin samen", "cta": "Creëer jullie wereld", "subtext": "Hij/zij wacht op je." }
+      "context3": {
+        "header": "Echt erbij zijn",
+        "cta": "Begin",
+        "subtext": "Dit keer echt."
+      },
+      "context4": {
+        "header": "Samen leren",
+        "cta": "Nu beginnen",
+        "subtext": "Ze wachten op je."
+      }
     },
     "tutor": {
       "section1": {
-        "headline": "Hij/zij houdt van je. Help hen nu ook van je taal te houden.",
-        "highlight1": "houdt",
-        "highlight2": "je taal",
-        "copy": "Jouw woorden. Jouw grappen. De manier waarop je vloekt als je je teen stoot. Er is een hele jij die ze nog niet hebben ontmoet—een hele nieuwe jij. Laat ze binnen.",
-        "copyHighlight1": "Jouw woorden",
-        "copyHighlight2": "Jouw grappen",
-        "copyHighlight3": "een hele nieuwe jij",
-        "copyHighlight4": "Laat ze binnen",
-        "underline": "Laat ze binnen"
+        "headline": "Er is een hele jij die ze nooit hebben ontmoet.",
+        "highlight1": "hele jij",
+        "copy": "Hoe je ruzie maakt. Hoe je grappen maakt. De dingen die je alleen in je eigen taal kunt zeggen. Laat ze binnen."
       },
       "section2": {
-        "headline": "Je hebt geprobeerd het uit te leggen. Zij hebben geprobeerd te knikken. Laten we dit oplossen.",
-        "highlight1": "uit te leggen",
-        "highlight2": "knikken",
-        "highlight3": "dit oplossen",
-        "copy": "De dingen die je zegt als je echt blij bent. Of echt geïrriteerd. De woorden die voelen als thuis. Ze willen alles van je begrijpen—niet alleen de vertaalde versie.",
-        "copyHighlight1": "echt blij",
-        "copyHighlight2": "echt geïrriteerd",
-        "copyHighlight3": "alles van je",
-        "underline": "niet alleen de vertaalde versie"
+        "headline": "Sommige dingen sterven in vertaling. Stop met dat toe te laten.",
+        "highlight1": "sterven in vertaling",
+        "copy": "Je legt uit. Ze knikken. Het gevoel is weg. Ze willen niet je ondertitels—ze willen het origineel."
       },
       "section3": {
-        "headline": "Elk woord dat je deelt is een brug.",
-        "highlight1": "brug",
-        "copy": "Deel woorden. Maak uitdagingen. Vier successen samen. De app regelt het saaie werk—jij mag gewoon de leuke zijn.",
-        "copyHighlight1": "Deel woorden",
-        "copyHighlight2": "Maak uitdagingen",
-        "copyHighlight3": "Vier successen",
-        "copyHighlight4": "de leuke",
-        "underline": "jij mag gewoon de leuke zijn"
+        "headline": "De eerste keer dat ze je familie aan het lachen maken zonder jou.",
+        "highlight1": "zonder jou",
+        "copy": "Ze zeiden het. Jouw mensen hoorden het. En je realiseerde je—jij hebt ze dat gegeven."
       },
       "section4": {
-        "headline": "Stuur een woord. Start een spelletje. Kijk hoe ze groeien.",
-        "highlight1": "spelletje",
-        "highlight2": "groeien",
-        "copy": "Daag ze uit met de favoriete zin van je moeder. Quiz ze voor het eten. Vier het als ze het goed hebben. Dit is koppeltijd vermomd als leren—en het is echt leuk.",
-        "copyHighlight1": "favoriete zin van je moeder",
-        "copyHighlight2": "koppeltijd",
-        "copyHighlight3": "echt leuk",
-        "underline": "Dit is koppeltijd vermomd als leren"
+        "headline": "Je taal is een deur. Geef ze de sleutel.",
+        "highlight1": "de sleutel",
+        "copy": "Elk woord is een stukje van jou dat ze mogen houden. Je herinneringen. Je mensen. Je thuis."
       },
-      "section5": {
-        "headline": "Het moment dat ze je verrassen met een zin die je nooit hebt geleerd? Magie.",
-        "highlight1": "je verrassen",
-        "highlight2": "Magie",
-        "copy": "Als ze een grap maken en je familie echt lacht. Als je moeder direct tegen hen begint te praten in jouw taal. Als ze een zin droppen waarvan je mond openvalt. Dat heb jij gedaan.",
-        "copyHighlight1": "familie echt lacht",
-        "copyHighlight2": "moeder",
-        "copyHighlight3": "Dat heb jij gedaan"
+      "context1": {
+        "header": "Laat ze binnen",
+        "cta": "Begin met begeleiden",
+        "subtext": "Naar de echte jij."
       },
-      "section6": {
-        "headline": "Samen lesgeven. Samen spelen. Nog meer verliefd worden.",
-        "highlight1": "samen",
-        "highlight2": "liefde",
-        "copy": "Dit is hoe je deelt wie je echt bent. Woord voor woord. Spelletje voor spelletje. Lach voor lach. En zij worden verliefd op alles ervan.",
-        "copyHighlight1": "wie je echt bent",
-        "copyHighlight2": "verliefd worden",
-        "underline": "En zij worden verliefd op alles ervan"
+      "context2": {
+        "header": "Stop met vertalen",
+        "cta": "Begin met begeleiden",
+        "subtext": "Begin met delen."
       },
-      "context1": { "header": "Deel je wereld", "cta": "Begin met begeleiden", "subtext": "Word hun taalgids." },
-      "context2": { "header": "Laat ze binnen", "cta": "Begin met begeleiden", "subtext": "Sommige dingen vertalen beter als je ze leert." },
-      "context3": { "header": "Leer met liefde", "cta": "Begin", "subtext": "Geen lessen. Liefdebrieven." },
-      "context4": { "header": "Daag ze uit", "cta": "Stuur uitdaging", "subtext": "Spelletjes, uitdagingen, verrassingen." },
-      "context5": { "header": "Kijk hoe ze bloeien", "cta": "Begin met sturen", "subtext": "Eén woord per keer." },
-      "context6": { "header": "Open de deur", "cta": "Start nu", "subtext": "Dat moment komt eraan." },
-      "context7": { "header": "Groei samen", "cta": "Word hun gids", "subtext": "Ze zijn klaar voor je." }
+      "context3": {
+        "header": "Kijk hoe ze erbij horen",
+        "cta": "Begin",
+        "subtext": "Bij jouw mensen."
+      },
+      "context4": {
+        "header": "Geef de sleutel",
+        "cta": "Nu beginnen",
+        "subtext": "Ze zijn er klaar voor."
+      }
+    },
+    "bottomSections": {
+      "faq": {
+        "title": "Veelgestelde Vragen",
+        "q1": {
+          "question": "Wat is Relatiegerichte Taalverwerving (RALL)?",
+          "answer": "RALL is onze methode die bewezen taalverwervingstechnieken (Communicatief Taalonderwijs, Taakgericht Leren) combineert met relatiepsychologie. In plaats van generieke zinnen te leren, leer je de woorden die ertoe doen in JOUW relatie—begeleid door je partner, die helpt je \"Ideale Taalleerder-zelf\" vorm te geven.",
+          "readMore": "Lees hieronder meer →"
+        },
+        "q2": {
+          "question": "Hoe verschilt Love Languages van Duolingo of Babbel?",
+          "intro": "Traditionele apps leren je koffie bestellen. Wij leren je de familie van je partner aan het lachen te maken.",
+          "point1": "Partnergestuurd:",
+          "point1desc": "Je moedertaalsprekende partner stuurt je woorden, maakt uitdagingen en volgt samen je voortgang",
+          "point2": "Gepersonaliseerde woordenschat:",
+          "point2desc": "Leer HUN woorden—familie-uitdrukkingen, inside jokes, koosnaampjes",
+          "point3": "Coöperatief, niet competitief:",
+          "point3desc": "Geen ranglijsten tegen vreemden. Jij en je partner werken als team",
+          "point4": "Relatie-investering:",
+          "point4desc": "Je \"Love Log\" wordt een gedeelde schat die jullie samen opbouwen"
+        },
+        "q3": {
+          "question": "Wat zijn de Student- en Tutorrollen?",
+          "studentDesc": "Studenten leren de taal van hun partner. Ze krijgen AI-gespreksoefening, woordenschatspelletjes (Flashcards, Meerkeuze, Typ Het, Snelvuur) en een persoonlijk woordenboek.",
+          "tutorDesc": "Tutors zijn moedertaalsprekers die hun partner begeleiden. Ze sturen \"woordcadeaus\", maken aangepaste uitdagingen en gebruiken de Coachmodus om leergesprekken te begeleiden. De Tutor geeft niet alleen les—ze helpen de taalidentiteit van hun partner vorm te geven."
+        },
+        "q4": {
+          "question": "Welke talen ondersteunen jullie?",
+          "answer": "18 talen, elke combinatie: Engels, Spaans, Frans, Duits, Italiaans, Portugees, Nederlands, Pools, Russisch, Oekraïens, Zweeds, Noors, Deens, Tsjechisch, Grieks, Hongaars, Turks en Roemeens. Leer Pools als Engelstalige, of Engels als Poolstalige—de hele app past zich aan je moedertaal aan."
+        },
+        "q5": {
+          "question": "Hoeveel kost het?",
+          "intro": "Twee plannen, flexibele facturering:",
+          "standard": "Standaard",
+          "standardPrice": "€7/week · €19/maand · €69/jaar",
+          "standardDesc": "2.000 woorden, 60 min spraak, partner uitnodiging",
+          "unlimited": "Onbeperkt",
+          "unlimitedPrice": "€12/week · €39/maand · €139/jaar",
+          "unlimitedDesc": "Alles onbeperkt + cadeaupassen",
+          "cancelNote": "Altijd opzegbaar. Geen contracten."
+        },
+        "q6": {
+          "question": "Hoe nodig ik mijn partner uit?",
+          "answer": "Na aanmelding ga je naar Instellingen en genereer je een uitnodigingslink. Als je partner zich via jouw link aanmeldt, worden jullie accounts automatisch gekoppeld. Daarna kun je woorden sturen, uitdagingen maken en samen voortgang volgen."
+        }
+      },
+      "rall": {
+        "label": "Onze Methode",
+        "title": "Relatiegerichte Taalverwerving",
+        "description": "RALL combineert bewezen taalverwervingsmethoden met relatiepsychologie. Het resultaat: leren dat zowel je taalvaardigheden ALS je relatie versterkt.",
+        "pillar1": {
+          "title": "Communicatief Taalonderwijs",
+          "description": "\"Vraagmodus\" geeft prioriteit aan echte interactie boven stampen. Je leert door te communiceren, niet door te oefenen.",
+          "citation": "Richards & Rodgers, 2001"
+        },
+        "pillar2": {
+          "title": "Taakgericht Taalleren",
+          "description": "De \"Speeltuin\" scenario's gebruiken taal als hulpmiddel om betekenisvolle taken te voltooien—diner bestellen, familie ontmoeten, conflicten navigeren.",
+          "citation": "Ellis, 2003; Nunan, 2004"
+        },
+        "pillar3": {
+          "title": "Het Michelangelo-fenomeen",
+          "description": "Je partner geeft niet alleen les—ze beeldhouwen. Onderzoek toont dat wanneer partners je \"Ideale Taalleerder-zelf\" bevestigen, je sneller vordert EN je relatie sterker wordt.",
+          "citation": "Rusbult et al., 2009"
+        },
+        "pillar4": {
+          "title": "Interdependentietheorie",
+          "description": "Je Love Log is een gedeelde investering. Elk opgeslagen woord verhoogt de betrokkenheid door positieve wederzijdse afhankelijkheid, niet door angst.",
+          "citation": "Rusbult & Van Lange, 2003"
+        },
+        "quote": "\"Wanneer partners elkaars ideale zelf bevestigen, bereiken individuen vaker hun doelen, en ervaren koppels meer welzijn.\"",
+        "quoteAttribution": "— Rusbult, Finkel & Kumashiro, \"The Michelangelo Phenomenon\" (2009)",
+        "anxietyTitle": "Vreemde-taalangst verminderen:",
+        "anxietyDesc": "Angst voor het oordeel van je partner is echt. Onze AI bemiddelt correcties en feedback, en creëert een veilige ruimte om fouten te maken zonder je relatie te beschadigen.",
+        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991"
+      },
+      "blog": {
+        "label": "Gratis Bronnen",
+        "title": "1.000+ Artikelen voor Koppels",
+        "description": "Diepgaande artikelen over culturele verschillen, romantische zinnen en alles waar koppels mee te maken krijgen bij het overbruggen van de taalbarrière.",
+        "topic1": {
+          "title": "Romantische Zinnen",
+          "description": "Zeg 'ik hou van je' in 18 talen"
+        },
+        "topic2": {
+          "title": "Cultuurgidsen",
+          "description": "Navigeer familiediner & feestdagen"
+        },
+        "topic3": {
+          "title": "Grammatica Simpel Uitgelegd",
+          "description": "Naamvallen, vervoegingen en meer"
+        },
+        "cta": "Ontdek Onze Blog"
+      },
+      "footer": {
+        "tagline": "Leer de taal van de liefde",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "terms": "Voorwaarden",
+        "privacy": "Privacy",
+        "blog": "Blog",
+        "contact": "Contact",
+        "copyright": "Love Languages · Met liefde gemaakt voor geliefden overal"
+      }
     }
   }
 }

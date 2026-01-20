@@ -34,12 +34,15 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
 
 // Generate static paths for each native language
 export async function getStaticPaths() {
-  // Native languages that have translated content
+  // Native languages that have translated content (defined inside getStaticPaths for Astro hoisting)
   const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt'];
   return supportedNativeLangs.map(nativeLang => ({
     params: { nativeLang }
   }));
 }
+
+// Native languages that have translated content (also available in template)
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
 
 const { nativeLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
@@ -293,6 +296,18 @@ const UI_TEXT: Record<string, {
 
 const text = UI_TEXT[nativeLanguageCode] || UI_TEXT.en;
 
+// Generate hreflang alternates for this hub page
+// E.g., /learn/en/ links to /learn/es/, /learn/fr/, etc.
+const hreflangAlternates = SUPPORTED_NATIVE_LANGS
+  .filter(lang => lang !== nativeLanguageCode)
+  .map(lang => ({
+    lang,
+    href: `https://lovelanguages.io/learn/${lang}/`
+  }));
+
+const canonicalUrl = `https://lovelanguages.io/learn/${nativeLanguageCode}/`;
+const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : 'https://lovelanguages.io/learn/en/';
+
 // JSON-LD for the language hub
 const jsonLd = {
   "@context": "https://schema.org",
@@ -315,6 +330,16 @@ const jsonLd = {
   description={text.heroSubtitle}
   nativeLang={nativeLanguageCode}
 >
+  <Fragment slot="head">
+    {/* Hreflang tags for international SEO */}
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+    {hreflangAlternates.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+  </Fragment>
+
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <!-- Hero - Brand styling with coral gradient -->

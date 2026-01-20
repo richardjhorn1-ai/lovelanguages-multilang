@@ -1827,139 +1827,180 @@
       "privacy": "Privacy",
       "privacyPolicy": "Privacy Policy"
     },
+    "shared": {
+      "section0": {
+        "headline": "Language learning that starts with love.",
+        "highlight1": "love",
+        "copy": "Built on Relationship-Aware Language Learning (RALL), Love Languages helps couples bridge the language gap—one meaningful word at a time.",
+        "copyHighlight1": "RALL",
+        "copyHighlight2": "couples",
+        "copyHighlight3": "meaningful",
+        "underline": "Relationship-Aware Language Learning"
+      },
+      "context0": {
+        "header": "Learn with love",
+        "cta": "Get started",
+        "subtext": "Language learning reimagined for couples."
+      }
+    },
     "student": {
       "section1": {
-        "headline": "Skip the boring stuff. Learn the words that matter. The ones that make them smile.",
-        "highlight1": "words that matter",
-        "highlight2": "make them smile",
-        "subhead": "The ones they only use with people they love.",
-        "copy": "Their inside jokes. Their family phrases. The way they say 'I love you' when nobody's listening.",
-        "copyHighlight1": "inside jokes",
-        "copyHighlight2": "family phrases",
-        "copyHighlight3": "I love you",
-        "underline": "The way they say 'I love you' when nobody's listening"
+        "headline": "Learn the sweet nothings, the spicy somethings, and everything in between.",
+        "highlight1": "sweet nothings",
+        "highlight2": "spicy somethings",
+        "highlight3": "everything in between",
+        "copy": "Every word they teach you gets saved to your Love Log automatically. Real words from your real relationship—not a textbook."
       },
       "section2": {
-        "headline": "There's a conversation you're not part of. Yet.",
-        "highlight1": "Yet",
-        "copy": "The jokes you smile through without getting. The family stories that lose something in translation. Time to actually get it.",
-        "copyHighlight1": "family stories",
-        "copyHighlight2": "actually get it",
-        "underline": "Time to actually get it"
+        "headline": "Everyone's laughing. You're still translating.",
+        "highlight1": "laughing",
+        "highlight2": "translating",
+        "copy": "Listen Mode catches every word you missed. Review them after dinner. Next time, you'll be in on it."
       },
       "section3": {
-        "headline": "You're not learning a language. You're learning them.",
-        "highlight1": "learning them",
-        "copy": "Their words. Their jokes. Their way of roasting you lovingly. Built for people who are in it for love, not grades.",
-        "copyHighlight1": "Their words",
-        "copyHighlight2": "Their jokes",
-        "copyHighlight3": "love",
-        "underline": "Built for people who are in it for love"
+        "headline": "Six months from now: your first real conversation.",
+        "highlight1": "first real conversation",
+        "copy": "Intimate. Uninterrupted. In their language. With their help, you'll get there."
       },
       "section4": {
-        "headline": "Learning their language = flirting with extra steps.",
-        "highlight1": "flirting",
-        "copy": "This isn't school. There's no test. Just you, showing up for them in a whole new way. Pretty romantic, honestly.",
-        "copyHighlight1": "showing up for them",
-        "copyHighlight2": "romantic",
-        "underline": "Pretty romantic, honestly"
+        "headline": "They're on the other side. Let them pull you through.",
+        "highlight1": "pull you through",
+        "copy": "Your partner picks the words. You learn them. Somewhere between the quizzes and the flirting, you stop being a guest in their world."
       },
-      "section5": {
-        "headline": "The moment you make their family laugh? Chef's kiss.",
-        "highlight1": "their family laugh",
-        "highlight2": "Chef's kiss",
-        "copy": "The first time you actually get the joke. The first 'I love you' in their language that sounds just right. The moment their mom starts speaking directly to you in their language. It's coming.",
-        "copyHighlight1": "I love you",
-        "copyHighlight2": "mom",
-        "copyHighlight3": "It's coming",
-        "underline": "It's coming"
-      },
-      "section6": {
-        "headline": "Learn together. Love together. Laugh together.",
-        "highlight1": "together",
-        "highlight2": "Love",
-        "highlight3": "Laugh",
-        "copy": "They'll send you words that matter. Challenge you to games. Roast your pronunciation (lovingly). This isn't studying alone—it's building your own little world together.",
-        "copyHighlight1": "words that matter",
-        "copyHighlight2": "your own little world",
-        "underline": "building your own little world together"
-      },
-      "context1": { "header": "Ready to connect deeper?", "cta": "Start learning", "subtext": "2 minutes to your first word." },
-      "context2": { "header": "We've got you", "cta": "Start learning", "subtext": "No more fake laughing." },
-      "context3": { "header": "Built for lovers", "cta": "Begin your journey", "subtext": "Not tourists. Family." },
-      "context4": { "header": "Play your way", "cta": "Explore games", "subtext": "Flashcards, challenges, and more." },
-      "context5": { "header": "Make it count", "cta": "Begin your journey", "subtext": "Every word matters." },
-      "context6": { "header": "Make it happen", "cta": "Start now", "subtext": "That moment is coming." },
-      "context7": { "header": "Start together", "cta": "Create your world", "subtext": "They're waiting for you." }
+      "context1": { "header": "The real stuff", "cta": "Start learning", "subtext": "Not textbook phrases." },
+      "context2": { "header": "No more fake laughing", "cta": "Start learning", "subtext": "Finally get the joke." },
+      "context3": { "header": "Be in the room", "cta": "Begin", "subtext": "For real this time." },
+      "context4": { "header": "Learn together", "cta": "Start now", "subtext": "They're waiting for you." }
     },
     "tutor": {
       "section1": {
-        "headline": "They love you. Now help them love your language too.",
-        "highlight1": "love",
-        "highlight2": "your language",
-        "copy": "Your words. Your jokes. The way you curse when you stub your toe. There's a whole you they haven't met yet—a whole new you. Let them in.",
-        "copyHighlight1": "Your words",
-        "copyHighlight2": "Your jokes",
-        "copyHighlight3": "a whole new you",
-        "copyHighlight4": "Let them in",
-        "underline": "Let them in"
+        "headline": "There's a whole you they've never met.",
+        "highlight1": "whole you",
+        "copy": "The way you fight. The way you joke. The things you can only say in your language. Let them in."
       },
       "section2": {
-        "headline": "You've tried explaining. They've tried nodding. Let's fix this.",
-        "highlight1": "explaining",
-        "highlight2": "nodding",
-        "highlight3": "fix this",
-        "copy": "The things you say when you're really happy. Or really annoyed. The words that feel like home. They want to understand all of you—not just the translated version.",
-        "copyHighlight1": "really happy",
-        "copyHighlight2": "really annoyed",
-        "copyHighlight3": "all of you",
-        "underline": "not just the translated version"
+        "headline": "Some things die in translation. Stop letting them.",
+        "highlight1": "die in translation",
+        "copy": "You explain. They nod. The feeling's gone. They don't want your subtitles—they want the original."
       },
       "section3": {
-        "headline": "Every word you share is a bridge.",
-        "highlight1": "bridge",
-        "copy": "Share words. Create challenges. Celebrate wins together. The app handles the boring stuff—you just get to be the fun one.",
-        "copyHighlight1": "Share words",
-        "copyHighlight2": "Create challenges",
-        "copyHighlight3": "Celebrate wins",
-        "copyHighlight4": "the fun one",
-        "underline": "you just get to be the fun one"
+        "headline": "The first time they make your family laugh without you.",
+        "highlight1": "without you",
+        "copy": "They said it. Your people heard it. And you realized—you gave them that."
       },
       "section4": {
-        "headline": "Send a word. Start a game. Watch them grow.",
-        "highlight1": "game",
-        "highlight2": "grow",
-        "copy": "Challenge them to your mom's favorite phrase. Quiz them before dinner. Celebrate when they nail it. This is couples time disguised as learning—and it's actually fun.",
-        "copyHighlight1": "mom's favorite phrase",
-        "copyHighlight2": "couples time",
-        "copyHighlight3": "actually fun",
-        "underline": "This is couples time disguised as learning"
+        "headline": "Your language is a door. Hand them the key.",
+        "highlight1": "the key",
+        "copy": "Every word is a piece of you they get to keep. Your memories. Your people. Your home."
       },
-      "section5": {
-        "headline": "The moment they surprise you with a phrase you never taught them? Magic.",
-        "highlight1": "surprise you",
-        "highlight2": "Magic",
-        "copy": "When they crack a joke and your family actually laughs. When your mom starts speaking directly to them in your language. When they drop a phrase that makes your jaw drop. You made that happen.",
-        "copyHighlight1": "family actually laughs",
-        "copyHighlight2": "mom",
-        "copyHighlight3": "You made that happen"
+      "context1": { "header": "Let them in", "cta": "Start guiding", "subtext": "To the real you." },
+      "context2": { "header": "Stop translating", "cta": "Start guiding", "subtext": "Start sharing." },
+      "context3": { "header": "Watch them belong", "cta": "Begin", "subtext": "With your people." },
+      "context4": { "header": "Hand them the key", "cta": "Start now", "subtext": "They're ready." }
+    },
+    "bottomSections": {
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": {
+          "question": "What is Relationship-Aware Language Learning (RALL)?",
+          "answer": "RALL is our methodology that combines proven language acquisition techniques (Communicative Language Teaching, Task-Based Learning) with relationship psychology. Instead of learning generic phrases, you learn the words that matter in YOUR relationship—guided by your partner, who helps shape your \"Ideal L2 Self.\"",
+          "readMore": "Read more below →"
+        },
+        "q2": {
+          "question": "How is Love Languages different from Duolingo or Babbel?",
+          "intro": "Traditional apps teach you to order coffee. We teach you to make your partner's family laugh.",
+          "point1": "Partner-guided:",
+          "point1desc": "Your native speaker partner sends you words, creates challenges, and tracks your progress together",
+          "point2": "Personalized vocabulary:",
+          "point2desc": "Learn THEIR words—family phrases, inside jokes, terms of endearment",
+          "point3": "Cooperative, not competitive:",
+          "point3desc": "No leaderboards against strangers. You and your partner work as a team",
+          "point4": "Relationship investment:",
+          "point4desc": "Your \"Love Log\" becomes a shared asset you build together"
+        },
+        "q3": {
+          "question": "What are the Student and Tutor roles?",
+          "studentDesc": "Students are learning their partner's language. They get AI conversation practice, vocabulary games (Flashcards, Multiple Choice, Type It, Quick Fire), and a personal dictionary.",
+          "tutorDesc": "Tutors are native speakers guiding their partner. They send \"word gifts,\" create custom challenges, and use Coach mode to guide learning conversations. The Tutor isn't just teaching—they're helping sculpt their partner's language identity."
+        },
+        "q4": {
+          "question": "Which languages do you support?",
+          "answer": "18 languages, any combination: English, Spanish, French, German, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, Swedish, Norwegian, Danish, Czech, Greek, Hungarian, Turkish, and Romanian. Learn Polish as an English speaker, or English as a Polish speaker—the entire app adapts to your native language."
+        },
+        "q5": {
+          "question": "How much does it cost?",
+          "intro": "Two plans, flexible billing:",
+          "standard": "Standard",
+          "standardPrice": "$7/week · $19/month · $69/year",
+          "standardDesc": "2,000 words, 60 min voice, partner invite",
+          "unlimited": "Unlimited",
+          "unlimitedPrice": "$12/week · $39/month · $139/year",
+          "unlimitedDesc": "Everything unlimited + gift passes",
+          "cancelNote": "Cancel anytime. No contracts."
+        },
+        "q6": {
+          "question": "How do I invite my partner?",
+          "answer": "After signing up, go to Settings and generate an invite link. When your partner signs up with your link, your accounts connect automatically. You can then send words, create challenges, and track progress together."
+        }
       },
-      "section6": {
-        "headline": "Teach together. Play together. Fall deeper in love.",
-        "highlight1": "together",
-        "highlight2": "love",
-        "copy": "This is how you share who you really are. Word by word. Game by game. Laugh by laugh. And they get to fall in love with all of it.",
-        "copyHighlight1": "who you really are",
-        "copyHighlight2": "fall in love",
-        "underline": "And they get to fall in love with all of it"
+      "rall": {
+        "label": "Our Method",
+        "title": "Relationship-Aware Language Learning",
+        "description": "RALL synthesizes proven language acquisition methodologies with relationship psychology. The result: learning that strengthens both your language skills AND your relationship.",
+        "pillar1": {
+          "title": "Communicative Language Teaching",
+          "description": "\"Ask Mode\" prioritizes real interaction over memorization. You learn by communicating, not by drilling.",
+          "citation": "Richards & Rodgers, 2001"
+        },
+        "pillar2": {
+          "title": "Task-Based Language Learning",
+          "description": "The \"Playground\" scenarios use language as a tool to complete meaningful tasks—ordering dinner, meeting family, navigating conflict.",
+          "citation": "Ellis, 2003; Nunan, 2004"
+        },
+        "pillar3": {
+          "title": "The Michelangelo Phenomenon",
+          "description": "Your partner doesn't just teach—they sculpt. Research shows that when partners affirm your \"Ideal L2 Self,\" you progress faster AND your relationship strengthens.",
+          "citation": "Rusbult et al., 2009"
+        },
+        "pillar4": {
+          "title": "Interdependence Theory",
+          "description": "Your Love Log is a shared investment. Every word saved increases commitment through positive interdependence, not fear.",
+          "citation": "Rusbult & Van Lange, 2003"
+        },
+        "quote": "\"When partners affirm each other's ideal selves, individuals are more likely to achieve their goals, and couples experience enhanced well-being.\"",
+        "quoteAttribution": "— Rusbult, Finkel & Kumashiro, \"The Michelangelo Phenomenon\" (2009)",
+        "anxietyTitle": "Reducing Foreign Language Anxiety:",
+        "anxietyDesc": "Fear of judgment from your partner is real. Our AI mediates corrections and feedback, creating a safe space to make mistakes without damaging your relationship.",
+        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991"
       },
-      "context1": { "header": "Share your world", "cta": "Start guiding", "subtext": "Become their language guide." },
-      "context2": { "header": "Let them in", "cta": "Start guiding", "subtext": "Some things translate better when learned." },
-      "context3": { "header": "Teach with love", "cta": "Begin", "subtext": "Not lessons. Love letters." },
-      "context4": { "header": "Challenge them", "cta": "Send a challenge", "subtext": "Games, challenges, surprises." },
-      "context5": { "header": "Watch them bloom", "cta": "Start sending", "subtext": "One word at a time." },
-      "context6": { "header": "Open the door", "cta": "Start now", "subtext": "That moment is coming." },
-      "context7": { "header": "Grow together", "cta": "Become their guide", "subtext": "They're ready for you." }
+      "blog": {
+        "label": "Free Resources",
+        "title": "1,000+ Articles for Couples",
+        "description": "Deep dives into cultural differences, romantic phrases, and everything couples face when bridging the language gap.",
+        "topic1": {
+          "title": "Romantic Phrases",
+          "description": "Say 'I love you' in 18 languages"
+        },
+        "topic2": {
+          "title": "Cultural Guides",
+          "description": "Navigate family dinners & holidays"
+        },
+        "topic3": {
+          "title": "Grammar Made Simple",
+          "description": "Cases, conjugations, and more"
+        },
+        "cta": "Explore Our Blog"
+      },
+      "footer": {
+        "tagline": "Learn the language of love",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "terms": "Terms",
+        "privacy": "Privacy",
+        "blog": "Blog",
+        "contact": "Contact",
+        "copyright": "Love Languages · Made with ♥ for lovers everywhere"
+      }
     }
   }
 }

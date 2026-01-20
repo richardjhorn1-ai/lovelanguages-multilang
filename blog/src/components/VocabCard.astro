@@ -18,7 +18,8 @@ const displayWord = word || polish || '';
 const displayTranslation = translation || english || '';
 ---
 
-<div class="bg-gradient-to-br from-accent/5 to-accent/10 rounded-2xl p-6 my-6 border border-accent/20">
+<!-- VocabCard: Marked as speakable for voice search optimization -->
+<div class="speakable-vocab bg-gradient-to-br from-accent/5 to-accent/10 rounded-2xl p-6 my-6 border border-accent/20">
   <div class="flex items-center justify-between mb-2">
     <span class="text-2xl font-bold text-accent font-header">{displayWord}</span>
     <span class="text-lg text-gray-900">{displayTranslation}</span>

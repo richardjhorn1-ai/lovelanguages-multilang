@@ -80,6 +80,19 @@ const categories = [
   { id: 'situations', label: 'Situations', icon: '🎭' },
 ];
 
+// Hreflang: Find equivalent hub pages for different native languages learning the same target
+// E.g., /learn/en/pl/ links to /learn/es/pl/, /learn/fr/pl/, etc.
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+const hreflangAlternates = SUPPORTED_NATIVE_LANGS
+  .filter(lang => lang !== nativeLanguageCode && lang !== targetLanguageCode)
+  .map(lang => ({
+    lang,
+    href: `https://lovelanguages.io/learn/${lang}/${targetLanguageCode}/`
+  }));
+
+const canonicalUrl = `https://lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`;
+const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : `https://lovelanguages.io/learn/en/${targetLanguageCode}/`;
+
 // JSON-LD for the blog listing page
 const jsonLd = {
   "@context": "https://schema.org",
@@ -109,6 +122,18 @@ const jsonLd = {
   nativeLang={nativeLanguageCode}
   targetLang={targetLanguageCode}
 >
+  <Fragment slot="head">
+    {/* Hreflang tags for international SEO
+        Links to equivalent pages for speakers of other languages learning the same target
+    */}
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+    {hreflangAlternates.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+  </Fragment>
+
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <!-- Hero Section -->

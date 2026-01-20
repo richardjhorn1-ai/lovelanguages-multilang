@@ -472,7 +472,6 @@
     "search": "Hledat...",
     "searchWords": "Hledat slova...",
     "wordsCount": "{{count}} slov",
-
     "sync": {
       "scanChats": "Prohledat chaty",
       "scanTooltip": "Prohledat historii chatů pro nová slovíčka",
@@ -483,7 +482,6 @@
       "newWords_other": "+{{count}} nových slov!",
       "syncError": "Chyba synchronizace"
     },
-
     "filters": {
       "all": "Vše",
       "noun": "Podstatné jméno",
@@ -494,7 +492,6 @@
       "gifts": "Dárky",
       "clear": "Vymazat"
     },
-
     "card": {
       "gift": "Dárek",
       "giftFrom": "Dárek od {{name}}",
@@ -507,7 +504,6 @@
       "conjugations": "Časování",
       "forms": "Tvary"
     },
-
     "modal": {
       "present": "Přítomný",
       "past": "Minulý",
@@ -516,7 +512,6 @@
       "unlockTense": "Odemknout čas {{tense}}",
       "unlocked": "Odemčeno {{date}}"
     },
-
     "unlock": {
       "title": "Odemknout čas {{tense}}?",
       "descriptionBefore": "Připraven/a naučit se říkat",
@@ -526,7 +521,6 @@
       "unlockNow": "Odemknout teď",
       "unlocking": "Odemykání..."
     },
-
     "pronouns": {
       "singular1": "(já)",
       "singular2": "(ty)",
@@ -535,19 +529,16 @@
       "plural2": "(vy)",
       "plural3": "(oni)"
     },
-
     "tableHeaders": {
       "person": "Osoba",
       "masculine": "Muž.",
       "feminine": "Žen."
     },
-
     "nounForms": {
       "gender": "Rod",
       "singular": "Jednotné číslo",
       "plural": "Množné číslo"
     },
-
     "adjectiveForms": {
       "title": "Rodové tvary",
       "masculine": "Mužský rod",
@@ -556,7 +547,6 @@
       "plural": "Množné číslo"
     }
   },
-
   "onboarding": {
     "step": {
       "back": "Zpět",
@@ -565,13 +555,11 @@
       "continue": "Pokračovat",
       "skipForNow": "Přeskočit prozatím"
     },
-
     "name": {
       "title": "Jak ti má Cupid říkat?",
       "subtitle": "Tvé jméno pomáhá tuto cestu personalizovat.",
       "placeholder": "Tvé jméno"
     },
-
     "partnerName": {
       "studentTitle": "Pro koho se učíš {{language}}, {{name}}?",
       "tutorTitle": "Komu pomáháš učit se {{language}}, {{name}}?",
@@ -579,7 +567,6 @@
       "tutorSubtitle": "To je ten, koho budeš provázet {{language}}.",
       "placeholder": "Jejich jméno"
     },
-
     "languageConfirm": {
       "title": "Potvrď své jazyky, {{name}}",
       "subtitle": "Ujisti se, že tvá jazyková cesta je správná.",
@@ -590,7 +577,6 @@
       "summary": "Učím se {{target}} jako rodilý mluvčí {{native}}",
       "tutorSummary": "Učím {{target}} rodilého mluvčího {{native}}"
     },
-
     "validation": {
       "title": "Jak máme kontrolovat tvé odpovědi?",
       "subtitle": "Vyber, jak shovívavá má být aplikace při hodnocení.",
@@ -614,7 +600,6 @@
         "detail4": "Tradiční zážitek s kartičkami"
       }
     },
-
     "plan": {
       "title": "Vyber si plán, {{name}}",
       "subtitle": "Začni svou cestu učení {{language}} ještě dnes",
@@ -648,7 +633,6 @@
         "feature5": "Dárkový pas pro další pár (roční)"
       }
     },
-
     "student": {
       "start": {
         "title": "Připraven/a začít, {{name}}?",
@@ -660,7 +644,6 @@
         "feature4": "Sledování pokroku a testy úrovně",
         "button": "Jdeme na to! 🚀"
       },
-
       "vibe": {
         "title": "Jedno slovo pro tvůj vztah s {{name}}",
         "subtitle": "Vyber náladu, která nejlépe sedí.",
@@ -671,7 +654,6 @@
         "longDistance": "Na dálku",
         "newLove": "Nová láska"
       },
-
       "time": {
         "title": "Kolik času můžeš denně věnovat?",
         "subtitle": "I malé chvilky se sčítají do velkého pokroku.",
@@ -682,7 +664,6 @@
         "walk": "Dlouhá procházka",
         "walkDesc": "20+ minut"
       },
-
       "when": {
         "title": "Kdy preferuješ procvičovat?",
         "subtitle": "Připomeneme ti to ve správný čas.",
@@ -691,19 +672,16 @@
         "evening": "Večer",
         "whenever": "Kdykoliv"
       },
-
       "photo": {
         "title": "Přidej svou fotku",
         "subtitleWithPhoto": "Vypadáš skvěle! Toto se objeví na tvém profilu.",
         "subtitleNoPhoto": "Fotka pomáhá, aby tvůj profil působil osobněji."
       },
-
       "why": {
         "title": "Proč se chceš učit {{language}} pro {{name}}?",
         "subtitle": "Toto se stane tvou osobní připomínkou na této cestě.",
         "placeholder": "Chci je překvapit, až navštívíme jejich rodinu... Chci jim šeptat něžnosti... Chci porozumět jejich světu..."
       },
-
       "fear": {
         "title": "Čeho se při učení {{language}} nejvíc bojíš?",
         "subtitle": "Každý má nějaký strach. Pojďme ten tvůj společně překonat.",
@@ -716,14 +694,12 @@
         "forgetting": "Zapomínání všeho",
         "forgettingDesc": "Učit se, ale nepamatovat si"
       },
-
       "prior": {
         "title": "Zkoušel/a jsi se učit {{language}} už dříve?",
         "subtitle": "Toto nám pomůže začít na správném místě.",
         "yes": "Ano, trochu",
         "beginner": "Úplný začátečník"
       },
-
       "goal": {
         "title": "Jaký je tvůj první milník?",
         "subtitle": "Cíl, ke kterému budeš s {{name}} směřovat",
@@ -733,7 +709,6 @@
         "custom": "Nastavit vlastní cíl",
         "customPlaceholder": "např. 'Objednat si v {{language}} v jejich oblíbené restauraci'"
       },
-
       "learnHello": {
         "title": "Pojďme se naučit první slovo!",
         "subtitle": "Pozdrav {{name}} v {{language}}",
@@ -742,7 +717,6 @@
         "gotIt": "Mám to!",
         "listenFirst": "Nejdřív si poslechni"
       },
-
       "learnLove": {
         "title": "Teď ta nejdůležitější fráze...",
         "subtitle": "Ta, kterou {{name}} nikdy nezapomene",
@@ -752,7 +726,6 @@
         "ready": "Jsem připraven/a!",
         "listenFirst": "Nejdřív si poslechni"
       },
-
       "tryIt": {
         "title": "Zkus to říct!",
         "subtitle": "Neboj, slyšíš se jen ty sám/sama.",
@@ -760,7 +733,6 @@
         "success": "Úžasné! Řekl/a jsi to! 🎉",
         "practiceLater": "Procvičím si to později"
       },
-
       "celebration": {
         "title": "Dokázal/a jsi to!",
         "subtitle": "Právě ses naučil/a svou první {{language}}!",
@@ -771,7 +743,6 @@
         "keepGoing": "Pokračuj!"
       }
     },
-
     "tutor": {
       "start": {
         "title": "Připraven/a být průvodcem pro {{learnerName}}, {{userName}}?",
@@ -783,7 +754,6 @@
         "feature4": "Propoj účty pro sledování jejich cesty",
         "button": "Začít pomáhat {{learnerName}}! 🎯"
       },
-
       "relation": {
         "title": "Jaký je tvůj vztah s {{name}}?",
         "subtitle": "Toto nám pomůže personalizovat tvůj zážitek z výuky",
@@ -792,7 +762,6 @@
         "friend": "Přítel/kyně",
         "family": "Rodina"
       },
-
       "connection": {
         "title": "Jaké je tvé spojení s {{language}}?",
         "subtitle": "Pomoz nám pochopit tvé jazykové pozadí",
@@ -805,7 +774,6 @@
         "bilingual": "Bilingvní",
         "bilingualDesc": "Vyrůstal/a s {{language}} a dalším jazykem"
       },
-
       "origin": {
         "title": "Jak ses naučil/a {{language}}?",
         "subtitle": "Tvá cesta nám pomůže navrhnout přístupy k výuce",
@@ -814,14 +782,12 @@
         "school": "Studoval/a jsem formálně",
         "self": "Samouk"
       },
-
       "dreamPhrase": {
         "title": "Vysněný okamžik 💭",
         "subtitle": "Co chceš jako první slyšet {{name}} říct v {{language}}?",
         "placeholder": "např. 'Miluji tě' nebo 'Dobré ráno'",
         "note": "Toto se stane vaším prvním společným cílem výuky"
       },
-
       "style": {
         "title": "Tvůj styl výuky?",
         "subtitle": "Jak přirozeně pomáháš někomu učit se?",
@@ -834,7 +800,6 @@
         "immersive": "Pohlcující",
         "immersiveDesc": "Skoč do toho a uč se praxí"
       },
-
       "preview": {
         "title": "Tvá sada nástrojů pro výuku",
         "subtitle": "Zde je to, co můžeš dělat pro {{name}}",
@@ -848,7 +813,6 @@
       }
     }
   },
-
   "levelTest": {
     "preparing": "Příprava testu",
     "generatingQuestions": "Generuji otázky na základě tvé úrovně...",
@@ -881,7 +845,6 @@
     "submitTest": "Odeslat test",
     "next": "Další"
   },
-
   "tutorGames": {
     "playTogether": "Hrát spolu",
     "sendChallenge": "Poslat výzvu",
@@ -889,7 +852,6 @@
     "sendDescription": "Pošli výzvy, které {{name}} splní později",
     "playDescription": "Procvičujte spolu právě teď",
     "startNow": "Začít teď",
-
     "local": {
       "quiz": "Vyzkoušej {{name}}",
       "quizDesc": "Kvíz s kartičkami spolu",
@@ -901,7 +863,6 @@
       "typeItDesc": "Napiš překlad",
       "needWords": "{{name}} potřebuje alespoň 4 slova ve slovíčkách, aby mohl/a hrát"
     },
-
     "send": {
       "doYouRemember": "Pamatuješ si?",
       "quizPartner": "Vyzkoušej {{name}} ze slovíček",
@@ -913,14 +874,12 @@
       "sendWords": "Pošli slova, která se {{name}} naučí",
       "sendGift": "Poslat dárek"
     },
-
     "pending": {
       "waitingFor": "Čeká se na {{name}}",
       "words": "{{count}} slov",
       "sent": "Odesláno {{date}}",
       "pending": "Čeká"
     },
-
     "gifts": {
       "title": "Odeslaná dárková slova",
       "word": "{{count}} slovo",
@@ -929,17 +888,14 @@
       "custom": "Vlastní slova",
       "xpMultiplier": "{{multiplier}}x XP"
     },
-
     "results": {
       "title": "Nedávné výsledky",
       "completed": "Dokončeno {{date}}"
     },
-
     "empty": {
       "noChallenges": "Zatím žádné výzvy",
       "createFirst": "Vytvoř svou první výzvu pro {{name}}!"
     },
-
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
@@ -947,11 +903,9 @@
       "hard": "Těžké",
       "gotIt": "Umím to!"
     },
-
     "direction": {
       "label": "{{target}} → {{native}}"
     },
-
     "quickFireGame": {
       "title": "Rychlopalba!",
       "description": "Přelož co nejvíce slov za 60 sekund!",
@@ -959,7 +913,6 @@
       "start": "Start!",
       "typeTranslation": "Napiš překlad..."
     },
-
     "typeItGame": {
       "correct": "Správně!",
       "notQuite": "Ne tak docela",
@@ -968,7 +921,6 @@
       "next": "Další",
       "check": "Zkontrolovat"
     },
-
     "gameOver": {
       "greatJob": "Skvělá práce!",
       "keepPracticing": "Pokračuj v procvičování!",
@@ -982,7 +934,6 @@
       "done": "Hotovo",
       "playAgain": "Hrát znovu"
     },
-
     "saveDialog": {
       "title": "Uložit do pokroku uživatele {{name}}?",
       "howItWorks": "Jak to funguje:",
@@ -995,7 +946,6 @@
       "save": "Uložit"
     }
   },
-
   "gameResults": {
     "greatJob": "Skvělá práce!",
     "sessionResults": "Výsledky relace:",
@@ -1006,7 +956,6 @@
     "done": "Hotovo",
     "playAgain": "Hrát znovu"
   },
-
   "conversationPractice": {
     "states": {
       "listening": "Naslouchám...",
@@ -1022,7 +971,6 @@
     "aiSpeaking": "AI mluví...",
     "conversationEnded": "Konverzace skončila"
   },
-
   "scenarioSelector": {
     "title": "Cvičení konverzace",
     "subtitle": "Vyber scénář",
@@ -1033,14 +981,38 @@
       "advanced": "pokročilý"
     },
     "scenarios": {
-      "cafe": { "name": "V Kavárně", "description": "Objednej kávu a svačinu" },
-      "restaurant": { "name": "Večeře v Restauraci", "description": "Objednej jídlo a zeptej se na doporučení" },
-      "market": { "name": "Na Trhu", "description": "Kup ovoce a zeleninu" },
-      "taxi": { "name": "Jízda Taxíkem", "description": "Ukaž cestu a popovídej si s řidičem" },
-      "pharmacy": { "name": "V Lékárně", "description": "Zeptej se na léky a popiš příznaky" },
-      "hotel": { "name": "Check-in v Hotelu", "description": "Ubytuj se a zeptej se na vybavení" },
-      "family_dinner": { "name": "Rodinná Večeře", "description": "Poznej rodiče svého partnera" },
-      "train_station": { "name": "Nádraží", "description": "Kup jízdenky a zjisti jízdní řád" }
+      "cafe": {
+        "name": "V Kavárně",
+        "description": "Objednej kávu a svačinu"
+      },
+      "restaurant": {
+        "name": "Večeře v Restauraci",
+        "description": "Objednej jídlo a zeptej se na doporučení"
+      },
+      "market": {
+        "name": "Na Trhu",
+        "description": "Kup ovoce a zeleninu"
+      },
+      "taxi": {
+        "name": "Jízda Taxíkem",
+        "description": "Ukaž cestu a popovídej si s řidičem"
+      },
+      "pharmacy": {
+        "name": "V Lékárně",
+        "description": "Zeptej se na léky a popiš příznaky"
+      },
+      "hotel": {
+        "name": "Check-in v Hotelu",
+        "description": "Ubytuj se a zeptej se na vybavení"
+      },
+      "family_dinner": {
+        "name": "Rodinná Večeře",
+        "description": "Poznej rodiče svého partnera"
+      },
+      "train_station": {
+        "name": "Nádraží",
+        "description": "Kup jízdenky a zjisti jízdní řád"
+      }
     },
     "createOwn": "Vytvoř vlastní",
     "createOwnDesc": "Popiš jakýkoliv scénář, který chceš procvičit",
@@ -1053,7 +1025,6 @@
     "footerInfo": "AI bude mluvit {{targetLanguage}} ve výchozím nastavení. Pokud budeš mít problémy, pomůže ti v {{nativeLanguage}}.",
     "customPersona": "Jsi přátelský {{language}} člověk, který pomáhá někomu procvičovat {{language}}. Jsi trpělivý, povzbuzující a přizpůsobuješ jazyk jejich úrovni."
   },
-
   "challengeCreator": {
     "common": {
       "addNewWords": "Přidat nová slova",
@@ -1073,7 +1044,6 @@
       "failedCreateChallenge": "Nepodařilo se vytvořit výzvu",
       "needMinWords": "Pro výzvu potřebuješ alespoň 5 slov!"
     },
-
     "quiz": {
       "title": "Vytvořit kvíz",
       "subtitle": "Vyber slova pro procvičování {{name}}",
@@ -1091,7 +1061,6 @@
       "noWordsYet": "{{name}} se zatím žádná slova nenaučil/a!",
       "addWordsToStart": "Přidej nová slova výše pro začátek."
     },
-
     "quickFire": {
       "title": "Rychlopalba",
       "subtitle": "Časovaná výzva pro {{name}}",
@@ -1123,7 +1092,6 @@
       "averageTime": "Průměr: {{time}}s na slovo",
       "needMoreWords": "Pro vytvoření výzvy potřebuješ celkem alespoň 5 slov!"
     },
-
     "lovePackage": {
       "title": "Balíček lásky",
       "subtitle": "Pošli slova uživateli {{name}}",
@@ -1137,7 +1105,6 @@
       "alreadyInLoveLog": "'{{word}}' už je v Love Log uživatele {{name}}!"
     }
   },
-
   "challengePlayer": {
     "common": {
       "later": "Později",
@@ -1146,7 +1113,6 @@
       "showDetails": "Zobrazit detaily ({{count}})",
       "xpEarned": "+{{xp}} XP získáno!"
     },
-
     "results": {
       "perfect": "Perfektní!",
       "perfectScore": "Perfektní skóre!",
@@ -1154,7 +1120,6 @@
       "greatJob": "Skvělá práce!",
       "keepPracticing": "Pokračuj v procvičování!"
     },
-
     "quiz": {
       "startDescription": "{{name}} tě chce vyzkoušet z {{count}} slov!",
       "startInstructions": "Odpověz na otázky o {{language}} slovech, která ses naučil/a. Správnými odpověďmi buduješ sérii!",
@@ -1177,7 +1142,6 @@
         "submit": "Odeslat"
       }
     },
-
     "quickFire": {
       "title": "Rychlopalba!",
       "startDescription": "{{name}} tě vyzývá přeložit {{count}} slov za {{time}} sekund!",
@@ -1195,7 +1159,6 @@
       "typePlaceholder": "Napiš překlad..."
     }
   },
-
   "roleSelection": {
     "loading": "Připravuji vše...",
     "confirmHeader": "Pro jistotu...",
@@ -1218,7 +1181,6 @@
     "letsGo": "To jsem já! Jdeme na to",
     "chooseRole": "Pro pokračování vyber svou roli"
   },
-
   "subscription": {
     "common": {
       "weekly": "Týdně",
@@ -1247,13 +1209,11 @@
       "friend": "Přítel",
       "copy": "Kopírovat"
     },
-
     "plans": {
       "standard": "Standard",
       "unlimited": "Neomezený",
       "none": "Žádný"
     },
-
     "features": {
       "wordsLimit": "{{limit}} slov v Love Log",
       "unlimitedWords": "Neomezený počet slov",
@@ -1268,7 +1228,6 @@
       "giftPass": "Dárkový pas pro další pár (roční)",
       "unlimitedEverything": "Vše neomezené"
     },
-
     "manager": {
       "couplePass": "Párovka",
       "freeAccess": "Bezplatný přístup od {{name}}",
@@ -1288,7 +1247,6 @@
       "manageSubscription": "Spravovat předplatné",
       "continueToManage": "Pokračovat ve správě"
     },
-
     "required": {
       "title": "Ještě jeden krok, {{name}}!",
       "subtitle": "Dokonči předplatné a začni se společně učit {{language}}",
@@ -1298,7 +1256,6 @@
       "logoutOption": "Odhlásit se a použít jiný účet",
       "signOutOption": "Odhlásit se a použít jiný účet"
     },
-
     "pricing": {
       "title": "Uč se {{language}} z lásky",
       "subtitle": "Vyber si plán, který odpovídá tvé cestě učení",
@@ -1328,7 +1285,6 @@
       "questionsEmail": "Otázky? Napiš nám na",
       "copy": "Kopírovat"
     },
-
     "errors": {
       "loginRequired": "Pro předplatné se prosím přihlas",
       "loginAgain": "Prosím přihlas se znovu",
@@ -1339,7 +1295,6 @@
       "somethingWrong": "Něco se pokazilo"
     }
   },
-
   "pendingChallenges": {
     "yourPartner": "Tvůj partner",
     "sentYouSomething": "{{name}} ti něco poslal/a!",
@@ -1356,7 +1311,6 @@
     "learn": "Učit se",
     "xpBonus": "{{multiplier}}x XP bonus"
   },
-
   "invite": {
     "title": "Pozvi partnera",
     "subtitle": "Tvé předplatné zahrnuje bezplatný přístup pro partnera!",
@@ -1373,7 +1327,6 @@
     "generateButton": "Vygenerovat odkaz pozvánky",
     "generating": "Generuji..."
   },
-
   "helpGuide": {
     "title": "Tvůj průvodce",
     "subtitle": "Love Languages",
@@ -1459,7 +1412,6 @@
       "forgetAnswer": "Hraj hry - automaticky ti připomínají slova, se kterými bojuješ. Rozložené opakování ti je pomáhá fixovat."
     }
   },
-
   "bugReport": {
     "title": "Nahlásit chybu",
     "subtitle": "Pomoz nám zlepšit Love Languages",
@@ -1493,7 +1445,6 @@
       "close": "Zavřít"
     }
   },
-
   "wordGift": {
     "intro": {
       "title": "Dárek od {{name}}!",
@@ -1533,7 +1484,6 @@
       "network": "Chyba sítě. Zkontroluj prosím připojení a zkus to znovu."
     }
   },
-
   "chatSuggestions": {
     "student": {
       "askTitle": "Zeptej se Cupida na cokoliv",
@@ -1567,13 +1517,11 @@
       }
     }
   },
-
   "newWords": {
     "added": "{{count}} nové slovo přidáno",
     "added_other": "{{count}} nových slov přidáno",
     "viewAll": "Zobrazit vše v Love Log"
   },
-
   "avatar": {
     "clickToUpload": "Klikni pro nahrání",
     "clickToChange": "Klikni pro změnu",
@@ -1590,7 +1538,6 @@
       "uploadFailed": "Nepodařilo se nahrát obrázek"
     }
   },
-
   "joinInvite": {
     "validating": "Ověřuji pozvánku...",
     "invalidInvite": "Neplatná pozvánka",
@@ -1617,7 +1564,6 @@
     "checkEmail": "Zkontroluj si e-mail pro potvrzení a pak se přihlas!",
     "yourPartner": "Tvůj partner"
   },
-
   "gameHistory": {
     "loading": "Nahrávání...",
     "noHistory": "Zatím žádná historie her",
@@ -1639,7 +1585,6 @@
     "practiceWords": "Procvičit těchto {{count}} slov",
     "perfectScore": "Perfektní skóre! Žádná chybná slova."
   },
-
   "usage": {
     "title": "Měsíční využití",
     "unlimitedPlan": "Neomezený plán",
@@ -1653,7 +1598,6 @@
     "upgradePrompt": "Dochází ti? Upgraduj na Neomezený pro žádné limity!",
     "resetsMonthly": "Využití se resetuje 1. každého měsíce"
   },
-
   "inviteLink": {
     "title": "Magický odkaz pozvánky",
     "subtitle": "Sdílej s partnerem pro okamžité připojení",
@@ -1668,7 +1612,6 @@
     "newLink": "Nový odkaz",
     "description": "Když partner klikne na tento odkaz, bude pozván, aby se stal tvým jazykovým koučem!"
   },
-
   "breakup": {
     "warning": {
       "title": "Ukončit vaši společnou cestu učení?",
@@ -1695,7 +1638,6 @@
       "messageGrantee": "Opatruj se. Pro pokračování v učení budeš potřebovat vlastní předplatné."
     }
   },
-
   "gameShowcase": {
     "studentHeadline": {
       "part1": "A pokud se chceš učit ",
@@ -1721,13 +1663,11 @@
       "quick": "Rychlo"
     }
   },
-
   "demoFlashcard": {
     "tapToReveal": "Klepni pro odhalení",
     "hard": "Těžké",
     "gotIt": "Umím to!"
   },
-
   "demoTypeIt": {
     "correct": "Správně!",
     "notQuite": "Ne tak docela",
@@ -1736,7 +1676,6 @@
     "next": "Další",
     "check": "Zkontrolovat"
   },
-
   "demoQuickFire": {
     "title": "Rychlopalba!",
     "instructions": "Piš překlady co nejrychleji!",
@@ -1748,7 +1687,6 @@
     "keepPracticing": "Pokračuj v procvičování!",
     "timesUp": "Čas vypršel!"
   },
-
   "hero": {
     "languageSelector": {
       "nativePrompt": "Mluvím...",
@@ -1793,139 +1731,212 @@
       "privacy": "Soukromí",
       "privacyPolicy": "Zásady ochrany soukromí"
     },
+    "shared": {
+      "section0": {
+        "headline": "Uceni jazyku zacina laskou.",
+        "highlight1": "laskou",
+        "copy": "Zalozeno na Uceni Jazyku Orientovanem na Vztahy (RALL), Love Languages pomaha parum prekonat jazykovou barieru—jedno vyznamne slovo po druhem.",
+        "copyHighlight1": "RALL",
+        "copyHighlight2": "parum",
+        "copyHighlight3": "vyznamne",
+        "underline": "Uceni Jazyku Orientovanem na Vztahy"
+      },
+      "context0": {
+        "header": "Ucte se s laskou",
+        "cta": "Zacit",
+        "subtext": "Uceni jazyku znovuobjevene pro pary."
+      }
+    },
     "student": {
       "section1": {
-        "headline": "Přeskoč to nudné. Uč se slova, která mají význam. Ta, která je rozesmějí.",
-        "highlight1": "slova, která mají význam",
-        "highlight2": "rozesmějí",
-        "subhead": "Ta, která používají jen s lidmi, které milují.",
-        "copy": "Jejich vnitřní vtipy. Jejich rodinné fráze. Způsob, jakým říkají 'Miluji tě', když nikdo neposlouchá.",
-        "copyHighlight1": "vnitřní vtipy",
-        "copyHighlight2": "rodinné fráze",
-        "copyHighlight3": "Miluji tě",
-        "underline": "Způsob, jakým říkají 'Miluji tě', když nikdo neposlouchá"
+        "headline": "Nauč se sladké řečičky, pikantní slovíčka a všechno mezi tím.",
+        "highlight1": "sladké řečičky",
+        "highlight2": "pikantní slovíčka",
+        "highlight3": "všechno mezi tím",
+        "copy": "Každé slovo, které tě naučí, se automaticky uloží do tvého Deníku lásky. Skutečná slova z vašeho skutečného vztahu—ne z učebnice."
       },
       "section2": {
-        "headline": "Existuje konverzace, které se neúčastníš. Zatím.",
-        "highlight1": "Zatím",
-        "copy": "Vtipy, u kterých se usmíváš, aniž bys jim rozuměl/a. Rodinné příběhy, které ztrácejí něco v překladu. Je čas tomu opravdu rozumět.",
-        "copyHighlight1": "rodinné příběhy",
-        "copyHighlight2": "opravdu rozumět",
-        "underline": "Je čas tomu opravdu rozumět"
+        "headline": "Všichni se smějí. Ty ještě překládáš.",
+        "highlight1": "smějí",
+        "highlight2": "překládáš",
+        "copy": "Režim poslechu zachytí každé slovo, které ti uniklo. Projdi si je po večeři. Příště už budeš v obraze."
       },
       "section3": {
-        "headline": "Neučíš se jazyk. Učíš se je poznat.",
-        "highlight1": "je poznat",
-        "copy": "Jejich slova. Jejich vtipy. Jejich způsob láskyplného dobírání si. Vytvořeno pro lidi, kteří jsou v tom kvůli lásce, ne kvůli známkám.",
-        "copyHighlight1": "Jejich slova",
-        "copyHighlight2": "Jejich vtipy",
-        "copyHighlight3": "lásce",
-        "underline": "Vytvořeno pro lidi, kteří jsou v tom kvůli lásce"
+        "headline": "Za půl roku: tvůj první skutečný rozhovor.",
+        "highlight1": "první skutečný rozhovor",
+        "copy": "Intimní. Nerušený. V jejich jazyce. S jejich pomocí to zvládneš."
       },
       "section4": {
-        "headline": "Učení jejich jazyka = flirtování s extra kroky.",
-        "highlight1": "flirtování",
-        "copy": "Tohle není škola. Není tu žádný test. Jen ty, kdo se pro ně ukazuješ úplně novým způsobem. Docela romantické, upřímně.",
-        "copyHighlight1": "ukazuješ pro ně",
-        "copyHighlight2": "romantické",
-        "underline": "Docela romantické, upřímně"
+        "headline": "Jsou na druhé straně. Nech je, ať tě přetáhnou.",
+        "highlight1": "přetáhnou",
+        "copy": "Tvůj partner vybírá slova. Ty se je učíš. Někde mezi kvízy a flirtováním přestaneš být hostem v jejich světě."
       },
-      "section5": {
-        "headline": "Ten okamžik, kdy rozesmějete jejich rodinu? Jako z filmu.",
-        "highlight1": "jejich rodinu",
-        "highlight2": "Jako z filmu",
-        "copy": "Poprvé, když opravdu pochopíš vtip. První 'Miluji tě' v jejich jazyce, které zní přesně správně. Moment, kdy s tebou jejich máma začne mluvit přímo jejich jazykem. Přichází to.",
-        "copyHighlight1": "Miluji tě",
-        "copyHighlight2": "máma",
-        "copyHighlight3": "Přichází to",
-        "underline": "Přichází to"
+      "context1": {
+        "header": "Pravá slova",
+        "cta": "Začni se učit",
+        "subtext": "Ne učebnicové fráze."
       },
-      "section6": {
-        "headline": "Učte se spolu. Milujte spolu. Smějte se spolu.",
-        "highlight1": "spolu",
-        "highlight2": "Milujte",
-        "highlight3": "Smějte se",
-        "copy": "Budou ti posílat slova, která mají význam. Vyzývat tě ke hrám. Dobírat si tvou výslovnost (láskyplně). Tohle není studium o samotě - je to budování vlastního světa společně.",
-        "copyHighlight1": "slova, která mají význam",
-        "copyHighlight2": "vlastního světa",
-        "underline": "budování vlastního světa společně"
+      "context2": {
+        "header": "Konec falešného smíchu",
+        "cta": "Začni se učit",
+        "subtext": "Konečně pochop vtip."
       },
-      "context1": { "header": "Připraven/a na hlubší spojení?", "cta": "Začít se učit", "subtext": "2 minuty k tvému prvnímu slovu." },
-      "context2": { "header": "Postaráme se o tebe", "cta": "Začít se učit", "subtext": "Konec falešného smíchu." },
-      "context3": { "header": "Vytvořeno pro milující", "cta": "Začni svou cestu", "subtext": "Ne turisty. Rodinu." },
-      "context4": { "header": "Hraj po svém", "cta": "Prozkoumat hry", "subtext": "Kartičky, výzvy a další." },
-      "context5": { "header": "Ať to má smysl", "cta": "Začni svou cestu", "subtext": "Každé slovo má význam." },
-      "context6": { "header": "Ať se to stane", "cta": "Začít teď", "subtext": "Ten okamžik přichází." },
-      "context7": { "header": "Začněte spolu", "cta": "Vytvoř svůj svět", "subtext": "Čekají na tebe." }
+      "context3": {
+        "header": "Být skutečně tam",
+        "cta": "Začít",
+        "subtext": "Tentokrát doopravdy."
+      },
+      "context4": {
+        "header": "Učte se spolu",
+        "cta": "Začni teď",
+        "subtext": "Čekají na tebe."
+      }
     },
     "tutor": {
       "section1": {
-        "headline": "Milují tě. Teď jim pomoz zamilovat se do tvého jazyka.",
-        "highlight1": "milují",
-        "highlight2": "tvého jazyka",
-        "copy": "Tvá slova. Tvé vtipy. Způsob, jakým klneš, když si narazíš palec. Je tu celý ty, kterého ještě nepoznali - úplně nový ty. Pusť je dovnitř.",
-        "copyHighlight1": "Tvá slova",
-        "copyHighlight2": "Tvé vtipy",
-        "copyHighlight3": "úplně nový ty",
-        "copyHighlight4": "Pusť je dovnitř",
-        "underline": "Pusť je dovnitř"
+        "headline": "Je celé ty, které nikdy nepoznali.",
+        "highlight1": "celé ty",
+        "copy": "Jak se hádáš. Jak vtipkuješ. Věci, které můžeš říct jen ve svém jazyce. Pusť je dovnitř."
       },
       "section2": {
-        "headline": "Zkoušel/a jsi vysvětlovat. Oni zkoušeli přikyvovat. Pojďme to napravit.",
-        "highlight1": "vysvětlovat",
-        "highlight2": "přikyvovat",
-        "highlight3": "napravit",
-        "copy": "Věci, které říkáš, když jsi opravdu šťastný/á. Nebo opravdu naštvaný/á. Slova, která zní jako domov. Chtějí porozumět celému tobě - ne jen přeložené verzi.",
-        "copyHighlight1": "opravdu šťastný/á",
-        "copyHighlight2": "opravdu naštvaný/á",
-        "copyHighlight3": "celému tobě",
-        "underline": "ne jen přeložené verzi"
+        "headline": "Některé věci umírají v překladu. Přestaň to dovolovat.",
+        "highlight1": "umírají v překladu",
+        "copy": "Vysvětluješ. Přikyvují. Pocit je pryč. Nechtějí tvé titulky—chtějí originál."
       },
       "section3": {
-        "headline": "Každé slovo, které sdílíš, je most.",
-        "highlight1": "most",
-        "copy": "Sdílej slova. Vytvářej výzvy. Slavte společně výhry. Aplikace se postará o to nudné - ty můžeš být ten zábavný.",
-        "copyHighlight1": "Sdílej slova",
-        "copyHighlight2": "Vytvářej výzvy",
-        "copyHighlight3": "Slavte výhry",
-        "copyHighlight4": "ten zábavný",
-        "underline": "ty můžeš být ten zábavný"
+        "headline": "Poprvé, kdy rozesmějí tvou rodinu bez tebe.",
+        "highlight1": "bez tebe",
+        "copy": "Řekli to. Tvoji lidé to slyšeli. A uvědomil sis—dal jsi jim to ty."
       },
       "section4": {
-        "headline": "Pošli slovo. Začni hru. Sleduj jejich růst.",
-        "highlight1": "hru",
-        "highlight2": "růst",
-        "copy": "Vyzvi je na oblíbenou frázi tvé mámy. Vyzkoušej je před večeří. Slavte, když to zvládnou. Je to čas pro páry přestrojený za učení - a je to opravdu zábava.",
-        "copyHighlight1": "frázi mámy",
-        "copyHighlight2": "čas pro páry",
-        "copyHighlight3": "opravdu zábava",
-        "underline": "Je to čas pro páry přestrojený za učení"
+        "headline": "Tvůj jazyk jsou dveře. Dej jim klíč.",
+        "highlight1": "klíč",
+        "copy": "Každé slovo je kousek tebe, který si mohou nechat. Tvé vzpomínky. Tvoji lidé. Tvůj domov."
       },
-      "section5": {
-        "headline": "Ten okamžik, kdy tě překvapí frází, kterou jsi je nenaučil/a? Kouzlo.",
-        "highlight1": "překvapí",
-        "highlight2": "Kouzlo",
-        "copy": "Když udělají vtip a tvá rodina se opravdu směje. Když tvá máma s nimi začne mluvit přímo tvým jazykem. Když řeknou frázi, která ti vyrazí dech. To jsi způsobil/a ty.",
-        "copyHighlight1": "rodina se opravdu směje",
-        "copyHighlight2": "máma",
-        "copyHighlight3": "To jsi způsobil/a ty"
+      "context1": {
+        "header": "Pusť je dovnitř",
+        "cta": "Začni vést",
+        "subtext": "K pravému tobě."
       },
-      "section6": {
-        "headline": "Učte spolu. Hrajte spolu. Zamilujte se hlouběji.",
-        "highlight1": "spolu",
-        "highlight2": "lásce",
-        "copy": "Takhle sdílíš, kdo opravdu jsi. Slovo po slovu. Hra po hře. Smích po smíchu. A oni se do toho všeho můžou zamilovat.",
-        "copyHighlight1": "kdo opravdu jsi",
-        "copyHighlight2": "zamilovat",
-        "underline": "A oni se do toho všeho můžou zamilovat"
+      "context2": {
+        "header": "Přestaň překládat",
+        "cta": "Začni vést",
+        "subtext": "Začni sdílet."
       },
-      "context1": { "header": "Sdílej svůj svět", "cta": "Začít pomáhat", "subtext": "Staň se jejich jazykovým průvodcem." },
-      "context2": { "header": "Pusť je dovnitř", "cta": "Začít pomáhat", "subtext": "Některé věci se lépe učí, než překládají." },
-      "context3": { "header": "Uč s láskou", "cta": "Začít", "subtext": "Ne lekce. Milostné dopisy." },
-      "context4": { "header": "Vyzvi je", "cta": "Odeslat výzvu", "subtext": "Hry, výzvy, překvapení." },
-      "context5": { "header": "Sleduj jejich rozkvět", "cta": "Začít posílat", "subtext": "Slovo po slovu." },
-      "context6": { "header": "Otevři dveře", "cta": "Začít teď", "subtext": "Ten okamžik přichází." },
-      "context7": { "header": "Rosťte spolu", "cta": "Staň se jejich průvodcem", "subtext": "Jsou připraveni na tebe." }
+      "context3": {
+        "header": "Sleduj, jak patří",
+        "cta": "Začít",
+        "subtext": "K tvým lidem."
+      },
+      "context4": {
+        "header": "Dej jim klíč",
+        "cta": "Začni teď",
+        "subtext": "Jsou připraveni."
+      }
+    },
+    "bottomSections": {
+      "faq": {
+        "title": "Často kladené otázky",
+        "q1": {
+          "question": "Co je Učení Jazyků Orientované na Vztahy (RALL)?",
+          "answer": "RALL je naše metodologie, která kombinuje osvědčené techniky osvojování jazyka (Komunikativní výuka jazyků, Učení založené na úkolech) s psychologií vztahů. Místo učení obecných frází se učíš slova, která mají význam ve VAŠEM vztahu - s pomocí partnera, který pomáhá utvářet tvé 'Ideální L2 Já'.",
+          "readMore": "Přečti si více níže →"
+        },
+        "q2": {
+          "question": "Jak se Love Languages liší od Duolinga nebo Babbelu?",
+          "intro": "Tradiční aplikace tě naučí objednat kávu. My tě naučíme rozesmát rodinu tvého partnera.",
+          "point1": "Vedené partnerem:",
+          "point1desc": "Tvůj rodilý mluvčí ti posílá slova, vytváří výzvy a společně sledujete pokrok",
+          "point2": "Personalizovaná slovní zásoba:",
+          "point2desc": "Uč se JEJICH slova - rodinné fráze, vnitřní vtipy, láskyplná oslovení",
+          "point3": "Spolupráce, ne soutěž:",
+          "point3desc": "Žádné žebříčky proti cizím lidem. Ty a tvůj partner pracujete jako tým",
+          "point4": "Investice do vztahu:",
+          "point4desc": "Váš 'Love Log' se stává společným pokladem, který budujete společně"
+        },
+        "q3": {
+          "question": "Jaké jsou role Student a Lektor?",
+          "studentDesc": "Studenti se učí jazyk svého partnera. Mají AI konverzační praxi, slovíčkové hry (Kartičky, Výběr z možností, Napiš to, Rychlopalba) a osobní slovník.",
+          "tutorDesc": "Lektoři jsou rodilí mluvčí, kteří vedou svého partnera. Posílají 'dárková slova', vytvářejí vlastní výzvy a používají režim Kouč pro vedení výukových konverzací. Lektor nejen učí - pomáhá utvářet jazykovou identitu partnera."
+        },
+        "q4": {
+          "question": "Které jazyky podporujete?",
+          "answer": "18 jazyků, libovolná kombinace: angličtina, španělština, francouzština, němčina, italština, portugalština, holandština, polština, ruština, ukrajinština, švédština, norština, dánština, čeština, řečtina, maďarština, turečtina a rumunština. Uč se polsky jako anglicky mluvící, nebo anglicky jako polsky mluvící - celá aplikace se přizpůsobí tvému rodilému jazyku."
+        },
+        "q5": {
+          "question": "Kolik to stojí?",
+          "intro": "Dva plány, flexibilní fakturace:",
+          "standard": "Standard",
+          "standardPrice": "$7/týden · $19/měsíc · $69/rok",
+          "standardDesc": "2 000 slov, 60 min hlasu, pozvánka pro partnera",
+          "unlimited": "Neomezený",
+          "unlimitedPrice": "$12/týden · $39/měsíc · $139/rok",
+          "unlimitedDesc": "Vše neomezené + dárkové pasy",
+          "cancelNote": "Zrušit můžeš kdykoliv. Žádné smlouvy."
+        },
+        "q6": {
+          "question": "Jak pozvu partnera?",
+          "answer": "Po registraci jdi do Nastavení a vygeneruj odkaz pozvánky. Když se tvůj partner přes tento odkaz zaregistruje, vaše účty se automaticky propojí. Pak můžete posílat slova, vytvářet výzvy a společně sledovat pokrok."
+        }
+      },
+      "rall": {
+        "label": "Naše Metoda",
+        "title": "Učení Jazyků Orientované na Vztahy",
+        "description": "RALL kombinuje osvědčené metodologie osvojování jazyka s psychologií vztahů. Výsledek: učení, které posiluje jak tvé jazykové dovednosti, TAK i tvůj vztah.",
+        "pillar1": {
+          "title": "Komunikativní Výuka Jazyků",
+          "description": "'Režim Zeptej se' upřednostňuje skutečnou interakci před memorováním. Učíš se komunikací, ne drilováním.",
+          "citation": "Richards & Rodgers, 2001"
+        },
+        "pillar2": {
+          "title": "Učení Jazyků Založené na Úkolech",
+          "description": "Scénáře v 'Hřišti' používají jazyk jako nástroj k dokončení smysluplných úkolů - objednání večeře, setkání s rodinou, řešení konfliktů.",
+          "citation": "Ellis, 2003; Nunan, 2004"
+        },
+        "pillar3": {
+          "title": "Michelangelův Fenomén",
+          "description": "Tvůj partner nejen učí - sochá. Výzkum ukazuje, že když partneři podporují tvé 'Ideální L2 Já', postupuješ rychleji A tvůj vztah sílí.",
+          "citation": "Rusbult et al., 2009"
+        },
+        "pillar4": {
+          "title": "Teorie Vzájemné Závislosti",
+          "description": "Tvůj Love Log je společná investice. Každé uložené slovo zvyšuje oddanost prostřednictvím pozitivní vzájemné závislosti, ne strachu.",
+          "citation": "Rusbult & Van Lange, 2003"
+        },
+        "quote": "\"Když partneři podporují ideální já toho druhého, jednotlivci s větší pravděpodobností dosáhnou svých cílů a páry zažívají zvýšenou pohodu.\"",
+        "quoteAttribution": "— Rusbult, Finkel & Kumashiro, 'Michelangelův Fenomén' (2009)",
+        "anxietyTitle": "Snížení Úzkosti z Cizího Jazyka:",
+        "anxietyDesc": "Strach z hodnocení partnerem je skutečný. Naše AI zprostředkovává opravy a zpětnou vazbu, vytváří bezpečný prostor pro chyby bez poškození vztahu.",
+        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991"
+      },
+      "blog": {
+        "label": "Bezplatné Zdroje",
+        "title": "1 000+ Článků pro Páry",
+        "description": "Hluboké ponory do kulturních rozdílů, romantických frází a všeho, čemu páry čelí při překonávání jazykové bariéry.",
+        "topic1": {
+          "title": "Romantické Fráze",
+          "description": "Řekni 'Miluji tě' v 18 jazycích"
+        },
+        "topic2": {
+          "title": "Kulturní Průvodci",
+          "description": "Zvládni rodinné večeře a svátky"
+        },
+        "topic3": {
+          "title": "Gramatika Jednoduše",
+          "description": "Pády, časování a další"
+        },
+        "cta": "Prozkoumat Náš Blog"
+      },
+      "footer": {
+        "tagline": "Nauč se jazyk lásky",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "terms": "Podmínky",
+        "privacy": "Soukromí",
+        "blog": "Blog",
+        "contact": "Kontakt",
+        "copyright": "Love Languages · Vytvořeno s ♥ pro milující všude na světě"
+      }
     }
   }
 }

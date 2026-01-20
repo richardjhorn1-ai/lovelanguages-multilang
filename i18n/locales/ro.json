@@ -472,7 +472,6 @@
     "search": "Cauta...",
     "searchWords": "Cauta cuvinte...",
     "wordsCount": "{{count}} cuvinte",
-
     "sync": {
       "scanChats": "Scaneaza Chat-uri",
       "scanTooltip": "Scaneaza istoricul chat-urilor pentru vocabular nou",
@@ -483,7 +482,6 @@
       "newWords_other": "+{{count}} cuvinte noi!",
       "syncError": "Eroare de sincronizare"
     },
-
     "filters": {
       "all": "Toate",
       "noun": "Substantiv",
@@ -494,7 +492,6 @@
       "gifts": "Cadouri",
       "clear": "Șterge"
     },
-
     "card": {
       "gift": "Cadou",
       "giftFrom": "Cadou de la {{name}}",
@@ -507,7 +504,6 @@
       "conjugations": "Conjugari",
       "forms": "Forme"
     },
-
     "modal": {
       "present": "Prezent",
       "past": "Trecut",
@@ -516,7 +512,6 @@
       "unlockTense": "Deblocheaza Timpul {{tense}}",
       "unlocked": "Deblocat {{date}}"
     },
-
     "unlock": {
       "title": "Deblocheaza Timpul {{tense}}?",
       "descriptionBefore": "Pregatit sa inveti cum sa spui",
@@ -526,7 +521,6 @@
       "unlockNow": "Deblocheaza Acum",
       "unlocking": "Se deblocheaza..."
     },
-
     "pronouns": {
       "singular1": "(Eu)",
       "singular2": "(Tu)",
@@ -535,19 +529,16 @@
       "plural2": "(Voi)",
       "plural3": "(Ei/Ele)"
     },
-
     "tableHeaders": {
       "person": "Persoana",
       "masculine": "Masc.",
       "feminine": "Fem."
     },
-
     "nounForms": {
       "gender": "Gen",
       "singular": "Singular",
       "plural": "Plural"
     },
-
     "adjectiveForms": {
       "title": "Forme de Gen",
       "masculine": "Masculin",
@@ -556,7 +547,6 @@
       "plural": "Plural"
     }
   },
-
   "onboarding": {
     "step": {
       "back": "Inapoi",
@@ -565,13 +555,11 @@
       "continue": "Continua",
       "skipForNow": "Sari pentru moment"
     },
-
     "name": {
       "title": "Cum sa te numeasca Cupid?",
       "subtitle": "Numele tau face aceasta calatorie personala.",
       "placeholder": "Numele tau"
     },
-
     "partnerName": {
       "studentTitle": "Pentru cine inveti {{language}}, {{name}}?",
       "tutorTitle": "Pe cine ajuti sa invete {{language}}, {{name}}?",
@@ -579,7 +567,6 @@
       "tutorSubtitle": "Aceasta este persoana pe care o vei ghida prin {{language}}.",
       "placeholder": "Numele lor"
     },
-
     "languageConfirm": {
       "title": "Confirma limbile tale, {{name}}",
       "subtitle": "Asigura-te ca drumul tau lingvistic este corect.",
@@ -590,7 +577,6 @@
       "summary": "Invat {{target}} ca vorbitor de {{native}}",
       "tutorSummary": "Predau {{target}} unui vorbitor de {{native}}"
     },
-
     "validation": {
       "title": "Cum sa verificam raspunsurile tale?",
       "subtitle": "Alege cat de indulgenta sa fie aplicatia la notare.",
@@ -614,7 +600,6 @@
         "detail4": "Experienta traditionala de flashcard"
       }
     },
-
     "plan": {
       "title": "Alege-ti planul, {{name}}",
       "subtitle": "Incepe-ti calatoria de invatare a limbii {{language}} astazi",
@@ -648,7 +633,6 @@
         "feature5": "Permis cadou pentru alt cuplu (anual)"
       }
     },
-
     "student": {
       "start": {
         "title": "Pregatit sa incepi, {{name}}?",
@@ -660,7 +644,6 @@
         "feature4": "Urmarirea progresului si teste de nivel",
         "button": "Hai sa mergem!"
       },
-
       "vibe": {
         "title": "Un cuvant pentru relatia ta cu {{name}}",
         "subtitle": "Alege atmosfera care ti se potriveste cel mai bine.",
@@ -671,7 +654,6 @@
         "longDistance": "La Distanta",
         "newLove": "Iubire Noua"
       },
-
       "time": {
         "title": "Cat timp poti dedica zilnic?",
         "subtitle": "Chiar si momentele mici se aduna la progres mare.",
@@ -682,7 +664,6 @@
         "walk": "O plimbare lunga",
         "walkDesc": "20+ minute"
       },
-
       "when": {
         "title": "Cand preferi sa exersezi?",
         "subtitle": "Iti vom aminti la momentul potrivit.",
@@ -691,19 +672,16 @@
         "evening": "Seara",
         "whenever": "Oricand"
       },
-
       "photo": {
         "title": "Adauga fotografia ta",
         "subtitleWithPhoto": "Arati bine! Aceasta va aparea pe profilul tau.",
         "subtitleNoPhoto": "O fotografie ajuta sa faci profilul tau mai personal."
       },
-
       "why": {
         "title": "De ce vrei sa inveti {{language}} pentru {{name}}?",
         "subtitle": "Aceasta devine amintirea ta personala pe parcursul calatoriei.",
         "placeholder": "Vreau sa-i surprind cand vizitam familia lor... Vreau sa soptesc cuvinte dulci... Vreau sa inteleg lumea lor..."
       },
-
       "fear": {
         "title": "Care e cea mai mare frica a ta despre invatarea limbii {{language}}?",
         "subtitle": "Toata lumea are una. Hai s-o abordam impreuna.",
@@ -716,14 +694,12 @@
         "forgetting": "Sa uit totul",
         "forgettingDesc": "Sa invat dar sa nu retin"
       },
-
       "prior": {
         "title": "Ai mai incercat sa inveti {{language}} inainte?",
         "subtitle": "Acest lucru ne ajuta sa incepem de la nivelul potrivit.",
         "yes": "Da, putin",
         "beginner": "Complet incepator"
       },
-
       "goal": {
         "title": "Care e primul tau obiectiv?",
         "subtitle": "Un scop spre care sa lucrezi cu {{name}}",
@@ -733,7 +709,6 @@
         "custom": "Seteaza-mi propriul obiectiv",
         "customPlaceholder": "ex., \"Comand in {{language}} la restaurantul lor preferat\""
       },
-
       "learnHello": {
         "title": "Hai sa invatam primul tau cuvant!",
         "subtitle": "Spune-i buna lui {{name}} in {{language}}",
@@ -742,7 +717,6 @@
         "gotIt": "Am inteles!",
         "listenFirst": "Asculta mai intai"
       },
-
       "learnLove": {
         "title": "Acum, cea mai importanta expresie...",
         "subtitle": "Cea pe care {{name}} nu o va uita niciodata",
@@ -752,7 +726,6 @@
         "ready": "Sunt pregatit!",
         "listenFirst": "Asculta mai intai"
       },
-
       "tryIt": {
         "title": "Incearca sa spui!",
         "subtitle": "Nu-ti face griji, doar tu te poti auzi.",
@@ -760,7 +733,6 @@
         "success": "Uimitor! Ai spus-o!",
         "practiceLater": "Voi exersa mai tarziu"
       },
-
       "celebration": {
         "title": "Ai reusit!",
         "subtitle": "Tocmai ai invatat prima ta {{language}}!",
@@ -771,7 +743,6 @@
         "keepGoing": "Continua!"
       }
     },
-
     "tutor": {
       "start": {
         "title": "Pregatit sa fii ghidul lui {{learnerName}}, {{userName}}?",
@@ -783,7 +754,6 @@
         "feature4": "Conecteaza conturile pentru a vedea calatoria lor",
         "button": "Incepe sa-l ajuti pe {{learnerName}}!"
       },
-
       "relation": {
         "title": "Care e relatia ta cu {{name}}?",
         "subtitle": "Aceasta ne ajuta sa personalizam experienta ta de predare",
@@ -792,7 +762,6 @@
         "friend": "Prieten",
         "family": "Familie"
       },
-
       "connection": {
         "title": "Care e conexiunea ta cu limba {{language}}?",
         "subtitle": "Ajuta-ne sa intelegem fondul tau lingvistic",
@@ -805,7 +774,6 @@
         "bilingual": "Bilingv",
         "bilingualDesc": "Am crescut vorbind {{language}} si alta limba"
       },
-
       "origin": {
         "title": "Cum ai invatat {{language}}?",
         "subtitle": "Calatoria ta ne ajuta sa sugeram abordari de predare",
@@ -814,14 +782,12 @@
         "school": "Am studiat formal",
         "self": "Autodidact"
       },
-
       "dreamPhrase": {
         "title": "Momentul de vis",
         "subtitle": "Care e primul lucru pe care vrei sa-l auzi pe {{name}} spunand in {{language}}?",
         "placeholder": "ex., \"Te iubesc\" sau \"Buna dimineata\"",
         "note": "Aceasta devine primul vostru obiectiv de predare impreuna"
       },
-
       "style": {
         "title": "Stilul tau de predare?",
         "subtitle": "Cum ajuti natural pe cineva sa invete?",
@@ -834,7 +800,6 @@
         "immersive": "Imersiv",
         "immersiveDesc": "Arunca-te si invata facand"
       },
-
       "preview": {
         "title": "Trusa ta de predare",
         "subtitle": "Iata ce poti face pentru {{name}}",
@@ -848,7 +813,6 @@
       }
     }
   },
-
   "levelTest": {
     "preparing": "Pregatesc Testul Tau",
     "generatingQuestions": "Generez intrebari pe baza nivelului tau...",
@@ -881,7 +845,6 @@
     "submitTest": "Trimite Testul",
     "next": "Urmatorul"
   },
-
   "tutorGames": {
     "playTogether": "Jucati Impreuna",
     "sendChallenge": "Trimite Provocare",
@@ -889,7 +852,6 @@
     "sendDescription": "Trimite provocari pentru ca {{name}} sa le completeze mai tarziu",
     "playDescription": "Exersati impreuna chiar acum",
     "startNow": "Incepe Acum",
-
     "local": {
       "quiz": "Testeaza-l pe {{name}}",
       "quizDesc": "Quiz cu flashcard-uri impreuna",
@@ -901,7 +863,6 @@
       "typeItDesc": "Scrie traducerea",
       "needWords": "{{name}} are nevoie de cel putin 4 cuvinte in vocabular pentru a juca"
     },
-
     "send": {
       "doYouRemember": "Iti Amintesti?",
       "quizPartner": "Testeaza-l pe {{name}} din vocabularul lor",
@@ -913,14 +874,12 @@
       "sendWords": "Trimite cuvinte pentru ca {{name}} sa le invete",
       "sendGift": "Trimite Cadou"
     },
-
     "pending": {
       "waitingFor": "Asteptand de la {{name}}",
       "words": "{{count}} cuvinte",
       "sent": "Trimis {{date}}",
       "pending": "In asteptare"
     },
-
     "gifts": {
       "title": "Cadouri de Cuvinte Trimise",
       "word": "{{count}} cuvant",
@@ -929,17 +888,14 @@
       "custom": "Cuvinte personalizate",
       "xpMultiplier": "{{multiplier}}x XP"
     },
-
     "results": {
       "title": "Rezultate Recente",
       "completed": "Completat {{date}}"
     },
-
     "empty": {
       "noChallenges": "Nicio provocare inca",
       "createFirst": "Creeaza prima provocare pentru {{name}}!"
     },
-
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
@@ -947,11 +903,9 @@
       "hard": "Greu",
       "gotIt": "Am inteles!"
     },
-
     "direction": {
       "label": "{{target}} → {{native}}"
     },
-
     "quickFireGame": {
       "title": "Foc Rapid!",
       "description": "Traduce cat mai multe cuvinte poti in 60 de secunde!",
@@ -959,7 +913,6 @@
       "start": "Start!",
       "typeTranslation": "Scrie traducerea..."
     },
-
     "typeItGame": {
       "correct": "Corect!",
       "notQuite": "Nu chiar",
@@ -968,7 +921,6 @@
       "next": "Urmatorul",
       "check": "Verifica"
     },
-
     "gameOver": {
       "greatJob": "Bravo!",
       "keepPracticing": "Continua sa Exersezi!",
@@ -982,7 +934,6 @@
       "done": "Gata",
       "playAgain": "Joaca Din Nou"
     },
-
     "saveDialog": {
       "title": "Salveaza in Progresul lui {{name}}?",
       "howItWorks": "Cum functioneaza:",
@@ -995,7 +946,6 @@
       "save": "Salveaza"
     }
   },
-
   "gameResults": {
     "greatJob": "Bravo!",
     "sessionResults": "Rezultatele sesiunii:",
@@ -1006,7 +956,6 @@
     "done": "Gata",
     "playAgain": "Joaca Din Nou"
   },
-
   "conversationPractice": {
     "states": {
       "listening": "Asculta...",
@@ -1022,7 +971,6 @@
     "aiSpeaking": "AI vorbeste...",
     "conversationEnded": "Conversatia s-a incheiat"
   },
-
   "scenarioSelector": {
     "title": "Practica de Conversatie",
     "subtitle": "Alege un scenariu",
@@ -1033,14 +981,38 @@
       "advanced": "avansat"
     },
     "scenarios": {
-      "cafe": { "name": "La Cafenea", "description": "Comandă cafea și o gustare" },
-      "restaurant": { "name": "Cină la Restaurant", "description": "Comandă o masă și cere recomandări" },
-      "market": { "name": "La Piață", "description": "Cumpără fructe și legume" },
-      "taxi": { "name": "Cursă cu Taxi", "description": "Dă indicații și vorbește cu șoferul" },
-      "pharmacy": { "name": "La Farmacie", "description": "Cere medicamente și descrie simptomele" },
-      "hotel": { "name": "Check-in la Hotel", "description": "Fă check-in și întreabă despre facilități" },
-      "family_dinner": { "name": "Cină în Familie", "description": "Cunoaște părinții partenerului tău" },
-      "train_station": { "name": "Gara", "description": "Cumpără bilete și verifică orarul" }
+      "cafe": {
+        "name": "La Cafenea",
+        "description": "Comandă cafea și o gustare"
+      },
+      "restaurant": {
+        "name": "Cină la Restaurant",
+        "description": "Comandă o masă și cere recomandări"
+      },
+      "market": {
+        "name": "La Piață",
+        "description": "Cumpără fructe și legume"
+      },
+      "taxi": {
+        "name": "Cursă cu Taxi",
+        "description": "Dă indicații și vorbește cu șoferul"
+      },
+      "pharmacy": {
+        "name": "La Farmacie",
+        "description": "Cere medicamente și descrie simptomele"
+      },
+      "hotel": {
+        "name": "Check-in la Hotel",
+        "description": "Fă check-in și întreabă despre facilități"
+      },
+      "family_dinner": {
+        "name": "Cină în Familie",
+        "description": "Cunoaște părinții partenerului tău"
+      },
+      "train_station": {
+        "name": "Gara",
+        "description": "Cumpără bilete și verifică orarul"
+      }
     },
     "createOwn": "Creeaza-ti Propriul",
     "createOwnDesc": "Descrie orice scenariu vrei sa exersezi",
@@ -1053,7 +1025,6 @@
     "footerInfo": "AI va vorbi {{targetLanguage}} implicit. Daca te chinui, te va ajuta in {{nativeLanguage}}.",
     "customPersona": "Esti o persoana prietenoasa care vorbeste {{language}} si ajuta pe cineva sa exerseze {{language}}. Esti rabdator, incurajator si iti ajustezi limbajul la nivelul lor."
   },
-
   "challengeCreator": {
     "common": {
       "addNewWords": "Adauga Cuvinte Noi",
@@ -1073,7 +1044,6 @@
       "failedCreateChallenge": "Nu am putut crea provocarea",
       "needMinWords": "Ai nevoie de cel putin 5 cuvinte pentru provocare!"
     },
-
     "quiz": {
       "title": "Creeaza Quiz",
       "subtitle": "Selecteaza cuvinte pentru ca {{name}} sa exerseze",
@@ -1091,7 +1061,6 @@
       "noWordsYet": "{{name}} nu a invatat niciun cuvant inca!",
       "addWordsToStart": "Adauga cuvinte noi mai sus pentru a incepe."
     },
-
     "quickFire": {
       "title": "Foc Rapid",
       "subtitle": "Provocare cronometrata pentru {{name}}",
@@ -1123,7 +1092,6 @@
       "averageTime": "Media: {{time}}s pe cuvant",
       "needMoreWords": "Ai nevoie de cel putin 5 cuvinte in total pentru a crea o provocare!"
     },
-
     "lovePackage": {
       "title": "Pachet de Iubire",
       "subtitle": "Trimite cuvinte lui {{name}}",
@@ -1137,7 +1105,6 @@
       "alreadyInLoveLog": "\"{{word}}\" este deja in Love Log-ul lui {{name}}!"
     }
   },
-
   "challengePlayer": {
     "common": {
       "later": "Mai Tarziu",
@@ -1146,7 +1113,6 @@
       "showDetails": "Arata detalii ({{count}})",
       "xpEarned": "+{{xp}} XP castigat!"
     },
-
     "results": {
       "perfect": "Perfect!",
       "perfectScore": "Scor Perfect!",
@@ -1154,7 +1120,6 @@
       "greatJob": "Bravo!",
       "keepPracticing": "Continua sa Exersezi!"
     },
-
     "quiz": {
       "startDescription": "{{name}} vrea sa te testeze la {{count}} cuvinte!",
       "startInstructions": "Raspunde la intrebari despre cuvintele {{language}} pe care le-ai invatat. Raspunde corect pentru a-ti construi seria!",
@@ -1177,7 +1142,6 @@
         "submit": "Trimite"
       }
     },
-
     "quickFire": {
       "title": "Foc Rapid!",
       "startDescription": "{{name}} te provoaca sa traduci {{count}} cuvinte in {{time}} secunde!",
@@ -1195,7 +1159,6 @@
       "typePlaceholder": "Scrie traducerea..."
     }
   },
-
   "roleSelection": {
     "loading": "Pregatesc totul...",
     "confirmHeader": "Doar sa ne asiguram...",
@@ -1218,7 +1181,6 @@
     "letsGo": "Sunt eu! Hai sa mergem",
     "chooseRole": "Alege-ti rolul pentru a continua"
   },
-
   "subscription": {
     "common": {
       "weekly": "Saptamanal",
@@ -1247,13 +1209,11 @@
       "friend": "Prieten",
       "copy": "Copiaza"
     },
-
     "plans": {
       "standard": "Standard",
       "unlimited": "Nelimitat",
       "none": "Niciunul"
     },
-
     "features": {
       "wordsLimit": "{{limit}} cuvinte in Love Log",
       "unlimitedWords": "Cuvinte nelimitate",
@@ -1268,7 +1228,6 @@
       "giftPass": "Permis cadou pentru alt cuplu (anual)",
       "unlimitedEverything": "Totul nelimitat"
     },
-
     "manager": {
       "couplePass": "Permis de Cuplu",
       "freeAccess": "Acces gratuit de la {{name}}",
@@ -1288,7 +1247,6 @@
       "manageSubscription": "Gestioneaza Abonamentul",
       "continueToManage": "Continua la Gestionare"
     },
-
     "required": {
       "title": "Inca un pas, {{name}}!",
       "subtitle": "Completeaza abonamentul pentru a incepe sa inveti {{language}} impreuna",
@@ -1298,7 +1256,6 @@
       "logoutOption": "Deconecteaza-te si foloseste alt cont",
       "signOutOption": "Deconecteaza-te si foloseste alt cont"
     },
-
     "pricing": {
       "title": "Invata {{language}} pentru Dragoste",
       "subtitle": "Alege planul care se potriveste calatoriei tale de invatare",
@@ -1328,7 +1285,6 @@
       "questionsEmail": "Intrebari? Trimite-ne email la",
       "copy": "Copiaza"
     },
-
     "errors": {
       "loginRequired": "Te rog logheaza-te pentru a te abona",
       "loginAgain": "Te rog logheaza-te din nou",
@@ -1339,7 +1295,6 @@
       "somethingWrong": "Ceva nu a mers bine"
     }
   },
-
   "pendingChallenges": {
     "yourPartner": "Partenerul Tau",
     "sentYouSomething": "{{name}} ti-a trimis ceva!",
@@ -1356,7 +1311,6 @@
     "learn": "Invata",
     "xpBonus": "{{multiplier}}x bonus XP"
   },
-
   "invite": {
     "title": "Invita-ti Partenerul",
     "subtitle": "Abonamentul tau include acces gratuit pentru partener!",
@@ -1373,7 +1327,6 @@
     "generateButton": "Genereaza Link de Invitatie",
     "generating": "Se genereaza..."
   },
-
   "helpGuide": {
     "title": "Ghidul Tau",
     "subtitle": "Love Languages",
@@ -1459,7 +1412,6 @@
       "forgetAnswer": "Joaca jocuri - ele readuc automat cuvintele cu care te chinui. Repetitia spatiata ajuta sa le fixezi."
     }
   },
-
   "bugReport": {
     "title": "Raporteaza o Eroare",
     "subtitle": "Ajuta-ne sa imbunatatim Love Languages",
@@ -1493,7 +1445,6 @@
       "close": "Inchide"
     }
   },
-
   "wordGift": {
     "intro": {
       "title": "Cadou de la {{name}}!",
@@ -1533,7 +1484,6 @@
       "network": "Eroare de retea. Te rog verifica conexiunea si incearca din nou."
     }
   },
-
   "chatSuggestions": {
     "student": {
       "askTitle": "Intreaba-l pe Cupid orice",
@@ -1567,13 +1517,11 @@
       }
     }
   },
-
   "newWords": {
     "added": "{{count}} cuvant nou adaugat",
     "added_other": "{{count}} cuvinte noi adaugate",
     "viewAll": "Vezi toate in Love Log"
   },
-
   "avatar": {
     "clickToUpload": "Apasa pentru a incarca",
     "clickToChange": "Apasa pentru a schimba",
@@ -1590,7 +1538,6 @@
       "uploadFailed": "Nu am putut incarca imaginea"
     }
   },
-
   "joinInvite": {
     "validating": "Validez invitatia...",
     "invalidInvite": "Invitatie Invalida",
@@ -1617,7 +1564,6 @@
     "checkEmail": "Verifica emailul pentru confirmare, apoi logheaza-te!",
     "yourPartner": "Partenerul tau"
   },
-
   "gameHistory": {
     "loading": "Se incarca...",
     "noHistory": "Niciun istoric de jocuri inca",
@@ -1639,7 +1585,6 @@
     "practiceWords": "Exerseaza Aceste {{count}} Cuvinte",
     "perfectScore": "Scor perfect! Niciun cuvant gresit."
   },
-
   "usage": {
     "title": "Utilizare Lunara",
     "unlimitedPlan": "Plan Nelimitat",
@@ -1653,7 +1598,6 @@
     "upgradePrompt": "Ramai fara? Faci upgrade la Nelimitat pentru fara limite!",
     "resetsMonthly": "Utilizarea se reseteaza in prima zi a fiecarei luni"
   },
-
   "inviteLink": {
     "title": "Link Magic de Invitatie",
     "subtitle": "Impartaseste cu partenerul tau pentru a va conecta instant",
@@ -1668,7 +1612,6 @@
     "newLink": "Link Nou",
     "description": "Cand partenerul tau apasa acest link, va fi invitat sa se alature ca antrenor de limba!"
   },
-
   "breakup": {
     "warning": {
       "title": "Incheie calatoria voastra de invatare impreuna?",
@@ -1695,7 +1638,6 @@
       "messageGrantee": "Ai grija de tine. Vei avea nevoie de propriul abonament pentru a continua sa inveti."
     }
   },
-
   "gameShowcase": {
     "studentHeadline": {
       "part1": "Oh, si daca vrei sa inveti ",
@@ -1721,13 +1663,11 @@
       "quick": "Rapid"
     }
   },
-
   "demoFlashcard": {
     "tapToReveal": "Atinge pentru a vedea",
     "hard": "Greu",
     "gotIt": "Am inteles!"
   },
-
   "demoTypeIt": {
     "correct": "Corect!",
     "notQuite": "Nu chiar",
@@ -1736,7 +1676,6 @@
     "next": "Urmatorul",
     "check": "Verifica"
   },
-
   "demoQuickFire": {
     "title": "Foc Rapid!",
     "instructions": "Scrie traducerile cat mai repede poti!",
@@ -1748,7 +1687,6 @@
     "keepPracticing": "Continua sa exersezi!",
     "timesUp": "Timpul a expirat!"
   },
-
   "hero": {
     "languageSelector": {
       "nativePrompt": "Eu vorbesc...",
@@ -1793,139 +1731,212 @@
       "privacy": "Confidentialitate",
       "privacyPolicy": "Politica de Confidentialitate"
     },
+    "shared": {
+      "section0": {
+        "headline": "Invatarea limbilor incepe cu dragoste.",
+        "highlight1": "dragoste",
+        "copy": "Bazat pe Invatarea Limbilor Orientata spre Relatie (RALL), Love Languages ajuta cuplurile sa depaseasca bariera lingvistica—un cuvant semnificativ pe rand.",
+        "copyHighlight1": "RALL",
+        "copyHighlight2": "cuplurile",
+        "copyHighlight3": "semnificativ",
+        "underline": "Invatarea Limbilor Orientata spre Relatie"
+      },
+      "context0": {
+        "header": "Invata cu dragoste",
+        "cta": "Incepe",
+        "subtext": "Invatarea limbilor reinventata pentru cupluri."
+      }
+    },
     "student": {
       "section1": {
-        "headline": "Sari peste plictiseala. Invata cuvintele care conteaza. Cele care ii fac sa zambeasca.",
-        "highlight1": "cuvintele care conteaza",
-        "highlight2": "ii fac sa zambeasca",
-        "subhead": "Cele pe care le folosesc doar cu oamenii pe care ii iubesc.",
-        "copy": "Glumele lor interne. Expresiile de familie. Felul in care spun 'Te iubesc' cand nu asculta nimeni.",
-        "copyHighlight1": "Glumele lor interne",
-        "copyHighlight2": "Expresiile de familie",
-        "copyHighlight3": "Te iubesc",
-        "underline": "Felul in care spun 'Te iubesc' cand nu asculta nimeni"
+        "headline": "Învață vorbe dulci, replici picante și tot ce e între ele.",
+        "highlight1": "vorbe dulci",
+        "highlight2": "replici picante",
+        "highlight3": "tot ce e între ele",
+        "copy": "Fiecare cuvânt pe care ți-l predă se salvează automat în Love Log. Cuvinte reale din relația ta reală—nu dintr-un manual."
       },
       "section2": {
-        "headline": "Exista o conversatie din care nu faci parte. Inca.",
-        "highlight1": "Inca",
-        "copy": "Glumele la care zambesti fara sa le intelegi. Povestile de familie care pierd ceva in traducere. E timpul sa intelegi cu adevarat.",
-        "copyHighlight1": "Povestile de familie",
-        "copyHighlight2": "intelegi cu adevarat",
-        "underline": "E timpul sa intelegi cu adevarat"
+        "headline": "Toți râd. Tu încă traduci.",
+        "highlight1": "râd",
+        "highlight2": "traduci",
+        "copy": "Modul Ascultare prinde fiecare cuvânt pe care l-ai ratat. Revizuiește-le după cină. Data viitoare, vei fi și tu în temă."
       },
       "section3": {
-        "headline": "Nu inveti o limba. Ii inveti pe ei.",
-        "highlight1": "Ii inveti pe ei",
-        "copy": "Cuvintele lor. Glumele lor. Felul lor de a te tacana cu drag. Facut pentru oameni care sunt in asta din dragoste, nu pentru note.",
-        "copyHighlight1": "Cuvintele lor",
-        "copyHighlight2": "Glumele lor",
-        "copyHighlight3": "dragoste",
-        "underline": "Facut pentru oameni care sunt in asta din dragoste"
+        "headline": "Peste șase luni: prima ta conversație adevărată.",
+        "highlight1": "prima ta conversație adevărată",
+        "copy": "Intimă. Neîntreruptă. În limba lor. Cu ajutorul lor, vei ajunge acolo."
       },
       "section4": {
-        "headline": "Sa le inveti limba = flirt cu pasi extra.",
-        "highlight1": "flirt",
-        "copy": "Asta nu e scoala. Nu exista test. Doar tu, facand efort pentru ei intr-un mod complet nou. Destul de romantic, sincer.",
-        "copyHighlight1": "facand efort pentru ei",
-        "copyHighlight2": "romantic",
-        "underline": "Destul de romantic, sincer"
+        "headline": "Sunt de cealaltă parte. Lasă-i să te tragă.",
+        "highlight1": "să te tragă",
+        "copy": "Partenerul tău alege cuvintele. Tu le înveți. Undeva între teste și flirt, nu mai ești musafir în lumea lor."
       },
-      "section5": {
-        "headline": "Momentul in care ii faci pe ai lor sa rada? Vis.",
-        "highlight1": "ai lor sa rada",
-        "highlight2": "Vis",
-        "copy": "Prima data cand chiar intelegi gluma. Primul 'Te iubesc' in limba lor care suna perfect. Momentul in care mama lor incepe sa vorbeasca direct cu tine in limba lor. Vine.",
-        "copyHighlight1": "Te iubesc",
-        "copyHighlight2": "mama",
-        "copyHighlight3": "Vine",
-        "underline": "Vine"
+      "context1": {
+        "header": "Cuvintele adevărate",
+        "cta": "Începe să înveți",
+        "subtext": "Nu fraze din manual."
       },
-      "section6": {
-        "headline": "Invata impreuna. Iubeste impreuna. Rade impreuna.",
-        "highlight1": "impreuna",
-        "highlight2": "Iubeste",
-        "highlight3": "Rade",
-        "copy": "Iti vor trimite cuvinte importante. Te vor provoca la jocuri. Iti vor lua pronuntia la misto (cu drag). Asta nu e invatat singur—e construirea propriei voastre lumi impreuna.",
-        "copyHighlight1": "cuvinte importante",
-        "copyHighlight2": "propriei voastre lumi",
-        "underline": "construirea propriei voastre lumi impreuna"
+      "context2": {
+        "header": "Gata cu râsul fals",
+        "cta": "Începe să înveți",
+        "subtext": "În sfârșit înțelege gluma."
       },
-      "context1": { "header": "Pregătit să te conectezi mai profund?", "cta": "Incepe sa inveti", "subtext": "2 minute pana la primul cuvant." },
-      "context2": { "header": "Te avem noi", "cta": "Incepe sa inveti", "subtext": "Gata cu rasul fals." },
-      "context3": { "header": "Facut pentru indragostiti", "cta": "Incepe calatoria", "subtext": "Nu turisti. Familie." },
-      "context4": { "header": "Joaca cum vrei", "cta": "Exploreaza jocurile", "subtext": "Flashcard-uri, provocari si multe altele." },
-      "context5": { "header": "Fa-l sa conteze", "cta": "Incepe calatoria", "subtext": "Fiecare cuvant conteaza." },
-      "context6": { "header": "Fa-l sa se intample", "cta": "Incepe acum", "subtext": "Acel moment vine." },
-      "context7": { "header": "Incepeti impreuna", "cta": "Creeaza lumea voastra", "subtext": "Te asteapta." }
+      "context3": {
+        "header": "Fii cu adevărat acolo",
+        "cta": "Începe",
+        "subtext": "De data asta pe bune."
+      },
+      "context4": {
+        "header": "Învățați împreună",
+        "cta": "Începe acum",
+        "subtext": "Te așteaptă."
+      }
     },
     "tutor": {
       "section1": {
-        "headline": "Te iubesc. Acum ajuta-i sa-ti iubeasca si limba.",
-        "highlight1": "iubesc",
-        "highlight2": "limba ta",
-        "copy": "Cuvintele tale. Glumele tale. Felul in care injuri cand te lovesti la deget. Exista un tu intreg pe care nu l-au cunoscut inca—un tu complet nou. Lasa-i sa intre.",
-        "copyHighlight1": "Cuvintele tale",
-        "copyHighlight2": "Glumele tale",
-        "copyHighlight3": "un tu complet nou",
-        "copyHighlight4": "Lasa-i sa intre",
-        "underline": "Lasa-i sa intre"
+        "headline": "Există un tu întreg pe care nu l-au cunoscut niciodată.",
+        "highlight1": "tu întreg",
+        "copy": "Felul în care te cerți. Felul în care glumești. Lucrurile pe care le poți spune doar în limba ta. Lasă-i să intre."
       },
       "section2": {
-        "headline": "Ai incercat sa explici. Ei au incercat sa dea din cap. Hai sa rezolvam asta.",
-        "highlight1": "sa explici",
-        "highlight2": "sa dea din cap",
-        "highlight3": "sa rezolvam asta",
-        "copy": "Lucrurile pe care le spui cand esti foarte fericit. Sau foarte enervat. Cuvintele care par ca acasa. Vor sa te inteleaga pe tot—nu doar versiunea tradusa.",
-        "copyHighlight1": "foarte fericit",
-        "copyHighlight2": "foarte enervat",
-        "copyHighlight3": "pe tot",
-        "underline": "nu doar versiunea tradusa"
+        "headline": "Unele lucruri mor în traducere. Nu mai permite asta.",
+        "highlight1": "mor în traducere",
+        "copy": "Explici. Dau din cap. Sentimentul dispare. Nu vor subtitrările tale—vor originalul."
       },
       "section3": {
-        "headline": "Fiecare cuvant pe care il impartasesti e un pod.",
-        "highlight1": "pod",
-        "copy": "Impartaseste cuvinte. Creeaza provocari. Sarbatoreste victoriile impreuna. Aplicatia se ocupa de partea plictisitoare—tu esti cel distractiv.",
-        "copyHighlight1": "Impartaseste cuvinte",
-        "copyHighlight2": "Creeaza provocari",
-        "copyHighlight3": "Sarbatoreste victoriile",
-        "copyHighlight4": "cel distractiv",
-        "underline": "tu esti cel distractiv"
+        "headline": "Prima dată când fac familia ta să râdă fără tine.",
+        "highlight1": "fără tine",
+        "copy": "Au spus-o. Ai tăi au auzit. Și ai realizat—tu le-ai dat asta."
       },
       "section4": {
-        "headline": "Trimite un cuvant. Incepe un joc. Priveste-i cum cresc.",
-        "highlight1": "joc",
-        "highlight2": "cresc",
-        "copy": "Provoaca-i cu expresia preferata a mamei tale. Testeaza-i inainte de cina. Sarbatoreste cand reusesc. Asta e timp de cuplu deghizat in invatare—si chiar e distractiv.",
-        "copyHighlight1": "expresia preferata a mamei tale",
-        "copyHighlight2": "timp de cuplu",
-        "copyHighlight3": "chiar e distractiv",
-        "underline": "Asta e timp de cuplu deghizat in invatare"
+        "headline": "Limba ta e o ușă. Dă-le cheia.",
+        "highlight1": "cheia",
+        "copy": "Fiecare cuvânt e o parte din tine pe care o pot păstra. Amintirile tale. Oamenii tăi. Casa ta."
       },
-      "section5": {
-        "headline": "Momentul in care te surprind cu o expresie pe care nu le-ai invatat-o? Magie.",
-        "highlight1": "te surprind",
-        "highlight2": "Magie",
-        "copy": "Cand spun o gluma si familia ta chiar rade. Cand mama ta incepe sa vorbeasca direct cu ei in limba ta. Cand scot o expresie care te lasa cu gura cascata. Tu ai facut asta sa se intample.",
-        "copyHighlight1": "familia ta chiar rade",
-        "copyHighlight2": "mama",
-        "copyHighlight3": "Tu ai facut asta sa se intample"
+      "context1": {
+        "header": "Lasă-i să intre",
+        "cta": "Începe să ghidezi",
+        "subtext": "La adevăratul tu."
       },
-      "section6": {
-        "headline": "Predati impreuna. Jucati impreuna. Indragostiti-va si mai mult.",
-        "highlight1": "impreuna",
-        "highlight2": "Indragostiti-va",
-        "copy": "Asa impartasesti cine esti cu adevarat. Cuvant cu cuvant. Joc cu joc. Ras cu ras. Si ei se vor indragosti de tot.",
-        "copyHighlight1": "cine esti cu adevarat",
-        "copyHighlight2": "se vor indragosti",
-        "underline": "Si ei se vor indragosti de tot"
+      "context2": {
+        "header": "Nu mai traduce",
+        "cta": "Începe să ghidezi",
+        "subtext": "Începe să împărtășești."
       },
-      "context1": { "header": "Impartaseste-ti lumea", "cta": "Incepe sa ghidezi", "subtext": "Devino ghidul lor de limba." },
-      "context2": { "header": "Lasa-i sa intre", "cta": "Incepe sa ghidezi", "subtext": "Unele lucruri se traduc mai bine cand sunt invatate." },
-      "context3": { "header": "Preda cu dragoste", "cta": "Incepe", "subtext": "Nu lectii. Scrisori de dragoste." },
-      "context4": { "header": "Provoaca-i", "cta": "Trimite o provocare", "subtext": "Jocuri, provocari, surprize." },
-      "context5": { "header": "Priveste-i cum infloresc", "cta": "Incepe sa trimiti", "subtext": "Cuvant cu cuvant." },
-      "context6": { "header": "Deschide usa", "cta": "Incepe acum", "subtext": "Acel moment vine." },
-      "context7": { "header": "Cresteti impreuna", "cta": "Devino ghidul lor", "subtext": "Sunt pregatiti pentru tine." }
+      "context3": {
+        "header": "Privește-i cum aparțin",
+        "cta": "Începe",
+        "subtext": "Oamenilor tăi."
+      },
+      "context4": {
+        "header": "Dă-le cheia",
+        "cta": "Începe acum",
+        "subtext": "Sunt pregătiți."
+      }
+    },
+    "bottomSections": {
+      "faq": {
+        "title": "Intrebari Frecvente",
+        "q1": {
+          "question": "Ce este Invatarea Limbilor Orientata spre Relatie (RALL)?",
+          "answer": "RALL este metodologia noastra care combina tehnici dovedite de achizitie a limbilor (Predarea Comunicativa a Limbilor, Invatarea Bazata pe Sarcini) cu psihologia relatiilor. In loc sa inveti fraze generice, inveti cuvintele care conteaza in RELATIA TA—ghidat de partenerul tau, care ajuta la modelarea \"Sinelui tau Ideal in L2.\"",
+          "readMore": "Citeste mai mult mai jos →"
+        },
+        "q2": {
+          "question": "Cum e Love Languages diferit de Duolingo sau Babbel?",
+          "intro": "Aplicatiile traditionale te invata sa comanzi o cafea. Noi te invatam sa faci familia partenerului tau sa rada.",
+          "point1": "Ghidat de partener:",
+          "point1desc": "Partenerul tau vorbitor nativ iti trimite cuvinte, creeaza provocari si va urmariti progresul impreuna",
+          "point2": "Vocabular personalizat:",
+          "point2desc": "Inveti cuvintele LOR—expresii de familie, glume interne, alintari",
+          "point3": "Cooperativ, nu competitiv:",
+          "point3desc": "Fara clasamente cu straini. Tu si partenerul tau lucrati ca echipa",
+          "point4": "Investitie in relatie:",
+          "point4desc": "Love Log-ul tau devine un bun comun pe care il construiti impreuna"
+        },
+        "q3": {
+          "question": "Care sunt rolurile de Student si Tutor?",
+          "studentDesc": "Studentii invata limba partenerului. Au acces la conversatii AI, jocuri de vocabular (Flashcard-uri, Alegere Multipla, Scrie-l, Foc Rapid) si un dictionar personal.",
+          "tutorDesc": "Tutorii sunt vorbitori nativi care isi ghideaza partenerul. Trimit \"cadouri de cuvinte,\" creeaza provocari personalizate si folosesc modul Coach pentru a ghida conversatiile de invatare. Tutorul nu doar preda—ajuta la modelarea identitatii lingvistice a partenerului."
+        },
+        "q4": {
+          "question": "Ce limbi sunt disponibile?",
+          "answer": "18 limbi, orice combinatie: engleza, spaniola, franceza, germana, italiana, portugheza, olandeza, poloneza, rusa, ucraineana, suedeza, norvegiana, daneza, ceha, greaca, maghiara, turca si romana. Invata poloneza ca vorbitor de engleza, sau engleza ca vorbitor de poloneza—intreaga aplicatie se adapteaza limbii tale native."
+        },
+        "q5": {
+          "question": "Cat costa?",
+          "intro": "Doua planuri, facturare flexibila:",
+          "standard": "Standard",
+          "standardPrice": "$7/saptamana · $19/luna · $69/an",
+          "standardDesc": "2.000 cuvinte, 60 min voce, invitatie partener",
+          "unlimited": "Nelimitat",
+          "unlimitedPrice": "$12/saptamana · $39/luna · $139/an",
+          "unlimitedDesc": "Totul nelimitat + permise cadou",
+          "cancelNote": "Anuleaza oricand. Fara contracte."
+        },
+        "q6": {
+          "question": "Cum imi invit partenerul?",
+          "answer": "Dupa inregistrare, mergi la Setari si genereaza un link de invitatie. Cand partenerul tau se inregistreaza cu linkul tau, conturile se conecteaza automat. Apoi puteti trimite cuvinte, crea provocari si urmari progresul impreuna."
+        }
+      },
+      "rall": {
+        "label": "Metoda Noastra",
+        "title": "Invatarea Limbilor Orientata spre Relatie",
+        "description": "RALL sintetizeaza metodologii dovedite de achizitie a limbilor cu psihologia relatiilor. Rezultatul: invatare care iti intareste atat abilitatile lingvistice CAT SI relatia.",
+        "pillar1": {
+          "title": "Predarea Comunicativa a Limbilor",
+          "description": "\"Modul Intreaba\" prioritizeaza interactiunea reala in locul memorizarii. Inveti prin comunicare, nu prin repetitie.",
+          "citation": "Richards & Rodgers, 2001"
+        },
+        "pillar2": {
+          "title": "Invatarea Limbilor Bazata pe Sarcini",
+          "description": "Scenariile din \"Teren de Joaca\" folosesc limba ca instrument pentru a indeplini sarcini semnificative—a comanda cina, a intalni familia, a naviga conflicte.",
+          "citation": "Ellis, 2003; Nunan, 2004"
+        },
+        "pillar3": {
+          "title": "Fenomenul Michelangelo",
+          "description": "Partenerul tau nu doar preda—sculpteaza. Cercetarile arata ca atunci cand partenerii iti afirma \"Sinele Ideal in L2,\" progresezi mai repede SI relatia ta se intareste.",
+          "citation": "Rusbult et al., 2009"
+        },
+        "pillar4": {
+          "title": "Teoria Interdependentei",
+          "description": "Love Log-ul tau este o investitie comuna. Fiecare cuvant salvat creste angajamentul prin interdependenta pozitiva, nu prin frica.",
+          "citation": "Rusbult & Van Lange, 2003"
+        },
+        "quote": "\"Cand partenerii isi afirma reciproc sinele ideal, indivizii au mai multe sanse sa-si atinga obiectivele, iar cuplurile experimenteaza o bunastare sporita.\"",
+        "quoteAttribution": "— Rusbult, Finkel & Kumashiro, \"Fenomenul Michelangelo\" (2009)",
+        "anxietyTitle": "Reducerea Anxietatii Limbii Straine:",
+        "anxietyDesc": "Frica de a fi judecat de partenerul tau este reala. AI-ul nostru mediaza corecturile si feedback-ul, creand un spatiu sigur pentru a face greseli fara a-ti afecta relatia.",
+        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991"
+      },
+      "blog": {
+        "label": "Resurse Gratuite",
+        "title": "Peste 1.000 de Articole pentru Cupluri",
+        "description": "Analize detaliate despre diferentele culturale, expresii romantice si tot ce intalnesc cuplurile cand depasesc bariera lingvistica.",
+        "topic1": {
+          "title": "Expresii Romantice",
+          "description": "Spune 'Te iubesc' in 18 limbi"
+        },
+        "topic2": {
+          "title": "Ghiduri Culturale",
+          "description": "Navigheaza cinele de familie si sarbatorile"
+        },
+        "topic3": {
+          "title": "Gramatica Simplificata",
+          "description": "Cazuri, conjugari si multe altele"
+        },
+        "cta": "Exploreaza Blogul Nostru"
+      },
+      "footer": {
+        "tagline": "Invata limba iubirii",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "terms": "Termeni",
+        "privacy": "Confidentialitate",
+        "blog": "Blog",
+        "contact": "Contact",
+        "copyright": "Love Languages · Facut cu ♥ pentru indragostiti de pretutindeni"
+      }
     }
   }
 }
