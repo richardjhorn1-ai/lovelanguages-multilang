@@ -13,7 +13,7 @@ export const OnboardingContext = createContext<{
 // Shared steps
 import { NameStep } from './steps/shared/NameStep';
 import { PartnerNameStep } from './steps/shared/PartnerNameStep';
-import { LanguageConfirmStep } from './steps/shared/LanguageConfirmStep';
+// LanguageConfirmStep removed - now handled in RoleSelection before onboarding
 import { ValidationModeStep } from './steps/shared/ValidationModeStep';
 import { PlanSelectionStep } from './steps/shared/PlanSelectionStep';
 
@@ -609,8 +609,8 @@ interface OnboardingProps {
   hasInheritedSubscription?: boolean;  // Skip plan selection if user already has access via partner
 }
 
-const STUDENT_TOTAL_STEPS = 18;
-const TUTOR_TOTAL_STEPS = 12;
+const STUDENT_TOTAL_STEPS = 17;  // Removed LanguageConfirmStep (now handled in RoleSelection)
+const TUTOR_TOTAL_STEPS = 11;   // Removed LanguageConfirmStep (now handled in RoleSelection)
 
 const STORAGE_KEY = 'onboarding_progress';
 
@@ -797,24 +797,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           );
         case 3:
           return (
-            <LanguageConfirmStep
-              currentStep={3}
-              totalSteps={totalSteps}
-              userName={data.userName || 'Friend'}
-              role="student"
-              onNext={(native, target) => {
-                updateData('nativeLanguage', native);
-                updateData('targetLanguage', target);
-                goNext();
-              }}
-              onBack={goBack}
-              accentColor={accentColor}
-            />
-          );
-        case 4:
-          return (
             <VibeStep
-              currentStep={4}
+              currentStep={3}
               totalSteps={totalSteps}
               partnerName={data.partnerName || 'them'}
               initialValue={data.relationshipVibe}
@@ -823,10 +807,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 5:
+        case 4:
           return (
             <PhotoStep
-              currentStep={5}
+              currentStep={4}
               totalSteps={totalSteps}
               userId={userId}
               userName={data.userName || 'User'}
@@ -836,10 +820,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 6:
+        case 5:
           return (
             <WhyStep
-              currentStep={6}
+              currentStep={5}
               totalSteps={totalSteps}
               partnerName={data.partnerName || 'them'}
               initialValue={data.learningReason}
@@ -848,10 +832,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 7:
+        case 6:
           return (
             <TimeStep
-              currentStep={7}
+              currentStep={6}
               totalSteps={totalSteps}
               initialValue={data.dailyTime}
               onNext={(time) => { updateData('dailyTime', time); goNext(); }}
@@ -859,10 +843,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 8:
+        case 7:
           return (
             <WhenStep
-              currentStep={8}
+              currentStep={7}
               totalSteps={totalSteps}
               initialValue={data.preferredTime}
               onNext={(when) => { updateData('preferredTime', when); goNext(); }}
@@ -870,10 +854,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 9:
+        case 8:
           return (
             <FearStep
-              currentStep={9}
+              currentStep={8}
               totalSteps={totalSteps}
               initialValue={data.biggestFear}
               onNext={(fear) => { updateData('biggestFear', fear); goNext(); }}
@@ -881,10 +865,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 10:
+        case 9:
           return (
             <PriorStep
-              currentStep={10}
+              currentStep={9}
               totalSteps={totalSteps}
               initialValue={data.priorExperience}
               onNext={(prior) => { updateData('priorExperience', prior); goNext(); }}
@@ -892,10 +876,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 11:
+        case 10:
           return (
             <ValidationModeStep
-              currentStep={11}
+              currentStep={10}
               totalSteps={totalSteps}
               initialValue={data.smartValidation}
               onNext={(mode) => { updateData('smartValidation', mode); goNext(); }}
@@ -903,9 +887,20 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 12:
+        case 11:
           return (
             <LearnHelloStep
+              currentStep={11}
+              totalSteps={totalSteps}
+              partnerName={data.partnerName || 'them'}
+              onNext={goNext}
+              onBack={goBack}
+              accentColor={accentColor}
+            />
+          );
+        case 12:
+          return (
+            <LearnLoveStep
               currentStep={12}
               totalSteps={totalSteps}
               partnerName={data.partnerName || 'them'}
@@ -916,10 +911,9 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           );
         case 13:
           return (
-            <LearnLoveStep
+            <TryItStep
               currentStep={13}
               totalSteps={totalSteps}
-              partnerName={data.partnerName || 'them'}
               onNext={goNext}
               onBack={goBack}
               accentColor={accentColor}
@@ -927,28 +921,18 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           );
         case 14:
           return (
-            <TryItStep
-              currentStep={14}
-              totalSteps={totalSteps}
-              onNext={goNext}
-              onBack={goBack}
-              accentColor={accentColor}
-            />
-          );
-        case 15:
-          return (
             <CelebrationStep
-              currentStep={15}
+              currentStep={14}
               totalSteps={totalSteps}
               partnerName={data.partnerName || 'them'}
               onNext={goNext}
               accentColor={accentColor}
             />
           );
-        case 16:
+        case 15:
           return (
             <GoalStep
-              currentStep={16}
+              currentStep={15}
               totalSteps={totalSteps}
               partnerName={data.partnerName || 'them'}
               initialValue={data.firstGoal}
@@ -957,12 +941,12 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 17:
+        case 16:
           // Skip PlanSelectionStep if user has inherited subscription
           if (hasInheritedSubscription) {
             return (
               <StartStep
-                currentStep={17}
+                currentStep={16}
                 totalSteps={totalSteps}
                 userName={data.userName || 'Friend'}
                 partnerName={data.partnerName || 'them'}
@@ -973,7 +957,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           }
           return (
             <PlanSelectionStep
-              currentStep={17}
+              currentStep={16}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               onNext={(plan, priceId) => {
@@ -985,10 +969,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 18:
+        case 17:
           return (
             <StartStep
-              currentStep={18}
+              currentStep={17}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               partnerName={data.partnerName || 'them'}
@@ -1028,24 +1012,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         );
       case 3:
         return (
-          <LanguageConfirmStep
-            currentStep={3}
-            totalSteps={totalSteps}
-            userName={data.userName || 'Friend'}
-            role="tutor"
-            onNext={(native, target) => {
-              updateData('nativeLanguage', native);
-              updateData('targetLanguage', target);
-              goNext();
-            }}
-            onBack={goBack}
-            accentColor={accentColor}
-          />
-        );
-      case 4:
-        return (
           <RelationStep
-            currentStep={4}
+            currentStep={3}
             totalSteps={totalSteps}
             learnerName={data.learnerName || 'them'}
             initialValue={data.relationshipType}
@@ -1054,10 +1022,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 5:
+      case 4:
         return (
           <LanguageConnectionStep
-            currentStep={5}
+            currentStep={4}
             totalSteps={totalSteps}
             initialValue={data.languageConnection || data.polishConnection}
             onNext={(connection) => { updateData('languageConnection', connection); goNext(); }}
@@ -1065,10 +1033,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 6:
+      case 5:
         return (
           <OriginStep
-            currentStep={6}
+            currentStep={5}
             totalSteps={totalSteps}
             initialValue={data.languageOrigin || data.polishOrigin}
             onNext={(origin) => { updateData('languageOrigin', origin); goNext(); }}
@@ -1076,10 +1044,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 7:
+      case 6:
         return (
           <DreamPhraseStep
-            currentStep={7}
+            currentStep={6}
             totalSteps={totalSteps}
             learnerName={data.learnerName || 'them'}
             initialValue={data.dreamPhrase}
@@ -1088,10 +1056,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 8:
+      case 7:
         return (
           <TeachingStyleStep
-            currentStep={8}
+            currentStep={7}
             totalSteps={totalSteps}
             initialValue={data.teachingStyle}
             onNext={(style) => { updateData('teachingStyle', style); goNext(); }}
@@ -1099,10 +1067,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 9:
+      case 8:
         return (
           <ValidationModeStep
-            currentStep={9}
+            currentStep={8}
             totalSteps={totalSteps}
             initialValue={data.smartValidation}
             onNext={(mode) => { updateData('smartValidation', mode); goNext(); }}
@@ -1110,10 +1078,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 10:
+      case 9:
         return (
           <TutorPreviewStep
-            currentStep={10}
+            currentStep={9}
             totalSteps={totalSteps}
             learnerName={data.learnerName || 'them'}
             onNext={goNext}
@@ -1121,12 +1089,12 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 11:
+      case 10:
         // Skip PlanSelectionStep if user has inherited subscription
         if (hasInheritedSubscription) {
           return (
             <TutorStartStep
-              currentStep={11}
+              currentStep={10}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               learnerName={data.learnerName || 'them'}
@@ -1137,7 +1105,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         }
         return (
           <PlanSelectionStep
-            currentStep={11}
+            currentStep={10}
             totalSteps={totalSteps}
             userName={data.userName || 'Friend'}
             onNext={(plan, priceId) => {
@@ -1149,10 +1117,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 12:
+      case 11:
         return (
           <TutorStartStep
-            currentStep={12}
+            currentStep={11}
             totalSteps={totalSteps}
             userName={data.userName || 'Friend'}
             learnerName={data.learnerName || 'them'}
