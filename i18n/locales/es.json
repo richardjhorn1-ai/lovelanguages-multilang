@@ -1186,7 +1186,8 @@
     },
     "settingUp": "Configurando...",
     "letsGo": "¡Ese soy yo! Vamos",
-    "chooseRole": "Elige tu rol para continuar"
+    "chooseRole": "Elige tu rol para continuar",
+    "logout": "Cerrar sesión"
   },
   "subscription": {
     "common": {

@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Configurazione...",
     "letsGo": "Sono io! Andiamo",
-    "chooseRole": "Scegli il tuo ruolo per continuare"
+    "chooseRole": "Scegli il tuo ruolo per continuare",
+    "logout": "Esci"
   },
   "subscription": {
     "common": {

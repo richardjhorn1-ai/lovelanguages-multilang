@@ -330,8 +330,8 @@ const App: React.FC = () => {
             {/* All other routes */}
             <Route path="*" element={
               session && profile ? (
-                // Step 1: Check if user has confirmed their role (shows even if role is pre-set from signup)
-                !profile.role_confirmed_at ? (
+                // Step 1: Check if user has confirmed their role (skip for existing users who completed onboarding)
+                !profile.role_confirmed_at && !profile.onboarding_completed_at ? (
                   <RoleSelection
                     userId={profile.id}
                     profile={profile}

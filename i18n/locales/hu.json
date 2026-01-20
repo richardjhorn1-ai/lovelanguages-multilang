@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Beállítás...",
     "letsGo": "Ez vagyok én! Gyerünk",
-    "chooseRole": "Válaszd ki a szereped a folytatáshoz"
+    "chooseRole": "Válaszd ki a szereped a folytatáshoz",
+    "logout": "Kijelentkezés"
   },
   "subscription": {
     "common": {

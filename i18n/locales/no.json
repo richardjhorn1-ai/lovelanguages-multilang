@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Setter opp...",
     "letsGo": "Det er meg! La oss kjøre",
-    "chooseRole": "Velg rollen din for å fortsette"
+    "chooseRole": "Velg rollen din for å fortsette",
+    "logout": "Logg ut"
   },
   "subscription": {
     "common": {

@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Se configureaza...",
     "letsGo": "Sunt eu! Hai sa mergem",
-    "chooseRole": "Alege-ti rolul pentru a continua"
+    "chooseRole": "Alege-ti rolul pentru a continua",
+    "logout": "Deconectare"
   },
   "subscription": {
     "common": {

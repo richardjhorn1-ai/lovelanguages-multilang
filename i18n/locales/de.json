@@ -1186,7 +1186,8 @@
     },
     "settingUp": "Wird eingerichtet...",
     "letsGo": "Das bin ich! Los geht's",
-    "chooseRole": "Wähle deine Rolle um fortzufahren"
+    "chooseRole": "Wähle deine Rolle um fortzufahren",
+    "logout": "Abmelden"
   },
   "subscription": {
     "common": {

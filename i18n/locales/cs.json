@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Nastavuji...",
     "letsGo": "To jsem já! Jdeme na to",
-    "chooseRole": "Pro pokračování vyber svou roli"
+    "chooseRole": "Pro pokračování vyber svou roli",
+    "logout": "Odhlásit se"
   },
   "subscription": {
     "common": {
