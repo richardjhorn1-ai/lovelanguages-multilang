@@ -57,6 +57,8 @@ import {
   Square,
   Bug,
   Globe,
+  InstagramLogo,
+  ArrowSquareOut,
   IconWeight,
 } from '@phosphor-icons/react';
 
@@ -130,4 +132,6 @@ export const ICONS = {
   Square: createIcon(Square),
   Bug: createIcon(Bug),
   Globe: createIcon(Globe),
+  Instagram: createIcon(InstagramLogo),
+  ExternalLink: createIcon(ArrowSquareOut),
 };

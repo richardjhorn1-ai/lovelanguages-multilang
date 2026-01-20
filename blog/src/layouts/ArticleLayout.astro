@@ -166,7 +166,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
   day: 'numeric'
 });
 
-// JSON-LD structured data
+// JSON-LD structured data with Speakable schema for voice search optimization
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -193,7 +193,18 @@ const jsonLd = {
     "@id": `https://lovelanguages.io${Astro.url.pathname}`
   },
   "articleSection": category,
-  "keywords": tags?.join(', ')
+  "keywords": tags?.join(', '),
+  // AEO: Speakable schema for voice assistants (Google Assistant, Alexa, Siri)
+  // Marks content sections optimized for text-to-speech reading
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".speakable-title",        // Article title
+      ".speakable-summary",      // Article description/summary
+      ".speakable-phrase",       // Key phrases (PhraseOfDay components)
+      ".speakable-vocab"         // Vocabulary cards
+    ]
+  }
 };
 
 // Hub page URLs for breadcrumb hierarchy
@@ -331,9 +342,14 @@ const faqJsonLd = {
     {/* Canonical URL */}
     <link rel="canonical" href={canonicalUrl} />
 
-    {/* Hreflang tags for multi-language SEO */}
-    <link rel="alternate" hreflang={languageCode} href={canonicalUrl} />
-    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    {/* Hreflang tags for multi-language SEO
+        - nativeLanguageCode = language the article is written in (e.g., "en" for English speakers)
+        - languageCode = target language being taught (e.g., "pl" for Polish)
+        - hreflang should reflect the PAGE language, not the topic language
+        - x-default points to English version (primary), or current page if no English version
+    */}
+    <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={nativeLanguageCode === 'en' ? canonicalUrl : (alternateVersions.find(v => v.nativeLang === 'en')?.href || canonicalUrl)} />
     {alternateVersions.map(alt => (
       <link rel="alternate" hreflang={alt.nativeLang} href={alt.href} />
     ))}
@@ -399,10 +415,15 @@ const faqJsonLd = {
         <span class="text-gray-500">{readTime} min read</span>
       </div>
 
-      <!-- Title -->
-      <h1 class="text-3xl md:text-4xl font-black font-header text-gray-900 mb-6 leading-tight">
+      <!-- Title - marked as speakable for voice assistants -->
+      <h1 class="speakable-title text-3xl md:text-4xl font-black font-header text-gray-900 mb-4 leading-tight">
         {title}
       </h1>
+
+      <!-- Summary - speakable description for voice search answers -->
+      <p class="speakable-summary text-lg text-gray-600 mb-6 leading-relaxed">
+        {description}
+      </p>
 
       <!-- Content -->
       <div class="prose max-w-none">

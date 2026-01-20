@@ -136,7 +136,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
             className="w-6 h-6 rounded-full flex items-center justify-center font-bold transition-all text-sm"
             style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
           >
-            ‹
+            ˄
           </button>
 
           <div className="flex flex-col items-center gap-1">
@@ -161,7 +161,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
             className="w-6 h-6 rounded-full flex items-center justify-center font-bold transition-all text-sm"
             style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
           >
-            ›
+            ˅
           </button>
 
           {/* Progress dots - hide for Quick Fire */}
@@ -180,18 +180,10 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
           )}
         </div>
 
-        {/* Right side: Game demo - defines container height */}
+        {/* Right side: Game demo - centered */}
         <div className="flex flex-col items-center justify-center">
-          {/* Compact headline */}
-          <p
-            className="text-xs font-semibold mb-2 text-center"
-            style={{ color: accentColor }}
-          >
-            {subtext}
-          </p>
-
-          {/* Demo component - scaled down significantly to fit */}
-          <div className="transition-all duration-300 transform scale-[0.70] origin-center">
+          {/* Demo component - scaled down to fit */}
+          <div className="transition-all duration-300 transform scale-[0.75] origin-center">
             {currentMode === 0 && (
               <DemoFlashcard
                 word={currentWord}

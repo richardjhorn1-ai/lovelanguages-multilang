@@ -472,7 +472,6 @@
     "search": "Ara...",
     "searchWords": "Kelime ara...",
     "wordsCount": "{{count}} kelime",
-
     "sync": {
       "scanChats": "Sohbetleri Tara",
       "scanTooltip": "Yeni kelimeler için sohbet geçmişini tara",
@@ -483,7 +482,6 @@
       "newWords_other": "+{{count}} yeni kelime!",
       "syncError": "Senkronizasyon hatası"
     },
-
     "filters": {
       "all": "Tümü",
       "noun": "İsim",
@@ -494,7 +492,6 @@
       "gifts": "Hediyeler",
       "clear": "Temizle"
     },
-
     "card": {
       "gift": "Hediye",
       "giftFrom": "{{name}}'dan hediye",
@@ -507,7 +504,6 @@
       "conjugations": "Çekimler",
       "forms": "Formlar"
     },
-
     "modal": {
       "present": "Şimdiki",
       "past": "Geçmiş",
@@ -516,7 +512,6 @@
       "unlockTense": "{{tense}} Zamanı Aç",
       "unlocked": "{{date}} tarihinde açıldı"
     },
-
     "unlock": {
       "title": "{{tense}} Zamanı Açılsın mı?",
       "descriptionBefore": "Şunu söylemeyi öğrenmeye hazır mısın:",
@@ -526,7 +521,6 @@
       "unlockNow": "Şimdi Aç",
       "unlocking": "Açılıyor..."
     },
-
     "pronouns": {
       "singular1": "(ben)",
       "singular2": "(sen)",
@@ -535,19 +529,16 @@
       "plural2": "(siz)",
       "plural3": "(onlar)"
     },
-
     "tableHeaders": {
       "person": "Kişi",
       "masculine": "Eril",
       "feminine": "Dişil"
     },
-
     "nounForms": {
       "gender": "Cinsiyet",
       "singular": "Tekil",
       "plural": "Çoğul"
     },
-
     "adjectiveForms": {
       "title": "Cinsiyet Formları",
       "masculine": "Eril",
@@ -556,7 +547,6 @@
       "plural": "Çoğul"
     }
   },
-
   "onboarding": {
     "step": {
       "back": "Geri",
@@ -565,13 +555,11 @@
       "continue": "Devam Et",
       "skipForNow": "Şimdilik geç"
     },
-
     "name": {
       "title": "Cupid sana ne desin?",
       "subtitle": "Adın bu yolculuğu kişisel hale getirir.",
       "placeholder": "Adın"
     },
-
     "partnerName": {
       "studentTitle": "{{name}}, kimin için {{language}} öğreniyorsun?",
       "tutorTitle": "{{name}}, kime {{language}} öğrenmede yardım ediyorsun?",
@@ -579,7 +567,6 @@
       "tutorSubtitle": "{{language}} yolculuğunda rehberlik edeceğin kişi.",
       "placeholder": "Onun adı"
     },
-
     "languageConfirm": {
       "title": "Dillerini onayla, {{name}}",
       "subtitle": "Dil yolculuğunun doğru olduğundan emin ol.",
@@ -590,7 +577,6 @@
       "summary": "{{native}} konuşan biri olarak {{target}} öğreniyorum",
       "tutorSummary": "{{native}} konuşana {{target}} öğretiyorum"
     },
-
     "validation": {
       "title": "Cevapların nasıl kontrol edilsin?",
       "subtitle": "Notlandırmada uygulamanın ne kadar hoşgörülü olacağını seç.",
@@ -614,7 +600,6 @@
         "detail4": "Geleneksel kart deneyimi"
       }
     },
-
     "plan": {
       "title": "{{name}}, planını seç",
       "subtitle": "{{language}} öğrenme yolculuğuna bugün başla",
@@ -648,7 +633,6 @@
         "feature5": "Başka bir çift için hediye kartı (yıllık)"
       }
     },
-
     "student": {
       "start": {
         "title": "{{name}}, başlamaya hazır mısın?",
@@ -660,7 +644,6 @@
         "feature4": "İlerleme takibi ve seviye testleri",
         "button": "Hadi başlayalım!"
       },
-
       "vibe": {
         "title": "{{name}} ile ilişkin için tek kelime",
         "subtitle": "En doğru hissettiren havayı seç.",
@@ -671,7 +654,6 @@
         "longDistance": "Uzak Mesafe",
         "newLove": "Yeni Aşk"
       },
-
       "time": {
         "title": "Günde ne kadar zaman ayırabilirsin?",
         "subtitle": "Küçük anlar bile büyük ilerlemeye dönüşür.",
@@ -682,7 +664,6 @@
         "walk": "Uzun bir yürüyüş",
         "walkDesc": "20+ dakika"
       },
-
       "when": {
         "title": "Ne zaman pratik yapmayı tercih edersin?",
         "subtitle": "Tam doğru anda hatırlatırız.",
@@ -691,19 +672,16 @@
         "evening": "Akşam",
         "whenever": "Ne Zaman Olsa"
       },
-
       "photo": {
         "title": "Fotoğrafını ekle",
         "subtitleWithPhoto": "Harika görünüyorsun! Bu profilinde görünecek.",
         "subtitleNoPhoto": "Bir fotoğraf profilini daha kişisel hissettirir."
       },
-
       "why": {
         "title": "Neden {{name}} için {{language}} öğrenmek istiyorsun?",
         "subtitle": "Bu, yolculuğundaki kişisel hatırlatıcın olur.",
         "placeholder": "Ailesini ziyaret ettiğimizde onları şaşırtmak istiyorum... Tatlı şeyler fısıldamak istiyorum... Onun dünyasını anlamak istiyorum..."
       },
-
       "fear": {
         "title": "{{language}} öğrenmekle ilgili en büyük korkunz ne?",
         "subtitle": "Herkesin bir korkusu var. Seninkiyle birlikte başa çıkalım.",
@@ -716,14 +694,12 @@
         "forgetting": "Her şeyi unutmak",
         "forgettingDesc": "Öğrenmek ama aklında tutamamak"
       },
-
       "prior": {
         "title": "Daha önce {{language}} öğrenmeyi denedin mi?",
         "subtitle": "Bu, doğru yerden başlamamıza yardımcı olur.",
         "yes": "Evet, biraz",
         "beginner": "Tamamen yeni başlayan"
       },
-
       "goal": {
         "title": "İlk hedefin ne?",
         "subtitle": "{{name}} ile çalışacağın bir hedef",
@@ -733,7 +709,6 @@
         "custom": "Kendi hedefimi belirle",
         "customPlaceholder": "örn., \"En sevdiği restoranda {{language}} sipariş ver\""
       },
-
       "learnHello": {
         "title": "İlk kelimeni öğrenelim!",
         "subtitle": "{{name}}'e {{language}} dilinde merhaba de",
@@ -742,7 +717,6 @@
         "gotIt": "Anladım!",
         "listenFirst": "Önce dinle"
       },
-
       "learnLove": {
         "title": "Şimdi en önemli ifade...",
         "subtitle": "{{name}}'in asla unutmayacağı",
@@ -752,7 +726,6 @@
         "ready": "Hazırım!",
         "listenFirst": "Önce dinle"
       },
-
       "tryIt": {
         "title": "Söylemeyi dene!",
         "subtitle": "Endişelenme, sadece sen duyabilirsin.",
@@ -760,7 +733,6 @@
         "success": "Muhteşem! Söyledin!",
         "practiceLater": "Sonra pratik yaparım"
       },
-
       "celebration": {
         "title": "Başardın!",
         "subtitle": "İlk {{language}} kelimelerini öğrendin!",
@@ -771,7 +743,6 @@
         "keepGoing": "Devam et!"
       }
     },
-
     "tutor": {
       "start": {
         "title": "{{learnerName}}'in rehberi olmaya hazır mısın, {{userName}}?",
@@ -783,7 +754,6 @@
         "feature4": "Yolculuklarını görmek için hesapları bağla",
         "button": "{{learnerName}}'e yardım etmeye başla!"
       },
-
       "relation": {
         "title": "{{name}} ile ilişkin ne?",
         "subtitle": "Bu, öğretme deneyimini kişiselleştirmemize yardımcı olur",
@@ -792,7 +762,6 @@
         "friend": "Arkadaş",
         "family": "Aile"
       },
-
       "connection": {
         "title": "{{language}} ile bağlantın ne?",
         "subtitle": "Dil geçmişini anlamamıza yardım et",
@@ -805,7 +774,6 @@
         "bilingual": "İki dilli",
         "bilingualDesc": "{{language}} ve başka bir dil konuşarak büyüdüm"
       },
-
       "origin": {
         "title": "{{language}} dilini nasıl öğrendin?",
         "subtitle": "Yolculuğun, öğretme yaklaşımları önermemize yardımcı olur",
@@ -814,14 +782,12 @@
         "school": "Resmi eğitim",
         "self": "Kendi kendime"
       },
-
       "dreamPhrase": {
         "title": "Hayal anı",
         "subtitle": "{{name}}'in {{language}} dilinde söylediğini ilk duymak istediğin şey ne?",
         "placeholder": "örn., \"Seni seviyorum\" veya \"Günaydın\"",
         "note": "Bu, birlikte ilk öğretme hedefin olur"
       },
-
       "style": {
         "title": "Öğretme tarzın?",
         "subtitle": "Birine öğrenmeye nasıl yardım edersin?",
@@ -834,7 +800,6 @@
         "immersive": "Yoğun",
         "immersiveDesc": "Dalıp yaparak öğrenme"
       },
-
       "preview": {
         "title": "Öğretmen araç setin",
         "subtitle": "{{name}} için yapabileceklerin",
@@ -848,7 +813,6 @@
       }
     }
   },
-
   "levelTest": {
     "preparing": "Testin Hazırlanıyor",
     "generatingQuestions": "Seviyene göre sorular oluşturuluyor...",
@@ -881,7 +845,6 @@
     "submitTest": "Testi Gönder",
     "next": "Sonraki"
   },
-
   "tutorGames": {
     "playTogether": "Birlikte Oyna",
     "sendChallenge": "Meydan Okuma Gönder",
@@ -889,7 +852,6 @@
     "sendDescription": "{{name}}'in sonra tamamlaması için meydan okumalar gönder",
     "playDescription": "Şimdi birlikte pratik yap",
     "startNow": "Şimdi Başla",
-
     "local": {
       "quiz": "{{name}}'i Test Et",
       "quizDesc": "Birlikte kart testi",
@@ -901,7 +863,6 @@
       "typeItDesc": "Çeviriyi yaz",
       "needWords": "{{name}}'in oynamak için kelime hazinesinde en az 4 kelime olması gerekiyor"
     },
-
     "send": {
       "doYouRemember": "Hatırlıyor musun?",
       "quizPartner": "{{name}}'i kelime hazinesinden test et",
@@ -913,14 +874,12 @@
       "sendWords": "{{name}}'in öğrenmesi için kelimeler gönder",
       "sendGift": "Hediye Gönder"
     },
-
     "pending": {
       "waitingFor": "{{name}} bekleniyor",
       "words": "{{count}} kelime",
       "sent": "{{date}} gönderildi",
       "pending": "Beklemede"
     },
-
     "gifts": {
       "title": "Gönderilen Kelime Hediyeleri",
       "word": "{{count}} kelime",
@@ -929,17 +888,14 @@
       "custom": "Özel kelimeler",
       "xpMultiplier": "{{multiplier}}x XP"
     },
-
     "results": {
       "title": "Son Sonuçlar",
       "completed": "{{date}} tamamlandı"
     },
-
     "empty": {
       "noChallenges": "Henüz meydan okuma yok",
       "createFirst": "{{name}} için ilk meydan okumayı oluştur!"
     },
-
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
@@ -947,11 +903,9 @@
       "hard": "Zor",
       "gotIt": "Bildim!"
     },
-
     "direction": {
       "label": "{{target}} → {{native}}"
     },
-
     "quickFireGame": {
       "title": "Hızlı Ateş!",
       "description": "60 saniyede olabildiğince çok kelime çevir!",
@@ -959,7 +913,6 @@
       "start": "Başla!",
       "typeTranslation": "Çeviriyi yaz..."
     },
-
     "typeItGame": {
       "correct": "Doğru!",
       "notQuite": "Tam değil",
@@ -968,7 +921,6 @@
       "next": "Sonraki",
       "check": "Kontrol Et"
     },
-
     "gameOver": {
       "greatJob": "Harika İş!",
       "keepPracticing": "Pratik Yapmaya Devam Et!",
@@ -982,7 +934,6 @@
       "done": "Tamam",
       "playAgain": "Tekrar Oyna"
     },
-
     "saveDialog": {
       "title": "{{name}}'in İlerlemesine Kaydedilsin mi?",
       "howItWorks": "Nasıl çalışır:",
@@ -995,7 +946,6 @@
       "save": "Kaydet"
     }
   },
-
   "gameResults": {
     "greatJob": "Harika İş!",
     "sessionResults": "Oturum sonuçları:",
@@ -1006,7 +956,6 @@
     "done": "Tamam",
     "playAgain": "Tekrar Oyna"
   },
-
   "conversationPractice": {
     "states": {
       "listening": "Dinliyor...",
@@ -1022,7 +971,6 @@
     "aiSpeaking": "Yapay zeka konuşuyor...",
     "conversationEnded": "Konuşma sona erdi"
   },
-
   "scenarioSelector": {
     "title": "Konuşma Pratiği",
     "subtitle": "Bir senaryo seç",
@@ -1033,14 +981,38 @@
       "advanced": "ileri"
     },
     "scenarios": {
-      "cafe": { "name": "Kafede", "description": "Kahve ve atıştırmalık sipariş et" },
-      "restaurant": { "name": "Restoranda Akşam Yemeği", "description": "Yemek sipariş et ve önerileri sor" },
-      "market": { "name": "Pazarda", "description": "Meyve ve sebze al" },
-      "taxi": { "name": "Taksi Yolculuğu", "description": "Yol tarifi ver ve şoförle sohbet et" },
-      "pharmacy": { "name": "Eczanede", "description": "İlaç sor ve semptomları anlat" },
-      "hotel": { "name": "Otel Check-in", "description": "Giriş yap ve olanakları sor" },
-      "family_dinner": { "name": "Aile Yemeği", "description": "Partnerinin ailesiyle tanış" },
-      "train_station": { "name": "Tren İstasyonu", "description": "Bilet al ve tarifeleri kontrol et" }
+      "cafe": {
+        "name": "Kafede",
+        "description": "Kahve ve atıştırmalık sipariş et"
+      },
+      "restaurant": {
+        "name": "Restoranda Akşam Yemeği",
+        "description": "Yemek sipariş et ve önerileri sor"
+      },
+      "market": {
+        "name": "Pazarda",
+        "description": "Meyve ve sebze al"
+      },
+      "taxi": {
+        "name": "Taksi Yolculuğu",
+        "description": "Yol tarifi ver ve şoförle sohbet et"
+      },
+      "pharmacy": {
+        "name": "Eczanede",
+        "description": "İlaç sor ve semptomları anlat"
+      },
+      "hotel": {
+        "name": "Otel Check-in",
+        "description": "Giriş yap ve olanakları sor"
+      },
+      "family_dinner": {
+        "name": "Aile Yemeği",
+        "description": "Partnerinin ailesiyle tanış"
+      },
+      "train_station": {
+        "name": "Tren İstasyonu",
+        "description": "Bilet al ve tarifeleri kontrol et"
+      }
     },
     "createOwn": "Kendi Senaryonu Oluştur",
     "createOwnDesc": "Pratik yapmak istediğin herhangi bir senaryoyu tanımla",
@@ -1053,7 +1025,6 @@
     "footerInfo": "Yapay zeka varsayılan olarak {{targetLanguage}} konuşacak. Zorlanırsan, {{nativeLanguage}} dilinde yardım edecek.",
     "customPersona": "{{language}} dilinde pratik yapmasına yardım eden samimi bir {{language}} kişisisin. Sabırlısın, cesaretlendiricisin ve dilini onların seviyesine göre ayarlarsın."
   },
-
   "challengeCreator": {
     "common": {
       "addNewWords": "Yeni Kelimeler Ekle",
@@ -1073,7 +1044,6 @@
       "failedCreateChallenge": "Meydan okuma oluşturulamadı",
       "needMinWords": "Meydan okuma için en az 5 kelime gerekli!"
     },
-
     "quiz": {
       "title": "Test Oluştur",
       "subtitle": "{{name}}'in pratik yapması için kelimeler seç",
@@ -1091,7 +1061,6 @@
       "noWordsYet": "{{name}} henüz hiç kelime öğrenmemiş!",
       "addWordsToStart": "Başlamak için yukarıya yeni kelimeler ekle."
     },
-
     "quickFire": {
       "title": "Hızlı Ateş",
       "subtitle": "{{name}} için süreli meydan okuma",
@@ -1123,7 +1092,6 @@
       "averageTime": "Ortalama: kelime başına {{time}}sn",
       "needMoreWords": "Meydan okuma oluşturmak için toplam en az 5 kelime gerekli!"
     },
-
     "lovePackage": {
       "title": "Aşk Paketi",
       "subtitle": "{{name}}'e kelimeler gönder",
@@ -1137,7 +1105,6 @@
       "alreadyInLoveLog": "\"{{word}}\" zaten {{name}}'in Love Log'unda!"
     }
   },
-
   "challengePlayer": {
     "common": {
       "later": "Sonra",
@@ -1146,7 +1113,6 @@
       "showDetails": "Detayları göster ({{count}})",
       "xpEarned": "+{{xp}} XP kazanıldı!"
     },
-
     "results": {
       "perfect": "Mükemmel!",
       "perfectScore": "Tam Puan!",
@@ -1154,7 +1120,6 @@
       "greatJob": "Harika İş!",
       "keepPracticing": "Pratik Yapmaya Devam Et!"
     },
-
     "quiz": {
       "startDescription": "{{name}} seni {{count}} kelimeden test etmek istiyor!",
       "startInstructions": "Öğrendiğin {{language}} kelimeleri hakkındaki soruları cevapla. Doğru bil ve serini artır!",
@@ -1177,7 +1142,6 @@
         "submit": "Gönder"
       }
     },
-
     "quickFire": {
       "title": "Hızlı Ateş!",
       "startDescription": "{{name}} sana meydan okuyor: {{time}} saniyede {{count}} kelime çevir!",
@@ -1195,7 +1159,6 @@
       "typePlaceholder": "Çeviriyi yaz..."
     }
   },
-
   "roleSelection": {
     "loading": "Hazırlanıyor...",
     "confirmHeader": "Emin olmak için...",
@@ -1218,7 +1181,6 @@
     "letsGo": "Benim! Hadi gidelim",
     "chooseRole": "Devam etmek için rolünü seç"
   },
-
   "subscription": {
     "common": {
       "weekly": "Haftalık",
@@ -1247,13 +1209,11 @@
       "friend": "Arkadaş",
       "copy": "Kopyala"
     },
-
     "plans": {
       "standard": "Standart",
       "unlimited": "Sınırsız",
       "none": "Yok"
     },
-
     "features": {
       "wordsLimit": "Love Log'da {{limit}} kelime",
       "unlimitedWords": "Sınırsız kelime",
@@ -1268,7 +1228,6 @@
       "giftPass": "Başka bir çift için hediye kartı (yıllık)",
       "unlimitedEverything": "Sınırsız her şey"
     },
-
     "manager": {
       "couplePass": "Çift Kartı",
       "freeAccess": "{{name}}'dan ücretsiz erişim",
@@ -1288,7 +1247,6 @@
       "manageSubscription": "Aboneliği Yönet",
       "continueToManage": "Yönetmeye Devam Et"
     },
-
     "required": {
       "title": "Bir adım daha, {{name}}!",
       "subtitle": "Birlikte {{language}} öğrenmeye başlamak için aboneliğini tamamla",
@@ -1298,7 +1256,6 @@
       "logoutOption": "Çıkış yap ve farklı bir hesap kullan",
       "signOutOption": "Çıkış yap ve farklı bir hesap kullan"
     },
-
     "pricing": {
       "title": "Aşk İçin {{language}} Öğren",
       "subtitle": "Öğrenme yolculuğuna uygun planı seç",
@@ -1328,7 +1285,6 @@
       "questionsEmail": "Soruların mı var? Bize e-posta gönder:",
       "copy": "Kopyala"
     },
-
     "errors": {
       "loginRequired": "Abone olmak için giriş yap",
       "loginAgain": "Lütfen tekrar giriş yap",
@@ -1339,7 +1295,6 @@
       "somethingWrong": "Bir şeyler yanlış gitti"
     }
   },
-
   "pendingChallenges": {
     "yourPartner": "Partnerin",
     "sentYouSomething": "{{name}} sana bir şey gönderdi!",
@@ -1356,7 +1311,6 @@
     "learn": "Öğren",
     "xpBonus": "{{multiplier}}x XP bonusu"
   },
-
   "invite": {
     "title": "Partnerini Davet Et",
     "subtitle": "Aboneliğin partnerine ücretsiz erişim içeriyor!",
@@ -1373,7 +1327,6 @@
     "generateButton": "Davet Linki Oluştur",
     "generating": "Oluşturuluyor..."
   },
-
   "helpGuide": {
     "title": "Rehberin",
     "subtitle": "Love Languages",
@@ -1459,7 +1412,6 @@
       "forgetAnswer": "Oyun oyna - zorlandığın kelimeleri otomatik olarak geri getirir. Aralıklı tekrar onları aklına yerleştirir."
     }
   },
-
   "bugReport": {
     "title": "Hata Bildir",
     "subtitle": "Love Languages'ı geliştirmemize yardım et",
@@ -1493,7 +1445,6 @@
       "close": "Kapat"
     }
   },
-
   "wordGift": {
     "intro": {
       "title": "{{name}}'dan Hediye!",
@@ -1533,7 +1484,6 @@
       "network": "Ağ hatası. Lütfen bağlantını kontrol et ve tekrar dene."
     }
   },
-
   "chatSuggestions": {
     "student": {
       "askTitle": "Cupid'e bir şey sor",
@@ -1567,13 +1517,11 @@
       }
     }
   },
-
   "newWords": {
     "added": "{{count}} yeni kelime eklendi",
     "added_other": "{{count}} yeni kelime eklendi",
     "viewAll": "Love Log'da hepsini gör"
   },
-
   "avatar": {
     "clickToUpload": "Yüklemek için tıkla",
     "clickToChange": "Değiştirmek için tıkla",
@@ -1590,7 +1538,6 @@
       "uploadFailed": "Resim yüklenemedi"
     }
   },
-
   "joinInvite": {
     "validating": "Davet doğrulanıyor...",
     "invalidInvite": "Geçersiz Davet",
@@ -1617,7 +1564,6 @@
     "checkEmail": "Onay için e-postanı kontrol et, sonra giriş yap!",
     "yourPartner": "Partnerin"
   },
-
   "gameHistory": {
     "loading": "Yükleniyor...",
     "noHistory": "Henüz oyun geçmişi yok",
@@ -1639,7 +1585,6 @@
     "practiceWords": "Bu {{count}} Kelimeyi Çalış",
     "perfectScore": "Tam puan! Yanlış kelime yok."
   },
-
   "usage": {
     "title": "Aylık Kullanım",
     "unlimitedPlan": "Sınırsız Plan",
@@ -1653,7 +1598,6 @@
     "upgradePrompt": "Azalıyor mu? Limit olmadan Sınırsız'a yükselt!",
     "resetsMonthly": "Kullanım her ayın 1'inde sıfırlanır"
   },
-
   "inviteLink": {
     "title": "Sihirli Davet Linki",
     "subtitle": "Anında bağlanmak için partnerinle paylaş",
@@ -1668,7 +1612,6 @@
     "newLink": "Yeni Link",
     "description": "Partnerin bu linke tıkladığında, dil koçun olarak katılmaya davet edilecek!"
   },
-
   "breakup": {
     "warning": {
       "title": "Birlikte öğrenme yolculuğunuz bitsin mi?",
@@ -1695,7 +1638,6 @@
       "messageGrantee": "Kendine iyi bak. Öğrenmeye devam etmek için kendi aboneliğine ihtiyacın olacak."
     }
   },
-
   "gameShowcase": {
     "studentHeadline": {
       "part1": "Oh, ve ",
@@ -1721,13 +1663,11 @@
       "quick": "Hızlı"
     }
   },
-
   "demoFlashcard": {
     "tapToReveal": "Görmek için dokun",
     "hard": "Zor",
     "gotIt": "Bildim!"
   },
-
   "demoTypeIt": {
     "correct": "Doğru!",
     "notQuite": "Tam değil",
@@ -1736,7 +1676,6 @@
     "next": "Sonraki",
     "check": "Kontrol Et"
   },
-
   "demoQuickFire": {
     "title": "Hızlı Ateş!",
     "instructions": "Çevirileri olabildiğince hızlı yaz!",
@@ -1748,7 +1687,6 @@
     "keepPracticing": "Pratik yapmaya devam et!",
     "timesUp": "Süre doldu!"
   },
-
   "hero": {
     "languageSelector": {
       "nativePrompt": "Konuştuğum dil...",
@@ -1793,139 +1731,212 @@
       "privacy": "Gizlilik",
       "privacyPolicy": "Gizlilik Politikası"
     },
+    "shared": {
+      "section0": {
+        "headline": "Dil ogrenimi askla baslar.",
+        "highlight1": "askla",
+        "copy": "Iliski Odakli Dil Ogrenimine (RALL) dayanan Love Languages, ciftlerin dil engelini asmasina yardimci olur—her seferinde anlamli bir kelime.",
+        "copyHighlight1": "RALL",
+        "copyHighlight2": "ciftlerin",
+        "copyHighlight3": "anlamli",
+        "underline": "Iliski Odakli Dil Ogrenimine"
+      },
+      "context0": {
+        "header": "Askla ogren",
+        "cta": "Basla",
+        "subtext": "Ciftler icin yeniden tasarlanmis dil ogrenimi."
+      }
+    },
     "student": {
       "section1": {
-        "headline": "Sıkıcı şeyleri atla. Önemli kelimeleri öğren. Onları gülümsetenleri.",
-        "highlight1": "önemli kelimeleri",
-        "highlight2": "gülümsetenleri",
-        "subhead": "Sadece sevdikleriyle kullandıkları kelimeler.",
-        "copy": "İç şakaları. Aile ifadeleri. Kimse dinlemezken 'Seni seviyorum' deme şekilleri.",
-        "copyHighlight1": "İç şakaları",
-        "copyHighlight2": "Aile ifadeleri",
-        "copyHighlight3": "Seni seviyorum",
-        "underline": "Kimse dinlemezken 'Seni seviyorum' deme şekilleri"
+        "headline": "Tatlı fısıltıları, ateşli sözleri ve aradaki her şeyi öğren.",
+        "highlight1": "Tatlı fısıltıları",
+        "highlight2": "ateşli sözleri",
+        "highlight3": "aradaki her şeyi",
+        "copy": "Sana öğrettiği her kelime otomatik olarak Aşk Günlüğüne kaydediliyor. Gerçek ilişkinizden gerçek kelimeler—ders kitabından değil."
       },
       "section2": {
-        "headline": "Dahil olmadığın bir konuşma var. Henüz.",
-        "highlight1": "Henüz",
-        "copy": "Anlamadan güldüğün şakalar. Çeviride bir şeyler kaybeden aile hikayeleri. Artık gerçekten anlama zamanı.",
-        "copyHighlight1": "aile hikayeleri",
-        "copyHighlight2": "gerçekten anlama",
-        "underline": "Artık gerçekten anlama zamanı"
+        "headline": "Herkes gülüyor. Sen hâlâ çeviriyorsun.",
+        "highlight1": "gülüyor",
+        "highlight2": "çeviriyorsun",
+        "copy": "Dinleme Modu kaçırdığın her kelimeyi yakalar. Yemekten sonra gözden geçir. Bir dahaki sefere sen de muhabbete dahil olursun."
       },
       "section3": {
-        "headline": "Bir dil öğrenmiyorsun. Onları öğreniyorsun.",
-        "highlight1": "Onları öğreniyorsun",
-        "copy": "Onların kelimeleri. Onların şakaları. Sana sevgiyle laf sokma şekilleri. Notlar için değil, aşk için olanlar için yapıldı.",
-        "copyHighlight1": "Onların kelimeleri",
-        "copyHighlight2": "Onların şakaları",
-        "copyHighlight3": "aşk",
-        "underline": "Aşk için olanlar için yapıldı"
+        "headline": "Altı ay sonra: ilk gerçek konuşman.",
+        "highlight1": "ilk gerçek konuşman",
+        "copy": "Samimi. Kesintisiz. Onların dilinde. Yardımlarıyla oraya varacaksın."
       },
       "section4": {
-        "headline": "Onların dilini öğrenmek = ekstra adımlarla flört.",
-        "highlight1": "flört",
-        "copy": "Bu okul değil. Test yok. Sadece sen, onlar için tamamen yeni bir şekilde ortaya çıkıyorsun. Açıkçası oldukça romantik.",
-        "copyHighlight1": "onlar için ortaya çıkıyorsun",
-        "copyHighlight2": "romantik",
-        "underline": "Açıkçası oldukça romantik"
+        "headline": "Onlar diğer tarafta. Seni çekmelerine izin ver.",
+        "highlight1": "seni çekmelerine",
+        "copy": "Partnerin kelimeleri seçiyor. Sen öğreniyorsun. Testler ve flört arasında bir yerde, onların dünyasında misafir olmayı bırakıyorsun."
       },
-      "section5": {
-        "headline": "Ailesini güldürdüğün an? Muhteşem.",
-        "highlight1": "ailesini güldürdüğün",
-        "highlight2": "Muhteşem",
-        "copy": "Şakayı gerçekten anladığın ilk an. Tam doğru duyan ilk 'Seni seviyorum'. Annesinin seninle doğrudan kendi dilinde konuşmaya başladığı an. Geliyor.",
-        "copyHighlight1": "Seni seviyorum",
-        "copyHighlight2": "Annesinin",
-        "copyHighlight3": "Geliyor",
-        "underline": "Geliyor"
+      "context1": {
+        "header": "Gerçek kelimeler",
+        "cta": "Öğrenmeye başla",
+        "subtext": "Ders kitabı cümleleri değil."
       },
-      "section6": {
-        "headline": "Birlikte öğren. Birlikte sev. Birlikte gül.",
-        "highlight1": "Birlikte",
-        "highlight2": "Sev",
-        "highlight3": "Gül",
-        "copy": "Sana önemli kelimeler gönderecekler. Oyunlara meydan okuyacaklar. Telaffuzunla (sevgiyle) dalga geçecekler. Bu tek başına çalışmak değil - birlikte kendi küçük dünyanızı inşa etmek.",
-        "copyHighlight1": "önemli kelimeler",
-        "copyHighlight2": "kendi küçük dünyanızı",
-        "underline": "birlikte kendi küçük dünyanızı inşa etmek"
+      "context2": {
+        "header": "Sahte kahkaha yeter",
+        "cta": "Öğrenmeye başla",
+        "subtext": "Sonunda şakayı anla."
       },
-      "context1": { "header": "Daha derin bağ kurmaya hazır mısın?", "cta": "Öğrenmeye başla", "subtext": "İlk kelimene 2 dakika." },
-      "context2": { "header": "Yanındayız", "cta": "Öğrenmeye başla", "subtext": "Artık sahte gülüş yok." },
-      "context3": { "header": "Aşıklar için yapıldı", "cta": "Yolculuğuna başla", "subtext": "Turistler değil. Aile." },
-      "context4": { "header": "Kendi tarzında oyna", "cta": "Oyunları keşfet", "subtext": "Kartlar, meydan okumalar ve daha fazlası." },
-      "context5": { "header": "Önemli kıl", "cta": "Yolculuğuna başla", "subtext": "Her kelime önemli." },
-      "context6": { "header": "Gerçekleştir", "cta": "Şimdi başla", "subtext": "O an geliyor." },
-      "context7": { "header": "Birlikte başla", "cta": "Dünyanızı yaratın", "subtext": "Seni bekliyorlar." }
+      "context3": {
+        "header": "Gerçekten orada ol",
+        "cta": "Başla",
+        "subtext": "Bu sefer gerçekten."
+      },
+      "context4": {
+        "header": "Birlikte öğrenin",
+        "cta": "Şimdi başla",
+        "subtext": "Seni bekliyorlar."
+      }
     },
     "tutor": {
       "section1": {
-        "headline": "Seni seviyorlar. Şimdi dilini de sevmelerine yardım et.",
-        "highlight1": "seviyorlar",
-        "highlight2": "dilini",
-        "copy": "Senin kelimelerin. Senin şakaların. Ayağını bir yere çarptığında küfür etme şeklin. Henüz tanımadıkları koca bir sen var - tamamen yeni bir sen. İçeri al.",
-        "copyHighlight1": "Senin kelimelerin",
-        "copyHighlight2": "Senin şakaların",
-        "copyHighlight3": "tamamen yeni bir sen",
-        "copyHighlight4": "İçeri al",
-        "underline": "İçeri al"
+        "headline": "Hiç tanımadıkları bütün bir sen var.",
+        "highlight1": "bütün bir sen",
+        "copy": "Kavga etme şeklin. Şaka yapma şeklin. Sadece kendi dilinde söyleyebileceğin şeyler. İçeri al onları."
       },
       "section2": {
-        "headline": "Açıklamayı denedin. Başlarını salladılar. Bunu düzeltelim.",
-        "highlight1": "Açıklamayı",
-        "highlight2": "salladılar",
-        "highlight3": "düzeltelim",
-        "copy": "Gerçekten mutlu olduğunda söylediğin şeyler. Ya da gerçekten sinirlendiğinde. Ev gibi hissettiren kelimeler. Seni - sadece çevrilmiş versiyonunu değil - tamamen anlamak istiyorlar.",
-        "copyHighlight1": "gerçekten mutlu",
-        "copyHighlight2": "gerçekten sinirlendiğinde",
-        "copyHighlight3": "tamamen",
-        "underline": "sadece çevrilmiş versiyonunu değil"
+        "headline": "Bazı şeyler çeviride ölüyor. Buna izin vermeyi bırak.",
+        "highlight1": "çeviride ölüyor",
+        "copy": "Açıklıyorsun. Başlarını sallıyorlar. Duygu gitti. Altyazılarını istemiyorlar—orijinali istiyorlar."
       },
       "section3": {
-        "headline": "Paylaştığın her kelime bir köprü.",
-        "highlight1": "köprü",
-        "copy": "Kelimeler paylaş. Meydan okumalar oluştur. Başarıları birlikte kutla. Uygulama sıkıcı işleri halleder - sen sadece eğlenceli olan olursun.",
-        "copyHighlight1": "Kelimeler paylaş",
-        "copyHighlight2": "Meydan okumalar oluştur",
-        "copyHighlight3": "Başarıları kutla",
-        "copyHighlight4": "eğlenceli olan",
-        "underline": "sen sadece eğlenceli olan olursun"
+        "headline": "İlk kez sensiz aileni güldürdüklerinde.",
+        "highlight1": "sensiz",
+        "copy": "Söylediler. Senin insanların duydu. Ve fark ettin—bunu onlara sen verdin."
       },
       "section4": {
-        "headline": "Bir kelime gönder. Bir oyun başlat. Gelişmelerini izle.",
-        "highlight1": "oyun",
-        "highlight2": "Gelişmelerini",
-        "copy": "Annenin favori ifadesiyle meydan oku. Akşam yemeğinden önce test et. Başardıklarında kutla. Bu, öğrenme kılığında çiftler zamanı - ve gerçekten eğlenceli.",
-        "copyHighlight1": "Annenin favori ifadesi",
-        "copyHighlight2": "çiftler zamanı",
-        "copyHighlight3": "gerçekten eğlenceli",
-        "underline": "Bu, öğrenme kılığında çiftler zamanı"
+        "headline": "Dilin bir kapı. Onlara anahtarı ver.",
+        "highlight1": "anahtarı",
+        "copy": "Her kelime saklayabilecekleri bir parçan. Anıların. İnsanların. Evin."
       },
-      "section5": {
-        "headline": "Hiç öğretmediğin bir ifadeyle seni şaşırttıkları an? Sihir.",
-        "highlight1": "şaşırttıkları",
-        "highlight2": "Sihir",
-        "copy": "Bir şaka yapıp ailen gerçekten güldüğünde. Annen onlarla doğrudan senin dilinde konuşmaya başladığında. Çeneni düşüren bir ifade söylediklerinde. Bunu sen yaptın.",
-        "copyHighlight1": "ailen gerçekten güldüğünde",
-        "copyHighlight2": "Annen",
-        "copyHighlight3": "Bunu sen yaptın"
+      "context1": {
+        "header": "İçeri al onları",
+        "cta": "Rehberlik etmeye başla",
+        "subtext": "Gerçek sana."
       },
-      "section6": {
-        "headline": "Birlikte öğret. Birlikte oyna. Daha derinden aşık ol.",
-        "highlight1": "Birlikte",
-        "highlight2": "aşık",
-        "copy": "Gerçekten kim olduğunu bu şekilde paylaşırsın. Kelime kelime. Oyun oyun. Kahkaha kahkaha. Ve hepsine aşık olmaya devam ederler.",
-        "copyHighlight1": "gerçekten kim olduğunu",
-        "copyHighlight2": "aşık olmaya",
-        "underline": "Ve hepsine aşık olmaya devam ederler"
+      "context2": {
+        "header": "Çevirmeyi bırak",
+        "cta": "Rehberlik etmeye başla",
+        "subtext": "Paylaşmaya başla."
       },
-      "context1": { "header": "Dünyayı paylaş", "cta": "Rehberlik etmeye başla", "subtext": "Onların dil rehberi ol." },
-      "context2": { "header": "İçeri al", "cta": "Rehberlik etmeye başla", "subtext": "Bazı şeyler öğrenildiğinde daha iyi çevrilir." },
-      "context3": { "header": "Sevgiyle öğret", "cta": "Başla", "subtext": "Dersler değil. Aşk mektupları." },
-      "context4": { "header": "Meydan oku", "cta": "Meydan okuma gönder", "subtext": "Oyunlar, meydan okumalar, sürprizler." },
-      "context5": { "header": "Çiçek açmalarını izle", "cta": "Göndermeye başla", "subtext": "Her seferinde bir kelime." },
-      "context6": { "header": "Kapıyı aç", "cta": "Şimdi başla", "subtext": "O an geliyor." },
-      "context7": { "header": "Birlikte büyü", "cta": "Rehberleri ol", "subtext": "Seni bekliyorlar." }
+      "context3": {
+        "header": "Ait olduklarını izle",
+        "cta": "Başla",
+        "subtext": "Senin insanlarına."
+      },
+      "context4": {
+        "header": "Anahtarı ver",
+        "cta": "Şimdi başla",
+        "subtext": "Hazırlar."
+      }
+    },
+    "bottomSections": {
+      "faq": {
+        "title": "Sıkça Sorulan Sorular",
+        "q1": {
+          "question": "İlişki Odaklı Dil Öğrenimi (RALL) nedir?",
+          "answer": "RALL, kanıtlanmış dil edinim tekniklerini (İletişimsel Dil Öğretimi, Görev Tabanlı Öğrenme) ilişki psikolojisiyle birleştiren metodolojimizdir. Genel ifadeler öğrenmek yerine, SİZİN ilişkinizde önemli olan kelimeleri öğrenirsiniz - \"İdeal L2 Benliğinizi\" şekillendirmeye yardımcı olan partneriniz eşliğinde.",
+          "readMore": "Aşağıda daha fazlasını oku →"
+        },
+        "q2": {
+          "question": "Love Languages, Duolingo veya Babbel'den nasıl farklı?",
+          "intro": "Geleneksel uygulamalar kahve sipariş etmeyi öğretir. Biz partnerinizin ailesini güldürmeyi öğretiyoruz.",
+          "point1": "Partner rehberliğinde:",
+          "point1desc": "Anadili konuşan partneriniz size kelimeler gönderir, meydan okumalar oluşturur ve ilerlemenizi birlikte takip eder",
+          "point2": "Kişiselleştirilmiş kelime hazinesi:",
+          "point2desc": "ONLARIN kelimelerini öğrenin - aile ifadeleri, iç şakalar, sevgi sözcükleri",
+          "point3": "İşbirlikçi, rekabetçi değil:",
+          "point3desc": "Yabancılarla yarışma yok. Siz ve partneriniz bir takım olarak çalışırsınız",
+          "point4": "İlişki yatırımı:",
+          "point4desc": "\"Love Log\"unuz birlikte oluşturduğunuz ortak bir değer haline gelir"
+        },
+        "q3": {
+          "question": "Öğrenci ve Öğretmen rolleri nedir?",
+          "studentDesc": "Öğrenciler partnerlerinin dilini öğreniyor. Yapay zeka sohbet pratiği, kelime oyunları (Kartlar, Çoktan Seçmeli, Yazarak Cevapla, Hızlı Ateş) ve kişisel sözlük alırlar.",
+          "tutorDesc": "Öğretmenler partnerlerine rehberlik eden anadili konuşanlardır. \"Kelime hediyeleri\" gönderir, özel meydan okumalar oluşturur ve öğrenme konuşmalarını yönlendirmek için Koçluk modunu kullanırlar. Öğretmen sadece öğretmiyor - partnerinin dil kimliğini şekillendirmeye yardımcı oluyor."
+        },
+        "q4": {
+          "question": "Hangi dilleri destekliyorsunuz?",
+          "answer": "18 dil, her kombinasyon mümkün: İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Portekizce, Hollandaca, Lehçe, Rusça, Ukraynaca, İsveççe, Norveççe, Danca, Çekçe, Yunanca, Macarca, Türkçe ve Rumence. İngilizce konuşan biri olarak Lehçe öğrenin, ya da Lehçe konuşan biri olarak İngilizce - tüm uygulama ana dilinize göre uyum sağlar."
+        },
+        "q5": {
+          "question": "Ne kadar tutuyor?",
+          "intro": "İki plan, esnek ödeme:",
+          "standard": "Standart",
+          "standardPrice": "Haftalık $7 · Aylık $19 · Yıllık $69",
+          "standardDesc": "2.000 kelime, 60 dk sesli, partner daveti",
+          "unlimited": "Sınırsız",
+          "unlimitedPrice": "Haftalık $12 · Aylık $39 · Yıllık $139",
+          "unlimitedDesc": "Her şey sınırsız + hediye kartları",
+          "cancelNote": "İstediğiniz zaman iptal edin. Sözleşme yok."
+        },
+        "q6": {
+          "question": "Partnerimi nasıl davet ederim?",
+          "answer": "Kaydolduktan sonra Ayarlar'a gidin ve bir davet linki oluşturun. Partneriniz linkinizle kaydolduğunda, hesaplarınız otomatik olarak bağlanır. Ardından kelime gönderebilir, meydan okumalar oluşturabilir ve ilerlemeyi birlikte takip edebilirsiniz."
+        }
+      },
+      "rall": {
+        "label": "Metodumuz",
+        "title": "İlişki Odaklı Dil Öğrenimi",
+        "description": "RALL, kanıtlanmış dil edinim metodolojilerini ilişki psikolojisiyle sentezler. Sonuç: hem dil becerilerinizi HEM DE ilişkinizi güçlendiren bir öğrenme.",
+        "pillar1": {
+          "title": "İletişimsel Dil Öğretimi",
+          "description": "\"Sor Modu\" ezberleme yerine gerçek etkileşime öncelik verir. Alıştırma yaparak değil, iletişim kurarak öğrenirsiniz.",
+          "citation": "Richards & Rodgers, 2001"
+        },
+        "pillar2": {
+          "title": "Görev Tabanlı Dil Öğrenimi",
+          "description": "\"Oyun Alanı\" senaryoları dili anlamlı görevleri tamamlamak için bir araç olarak kullanır - akşam yemeği siparişi, aileyle tanışma, çatışma yönetimi.",
+          "citation": "Ellis, 2003; Nunan, 2004"
+        },
+        "pillar3": {
+          "title": "Michelangelo Fenomeni",
+          "description": "Partneriniz sadece öğretmiyor - sizi şekillendiriyor. Araştırmalar, partnerler \"İdeal L2 Benliğinizi\" desteklediğinde, hem daha hızlı ilerlediğinizi HEM DE ilişkinizin güçlendiğini gösteriyor.",
+          "citation": "Rusbult ve ark., 2009"
+        },
+        "pillar4": {
+          "title": "Karşılıklı Bağımlılık Teorisi",
+          "description": "Love Log'unuz ortak bir yatırımdır. Kaydedilen her kelime, korku değil pozitif karşılıklı bağımlılık yoluyla bağlılığı artırır.",
+          "citation": "Rusbult & Van Lange, 2003"
+        },
+        "quote": "\"Partnerler birbirlerinin ideal benliklerini desteklediğinde, bireyler hedeflerine ulaşma olasılığı artar ve çiftler artırılmış refah yaşar.\"",
+        "quoteAttribution": "— Rusbult, Finkel & Kumashiro, \"The Michelangelo Phenomenon\" (2009)",
+        "anxietyTitle": "Yabancı Dil Kaygısını Azaltma:",
+        "anxietyDesc": "Partneriniz tarafından yargılanma korkusu gerçektir. Yapay zekamız düzeltmeleri ve geri bildirimleri aracılık ederek, ilişkinize zarar vermeden hata yapabileceğiniz güvenli bir alan yaratır.",
+        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991"
+      },
+      "blog": {
+        "label": "Ücretsiz Kaynaklar",
+        "title": "Çiftler İçin 1.000+ Makale",
+        "description": "Kültürel farklılıklar, romantik ifadeler ve çiftlerin dil engelini aşarken karşılaştıkları her şey hakkında derinlemesine içerikler.",
+        "topic1": {
+          "title": "Romantik İfadeler",
+          "description": "18 dilde 'Seni seviyorum' deyin"
+        },
+        "topic2": {
+          "title": "Kültür Rehberleri",
+          "description": "Aile yemekleri ve tatillerde yol alın"
+        },
+        "topic3": {
+          "title": "Basitleştirilmiş Dilbilgisi",
+          "description": "Haller, çekimler ve daha fazlası"
+        },
+        "cta": "Blogumuzu Keşfedin"
+      },
+      "footer": {
+        "tagline": "Aşkın dilini öğren",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "terms": "Şartlar",
+        "privacy": "Gizlilik",
+        "blog": "Blog",
+        "contact": "İletişim",
+        "copyright": "Love Languages · Dünyanın her yerindeki aşıklar için sevgiyle yapıldı"
+      }
     }
   }
 }

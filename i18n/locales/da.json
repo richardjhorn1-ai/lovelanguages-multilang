@@ -472,7 +472,6 @@
     "search": "Søg...",
     "searchWords": "Søg ord...",
     "wordsCount": "{{count}} ord",
-
     "sync": {
       "scanChats": "Scan chats",
       "scanTooltip": "Scan chathistorik for nyt ordforråd",
@@ -483,7 +482,6 @@
       "newWords_other": "+{{count}} nye ord!",
       "syncError": "Synkroniseringsfejl"
     },
-
     "filters": {
       "all": "Alle",
       "noun": "Navneord",
@@ -494,7 +492,6 @@
       "gifts": "Gaver",
       "clear": "Ryd"
     },
-
     "card": {
       "gift": "Gave",
       "giftFrom": "Gave fra {{name}}",
@@ -507,7 +504,6 @@
       "conjugations": "Bøjninger",
       "forms": "Former"
     },
-
     "modal": {
       "present": "Nutid",
       "past": "Datid",
@@ -516,7 +512,6 @@
       "unlockTense": "Lås {{tense}} op",
       "unlocked": "Låst op {{date}}"
     },
-
     "unlock": {
       "title": "Lås {{tense}} op?",
       "descriptionBefore": "Klar til at lære at sige",
@@ -526,7 +521,6 @@
       "unlockNow": "Lås op nu",
       "unlocking": "Låser op..."
     },
-
     "pronouns": {
       "singular1": "(jeg)",
       "singular2": "(du)",
@@ -535,19 +529,16 @@
       "plural2": "(I)",
       "plural3": "(de)"
     },
-
     "tableHeaders": {
       "person": "Person",
       "masculine": "Mask.",
       "feminine": "Fem."
     },
-
     "nounForms": {
       "gender": "Køn",
       "singular": "Ental",
       "plural": "Flertal"
     },
-
     "adjectiveForms": {
       "title": "Kønsformer",
       "masculine": "Maskulin",
@@ -556,7 +547,6 @@
       "plural": "Flertal"
     }
   },
-
   "onboarding": {
     "step": {
       "back": "Tilbage",
@@ -565,13 +555,11 @@
       "continue": "Fortsæt",
       "skipForNow": "Spring over for nu"
     },
-
     "name": {
       "title": "Hvad skal Cupid kalde dig?",
       "subtitle": "Dit navn hjælper med at gøre denne rejse personlig.",
       "placeholder": "Dit navn"
     },
-
     "partnerName": {
       "studentTitle": "Hvem lærer du {{language}} for, {{name}}?",
       "tutorTitle": "Hvem hjælper du med at lære {{language}}, {{name}}?",
@@ -579,7 +567,6 @@
       "tutorSubtitle": "Det er den, du vil guide gennem {{language}}.",
       "placeholder": "Deres navn"
     },
-
     "languageConfirm": {
       "title": "Bekræft dine sprog, {{name}}",
       "subtitle": "Sørg for at din sprogrejse er korrekt.",
@@ -590,7 +577,6 @@
       "summary": "Lærer {{target}} som {{native}}-talende",
       "tutorSummary": "Underviser {{target}} til en {{native}}-talende"
     },
-
     "validation": {
       "title": "Hvordan skal vi tjekke dine svar?",
       "subtitle": "Vælg hvor tilgivende appen skal være ved bedømmelse.",
@@ -614,7 +600,6 @@
         "detail4": "Traditionel flashkort-oplevelse"
       }
     },
-
     "plan": {
       "title": "Vælg din plan, {{name}}",
       "subtitle": "Begynd din {{language}}-læringsrejse i dag",
@@ -648,7 +633,6 @@
         "feature5": "Gavepas til et andet par (årligt)"
       }
     },
-
     "student": {
       "start": {
         "title": "Klar til at begynde, {{name}}?",
@@ -660,7 +644,6 @@
         "feature4": "Fremskridtssporing og niveautests",
         "button": "Lad os køre! 🚀"
       },
-
       "vibe": {
         "title": "Et ord for dit forhold med {{name}}",
         "subtitle": "Vælg følelsen der føles mest sand.",
@@ -671,7 +654,6 @@
         "longDistance": "Langdistance",
         "newLove": "Ny kærlighed"
       },
-
       "time": {
         "title": "Hvor meget tid kan du bruge dagligt?",
         "subtitle": "Selv små øjeblikke giver stor fremgang.",
@@ -682,7 +664,6 @@
         "walk": "En lang tur",
         "walkDesc": "20+ minutter"
       },
-
       "when": {
         "title": "Hvornår foretrækker du at øve?",
         "subtitle": "Vi minder dig på det perfekte tidspunkt.",
@@ -691,19 +672,16 @@
         "evening": "Aften",
         "whenever": "Når som helst"
       },
-
       "photo": {
         "title": "Tilføj dit foto",
         "subtitleWithPhoto": "Ser godt ud! Dette vises på din profil.",
         "subtitleNoPhoto": "Et foto hjælper med at gøre din profil mere personlig."
       },
-
       "why": {
         "title": "Hvorfor vil du lære {{language}} for {{name}}?",
         "subtitle": "Dette bliver din personlige påmindelse på din rejse.",
         "placeholder": "Jeg vil overraske dem, når vi besøger deres familie... Jeg vil hviske søde ting... Jeg vil forstå deres verden..."
       },
-
       "fear": {
         "title": "Hvad er din største frygt ved at lære {{language}}?",
         "subtitle": "Alle har en. Lad os tackle din sammen.",
@@ -716,14 +694,12 @@
         "forgetting": "Glemme alt",
         "forgettingDesc": "Lære, men ikke huske"
       },
-
       "prior": {
         "title": "Har du prøvet at lære {{language}} før?",
         "subtitle": "Dette hjælper os med at starte det rette sted.",
         "yes": "Ja, lidt",
         "beginner": "Komplet begynder"
       },
-
       "goal": {
         "title": "Hvad er din første milepæl?",
         "subtitle": "Et mål at arbejde mod med {{name}}",
@@ -733,7 +709,6 @@
         "custom": "Sæt mit eget mål",
         "customPlaceholder": "f.eks. 'Bestil på {{language}} på deres yndlingsrestaurant'"
       },
-
       "learnHello": {
         "title": "Lad os lære dit første ord!",
         "subtitle": "Sig hej til {{name}} på {{language}}",
@@ -742,7 +717,6 @@
         "gotIt": "Fik det!",
         "listenFirst": "Lyt først"
       },
-
       "learnLove": {
         "title": "Nu, den vigtigste sætning...",
         "subtitle": "Den {{name}} aldrig vil glemme",
@@ -752,7 +726,6 @@
         "ready": "Jeg er klar!",
         "listenFirst": "Lyt først"
       },
-
       "tryIt": {
         "title": "Prøv at sige det!",
         "subtitle": "Bare rolig, kun du kan høre dig selv.",
@@ -760,7 +733,6 @@
         "success": "Fantastisk! Du sagde det! 🎉",
         "practiceLater": "Jeg øver senere"
       },
-
       "celebration": {
         "title": "Du klarede det!",
         "subtitle": "Du har lige lært dine første ord på {{language}}!",
@@ -771,7 +743,6 @@
         "keepGoing": "Fortsæt!"
       }
     },
-
     "tutor": {
       "start": {
         "title": "Klar til at være {{learnerName}}s guide, {{userName}}?",
@@ -783,7 +754,6 @@
         "feature4": "Link konti for at se deres rejse",
         "button": "Begynd at hjælpe {{learnerName}}! 🎯"
       },
-
       "relation": {
         "title": "Hvad er dit forhold til {{name}}?",
         "subtitle": "Dette hjælper os med at tilpasse din undervisningsoplevelse",
@@ -792,7 +762,6 @@
         "friend": "Ven",
         "family": "Familie"
       },
-
       "connection": {
         "title": "Hvad er din tilknytning til {{language}}?",
         "subtitle": "Hjælp os med at forstå din sprogbaggrund",
@@ -805,7 +774,6 @@
         "bilingual": "Tosproget",
         "bilingualDesc": "Voksede op med {{language}} og et andet sprog"
       },
-
       "origin": {
         "title": "Hvordan lærte du {{language}}?",
         "subtitle": "Din rejse hjælper os med at foreslå undervisningsmetoder",
@@ -814,14 +782,12 @@
         "school": "Studerede formelt",
         "self": "Selvlært"
       },
-
       "dreamPhrase": {
         "title": "Drømmeøjeblik 💭",
         "subtitle": "Hvad er det første du vil høre {{name}} sige på {{language}}?",
         "placeholder": "f.eks. 'Jeg elsker dig' eller 'God morgen'",
         "note": "Dette bliver jeres første fælles undervisningsmål"
       },
-
       "style": {
         "title": "Din undervisningsstil?",
         "subtitle": "Hvordan hjælper du naturligt nogen med at lære?",
@@ -834,7 +800,6 @@
         "immersive": "Fordybende",
         "immersiveDesc": "Hop ind og lær ved at gøre"
       },
-
       "preview": {
         "title": "Din undervisningsværktøjskasse",
         "subtitle": "Her er hvad du kan gøre for {{name}}",
@@ -848,7 +813,6 @@
       }
     }
   },
-
   "levelTest": {
     "preparing": "Forbereder din test",
     "generatingQuestions": "Genererer spørgsmål baseret på dit niveau...",
@@ -881,7 +845,6 @@
     "submitTest": "Indsend test",
     "next": "Næste"
   },
-
   "tutorGames": {
     "playTogether": "Spil sammen",
     "sendChallenge": "Send udfordring",
@@ -889,7 +852,6 @@
     "sendDescription": "Send udfordringer for {{name}} at lave senere",
     "playDescription": "Øv sammen lige nu",
     "startNow": "Start nu",
-
     "local": {
       "quiz": "Test {{name}}",
       "quizDesc": "Flashkort-quiz sammen",
@@ -901,7 +863,6 @@
       "typeItDesc": "Skriv oversættelsen",
       "needWords": "{{name}} har brug for mindst 4 ord i deres ordforråd for at spille"
     },
-
     "send": {
       "doYouRemember": "Husker du?",
       "quizPartner": "Test {{name}} på deres ordforråd",
@@ -913,14 +874,12 @@
       "sendWords": "Send ord for {{name}} at lære",
       "sendGift": "Send gave"
     },
-
     "pending": {
       "waitingFor": "Venter på {{name}}",
       "words": "{{count}} ord",
       "sent": "Sendt {{date}}",
       "pending": "Afventende"
     },
-
     "gifts": {
       "title": "Ordgaver sendt",
       "word": "{{count}} ord",
@@ -929,17 +888,14 @@
       "custom": "Brugerdefinerede ord",
       "xpMultiplier": "{{multiplier}}x XP"
     },
-
     "results": {
       "title": "Seneste resultater",
       "completed": "Gennemført {{date}}"
     },
-
     "empty": {
       "noChallenges": "Ingen udfordringer endnu",
       "createFirst": "Opret din første udfordring til {{name}}!"
     },
-
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
@@ -947,11 +903,9 @@
       "hard": "Svært",
       "gotIt": "Fik det!"
     },
-
     "direction": {
       "label": "{{target}} → {{native}}"
     },
-
     "quickFireGame": {
       "title": "Hurtigild!",
       "description": "Oversæt så mange ord du kan på 60 sekunder!",
@@ -959,7 +913,6 @@
       "start": "Start!",
       "typeTranslation": "Skriv oversættelsen..."
     },
-
     "typeItGame": {
       "correct": "Korrekt!",
       "notQuite": "Ikke helt",
@@ -968,7 +921,6 @@
       "next": "Næste",
       "check": "Tjek"
     },
-
     "gameOver": {
       "greatJob": "Godt klaret!",
       "keepPracticing": "Fortsæt med at øve!",
@@ -982,7 +934,6 @@
       "done": "Færdig",
       "playAgain": "Spil igen"
     },
-
     "saveDialog": {
       "title": "Gem til {{name}}s fremskridt?",
       "howItWorks": "Sådan fungerer det:",
@@ -995,7 +946,6 @@
       "save": "Gem"
     }
   },
-
   "gameResults": {
     "greatJob": "Godt klaret!",
     "sessionResults": "Sessionsresultater:",
@@ -1006,7 +956,6 @@
     "done": "Færdig",
     "playAgain": "Spil igen"
   },
-
   "conversationPractice": {
     "states": {
       "listening": "Lytter...",
@@ -1022,7 +971,6 @@
     "aiSpeaking": "AI taler...",
     "conversationEnded": "Samtale afsluttet"
   },
-
   "scenarioSelector": {
     "title": "Samtaleøvelse",
     "subtitle": "Vælg et scenarie",
@@ -1033,14 +981,38 @@
       "advanced": "avanceret"
     },
     "scenarios": {
-      "cafe": { "name": "På Caféen", "description": "Bestille kaffe og en snack" },
-      "restaurant": { "name": "Middag på Restaurant", "description": "Bestille et måltid og bede om anbefalinger" },
-      "market": { "name": "På Markedet", "description": "Købe frugt og grøntsager" },
-      "taxi": { "name": "Taxatur", "description": "Give vejbeskrivelse og snakke med chaufføren" },
-      "pharmacy": { "name": "På Apoteket", "description": "Spørge om medicin og beskrive symptomer" },
-      "hotel": { "name": "Hotel Check-in", "description": "Tjekke ind og spørge om faciliteter" },
-      "family_dinner": { "name": "Familiemiddag", "description": "Møde din partners forældre" },
-      "train_station": { "name": "Togstation", "description": "Købe billetter og tjekke køreplaner" }
+      "cafe": {
+        "name": "På Caféen",
+        "description": "Bestille kaffe og en snack"
+      },
+      "restaurant": {
+        "name": "Middag på Restaurant",
+        "description": "Bestille et måltid og bede om anbefalinger"
+      },
+      "market": {
+        "name": "På Markedet",
+        "description": "Købe frugt og grøntsager"
+      },
+      "taxi": {
+        "name": "Taxatur",
+        "description": "Give vejbeskrivelse og snakke med chaufføren"
+      },
+      "pharmacy": {
+        "name": "På Apoteket",
+        "description": "Spørge om medicin og beskrive symptomer"
+      },
+      "hotel": {
+        "name": "Hotel Check-in",
+        "description": "Tjekke ind og spørge om faciliteter"
+      },
+      "family_dinner": {
+        "name": "Familiemiddag",
+        "description": "Møde din partners forældre"
+      },
+      "train_station": {
+        "name": "Togstation",
+        "description": "Købe billetter og tjekke køreplaner"
+      }
     },
     "createOwn": "Opret dit eget",
     "createOwnDesc": "Beskriv hvilket scenarie du vil øve",
@@ -1053,7 +1025,6 @@
     "footerInfo": "AI taler {{targetLanguage}} som standard. Hvis du kæmper, hjælper den på {{nativeLanguage}}.",
     "customPersona": "Du er en venlig {{language}} person der hjælper nogen med at øve {{language}}. Du er tålmodig, opmuntrende og tilpasser dit sprog til deres niveau."
   },
-
   "challengeCreator": {
     "common": {
       "addNewWords": "Tilføj nye ord",
@@ -1073,7 +1044,6 @@
       "failedCreateChallenge": "Kunne ikke oprette udfordring",
       "needMinWords": "Har brug for mindst 5 ord til udfordringen!"
     },
-
     "quiz": {
       "title": "Opret quiz",
       "subtitle": "Vælg ord for {{name}} at øve",
@@ -1091,7 +1061,6 @@
       "noWordsYet": "{{name}} har ikke lært nogen ord endnu!",
       "addWordsToStart": "Tilføj nye ord ovenfor for at komme i gang."
     },
-
     "quickFire": {
       "title": "Hurtigild",
       "subtitle": "Tidsbestemt udfordring til {{name}}",
@@ -1123,7 +1092,6 @@
       "averageTime": "Gennemsnit: {{time}}s per ord",
       "needMoreWords": "Har brug for mindst 5 ord i alt for at oprette en udfordring!"
     },
-
     "lovePackage": {
       "title": "Love Package",
       "subtitle": "Send ord til {{name}}",
@@ -1137,7 +1105,6 @@
       "alreadyInLoveLog": "'{{word}}' er allerede i {{name}}s Love Log!"
     }
   },
-
   "challengePlayer": {
     "common": {
       "later": "Senere",
@@ -1146,7 +1113,6 @@
       "showDetails": "Vis detaljer ({{count}})",
       "xpEarned": "+{{xp}} XP optjent!"
     },
-
     "results": {
       "perfect": "Perfekt!",
       "perfectScore": "Perfekt score!",
@@ -1154,7 +1120,6 @@
       "greatJob": "Godt klaret!",
       "keepPracticing": "Fortsæt med at øve!"
     },
-
     "quiz": {
       "startDescription": "{{name}} vil teste dig på {{count}} ord!",
       "startInstructions": "Svar på spørgsmål om {{language}}-ord du har lært. Svar korrekt for at bygge din serie!",
@@ -1177,7 +1142,6 @@
         "submit": "Indsend"
       }
     },
-
     "quickFire": {
       "title": "Hurtigild!",
       "startDescription": "{{name}} udfordrer dig til at oversætte {{count}} ord på {{time}} sekunder!",
@@ -1195,7 +1159,6 @@
       "typePlaceholder": "Skriv oversættelse..."
     }
   },
-
   "roleSelection": {
     "loading": "Gør alt klar...",
     "confirmHeader": "Bare for at være sikker...",
@@ -1218,7 +1181,6 @@
     "letsGo": "Det er mig! Lad os køre",
     "chooseRole": "Vælg din rolle for at fortsætte"
   },
-
   "subscription": {
     "common": {
       "weekly": "Ugentlig",
@@ -1247,13 +1209,11 @@
       "friend": "Ven",
       "copy": "Kopier"
     },
-
     "plans": {
       "standard": "Standard",
       "unlimited": "Ubegrænset",
       "none": "Ingen"
     },
-
     "features": {
       "wordsLimit": "{{limit}} ord i Love Log",
       "unlimitedWords": "Ubegrænsede ord",
@@ -1268,7 +1228,6 @@
       "giftPass": "Gavepas til et andet par (årligt)",
       "unlimitedEverything": "Ubegrænset alt"
     },
-
     "manager": {
       "couplePass": "Parpas",
       "freeAccess": "Gratis adgang fra {{name}}",
@@ -1288,7 +1247,6 @@
       "manageSubscription": "Administrer abonnement",
       "continueToManage": "Fortsæt til administration"
     },
-
     "required": {
       "title": "Et skridt mere, {{name}}!",
       "subtitle": "Fuldfør dit abonnement for at begynde at lære {{language}} sammen",
@@ -1298,7 +1256,6 @@
       "logoutOption": "Log ud og brug en anden konto",
       "signOutOption": "Log ud og brug en anden konto"
     },
-
     "pricing": {
       "title": "Lær {{language}} for kærligheden",
       "subtitle": "Vælg planen der passer til din læringsrejse",
@@ -1328,7 +1285,6 @@
       "questionsEmail": "Spørgsmål? Email os på",
       "copy": "Kopier"
     },
-
     "errors": {
       "loginRequired": "Log ind for at abonnere",
       "loginAgain": "Log ind igen",
@@ -1339,7 +1295,6 @@
       "somethingWrong": "Noget gik galt"
     }
   },
-
   "pendingChallenges": {
     "yourPartner": "Din partner",
     "sentYouSomething": "{{name}} sendte dig noget!",
@@ -1356,7 +1311,6 @@
     "learn": "Lær",
     "xpBonus": "{{multiplier}}x XP bonus"
   },
-
   "invite": {
     "title": "Inviter din partner",
     "subtitle": "Dit abonnement inkluderer gratis adgang for din partner!",
@@ -1373,7 +1327,6 @@
     "generateButton": "Generer invitationslink",
     "generating": "Genererer..."
   },
-
   "helpGuide": {
     "title": "Din guide",
     "subtitle": "Love Languages",
@@ -1459,7 +1412,6 @@
       "forgetAnswer": "Spil spil - de viser automatisk ord du kæmper med igen. Spredt gentagelse hjælper med at låse dem."
     }
   },
-
   "bugReport": {
     "title": "Rapporter en fejl",
     "subtitle": "Hjælp os med at forbedre Love Languages",
@@ -1493,7 +1445,6 @@
       "close": "Luk"
     }
   },
-
   "wordGift": {
     "intro": {
       "title": "Gave fra {{name}}!",
@@ -1533,7 +1484,6 @@
       "network": "Netværksfejl. Tjek din forbindelse og prøv igen."
     }
   },
-
   "chatSuggestions": {
     "student": {
       "askTitle": "Spørg Cupid om hvad som helst",
@@ -1567,13 +1517,11 @@
       }
     }
   },
-
   "newWords": {
     "added": "{{count}} nyt ord tilføjet",
     "added_other": "{{count}} nye ord tilføjet",
     "viewAll": "Vis alle i Love Log"
   },
-
   "avatar": {
     "clickToUpload": "Klik for at uploade",
     "clickToChange": "Klik for at ændre",
@@ -1590,7 +1538,6 @@
       "uploadFailed": "Kunne ikke uploade billede"
     }
   },
-
   "joinInvite": {
     "validating": "Validerer invitation...",
     "invalidInvite": "Ugyldig invitation",
@@ -1617,7 +1564,6 @@
     "checkEmail": "Tjek din email for bekræftelse, log derefter ind!",
     "yourPartner": "Din partner"
   },
-
   "gameHistory": {
     "loading": "Indlæser...",
     "noHistory": "Ingen spillhistorik endnu",
@@ -1639,7 +1585,6 @@
     "practiceWords": "Øv disse {{count}} ord",
     "perfectScore": "Perfekt score! Ingen missede ord."
   },
-
   "usage": {
     "title": "Månedlig brug",
     "unlimitedPlan": "Ubegrænset plan",
@@ -1653,7 +1598,6 @@
     "upgradePrompt": "Ved at løbe tør? Opgrader til Ubegrænset for ingen grænser!",
     "resetsMonthly": "Brug nulstilles den 1. hver måned"
   },
-
   "inviteLink": {
     "title": "Magisk invitationslink",
     "subtitle": "Del med din partner for at forbinde direkte",
@@ -1668,7 +1612,6 @@
     "newLink": "Nyt link",
     "description": "Når din partner klikker på dette link, bliver de inviteret til at blive med som din sprogcoach!"
   },
-
   "breakup": {
     "warning": {
       "title": "Afslutte jeres læringsrejse sammen?",
@@ -1695,7 +1638,6 @@
       "messageGrantee": "Pas på dig selv. Du har brug for dit eget abonnement for at fortsætte med at lære."
     }
   },
-
   "gameShowcase": {
     "studentHeadline": {
       "part1": "Åh, og hvis du vil lære ",
@@ -1721,13 +1663,11 @@
       "quick": "Hurtig"
     }
   },
-
   "demoFlashcard": {
     "tapToReveal": "Tryk for at vise",
     "hard": "Svært",
     "gotIt": "Fik det!"
   },
-
   "demoTypeIt": {
     "correct": "Korrekt!",
     "notQuite": "Ikke helt",
@@ -1736,7 +1676,6 @@
     "next": "Næste",
     "check": "Tjek"
   },
-
   "demoQuickFire": {
     "title": "Hurtigild!",
     "instructions": "Skriv oversættelser så hurtigt du kan!",
@@ -1748,7 +1687,6 @@
     "keepPracticing": "Fortsæt med at øve!",
     "timesUp": "Tiden er udløbet!"
   },
-
   "hero": {
     "languageSelector": {
       "nativePrompt": "Jeg taler...",
@@ -1793,139 +1731,212 @@
       "privacy": "Privatliv",
       "privacyPolicy": "Privatlivspolitik"
     },
+    "shared": {
+      "section0": {
+        "headline": "Sprogtilegnelse begynder med karlighed.",
+        "highlight1": "karlighed",
+        "copy": "Baseret pa Relationsorienteret Sprogtilegnelse (RALL), hjalper Love Languages par med at overvinde sprogbarrieren—et meningsfuldt ord ad gangen.",
+        "copyHighlight1": "RALL",
+        "copyHighlight2": "par",
+        "copyHighlight3": "meningsfuldt",
+        "underline": "Relationsorienteret Sprogtilegnelse"
+      },
+      "context0": {
+        "header": "Lar med karlighed",
+        "cta": "Kom i gang",
+        "subtext": "Sprogtilegnelse genopfundet for par."
+      }
+    },
     "student": {
       "section1": {
-        "headline": "Spring det kedelige over. Lær ordene der betyder noget. Dem der får dem til at smile.",
-        "highlight1": "ordene der betyder noget",
-        "highlight2": "får dem til at smile",
-        "subhead": "Dem de kun bruger med mennesker de elsker.",
-        "copy": "Deres interne jokes. Deres familiesætninger. Måden de siger 'Jeg elsker dig' på når ingen lytter.",
-        "copyHighlight1": "interne jokes",
-        "copyHighlight2": "familiesætninger",
-        "copyHighlight3": "Jeg elsker dig",
-        "underline": "Måden de siger 'Jeg elsker dig' på når ingen lytter"
+        "headline": "Lær de søde ord, de frække ting, og alt derimellem.",
+        "highlight1": "søde ord",
+        "highlight2": "frække ting",
+        "highlight3": "alt derimellem",
+        "copy": "Hvert ord, de lærer dig, gemmes automatisk i din Kærlighedsdagbog. Ægte ord fra jeres ægte forhold—ikke en lærebog."
       },
       "section2": {
-        "headline": "Der er en samtale du ikke er med i. Endnu.",
-        "highlight1": "Endnu",
-        "copy": "Jokesene du smiler af uden at forstå. Familiehistorierne der mister noget i oversættelsen. På tide at faktisk forstå.",
-        "copyHighlight1": "familiehistorierne",
-        "copyHighlight2": "faktisk forstå",
-        "underline": "På tide at faktisk forstå"
+        "headline": "Alle griner. Du oversætter stadig.",
+        "highlight1": "griner",
+        "highlight2": "oversætter",
+        "copy": "Lyttetilstand fanger hvert ord, du missede. Gennemgå dem efter middagen. Næste gang er du med på den."
       },
       "section3": {
-        "headline": "Du lærer ikke et sprog. Du lærer dem.",
-        "highlight1": "lærer dem",
-        "copy": "Deres ord. Deres jokes. Deres måde at drille dig kærligt på. Bygget til mennesker der er her for kærligheden, ikke karaktererne.",
-        "copyHighlight1": "Deres ord",
-        "copyHighlight2": "Deres jokes",
-        "copyHighlight3": "kærligheden",
-        "underline": "Bygget til mennesker der er her for kærligheden"
+        "headline": "Om seks måneder: din første rigtige samtale.",
+        "highlight1": "første rigtige samtale",
+        "copy": "Intim. Uforstyrret. På deres sprog. Med deres hjælp når du derhen."
       },
       "section4": {
-        "headline": "At lære deres sprog = flirte med ekstra trin.",
-        "highlight1": "flirte",
-        "copy": "Dette er ikke skole. Der er ingen prøve. Bare dig, der møder op for dem på en helt ny måde. Ret romantisk, faktisk.",
-        "copyHighlight1": "møder op for dem",
-        "copyHighlight2": "romantisk",
-        "underline": "Ret romantisk, faktisk"
+        "headline": "De er på den anden side. Lad dem trække dig igennem.",
+        "highlight1": "trække dig",
+        "copy": "Din partner vælger ordene. Du lærer dem. Et sted mellem quizzerne og flirten holder du op med at være gæst i deres verden."
       },
-      "section5": {
-        "headline": "Øjeblikket du får deres familie til at grine? Perfekt.",
-        "highlight1": "deres familie til at grine",
-        "highlight2": "Perfekt",
-        "copy": "Første gang du faktisk fatter joken. Det første 'Jeg elsker dig' på deres sprog der lyder helt rigtigt. Øjeblikket deres mor begynder at tale direkte til dig på deres sprog. Det kommer.",
-        "copyHighlight1": "Jeg elsker dig",
-        "copyHighlight2": "mor",
-        "copyHighlight3": "Det kommer",
-        "underline": "Det kommer"
+      "context1": {
+        "header": "De ægte ord",
+        "cta": "Begynd at lære",
+        "subtext": "Ikke lærebogssætninger."
       },
-      "section6": {
-        "headline": "Lær sammen. Elsk sammen. Grin sammen.",
-        "highlight1": "sammen",
-        "highlight2": "Elsk",
-        "highlight3": "Grin",
-        "copy": "De sender dig ord der betyder noget. Udfordrer dig til spil. Driller din udtale (kærligt). Dette er ikke at studere alene - det er at bygge jeres egen lille verden sammen.",
-        "copyHighlight1": "ord der betyder noget",
-        "copyHighlight2": "jeres egen lille verden",
-        "underline": "bygge jeres egen lille verden sammen"
+      "context2": {
+        "header": "Slut med falsk latter",
+        "cta": "Begynd at lære",
+        "subtext": "Endelig forstå joken."
       },
-      "context1": { "header": "Klar til at forbinde jer dybere?", "cta": "Begynd at lære", "subtext": "2 minutter til dit første ord." },
-      "context2": { "header": "Vi har dig", "cta": "Begynd at lære", "subtext": "Ikke mere falsk grin." },
-      "context3": { "header": "Bygget til elskere", "cta": "Begynd din rejse", "subtext": "Ikke turister. Familie." },
-      "context4": { "header": "Spil din vej", "cta": "Udforsk spil", "subtext": "Flashkort, udfordringer og mere." },
-      "context5": { "header": "Få det til at tælle", "cta": "Begynd din rejse", "subtext": "Hvert ord betyder noget." },
-      "context6": { "header": "Få det til at ske", "cta": "Start nu", "subtext": "Det øjeblik kommer." },
-      "context7": { "header": "Start sammen", "cta": "Skab jeres verden", "subtext": "De venter på dig." }
+      "context3": {
+        "header": "Vær virkelig der",
+        "cta": "Begynd",
+        "subtext": "Denne gang for alvor."
+      },
+      "context4": {
+        "header": "Lær sammen",
+        "cta": "Begynd nu",
+        "subtext": "De venter på dig."
+      }
     },
     "tutor": {
       "section1": {
-        "headline": "De elsker dig. Hjælp dem nu med at elske dit sprog også.",
-        "highlight1": "elsker",
-        "highlight2": "dit sprog",
-        "copy": "Dine ord. Dine jokes. Måden du bander på når du slår din tå. Der er en hel dig de ikke har mødt endnu - en helt ny dig. Luk dem ind.",
-        "copyHighlight1": "Dine ord",
-        "copyHighlight2": "Dine jokes",
-        "copyHighlight3": "en helt ny dig",
-        "copyHighlight4": "Luk dem ind",
-        "underline": "Luk dem ind"
+        "headline": "Der er et helt dig, de aldrig har mødt.",
+        "highlight1": "helt dig",
+        "copy": "Måden du skændes på. Måden du joker på. De ting, du kun kan sige på dit sprog. Luk dem ind."
       },
       "section2": {
-        "headline": "Du har prøvet at forklare. De har prøvet at nikke. Lad os fikse dette.",
-        "highlight1": "forklare",
-        "highlight2": "nikke",
-        "highlight3": "fikse dette",
-        "copy": "Tingene du siger når du er virkelig glad. Eller virkelig irriteret. Ordene der føles som hjem. De vil forstå hele dig - ikke bare den oversatte version.",
-        "copyHighlight1": "virkelig glad",
-        "copyHighlight2": "virkelig irriteret",
-        "copyHighlight3": "hele dig",
-        "underline": "ikke bare den oversatte version"
+        "headline": "Nogle ting dør i oversættelse. Stop med at tillade det.",
+        "highlight1": "dør i oversættelse",
+        "copy": "Du forklarer. De nikker. Følelsen er væk. De vil ikke have dine undertekster—de vil have originalen."
       },
       "section3": {
-        "headline": "Hvert ord du deler er en bro.",
-        "highlight1": "bro",
-        "copy": "Del ord. Opret udfordringer. Fejr sejre sammen. Appen håndterer det kedelige - du får bare være den sjove.",
-        "copyHighlight1": "Del ord",
-        "copyHighlight2": "Opret udfordringer",
-        "copyHighlight3": "Fejr sejre",
-        "copyHighlight4": "den sjove",
-        "underline": "du får bare være den sjove"
+        "headline": "Første gang de får din familie til at grine uden dig.",
+        "highlight1": "uden dig",
+        "copy": "De sagde det. Dine folk hørte det. Og du indså—du gav dem det."
       },
       "section4": {
-        "headline": "Send et ord. Start et spil. Se dem vokse.",
-        "highlight1": "spil",
-        "highlight2": "vokse",
-        "copy": "Udfordr dem på din mors yndlingssætning. Quiz dem før middag. Fejr når de klarer det. Dette er partid forklædt som læring - og det er faktisk sjovt.",
-        "copyHighlight1": "mors yndlingssætning",
-        "copyHighlight2": "partid",
-        "copyHighlight3": "faktisk sjovt",
-        "underline": "Dette er partid forklædt som læring"
+        "headline": "Dit sprog er en dør. Giv dem nøglen.",
+        "highlight1": "nøglen",
+        "copy": "Hvert ord er et stykke af dig, de kan beholde. Dine minder. Dine folk. Dit hjem."
       },
-      "section5": {
-        "headline": "Øjeblikket de overrasker dig med en sætning du aldrig lærte dem? Magi.",
-        "highlight1": "overrasker dig",
-        "highlight2": "Magi",
-        "copy": "Når de trækker en joke og din familie faktisk griner. Når din mor begynder at tale direkte til dem på dit sprog. Når de fyrer en sætning af der får din kæbe til at falde. Du gjorde det muligt.",
-        "copyHighlight1": "familie faktisk griner",
-        "copyHighlight2": "mor",
-        "copyHighlight3": "Du gjorde det muligt"
+      "context1": {
+        "header": "Luk dem ind",
+        "cta": "Begynd at guide",
+        "subtext": "Til det ægte dig."
       },
-      "section6": {
-        "headline": "Undervis sammen. Spil sammen. Forelsk jer dybere.",
-        "highlight1": "sammen",
-        "highlight2": "Forelsk",
-        "copy": "Sådan deler du hvem du virkelig er. Ord for ord. Spil for spil. Grin for grin. Og de får forelske sig i det hele.",
-        "copyHighlight1": "hvem du virkelig er",
-        "copyHighlight2": "forelske sig",
-        "underline": "Og de får forelske sig i det hele"
+      "context2": {
+        "header": "Stop med at oversætte",
+        "cta": "Begynd at guide",
+        "subtext": "Begynd at dele."
       },
-      "context1": { "header": "Del din verden", "cta": "Begynd at guide", "subtext": "Bliv deres sprogguide." },
-      "context2": { "header": "Luk dem ind", "cta": "Begynd at guide", "subtext": "Nogle ting oversættes bedre når de læres." },
-      "context3": { "header": "Undervis med kærlighed", "cta": "Begynd", "subtext": "Ikke lektioner. Kærlighedsbreve." },
-      "context4": { "header": "Udfordr dem", "cta": "Send en udfordring", "subtext": "Spil, udfordringer, overraskelser." },
-      "context5": { "header": "Se dem blomstre", "cta": "Begynd at sende", "subtext": "Et ord ad gangen." },
-      "context6": { "header": "Åbn døren", "cta": "Start nu", "subtext": "Det øjeblik kommer." },
-      "context7": { "header": "Voks sammen", "cta": "Bliv deres guide", "subtext": "De er klar til dig." }
+      "context3": {
+        "header": "Se dem høre til",
+        "cta": "Begynd",
+        "subtext": "Hos dine folk."
+      },
+      "context4": {
+        "header": "Giv dem nøglen",
+        "cta": "Begynd nu",
+        "subtext": "De er klar."
+      }
+    },
+    "bottomSections": {
+      "faq": {
+        "title": "Ofte stillede sporgsmål",
+        "q1": {
+          "question": "Hvad er Relationsorienteret Sprogtilegnelse (RALL)?",
+          "answer": "RALL er vores metode, der kombinerer gennemprøvede sprogtilegnelsesteknikker (Kommunikativ Sprogundervisning, Opgavebaseret Læring) med relationspsykologi. I stedet for at lære generiske sætninger, lærer du de ord der betyder noget i DIT forhold - guidet af din partner, der hjælper med at forme dit 'Ideelle L2-Selv'.",
+          "readMore": "Læs mere nedenfor →"
+        },
+        "q2": {
+          "question": "Hvordan adskiller Love Languages sig fra Duolingo eller Babbel?",
+          "intro": "Traditionelle apps lærer dig at bestille kaffe. Vi lærer dig at få din partners familie til at grine.",
+          "point1": "Partnerguidet:",
+          "point1desc": "Din modersmålstalende partner sender dig ord, opretter udfordringer og følger jeres fremskridt sammen",
+          "point2": "Personligt ordforråd:",
+          "point2desc": "Lær DERES ord - familiesætninger, interne jokes, kælenavne",
+          "point3": "Samarbejdende, ikke konkurrerende:",
+          "point3desc": "Ingen ranglister mod fremmede. Du og din partner arbejder som et hold",
+          "point4": "Forholdsinvestering:",
+          "point4desc": "Jeres 'Love Log' bliver et fælles aktiv I bygger sammen"
+        },
+        "q3": {
+          "question": "Hvad er Elev- og Tutor-rollerne?",
+          "studentDesc": "Elever lærer deres partners sprog. De får AI-samtaleøvelse, ordforrrådsspil (Flashkort, Flervalg, Skriv Det, Hurtigild) og en personlig ordbog.",
+          "tutorDesc": "Tutorer er modersmålstalere der guider deres partner. De sender 'ordgaver', opretter tilpassede udfordringer og bruger Coach-tilstand til at guide læringssamtaler. Tutoren underviser ikke bare - de hjælper med at forme deres partners sprogidentitet."
+        },
+        "q4": {
+          "question": "Hvilke sprog understøtter I?",
+          "answer": "18 sprog, enhver kombination: Engelsk, spansk, fransk, tysk, italiensk, portugisisk, hollandsk, polsk, russisk, ukrainsk, svensk, norsk, dansk, tjekkisk, græsk, ungarsk, tyrkisk og rumænsk. Lær polsk som engelsktalende, eller engelsk som polsktalende - hele appen tilpasser sig dit modersmål."
+        },
+        "q5": {
+          "question": "Hvad koster det?",
+          "intro": "To planer, fleksibel fakturering:",
+          "standard": "Standard",
+          "standardPrice": "$7/uge · $19/måned · $69/år",
+          "standardDesc": "2.000 ord, 60 min tale, partnerinvitation",
+          "unlimited": "Ubegrænset",
+          "unlimitedPrice": "$12/uge · $39/måned · $139/år",
+          "unlimitedDesc": "Alt ubegrænset + gavepas",
+          "cancelNote": "Opsig når som helst. Ingen binding."
+        },
+        "q6": {
+          "question": "Hvordan inviterer jeg min partner?",
+          "answer": "Efter tilmelding, gå til Indstillinger og generer et invitationslink. Når din partner tilmelder sig med dit link, forbindes jeres konti automatisk. I kan derefter sende ord, oprette udfordringer og følge fremskridt sammen."
+        }
+      },
+      "rall": {
+        "label": "Vores metode",
+        "title": "Relationsorienteret Sprogtilegnelse",
+        "description": "RALL forener gennemprøvede sprogtilegnelsesmetoder med relationspsykologi. Resultatet: læring der styrker både dine sprogfærdigheder OG jeres forhold.",
+        "pillar1": {
+          "title": "Kommunikativ Sprogundervisning",
+          "description": "'Spørg-tilstand' prioriterer ægte interaktion frem for udenadslære. Du lærer ved at kommunikere, ikke ved at terpe.",
+          "citation": "Richards & Rodgers, 2001"
+        },
+        "pillar2": {
+          "title": "Opgavebaseret Sprogtilegnelse",
+          "description": "'Playground'-scenarierne bruger sprog som et værktøj til at udføre meningsfulde opgaver - bestille middag, møde familien, navigere konflikter.",
+          "citation": "Ellis, 2003; Nunan, 2004"
+        },
+        "pillar3": {
+          "title": "Michelangelo-fænomenet",
+          "description": "Din partner underviser ikke bare - de former dig. Forskning viser, at når partnere bekræfter dit 'Ideelle L2-Selv', gør du hurtigere fremskridt OG jeres forhold styrkes.",
+          "citation": "Rusbult et al., 2009"
+        },
+        "pillar4": {
+          "title": "Gensidig afhængighedsteori",
+          "description": "Jeres Love Log er en fælles investering. Hvert ord der gemmes øger engagementet gennem positiv gensidig afhængighed, ikke frygt.",
+          "citation": "Rusbult & Van Lange, 2003"
+        },
+        "quote": "\"Når partnere bekræfter hinandens ideelle selv, er individer mere tilbøjelige til at nå deres mål, og par oplever øget velbefindende.\"",
+        "quoteAttribution": "— Rusbult, Finkel & Kumashiro, \"The Michelangelo Phenomenon\" (2009)",
+        "anxietyTitle": "Reduktion af fremmedsprogangst:",
+        "anxietyDesc": "Frygten for at blive dømt af din partner er reel. Vores AI medierer rettelser og feedback og skaber et trygt rum til at lave fejl uden at skade jeres forhold.",
+        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991"
+      },
+      "blog": {
+        "label": "Gratis ressourcer",
+        "title": "1.000+ artikler til par",
+        "description": "Dybdegående artikler om kulturelle forskelle, romantiske sætninger og alt hvad par står overfor når de bygger bro over sprogbarrieren.",
+        "topic1": {
+          "title": "Romantiske sætninger",
+          "description": "Sig 'Jeg elsker dig' på 18 sprog"
+        },
+        "topic2": {
+          "title": "Kulturguider",
+          "description": "Naviger familiemiddage og højtider"
+        },
+        "topic3": {
+          "title": "Grammatik gjort simpelt",
+          "description": "Kasus, bøjninger og mere"
+        },
+        "cta": "Udforsk vores blog"
+      },
+      "footer": {
+        "tagline": "Lær kærlighedens sprog",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "terms": "Vilkår",
+        "privacy": "Privatliv",
+        "blog": "Blog",
+        "contact": "Kontakt",
+        "copyright": "Love Languages · Lavet med ♥ til elskere overalt"
+      }
     }
   }
 }
