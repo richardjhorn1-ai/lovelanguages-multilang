@@ -246,8 +246,11 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   return (
     <div className="min-h-screen h-screen flex flex-col bg-gradient-to-br from-pink-50 to-rose-100 overflow-hidden">
       <div
-        className="flex-1 flex flex-col items-center px-4 md:px-6 py-6 md:py-8 overflow-y-auto"
-        style={{ WebkitOverflowScrolling: 'touch' }}
+        className="flex-1 flex flex-col items-center px-4 md:px-6 pb-6 md:pb-8 overflow-y-auto"
+        style={{
+          WebkitOverflowScrolling: 'touch',
+          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 1.5rem)'
+        }}
       >
         <div className="w-full max-w-md md:max-w-3xl">
           {/* Header */}

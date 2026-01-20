@@ -236,7 +236,10 @@ const JoinInvite: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-[#FFF0F3]">
       {/* Left: Invitation Context */}
-      <div className="flex-1 flex flex-col justify-center px-8 py-12 md:px-24">
+      <div
+        className="flex-1 flex flex-col justify-center px-8 pb-12 md:px-24 md:py-12"
+        style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 3rem)' }}
+      >
         <div className="max-w-xl">
           <div className="flex items-center gap-4 mb-8">
             <div className="bg-[var(--accent-color)] p-3 rounded-2xl shadow-lg shadow-[var(--accent-shadow)] animate-pulse">
