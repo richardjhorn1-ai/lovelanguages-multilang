@@ -2449,7 +2449,7 @@ const Hero: React.FC = () => {
                 ref={mobileCarouselRef}
                 className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory h-full hide-scrollbar"
                 onScroll={handleMobileCarouselScroll}
-                style={{ scrollBehavior: 'smooth' }}
+                style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch' }}
               >
                 {/* Sections 0-3 */}
                 {sections.slice(0, 4).map((section, i) => (
@@ -2482,25 +2482,31 @@ const Hero: React.FC = () => {
                 {/* Bottom Sections as horizontal slides (indices 6-8, footer combined with blog) */}
                 <div
                   data-section={6}
-                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-start px-6 pt-4 relative overflow-y-auto"
+                  className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <HeroFAQ isStudent={isStudent} sectionIndex={6} isVisible={true} />
+                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+                    <HeroFAQ isStudent={isStudent} sectionIndex={6} isVisible={true} />
+                  </div>
                 </div>
                 <div
                   data-section={7}
-                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-start px-6 pt-4 relative overflow-y-auto"
+                  className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <HeroRALL isStudent={isStudent} sectionIndex={7} isVisible={true} />
+                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+                    <HeroRALL isStudent={isStudent} sectionIndex={7} isVisible={true} />
+                  </div>
                 </div>
                 <div
                   data-section={8}
-                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-start px-6 pt-4 relative overflow-y-auto"
+                  className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <HeroBlog isStudent={isStudent} sectionIndex={8} isVisible={true} />
-                  <HeroFooter isStudent={isStudent} sectionIndex={9} isVisible={true} />
+                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+                    <HeroBlog isStudent={isStudent} sectionIndex={8} isVisible={true} />
+                    <HeroFooter isStudent={isStudent} sectionIndex={9} isVisible={true} />
+                  </div>
                 </div>
               </div>
 
