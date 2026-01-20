@@ -244,161 +244,172 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-start p-6 overflow-y-auto">
-      <div className="max-w-md w-full my-auto">
-        {/* Header */}
-        <div className="text-center mb-6">
-          <div className="text-5xl mb-4">💕</div>
-          <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
-            {t('roleSelection.confirmSettings')}
-          </h1>
-          <p className="text-gray-500">
-            {t('roleSelection.confirmSettingsSubtitle')}
-          </p>
-        </div>
-
-        {/* Language Confirmation Section */}
-        <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 mb-6 border border-white/80">
-          <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4 flex items-center gap-2">
-            <span className="text-lg">🌍</span>
-            {t('roleSelection.languageSettings')}
-          </h2>
-
-          <div className="space-y-4">
-            {/* Native Language (Interface) */}
-            <LanguageDropdown
-              label={t('roleSelection.nativeLanguage')}
-              value={nativeLanguage}
-              isOpen={showNativeDropdown}
-              setIsOpen={setShowNativeDropdown}
-              onSelect={handleNativeSelect}
-              dropdownRef={nativeDropdownRef as React.RefObject<HTMLDivElement>}
-              excludeCode={targetLanguage}
-            />
-
-            {/* Target Language (Learning/Teaching) */}
-            <LanguageDropdown
-              label={isStudent || !selectedRole ? t('roleSelection.learningLanguage') : t('roleSelection.teachingLanguage')}
-              value={targetLanguage}
-              isOpen={showTargetDropdown}
-              setIsOpen={setShowTargetDropdown}
-              onSelect={handleTargetSelect}
-              dropdownRef={targetDropdownRef as React.RefObject<HTMLDivElement>}
-              excludeCode={nativeLanguage}
-            />
-          </div>
-        </div>
-
-        {/* Role Selection Section */}
-        <div className="mb-6">
-          <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4 flex items-center gap-2">
-            <span className="text-lg">👤</span>
-            {t('roleSelection.chooseYourRole')}
-          </h2>
-
-          <div className="space-y-3">
-            {/* Student Option */}
-            <button
-              onClick={() => setSelectedRole('student')}
-              disabled={saving}
-              className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
-                isStudent
-                  ? `${roleContent.student.borderAccent} ${roleContent.student.bgLight} shadow-md`
-                  : `border-gray-200 bg-white ${roleContent.student.hoverBorder} ${roleContent.student.hoverBg}`
-              }`}
-            >
-              <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-full ${roleContent.student.bgAccent} flex items-center justify-center`}>
-                  <span className="text-xl">{roleContent.student.emoji}</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-800">{roleContent.student.title}</h3>
-                  <p className="text-gray-500 text-sm">{roleContent.student.subtitle}</p>
-                </div>
-                {isStudent && (
-                  <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: roleContent.student.accentColor }}
-                  >
-                    <ICONS.Check className="w-4 h-4 text-white" />
-                  </div>
-                )}
-              </div>
-            </button>
-
-            {/* Tutor Option */}
-            <button
-              onClick={() => setSelectedRole('tutor')}
-              disabled={saving}
-              className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
-                isTutor
-                  ? `${roleContent.tutor.borderAccent} ${roleContent.tutor.bgLight} shadow-md`
-                  : `border-gray-200 bg-white ${roleContent.tutor.hoverBorder} ${roleContent.tutor.hoverBg}`
-              }`}
-            >
-              <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-full ${roleContent.tutor.bgAccent} flex items-center justify-center`}>
-                  <span className="text-xl">{roleContent.tutor.emoji}</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-800">{roleContent.tutor.title}</h3>
-                  <p className="text-gray-500 text-sm">{roleContent.tutor.subtitle}</p>
-                </div>
-                {isTutor && (
-                  <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: roleContent.tutor.accentColor }}
-                  >
-                    <ICONS.Check className="w-4 h-4 text-white" />
-                  </div>
-                )}
-              </div>
-            </button>
-          </div>
-        </div>
-
-        {/* Confirmation Button */}
-        {selectedRole && (
-          <div className="text-center animate-fadeIn">
-            <p className="text-lg font-bold text-gray-700 mb-1">
-              {roleContent[selectedRole].confirmMessage}
+    <div className="min-h-screen h-screen flex flex-col bg-gradient-to-br from-pink-50 to-rose-100 overflow-hidden">
+      <div
+        className="flex-1 flex flex-col items-center px-4 md:px-6 py-6 md:py-8 overflow-y-auto"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
+        <div className="w-full max-w-md md:max-w-3xl">
+          {/* Header */}
+          <div className="text-center mb-6">
+            <div className="text-5xl mb-4">💕</div>
+            <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
+              {t('roleSelection.confirmSettings')}
+            </h1>
+            <p className="text-gray-500">
+              {t('roleSelection.confirmSettingsSubtitle')}
             </p>
-            <p className="text-gray-500 text-sm mb-6">
-              {roleContent[selectedRole].confirmSubtext}
-            </p>
-
-            <button
-              onClick={handleConfirm}
-              disabled={saving}
-              className="w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg transition-all active:scale-[0.98] disabled:opacity-50"
-              style={{ backgroundColor: roleContent[selectedRole].accentColor }}
-            >
-              {saving ? (
-                <span className="inline-flex items-center gap-2">
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  {t('roleSelection.settingUp')}
-                </span>
-              ) : (
-                t('roleSelection.letsGo')
-              )}
-            </button>
           </div>
-        )}
 
-        {/* Fallback if nothing selected */}
-        {!selectedRole && (
-          <p className="text-center text-gray-400 text-sm">
-            {t('roleSelection.chooseRole')}
-          </p>
-        )}
+          {/* Two-column layout on desktop, stacked on mobile */}
+          <div className="flex flex-col md:flex-row md:gap-6 md:items-start">
+            {/* Language Confirmation Section */}
+            <div className="flex-1 bg-white/60 backdrop-blur-sm rounded-2xl p-5 mb-4 md:mb-0 border border-white/80">
+              <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4 flex items-center gap-2">
+                <span className="text-lg">🌍</span>
+                {t('roleSelection.languageSettings')}
+              </h2>
 
-        {/* Logout link */}
-        <button
-          onClick={() => supabase.auth.signOut()}
-          className="mt-6 text-gray-400 hover:text-gray-600 text-sm font-medium transition-colors"
-        >
-          {t('roleSelection.logout', 'Log out')}
-        </button>
+              <div className="space-y-4">
+                {/* Native Language (Interface) */}
+                <LanguageDropdown
+                  label={t('roleSelection.nativeLanguage')}
+                  value={nativeLanguage}
+                  isOpen={showNativeDropdown}
+                  setIsOpen={setShowNativeDropdown}
+                  onSelect={handleNativeSelect}
+                  dropdownRef={nativeDropdownRef as React.RefObject<HTMLDivElement>}
+                  excludeCode={targetLanguage}
+                />
+
+                {/* Target Language (Learning/Teaching) */}
+                <LanguageDropdown
+                  label={isStudent || !selectedRole ? t('roleSelection.learningLanguage') : t('roleSelection.teachingLanguage')}
+                  value={targetLanguage}
+                  isOpen={showTargetDropdown}
+                  setIsOpen={setShowTargetDropdown}
+                  onSelect={handleTargetSelect}
+                  dropdownRef={targetDropdownRef as React.RefObject<HTMLDivElement>}
+                  excludeCode={nativeLanguage}
+                />
+              </div>
+            </div>
+
+            {/* Role Selection Section */}
+            <div className="flex-1 mb-4 md:mb-0">
+              <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4 flex items-center gap-2">
+                <span className="text-lg">👤</span>
+                {t('roleSelection.chooseYourRole')}
+              </h2>
+
+              <div className="space-y-3">
+                {/* Student Option */}
+                <button
+                  onClick={() => setSelectedRole('student')}
+                  disabled={saving}
+                  className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
+                    isStudent
+                      ? `${roleContent.student.borderAccent} ${roleContent.student.bgLight} shadow-md`
+                      : `border-gray-200 bg-white ${roleContent.student.hoverBorder} ${roleContent.student.hoverBg}`
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-full ${roleContent.student.bgAccent} flex items-center justify-center`}>
+                      <span className="text-xl">{roleContent.student.emoji}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-800">{roleContent.student.title}</h3>
+                      <p className="text-gray-500 text-sm">{roleContent.student.subtitle}</p>
+                    </div>
+                    {isStudent && (
+                      <div
+                        className="w-6 h-6 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: roleContent.student.accentColor }}
+                      >
+                        <ICONS.Check className="w-4 h-4 text-white" />
+                      </div>
+                    )}
+                  </div>
+                </button>
+
+                {/* Tutor Option */}
+                <button
+                  onClick={() => setSelectedRole('tutor')}
+                  disabled={saving}
+                  className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
+                    isTutor
+                      ? `${roleContent.tutor.borderAccent} ${roleContent.tutor.bgLight} shadow-md`
+                      : `border-gray-200 bg-white ${roleContent.tutor.hoverBorder} ${roleContent.tutor.hoverBg}`
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-full ${roleContent.tutor.bgAccent} flex items-center justify-center`}>
+                      <span className="text-xl">{roleContent.tutor.emoji}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-800">{roleContent.tutor.title}</h3>
+                      <p className="text-gray-500 text-sm">{roleContent.tutor.subtitle}</p>
+                    </div>
+                    {isTutor && (
+                      <div
+                        className="w-6 h-6 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: roleContent.tutor.accentColor }}
+                      >
+                        <ICONS.Check className="w-4 h-4 text-white" />
+                      </div>
+                    )}
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Confirmation Button - full width below the two columns */}
+          {selectedRole && (
+            <div className="text-center animate-fadeIn mt-6">
+              <p className="text-lg font-bold text-gray-700 mb-1">
+                {roleContent[selectedRole].confirmMessage}
+              </p>
+              <p className="text-gray-500 text-sm mb-6">
+                {roleContent[selectedRole].confirmSubtext}
+              </p>
+
+              <button
+                onClick={handleConfirm}
+                disabled={saving}
+                className="w-full md:max-w-md md:mx-auto py-4 rounded-2xl text-white font-bold text-lg shadow-lg transition-all active:scale-[0.98] disabled:opacity-50 block"
+                style={{ backgroundColor: roleContent[selectedRole].accentColor }}
+              >
+                {saving ? (
+                  <span className="inline-flex items-center gap-2">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    {t('roleSelection.settingUp')}
+                  </span>
+                ) : (
+                  t('roleSelection.letsGo')
+                )}
+              </button>
+            </div>
+          )}
+
+          {/* Fallback if nothing selected */}
+          {!selectedRole && (
+            <p className="text-center text-gray-400 text-sm mt-6">
+              {t('roleSelection.chooseRole')}
+            </p>
+          )}
+
+          {/* Logout link */}
+          <button
+            onClick={() => supabase.auth.signOut()}
+            className="mt-6 w-full text-center text-gray-400 hover:text-gray-600 text-sm font-medium transition-colors"
+          >
+            {t('roleSelection.logout', 'Log out')}
+          </button>
+
+          {/* Bottom padding for iOS safe area */}
+          <div className="h-6 md:h-0" />
+        </div>
       </div>
 
       {/* Animation styles */}
