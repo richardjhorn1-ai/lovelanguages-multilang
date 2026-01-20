@@ -244,8 +244,8 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center p-6">
-      <div className="max-w-md w-full">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-start p-6 overflow-y-auto">
+      <div className="max-w-md w-full my-auto">
         {/* Header */}
         <div className="text-center mb-6">
           <div className="text-5xl mb-4">💕</div>
@@ -391,6 +391,14 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
             {t('roleSelection.chooseRole')}
           </p>
         )}
+
+        {/* Logout link */}
+        <button
+          onClick={() => supabase.auth.signOut()}
+          className="mt-6 text-gray-400 hover:text-gray-600 text-sm font-medium transition-colors"
+        >
+          {t('roleSelection.logout', 'Log out')}
+        </button>
       </div>
 
       {/* Animation styles */}

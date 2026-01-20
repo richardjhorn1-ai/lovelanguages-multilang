@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Configurando...",
     "letsGo": "Sou eu! Vamos lá",
-    "chooseRole": "Escolha seu papel para continuar"
+    "chooseRole": "Escolha seu papel para continuar",
+    "logout": "Sair"
   },
   "subscription": {
     "common": {

@@ -1233,7 +1233,8 @@
     },
     "settingUp": "Setting up...",
     "letsGo": "That's me! Let's go",
-    "chooseRole": "Choose your role to continue"
+    "chooseRole": "Choose your role to continue",
+    "logout": "Log out"
   },
 
   "subscription": {

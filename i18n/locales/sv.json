@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Ställer in...",
     "letsGo": "Det är jag! Kör igång",
-    "chooseRole": "Välj din roll för att fortsätta"
+    "chooseRole": "Välj din roll för att fortsätta",
+    "logout": "Logga ut"
   },
   "subscription": {
     "common": {

@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Ayarlanıyor...",
     "letsGo": "Benim! Hadi gidelim",
-    "chooseRole": "Devam etmek için rolünü seç"
+    "chooseRole": "Devam etmek için rolünü seç",
+    "logout": "Çıkış yap"
   },
   "subscription": {
     "common": {

@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Sætter op...",
     "letsGo": "Det er mig! Lad os køre",
-    "chooseRole": "Vælg din rolle for at fortsætte"
+    "chooseRole": "Vælg din rolle for at fortsætte",
+    "logout": "Log ud"
   },
   "subscription": {
     "common": {

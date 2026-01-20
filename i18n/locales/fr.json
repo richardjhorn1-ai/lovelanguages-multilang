@@ -1186,7 +1186,8 @@
     },
     "settingUp": "Configuration...",
     "letsGo": "C'est moi ! Allons-y",
-    "chooseRole": "Choisis ton rôle pour continuer"
+    "chooseRole": "Choisis ton rôle pour continuer",
+    "logout": "Se déconnecter"
   },
   "subscription": {
     "common": {

@@ -1179,7 +1179,8 @@
     },
     "settingUp": "Instellen...",
     "letsGo": "Dat ben ik! Laten we gaan",
-    "chooseRole": "Kies je rol om door te gaan"
+    "chooseRole": "Kies je rol om door te gaan",
+    "logout": "Uitloggen"
   },
   "subscription": {
     "common": {
