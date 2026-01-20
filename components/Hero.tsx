@@ -2485,7 +2485,7 @@ const Hero: React.FC = () => {
                   className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
                     <HeroFAQ isStudent={isStudent} sectionIndex={6} isVisible={true} />
                   </div>
                 </div>
@@ -2494,7 +2494,7 @@ const Hero: React.FC = () => {
                   className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
                     <HeroRALL isStudent={isStudent} sectionIndex={7} isVisible={true} />
                   </div>
                 </div>
@@ -2503,7 +2503,7 @@ const Hero: React.FC = () => {
                   className="flex-shrink-0 w-full h-full snap-start flex flex-col px-6 pt-4 relative overflow-hidden"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}>
+                  <div className="flex-1 overflow-y-auto overflow-x-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
                     <HeroBlog isStudent={isStudent} sectionIndex={8} isVisible={true} />
                     <HeroFooter isStudent={isStudent} sectionIndex={9} isVisible={true} />
                   </div>
