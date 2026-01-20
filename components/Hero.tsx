@@ -2480,13 +2480,25 @@ const Hero: React.FC = () => {
                 ))}
 
                 {/* Bottom Sections as horizontal slides (indices 6-8, footer combined with blog) */}
-                <div data-section={6} className="flex-shrink-0 w-full h-full snap-start overflow-y-auto">
+                <div
+                  data-section={6}
+                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-start px-6 pt-4 relative overflow-y-auto"
+                  style={{ scrollSnapAlign: 'start' }}
+                >
                   <HeroFAQ isStudent={isStudent} sectionIndex={6} isVisible={true} />
                 </div>
-                <div data-section={7} className="flex-shrink-0 w-full h-full snap-start overflow-y-auto">
+                <div
+                  data-section={7}
+                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-start px-6 pt-4 relative overflow-y-auto"
+                  style={{ scrollSnapAlign: 'start' }}
+                >
                   <HeroRALL isStudent={isStudent} sectionIndex={7} isVisible={true} />
                 </div>
-                <div data-section={8} className="flex-shrink-0 w-full h-full snap-start overflow-y-auto">
+                <div
+                  data-section={8}
+                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-start px-6 pt-4 relative overflow-y-auto"
+                  style={{ scrollSnapAlign: 'start' }}
+                >
                   <HeroBlog isStudent={isStudent} sectionIndex={8} isVisible={true} />
                   <HeroFooter isStudent={isStudent} sectionIndex={9} isVisible={true} />
                 </div>
