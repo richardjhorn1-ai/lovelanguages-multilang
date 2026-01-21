@@ -10,7 +10,7 @@ const PrivacyPolicy: React.FC = () => {
   const lastUpdated = 'January 8, 2026';
 
   return (
-    <div className="min-h-screen overflow-y-auto" style={{ background: 'var(--bg-primary)' }}>
+    <div className="min-h-screen overflow-y-auto" style={{ background: 'var(--bg-primary)', paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
         {/* Back Button */}
         <button

@@ -35,7 +35,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative z-10">
+    <div className="min-h-screen flex flex-col relative z-10" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       {/* Progress bar */}
       <div className="w-full h-1 bg-gray-100">
         <div
