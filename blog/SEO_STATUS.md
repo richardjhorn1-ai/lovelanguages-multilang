@@ -1,18 +1,20 @@
 # SEO Status - Love Languages Blog
 
 > Central source of truth for SEO work on the multi-language learning blog.
-> Last updated: January 14, 2026
+> Last updated: January 21, 2026
 
 ## Quick Stats
 
 | Metric | Count |
 |--------|-------|
-| **Total Static Pages** | 653 |
-| **Blog Articles** | 471 |
+| **Total Static Pages** | 1,100+ |
+| **Blog Articles** | 1,003 |
 | **Dictionary Word Pages** | 109 |
 | **Comparison Pages** | 6 |
 | **Tool Pages** | 2 |
 | **Name Days in Database** | 1,000+ |
+| **Native Languages** | 6 (EN, ES, FR, DE, IT, PT) |
+| **Target Languages** | 18 |
 
 ---
 
@@ -38,22 +40,23 @@ Optimized **471 article titles** across all language pairs:
 
 **Native Language (rows) → Target Language (columns)**
 
-| Native | PL | DE | FR | IT | ES | PT | NL | EL | RU | TR | Others |
-|--------|----|----|----|----|----|----|----|----|----|----|--------|
-| 🇬🇧 EN | 73 ✅ | 10 | 10 | 10 | 10 | 5 | 5 | 5 | 5 | 5 | 3 each |
-| 🇪🇸 ES | 73 ✅ | 10 | 10 | 10 | - | 5 | 5 | 5 | 5 | 5 | 3 each |
-| 🇫🇷 FR | 68 ✅ | 10 | - | 10 | 10 | 5 | 5 | 5 | 5 | 5 | 3 each |
-| 🇩🇪 DE | ❌ 0 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| 🇮🇹 IT | ❌ 0 | 0 | 0 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Others | ❌ 0 | 0 | 0 | 0 | 0 | - | - | - | - | - | 0 |
+| Native | PL | DE | ES | FR | IT | PT | EN | NL | EL | RU | TR | Others |
+|--------|----|----|----|----|----|----|----|----|----|----|----|----|
+| 🇬🇧 EN | 73 ✅ | 25 | 25 | 25 | 25 | 25 | - | 10 | 10 | 10 | 10 | 8 each |
+| 🇪🇸 ES | 73 ✅ | 25 | - | 25 | 25 | 25 | 25 | 5 | 5 | 5 | 5 | 3 each |
+| 🇫🇷 FR | 73 ✅ | 25 | 25 | - | 25 | 25 | 25 | 5 | 5 | 5 | 5 | 3 each |
+| 🇩🇪 DE | 0 | - | 15 | 15 | 15 | 15 | 15 | 0 | 0 | 0 | 0 | 0 |
+| 🇮🇹 IT | 3 | 15 | 15 | 15 | - | 15 | 15 | 0 | 0 | 0 | 0 | 0 |
+| 🇵🇹 PT | 3 | 15 | 15 | 15 | 15 | - | 15 | 0 | 0 | 0 | 0 | 0 |
 
-**Legend:** ✅ = Well covered (50+) | Numbers = Article count | ❌ = No content
+**Legend:** ✅ = Well covered (50+) | Numbers = Article count
 
-### Coverage Summary
-- **Strong:** Polish as target (214 articles across EN/ES/FR speakers)
-- **Medium:** Major European languages (10 articles each)
-- **Weak:** Minor languages (3-5 articles each)
-- **Missing:** German, Italian, Portuguese, Dutch native speakers (0 content)
+### Coverage Summary (Updated Jan 21, 2026)
+- **Total Articles:** 1,003
+- **Strong:** Polish as target (219 articles across EN/ES/FR), Major language pairs (25 articles)
+- **Medium:** DE/IT/PT native speakers (75-78 articles each, 15 per target)
+- **Gaps:** DE/IT/PT natives missing minor language targets (NL, EL, RU, TR, etc.)
+- **Polish Gap:** DE→PL (0), IT→PL (3), PT→PL (3) need expansion
 
 ---
 
@@ -329,16 +332,16 @@ Optimized **471 article titles** across all language pairs:
 
 ## Content Expansion Strategy
 
-### Phase 1: New Native Languages (High Priority)
+### Phase 1: Polish Content for New Native Languages ✅ PARTIALLY COMPLETE
 
-Add content for German and Italian native speakers - large markets with 0 content.
+German, Italian, and Portuguese native speakers now have content, but Polish as target is weak.
 
-**Target: 50 articles each for DE→PL and IT→PL**
-
-| Language Pair | Topic Priority | Article Count Goal |
-|---------------|----------------|-------------------|
-| 🇩🇪 DE → 🇵🇱 PL | German speakers learning Polish | 50 |
-| 🇮🇹 IT → 🇵🇱 PL | Italian speakers learning Polish | 50 |
+**Current State:**
+| Language Pair | Current | Target | Status |
+|---------------|---------|--------|--------|
+| 🇩🇪 DE → 🇵🇱 PL | 0 | 50 | ❌ Needs creation |
+| 🇮🇹 IT → 🇵🇱 PL | 3 | 50 | ⚠️ Needs expansion |
+| 🇵🇹 PT → 🇵🇱 PL | 3 | 50 | ⚠️ Needs expansion |
 
 **How to generate:**
 ```bash
@@ -350,16 +353,16 @@ ANTHROPIC_API_KEY=xxx npm run generate -- \
   --category phrases
 ```
 
-### Phase 2: Expand High-Demand Target Languages
+### Phase 2: Expand High-Demand Target Languages ✅ COMPLETE
 
-Increase EN→ES and EN→FR from 10 to 50+ articles (massive search volume).
+EN→ES, EN→FR, EN→DE, EN→IT now have 25 articles each.
 
-| Language Pair | Current | Target |
-|---------------|---------|--------|
-| 🇬🇧 EN → 🇪🇸 ES | 10 | 50 |
-| 🇬🇧 EN → 🇫🇷 FR | 10 | 50 |
-| 🇬🇧 EN → 🇩🇪 DE | 10 | 50 |
-| 🇬🇧 EN → 🇮🇹 IT | 10 | 50 |
+| Language Pair | Current | Target | Status |
+|---------------|---------|--------|--------|
+| 🇬🇧 EN → 🇪🇸 ES | 25 | 50 | ⚠️ Halfway |
+| 🇬🇧 EN → 🇫🇷 FR | 25 | 50 | ⚠️ Halfway |
+| 🇬🇧 EN → 🇩🇪 DE | 25 | 50 | ⚠️ Halfway |
+| 🇬🇧 EN → 🇮🇹 IT | 25 | 50 | ⚠️ Halfway |
 
 ### Phase 3: Cross-Pollinate Content
 
@@ -400,25 +403,162 @@ for topic in "greetings" "pet names" "pronunciation" "grammar basics" "i love yo
 done
 ```
 
-### Priority Order
+### Priority Order (Updated)
 
-1. **DE→PL** (50 articles) - Large German market, 0 competition on your site
-2. **IT→PL** (50 articles) - Growing Italian interest in Polish
-3. **EN→ES** (40 more) - Massive search volume
-4. **EN→FR** (40 more) - High search volume
-5. **PT→PL** (50 articles) - Portuguese speakers, underserved market
+1. **DE→PL** (50 articles) - German market, currently 0 articles
+2. **IT→PL** (47 more) - Currently only 3 articles
+3. **PT→PL** (47 more) - Currently only 3 articles
+4. **EN→ES** (25 more) - Currently 25, target 50
+5. **EN→FR** (25 more) - Currently 25, target 50
+6. **Minor languages** - Expand 8-article pairs to 15+
+
+---
+
+## GSC-Driven Content Plan (January 2026)
+
+> Based on real Google Search Console data from first indexing. 68 impressions, 26 countries, strong position signals.
+
+### 🎯 What's Already Working
+
+| Content Type | Performance | Action |
+|--------------|-------------|--------|
+| **Ukrainian pet names** | 13 impressions, pos 7.85 | DOUBLE DOWN - create variants |
+| **Polish content** | Pos 1-4 across languages | Expand to all native languages |
+| **"I love you" queries** | Multiple languages appearing | Create for ALL 18 languages |
+| **German market** | 9 impressions | Create more DE native content |
+
+### 📈 Immediate Priority: Ukrainian Content Expansion
+
+Ukrainian is our breakout performer! Create these articles in ALL 6 native languages:
+
+**EN Native → Ukrainian:**
+- [ ] Ukrainian Romantic Phrases for Couples ✅ (performing - expand)
+- [ ] Ukrainian Pet Names & Terms of Endearment (variant of working content)
+- [ ] How to Say I Love You in Ukrainian (high-intent query)
+- [ ] Ukrainian Pronunciation Guide for English Speakers
+- [ ] Ukrainian Cyrillic Alphabet for Beginners
+- [ ] Meeting Your Ukrainian Partner's Family
+- [ ] Ukrainian Date Night Vocabulary
+- [ ] Ukrainian Texting Slang for Couples
+
+**ES/FR/DE/IT/PT Native → Ukrainian:**
+Translate top-performing Ukrainian articles to capture:
+- German speakers learning Ukrainian (strong German market signal)
+- Romance language speakers (ES/FR/IT/PT) learning Ukrainian
+
+### 📈 "I Love You" Content Series
+
+High-intent, converting queries. Create for EVERY target language:
+
+| Language | EN Native | ES Native | FR Native | DE Native | IT Native | PT Native |
+|----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| Polish | ✅ | ✅ | ✅ | [ ] | [ ] | [ ] |
+| Ukrainian | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Russian | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| German | ✅ | [ ] | [ ] | - | [ ] | [ ] |
+| French | ✅ | [ ] | - | [ ] | [ ] | [ ] |
+| Spanish | ✅ | - | [ ] | [ ] | [ ] | [ ] |
+| Italian | ✅ | [ ] | [ ] | [ ] | - | [ ] |
+| Portuguese | [ ] | [ ] | [ ] | [ ] | [ ] | - |
+| Dutch | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Greek | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Turkish | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Czech | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Swedish | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Norwegian | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Danish | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Hungarian | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Romanian | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+
+### 📈 Pet Names / Terms of Endearment Series
+
+Second-highest performing category. Expand across all language pairs:
+
+**Priority targets (based on GSC):**
+1. Ukrainian pet names → all native languages
+2. Polish pet names → DE/IT/PT native (gaps)
+3. Russian pet names → all native languages
+4. Turkish pet names → all native languages
+
+### 📈 German Market Expansion
+
+9 impressions from Germany. Create more DE-native content:
+
+**DE Native Articles to Create:**
+- [ ] DE→PL: 50 articles (currently 0 - CRITICAL GAP)
+- [ ] DE→UK: Ukrainian content for German speakers
+- [ ] DE→RU: Russian content for German speakers
+- [ ] DE→TR: Turkish content for German speakers
+
+### 📈 Country-Specific Opportunities
+
+Based on GSC country data:
+
+| Country | Signal | Content Strategy |
+|---------|--------|------------------|
+| 🇺🇸 USA | Base traffic | Maintain EN-native focus |
+| 🇩🇪 Germany | 9 impressions | Expand DE-native content |
+| 🇭🇷 Croatia | Appearing | Create Croatian as target |
+| 🇲🇽 Mexico | Appearing | Optimize ES-native content |
+| 🇵🇱 Poland | Appearing | Polish speakers learning other languages |
+| 🇧🇷 Brazil | Appearing | Optimize PT-native content |
+
+### 📈 Near-Ranking Optimization (Position 6-20)
+
+Pages ranking on page 2. Optimize these first:
+
+**Actions for near-ranking pages:**
+1. Add 200-300 more words of valuable content
+2. Improve internal linking (add 3-5 links from/to)
+3. Optimize meta descriptions with CTR-boosting language
+4. Add FAQ sections with schema markup
+5. Update timestamps (freshness signal)
+
+### 📊 Content Generation Batches
+
+**Batch 1: Ukrainian Expansion (108 articles)**
+- 6 native languages × 18 Ukrainian topics = 108 articles
+
+**Batch 2: "I Love You" Complete (102 articles)**
+- 6 native × 17 target languages = 102 articles
+
+**Batch 3: Pet Names Complete (102 articles)**
+- 6 native × 17 target languages = 102 articles
+
+**Batch 4: Polish Gap Fill (144 articles)**
+- DE→PL: 50 articles
+- IT→PL: 47 articles
+- PT→PL: 47 articles
+
+**Batch 5: German Native Expansion (100 articles)**
+- DE→various: Fill gaps across all target languages
+
+**Total New Content Target: ~550 articles**
+
+### 🔧 Technical SEO Quick Wins
+
+1. [ ] Add internal links from high-ranking to new content
+2. [ ] Create topic clusters around performing content
+3. [ ] Add FAQ schema to all "How to say I love you" pages
+4. [ ] Optimize images with WebP format
+5. [ ] Add structured data for language learning content
 
 ---
 
 ## Next Actions
 
 1. [x] ~~Merge `feature/name-day-finder` to `main`~~ (completed)
-2. [ ] Generate 50 DE→PL articles (Phase 1)
-3. [ ] Generate 50 IT→PL articles (Phase 1)
-4. [ ] Expand EN→ES to 50 articles (Phase 2)
-5. [ ] Expand dictionary to 200+ words
-6. [ ] Build affiliate resource hub (Polish Books)
-7. [ ] Add more comparison pages
+2. [x] ~~Add DE/IT/PT native language content~~ (completed - 75-78 articles each)
+3. [x] ~~Generate ~369 missing hero images~~ (503/610 complete, agents running)
+4. [ ] **PRIORITY:** Ukrainian content expansion (all 6 native languages)
+5. [ ] **PRIORITY:** "I Love You" article series (all language pairs)
+6. [ ] Generate 50 DE→PL articles (CRITICAL GAP)
+7. [ ] Expand IT→PL from 3 to 50 articles
+8. [ ] Expand PT→PL from 3 to 50 articles
+9. [ ] Expand EN→ES/FR/DE/IT from 25 to 50 each
+10. [ ] Pet names series expansion
+11. [ ] Expand dictionary to 200+ words
+12. [ ] Build affiliate resource hub
 
 ---
 
