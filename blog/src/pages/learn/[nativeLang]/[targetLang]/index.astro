@@ -34,7 +34,7 @@ export async function getStaticPaths() {
   const paths: { params: { nativeLang: string; targetLang: string } }[] = [];
 
   // Native languages that have translated content
-  const nativeLanguages = ['en', 'es', 'fr']; // Expand as more translations are added
+  const nativeLanguages = ['en', 'es', 'fr', 'de', 'it', 'pt']; // All 6 native languages with content
   const targetLanguages = ['en', 'es', 'fr', 'it', 'pt', 'ro', 'de', 'nl', 'sv', 'no', 'da', 'pl', 'cs', 'ru', 'uk', 'el', 'hu', 'tr'];
 
   for (const nativeLang of nativeLanguages) {

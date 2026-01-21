@@ -122,12 +122,14 @@ const comparisons = [
   }
 ];
 
+const canonicalUrl = `https://www.lovelanguages.io/compare/${lang}/`;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": text.heroTitle,
   "description": text.pageDescription,
-  "url": `https://lovelanguages.io/compare/${lang}/`,
+  "url": canonicalUrl,
   "inLanguage": lang,
   "publisher": {
     "@type": "Organization",
@@ -142,6 +144,7 @@ const jsonLd = {
   description={text.pageDescription}
   nativeLang={lang}
 >
+  <link slot="head" rel="canonical" href={canonicalUrl} />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <!-- Header -->

@@ -1,20 +1,200 @@
 # SEO Status - Love Languages Blog
 
 > Central source of truth for SEO work on the multi-language learning blog.
-> Last updated: January 21, 2026
+> Last updated: January 21, 2026 (Session 3)
 
 ## Quick Stats
 
 | Metric | Count |
 |--------|-------|
-| **Total Static Pages** | 1,100+ |
-| **Blog Articles** | 1,003 |
+| **Total Static Pages** | 1,332 |
+| **Blog Articles** | 1,058 |
+| **Hero Images** | 631 ✅ |
 | **Dictionary Word Pages** | 109 |
-| **Comparison Pages** | 6 |
+| **Comparison Pages** | 7 (all native langs) |
 | **Tool Pages** | 2 |
 | **Name Days in Database** | 1,000+ |
 | **Native Languages** | 6 (EN, ES, FR, DE, IT, PT) |
 | **Target Languages** | 18 |
+
+---
+
+## Google Search Console Status (Jan 21, 2026)
+
+### Indexing Progress
+
+| Date | Indexed | Not Indexed | Impressions |
+|------|---------|-------------|-------------|
+| Jan 17 | - | - | 0 |
+| Jan 18 | - | - | 0 |
+| Jan 19 | - | - | 5 |
+| **Jan 20** | **338** | 1,189 | - |
+
+**338 pages indexed in 3 days - excellent progress!**
+
+### Coverage Analysis
+
+| Status | Pages | Assessment |
+|--------|-------|------------|
+| ✅ **Indexed** | 338 | Working correctly |
+| ✅ **Alternate with canonical** | 80 | Hreflang working! |
+| ⏳ **Discovered - not indexed** | 1,006 | Normal - will index over time |
+| ⚠️ **Page with redirect** | 93 | Normal - non-www → www redirects |
+| ⚠️ **Crawled - not indexed** | 8 | See investigation below |
+| ⚠️ **Redirect error** | 1 | 3-hop redirect chain |
+| ⚠️ **Blocked by robots.txt** | 1 | Will auto-resolve |
+
+### Issue Investigation Results
+
+**"Page with redirect" (93 pages)** - NORMAL
+- These are non-www → www redirects
+- Standard behavior, no action needed
+
+**"Alternate page with proper canonical" (80 pages)** - SUCCESS
+- Google recognizes hreflang alternates
+- Same article in different native languages correctly linked
+
+**"Crawled but not indexed" (8 pages)** - IDENTIFIED
+- `/compare/` - Has intentional `noindex` meta tag (redirect stub)
+- Some hub/landing pages may be considered thin initially
+- Will index as site gains authority
+
+**"Redirect error" (1 page)** - MINOR
+- Caused by 3-hop redirect chain:
+  ```
+  http://lovelanguages.io/path/
+    → https://lovelanguages.io/path/     (HTTP→HTTPS)
+    → https://www.lovelanguages.io/path/ (non-www→www)
+    → https://www.lovelanguages.io/path  (trailing slash removal)
+  ```
+- Low impact, Google can follow
+
+**"Blocked by robots.txt" (1 page)** - AUTO-RESOLVING
+- robots.txt allows all: `Allow: /`
+- Likely stale data from previous crawl
+
+### Performance Signals (First Impressions!)
+
+| Content | Impressions | Position | Action |
+|---------|-------------|----------|--------|
+| Ukrainian pet names | 13 | 7.85 | EXPAND - top performer |
+| Polish content | varies | 1-4 | Maintain, fill gaps |
+| "I love you" queries | appearing | varies | Create full series |
+| German market | 9 | varies | Create DE-native content |
+
+**26 countries reached** including USA, Germany, Croatia, Mexico, Poland, Brazil
+
+---
+
+## Technical Fixes TODO
+
+### Completed ✅
+
+1. [x] **Add content to `/compare/` landing page**
+   - ✅ Transformed from redirect stub to full landing page
+   - ✅ Removed noindex, added real content and language selector
+
+2. [x] **Create missing compare pages**
+   - ✅ `/compare/de/` - German content created
+   - ✅ `/compare/it/` - Italian content created
+   - ✅ `/compare/pt/` - Portuguese content created
+
+3. [x] **Add canonical tags to hub pages**
+   - ✅ All 7 compare pages now have canonical tags
+
+### Remaining (Low Priority)
+
+4. [ ] **Reduce redirect chain to 1 hop**
+   - Currently: HTTP → HTTPS → www → no-trailing-slash (3 hops)
+   - Ideal: Direct to final URL in 1 hop
+   - Requires Vercel domain-level config
+
+---
+
+## Recent SEO Work (Jan 21, 2026 - Session 3)
+
+### "I Love You" Series Completed ✅
+
+| Target Language | Status | Native Langs Covered |
+|-----------------|--------|---------------------|
+| Polish | ✅ Complete | EN, ES, FR, DE, IT, PT (6/6) |
+| Ukrainian | ✅ Complete | EN, ES, FR, DE, IT, PT (6/6) |
+| Russian | ✅ Complete | EN, ES, FR, DE, IT, PT (6/6) |
+| German | ✅ Complete | EN, ES, FR, IT, PT (5/5) |
+| Spanish | ✅ Complete | EN, FR, DE, IT, PT (5/5) |
+| **French** | ✅ Complete | EN, ES, DE, IT, PT (5/5) |
+| **Italian** | ✅ Complete | EN, ES, FR, DE, PT (5/5) |
+| **Portuguese** | ✅ Complete | EN, ES, FR, DE, IT (5/5) |
+
+### Pet Names Series Expanded ✅
+
+| Target Language | Status | Native Langs Covered |
+|-----------------|--------|---------------------|
+| Ukrainian | ✅ Complete | EN, ES, FR, DE, IT, PT (6/6) |
+| **Russian** | ✅ Complete | EN, ES, FR, DE, IT, PT (6/6) |
+| **Polish** | ✅ Complete | EN, ES, FR, DE, IT, PT (6/6) |
+
+### New Content Summary
+
+| Category | New Articles | Details |
+|----------|--------------|---------|
+| I Love You (FR/IT/PT targets) | 12 | Completing the series |
+| Russian Pet Names | 5 | ES, FR, DE, IT, PT natives |
+| Polish Pet Names | 2 | IT, PT natives |
+| **Total Session 3** | **19** | |
+
+### Images Added
+- 21 new hero images for German native content
+- Fixed pet names image naming (russian/polish)
+
+---
+
+## Recent SEO Work (Jan 21, 2026 - Session 2)
+
+### Content Series Completed ✅
+
+**Ukrainian Pet Names (6 articles)** - Top GSC performer expanded
+- All 6 native languages now have `/uk/ukrainian-pet-names-terms-of-endearment.mdx`
+- Matching slug enables hreflang linking
+- Hero image generated: `ukrainian-pet-names-terms-of-endearment.jpg`
+
+**"I Love You" Series Expansion**
+| Target | Before | After | Status |
+|--------|--------|-------|--------|
+| Ukrainian | 0 | 6 | ✅ Complete |
+| Polish | 5 | 6 | ✅ Complete |
+| Russian | 1 | 6 | ✅ Complete |
+| German | 2 | 5 | ✅ Complete (skip DE→DE) |
+| Spanish | 3 | 5 | ✅ Complete (skip ES→ES) |
+
+**German Native Content (Critical Gap Filled)**
+| Pair | Before | After | Articles Added |
+|------|--------|-------|----------------|
+| DE→PL | 1 | 11 | +10 |
+| DE→UK | 2 | 10 | +8 |
+
+### Compare Section Fixed ✅
+- `/compare/index.astro` - Now real landing page (was redirect stub)
+- Created `/compare/de/`, `/compare/it/`, `/compare/pt/`
+- All 7 compare pages have canonical tags
+
+---
+
+## Recent SEO Work (Jan 21, 2026 - Session 1)
+
+### Hero Images Complete ✅
+- Generated 369 missing hero images using Z Image Turbo (Glif MCP)
+- All articles now have matching hero images
+- Total: 611 images in `/blog/public/blog/`
+
+### Documentation Created ✅
+- `ARTICLE_SOP.md` - Comprehensive guide for article creation
+  - Directory structure and file naming conventions
+  - Frontmatter schema with all required fields
+  - MDX components (VocabCard, CultureTip, PhraseOfDay)
+  - Hreflang linking strategy for content series
+  - Language-specific writing guidelines
+  - Validation checklist and troubleshooting
 
 ---
 
@@ -432,9 +612,9 @@ done
 Ukrainian is our breakout performer! Create these articles in ALL 6 native languages:
 
 **EN Native → Ukrainian:**
-- [ ] Ukrainian Romantic Phrases for Couples ✅ (performing - expand)
-- [ ] Ukrainian Pet Names & Terms of Endearment (variant of working content)
-- [ ] How to Say I Love You in Ukrainian (high-intent query)
+- [x] Ukrainian Romantic Phrases for Couples ✅ (performing)
+- [x] Ukrainian Pet Names & Terms of Endearment ✅ (6 native langs)
+- [x] How to Say I Love You in Ukrainian ✅ (6 native langs)
 - [ ] Ukrainian Pronunciation Guide for English Speakers
 - [ ] Ukrainian Cyrillic Alphabet for Beginners
 - [ ] Meeting Your Ukrainian Partner's Family
@@ -442,9 +622,8 @@ Ukrainian is our breakout performer! Create these articles in ALL 6 native langu
 - [ ] Ukrainian Texting Slang for Couples
 
 **ES/FR/DE/IT/PT Native → Ukrainian:**
-Translate top-performing Ukrainian articles to capture:
-- German speakers learning Ukrainian (strong German market signal)
-- Romance language speakers (ES/FR/IT/PT) learning Ukrainian
+- [x] German speakers learning Ukrainian - 10 articles created
+- [ ] Romance language speakers (ES/FR/IT/PT) - needs expansion
 
 ### 📈 "I Love You" Content Series
 
@@ -452,12 +631,12 @@ High-intent, converting queries. Create for EVERY target language:
 
 | Language | EN Native | ES Native | FR Native | DE Native | IT Native | PT Native |
 |----------|-----------|-----------|-----------|-----------|-----------|-----------|
-| Polish | ✅ | ✅ | ✅ | [ ] | [ ] | [ ] |
-| Ukrainian | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
-| Russian | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
-| German | ✅ | [ ] | [ ] | - | [ ] | [ ] |
+| Polish | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ← COMPLETE
+| Ukrainian | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ← COMPLETE
+| Russian | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ← COMPLETE
+| German | ✅ | ✅ | ✅ | - | ✅ | ✅ | ← COMPLETE
 | French | ✅ | [ ] | - | [ ] | [ ] | [ ] |
-| Spanish | ✅ | - | [ ] | [ ] | [ ] | [ ] |
+| Spanish | ✅ | - | ✅ | ✅ | ✅ | ✅ | ← COMPLETE
 | Italian | ✅ | [ ] | [ ] | [ ] | - | [ ] |
 | Portuguese | [ ] | [ ] | [ ] | [ ] | [ ] | - |
 | Dutch | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
@@ -475,18 +654,18 @@ High-intent, converting queries. Create for EVERY target language:
 Second-highest performing category. Expand across all language pairs:
 
 **Priority targets (based on GSC):**
-1. Ukrainian pet names → all native languages
-2. Polish pet names → DE/IT/PT native (gaps)
-3. Russian pet names → all native languages
-4. Turkish pet names → all native languages
+1. ✅ Ukrainian pet names → all native languages - COMPLETE (6 articles)
+2. [ ] Polish pet names → DE/IT/PT native (gaps)
+3. [ ] Russian pet names → all native languages
+4. [ ] Turkish pet names → all native languages
 
 ### 📈 German Market Expansion
 
 9 impressions from Germany. Create more DE-native content:
 
-**DE Native Articles to Create:**
-- [ ] DE→PL: 50 articles (currently 0 - CRITICAL GAP)
-- [ ] DE→UK: Ukrainian content for German speakers
+**DE Native Articles Created:**
+- [x] DE→PL: 11 articles (was 0, now 11) ✅ SIGNIFICANT PROGRESS
+- [x] DE→UK: 10 articles (was 2, now 10) ✅ SIGNIFICANT PROGRESS
 - [ ] DE→RU: Russian content for German speakers
 - [ ] DE→TR: Turkish content for German speakers
 
@@ -547,18 +726,24 @@ Pages ranking on page 2. Optimize these first:
 
 ## Next Actions
 
-1. [x] ~~Merge `feature/name-day-finder` to `main`~~ (completed)
-2. [x] ~~Add DE/IT/PT native language content~~ (completed - 75-78 articles each)
-3. [x] ~~Generate ~369 missing hero images~~ (503/610 complete, agents running)
-4. [ ] **PRIORITY:** Ukrainian content expansion (all 6 native languages)
-5. [ ] **PRIORITY:** "I Love You" article series (all language pairs)
-6. [ ] Generate 50 DE→PL articles (CRITICAL GAP)
-7. [ ] Expand IT→PL from 3 to 50 articles
-8. [ ] Expand PT→PL from 3 to 50 articles
-9. [ ] Expand EN→ES/FR/DE/IT from 25 to 50 each
-10. [ ] Pet names series expansion
-11. [ ] Expand dictionary to 200+ words
-12. [ ] Build affiliate resource hub
+### Completed ✅
+1. [x] Merge `feature/name-day-finder` to `main`
+2. [x] Add DE/IT/PT native language content (75-78 articles each)
+3. [x] Generate 369 missing hero images (611 total now)
+4. [x] Ukrainian content expansion - pet names & "I love you" (12 articles)
+5. [x] "I Love You" series: PL, UK, RU, DE, ES targets complete
+6. [x] DE→PL expansion (0 → 11 articles)
+7. [x] DE→UK expansion (2 → 10 articles)
+8. [x] Compare section fixed (all 7 native language pages)
+
+### Next Priority
+9. [ ] "I Love You" series: FR, IT, PT targets (remaining gaps)
+10. [ ] Pet names series: Polish, Russian, Turkish
+11. [ ] Expand IT→PL from 3 to 50 articles
+12. [ ] Expand PT→PL from 3 to 50 articles
+13. [ ] DE→RU and DE→TR content
+14. [ ] Expand dictionary to 200+ words
+15. [ ] Build affiliate resource hub
 
 ---
 
@@ -567,7 +752,7 @@ Pages ranking on page 2. Optimize these first:
 ```
 blog/
 ├── src/
-│   ├── content/articles/     # 74 MDX blog posts
+│   ├── content/articles/     # 1,040+ MDX blog posts (6 native × 18 target langs)
 │   ├── data/
 │   │   ├── polish-dictionary.ts   # 109 words, 2154 lines
 │   │   ├── polish-name-days.ts    # 1000+ names, 591 lines
@@ -582,11 +767,15 @@ blog/
 │   │   ├── compare/
 │   │   │   ├── love-languages-vs-duolingo.astro
 │   │   │   ├── love-languages-vs-babbel.astro
-│   │   │   └── index.astro
+│   │   │   ├── index.astro        # Main compare landing
+│   │   │   ├── [nativeLang]/index.astro  # Language-specific
+│   │   │   └── de/, it/, pt/      # New native lang pages
 │   │   └── learn/
 │   │       ├── [...slug].astro    # Article pages
 │   │       └── index.astro        # Article index
 │   └── components/
 │       └── Navigation.astro       # Global nav
+├── public/blog/                   # 611 hero images
+├── ARTICLE_SOP.md                 # Article creation guide
 └── SEO_STATUS.md                  # This file
 ```
