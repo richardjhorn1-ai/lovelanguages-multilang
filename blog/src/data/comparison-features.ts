@@ -427,11 +427,356 @@ const FR_CONTENT: ComparisonContent = {
   languages18: { title: "18 Langues", description: "Apprenez le polonais depuis l'espagnol. Le coréen depuis le français. N'importe quelle langue, n'importe quelle direction. Votre relation, votre choix." }
 };
 
+// German content
+const DE_CONTENT: ComparisonContent = {
+  page: {
+    title: "Love Languages vs {competitor} (2025) - Die Einzige App für Paare",
+    description: "Erfahren Sie, warum Paare Love Languages statt {competitor} wählen. KI-Gespräche, Hörmodus, Partner-Challenges und 18 Sprachen für gemeinsames Lernen.",
+    heroTitle: "Love Languages vs {competitor}",
+    heroSubtitle: "Eine ist für Paare gemacht. Die andere nicht. Das bedeutet das für Ihre Sprachreise.",
+    whatMakesDifferent: "Warum Paare zu Love Languages Wechseln",
+    featureComparison: "Direkter Vergleich",
+    builtForLearning: "Funktionen, die Wirklich für Paare Funktionieren",
+    readyToLearn: "Gemeinsam Lernen Starten",
+    otherComparisons: "Andere Vergleiche",
+    allComparisons: "Alle Vergleiche",
+    bestForCouples: "Für Paare entwickelt",
+    ctaTitle: "Die Sprache Ihres Partners, Gemeinsam",
+    ctaSubtitle: "18 Sprachen. KI, die sich anpasst. Funktionen für zwei. So lernen Paare wirklich.",
+    ctaButton: "Kostenlos Testen",
+    ctaFooter: "Schließen Sie sich über 10.000 Paaren an, die zusammen lernen",
+    footerTagline: "Die Sprach-App für Paare",
+    blog: "Blog",
+    tools: "Werkzeuge",
+    compare: "Vergleichen",
+    terms: "AGB",
+    privacy: "Datenschutz"
+  },
+  loveLanguagesSummary: [
+    { text: "18 Sprachen, jede Richtung", positive: true },
+    { text: "KI-Gespräche, die sich anpassen", positive: true },
+    { text: "Hörmodus erfasst echte Gespräche", positive: true },
+    { text: "Challenge- und Geschenk-Funktionen für Paare", positive: true }
+  ],
+  chooseLoveLanguages: [
+    "Sie lernen die Muttersprache Ihres Partners",
+    "Sie wollen wirklich sprechen, nicht nur Antworten tippen",
+    "Sie lernen besser mit jemandem an Ihrer Seite",
+    "Sie treffen die Familie oder ziehen ins Ausland",
+    "Sie wollen Sprachenlernen zu einer gemeinsamen Aktivität machen"
+  ],
+  chooseLoveLanguagesTitle: "Love Languages ist für Sie, wenn...",
+
+  // Duolingo
+  duolingoFeatures: [
+    { name: "Sprachen", loveLanguages: { value: "18 (jede Kombination)", highlight: true }, competitor: { value: "40+ (eine Richtung)", highlight: false } },
+    { name: "Paar-Funktionen", loveLanguages: { value: "Challenges, Geschenke, geteilter Fortschritt", highlight: true }, competitor: { value: "Keine", highlight: false } },
+    { name: "KI-Gespräche", loveLanguages: { value: "Echtzeit mit Gemini AI", highlight: true }, competitor: { value: "Vorgefertigte Antworten", highlight: false } },
+    { name: "Sprachübung", loveLanguages: { value: "Natürlich mit KI sprechen", highlight: true }, competitor: { value: "Feste Phrasen wiederholen", highlight: false } },
+    { name: "Hörmodus", loveLanguages: { value: "Erfasst & übersetzt Live-Sprache", highlight: true }, competitor: { value: "Nein", highlight: false } },
+    { name: "Lernstil", loveLanguages: { value: "Gesprächsorientiert", highlight: true }, competitor: { value: "Übersetzungsübungen", highlight: false } },
+    { name: "Vokabular", loveLanguages: { value: "Persönliches Love Log", highlight: true }, competitor: { value: "Kursgebunden", highlight: false } },
+    { name: "Ideal für", loveLanguages: { value: "Paare, echte Gespräche", highlight: true }, competitor: { value: "Solo, lockeres Lernen", highlight: false } }
+  ],
+  duolingoSummary: [
+    { text: "Kostenloses Level mit Werbung", positive: true },
+    { text: "Streak-basierte Motivation", positive: true },
+    { text: "Gleiches Format für alle Sprachen", positive: false },
+    { text: "Keine Paar-Funktionen", positive: false }
+  ],
+  duolingoSubtitle: "Gamifiziertes Solo-Lernen",
+  chooseDuolingo: [
+    "Sie wollen kostenlos und Werbung stört nicht",
+    "Sie lernen alleine",
+    "Sie sammeln lieber Streaks als zu sprechen",
+    "5 Minuten pro Tag ist Ihr Maximum"
+  ],
+  chooseDuolingoTitle: "Duolingo könnte passen, wenn...",
+  duolingoFaqs: [
+    { question: "Kann Duolingo mir helfen, mit der Familie meines Partners zu sprechen?", answer: "Duolingo lehrt Sie, Sätze zu übersetzen. Love Languages lehrt Sie, Gespräche zu führen. Wenn Sie wirklich mit der Familie Ihres Partners sprechen müssen, brauchen Sie Sprechübung - keine Zuordnungsübungen." },
+    { question: "Warum ist Love Languages besser für Paare?", answer: "Weil es für Paare gemacht ist. Senden Sie Ihrem Partner Vokabel-Geschenke. Fordern Sie sich gegenseitig in Spielen heraus. Lernen Sie beim Abwaschen mit dem Hörmodus. Verfolgen Sie den Fortschritt gemeinsam. Duolingo hat nichts davon." },
+    { question: "Reicht das kostenlose Level von Duolingo?", answer: "Für lockeres Vokabular, ja. Um die Sprache Ihres Partners wirklich zu sprechen? Sie brauchen echte Gesprächsübung. Love Languages nutzt KI für echte Gespräche - in 18 Sprachen." },
+    { question: "Sollte ich beide Apps nutzen?", answer: "Manche tun das. Nutzen Sie Duolingo für 5-Minuten-Pausen. Nutzen Sie Love Languages, wenn Sie ernsthaft sprechen wollen. Eine gibt Ihnen Streaks. Die andere gibt Ihnen Fähigkeiten." }
+  ],
+
+  // Babbel
+  babbelFeatures: [
+    { name: "Sprachen", loveLanguages: { value: "18 (jede Kombination)", highlight: true }, competitor: { value: "14 (begrenzte Paare)", highlight: false } },
+    { name: "Paar-Funktionen", loveLanguages: { value: "Challenges, Geschenke, geteilter Fortschritt", highlight: true }, competitor: { value: "Keine", highlight: false } },
+    { name: "KI-Gespräche", loveLanguages: { value: "Echtzeit mit Gemini AI", highlight: true }, competitor: { value: "Voraufgezeichnete Lektionen", highlight: false } },
+    { name: "Sprachübung", loveLanguages: { value: "Natürlich mit KI sprechen", highlight: true }, competitor: { value: "Ausspracheübungen", highlight: false } },
+    { name: "Hörmodus", loveLanguages: { value: "Erfasst & übersetzt Live-Sprache", highlight: true }, competitor: { value: "Nur Podcasts", highlight: false } },
+    { name: "Personalisierung", loveLanguages: { value: "KI passt sich in Echtzeit an", highlight: true }, competitor: { value: "Feste Lektionsreihenfolge", highlight: false } },
+    { name: "Lernstil", loveLanguages: { value: "Gespräch zuerst", highlight: true }, competitor: { value: "Grammatik zuerst", highlight: false } },
+    { name: "Ideal für", loveLanguages: { value: "Paare, echte Gespräche", highlight: true }, competitor: { value: "Solo, strukturiertes Lernen", highlight: false } }
+  ],
+  babbelSummary: [
+    { text: "Von Linguisten entwickelte Kurse", positive: true },
+    { text: "Strukturierter Fortschritt", positive: true },
+    { text: "Nur 14 Sprachen", positive: false },
+    { text: "Keine Paar-Funktionen", positive: false }
+  ],
+  babbelSubtitle: "Strukturierte Solo-Kurse",
+  chooseBabbel: [
+    "Sie bevorzugen einen festen Lehrplan",
+    "Sie lernen alleine für die Arbeit",
+    "Sie mögen Lehrbuch-Progression",
+    "Sie wollen lebenslangen Zugang für einen Preis"
+  ],
+  chooseBabbelTitle: "Babbel könnte passen, wenn...",
+  babbelFaqs: [
+    { question: "Ist Babbel gut zum Lernen mit meinem Partner?", answer: "Babbel ist für eine Person mit einem Lehrplan konzipiert. Keine geteilten Funktionen, keine Challenges, keine Möglichkeit zusammen zu lernen. Love Languages ist speziell für Paare gemacht." },
+    { question: "Was unterscheidet Love Languages von Babbel?", answer: "Babbel gibt Ihnen Lektionen. Love Languages gibt Ihnen Gespräche. Unsere KI passt sich Ihrem Niveau in Echtzeit an. Senden Sie Ihrem Partner Wort-Geschenke. Fordern Sie ihn zu Vokabel-Kämpfen heraus. Lernen Sie freihändig mit dem Hörmodus." },
+    { question: "Welche hat bessere Gesprächsübung?", answer: "Love Languages, bei weitem. Babbel hat vorgefertigte Dialoge. Wir haben KI, die wirklich auf das antwortet, was Sie sagen, Ihre Fehler korrigiert und Ihnen hilft, natürlich zu sprechen." },
+    { question: "Kann ich von Babbel wechseln?", answer: "Ja. Viele Paare wechseln, wenn sie merken, dass sie eine Speisekarte lesen, aber kein Gespräch führen können. Love Languages konzentriert sich vom ersten Tag an aufs Sprechen." }
+  ],
+
+  // Feature cards
+  listenMode: { title: "Hörmodus", description: "Erfassen Sie echte Gespräche um Sie herum. Hören Sie Ihren Partner sprechen, erhalten Sie sofortige Übersetzungen und Erklärungen. Lernen Sie von der Sprache in Ihrem Leben." },
+  partnerChallenges: { title: "Partner-Challenges", description: "Senden Sie Vokabel-Challenges an Ihren Partner. Testen Sie sich gegenseitig, sammeln Sie gemeinsam Punkte, machen Sie Lernen zu einer Teamaktivität." },
+  wordGifts: { title: "Wort-Geschenke", description: "Senden Sie Ihrem Partner ein schönes Wort oder eine Phrase. Eine kleine Überraschung, die zeigt, dass Sie an ihn denken - und an seine Sprache." },
+  gameModes: { title: "5 Spielmodi", description: "Karteikarten, Hörspiele, Sprech-Challenges. Für zwei Personen konzipiert, nicht für eine Person mit einem Streak." },
+  loveLog: { title: "Love Log", description: "Jedes Wort, das Sie lernen, gespeichert. Gemeinsam wiederholen, sich gegenseitig testen, Ihr gemeinsames Vokabular wachsen sehen." },
+  progressXP: { title: "Fortschritt & XP", description: "Gemeinsam aufsteigen. Sehen, wer sich anstrengt. Ein bisschen Wettbewerb hilft beim Lernen." },
+  languages18: { title: "18 Sprachen", description: "Lernen Sie Polnisch von Spanisch. Koreanisch von Französisch. Jede Sprache, jede Richtung. Ihre Beziehung, Ihre Wahl." }
+};
+
+// Italian content
+const IT_CONTENT: ComparisonContent = {
+  page: {
+    title: "Love Languages vs {competitor} (2025) - L'Unica App per Coppie",
+    description: "Scopri perché le coppie scelgono Love Languages invece di {competitor}. Conversazioni IA, Modalità Ascolto, sfide di coppia e 18 lingue per imparare insieme.",
+    heroTitle: "Love Languages vs {competitor}",
+    heroSubtitle: "Una è fatta per le coppie. L'altra no. Ecco cosa significa per il tuo percorso linguistico.",
+    whatMakesDifferent: "Perché le Coppie Scelgono Love Languages",
+    featureComparison: "Confronto Diretto",
+    builtForLearning: "Funzionalità che Funzionano Davvero per le Coppie",
+    readyToLearn: "Inizia a Imparare Insieme",
+    otherComparisons: "Altri Confronti",
+    allComparisons: "Tutti i Confronti",
+    bestForCouples: "Progettato per le coppie",
+    ctaTitle: "La Lingua del Tuo Partner, Insieme",
+    ctaSubtitle: "18 lingue. IA che si adatta. Funzionalità per due. È così che le coppie imparano davvero.",
+    ctaButton: "Prova Gratis",
+    ctaFooter: "Unisciti a oltre 10.000 coppie che imparano insieme",
+    footerTagline: "L'app di lingue per le coppie",
+    blog: "Blog",
+    tools: "Strumenti",
+    compare: "Confronta",
+    terms: "Termini",
+    privacy: "Privacy"
+  },
+  loveLanguagesSummary: [
+    { text: "18 lingue, qualsiasi direzione", positive: true },
+    { text: "Conversazioni IA che si adattano", positive: true },
+    { text: "Modalità Ascolto cattura conversazioni reali", positive: true },
+    { text: "Funzionalità sfide e regali per coppie", positive: true }
+  ],
+  chooseLoveLanguages: [
+    "Stai imparando la lingua madre del tuo partner",
+    "Vuoi parlare davvero, non solo toccare risposte",
+    "Impari meglio con qualcuno al tuo fianco",
+    "Stai incontrando la famiglia o trasferendoti all'estero",
+    "Vuoi rendere l'apprendimento un'attività condivisa"
+  ],
+  chooseLoveLanguagesTitle: "Love Languages fa per te se...",
+
+  // Duolingo
+  duolingoFeatures: [
+    { name: "Lingue", loveLanguages: { value: "18 (qualsiasi combinazione)", highlight: true }, competitor: { value: "40+ (una direzione)", highlight: false } },
+    { name: "Funzionalità Coppia", loveLanguages: { value: "Sfide, regali, progresso condiviso", highlight: true }, competitor: { value: "Nessuna", highlight: false } },
+    { name: "Conversazioni IA", loveLanguages: { value: "Tempo reale con Gemini AI", highlight: true }, competitor: { value: "Risposte predefinite", highlight: false } },
+    { name: "Pratica Vocale", loveLanguages: { value: "Parla naturalmente con l'IA", highlight: true }, competitor: { value: "Ripeti frasi fisse", highlight: false } },
+    { name: "Modalità Ascolto", loveLanguages: { value: "Cattura e traduce voce dal vivo", highlight: true }, competitor: { value: "No", highlight: false } },
+    { name: "Stile di Apprendimento", loveLanguages: { value: "Focalizzato sulla conversazione", highlight: true }, competitor: { value: "Esercizi di traduzione", highlight: false } },
+    { name: "Vocabolario", loveLanguages: { value: "Love Log personale", highlight: true }, competitor: { value: "Bloccato per corso", highlight: false } },
+    { name: "Ideale Per", loveLanguages: { value: "Coppie, conversazioni reali", highlight: true }, competitor: { value: "Solo, apprendimento casual", highlight: false } }
+  ],
+  duolingoSummary: [
+    { text: "Livello gratuito con pubblicità", positive: true },
+    { text: "Motivazione basata su streak", positive: true },
+    { text: "Stesso formato per tutte le lingue", positive: false },
+    { text: "Zero funzionalità per coppie", positive: false }
+  ],
+  duolingoSubtitle: "Apprendimento solo gamificato",
+  chooseDuolingo: [
+    "Vuoi gratis e la pubblicità non ti disturba",
+    "Impari da solo/a",
+    "Preferisci collezionare streak che parlare",
+    "5 minuti al giorno è il tuo massimo"
+  ],
+  chooseDuolingoTitle: "Duolingo potrebbe andare se...",
+  duolingoFaqs: [
+    { question: "Duolingo può aiutarmi a parlare con la famiglia del mio partner?", answer: "Duolingo ti insegna a tradurre frasi. Love Languages ti insegna a conversare. Se devi parlare con la famiglia del tuo partner, hai bisogno di pratica parlata - non esercizi di abbinamento." },
+    { question: "Perché Love Languages è meglio per le coppie?", answer: "Perché è fatto per le coppie. Invia regali di vocabolario al tuo partner. Sfidatevi nei giochi. Impara mentre lavi i piatti con la Modalità Ascolto. Monitora i progressi insieme. Duolingo non ha niente di questo." },
+    { question: "Il livello gratuito di Duolingo è sufficiente?", answer: "Per vocabolario casual, sì. Per parlare la lingua del tuo partner? Hai bisogno di pratica di conversazione reale. Love Languages usa l'IA per conversazioni reali - in 18 lingue." },
+    { question: "Dovrei usare entrambe le app?", answer: "Alcuni lo fanno. Usa Duolingo per pause di 5 minuti. Usa Love Languages quando vuoi parlare seriamente. Una ti dà streak. L'altra ti dà competenze." }
+  ],
+
+  // Babbel
+  babbelFeatures: [
+    { name: "Lingue", loveLanguages: { value: "18 (qualsiasi combinazione)", highlight: true }, competitor: { value: "14 (coppie limitate)", highlight: false } },
+    { name: "Funzionalità Coppia", loveLanguages: { value: "Sfide, regali, progresso condiviso", highlight: true }, competitor: { value: "Nessuna", highlight: false } },
+    { name: "Conversazioni IA", loveLanguages: { value: "Tempo reale con Gemini AI", highlight: true }, competitor: { value: "Lezioni preregistrate", highlight: false } },
+    { name: "Pratica Vocale", loveLanguages: { value: "Parla naturalmente con l'IA", highlight: true }, competitor: { value: "Esercizi di pronuncia", highlight: false } },
+    { name: "Modalità Ascolto", loveLanguages: { value: "Cattura e traduce voce dal vivo", highlight: true }, competitor: { value: "Solo podcast", highlight: false } },
+    { name: "Personalizzazione", loveLanguages: { value: "L'IA si adatta in tempo reale", highlight: true }, competitor: { value: "Ordine lezioni fisso", highlight: false } },
+    { name: "Stile di Apprendimento", loveLanguages: { value: "Conversazione prima", highlight: true }, competitor: { value: "Grammatica prima", highlight: false } },
+    { name: "Ideale Per", loveLanguages: { value: "Coppie, conversazioni reali", highlight: true }, competitor: { value: "Solo, studio strutturato", highlight: false } }
+  ],
+  babbelSummary: [
+    { text: "Corsi progettati da linguisti", positive: true },
+    { text: "Progressione strutturata", positive: true },
+    { text: "Solo 14 lingue", positive: false },
+    { text: "Zero funzionalità per coppie", positive: false }
+  ],
+  babbelSubtitle: "Corsi strutturati per singoli",
+  chooseBabbel: [
+    "Preferisci seguire un curriculum fisso",
+    "Impari da solo/a per lavoro",
+    "Ti piace la progressione stile libro",
+    "Vuoi accesso a vita con un solo pagamento"
+  ],
+  chooseBabbelTitle: "Babbel potrebbe andare se...",
+  babbelFaqs: [
+    { question: "Babbel va bene per imparare con il mio partner?", answer: "Babbel è progettato per una persona che segue un curriculum. Nessuna funzionalità condivisa, nessuna sfida, nessun modo di imparare insieme. Love Languages è fatto specificamente per le coppie." },
+    { question: "Cosa rende Love Languages diverso da Babbel?", answer: "Babbel ti dà lezioni. Love Languages ti dà conversazioni. La nostra IA si adatta al tuo livello in tempo reale. Invia regali di parole al tuo partner. Sfidalo a battaglie di vocabolario. Impara a mani libere con la Modalità Ascolto." },
+    { question: "Quale ha migliore pratica di conversazione?", answer: "Love Languages, di gran lunga. Babbel ha dialoghi predefiniti. Noi abbiamo IA che risponde davvero a ciò che dici, corregge i tuoi errori e ti aiuta a parlare naturalmente." },
+    { question: "Posso passare da Babbel?", answer: "Sì. Molte coppie cambiano quando si rendono conto che possono leggere un menu ma non sostenere una conversazione. Love Languages si concentra sul parlare dal primo giorno." }
+  ],
+
+  // Feature cards
+  listenMode: { title: "Modalità Ascolto", description: "Cattura conversazioni reali intorno a te. Ascolta il tuo partner parlare, ottieni traduzioni e spiegazioni istantanee. Impara dalla lingua che accade nella tua vita." },
+  partnerChallenges: { title: "Sfide di Coppia", description: "Invia sfide di vocabolario al tuo partner. Interrogatevi a vicenda, guadagnate punti insieme, rendete l'apprendimento un'attività di squadra." },
+  wordGifts: { title: "Regali di Parole", description: "Invia al tuo partner una bella parola o frase. Una piccola sorpresa che mostra che pensi a lui/lei - e alla sua lingua." },
+  gameModes: { title: "5 Modalità di Gioco", description: "Flashcard, giochi di ascolto, sfide di conversazione. Progettati per due persone, non per una con uno streak." },
+  loveLog: { title: "Love Log", description: "Ogni parola che impari, salvata. Ripassate insieme, interrogatevi, guardate crescere il vostro vocabolario condiviso." },
+  progressXP: { title: "Progressi e XP", description: "Salite di livello insieme. Vedete chi si impegna. Un po' di competizione aiuta l'apprendimento a restare." },
+  languages18: { title: "18 Lingue", description: "Impara il polacco dallo spagnolo. Il coreano dal francese. Qualsiasi lingua, qualsiasi direzione. La vostra relazione, la vostra scelta." }
+};
+
+// Portuguese content
+const PT_CONTENT: ComparisonContent = {
+  page: {
+    title: "Love Languages vs {competitor} (2025) - O Único App para Casais",
+    description: "Descubra por que casais escolhem Love Languages em vez de {competitor}. Conversas com IA, Modo Escuta, desafios de casal e 18 idiomas para aprender juntos.",
+    heroTitle: "Love Languages vs {competitor}",
+    heroSubtitle: "Um é feito para casais. O outro não. Veja o que isso significa para sua jornada de idiomas.",
+    whatMakesDifferent: "Por Que Casais Mudam para Love Languages",
+    featureComparison: "Comparação Direta",
+    builtForLearning: "Recursos que Realmente Funcionam para Casais",
+    readyToLearn: "Começar a Aprender Juntos",
+    otherComparisons: "Outras Comparações",
+    allComparisons: "Todas as Comparações",
+    bestForCouples: "Feito para casais",
+    ctaTitle: "O Idioma do Seu Parceiro, Juntos",
+    ctaSubtitle: "18 idiomas. IA que se adapta. Recursos para dois. É assim que casais realmente aprendem.",
+    ctaButton: "Experimente Grátis",
+    ctaFooter: "Junte-se a mais de 10.000 casais aprendendo juntos",
+    footerTagline: "O app de idiomas para casais",
+    blog: "Blog",
+    tools: "Ferramentas",
+    compare: "Comparar",
+    terms: "Termos",
+    privacy: "Privacidade"
+  },
+  loveLanguagesSummary: [
+    { text: "18 idiomas, qualquer direção", positive: true },
+    { text: "Conversas com IA que se adaptam", positive: true },
+    { text: "Modo Escuta captura conversas reais", positive: true },
+    { text: "Recursos de desafio e presente para casais", positive: true }
+  ],
+  chooseLoveLanguages: [
+    "Você está aprendendo o idioma nativo do seu parceiro",
+    "Você quer realmente falar, não apenas tocar respostas",
+    "Você aprende melhor com alguém ao seu lado",
+    "Você vai conhecer a família ou se mudar para o exterior",
+    "Você quer fazer do aprendizado uma atividade compartilhada"
+  ],
+  chooseLoveLanguagesTitle: "Love Languages é para você se...",
+
+  // Duolingo
+  duolingoFeatures: [
+    { name: "Idiomas", loveLanguages: { value: "18 (qualquer combinação)", highlight: true }, competitor: { value: "40+ (uma direção)", highlight: false } },
+    { name: "Recursos de Casal", loveLanguages: { value: "Desafios, presentes, progresso compartilhado", highlight: true }, competitor: { value: "Nenhum", highlight: false } },
+    { name: "Conversas com IA", loveLanguages: { value: "Tempo real com Gemini AI", highlight: true }, competitor: { value: "Respostas programadas", highlight: false } },
+    { name: "Prática de Voz", loveLanguages: { value: "Fale naturalmente com a IA", highlight: true }, competitor: { value: "Repita frases fixas", highlight: false } },
+    { name: "Modo Escuta", loveLanguages: { value: "Captura e traduz voz ao vivo", highlight: true }, competitor: { value: "Não", highlight: false } },
+    { name: "Estilo de Aprendizado", loveLanguages: { value: "Focado em conversação", highlight: true }, competitor: { value: "Exercícios de tradução", highlight: false } },
+    { name: "Vocabulário", loveLanguages: { value: "Love Log pessoal", highlight: true }, competitor: { value: "Bloqueado por curso", highlight: false } },
+    { name: "Ideal Para", loveLanguages: { value: "Casais, conversas reais", highlight: true }, competitor: { value: "Solo, aprendizado casual", highlight: false } }
+  ],
+  duolingoSummary: [
+    { text: "Nível grátis com anúncios", positive: true },
+    { text: "Motivação baseada em sequência", positive: true },
+    { text: "Mesmo formato para todos os idiomas", positive: false },
+    { text: "Zero recursos para casais", positive: false }
+  ],
+  duolingoSubtitle: "Aprendizado solo gamificado",
+  chooseDuolingo: [
+    "Você quer grátis e anúncios não incomodam",
+    "Você aprende sozinho/a",
+    "Você prefere colecionar sequências do que falar",
+    "5 minutos por dia é seu máximo"
+  ],
+  chooseDuolingoTitle: "Duolingo pode servir se...",
+  duolingoFaqs: [
+    { question: "O Duolingo pode me ajudar a falar com a família do meu parceiro?", answer: "Duolingo ensina você a traduzir frases. Love Languages ensina você a conversar. Se você precisa falar com a família do seu parceiro, precisa praticar fala - não exercícios de correspondência." },
+    { question: "Por que Love Languages é melhor para casais?", answer: "Porque é feito para casais. Envie presentes de vocabulário para seu parceiro. Desafiem-se em jogos. Aprenda enquanto lava a louça com o Modo Escuta. Acompanhe o progresso juntos. Duolingo não tem nada disso." },
+    { question: "O nível grátis do Duolingo é suficiente?", answer: "Para vocabulário casual, sim. Para realmente falar o idioma do seu parceiro? Você precisa de prática de conversação real. Love Languages usa IA para conversas reais - em 18 idiomas." },
+    { question: "Devo usar os dois apps?", answer: "Alguns fazem isso. Use Duolingo para pausas de 5 minutos. Use Love Languages quando quiser falar de verdade. Um te dá sequências. O outro te dá habilidades." }
+  ],
+
+  // Babbel
+  babbelFeatures: [
+    { name: "Idiomas", loveLanguages: { value: "18 (qualquer combinação)", highlight: true }, competitor: { value: "14 (pares limitados)", highlight: false } },
+    { name: "Recursos de Casal", loveLanguages: { value: "Desafios, presentes, progresso compartilhado", highlight: true }, competitor: { value: "Nenhum", highlight: false } },
+    { name: "Conversas com IA", loveLanguages: { value: "Tempo real com Gemini AI", highlight: true }, competitor: { value: "Aulas pré-gravadas", highlight: false } },
+    { name: "Prática de Voz", loveLanguages: { value: "Fale naturalmente com a IA", highlight: true }, competitor: { value: "Exercícios de pronúncia", highlight: false } },
+    { name: "Modo Escuta", loveLanguages: { value: "Captura e traduz voz ao vivo", highlight: true }, competitor: { value: "Apenas podcasts", highlight: false } },
+    { name: "Personalização", loveLanguages: { value: "IA se adapta em tempo real", highlight: true }, competitor: { value: "Ordem de aulas fixa", highlight: false } },
+    { name: "Estilo de Aprendizado", loveLanguages: { value: "Conversação primeiro", highlight: true }, competitor: { value: "Gramática primeiro", highlight: false } },
+    { name: "Ideal Para", loveLanguages: { value: "Casais, conversas reais", highlight: true }, competitor: { value: "Solo, estudo estruturado", highlight: false } }
+  ],
+  babbelSummary: [
+    { text: "Cursos desenvolvidos por linguistas", positive: true },
+    { text: "Progressão estruturada", positive: true },
+    { text: "Apenas 14 idiomas", positive: false },
+    { text: "Zero recursos para casais", positive: false }
+  ],
+  babbelSubtitle: "Cursos estruturados solo",
+  chooseBabbel: [
+    "Você prefere seguir um currículo fixo",
+    "Você aprende sozinho/a para trabalho",
+    "Você gosta de progressão estilo livro",
+    "Você quer acesso vitalício por um preço"
+  ],
+  chooseBabbelTitle: "Babbel pode servir se...",
+  babbelFaqs: [
+    { question: "Babbel é bom para aprender com meu parceiro?", answer: "Babbel é projetado para uma pessoa seguindo um currículo. Sem recursos compartilhados, sem desafios, sem forma de aprender juntos. Love Languages é feito especificamente para casais." },
+    { question: "O que diferencia Love Languages do Babbel?", answer: "Babbel te dá aulas. Love Languages te dá conversas. Nossa IA se adapta ao seu nível em tempo real. Envie presentes de palavras para seu parceiro. Desafie-o a batalhas de vocabulário. Aprenda sem as mãos com o Modo Escuta." },
+    { question: "Qual tem melhor prática de conversação?", answer: "Love Languages, de longe. Babbel tem diálogos programados. Nós temos IA que realmente responde ao que você diz, corrige seus erros e ajuda você a falar naturalmente." },
+    { question: "Posso trocar do Babbel?", answer: "Sim. Muitos casais trocam quando percebem que conseguem ler um menu, mas não conseguem manter uma conversa. Love Languages foca em falar desde o primeiro dia." }
+  ],
+
+  // Feature cards
+  listenMode: { title: "Modo Escuta", description: "Capture conversas reais ao seu redor. Ouça seu parceiro falar, obtenha traduções e explicações instantâneas. Aprenda com o idioma que acontece na sua vida." },
+  partnerChallenges: { title: "Desafios de Casal", description: "Envie desafios de vocabulário para seu parceiro. Testem-se mutuamente, ganhem pontos juntos, façam do aprendizado uma atividade de equipe." },
+  wordGifts: { title: "Presentes de Palavras", description: "Envie ao seu parceiro uma bela palavra ou frase. Uma pequena surpresa que mostra que você pensa nele/a - e no idioma dele/a." },
+  gameModes: { title: "5 Modos de Jogo", description: "Flashcards, jogos de escuta, desafios de fala. Projetados para duas pessoas, não para uma pessoa com uma sequência." },
+  loveLog: { title: "Love Log", description: "Cada palavra que você aprende, salva. Revisem juntos, testem-se, vejam seu vocabulário compartilhado crescer." },
+  progressXP: { title: "Progresso e XP", description: "Subam de nível juntos. Vejam quem está se esforçando. Um pouco de competição ajuda o aprendizado a fixar." },
+  languages18: { title: "18 Idiomas", description: "Aprenda polonês do espanhol. Coreano do francês. Qualquer idioma, qualquer direção. Seu relacionamento, sua escolha." }
+};
+
 // Content map
 const CONTENT_MAP: Record<string, ComparisonContent> = {
   en: EN_CONTENT,
   es: ES_CONTENT,
-  fr: FR_CONTENT
+  fr: FR_CONTENT,
+  de: DE_CONTENT,
+  it: IT_CONTENT,
+  pt: PT_CONTENT
 };
 
 // Get content for a specific language
