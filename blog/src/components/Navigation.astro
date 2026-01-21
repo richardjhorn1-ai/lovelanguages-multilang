@@ -18,6 +18,18 @@ const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   pt: { flag: '🇵🇹', nativeName: 'Português' },
 };
 
+// Navigation UI translations
+const NAV_TRANSLATIONS: Record<string, { compareApps: string; startLearning: string }> = {
+  en: { compareApps: 'Compare Apps', startLearning: 'Start Learning' },
+  es: { compareApps: 'Comparar Apps', startLearning: 'Empezar' },
+  fr: { compareApps: 'Comparer', startLearning: 'Commencer' },
+  de: { compareApps: 'Vergleichen', startLearning: 'Starten' },
+  it: { compareApps: 'Confronta', startLearning: 'Inizia' },
+  pt: { compareApps: 'Comparar', startLearning: 'Começar' },
+};
+
+const navText = NAV_TRANSLATIONS[nativeLang] || NAV_TRANSLATIONS.en;
+
 // Build logo href - go to current language hub page
 const logoHref = `/learn/${nativeLang}/`;
 
@@ -63,7 +75,7 @@ const currentNativeInfo = LANGUAGE_INFO[nativeLang] || LANGUAGE_INFO.en;
             class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 cursor-pointer border-none outline-none appearance-none pr-8"
             data-native-lang={nativeLang}
           >
-            <option value="" disabled selected>Compare Apps</option>
+            <option value="" disabled selected>{navText.compareApps}</option>
             <option value="love-languages-vs-duolingo">vs Duolingo</option>
             <option value="love-languages-vs-babbel">vs Babbel</option>
           </select>
@@ -75,7 +87,7 @@ const currentNativeInfo = LANGUAGE_INFO[nativeLang] || LANGUAGE_INFO.en;
           href="/"
           class="px-4 py-2 bg-accent text-white font-bold rounded-full hover:bg-accent/90 hover:shadow-md transition-all text-sm"
         >
-          Start Learning
+          {navText.startLearning}
         </a>
       </div>
     </div>
