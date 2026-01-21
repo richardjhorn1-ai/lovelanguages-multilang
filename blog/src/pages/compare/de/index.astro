@@ -1,36 +1,36 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 
-const pageTitle = "Compare Language Learning Apps - Love Languages vs Duolingo, Babbel & More";
-const pageDescription = "Compare Love Languages with Duolingo, Babbel, and other language learning apps. Find the best app for couples learning 18 languages together with Listen Mode and partner challenges.";
-const canonicalUrl = "https://www.lovelanguages.io/compare/";
+const pageTitle = "Sprachlern-Apps Vergleichen - Love Languages vs Duolingo, Babbel & Mehr";
+const pageDescription = "Vergleichen Sie Love Languages mit Duolingo, Babbel und anderen Sprachlern-Apps. Finden Sie die beste App für Paare, die zusammen 18 Sprachen lernen mit Hörmodus und Partner-Herausforderungen.";
+const canonicalUrl = "https://www.lovelanguages.io/compare/de/";
 
 const comparisons = [
   {
     title: "Love Languages vs Duolingo",
-    description: "Compare the gamified free option with our couple-focused multi-language app. See how Listen Mode and partner features stack up.",
+    description: "Vergleichen Sie die kostenlose, gamifizierte Option mit unserer paarfokussierten Multi-Sprach-App. Sehen Sie, wie Hörmodus und Partner-Funktionen abschneiden.",
     href: "/compare/en/love-languages-vs-duolingo",
     competitor: "Duolingo",
     competitorIcon: "owl",
-    verdict: "Best free alternative"
+    verdict: "Beste kostenlose Alternative"
   },
   {
     title: "Love Languages vs Babbel",
-    description: "Compare structured solo courses with AI-powered conversational learning for couples. 18 languages vs 14.",
+    description: "Vergleichen Sie strukturierte Einzelkurse mit KI-gestütztem Konversationslernen für Paare. 18 Sprachen vs. 14.",
     href: "/compare/en/love-languages-vs-babbel",
     competitor: "Babbel",
     competitorIcon: "books",
-    verdict: "Best for structured learners"
+    verdict: "Beste für strukturierte Lerner"
   }
 ];
 
 const features = [
-  { icon: "heart", title: "Built for Couples", description: "The only language app designed for learning together with partner challenges, word gifts, and shared progress." },
-  { icon: "headphones", title: "Listen Mode", description: "Learn passively while cooking, commuting, or relaxing. No other app lets you absorb language so naturally." },
-  { icon: "globe", title: "18 Languages", description: "Spanish, French, German, Italian, Portuguese, Polish, and more. Any native language to any target language." },
-  { icon: "robot", title: "AI Conversations", description: "Real conversations with AI that adapts to your level. Practice speaking anytime, not just scripted exercises." },
-  { icon: "gamepad", title: "5 Game Modes", description: "Flashcard battles, listening challenges, and more. Games designed for couples to compete and learn together." },
-  { icon: "gift", title: "Word Gifts", description: "Send romantic vocabulary to your partner. A sweet way to share your progress and encourage each other." }
+  { icon: "heart", title: "Für Paare Entwickelt", description: "Die einzige Sprach-App, die für gemeinsames Lernen mit Partner-Herausforderungen, Wortgeschenken und gemeinsamem Fortschritt entwickelt wurde." },
+  { icon: "headphones", title: "Hörmodus", description: "Lernen Sie passiv beim Kochen, Pendeln oder Entspannen. Keine andere App lässt Sie Sprache so natürlich aufnehmen." },
+  { icon: "globe", title: "18 Sprachen", description: "Spanisch, Französisch, Deutsch, Italienisch, Portugiesisch, Polnisch und mehr. Jede Muttersprache zu jeder Zielsprache." },
+  { icon: "robot", title: "KI-Gespräche", description: "Echte Gespräche mit KI, die sich Ihrem Niveau anpasst. Üben Sie jederzeit Sprechen, nicht nur vorgefertigte Übungen." },
+  { icon: "gamepad", title: "5 Spielmodi", description: "Karteikarten-Kämpfe, Hör-Herausforderungen und mehr. Spiele, die für Paare entwickelt wurden, um gemeinsam zu konkurrieren und zu lernen." },
+  { icon: "gift", title: "Wortgeschenke", description: "Senden Sie romantisches Vokabular an Ihren Partner. Eine süße Art, Ihren Fortschritt zu teilen und sich gegenseitig zu ermutigen." }
 ];
 
 const nativeLanguages = [
@@ -45,10 +45,10 @@ const nativeLanguages = [
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Compare Language Learning Apps",
+  "name": "Sprachlern-Apps Vergleichen",
   "description": pageDescription,
   "url": canonicalUrl,
-  "inLanguage": "en",
+  "inLanguage": "de",
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
@@ -60,7 +60,7 @@ const jsonLd = {
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
-  nativeLang="en"
+  nativeLang="de"
 >
   <link slot="head" rel="canonical" href={canonicalUrl} />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -70,13 +70,13 @@ const jsonLd = {
     <div class="max-w-4xl mx-auto px-4 py-10 md:py-14">
       <div class="text-center">
         <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
-          Compare Language Learning Apps
+          Sprachlern-Apps Vergleichen
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          Honest comparisons to help you choose the right app for learning languages with your partner
+          Ehrliche Vergleiche, um Ihnen bei der Wahl der richtigen App zum Sprachenlernen mit Ihrem Partner zu helfen
         </p>
         <p class="text-gray-500">
-          See how Love Languages compares to popular language learning apps like Duolingo and Babbel
+          Sehen Sie, wie Love Languages im Vergleich zu beliebten Sprachlern-Apps wie Duolingo und Babbel abschneidet
         </p>
       </div>
     </div>
@@ -86,7 +86,7 @@ const jsonLd = {
     <!-- Comparison Cards -->
     <section class="mb-12">
       <h2 class="text-2xl font-bold font-header text-gray-900 mb-6 text-center">
-        Featured Comparisons
+        Vorgestellte Vergleiche
       </h2>
       <div class="grid md:grid-cols-2 gap-6">
         {comparisons.map(comp => (
@@ -108,7 +108,7 @@ const jsonLd = {
                 {comp.competitor}: {comp.verdict}
               </span>
               <span class="text-accent font-medium group-hover:translate-x-1 transition-transform">
-                Compare →
+                Vergleichen →
               </span>
             </div>
           </a>
@@ -119,14 +119,14 @@ const jsonLd = {
     <!-- Language Selector -->
     <section class="mb-12 bg-gray-50 rounded-2xl p-6">
       <h2 class="text-xl font-bold font-header text-gray-900 mb-4 text-center">
-        View Comparisons in Your Language
+        Vergleiche in Ihrer Sprache Anzeigen
       </h2>
       <div class="flex flex-wrap justify-center gap-3">
         {nativeLanguages.map(lang => (
           <a
             href={lang.href}
             class={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-              lang.code === 'en'
+              lang.code === 'de'
                 ? 'bg-accent text-white'
                 : 'bg-white border border-gray-200 text-gray-700 hover:border-accent hover:text-accent'
             }`}
@@ -140,7 +140,7 @@ const jsonLd = {
     <!-- Why Love Languages Section -->
     <section class="mb-12 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl p-8">
       <h2 class="text-2xl font-bold font-header text-gray-900 mb-6 text-center">
-        Why Couples Choose Love Languages
+        Warum Paare Love Languages Wählen
       </h2>
       <div class="grid md:grid-cols-3 gap-6 mb-8">
         {features.slice(0, 3).map(feature => (
@@ -173,16 +173,16 @@ const jsonLd = {
     <!-- CTA -->
     <div class="bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
       <h2 class="text-2xl md:text-3xl font-bold font-header mb-3">
-        See Why Couples Love Us
+        Erfahren Sie, Warum Paare Uns Lieben
       </h2>
       <p class="text-white/90 mb-6 text-lg">
-        AI coaching, Listen Mode, partner challenges, and games designed for learning 18 languages together.
+        KI-Coaching, Hörmodus, Partner-Herausforderungen und Spiele, die für das gemeinsame Lernen von 18 Sprachen entwickelt wurden.
       </p>
       <a
         href="/"
         class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
       >
-        Start Learning Together →
+        Gemeinsam Lernen Beginnen →
       </a>
     </div>
   </main>
@@ -194,13 +194,13 @@ const jsonLd = {
         <img src="/favicon.svg" alt="" class="w-8 h-8" />
         Love Languages
       </a>
-      <p class="text-gray-600 mb-6">The language app for couples</p>
+      <p class="text-gray-600 mb-6">Die Sprach-App für Paare</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
-        <a href="/learn/en/" class="hover:text-accent">Blog</a>
-        <a href="/tools" class="hover:text-accent">Tools</a>
-        <a href="/compare/" class="hover:text-accent">Compare</a>
-        <a href="/terms" class="hover:text-accent">Terms</a>
-        <a href="/privacy" class="hover:text-accent">Privacy</a>
+        <a href="/learn/de/" class="hover:text-accent">Blog</a>
+        <a href="/tools" class="hover:text-accent">Werkzeuge</a>
+        <a href="/compare/de/" class="hover:text-accent">Vergleichen</a>
+        <a href="/terms" class="hover:text-accent">AGB</a>
+        <a href="/privacy" class="hover:text-accent">Datenschutz</a>
       </nav>
     </div>
   </footer>

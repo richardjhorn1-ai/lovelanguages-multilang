@@ -1,35 +1,39 @@
 # Multi-Language Blog Expansion Plan
 
+> **Last Updated: January 21, 2026**
+
 ## Overview
 
 Expand the blog from English-only native language perspective to support multiple native languages, dramatically increasing SEO reach and market coverage.
 
 ---
 
-## Current State
+## Current State (Updated Jan 21, 2026)
 
-- **89 articles** covering English speakers learning 18 target languages
-- All articles have `nativeLanguage: en`
-- URL structure: `/learn/[lang]/[article-slug]/`
-- Example: `/learn/de/how-to-say-i-love-you-in-german/`
+- **1,003 articles** across 6 native languages
+- Native languages: EN (294), ES (239), FR (239), DE (75), IT (78), PT (78)
+- URL structure: `/learn/[nativeLang]/[targetLang]/[article-slug]/`
+- Example: `/learn/de/en/how-to-say-i-love-you-in-english/`
+
+### Phase 1 Status: ✅ COMPLETE
+- Spanish, French, German, Italian, Portuguese native content created
+- All major language pairs have 15-25 articles
 
 ---
 
-## Proposed Expansion
+## Expansion Progress
 
-### Phase 1: Priority Native Languages (5 languages)
+### Phase 1: Priority Native Languages ✅ COMPLETE
 
-Focus on the largest language markets first:
+| Native Language | Code | Articles | Status |
+|-----------------|------|----------|--------|
+| Spanish | es | 239 | ✅ Complete |
+| French | fr | 239 | ✅ Complete |
+| German | de | 75 | ✅ Complete |
+| Portuguese | pt | 78 | ✅ Complete |
+| Italian | it | 78 | ✅ Complete |
 
-| Native Language | Code | Speakers (M) | Priority |
-|-----------------|------|--------------|----------|
-| Spanish | es | 500M+ | 1 |
-| French | fr | 300M+ | 2 |
-| German | de | 100M+ | 3 |
-| Portuguese | pt | 250M+ | 4 |
-| Italian | it | 65M+ | 5 |
-
-### Phase 2: Secondary Languages (5 languages)
+### Phase 2: Secondary Languages (Not Started)
 
 | Native Language | Code | Speakers (M) | Priority |
 |-----------------|------|--------------|----------|
@@ -38,6 +42,16 @@ Focus on the largest language markets first:
 | Dutch | nl | 25M+ | 8 |
 | Turkish | tr | 80M+ | 9 |
 | Romanian | ro | 25M+ | 10 |
+
+### Remaining Gaps (Priority)
+
+| Gap | Current | Target | Notes |
+|-----|---------|--------|-------|
+| DE→PL | 0 | 50 | German speakers learning Polish |
+| IT→PL | 3 | 50 | Italian speakers learning Polish |
+| PT→PL | 3 | 50 | Portuguese speakers learning Polish |
+| EN→ES/FR/DE/IT | 25 each | 50 each | Expand major pairs |
+| Minor targets | 3-8 | 15+ | CS, DA, HU, NO, RO, SV, UK |
 
 ---
 
@@ -230,21 +244,20 @@ photorealistic"
 
 ---
 
-## Content Volume Estimate
+## Content Volume Status
 
-### Phase 1 (5 Native Languages × 5 Pillar Articles × 17 Target Languages)
-- Spanish native: 5 × 17 = 85 articles
-- French native: 5 × 17 = 85 articles
-- German native: 5 × 17 = 85 articles
-- Portuguese native: 5 × 17 = 85 articles
-- Italian native: 5 × 17 = 85 articles
-- **Total Phase 1: 425 new articles**
+### Current (Jan 21, 2026)
+- **Total: 1,003 articles**
+- EN native: 294 articles (17 targets)
+- ES native: 239 articles (17 targets)
+- FR native: 239 articles (17 targets)
+- DE native: 75 articles (6 targets)
+- IT native: 78 articles (6 targets)
+- PT native: 78 articles (6 targets)
 
-### Phase 2 (5 More Native Languages × 5 Pillar Articles × 17 Target Languages)
-- **Total Phase 2: 425 more articles**
-
-### Full Expansion (All Tier 2 Articles)
-- 10 native × 10 articles × 17 target = **1,700 articles**
+### Target State
+- 10 native languages × 50 articles × 17 targets = **8,500 articles** (max potential)
+- Realistic near-term: **1,500 articles** (current 1,003 + 500 gap filling)
 
 ---
 
@@ -289,25 +302,27 @@ photorealistic"
 
 ---
 
-## Immediate Next Steps
+## Immediate Next Steps (Updated Jan 21, 2026)
 
-1. **Restructure folder hierarchy** for new URL pattern
-2. **Update Astro routing** to handle [nativeLang]/[targetLang]/[slug]
-3. **Create article generation prompt** optimized for quality
-4. **Generate Spanish-native pillar articles** as proof of concept
-5. **Test SEO impact** before full rollout
+1. ~~**Restructure folder hierarchy**~~ ✅ Done
+2. ~~**Update Astro routing**~~ ✅ Done
+3. ~~**Generate Phase 1 native languages**~~ ✅ Done (ES, FR, DE, IT, PT)
+4. **Generate ~369 missing hero images** using Z Image Turbo
+5. **Fill Polish gaps** - DE→PL (50), IT→PL (47), PT→PL (47)
+6. **Expand EN→major targets** from 25 to 50 articles each
+7. **Add Phase 2 native languages** (RU, PL, NL, TR, RO)
 
 ---
 
-## Success Metrics
+## Success Metrics (Updated Jan 21, 2026)
 
-| Metric | Current | Target (6 months) |
-|--------|---------|-------------------|
-| Total articles | 89 | 500+ |
-| Native languages covered | 1 | 6+ |
-| Organic traffic | Baseline | 5x increase |
-| Non-English organic | 0% | 40%+ |
-| Indexed pages | ~75 | 400+ |
+| Metric | Previous | Current | Target |
+|--------|----------|---------|--------|
+| Total articles | 89 | **1,003** ✅ | 1,500 |
+| Native languages | 1 | **6** ✅ | 10 |
+| Organic traffic | Baseline | Tracking | 5x increase |
+| Non-English organic | 0% | Tracking | 40%+ |
+| Indexed pages | ~75 | ~1,000+ | 1,500+ |
 
 ---
 

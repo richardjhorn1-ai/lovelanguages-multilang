@@ -2,12 +2,13 @@
 
 > Strategic plan for Answer Engine Optimization and Generative Engine Optimization
 > Created: January 16, 2026
+> **Updated: January 21, 2026**
 
 ---
 
 ## Executive Summary
 
-**Current State:** 474 articles, strong Polish coverage, basic schema markup
+**Current State:** 1,003 articles, 6 native languages, strong Polish coverage, basic schema markup
 **Goal:** Become THE authoritative source for couples learning languages together
 **Strategy:** Systematic content expansion + structured data optimization for AI citation
 
@@ -15,49 +16,54 @@
 
 ## Part 1: Current Content Inventory
 
-### Article Distribution by Language Pair
+### Article Distribution by Language Pair (Updated Jan 21, 2026)
 
-| Native | PL | DE | ES | FR | IT | PT | NL | EL | RU | TR | CS | DA | HU | NO | RO | SV | UK |
-|--------|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
-| **EN** | 73 | 10 | 10 | 10 | 10 | 5 | 5 | 5 | 5 | 5 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| **ES** | 73 | 10 | - | 10 | 10 | 5 | 5 | 5 | 5 | 5 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| **FR** | 68 | 10 | 10 | - | 10 | 5 | 5 | 5 | 5 | 5 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| **DE** | 0 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| **IT** | 0 | 0 | 0 | 0 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| **PT** | 0 | 0 | 0 | 0 | 0 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Native | PL | DE | ES | FR | IT | PT | EN | NL | EL | RU | TR | CS | DA | HU | NO | RO | SV | UK |
+|--------|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
+| **EN** | 73 | 25 | 25 | 25 | 25 | 25 | - | 10 | 10 | 10 | 10 | 8 | 8 | 8 | 8 | 8 | 8 | 8 |
+| **ES** | 73 | 25 | - | 25 | 25 | 25 | 25 | 5 | 5 | 5 | 5 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| **FR** | 73 | 25 | 25 | - | 25 | 25 | 25 | 5 | 5 | 5 | 5 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| **DE** | 0 | - | 15 | 15 | 15 | 15 | 15 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| **IT** | 3 | 15 | 15 | 15 | - | 15 | 15 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| **PT** | 3 | 15 | 15 | 15 | 15 | - | 15 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-**Total: 474 articles**
+**Total: 1,003 articles** (previously reported 474)
 
-### Category Distribution
-- Phrases: 163 (34%)
-- Vocabulary: 91 (19%)
-- Grammar: 85 (18%)
-- Culture: 85 (18%)
-- Situations: 49 (10%)
-- Pronunciation: 2 (0.4%)
+### Category Distribution (estimated from 1,003 articles)
+- Phrases: ~340 (34%)
+- Vocabulary: ~190 (19%)
+- Grammar: ~180 (18%)
+- Culture: ~180 (18%)
+- Situations: ~100 (10%)
+- Pronunciation: ~13 (1%)
 
 ### Difficulty Distribution
-- Beginner: 337 (71%)
-- Intermediate: 138 (29%)
+- Beginner: ~710 (71%)
+- Intermediate: ~290 (29%)
 - Advanced: 0 (0%) ← **Major Gap**
 
 ---
 
-## Part 2: Content Gaps Analysis
+## Part 2: Content Gaps Analysis (Updated Jan 21, 2026)
 
-### Gap Type 1: Missing Native Languages (HIGH PRIORITY)
+### Gap Type 1: ~~Missing Native Languages~~ ✅ RESOLVED
 
-Zero content exists for German, Italian, and Portuguese native speakers.
+German, Italian, and Portuguese native speakers now have content:
+- **DE native:** 75 articles (15 each for EN, ES, FR, IT, PT, 0 for PL)
+- **IT native:** 78 articles (15 each for DE, EN, ES, FR, PT, 3 for PL)
+- **PT native:** 78 articles (15 each for DE, EN, ES, FR, IT, 3 for PL)
 
-**Opportunity Size:**
-- German speakers: 100M+ native speakers, strong interest in Polish (geographic neighbors)
-- Italian speakers: 65M+ native speakers
-- Portuguese speakers: 250M+ native speakers (Brazil huge market)
+### Gap Type 1b: Polish Content for New Native Languages (NEW HIGH PRIORITY)
 
-**Recommended Action:**
-- Create 50 articles each for DE→PL, IT→PL, PT→PL
-- Use existing EN→PL articles as topic templates
-- Translate/localize for native language context
+DE/IT/PT speakers learning Polish is severely underrepresented:
+
+| Pair | Current | Target | Gap |
+|------|---------|--------|-----|
+| DE→PL | 0 | 50 | 50 |
+| IT→PL | 3 | 50 | 47 |
+| PT→PL | 3 | 50 | 47 |
+
+**Total needed: 144 articles**
 
 ### Gap Type 2: Incomplete Language Pairs
 
@@ -85,17 +91,9 @@ Zero content exists for German, Italian, and Portuguese native speakers.
 
 **Potential: 15 pairs × 5 articles = 75 new articles**
 
-### Gap Type 3: FR→PL Missing Articles
+### Gap Type 3: ~~FR→PL Missing Articles~~ ✅ RESOLVED
 
-5 articles exist in EN→PL and ES→PL but NOT in FR→PL:
-
-1. `how-to-say-i-love-you-in-polish`
-2. `how-to-type-polish-characters-on-english-keyboard-complete-guide-for-couples`
-3. `is-polish-hard-to-learn-honest-answer-for-english-speakers`
-4. `polish-past-tense-made-easy-tell-your-partner-about-your-day`
-5. `polish-phone-calls-master-answering-and-making-calls-like-a-local`
-
-**Action:** Create French versions of these 5 articles immediately.
+FR→PL now has 73 articles, matching EN→PL and ES→PL coverage.
 
 ### Gap Type 4: Advanced Content (ZERO)
 
