@@ -7,11 +7,11 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Static Pages** | 1,332 |
-| **Blog Articles** | 1,058 |
-| **Hero Images** | 631 ✅ |
+| **Total Static Pages** | 1,715 |
+| **Blog Articles** | ~1,200 |
+| **Hero Images** | 719 ✅ |
 | **Dictionary Word Pages** | 109 |
-| **Comparison Pages** | 7 (all native langs) |
+| **Comparison Pages** | 18 (all 6 native langs × 3 pages) |
 | **Tool Pages** | 2 |
 | **Name Days in Database** | 1,000+ |
 | **Native Languages** | 6 (EN, ES, FR, DE, IT, PT) |
@@ -108,6 +108,56 @@
    - Currently: HTTP → HTTPS → www → no-trailing-slash (3 hops)
    - Ideal: Direct to final URL in 1 hop
    - Requires Vercel domain-level config
+
+---
+
+## Recent SEO Work (Jan 21, 2026 - Session 4)
+
+### Navbar Compare Links Fixed ✅
+
+**Issue:** Compare dropdown in navbar was causing 404s for DE/IT/PT native users
+**Root Cause:** `getStaticPaths()` in compare pages only generated for EN/ES/FR
+**Fix:** Updated all 3 compare page files to include all 6 native languages:
+- `/compare/[nativeLang]/love-languages-vs-babbel.astro`
+- `/compare/[nativeLang]/love-languages-vs-duolingo.astro`
+- `/compare/[nativeLang]/index.astro`
+
+Also added UI translations for German, Italian, Portuguese in the compare index page.
+
+### Slug Standardization Complete ✅
+
+**Issue:** ~100+ articles had non-English slugs (French/Spanish), breaking hreflang linking
+**Problem Examples:**
+- French: `comment-dire-je-taime-en-allemand` instead of `how-to-say-i-love-you-in-german`
+- Spanish: `apodos-carinosos-en-aleman` instead of `german-pet-names-terms-of-endearment`
+
+**Fix:** Renamed all files to use standardized English slugs:
+- Deleted duplicates where English-slugged versions already existed
+- Renamed remaining files to match English slug pattern
+- ~100 files processed (48 deleted duplicates, ~50 renamed)
+
+**Slug Patterns Now Standardized:**
+| Series | Slug Pattern |
+|--------|--------------|
+| How to say I love you | `how-to-say-i-love-you-in-{language}.mdx` |
+| Pet names | `{language}-pet-names-terms-of-endearment.mdx` |
+| Date night vocabulary | `{language}-date-night-vocabulary.mdx` |
+| Essential phrases | `{language}-essential-phrases-for-couples.mdx` |
+| Pronunciation guide | `{language}-pronunciation-guide.mdx` |
+| Greetings | `{language}-greetings-farewells.mdx` |
+| Grammar basics | `{language}-grammar-basics.mdx` |
+
+### Content Expansion (Session 4)
+
+**New Articles Created:** ~318 articles across all 18 target languages
+- Grammar Basics series: 42 articles
+- Meeting Family series: 24 articles
+- Date Night Vocabulary series: 14 articles
+- Texting Slang series: 28 articles
+- Language Comparison series: 41 articles
+- Plus ~169 articles from parallel agents for minor languages
+
+**New Images Generated:** 88 images using Glif MCP (Z Image Turbo)
 
 ---
 

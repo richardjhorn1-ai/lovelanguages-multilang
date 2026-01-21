@@ -72,7 +72,12 @@
 
 **Format:** `{seo-optimized-slug}.mdx`
 
+**⚠️ CRITICAL RULE: ALWAYS USE ENGLISH SLUGS**
+
+Regardless of the native language directory (es/, fr/, de/, etc.), the slug MUST be in English. This is essential for hreflang linking to work properly across all native language versions.
+
 **Rules:**
+- **ALWAYS English slug** - Even for Spanish/French/German native content
 - All lowercase
 - Hyphens between words (no spaces or underscores)
 - Include target language name for SEO
@@ -81,18 +86,27 @@
 
 **Good Examples:**
 ```
-how-to-say-i-love-you-in-polish.mdx
-ukrainian-pet-names-terms-of-endearment.mdx
-spanish-future-tense-making-plans-together.mdx
-meeting-your-german-partners-family.mdx
+how-to-say-i-love-you-in-polish.mdx        ✅ English slug
+ukrainian-pet-names-terms-of-endearment.mdx ✅ English slug
+spanish-future-tense-making-plans-together.mdx ✅ English slug
+meeting-your-german-partners-family.mdx     ✅ English slug
 ```
 
 **Bad Examples:**
 ```
-I_Love_You_Polish.mdx          # Wrong: uppercase, underscores
-how to say i love you.mdx      # Wrong: spaces
-polish-article-1.mdx           # Wrong: not descriptive
+comment-dire-je-taime-en-polonais.mdx  # Wrong: French slug
+como-decir-te-amo-en-aleman.mdx        # Wrong: Spanish slug
+apodos-carinosos-en-italiano.mdx       # Wrong: Spanish slug
+surnoms-affectueux-allemands.mdx       # Wrong: French slug
+I_Love_You_Polish.mdx                  # Wrong: uppercase, underscores
+how to say i love you.mdx              # Wrong: spaces
+polish-article-1.mdx                   # Wrong: not descriptive
 ```
+
+**Why English Slugs?**
+- Hreflang linking requires matching slugs across all native language versions
+- Google connects `/learn/en/pl/how-to-say-i-love-you-in-polish/` with `/learn/es/pl/how-to-say-i-love-you-in-polish/`
+- Non-matching slugs break this connection and hurt SEO
 
 ---
 
@@ -398,13 +412,22 @@ Try saying these phrases to your partner today. Start with "Я тебе коха
 
 Articles about the **same topic** in **different native languages** are automatically connected via hreflang tags when they share the **same slug**.
 
+**⚠️ CRITICAL: All slugs must be in ENGLISH regardless of native language**
+
 **Example - "I Love You in Ukrainian" across all native languages:**
 
 ```
-/articles/en/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← English version
-/articles/es/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← Spanish version (SAME SLUG)
-/articles/fr/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← French version (SAME SLUG)
-/articles/de/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← German version (SAME SLUG)
+/articles/en/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← English native (English slug)
+/articles/es/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← Spanish native (SAME English slug)
+/articles/fr/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← French native (SAME English slug)
+/articles/de/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← German native (SAME English slug)
+```
+
+**❌ WRONG - This breaks hreflang linking:**
+```
+/articles/en/uk/how-to-say-i-love-you-in-ukrainian.mdx  ← English slug
+/articles/es/uk/como-decir-te-amo-en-ucraniano.mdx      ← Spanish slug - NO MATCH!
+/articles/fr/uk/comment-dire-je-taime-en-ukrainien.mdx  ← French slug - NO MATCH!
 ```
 
 **Generated hreflang tags:**
@@ -416,12 +439,12 @@ Articles about the **same topic** in **different native languages** are automati
 <link rel="alternate" hreflang="x-default" href="/learn/en/uk/how-to-say-i-love-you-in-ukrainian/" />
 ```
 
-### Rule: Use SAME SLUG Across Native Languages
+### Rule: Use SAME ENGLISH SLUG Across Native Languages
 
 When creating a content series (like "I Love You"), use the **same English-based slug** for all versions:
 
-| Native | Target | Slug (MUST MATCH) | Title (in native language) |
-|--------|--------|-------------------|---------------------------|
+| Native | Target | Slug (ENGLISH - MUST MATCH) | Title (in native language) |
+|--------|--------|----------------------------|---------------------------|
 | EN | UK | `how-to-say-i-love-you-in-ukrainian` | How to Say I Love You in Ukrainian |
 | ES | UK | `how-to-say-i-love-you-in-ukrainian` | Cómo Decir Te Quiero en Ucraniano |
 | FR | UK | `how-to-say-i-love-you-in-ukrainian` | Comment Dire Je T'aime en Ukrainien |
@@ -431,6 +454,21 @@ When creating a content series (like "I Love You"), use the **same English-based
 1. Show the right version to users based on their language
 2. Consolidate ranking signals across all versions
 3. Prevent duplicate content penalties
+
+### Standard Slug Patterns
+
+| Content Type | English Slug Pattern | Example |
+|--------------|---------------------|---------|
+| I Love You | `how-to-say-i-love-you-in-{language}` | `how-to-say-i-love-you-in-polish` |
+| Pet Names | `{language}-pet-names-terms-of-endearment` | `polish-pet-names-terms-of-endearment` |
+| Date Night | `{language}-date-night-vocabulary` | `german-date-night-vocabulary` |
+| Essential Phrases | `{language}-essential-phrases-for-couples` | `french-essential-phrases-for-couples` |
+| Pronunciation | `{language}-pronunciation-guide` | `italian-pronunciation-guide` |
+| Greetings | `{language}-greetings-farewells` | `spanish-greetings-farewells` |
+| Grammar Basics | `{language}-grammar-basics` | `russian-grammar-basics` |
+| Meeting Family | `meeting-your-{language}-partners-family` | `meeting-your-german-partners-family` |
+| Is X Hard | `is-{language}-hard-to-learn` | `is-polish-hard-to-learn` |
+| 100 Words | `100-common-{language}-words` | `100-common-spanish-words` |
 
 ### Content Series Template
 

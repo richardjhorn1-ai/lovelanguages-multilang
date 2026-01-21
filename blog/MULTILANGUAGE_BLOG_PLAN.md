@@ -57,23 +57,25 @@ Expand the blog from English-only native language perspective to support multipl
 
 ## URL Structure
 
-### Option A: Native Language Prefix (Recommended)
+### Option A: Native Language Prefix (Implemented)
 ```
 /learn/[nativeLang]/[targetLang]/[article-slug]/
 
-Examples:
-/learn/es/de/como-decir-te-amo-en-aleman/
-/learn/fr/it/comment-dire-je-taime-en-italien/
-/learn/de/pl/ich-liebe-dich-auf-polnisch/
+Examples (ALL SLUGS IN ENGLISH for hreflang linking):
+/learn/es/de/how-to-say-i-love-you-in-german/     ← Spanish native, English slug
+/learn/fr/it/how-to-say-i-love-you-in-italian/    ← French native, English slug
+/learn/de/pl/how-to-say-i-love-you-in-polish/     ← German native, English slug
 ```
 
-### Option B: Subdomain per Native Language
+**⚠️ CRITICAL:** Slugs must ALWAYS be in English regardless of native language. This enables hreflang linking across all versions.
+
+### Option B: Subdomain per Native Language (Not Used)
 ```
-es.lovelanguages.io/learn/de/como-decir-te-amo-en-aleman/
-fr.lovelanguages.io/learn/it/comment-dire-je-taime-en-italien/
+es.lovelanguages.io/learn/de/...
+fr.lovelanguages.io/learn/it/...
 ```
 
-**Recommendation:** Option A - simpler setup, shared domain authority
+**Decision:** Option A implemented - simpler setup, shared domain authority
 
 ---
 
@@ -123,7 +125,7 @@ For each native→target language pair, create these 5 high-value articles:
 **English Version:**
 ```yaml
 title: "How to Say I Love You in German"
-slug: de/how-to-say-i-love-you-in-german
+# File: /articles/en/de/how-to-say-i-love-you-in-german.mdx
 nativeLanguage: en
 language: de
 ```
@@ -131,10 +133,12 @@ language: de
 **Spanish Version:**
 ```yaml
 title: "Cómo Decir Te Amo en Alemán: Frases Románticas para Parejas"
-slug: es/de/como-decir-te-amo-en-aleman
+# File: /articles/es/de/how-to-say-i-love-you-in-german.mdx  ← SAME English slug!
 nativeLanguage: es
 language: de
 ```
+
+**⚠️ Note:** The slug is ALWAYS in English (`how-to-say-i-love-you-in-german`) even though the title and content are in Spanish. This enables hreflang linking.
 
 **Content Differences:**
 
@@ -246,40 +250,52 @@ photorealistic"
 
 ## Content Volume Status
 
-### Current (Jan 21, 2026)
-- **Total: 1,003 articles**
-- EN native: 294 articles (17 targets)
-- ES native: 239 articles (17 targets)
-- FR native: 239 articles (17 targets)
-- DE native: 75 articles (6 targets)
-- IT native: 78 articles (6 targets)
-- PT native: 78 articles (6 targets)
+### Current (Jan 21, 2026 - Updated Session 4)
+- **Total: ~1,200 articles** (1,715 pages including non-article pages)
+- EN native: ~320 articles (18 targets)
+- ES native: ~280 articles (18 targets)
+- FR native: ~280 articles (18 targets)
+- DE native: ~100 articles (expanded)
+- IT native: ~110 articles (expanded)
+- PT native: ~110 articles (expanded)
+
+### Session 4 Additions
+- Grammar Basics series: 42 articles
+- Meeting Family series: 24 articles
+- Date Night Vocabulary series: 14 articles
+- Texting Slang series: 28 articles
+- Language Comparison series: 41 articles
+- Minor language expansion: ~169 articles
 
 ### Target State
 - 10 native languages × 50 articles × 17 targets = **8,500 articles** (max potential)
-- Realistic near-term: **1,500 articles** (current 1,003 + 500 gap filling)
+- Realistic near-term: **1,500 articles** (current ~1,200 + 300 gap filling)
 
 ---
 
 ## SEO Keywords Per Native Language
 
+These are the search queries users type in Google. The **article titles and meta descriptions** are localized, but **slugs remain in English**.
+
 ### Spanish Native Searches:
-- "cómo decir te amo en alemán"
-- "es difícil aprender polaco"
-- "frases románticas en francés"
-- "apodos cariñosos en italiano"
+- "cómo decir te amo en alemán" → `/learn/es/de/how-to-say-i-love-you-in-german/`
+- "es difícil aprender polaco" → `/learn/es/pl/is-polish-hard-to-learn/`
+- "frases románticas en francés" → `/learn/es/fr/french-romantic-phrases-every-occasion/`
+- "apodos cariñosos en italiano" → `/learn/es/it/italian-pet-names-terms-of-endearment/`
 
 ### French Native Searches:
-- "comment dire je t'aime en allemand"
-- "est-ce difficile d'apprendre le polonais"
-- "phrases romantiques en italien"
-- "surnoms affectueux en espagnol"
+- "comment dire je t'aime en allemand" → `/learn/fr/de/how-to-say-i-love-you-in-german/`
+- "est-ce difficile d'apprendre le polonais" → `/learn/fr/pl/is-polish-hard-to-learn/`
+- "phrases romantiques en italien" → `/learn/fr/it/italian-romantic-phrases-every-occasion/`
+- "surnoms affectueux en espagnol" → `/learn/fr/es/spanish-pet-names-terms-of-endearment/`
 
 ### German Native Searches:
-- "ich liebe dich auf polnisch"
-- "ist italienisch schwer zu lernen"
-- "romantische phrasen auf französisch"
-- "kosenamen auf spanisch"
+- "ich liebe dich auf polnisch" → `/learn/de/pl/how-to-say-i-love-you-in-polish/`
+- "ist italienisch schwer zu lernen" → `/learn/de/it/is-italian-hard-to-learn/`
+- "romantische phrasen auf französisch" → `/learn/de/fr/french-romantic-phrases-every-occasion/`
+- "kosenamen auf spanisch" → `/learn/de/es/spanish-pet-names-terms-of-endearment/`
+
+**Note:** Localized titles appear in Google SERPs and drive clicks. English slugs enable hreflang linking.
 
 ---
 
@@ -302,27 +318,32 @@ photorealistic"
 
 ---
 
-## Immediate Next Steps (Updated Jan 21, 2026)
+## Immediate Next Steps (Updated Jan 21, 2026 - Session 4)
 
 1. ~~**Restructure folder hierarchy**~~ ✅ Done
 2. ~~**Update Astro routing**~~ ✅ Done
 3. ~~**Generate Phase 1 native languages**~~ ✅ Done (ES, FR, DE, IT, PT)
-4. **Generate ~369 missing hero images** using Z Image Turbo
-5. **Fill Polish gaps** - DE→PL (50), IT→PL (47), PT→PL (47)
-6. **Expand EN→major targets** from 25 to 50 articles each
-7. **Add Phase 2 native languages** (RU, PL, NL, TR, RO)
+4. ~~**Generate missing hero images**~~ ✅ Done (719 total images)
+5. ~~**Fix navbar compare links**~~ ✅ Done (all 6 native languages)
+6. ~~**Standardize slugs to English**~~ ✅ Done (~100 files renamed)
+7. **Fill Polish gaps** - DE→PL, IT→PL, PT→PL (ongoing)
+8. **Expand EN→major targets** from 25 to 50 articles each
+9. **Add Phase 2 native languages** (RU, PL, NL, TR, RO)
 
 ---
 
-## Success Metrics (Updated Jan 21, 2026)
+## Success Metrics (Updated Jan 21, 2026 - Session 4)
 
 | Metric | Previous | Current | Target |
 |--------|----------|---------|--------|
-| Total articles | 89 | **1,003** ✅ | 1,500 |
-| Native languages | 1 | **6** ✅ | 10 |
+| Total articles | 1,003 | **~1,200** ✅ | 1,500 |
+| Total pages | 1,332 | **1,715** ✅ | 2,000 |
+| Hero images | 631 | **719** ✅ | 750 |
+| Native languages | 6 | **6** ✅ | 10 |
 | Organic traffic | Baseline | Tracking | 5x increase |
 | Non-English organic | 0% | Tracking | 40%+ |
-| Indexed pages | ~75 | ~1,000+ | 1,500+ |
+| Indexed pages | ~338 | ~1,000+ | 1,500+ |
+| Compare pages | 9 | **18** ✅ | 18 |
 
 ---
 
