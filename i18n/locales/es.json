@@ -464,6 +464,10 @@
       "saved": "¡Guardado!",
       "saveChanges": "Guardar Cambios",
       "signOut": "Cerrar Sesión"
+    },
+    "links": {
+      "blog": "Learn {{language}} Blog",
+      "blogDescription": "Free articles, phrases & culture guides"
     }
   },
   "loveLog": {
@@ -631,6 +635,12 @@
         "feature3": "Modo Escucha ilimitado",
         "feature4": "Todos los escenarios de conversación",
         "feature5": "Pase regalo para otra pareja (anual)"
+      },
+      "errors": {
+        "authRequired": "Please sign in to continue",
+        "loadFailed": "Failed to load pricing. Please try again.",
+        "pricesUnavailable": "Pricing information unavailable",
+        "retry": "Retry"
       }
     },
     "student": {
@@ -1697,9 +1707,21 @@
   },
   "hero": {
     "languageSelector": {
+      "nativeTitle": "What language do you speak?",
+      "nativeSubtitle": "18 languages available - we'll show everything in yours",
       "nativePrompt": "Yo hablo...",
+      "targetTitle": "What do you want to learn?",
+      "targetSubtitle": "Pick the language of someone you love",
       "targetPrompt": "Quiero aprender...",
-      "targetPromptTutor": "Quiero enseñar..."
+      "targetPromptTutor": "Quiero enseñar...",
+      "showAll": "Show all languages",
+      "showLess": "Show less",
+      "selected": "Selected",
+      "back": "Back",
+      "change": "Change",
+      "learningIndicator": "Learning {{target}}",
+      "speakingIndicator": "Speaking {{native}}",
+      "changeLanguages": "Change languages"
     },
     "nativeStep": {
       "header": "¿Qué idioma hablas?",

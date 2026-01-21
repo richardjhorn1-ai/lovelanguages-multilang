@@ -338,10 +338,9 @@ vercel --prod
 |----------|---------|
 | `CLAUDE.md` | Developer guidance |
 | `SETUP.md` | This file |
-| `STATUS.md` | Project status tracking |
-| `MULTILANGUAGE_TRANSFORMATION.md` | Architecture source of truth |
+| `ML_MASTER_PLAN.md` | Architecture source of truth |
 | `TROUBLESHOOTING.md` | 36+ solved issues |
 
 ---
 
-*Last updated: January 10, 2026*
+*Last updated: January 20, 2026*

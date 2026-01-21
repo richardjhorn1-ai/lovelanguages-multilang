@@ -464,6 +464,10 @@
       "saved": "Sparat!",
       "saveChanges": "Spara ändringar",
       "signOut": "Logga ut"
+    },
+    "links": {
+      "blog": "Learn {{language}} Blog",
+      "blogDescription": "Free articles, phrases & culture guides"
     }
   },
   "loveLog": {
@@ -631,6 +635,12 @@
         "feature3": "Obegränsat lyssningsläge",
         "feature4": "Alla konversationsscenarier",
         "feature5": "Presentpass för ett annat par (årsvis)"
+      },
+      "errors": {
+        "authRequired": "Please sign in to continue",
+        "loadFailed": "Failed to load pricing. Please try again.",
+        "pricesUnavailable": "Pricing information unavailable",
+        "retry": "Retry"
       }
     },
     "student": {
@@ -1161,6 +1171,13 @@
   },
   "roleSelection": {
     "loading": "Gör allt klart...",
+    "confirmSettings": "Confirm Your Settings",
+    "confirmSettingsSubtitle": "Make sure everything looks right before we begin",
+    "languageSettings": "Language Settings",
+    "nativeLanguage": "I speak (app interface)",
+    "learningLanguage": "I'm learning",
+    "teachingLanguage": "I'm teaching",
+    "chooseYourRole": "Choose Your Role",
     "confirmHeader": "Bara för att vara säker...",
     "confirmSubtitle": "Tryck för att bekräfta eller byt roll",
     "welcomeHeader": "Välkommen till Love Languages!",
@@ -1690,9 +1707,21 @@
   },
   "hero": {
     "languageSelector": {
+      "nativeTitle": "What language do you speak?",
+      "nativeSubtitle": "18 languages available - we'll show everything in yours",
       "nativePrompt": "Jag talar...",
+      "targetTitle": "What do you want to learn?",
+      "targetSubtitle": "Pick the language of someone you love",
       "targetPrompt": "Jag vill lära mig...",
-      "targetPromptTutor": "Jag vill lära ut..."
+      "targetPromptTutor": "Jag vill lära ut...",
+      "showAll": "Show all languages",
+      "showLess": "Show less",
+      "selected": "Selected",
+      "back": "Back",
+      "change": "Change",
+      "learningIndicator": "Learning {{target}}",
+      "speakingIndicator": "Speaking {{native}}",
+      "changeLanguages": "Change languages"
     },
     "nativeStep": {
       "header": "Vilket språk talar du?",

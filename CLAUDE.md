@@ -38,7 +38,7 @@ POST /api/chat
 
 | Path | Purpose |
 |------|---------|
-| `api/` | 26 Vercel serverless functions |
+| `api/` | 40 Vercel serverless functions |
 | `components/` | React components |
 | `constants/language-config.ts` | All 18 language configurations |
 | `utils/prompt-templates.ts` | Language-agnostic AI prompts |

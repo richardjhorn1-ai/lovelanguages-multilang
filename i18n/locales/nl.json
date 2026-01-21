@@ -464,6 +464,10 @@
       "saved": "Opgeslagen!",
       "saveChanges": "Wijzigingen Opslaan",
       "signOut": "Uitloggen"
+    },
+    "links": {
+      "blog": "Learn {{language}} Blog",
+      "blogDescription": "Free articles, phrases & culture guides"
     }
   },
   "loveLog": {
@@ -631,6 +635,12 @@
         "feature3": "Onbeperkt Luistermodus",
         "feature4": "Alle gesprekscenario's",
         "feature5": "Cadeaupas voor ander koppel (jaarlijks)"
+      },
+      "errors": {
+        "authRequired": "Please sign in to continue",
+        "loadFailed": "Failed to load pricing. Please try again.",
+        "pricesUnavailable": "Pricing information unavailable",
+        "retry": "Retry"
       }
     },
     "student": {
@@ -1161,6 +1171,13 @@
   },
   "roleSelection": {
     "loading": "Alles klaar maken...",
+    "confirmSettings": "Confirm Your Settings",
+    "confirmSettingsSubtitle": "Make sure everything looks right before we begin",
+    "languageSettings": "Language Settings",
+    "nativeLanguage": "I speak (app interface)",
+    "learningLanguage": "I'm learning",
+    "teachingLanguage": "I'm teaching",
+    "chooseYourRole": "Choose Your Role",
     "confirmHeader": "Even zeker weten...",
     "confirmSubtitle": "Tik om te bevestigen of je rol te wijzigen",
     "welcomeHeader": "Welkom bij Love Languages!",
@@ -1690,9 +1707,21 @@
   },
   "hero": {
     "languageSelector": {
+      "nativeTitle": "What language do you speak?",
+      "nativeSubtitle": "18 languages available - we'll show everything in yours",
       "nativePrompt": "Ik spreek...",
+      "targetTitle": "What do you want to learn?",
+      "targetSubtitle": "Pick the language of someone you love",
       "targetPrompt": "Ik wil leren...",
-      "targetPromptTutor": "Ik wil lesgeven..."
+      "targetPromptTutor": "Ik wil lesgeven...",
+      "showAll": "Show all languages",
+      "showLess": "Show less",
+      "selected": "Selected",
+      "back": "Back",
+      "change": "Change",
+      "learningIndicator": "Learning {{target}}",
+      "speakingIndicator": "Speaking {{native}}",
+      "changeLanguages": "Change languages"
     },
     "nativeStep": {
       "header": "Welke taal spreek je?",
