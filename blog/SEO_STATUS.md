@@ -1,17 +1,17 @@
 # SEO Status - Love Languages Blog
 
 > Central source of truth for SEO work on the multi-language learning blog.
-> Last updated: January 21, 2026 (Session 3)
+> Last updated: January 22, 2026 (Session 5)
 
 ## Quick Stats
 
 | Metric | Count |
 |--------|-------|
 | **Total Static Pages** | 1,715 |
-| **Blog Articles** | ~1,200 |
+| **Blog Articles** | 1,420 |
 | **Hero Images** | 719 ✅ |
 | **Dictionary Word Pages** | 109 |
-| **Comparison Pages** | 18 (all 6 native langs × 3 pages) |
+| **Comparison Pages** | 18 (all 6 native langs × 3 pages) ✅ |
 | **Tool Pages** | 2 |
 | **Name Days in Database** | 1,000+ |
 | **Native Languages** | 6 (EN, ES, FR, DE, IT, PT) |
@@ -108,6 +108,39 @@
    - Currently: HTTP → HTTPS → www → no-trailing-slash (3 hops)
    - Ideal: Direct to final URL in 1 hop
    - Requires Vercel domain-level config
+
+---
+
+## Recent SEO Work (Jan 22, 2026 - Session 5)
+
+### Navigation Translations Complete ✅
+
+**Issue:** Navigation buttons showed English text ("Start Learning", "Compare Apps") on all language pages
+**Fix:** Added `NAV_TRANSLATIONS` object to `Navigation.astro` with translations for all 6 native languages
+
+| Language | Compare Dropdown | Start Button |
+|----------|-----------------|--------------|
+| EN | Compare Apps | Start Learning |
+| ES | Comparar Apps | Empezar |
+| FR | Comparer | Commencer |
+| DE | Vergleichen | Starten |
+| IT | Confronta | Inizia |
+| PT | Comparar | Começar |
+
+### Compare Page Translations Complete ✅
+
+**Issue:** Compare pages for DE/IT/PT showed English content instead of translated content
+**Root Cause:**
+1. Static files (`/compare/de/index.astro`, etc.) were overriding dynamic route
+2. `comparison-features.ts` only had EN/ES/FR translations
+
+**Fixes Applied:**
+1. Deleted 3 redundant static files
+2. Added full DE_CONTENT, IT_CONTENT, PT_CONTENT (~350 lines each) to `comparison-features.ts`
+3. Updated CONTENT_MAP to include all 6 languages
+4. Changed `/compare/index.astro` to redirect to `/compare/en/` (avoids duplicate content)
+
+**Result:** All 18 compare pages now fully translated and working
 
 ---
 
