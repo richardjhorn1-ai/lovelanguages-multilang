@@ -1,6 +1,6 @@
 # Multi-Language Blog Expansion Plan
 
-> **Last Updated: January 21, 2026**
+> **Last Updated: January 22, 2026**
 
 ## Overview
 
@@ -250,14 +250,14 @@ photorealistic"
 
 ## Content Volume Status
 
-### Current (Jan 21, 2026 - Updated Session 4)
-- **Total: ~1,200 articles** (1,715 pages including non-article pages)
-- EN native: ~320 articles (18 targets)
-- ES native: ~280 articles (18 targets)
-- FR native: ~280 articles (18 targets)
-- DE native: ~100 articles (expanded)
-- IT native: ~110 articles (expanded)
-- PT native: ~110 articles (expanded)
+### Current (Jan 22, 2026 - Updated Session 5)
+- **Total: 1,420 articles** (1,715 pages including non-article pages)
+- EN native: ~350 articles (18 targets)
+- ES native: ~300 articles (18 targets)
+- FR native: ~300 articles (18 targets)
+- DE native: ~150 articles (expanded)
+- IT native: ~160 articles (expanded)
+- PT native: ~160 articles (expanded)
 
 ### Session 4 Additions
 - Grammar Basics series: 42 articles
@@ -318,7 +318,7 @@ These are the search queries users type in Google. The **article titles and meta
 
 ---
 
-## Immediate Next Steps (Updated Jan 21, 2026 - Session 4)
+## Immediate Next Steps (Updated Jan 22, 2026 - Session 5)
 
 1. ~~**Restructure folder hierarchy**~~ ✅ Done
 2. ~~**Update Astro routing**~~ ✅ Done
@@ -326,17 +326,20 @@ These are the search queries users type in Google. The **article titles and meta
 4. ~~**Generate missing hero images**~~ ✅ Done (719 total images)
 5. ~~**Fix navbar compare links**~~ ✅ Done (all 6 native languages)
 6. ~~**Standardize slugs to English**~~ ✅ Done (~100 files renamed)
-7. **Fill Polish gaps** - DE→PL, IT→PL, PT→PL (ongoing)
-8. **Expand EN→major targets** from 25 to 50 articles each
-9. **Add Phase 2 native languages** (RU, PL, NL, TR, RO)
+7. ~~**Fix compare page translations**~~ ✅ Done (DE, IT, PT fully translated)
+8. ~~**Add navigation translations**~~ ✅ Done (all 6 languages)
+9. **Fill Polish gaps** - DE→PL, IT→PL, PT→PL (ongoing)
+10. **Expand EN→major targets** from 25 to 50 articles each
+11. **Add Phase 2 native languages** (RU, PL, NL, TR, RO)
+12. **Expand dictionary** from 109 to 500+ words
 
 ---
 
-## Success Metrics (Updated Jan 21, 2026 - Session 4)
+## Success Metrics (Updated Jan 22, 2026 - Session 5)
 
 | Metric | Previous | Current | Target |
 |--------|----------|---------|--------|
-| Total articles | 1,003 | **~1,200** ✅ | 1,500 |
+| Total articles | ~1,200 | **1,420** ✅ | 1,500 |
 | Total pages | 1,332 | **1,715** ✅ | 2,000 |
 | Hero images | 631 | **719** ✅ | 750 |
 | Native languages | 6 | **6** ✅ | 10 |
@@ -344,6 +347,7 @@ These are the search queries users type in Google. The **article titles and meta
 | Non-English organic | 0% | Tracking | 40%+ |
 | Indexed pages | ~338 | ~1,000+ | 1,500+ |
 | Compare pages | 9 | **18** ✅ | 18 |
+| Nav translations | Partial | **6/6** ✅ | 6 |
 
 ---
 
