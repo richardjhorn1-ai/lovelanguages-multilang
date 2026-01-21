@@ -2725,3 +2725,43 @@ Removed the unused variable declarations.
 **Key Lesson:** When refactoring prompts, verify all variables are actually used.
 
 **Status:** ✅ FIXED - Dead code removed
+
+---
+
+## Issue 50: Migration File Numbering Inconsistencies
+
+**Date:** January 20, 2026
+
+**Problem:**
+Database migration files have numbering issues that can cause confusion:
+
+1. **Duplicate numbers:**
+   - `013_add_admin_flag.sql` AND `013_tts_cache_storage.sql`
+   - `014_article_generations.sql` AND `014_subscriptions.sql`
+
+2. **Missing numbers (gaps):**
+   - No migration 016
+   - No migrations 019, 020, 021
+
+**Impact:**
+- Cosmetic issue only - migrations are already applied to production
+- Does not affect database functionality
+- May confuse developers about migration order
+
+**Why Not Fix:**
+- Renaming files would break git history tracking
+- Migrations are already applied; renaming won't re-run them
+- Risk of confusion outweighs benefit of clean numbering
+
+**Recommendation:**
+- Future migrations should continue from 032+
+- Do not reuse skipped numbers
+- Document this issue for developer awareness
+
+**Prevention:**
+When creating new migrations:
+1. Check existing highest number: `ls migrations/ | sort -n | tail -1`
+2. Use the next sequential number
+3. Never reuse numbers or fill gaps
+
+**Status:** ✅ DOCUMENTED - Historical artifact, no action needed

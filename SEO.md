@@ -1,7 +1,20 @@
 # SEO Strategy & Progress Tracker
 
 ## Mission
-Make Love Languages discoverable by couples searching for Polish learning resources, romantic phrases, and cultural content.
+Make Love Languages discoverable by couples searching for **language learning resources across 18 languages**: romantic phrases, cultural content, and couple-focused learning.
+
+**Supported Languages:** English, Spanish, French, Italian, Portuguese, Romanian, German, Dutch, Swedish, Norwegian, Danish, Polish, Czech, Russian, Ukrainian, Greek, Hungarian, Turkish
+
+---
+
+## Multi-Language Blog Strategy
+
+The blog supports content for **any native language → any target language** combination:
+- URL pattern: `/learn/[nativeLang]/[targetLang]/[slug]/`
+- Example: `/learn/en/pl/how-to-say-i-love-you-in-polish/` (English speakers learning Polish)
+- Example: `/learn/es/fr/how-to-say-i-love-you-in-french/` (Spanish speakers learning French)
+
+**Current Focus:** Polish content is most developed (legacy). Expanding to all 18 languages.
 
 ---
 
@@ -33,9 +46,10 @@ Make Love Languages discoverable by couples searching for Polish learning resour
 ## Goals & KPIs
 
 ### Primary Goals
-1. **Organic Discovery**: Rank on page 1 for romantic Polish phrase queries
-2. **Content Authority**: Become go-to resource for couples learning Polish
+1. **Organic Discovery**: Rank on page 1 for romantic phrase queries across all 18 languages
+2. **Content Authority**: Become go-to resource for couples learning any language
 3. **Conversion**: Drive signups from blog readers
+4. **Multi-Language Expansion**: Scale Polish content strategy to all supported languages
 
 ### Key Metrics to Track
 | Metric | Baseline | Target | Current |
@@ -214,6 +228,12 @@ Prompt style: `"A romantic couple [scene], warm lighting, [theme] theme, lifesty
 ## Notes
 
 - Focus on long-tail keywords initially (less competition)
-- Prioritize "how to say X in Polish" format (high search intent)
+- Prioritize "how to say X in [language]" format (high search intent)
 - Include pronunciation in every article (differentiator)
 - Link to app features where relevant (natural CTAs)
+- **Multi-language expansion**: Replicate successful Polish articles for other language pairs
+- See `blog/MULTILANGUAGE_BLOG_PLAN.md` for detailed expansion roadmap
+
+---
+
+*Last updated: January 20, 2026*

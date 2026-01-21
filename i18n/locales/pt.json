@@ -464,6 +464,10 @@
       "saved": "Salvo!",
       "saveChanges": "Salvar Alterações",
       "signOut": "Sair"
+    },
+    "links": {
+      "blog": "Learn {{language}} Blog",
+      "blogDescription": "Free articles, phrases & culture guides"
     }
   },
   "loveLog": {
@@ -631,6 +635,12 @@
         "feature3": "Modo Escuta ilimitado",
         "feature4": "Todos os cenários de conversação",
         "feature5": "Passe presente para outro casal (anual)"
+      },
+      "errors": {
+        "authRequired": "Please sign in to continue",
+        "loadFailed": "Failed to load pricing. Please try again.",
+        "pricesUnavailable": "Pricing information unavailable",
+        "retry": "Retry"
       }
     },
     "student": {
@@ -1161,6 +1171,13 @@
   },
   "roleSelection": {
     "loading": "Preparando tudo...",
+    "confirmSettings": "Confirm Your Settings",
+    "confirmSettingsSubtitle": "Make sure everything looks right before we begin",
+    "languageSettings": "Language Settings",
+    "nativeLanguage": "I speak (app interface)",
+    "learningLanguage": "I'm learning",
+    "teachingLanguage": "I'm teaching",
+    "chooseYourRole": "Choose Your Role",
     "confirmHeader": "Só para confirmar...",
     "confirmSubtitle": "Toque para confirmar ou mudar seu papel",
     "welcomeHeader": "Bem-vindo ao Love Languages!",
@@ -1690,9 +1707,21 @@
   },
   "hero": {
     "languageSelector": {
+      "nativeTitle": "What language do you speak?",
+      "nativeSubtitle": "18 languages available - we'll show everything in yours",
       "nativePrompt": "Eu falo...",
+      "targetTitle": "What do you want to learn?",
+      "targetSubtitle": "Pick the language of someone you love",
       "targetPrompt": "Quero aprender...",
-      "targetPromptTutor": "Quero ensinar..."
+      "targetPromptTutor": "Quero ensinar...",
+      "showAll": "Show all languages",
+      "showLess": "Show less",
+      "selected": "Selected",
+      "back": "Back",
+      "change": "Change",
+      "learningIndicator": "Learning {{target}}",
+      "speakingIndicator": "Speaking {{native}}",
+      "changeLanguages": "Change languages"
     },
     "nativeStep": {
       "header": "Que idioma você fala?",

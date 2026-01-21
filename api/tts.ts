@@ -10,6 +10,7 @@ import {
   RATE_LIMITS
 } from '../utils/api-middleware.js';
 import { getTTSLangCode, getTTSVoice } from '../constants/language-config.js';
+import { extractLanguages } from '../utils/language-helpers.js';
 
 // Generate hash for cache key - includes userId to prevent cross-user cache sharing
 function generateCacheKey(text: string, userId: string): string {
@@ -116,10 +117,10 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    const { text, languageCode } = body || {};
+    const { text } = body || {};
 
-    // Default to Polish for backward compatibility
-    const targetLanguage = languageCode || 'pl';
+    // Extract language using standard helper (defaults to Polish for backward compatibility)
+    const { targetLanguage } = extractLanguages(body);
 
     if (!text || typeof text !== 'string') {
       return res.status(400).json({ error: 'Text is required' });
