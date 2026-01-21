@@ -149,7 +149,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="max-w-lg w-full">
         {/* Header */}
         <div className="text-center mb-8">

@@ -188,14 +188,14 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--bg-primary)', paddingTop: 'env(safe-area-inset-top, 0px)' }}>
         <div className="animate-spin w-8 h-8 border-4 border-t-transparent rounded-full" style={{ borderColor: accentHex }} />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen py-12 px-4" style={{ background: 'var(--bg-primary)' }}>
+    <div className="min-h-screen py-12 px-4" style={{ background: 'var(--bg-primary)', paddingTop: 'calc(env(safe-area-inset-top, 0px) + 3rem)' }}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

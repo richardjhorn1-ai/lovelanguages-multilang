@@ -190,7 +190,7 @@ const JoinInvite: React.FC = () => {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]">
+      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
         <div className="text-center">
           <div className="animate-bounce text-6xl mb-4">💕</div>
           <p className="text-[var(--accent-color)] font-bold animate-pulse">{t('joinInvite.validating')}</p>
@@ -202,7 +202,7 @@ const JoinInvite: React.FC = () => {
   // Error state
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3] p-6">
+      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3] p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
         <div className="bg-white p-10 rounded-[2.5rem] shadow-xl max-w-md w-full text-center">
           <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
             <ICONS.X className="w-8 h-8 text-red-500" />
@@ -223,7 +223,7 @@ const JoinInvite: React.FC = () => {
   // Completing invite state
   if (validating) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]">
+      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
         <div className="text-center">
           <div className="animate-pulse text-6xl mb-4">🔗</div>
           <p className="text-[var(--accent-color)] font-bold animate-pulse">{t('joinInvite.linking')}</p>
