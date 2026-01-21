@@ -4,7 +4,7 @@ import { getComparisonContent } from '../../../data/comparison-features';
 
 export function getStaticPaths() {
   // Supported native languages
-  const supportedLangs = ['en', 'es', 'fr'];
+  const supportedLangs = ['en', 'es', 'fr', 'de', 'it', 'pt'];
   return supportedLangs.map(nativeLang => ({
     params: { nativeLang }
   }));
@@ -98,6 +98,69 @@ const UI_TEXT: Record<string, {
     babbelDescription: "Comparez les cours structurés solo avec l'apprentissage conversationnel IA pour couples. 18 langues vs 14.",
     babbelVerdict: "Meilleur pour apprenants structurés",
     compare: "Comparer"
+  },
+  de: {
+    pageTitle: "Sprachlern-Apps Vergleichen - Love Languages vs Duolingo, Babbel & Mehr",
+    pageDescription: "Vergleiche Love Languages mit Duolingo, Babbel und anderen Sprachlern-Apps. Finde die beste App für Paare, die 18 Sprachen zusammen lernen mit Hörmodus und Partner-Challenges.",
+    heroTitle: "Sprachlern-Apps Vergleichen",
+    heroSubtitle: "Ehrliche Vergleiche, um die richtige App zum Sprachenlernen mit deinem Partner zu finden",
+    whyChooseTitle: "Warum Paare Love Languages Wählen",
+    builtForCouples: { title: "Für Paare Entwickelt", description: "Die einzige Sprach-App, die für gemeinsames Lernen mit Partner-Challenges, Wort-Geschenken und geteiltem Fortschritt entwickelt wurde." },
+    listenMode: { title: "Hörmodus", description: "Lerne passiv beim Kochen, Pendeln oder Entspannen. Keine andere App lässt dich Sprachen so natürlich aufnehmen." },
+    languages18: { title: "18 Sprachen", description: "Spanisch, Französisch, Deutsch, Italienisch, Portugiesisch, Polnisch und mehr. Jede Muttersprache zu jeder Zielsprache." },
+    aiConversations: { title: "KI-Gespräche", description: "Echte Gespräche mit KI, die sich deinem Niveau anpasst. Übe jederzeit sprechen, nicht nur geskriptete Übungen." },
+    gameModes: { title: "5 Spielmodi", description: "Karteikarten-Battles, Hör-Challenges und mehr. Spiele, die für Paare zum gemeinsamen Wettkampf und Lernen entwickelt wurden." },
+    wordGifts: { title: "Wort-Geschenke", description: "Sende romantisches Vokabular an deinen Partner. Eine süße Art, Fortschritte zu teilen und sich gegenseitig zu ermutigen." },
+    ctaTitle: "Entdecke Warum Paare Uns Lieben",
+    ctaSubtitle: "KI-Coaching, Hörmodus, Partner-Challenges und Spiele zum gemeinsamen Lernen von 18 Sprachen.",
+    ctaButton: "Gemeinsam Lernen Starten",
+    duolingoDescription: "Vergleiche die gamifizierte kostenlose Option mit unserer Paar-fokussierten Mehrsprachen-App. Sieh wie sich Hörmodus und Partner-Funktionen vergleichen.",
+    duolingoVerdict: "Beste kostenlose Alternative",
+    babbelDescription: "Vergleiche strukturierte Solo-Kurse mit KI-gestütztem Konversationslernen für Paare. 18 Sprachen vs 14.",
+    babbelVerdict: "Beste für strukturierte Lerner",
+    compare: "Vergleichen"
+  },
+  it: {
+    pageTitle: "Confronta App per Imparare Lingue - Love Languages vs Duolingo, Babbel e Altri",
+    pageDescription: "Confronta Love Languages con Duolingo, Babbel e altre app per lingue. Trova la migliore app per coppie che imparano 18 lingue insieme con Modalità Ascolto e sfide di coppia.",
+    heroTitle: "Confronta App per Lingue",
+    heroSubtitle: "Confronti onesti per aiutarti a scegliere l'app giusta per imparare lingue con il tuo partner",
+    whyChooseTitle: "Perché le Coppie Scelgono Love Languages",
+    builtForCouples: { title: "Progettato per Coppie", description: "L'unica app di lingue progettata per imparare insieme con sfide di coppia, regali di parole e progressi condivisi." },
+    listenMode: { title: "Modalità Ascolto", description: "Impara passivamente mentre cucini, viaggi o ti rilassi. Nessun'altra app ti permette di assorbire le lingue così naturalmente." },
+    languages18: { title: "18 Lingue", description: "Spagnolo, francese, tedesco, italiano, portoghese, polacco e altro. Qualsiasi lingua madre verso qualsiasi lingua target." },
+    aiConversations: { title: "Conversazioni IA", description: "Conversazioni reali con IA che si adatta al tuo livello. Pratica parlando in qualsiasi momento, non solo esercizi scriptati." },
+    gameModes: { title: "5 Modalità di Gioco", description: "Battaglie di flashcard, sfide di ascolto e altro. Giochi progettati per coppie per competere e imparare insieme." },
+    wordGifts: { title: "Regali di Parole", description: "Invia vocabolario romantico al tuo partner. Un modo dolce per condividere i progressi e incoraggiarvi a vicenda." },
+    ctaTitle: "Scopri Perché le Coppie Ci Amano",
+    ctaSubtitle: "Coaching IA, Modalità Ascolto, sfide di coppia e giochi progettati per imparare 18 lingue insieme.",
+    ctaButton: "Inizia a Imparare Insieme",
+    duolingoDescription: "Confronta l'opzione gratuita gamificata con la nostra app multilingue per coppie. Vedi come si confrontano Modalità Ascolto e funzionalità per coppie.",
+    duolingoVerdict: "Migliore alternativa gratuita",
+    babbelDescription: "Confronta corsi strutturati singoli con apprendimento conversazionale IA per coppie. 18 lingue vs 14.",
+    babbelVerdict: "Migliore per apprendisti strutturati",
+    compare: "Confronta"
+  },
+  pt: {
+    pageTitle: "Comparar Apps de Idiomas - Love Languages vs Duolingo, Babbel e Mais",
+    pageDescription: "Compare Love Languages com Duolingo, Babbel e outros apps de idiomas. Encontre o melhor app para casais aprendendo 18 idiomas juntos com Modo Escuta e desafios de casal.",
+    heroTitle: "Comparar Apps de Idiomas",
+    heroSubtitle: "Comparações honestas para ajudá-lo a escolher o app certo para aprender idiomas com seu parceiro",
+    whyChooseTitle: "Por Que Casais Escolhem Love Languages",
+    builtForCouples: { title: "Feito para Casais", description: "O único app de idiomas projetado para aprender juntos com desafios de casal, presentes de palavras e progresso compartilhado." },
+    listenMode: { title: "Modo Escuta", description: "Aprenda passivamente enquanto cozinha, viaja ou relaxa. Nenhum outro app permite absorver idiomas tão naturalmente." },
+    languages18: { title: "18 Idiomas", description: "Espanhol, francês, alemão, italiano, português, polonês e mais. Qualquer idioma nativo para qualquer idioma alvo." },
+    aiConversations: { title: "Conversas com IA", description: "Conversas reais com IA que se adapta ao seu nível. Pratique falando a qualquer momento, não apenas exercícios scriptados." },
+    gameModes: { title: "5 Modos de Jogo", description: "Batalhas de flashcards, desafios de escuta e mais. Jogos projetados para casais competirem e aprenderem juntos." },
+    wordGifts: { title: "Presentes de Palavras", description: "Envie vocabulário romântico para seu parceiro. Uma forma doce de compartilhar progresso e encorajar um ao outro." },
+    ctaTitle: "Descubra Por Que Casais Nos Amam",
+    ctaSubtitle: "Coaching de IA, Modo Escuta, desafios de casal e jogos projetados para aprender 18 idiomas juntos.",
+    ctaButton: "Começar a Aprender Juntos",
+    duolingoDescription: "Compare a opção gratuita gamificada com nosso app multilíngue para casais. Veja como se comparam Modo Escuta e recursos para casais.",
+    duolingoVerdict: "Melhor alternativa gratuita",
+    babbelDescription: "Compare cursos estruturados solo com aprendizado conversacional com IA para casais. 18 idiomas vs 14.",
+    babbelVerdict: "Melhor para aprendizes estruturados",
+    compare: "Comparar"
   }
 };
 

@@ -5,7 +5,7 @@ import { getComparisonContent } from '../../../data/comparison-features';
 
 export function getStaticPaths() {
   // Supported native languages
-  const supportedLangs = ['en', 'es', 'fr'];
+  const supportedLangs = ['en', 'es', 'fr', 'de', 'it', 'pt'];
   return supportedLangs.map(nativeLang => ({
     params: { nativeLang }
   }));
