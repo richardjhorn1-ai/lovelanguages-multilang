@@ -35,14 +35,14 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
 // Generate static paths for each native language
 export async function getStaticPaths() {
   // Native languages that have translated content (defined inside getStaticPaths for Astro hoisting)
-  const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+  const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr'];
   return supportedNativeLangs.map(nativeLang => ({
     params: { nativeLang }
   }));
 }
 
 // Native languages that have translated content (also available in template)
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr'];
 
 const { nativeLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
@@ -291,6 +291,90 @@ const UI_TEXT: Record<string, {
     couplesMotivation: 'Casais que aprendem juntos ficam motivados, praticam mais e criam memórias duradouras.',
     discoverCouples: 'Descubra Por Que Casais Aprendem Mais Rápido',
     freeToStart: 'Grátis para começar • Sem cartão',
+  },
+  ru: {
+    heroTitle: 'Изучайте Любой Язык Вместе',
+    heroSubtitle: 'Бесплатные уроки, фразы и культурные советы для пар, которые учатся вместе.',
+    heroTagline: 'Для Пар',
+    browseLanguages: 'Выбрать Язык',
+    whyLearnTogether: 'Почему Вместе?',
+    chooseLanguage: 'Выберите Язык',
+    chooseLanguageSubtitle: 'Полные курсы с уроками, фразами, грамматикой и культурой',
+    popularTitle: 'Популярные Языки',
+    ctaTitle: 'Готовы Начать?',
+    ctaSubtitle: 'ИИ-коучинг, голосовая практика и игры для двоих.',
+    ctaButton: 'Начать Обучение',
+    ctaFooter: 'Бесплатно • Без карты',
+    startLearning: 'Начать Учить',
+    articles: 'статей',
+    article: 'статья',
+    guides: 'уроков',
+    languages: 'языков',
+    comingSoon: 'Скоро',
+    learnWith: 'Учите лексику, фразы, грамматику и культуру вместе с партнёром.',
+    toFluency: 'до свободного',
+    freshReads: 'Новые Статьи',
+    latestGuides: 'Последние уроки и гайды',
+    betterTogether: 'Лучше Вместе',
+    couplesMotivation: 'Пары, которые учатся вместе, остаются мотивированными, практикуются чаще и создают незабываемые воспоминания.',
+    discoverCouples: 'Узнайте Почему Пары Учатся Быстрее',
+    freeToStart: 'Бесплатно • Без карты',
+  },
+  pl: {
+    heroTitle: 'Uczcie Się Razem Dowolnego Języka',
+    heroSubtitle: 'Darmowe lekcje, zwroty i porady kulturowe dla par uczących się razem.',
+    heroTagline: 'Dla Par',
+    browseLanguages: 'Przeglądaj Języki',
+    whyLearnTogether: 'Dlaczego Razem?',
+    chooseLanguage: 'Wybierz Język',
+    chooseLanguageSubtitle: 'Kompletne kursy z lekcjami, zwrotami, gramatyką i kulturą',
+    popularTitle: 'Najpopularniejsze Języki',
+    ctaTitle: 'Gotowi Zacząć?',
+    ctaSubtitle: 'Coaching AI, ćwiczenia głosowe i gry dla dwojga.',
+    ctaButton: 'Rozpocznij Naukę',
+    ctaFooter: 'Za darmo • Bez karty',
+    startLearning: 'Zacznij Naukę',
+    articles: 'artykułów',
+    article: 'artykuł',
+    guides: 'lekcji',
+    languages: 'języków',
+    comingSoon: 'Wkrótce',
+    learnWith: 'Ucz się słownictwa, zwrotów, gramatyki i kultury ze swoim partnerem.',
+    toFluency: 'do płynności',
+    freshReads: 'Nowe Artykuły',
+    latestGuides: 'Najnowsze lekcje i poradniki',
+    betterTogether: 'Lepiej Razem',
+    couplesMotivation: 'Pary uczące się razem są bardziej zmotywowane, ćwiczą częściej i tworzą niezapomniane wspomnienia.',
+    discoverCouples: 'Odkryj Dlaczego Pary Uczą Się Szybciej',
+    freeToStart: 'Za darmo • Bez karty',
+  },
+  tr: {
+    heroTitle: 'Birlikte Herhangi Bir Dili Öğrenin',
+    heroSubtitle: 'Birlikte öğrenen çiftler için ücretsiz dersler, ifadeler ve kültürel ipuçları.',
+    heroTagline: 'Çiftler İçin',
+    browseLanguages: 'Dillere Göz At',
+    whyLearnTogether: 'Neden Birlikte?',
+    chooseLanguage: 'Dilinizi Seçin',
+    chooseLanguageSubtitle: 'Dersler, ifadeler, dilbilgisi ve kültür içeren eksiksiz kılavuzlar',
+    popularTitle: 'En Popüler Diller',
+    ctaTitle: 'Başlamaya Hazır mısınız?',
+    ctaSubtitle: 'İkili için tasarlanmış AI koçluk, ses pratiği ve oyunlar.',
+    ctaButton: 'Yolculuğunuza Başlayın',
+    ctaFooter: 'Ücretsiz başlayın • Kredi kartı gereksiz',
+    startLearning: 'Öğrenmeye Başla',
+    articles: 'makale',
+    article: 'makale',
+    guides: 'rehber',
+    languages: 'dil',
+    comingSoon: 'Yakında',
+    learnWith: 'Partnerinizle birlikte kelime, ifade, dilbilgisi ve kültür öğrenin.',
+    toFluency: 'akıcılığa',
+    freshReads: 'Yeni Yazılar',
+    latestGuides: 'En son rehberler ve dersler',
+    betterTogether: 'Birlikte Daha İyi',
+    couplesMotivation: 'Birlikte öğrenen çiftler motive kalır, daha sık pratik yapar ve kalıcı anılar oluşturur.',
+    discoverCouples: 'Çiftlerin Neden Daha Hızlı Öğrendiğini Keşfedin',
+    freeToStart: 'Ücretsiz başlayın • Kredi kartı gereksiz',
   },
 };
 

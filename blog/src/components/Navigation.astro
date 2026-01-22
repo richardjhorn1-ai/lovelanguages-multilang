@@ -7,7 +7,7 @@ interface Props {
 const { nativeLang = 'en', targetLang } = Astro.props;
 
 // Supported native languages for content (languages with translated articles)
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr'];
 
 const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   en: { flag: '🇬🇧', nativeName: 'English' },
@@ -16,6 +16,9 @@ const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   de: { flag: '🇩🇪', nativeName: 'Deutsch' },
   it: { flag: '🇮🇹', nativeName: 'Italiano' },
   pt: { flag: '🇵🇹', nativeName: 'Português' },
+  ru: { flag: '🇷🇺', nativeName: 'Русский' },
+  pl: { flag: '🇵🇱', nativeName: 'Polski' },
+  tr: { flag: '🇹🇷', nativeName: 'Türkçe' },
 };
 
 // Navigation UI translations
@@ -26,6 +29,9 @@ const NAV_TRANSLATIONS: Record<string, { compareApps: string; startLearning: str
   de: { compareApps: 'Vergleichen', startLearning: 'Starten' },
   it: { compareApps: 'Confronta', startLearning: 'Inizia' },
   pt: { compareApps: 'Comparar', startLearning: 'Começar' },
+  ru: { compareApps: 'Сравнить', startLearning: 'Начать' },
+  pl: { compareApps: 'Porównaj', startLearning: 'Zacznij' },
+  tr: { compareApps: 'Karşılaştır', startLearning: 'Başla' },
 };
 
 const navText = NAV_TRANSLATIONS[nativeLang] || NAV_TRANSLATIONS.en;
