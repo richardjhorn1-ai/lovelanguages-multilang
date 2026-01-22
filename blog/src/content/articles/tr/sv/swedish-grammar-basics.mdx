@@ -1,0 +1,285 @@
+---
+title: "Isveççe Gramer Temelleri: Başlangıç Rehberi"
+description: "Isveççe gramerin temellerini öğrenin. Fiiller, isimler, sıfatlar ve cümle yapısı hakkında kapsamlı bir kılavuz."
+category: grammar
+difficulty: beginner
+readTime: 12
+date: '2026-01-22'
+image: '/blog/swedish-grammar-basics.jpg'
+tags: ['Isveççe gramer', 'dil öğrenme', 'fiil çekimi', 'isim çekimi', 'başlangıç']
+language: sv
+nativeLanguage: tr
+---
+import VocabCard from '@components/VocabCard.astro';
+import ConjugationTable from '@components/ConjugationTable.astro';
+import CultureTip from '@components/CultureTip.astro';
+import PhraseOfDay from '@components/PhraseOfDay.astro';
+import CTA from '@components/CTA.astro';
+
+Isveççe grameri öğrenmek, dili gerçekten anlamanın anahtarıdır. Iyi haber şu ki, Isveççe grameri Türkçe'ye kıyasla oldukça basittir. Bu rehberde temel gramer kurallarını adım adım öğreneceksiniz.
+
+## Isimler ve Artikeller
+
+### Cinsiyet Sistemi
+
+Isveççe'de iki dilbilgisel cinsiyet vardır: **en** (ortak/utrum) ve **ett** (nötr).
+
+<VocabCard
+  word="en bok / ett hus"
+  translation="bir kitap / bir ev"
+  pronunciation="en bok / et hus"
+  example="En-kelimeleri ve ett-kelimeleri ayrı öğrenilmelidir"
+/>
+
+| Tip | Belirsiz Artikel | Örnek | Anlam |
+|-----|------------------|-------|-------|
+| **Ortak (utrum)** | en | en man | bir adam |
+| **Nötr** | ett | ett barn | bir çocuk |
+
+<CultureTip title="Hangi Cinsiyet?" flag="🇸🇪">
+Ne yazık ki kelimenin hangi cinsiyette olduğunu tahmin etmek için kesin bir kural yoktur. Yeni kelimeler öğrenirken artikelini birlikte ezberleyin: "en bok" değil, sadece "bok".
+</CultureTip>
+
+### Belirli Artikel (Tanımlık)
+
+Türkçe'den farklı olarak, Isveççe'de belirli artikel kelimenin SONUNA eklenir:
+
+<VocabCard
+  word="boken / huset"
+  translation="kitap / ev (belirli)"
+  pronunciation="BOO-ken / HÜ-set"
+  example="Belirsiz: en bok, ett hus → Belirli: boken, huset"
+/>
+
+| Tip | Belirsiz | Belirli | Anlam |
+|-----|----------|---------|-------|
+| En-kelimeleri | en flicka | flickan | kız |
+| Ett-kelimeleri | ett äpple | äpplet | elma |
+
+### Çoğul Yapımı
+
+Isveççe'de çoğul ekleri kelime tipine göre değişir:
+
+| Grup | Tekil | Çoğul | Kural |
+|------|-------|-------|-------|
+| 1 | en flicka | flickor | -a → -or |
+| 2 | en pojke | pojkar | -e → -ar |
+| 3 | en park | parker | ünsüz + -er |
+| 4 | ett äpple | äpplen | -e → -en |
+| 5 | ett barn | barn | değişmez |
+
+## Fiil Çekimi
+
+### Harika Haber: Şahıslara Göre Çekim Yok!
+
+<ConjugationTable
+  verb="tala"
+  meaning="konuşmak"
+  conjugations={[
+    { person: "jag", word: "talar", translation: "konuşuyorum" },
+    { person: "du", word: "talar", translation: "konuşuyorsun" },
+    { person: "han/hon", word: "talar", translation: "konuşuyor" },
+    { person: "vi", word: "talar", translation: "konuşuyoruz" },
+    { person: "ni", word: "talar", translation: "konuşuyorsunuz" },
+    { person: "de", word: "talar", translation: "konuşuyorlar" }
+  ]}
+/>
+
+Tüm şahıslar için aynı form! Bu, Isveççe gramerin en kolay yönlerinden biridir.
+
+### Fiil Grupları
+
+Isveççe fiiller 4 gruba ayrılır:
+
+<VocabCard
+  word="Grup 1: -ar fiilleri"
+  translation="En büyük grup"
+  pronunciation="Mastar: -a, Şimdiki: -ar"
+  example="tala → talar, älska → älskar"
+/>
+
+| Grup | Mastar | Şimdiki Zaman | Geçmiş Zaman | Örnek |
+|------|--------|---------------|--------------|-------|
+| 1 | -a | -ar | -ade | tala → talar → talade |
+| 2a | -a | -er | -de | läsa → läser → läste |
+| 2b | -a | -er | -te | köpa → köper → köpte |
+| 3 | kısa | -r | -dde | bo → bor → bodde |
+| 4 | - | -er | düzensiz | skriva → skriver → skrev |
+
+### Temel Zamanlar
+
+<PhraseOfDay
+  word="Jag älskade, älskar, kommer att älska dig"
+  translation="Seni sevdim, seviyorum, seveceğim"
+  pronunciation="yag ELS-ka-de, ELS-kar, KOM-mer at ELS-ka dey"
+  context="Üç temel zaman bir cümlede"
+/>
+
+| Zaman | Yapı | Örnek | Anlam |
+|-------|------|-------|-------|
+| Şimdiki | fiil gövdesi + -ar/-er/-r | jag talar | konuşuyorum |
+| Geçmiş | fiil gövdesi + -ade/-de/-te/düzensiz | jag talade | konuştum |
+| Gelecek | kommer att + mastar | jag kommer att tala | konuşacağım |
+| Perfect | har + supine | jag har talat | konuştum (have talked) |
+
+## Sıfatlar
+
+### Sıfat Uyumu
+
+Sıfatlar, tanımladıkları isme göre değişir:
+
+<VocabCard
+  word="en stor man / ett stort hus"
+  translation="büyük bir adam / büyük bir ev"
+  pronunciation="en stor man / et stort hüs"
+  example="En-kelimeleri için -Ø, ett-kelimeleri için -t"
+/>
+
+| Durum | En-kelimesi | Ett-kelimesi | Çoğul/Belirli |
+|-------|-------------|--------------|---------------|
+| Temel | stor | stort | stora |
+| Örnek | en stor man | ett stort hus | stora män/hus |
+
+### Belirli Form
+
+Sıfat + belirli isim kullanırken, sıfat "-a" alır ve ismin önüne "den/det/de" gelir:
+
+```
+den stora mannen (o büyük adam)
+det stora huset (o büyük ev)
+de stora barnen (o büyük çocuklar)
+```
+
+## Cümle Yapısı
+
+### V2 Kuralı (Fiil İkinci Pozisyonda)
+
+Isveççe'nin en önemli gramer kuralı: **Ana cümlelerde fiil HER ZAMAN ikinci pozisyonda olmalıdır.**
+
+<VocabCard
+  word="Idag älskar jag dig"
+  translation="Bugün seni seviyorum"
+  pronunciation="i-DAG ELS-kar yag dey"
+  example="Fiil (älskar) ikinci pozisyonda, özne (jag) üçüncü pozisyona geçti"
+/>
+
+| Pozisyon 1 | Pozisyon 2 | Pozisyon 3+ |
+|------------|------------|-------------|
+| Jag | älskar | dig |
+| Idag | älskar | jag dig |
+| Dig | älskar | jag |
+
+<CultureTip title="V2 Neden Önemli?" flag="🇸🇪">
+V2 kuralını ihlal etmek, cümlenizi çok yabancı ve garip yapar. Bu kural Isveççe, Almanca ve diğer Germen dillerinde ortaktır.
+</CultureTip>
+
+### Soru Cümleleri
+
+Evet/hayır sorularında fiil başa gelir:
+
+| Düz Cümle | Soru |
+|-----------|------|
+| Du älskar mig. | Älskar du mig? |
+| Han kommer idag. | Kommer han idag? |
+
+Soru kelimeleriyle başlayan sorularda soru kelimesi + fiil + özne:
+
+| Soru Kelimesi | Örnek | Anlam |
+|---------------|-------|-------|
+| **Vad** | Vad gör du? | Ne yapıyorsun? |
+| **Var** | Var är du? | Neredesin? |
+| **När** | När kommer du? | Ne zaman geliyorsun? |
+| **Vem** | Vem är det? | O kim? |
+| **Hur** | Hur mår du? | Nasılsın? |
+| **Varför** | Varför gråter du? | Neden ağlıyorsun? |
+
+## Zamirler
+
+### Şahıs Zamirleri
+
+<ConjugationTable
+  verb="Şahıs Zamirleri"
+  meaning="Özne ve Nesne Formları"
+  conjugations={[
+    { person: "Ben", word: "jag / mig", translation: "yag / mey" },
+    { person: "Sen", word: "du / dig", translation: "du / dey" },
+    { person: "O (erkek)", word: "han / honom", translation: "han / HO-nom" },
+    { person: "O (kadın)", word: "hon / henne", translation: "hon / HEN-ne" },
+    { person: "Biz", word: "vi / oss", translation: "vi / os" },
+    { person: "Siz", word: "ni / er", translation: "ni / er" },
+    { person: "Onlar", word: "de / dem", translation: "dom / dom" }
+  ]}
+/>
+
+<CultureTip title="'Hen' Zamiri" flag="🇸🇪">
+Modern Isveççe'de cinsiyet-nötr bir zamir olarak "hen" de kullanılır. Bu, cinsiyeti belirsiz veya belirtmek istemeyen durumlar için kullanışlıdır.
+</CultureTip>
+
+### Iyelik Zamirleri
+
+| Şahıs | Iyelik (en) | Iyelik (ett) | Çoğul |
+|-------|-------------|--------------|-------|
+| Ben | min | mitt | mina |
+| Sen | din | ditt | dina |
+| O (e) | hans | hans | hans |
+| O (k) | hennes | hennes | hennes |
+| Biz | vår | vårt | våra |
+| Siz | er | ert | era |
+| Onlar | deras | deras | deras |
+
+<VocabCard
+  word="min bok / mitt hus / mina vänner"
+  translation="kitabım / evim / arkadaşlarım"
+  pronunciation="min bok / mit hüs / MI-na VEN-ner"
+  example="Iyelik zamiri isme göre değişir"
+/>
+
+## Olumsuzluk
+
+Olumsuz cümleler yapmak için **inte** kullanılır:
+
+| Olumlu | Olumsuz |
+|--------|---------|
+| Jag älskar dig | Jag älskar dig inte |
+| Han kommer | Han kommer inte |
+| Vi pratar | Vi pratar inte |
+
+<VocabCard
+  word="Jag älskar dig inte"
+  translation="Seni sevmiyorum"
+  pronunciation="yag ELS-kar dey IN-te"
+  example="'Inte' fiilden sonra gelir"
+/>
+
+## Pratik Cümleler
+
+### Romantik Ifadeler
+
+| Isveççe | Anlam | Gramer Notu |
+|---------|-------|-------------|
+| Jag älskar dig | Seni seviyorum | Temel SVO |
+| Du är vacker | Güzelsin | Sıfat cümlesi |
+| Jag saknar dig | Seni özledim | Temel SVO |
+| Vill du gifta dig med mig? | Benimle evlenir misin? | Soru + refleksif |
+
+### Günlük Ifadeler
+
+| Isveççe | Anlam | Gramer Notu |
+|---------|-------|-------------|
+| Vad heter du? | Adın ne? | Soru kelimesi + V2 |
+| Jag heter... | Adım... | Temel SVO |
+| Var kommer du ifrån? | Nerelisin? | Soru + edat |
+| Jag kommer från Turkiet | Türkiye'denim | Temel SVO + edat |
+
+## Özet: Temel Gramer Kuralları
+
+1. **Fiiller şahıslara göre değişmez** - Tek bir form ezberle
+2. **Artikeller cinsiyete bağlı** - en veya ett
+3. **Belirli artikel sona eklenir** - bok → boken
+4. **V2 kuralı** - Fiil her zaman ikinci pozisyonda
+5. **Sıfatlar uyum sağlar** - en stor man, ett stort hus
+6. **Olumsuzluk inte ile** - Fiilden sonra gelir
+
+Isveççe grameri pratikle kolaylaşır. Partnerinizle birlikte düzenli pratik yaparak bu kuralları içselleştirebilirsiniz!
+
+<CTA text="Isveççe gramerini pratikte uygulamaya hazır mısınız?" buttonText="Hemen Başla" />
