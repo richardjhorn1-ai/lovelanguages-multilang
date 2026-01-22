@@ -12,18 +12,18 @@ import { AnimatedGradient } from '../components/AnimatedGradient';
 import { CameraZoom, CameraKeyframe } from '../components/CameraZoom';
 import { BeatPulse } from '../components/BeatPulse';
 
-// Camera path - follows quiz creation and challenge (focus on TOP where content appears)
+// Camera path - smooth movements with gentle panning
 const CAMERA_PATH: CameraKeyframe[] = [
   { frame: 0, zoom: 1, focusX: 50, focusY: 50 },           // Start normal
-  { frame: 25, zoom: 2.2, focusX: 50, focusY: 42 },        // Zoom into tutor phone - quiz header
-  { frame: 80, zoom: 2.2, focusX: 50, focusY: 48 },        // Pan slightly as questions appear
-  { frame: 130, zoom: 2.2, focusX: 50, focusY: 52 },       // Focus on send button (not too far down)
-  { frame: 160, zoom: 1.8, focusX: 50, focusY: 50 },       // Pull back for transition
-  { frame: 200, zoom: 2.2, focusX: 50, focusY: 42 },       // Zoom into student phone - challenge header
-  { frame: 240, zoom: 2.2, focusX: 50, focusY: 48 },       // Focus on question card
-  { frame: 280, zoom: 2.5, focusX: 50, focusY: 48 },       // Zoom into celebration
-  { frame: 320, zoom: 2.2, focusX: 50, focusY: 48 },       // Hold on celebration
-  { frame: 360, zoom: 1, focusX: 50, focusY: 50 },         // Zoom out
+  { frame: 40, zoom: 1, focusX: 50, focusY: 50 },          // Hold on caption
+  { frame: 80, zoom: 1.9, focusX: 50, focusY: 38 },        // Zoom into tutor phone upper area
+  { frame: 120, zoom: 1.9, focusX: 50, focusY: 42 },       // Gentle pan down as questions appear
+  { frame: 150, zoom: 1.9, focusX: 50, focusY: 48 },       // Continue gentle pan to send button
+  { frame: 180, zoom: 1.5, focusX: 50, focusY: 50 },       // Pull back for transition
+  { frame: 220, zoom: 1.9, focusX: 50, focusY: 38 },       // Zoom to student phone upper area
+  { frame: 260, zoom: 1.9, focusX: 50, focusY: 44 },       // Gentle pan to question card
+  { frame: 300, zoom: 2.0, focusX: 50, focusY: 50 },       // Pan to celebration (center)
+  { frame: 350, zoom: 1, focusX: 50, focusY: 50 },         // Smooth zoom out
 ];
 
 const QUIZ_WORDS = [
@@ -33,6 +33,7 @@ const QUIZ_WORDS = [
 ];
 
 // Scene phases (extended for 12s = 360 frames)
+const SEND_CONFIRMATION_START = 145;
 const TUTOR_PHASE_END = 180;
 const TRANSITION_START = 170;
 const STUDENT_PHASE_START = 190;
@@ -43,6 +44,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
   // Phase transitions
   const showTutor = frame < TUTOR_PHASE_END;
   const showStudent = frame >= STUDENT_PHASE_START;
+  const showSendConfirmation = frame >= SEND_CONFIRMATION_START && frame < TRANSITION_START;
 
   const transitionProgress = interpolate(
     frame,
@@ -83,9 +85,9 @@ export const Scene4PartnerChallenge: React.FC = () => {
   const currentWord = QUIZ_WORDS[safeIndex] || QUIZ_WORDS[0];
   const showCelebration = currentQuestion >= 3;
 
-  // Celebration starts at studentFrame 90 (giving ~80 frames / 2.7s for celebration)
+  // Celebration starts when quiz completes (studentFrame 80)
   const celebrationScale = spring({
-    frame: studentFrame - 90,
+    frame: studentFrame - 80,
     fps: FPS,
     config: { damping: 200 },
   });
@@ -116,7 +118,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
           <FlyingHeart startFrame={TRANSITION_START - 10} duration={45} />
 
           {/* Confetti when celebration appears */}
-          <Confetti startFrame={STUDENT_PHASE_START + 90} count={80} duration={120} />
+          <Confetti startFrame={STUDENT_PHASE_START + 80} count={80} duration={120} />
 
       {/* Captions explaining the feature */}
       <Caption
@@ -128,7 +130,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
       <Caption
         text="Challenge accepted!"
         subtext="Earn XP together when they get it right"
-        startFrame={STUDENT_PHASE_START + 20}
+        startFrame={STUDENT_PHASE_START + 15}
         position="top"
       />
 
@@ -141,7 +143,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
         }}
       >
         <PhoneFrame scale={1.4}>
-          <div style={{ padding: 16, height: '100%' }}>
+          <div style={{ padding: 16, height: '100%', position: 'relative' }}>
             {/* Modal-style card */}
             <div
               style={{
@@ -180,7 +182,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                 <span
                   style={{
                     fontFamily: FONTS.header,
-                    fontSize: 18,
+                    fontSize: 22,
                     fontWeight: 700,
                     color: COLORS.textPrimary,
                   }}
@@ -194,7 +196,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.body,
-                    fontSize: 12,
+                    fontSize: 14,
                     color: COLORS.textSecondary,
                     marginBottom: 10,
                   }}
@@ -237,7 +239,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                       <p
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 13,
+                          fontSize: 15,
                           color: COLORS.textPrimary,
                           margin: 0,
                         }}
@@ -247,7 +249,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                       <p
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 11,
+                          fontSize: 13,
                           color: COLORS.textMuted,
                           margin: 0,
                         }}
@@ -275,7 +277,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.body,
-                    fontSize: 11,
+                    fontSize: 13,
                     color: COLORS.accentPink,
                     margin: 0,
                   }}
@@ -295,7 +297,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                     border: 'none',
                     borderRadius: 16,
                     fontFamily: FONTS.body,
-                    fontSize: 15,
+                    fontSize: 17,
                     fontWeight: 600,
                     display: 'flex',
                     alignItems: 'center',
@@ -307,6 +309,67 @@ export const Scene4PartnerChallenge: React.FC = () => {
                 </button>
               </Sequence>
             </div>
+
+            {/* Send Confirmation Modal */}
+            {showSendConfirmation && (
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: 24,
+                  zIndex: 10,
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: COLORS.bgCard,
+                    borderRadius: 32,
+                    padding: 32,
+                    textAlign: 'center',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 64,
+                      height: 64,
+                      borderRadius: '50%',
+                      backgroundColor: COLORS.teal,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      margin: '0 auto 16px',
+                    }}
+                  >
+                    <span style={{ fontSize: 32, color: 'white' }}>🎯</span>
+                  </div>
+                  <h2
+                    style={{
+                      fontFamily: FONTS.header,
+                      fontSize: 26,
+                      fontWeight: 700,
+                      color: COLORS.teal,
+                      marginBottom: 8,
+                    }}
+                  >
+                    Challenge Sent!
+                  </h2>
+                  <p
+                    style={{
+                      fontFamily: FONTS.body,
+                      fontSize: 16,
+                      color: COLORS.textSecondary,
+                    }}
+                  >
+                    3 questions sent to your partner
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </PhoneFrame>
       </div>
@@ -350,7 +413,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                       <span
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 12,
+                          fontSize: 14,
                           color: COLORS.accentPink,
                           fontWeight: 600,
                         }}
@@ -407,7 +470,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                       <p
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 12,
+                          fontSize: 14,
                           color: COLORS.textMuted,
                           marginBottom: 8,
                         }}
@@ -417,7 +480,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                       <p
                         style={{
                           fontFamily: FONTS.header,
-                          fontSize: 26,
+                          fontSize: 30,
                           fontWeight: 700,
                           color: COLORS.textPrimary,
                         }}
@@ -441,7 +504,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                       <span
                         style={{
                           fontFamily: FONTS.header,
-                          fontSize: 18,
+                          fontSize: 20,
                           color: '#10b981',
                           fontWeight: 600,
                         }}
@@ -457,7 +520,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    backgroundColor: `rgba(0, 0, 0, ${Math.min(0.5, Math.max(0, celebrationScale) * 0.5)})`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -465,10 +528,10 @@ export const Scene4PartnerChallenge: React.FC = () => {
                   }}
                 >
                   {/* Sparkle bursts around celebration */}
-                  <SparkleBurst startFrame={STUDENT_PHASE_START + 90} x={15} y={25} count={8} color="#FFD700" />
-                  <SparkleBurst startFrame={STUDENT_PHASE_START + 95} x={85} y={30} count={8} color={COLORS.accentPink} />
-                  <SparkleBurst startFrame={STUDENT_PHASE_START + 100} x={50} y={75} count={6} color="#FFD700" />
-                  <SparkleBurst startFrame={STUDENT_PHASE_START + 105} x={25} y={60} count={5} color={COLORS.accentPink} />
+                  <SparkleBurst startFrame={STUDENT_PHASE_START + 80} x={15} y={25} count={8} color="#FFD700" />
+                  <SparkleBurst startFrame={STUDENT_PHASE_START + 85} x={85} y={30} count={8} color={COLORS.accentPink} />
+                  <SparkleBurst startFrame={STUDENT_PHASE_START + 90} x={50} y={75} count={6} color="#FFD700" />
+                  <SparkleBurst startFrame={STUDENT_PHASE_START + 95} x={25} y={60} count={5} color={COLORS.accentPink} />
 
                   {/* Modal card */}
                   <div
@@ -480,13 +543,14 @@ export const Scene4PartnerChallenge: React.FC = () => {
                       width: '100%',
                       boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
                       transform: `scale(${Math.max(0, celebrationScale)})`,
+                      opacity: Math.max(0, celebrationScale),
                     }}
                   >
                     <span style={{ fontSize: 56 }}>🎉</span>
                     <h2
                       style={{
                         fontFamily: FONTS.header,
-                        fontSize: 28,
+                        fontSize: 32,
                         fontWeight: 700,
                         color: COLORS.textPrimary,
                         marginTop: 16,
@@ -497,7 +561,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                     <p
                       style={{
                         fontFamily: FONTS.body,
-                        fontSize: 16,
+                        fontSize: 18,
                         color: COLORS.textSecondary,
                         marginTop: 6,
                       }}
@@ -519,7 +583,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
                       <span
                         style={{
                           fontFamily: FONTS.header,
-                          fontSize: 22,
+                          fontSize: 24,
                           fontWeight: 700,
                           color: COLORS.accentPink,
                         }}
@@ -538,7 +602,7 @@ export const Scene4PartnerChallenge: React.FC = () => {
       </CameraZoom>
 
       {/* Beat pulse on celebration */}
-      <BeatPulse startFrame={STUDENT_PHASE_START + 90} color={COLORS.accentPink} intensity={0.6} />
+      <BeatPulse startFrame={STUDENT_PHASE_START + 80} color={COLORS.accentPink} intensity={0.6} />
     </AbsoluteFill>
   );
 };

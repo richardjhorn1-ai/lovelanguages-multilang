@@ -9,16 +9,14 @@ import { AnimatedGradient } from '../components/AnimatedGradient';
 import { CameraZoom, CameraKeyframe } from '../components/CameraZoom';
 import { BeatPulse } from '../components/BeatPulse';
 
-// Camera path keyframes - follows the chat conversation (TOP of phone where messages appear)
+// Camera path - smooth movements with good zoom and upper focus
 const CAMERA_PATH: CameraKeyframe[] = [
   { frame: 0, zoom: 1, focusX: 50, focusY: 50 },           // Start normal
-  { frame: 30, zoom: 2.2, focusX: 50, focusY: 38 },        // Zoom into header/context badges area
-  { frame: 50, zoom: 2.2, focusX: 50, focusY: 42 },        // Focus on user message appearing
-  { frame: 100, zoom: 2.2, focusX: 50, focusY: 45 },       // Pan slightly as AI responds
-  { frame: 140, zoom: 2.5, focusX: 50, focusY: 48 },       // Zoom into highlight card (mid area)
-  { frame: 180, zoom: 2.2, focusX: 50, focusY: 50 },       // Pan to final message
-  { frame: 255, zoom: 2.2, focusX: 50, focusY: 48 },       // Hold
-  { frame: 300, zoom: 1, focusX: 50, focusY: 50 },         // Zoom out
+  { frame: 40, zoom: 1, focusX: 50, focusY: 50 },          // Hold on caption
+  { frame: 80, zoom: 1.9, focusX: 50, focusY: 38 },        // Zoom into chat upper area
+  { frame: 160, zoom: 2.0, focusX: 50, focusY: 38 },       // Zoom on highlight card
+  { frame: 230, zoom: 1.9, focusX: 50, focusY: 38 },       // Hold
+  { frame: 290, zoom: 1, focusX: 50, focusY: 50 },         // Smooth zoom out
 ];
 
 // Chat messages appearing progressively (10s = 300 frames)
@@ -129,7 +127,7 @@ export const Scene8AIChat: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.header,
-                    fontSize: 13,
+                    fontSize: 15,
                     fontWeight: 700,
                     color: COLORS.textPrimary,
                     margin: 0,
@@ -140,7 +138,7 @@ export const Scene8AIChat: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.body,
-                    fontSize: 10,
+                    fontSize: 12,
                     color: COLORS.teal,
                     margin: 0,
                   }}
@@ -183,11 +181,11 @@ export const Scene8AIChat: React.FC = () => {
                       border: `1px solid ${COLORS.accentBorder}`,
                     }}
                   >
-                    <span style={{ fontSize: 10 }}>{item.icon}</span>
+                    <span style={{ fontSize: 12 }}>{item.icon}</span>
                     <span
                       style={{
                         fontFamily: FONTS.body,
-                        fontSize: 9,
+                        fontSize: 11,
                         fontWeight: 600,
                         color: COLORS.textSecondary,
                       }}
@@ -248,7 +246,7 @@ export const Scene8AIChat: React.FC = () => {
                         <p
                           style={{
                             fontFamily: FONTS.body,
-                            fontSize: 12,
+                            fontSize: 14,
                             color: 'white',
                             margin: 0,
                           }}
@@ -282,11 +280,11 @@ export const Scene8AIChat: React.FC = () => {
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                          <span style={{ fontSize: 14 }}>💝</span>
+                          <span style={{ fontSize: 16 }}>💝</span>
                           <span
                             style={{
                               fontFamily: FONTS.body,
-                              fontSize: 9,
+                              fontSize: 11,
                               fontWeight: 700,
                               color: COLORS.accentPink,
                               textTransform: 'uppercase',
@@ -298,7 +296,7 @@ export const Scene8AIChat: React.FC = () => {
                         <p
                           style={{
                             fontFamily: FONTS.header,
-                            fontSize: 22,
+                            fontSize: 26,
                             fontWeight: 700,
                             color: COLORS.accentPink,
                             margin: 0,
@@ -309,7 +307,7 @@ export const Scene8AIChat: React.FC = () => {
                         <p
                           style={{
                             fontFamily: FONTS.body,
-                            fontSize: 13,
+                            fontSize: 15,
                             color: COLORS.textSecondary,
                             margin: '4px 0 0 0',
                           }}
@@ -360,7 +358,7 @@ export const Scene8AIChat: React.FC = () => {
                       <p
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 12,
+                          fontSize: 14,
                           color: COLORS.textPrimary,
                           margin: 0,
                           lineHeight: 1.4,
@@ -446,7 +444,7 @@ export const Scene8AIChat: React.FC = () => {
                 <span
                   style={{
                     fontFamily: FONTS.body,
-                    fontSize: 12,
+                    fontSize: 14,
                     color: COLORS.textMuted,
                   }}
                 >

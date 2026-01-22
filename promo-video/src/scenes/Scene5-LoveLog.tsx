@@ -10,16 +10,15 @@ import { AnimatedGradient } from '../components/AnimatedGradient';
 import { CameraZoom, CameraKeyframe } from '../components/CameraZoom';
 import { BeatPulse } from '../components/BeatPulse';
 
-// Camera path - follows vocabulary list and detail view (focus on TOP where content appears)
+// Camera path - smooth movements with good zoom and upper focus
 const CAMERA_PATH: CameraKeyframe[] = [
   { frame: 0, zoom: 1, focusX: 50, focusY: 50 },           // Start normal
-  { frame: 25, zoom: 2.2, focusX: 50, focusY: 40 },        // Zoom into header/filter area
-  { frame: 60, zoom: 2.2, focusX: 50, focusY: 45 },        // Pan slightly as cards appear
-  { frame: 100, zoom: 2.2, focusX: 50, focusY: 48 },       // Follow cards (not too far down)
-  { frame: 120, zoom: 2.5, focusX: 50, focusY: 45 },       // Zoom into detail view
-  { frame: 180, zoom: 2.2, focusX: 50, focusY: 48 },       // Pan to example sentences
-  { frame: 200, zoom: 2.2, focusX: 50, focusY: 48 },       // Hold
-  { frame: 240, zoom: 1, focusX: 50, focusY: 50 },         // Zoom out
+  { frame: 40, zoom: 1, focusX: 50, focusY: 50 },          // Hold on caption
+  { frame: 70, zoom: 1.9, focusX: 50, focusY: 38 },        // Zoom into phone upper area
+  { frame: 115, zoom: 1.9, focusX: 50, focusY: 38 },       // Hold while cards appear
+  { frame: 145, zoom: 2.0, focusX: 50, focusY: 38 },       // Zoom on detail view
+  { frame: 200, zoom: 1.9, focusX: 50, focusY: 38 },       // Hold
+  { frame: 230, zoom: 1, focusX: 50, focusY: 50 },         // Smooth zoom out
 ];
 
 const VOCABULARY = [
@@ -107,7 +106,7 @@ export const Scene5LoveLog: React.FC = () => {
       <Caption
         text="Deep dive into any word"
         subtext="Definitions, conjugations & more"
-        startFrame={DETAIL_PHASE_START + 10}
+        startFrame={DETAIL_PHASE_START + 5}
         position="top"
       />
 
@@ -159,7 +158,7 @@ export const Scene5LoveLog: React.FC = () => {
                 <span
                   style={{
                     fontFamily: FONTS.header,
-                    fontSize: 14,
+                    fontSize: 17,
                     fontWeight: 700,
                     color: COLORS.textPrimary,
                   }}
@@ -170,7 +169,7 @@ export const Scene5LoveLog: React.FC = () => {
               <span
                 style={{
                   fontFamily: FONTS.body,
-                  fontSize: 9,
+                  fontSize: 11,
                   fontWeight: 600,
                   color: COLORS.textSecondary,
                   backgroundColor: COLORS.bgPrimary,
@@ -199,7 +198,7 @@ export const Scene5LoveLog: React.FC = () => {
                     borderRadius: 10,
                     border: `1.5px solid ${i === 0 ? COLORS.accentPink : COLORS.accentBorder}`,
                     backgroundColor: i === 0 ? COLORS.accentPink : 'transparent',
-                    fontSize: 8,
+                    fontSize: 10,
                     fontWeight: 600,
                     fontFamily: FONTS.body,
                     color: i === 0 ? 'white' : COLORS.textSecondary,
@@ -214,7 +213,7 @@ export const Scene5LoveLog: React.FC = () => {
                   borderRadius: 10,
                   border: `1.5px solid ${COLORS.accentBorder}`,
                   backgroundColor: COLORS.accentLight,
-                  fontSize: 8,
+                  fontSize: 10,
                   fontWeight: 600,
                   fontFamily: FONTS.body,
                   color: COLORS.accentPink,
@@ -299,7 +298,7 @@ export const Scene5LoveLog: React.FC = () => {
                         <span
                           style={{
                             fontFamily: FONTS.header,
-                            fontSize: 13,
+                            fontSize: 15,
                             fontWeight: 700,
                             color: COLORS.accentPink,
                           }}
@@ -308,7 +307,7 @@ export const Scene5LoveLog: React.FC = () => {
                         </span>
                         <span
                           style={{
-                            fontSize: 6,
+                            fontSize: 8,
                             fontWeight: 700,
                             color: typeColor,
                             backgroundColor: `${typeColor}15`,
@@ -324,7 +323,7 @@ export const Scene5LoveLog: React.FC = () => {
                       <span
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 10,
+                          fontSize: 12,
                           color: COLORS.textSecondary,
                         }}
                       >
@@ -382,7 +381,7 @@ export const Scene5LoveLog: React.FC = () => {
                   <span
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 11,
+                      fontSize: 13,
                       color: COLORS.textSecondary,
                     }}
                   >
@@ -413,11 +412,11 @@ export const Scene5LoveLog: React.FC = () => {
                       marginBottom: 10,
                     }}
                   >
-                    <span style={{ fontSize: 10 }}>💝</span>
+                    <span style={{ fontSize: 12 }}>💝</span>
                     <span
                       style={{
                         fontFamily: FONTS.body,
-                        fontSize: 9,
+                        fontSize: 11,
                         fontWeight: 600,
                         color: COLORS.accentPink,
                       }}
@@ -430,7 +429,7 @@ export const Scene5LoveLog: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.header,
-                      fontSize: 28,
+                      fontSize: 32,
                       fontWeight: 700,
                       color: COLORS.accentPink,
                       margin: 0,
@@ -443,7 +442,7 @@ export const Scene5LoveLog: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 11,
+                      fontSize: 13,
                       color: COLORS.textMuted,
                       margin: '4px 0 8px 0',
                     }}
@@ -472,7 +471,7 @@ export const Scene5LoveLog: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: 600,
                       color: COLORS.textPrimary,
                       margin: 0,
@@ -498,7 +497,7 @@ export const Scene5LoveLog: React.FC = () => {
                       border: `1.5px solid ${COLORS.accentBorder}`,
                       borderRadius: 12,
                       fontFamily: FONTS.body,
-                      fontSize: 10,
+                      fontSize: 12,
                       fontWeight: 600,
                       color: COLORS.textPrimary,
                       display: 'flex',
@@ -517,7 +516,7 @@ export const Scene5LoveLog: React.FC = () => {
                       border: `1.5px solid ${COLORS.accentBorder}`,
                       borderRadius: 12,
                       fontFamily: FONTS.body,
-                      fontSize: 10,
+                      fontSize: 12,
                       fontWeight: 600,
                       color: COLORS.textPrimary,
                       display: 'flex',
@@ -535,7 +534,7 @@ export const Scene5LoveLog: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 9,
+                      fontSize: 11,
                       fontWeight: 700,
                       color: COLORS.textSecondary,
                       textTransform: 'uppercase',
@@ -555,7 +554,7 @@ export const Scene5LoveLog: React.FC = () => {
                     <p
                       style={{
                         fontFamily: FONTS.body,
-                        fontSize: 11,
+                        fontSize: 13,
                         color: COLORS.accentPink,
                         fontWeight: 600,
                         margin: 0,
@@ -566,7 +565,7 @@ export const Scene5LoveLog: React.FC = () => {
                     <p
                       style={{
                         fontFamily: FONTS.body,
-                        fontSize: 10,
+                        fontSize: 12,
                         color: COLORS.textSecondary,
                         margin: '4px 0 0 0',
                       }}
