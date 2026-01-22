@@ -10,16 +10,14 @@ import { AnimatedGradient } from '../components/AnimatedGradient';
 import { CameraZoom, CameraKeyframe } from '../components/CameraZoom';
 import { BeatPulse } from '../components/BeatPulse';
 
-// Camera path - follows progress sections (reduced panning, focus on upper content)
+// Camera path - smooth movements with good zoom and upper focus
 const CAMERA_PATH: CameraKeyframe[] = [
   { frame: 0, zoom: 1, focusX: 50, focusY: 50 },           // Start normal
-  { frame: 25, zoom: 2.2, focusX: 50, focusY: 40 },        // Zoom into level card
-  { frame: 80, zoom: 2.2, focusX: 50, focusY: 45 },        // Pan to stats grid
-  { frame: 140, zoom: 2.2, focusX: 50, focusY: 48 },       // Pan to streak row
-  { frame: 170, zoom: 2.2, focusX: 50, focusY: 52 },       // Pan to journey section (not too far)
-  { frame: 240, zoom: 2.2, focusX: 50, focusY: 55 },       // Follow journal entries (reduced)
-  { frame: 260, zoom: 2.2, focusX: 50, focusY: 52 },       // Hold
-  { frame: 300, zoom: 1, focusX: 50, focusY: 50 },         // Zoom out
+  { frame: 40, zoom: 1.9, focusX: 50, focusY: 38 },        // Zoom into level card
+  { frame: 100, zoom: 1.9, focusX: 50, focusY: 38 },       // Hold on stats
+  { frame: 180, zoom: 2.0, focusX: 50, focusY: 38 },       // Zoom on journey
+  { frame: 260, zoom: 1.9, focusX: 50, focusY: 38 },       // Hold
+  { frame: 290, zoom: 1, focusX: 50, focusY: 50 },         // Smooth zoom out
 ];
 
 // Section phases (10s = 300 frames)
@@ -147,7 +145,7 @@ export const Scene7Progress: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 8,
+                      fontSize: 10,
                       color: 'rgba(255,255,255,0.6)',
                       fontWeight: 700,
                       textTransform: 'uppercase',
@@ -160,7 +158,7 @@ export const Scene7Progress: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.header,
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: 700,
                       color: 'white',
                     }}
@@ -172,7 +170,7 @@ export const Scene7Progress: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 8,
+                      fontSize: 10,
                       color: 'rgba(255,255,255,0.6)',
                       fontWeight: 700,
                       textTransform: 'uppercase',
@@ -185,7 +183,7 @@ export const Scene7Progress: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.header,
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: 700,
                       color: 'white',
                     }}
@@ -198,10 +196,10 @@ export const Scene7Progress: React.FC = () => {
               {/* Progress bar */}
               <div style={{ marginTop: 10 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
-                  <span style={{ fontFamily: FONTS.body, fontSize: 8, color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>
+                  <span style={{ fontFamily: FONTS.body, fontSize: 10, color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>
                     Progress to Conversational 3
                   </span>
-                  <span style={{ fontFamily: FONTS.body, fontSize: 8, color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>
+                  <span style={{ fontFamily: FONTS.body, fontSize: 10, color: 'rgba(255,255,255,0.6)', fontWeight: 600 }}>
                     {Math.round(progressWidth)}%
                   </span>
                 </div>
@@ -248,7 +246,7 @@ export const Scene7Progress: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.header,
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: 700,
                       color: stat.color,
                       margin: 0,
@@ -259,7 +257,7 @@ export const Scene7Progress: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 7,
+                      fontSize: 9,
                       fontWeight: 700,
                       color: stat.color,
                       opacity: 0.7,
@@ -292,7 +290,7 @@ export const Scene7Progress: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.header,
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: 700,
                     color: COLORS.teal,
                     margin: 0,
@@ -303,7 +301,7 @@ export const Scene7Progress: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.body,
-                    fontSize: 8,
+                    fontSize: 10,
                     color: COLORS.textSecondary,
                     margin: 0,
                   }}
@@ -331,11 +329,11 @@ export const Scene7Progress: React.FC = () => {
               {/* Header */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ fontSize: 12 }}>📚</span>
+                  <span style={{ fontSize: 14 }}>📚</span>
                   <span
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 10,
+                      fontSize: 12,
                       fontWeight: 700,
                       color: COLORS.textSecondary,
                       textTransform: 'uppercase',
@@ -349,7 +347,7 @@ export const Scene7Progress: React.FC = () => {
                   <span
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 8,
+                      fontSize: 10,
                       fontWeight: 700,
                       color: '#10b981',
                     }}
@@ -359,7 +357,7 @@ export const Scene7Progress: React.FC = () => {
                   <span
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 7,
+                      fontSize: 9,
                       fontWeight: 700,
                       color: '#10b981',
                       backgroundColor: '#10b98115',
@@ -376,7 +374,7 @@ export const Scene7Progress: React.FC = () => {
               <p
                 style={{
                   fontFamily: FONTS.body,
-                  fontSize: 9,
+                  fontSize: 11,
                   color: COLORS.textPrimary,
                   margin: 0,
                   marginBottom: 10,
@@ -391,7 +389,7 @@ export const Scene7Progress: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.body,
-                    fontSize: 7,
+                    fontSize: 9,
                     fontWeight: 700,
                     color: COLORS.textSecondary,
                     textTransform: 'uppercase',
@@ -410,7 +408,7 @@ export const Scene7Progress: React.FC = () => {
                         borderRadius: 8,
                         backgroundColor: '#10b98115',
                         fontFamily: FONTS.body,
-                        fontSize: 8,
+                        fontSize: 10,
                         fontWeight: 600,
                         color: '#10b981',
                       }}
@@ -422,12 +420,12 @@ export const Scene7Progress: React.FC = () => {
               </div>
 
               {/* Topics & Grammar in two columns */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 10 }}>
                 <div>
                   <p
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 7,
+                      fontSize: 9,
                       fontWeight: 700,
                       color: COLORS.textSecondary,
                       textTransform: 'uppercase',
@@ -458,7 +456,7 @@ export const Scene7Progress: React.FC = () => {
                       <span
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 8,
+                          fontSize: 10,
                           color: COLORS.textSecondary,
                         }}
                       >
@@ -471,7 +469,7 @@ export const Scene7Progress: React.FC = () => {
                   <p
                     style={{
                       fontFamily: FONTS.body,
-                      fontSize: 7,
+                      fontSize: 9,
                       fontWeight: 700,
                       color: COLORS.textSecondary,
                       textTransform: 'uppercase',
@@ -502,7 +500,7 @@ export const Scene7Progress: React.FC = () => {
                       <span
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 8,
+                          fontSize: 10,
                           color: COLORS.textSecondary,
                         }}
                       >
@@ -511,6 +509,59 @@ export const Scene7Progress: React.FC = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Divider */}
+              <div style={{ height: 1, backgroundColor: COLORS.accentBorder, marginBottom: 8 }} />
+
+              {/* Past Learning Summaries */}
+              <p
+                style={{
+                  fontFamily: FONTS.body,
+                  fontSize: 9,
+                  fontWeight: 700,
+                  color: COLORS.textSecondary,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                  marginBottom: 6,
+                }}
+              >
+                Previous Summaries
+              </p>
+
+              {/* Past summary 1 */}
+              <div
+                style={{
+                  backgroundColor: COLORS.accentLight,
+                  borderRadius: 10,
+                  padding: 8,
+                  marginBottom: 6,
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                  <span style={{ fontFamily: FONTS.body, fontSize: 9, fontWeight: 700, color: COLORS.textSecondary }}>Jan 14</span>
+                  <span style={{ fontFamily: FONTS.body, fontSize: 9, fontWeight: 600, color: '#3B82F6', backgroundColor: '#3B82F615', padding: '2px 6px', borderRadius: 4 }}>28 words</span>
+                </div>
+                <p style={{ fontFamily: FONTS.body, fontSize: 10, color: COLORS.textSecondary, margin: 0, lineHeight: 1.3 }}>
+                  Food vocabulary week! Mastered restaurant ordering and cooking terms.
+                </p>
+              </div>
+
+              {/* Past summary 2 */}
+              <div
+                style={{
+                  backgroundColor: COLORS.accentLight,
+                  borderRadius: 10,
+                  padding: 8,
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                  <span style={{ fontFamily: FONTS.body, fontSize: 9, fontWeight: 700, color: COLORS.textSecondary }}>Jan 7</span>
+                  <span style={{ fontFamily: FONTS.body, fontSize: 9, fontWeight: 600, color: '#EC4899', backgroundColor: '#EC489915', padding: '2px 6px', borderRadius: 4 }}>19 words</span>
+                </div>
+                <p style={{ fontFamily: FONTS.body, fontSize: 10, color: COLORS.textSecondary, margin: 0, lineHeight: 1.3 }}>
+                  Started your Spanish journey with greetings and basic introductions!
+                </p>
               </div>
             </div>
           </div>

@@ -70,20 +70,27 @@ export const CameraZoom: React.FC<CameraZoomProps> = ({
       nextKeyframe = keyframes[keyframes.length - 1];
     }
 
-    // Interpolate between keyframes with easing
-    const progress = interpolate(
-      localFrame,
-      [prevKeyframe.frame, nextKeyframe.frame],
-      [0, 1],
-      { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
-    );
+    // Handle case where we're exactly on a keyframe (same frame values)
+    if (prevKeyframe.frame === nextKeyframe.frame) {
+      scale = prevKeyframe.zoom;
+      currentFocusX = prevKeyframe.focusX;
+      currentFocusY = prevKeyframe.focusY;
+    } else {
+      // Interpolate between keyframes with easing
+      const progress = interpolate(
+        localFrame,
+        [prevKeyframe.frame, nextKeyframe.frame],
+        [0, 1],
+        { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
+      );
 
-    // Use ease-in-out for smooth camera movement
-    const easedProgress = Easing.inOut(Easing.cubic)(progress);
+      // Use ease-in-out for smooth camera movement
+      const easedProgress = Easing.inOut(Easing.cubic)(progress);
 
-    scale = prevKeyframe.zoom + (nextKeyframe.zoom - prevKeyframe.zoom) * easedProgress;
-    currentFocusX = prevKeyframe.focusX + (nextKeyframe.focusX - prevKeyframe.focusX) * easedProgress;
-    currentFocusY = prevKeyframe.focusY + (nextKeyframe.focusY - prevKeyframe.focusY) * easedProgress;
+      scale = prevKeyframe.zoom + (nextKeyframe.zoom - prevKeyframe.zoom) * easedProgress;
+      currentFocusX = prevKeyframe.focusX + (nextKeyframe.focusX - prevKeyframe.focusX) * easedProgress;
+      currentFocusY = prevKeyframe.focusY + (nextKeyframe.focusY - prevKeyframe.focusY) * easedProgress;
+    }
 
   } else if (style === 'zoom-in') {
     scale = interpolate(localFrame, [0, duration], [startZoom, endZoom], {

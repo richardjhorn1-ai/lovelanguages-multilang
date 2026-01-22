@@ -11,18 +11,16 @@ import { AnimatedGradient } from '../components/AnimatedGradient';
 import { CameraZoom, CameraKeyframe } from '../components/CameraZoom';
 import { BeatPulse } from '../components/BeatPulse';
 
-// Camera path - follows the gift sending flow
-// Camera path - follows the gift flow (focus on TOP where content appears)
+// Camera path - smooth movements with good zoom and upper focus
 const CAMERA_PATH: CameraKeyframe[] = [
   { frame: 0, zoom: 1, focusX: 50, focusY: 50 },           // Start normal
-  { frame: 25, zoom: 2.2, focusX: 50, focusY: 42 },        // Zoom into tutor phone header
-  { frame: 50, zoom: 2.2, focusX: 50, focusY: 45 },        // Focus on word list building (upper-middle)
-  { frame: 120, zoom: 2.2, focusX: 50, focusY: 52 },       // Pan down slightly to send button
-  { frame: 160, zoom: 1.8, focusX: 50, focusY: 50 },       // Pull back for flying heart
-  { frame: 200, zoom: 2.2, focusX: 50, focusY: 48 },       // Zoom into student phone - gift intro
-  { frame: 280, zoom: 2.5, focusX: 50, focusY: 48 },       // Zoom into gift card reveal (center)
-  { frame: 315, zoom: 2.2, focusX: 50, focusY: 48 },       // Hold on card
-  { frame: 360, zoom: 1, focusX: 50, focusY: 50 },         // Zoom out
+  { frame: 40, zoom: 1, focusX: 50, focusY: 50 },          // Hold on caption
+  { frame: 80, zoom: 1.9, focusX: 50, focusY: 38 },        // Zoom into tutor phone upper area
+  { frame: 150, zoom: 1.9, focusX: 50, focusY: 38 },       // Hold while words appear
+  { frame: 180, zoom: 1.5, focusX: 50, focusY: 45 },       // Pull back for flying heart
+  { frame: 220, zoom: 1.9, focusX: 50, focusY: 38 },       // Zoom to student phone upper area
+  { frame: 310, zoom: 2.0, focusX: 50, focusY: 38 },       // Zoom on gift card
+  { frame: 350, zoom: 1, focusX: 50, focusY: 50 },         // Smooth zoom out
 ];
 
 // Words to gift
@@ -33,6 +31,7 @@ const GIFT_WORDS = [
 ];
 
 // Scene phases (extended for 12s = 360 frames)
+const SEND_CONFIRMATION_START = 145;
 const TUTOR_PHASE_END = 180;
 const TRANSITION_START = 170;
 const STUDENT_PHASE_START = 190;
@@ -43,6 +42,7 @@ export const Scene3LoveGifts: React.FC = () => {
   // Tutor phase (0-4s): Creating the gift
   const showTutor = frame < TUTOR_PHASE_END;
   const showStudent = frame >= STUDENT_PHASE_START;
+  const showSendConfirmation = frame >= SEND_CONFIRMATION_START && frame < TRANSITION_START;
 
   // Transition animation
   const transitionProgress = interpolate(
@@ -139,7 +139,7 @@ export const Scene3LoveGifts: React.FC = () => {
         }}
       >
         <PhoneFrame scale={1.4}>
-          <div style={{ padding: 16, height: '100%' }}>
+          <div style={{ padding: 16, height: '100%', position: 'relative' }}>
             {/* Modal-style card (matching actual app UI) */}
             <div
               style={{
@@ -178,7 +178,7 @@ export const Scene3LoveGifts: React.FC = () => {
                 <span
                   style={{
                     fontFamily: FONTS.header,
-                    fontSize: 18,
+                    fontSize: 22,
                     fontWeight: 700,
                     color: COLORS.textPrimary,
                   }}
@@ -192,7 +192,7 @@ export const Scene3LoveGifts: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.body,
-                    fontSize: 12,
+                    fontSize: 14,
                     color: COLORS.textSecondary,
                     marginBottom: 10,
                   }}
@@ -219,7 +219,7 @@ export const Scene3LoveGifts: React.FC = () => {
                       <p
                         style={{
                           fontFamily: FONTS.header,
-                          fontSize: 14,
+                          fontSize: 16,
                           fontWeight: 600,
                           color: COLORS.accentPink,
                           margin: 0,
@@ -230,7 +230,7 @@ export const Scene3LoveGifts: React.FC = () => {
                       <p
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 11,
+                          fontSize: 13,
                           color: COLORS.textSecondary,
                           margin: 0,
                         }}
@@ -258,7 +258,7 @@ export const Scene3LoveGifts: React.FC = () => {
                 <p
                   style={{
                     fontFamily: FONTS.body,
-                    fontSize: 11,
+                    fontSize: 13,
                     color: COLORS.teal,
                     margin: 0,
                   }}
@@ -278,7 +278,7 @@ export const Scene3LoveGifts: React.FC = () => {
                     border: 'none',
                     borderRadius: 16,
                     fontFamily: FONTS.body,
-                    fontSize: 15,
+                    fontSize: 17,
                     fontWeight: 600,
                     display: 'flex',
                     alignItems: 'center',
@@ -291,6 +291,69 @@ export const Scene3LoveGifts: React.FC = () => {
               </Sequence>
             </div>
           </div>
+
+          {/* Send Confirmation Modal */}
+          {showSendConfirmation && (
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: 24,
+                zIndex: 10,
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: COLORS.bgCard,
+                  borderRadius: 32,
+                  padding: 32,
+                  textAlign: 'center',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+                }}
+              >
+                <div
+                  style={{
+                    width: 70,
+                    height: 70,
+                    background: `linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)`,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 32,
+                    margin: '0 auto 16px',
+                  }}
+                >
+                  ✓
+                </div>
+                <h2
+                  style={{
+                    fontFamily: FONTS.header,
+                    fontSize: 26,
+                    fontWeight: 700,
+                    color: '#10b981',
+                    margin: 0,
+                  }}
+                >
+                  Gift Sent!
+                </h2>
+                <p
+                  style={{
+                    fontFamily: FONTS.body,
+                    fontSize: 16,
+                    color: COLORS.textSecondary,
+                    marginTop: 8,
+                  }}
+                >
+                  3 words on their way to your partner
+                </p>
+              </div>
+            </div>
+          )}
         </PhoneFrame>
       </div>
 
@@ -349,7 +412,7 @@ export const Scene3LoveGifts: React.FC = () => {
                     <h2
                       style={{
                         fontFamily: FONTS.header,
-                        fontSize: 22,
+                        fontSize: 26,
                         fontWeight: 700,
                         color: COLORS.textPrimary,
                         marginTop: 20,
@@ -360,7 +423,7 @@ export const Scene3LoveGifts: React.FC = () => {
                     <p
                       style={{
                         fontFamily: FONTS.body,
-                        fontSize: 14,
+                        fontSize: 16,
                         color: COLORS.textSecondary,
                         marginTop: 6,
                       }}
@@ -382,7 +445,7 @@ export const Scene3LoveGifts: React.FC = () => {
                       <span
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 12,
+                          fontSize: 14,
                           color: COLORS.accentPink,
                           fontWeight: 500,
                         }}
@@ -400,7 +463,7 @@ export const Scene3LoveGifts: React.FC = () => {
                         border: 'none',
                         borderRadius: 14,
                         fontFamily: FONTS.body,
-                        fontSize: 15,
+                        fontSize: 17,
                         fontWeight: 600,
                         display: 'block',
                         width: '100%',
@@ -466,7 +529,7 @@ export const Scene3LoveGifts: React.FC = () => {
                     <p
                       style={{
                         fontFamily: FONTS.header,
-                        fontSize: 32,
+                        fontSize: 36,
                         fontWeight: 700,
                         color: COLORS.accentPink,
                         marginTop: 12,
@@ -477,7 +540,7 @@ export const Scene3LoveGifts: React.FC = () => {
                     <p
                       style={{
                         fontFamily: FONTS.body,
-                        fontSize: 14,
+                        fontSize: 16,
                         color: COLORS.textMuted,
                         marginTop: 6,
                       }}
@@ -494,7 +557,7 @@ export const Scene3LoveGifts: React.FC = () => {
                     <p
                       style={{
                         fontFamily: FONTS.body,
-                        fontSize: 18,
+                        fontSize: 20,
                         color: COLORS.textPrimary,
                         fontWeight: 500,
                       }}
@@ -515,7 +578,7 @@ export const Scene3LoveGifts: React.FC = () => {
                       <span
                         style={{
                           fontFamily: FONTS.body,
-                          fontSize: 11,
+                          fontSize: 13,
                           color: COLORS.accentPink,
                           fontWeight: 500,
                         }}
@@ -535,7 +598,7 @@ export const Scene3LoveGifts: React.FC = () => {
                       border: 'none',
                       borderRadius: 12,
                       fontFamily: FONTS.body,
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: 600,
                     }}
                   >
