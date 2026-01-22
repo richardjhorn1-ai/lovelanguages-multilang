@@ -1,0 +1,317 @@
+---
+title: "Podstawy gramatyki hiszpanskiej dla polskich par"
+description: "Opanuj podstawy hiszpanskiej gramatyki z partnerem. Przystepny przewodnik po czasach, odmianach i zasadach dla Polakow."
+category: grammar
+difficulty: beginner
+readTime: 15
+date: '2026-01-22'
+image: '/blog/spanish-grammar-basics.jpg'
+tags: ['gramatyka hiszpanska', 'czasy hiszpanskie', 'hiszpanski dla poczatkujacych', 'koniugacja', 'rodzajniki']
+language: es
+nativeLanguage: pl
+---
+import VocabCard from '@components/VocabCard.astro';
+import ConjugationTable from '@components/ConjugationTable.astro';
+import CultureTip from '@components/CultureTip.astro';
+import PhraseOfDay from '@components/PhraseOfDay.astro';
+import CTA from '@components/CTA.astro';
+
+Dobra wiadomosc dla Polakow - hiszpanska gramatyka jest bardziej regularna niz polska! Brak przypadkow, logiczne zasady i przewidywalna odmiana czasownikow czynia hiszpanski przyjaznym do nauki.
+
+## Rodzajniki - el, la, los, las
+
+W hiszpanskim rzeczowniki maja rodzaj (meski lub zenski) i wymagaja rodzajnikow.
+
+<VocabCard
+  word="el amor / la vida"
+  translation="(ten) milosc / (ta) zycie"
+  pronunciation="el a-mor / la bi-da"
+  example="El amor de mi vida = Milosc mojego zycia"
+/>
+
+### Rodzajniki okreslone
+
+| Rodzaj | Liczba pojedyncza | Liczba mnoga | Przyklad |
+|--------|-------------------|--------------|----------|
+| Meski | **el** | **los** | el libro, los libros |
+| Zenski | **la** | **las** | la casa, las casas |
+
+### Rodzajniki nieokreslone
+
+| Rodzaj | Liczba pojedyncza | Liczba mnoga | Przyklad |
+|--------|-------------------|--------------|----------|
+| Meski | **un** | **unos** | un perro, unos perros |
+| Zenski | **una** | **unas** | una flor, unas flores |
+
+<CultureTip title="Jak rozpoznac rodzaj?" flag="🇪🇸">
+Regula: slowa konczace sie na "-o" sa meskie, na "-a" sa zenskie. ALE sa wyjatki: "el problema", "el dia", "la mano". Z czasem sie nauczycie!
+</CultureTip>
+
+## Zaimki osobowe
+
+<ConjugationTable
+  verb="Zaimki osobowe"
+  meaning="Pronouns"
+  conjugations={[
+    { person: "yo", word: "ja", translation: "1. os. l.poj." },
+    { person: "tu", word: "ty", translation: "2. os. l.poj. (nieformalne)" },
+    { person: "usted", word: "Pan/Pani", translation: "2. os. l.poj. (formalne)" },
+    { person: "el/ella", word: "on/ona", translation: "3. os. l.poj." },
+    { person: "nosotros/as", word: "my", translation: "1. os. l.mn." },
+    { person: "vosotros/as", word: "wy", translation: "2. os. l.mn. (Hiszpania)" },
+    { person: "ustedes", word: "wy/Panstwo", translation: "2. os. l.mn." },
+    { person: "ellos/ellas", word: "oni/one", translation: "3. os. l.mn." }
+  ]}
+/>
+
+**Wazne:** W hiszpanskim czesto pomijamy zaimki - "Yo te quiero" = "Te quiero" (odmiana czasownika pokazuje osobe!)
+
+## Czasowniki regularne - 3 grupy
+
+Hiszpanskie czasowniki dziela sie na 3 grupy wedlug konczowki: **-AR**, **-ER**, **-IR**.
+
+### Czasowniki -AR (np. amar - kochac)
+
+<ConjugationTable
+  verb="amar"
+  meaning="kochac"
+  conjugations={[
+    { person: "yo", word: "amo", translation: "ja kocham" },
+    { person: "tu", word: "amas", translation: "ty kochasz" },
+    { person: "el/ella/usted", word: "ama", translation: "on/ona/Pan kocha" },
+    { person: "nosotros", word: "amamos", translation: "my kochamy" },
+    { person: "vosotros", word: "amais", translation: "wy kochacie" },
+    { person: "ellos/ustedes", word: "aman", translation: "oni kochaja" }
+  ]}
+/>
+
+### Czasowniki -ER (np. comer - jesc)
+
+<ConjugationTable
+  verb="comer"
+  meaning="jesc"
+  conjugations={[
+    { person: "yo", word: "como", translation: "ja jem" },
+    { person: "tu", word: "comes", translation: "ty jesz" },
+    { person: "el/ella/usted", word: "come", translation: "on/ona/Pan je" },
+    { person: "nosotros", word: "comemos", translation: "my jemy" },
+    { person: "vosotros", word: "comeis", translation: "wy jecie" },
+    { person: "ellos/ustedes", word: "comen", translation: "oni jedza" }
+  ]}
+/>
+
+### Czasowniki -IR (np. vivir - zyc)
+
+<ConjugationTable
+  verb="vivir"
+  meaning="zyc / mieszkac"
+  conjugations={[
+    { person: "yo", word: "vivo", translation: "ja zyje/mieszkam" },
+    { person: "tu", word: "vives", translation: "ty zyjesz" },
+    { person: "el/ella/usted", word: "vive", translation: "on/ona/Pan zyje" },
+    { person: "nosotros", word: "vivimos", translation: "my zyjemy" },
+    { person: "vosotros", word: "vivis", translation: "wy zyjecie" },
+    { person: "ellos/ustedes", word: "viven", translation: "oni zyja" }
+  ]}
+/>
+
+## Czasowniki nieregularne - najwazniejsze
+
+### SER (byc - trwale cechy)
+
+<ConjugationTable
+  verb="ser"
+  meaning="byc (tożsamość, cechy stałe)"
+  conjugations={[
+    { person: "yo", word: "soy", translation: "ja jestem" },
+    { person: "tu", word: "eres", translation: "ty jestes" },
+    { person: "el/ella/usted", word: "es", translation: "on/ona/Pan jest" },
+    { person: "nosotros", word: "somos", translation: "my jestesmy" },
+    { person: "vosotros", word: "sois", translation: "wy jestescie" },
+    { person: "ellos/ustedes", word: "son", translation: "oni sa" }
+  ]}
+/>
+
+### ESTAR (byc - stan, lokalizacja)
+
+<ConjugationTable
+  verb="estar"
+  meaning="byc (stan, miejsce)"
+  conjugations={[
+    { person: "yo", word: "estoy", translation: "ja jestem" },
+    { person: "tu", word: "estas", translation: "ty jestes" },
+    { person: "el/ella/usted", word: "esta", translation: "on/ona/Pan jest" },
+    { person: "nosotros", word: "estamos", translation: "my jestesmy" },
+    { person: "vosotros", word: "estais", translation: "wy jestescie" },
+    { person: "ellos/ustedes", word: "estan", translation: "oni sa" }
+  ]}
+/>
+
+<CultureTip title="SER vs ESTAR - kluczowa roznica!" flag="🇪🇸">
+**SER** = cechy stale: "Soy polaco" (Jestem Polakiem), "Eres hermosa" (Jestes piekna - z natury)
+**ESTAR** = stan tymczasowy: "Estoy cansado" (Jestem zmeczony), "Estoy en casa" (Jestem w domu)
+</CultureTip>
+
+### TENER (miec)
+
+<ConjugationTable
+  verb="tener"
+  meaning="miec"
+  conjugations={[
+    { person: "yo", word: "tengo", translation: "ja mam" },
+    { person: "tu", word: "tienes", translation: "ty masz" },
+    { person: "el/ella/usted", word: "tiene", translation: "on/ona/Pan ma" },
+    { person: "nosotros", word: "tenemos", translation: "my mamy" },
+    { person: "vosotros", word: "teneis", translation: "wy macie" },
+    { person: "ellos/ustedes", word: "tienen", translation: "oni maja" }
+  ]}
+/>
+
+### IR (isc/jechac)
+
+<ConjugationTable
+  verb="ir"
+  meaning="isc / jechac"
+  conjugations={[
+    { person: "yo", word: "voy", translation: "ja ide" },
+    { person: "tu", word: "vas", translation: "ty idziesz" },
+    { person: "el/ella/usted", word: "va", translation: "on/ona/Pan idzie" },
+    { person: "nosotros", word: "vamos", translation: "my idziemy" },
+    { person: "vosotros", word: "vais", translation: "wy idziecie" },
+    { person: "ellos/ustedes", word: "van", translation: "oni ida" }
+  ]}
+/>
+
+## Czas przeszly - Preterito Indefinido
+
+<VocabCard
+  word="Te conoci hace un ano"
+  translation="Poznalem cie rok temu"
+  pronunciation="te ko-no-si a-se un a-nio"
+  example="Te conoci hace un ano y mi vida cambio."
+/>
+
+### Czasowniki -AR w przeszlym
+
+| Osoba | amar | hablar |
+|-------|------|--------|
+| yo | am**e** | habl**e** |
+| tu | am**aste** | habl**aste** |
+| el/ella | am**o** | habl**o** |
+| nosotros | am**amos** | habl**amos** |
+| ellos | am**aron** | habl**aron** |
+
+### Czasowniki -ER/-IR w przeszlym
+
+| Osoba | comer | vivir |
+|-------|-------|-------|
+| yo | com**i** | viv**i** |
+| tu | com**iste** | viv**iste** |
+| el/ella | com**io** | viv**io** |
+| nosotros | com**imos** | viv**imos** |
+| ellos | com**ieron** | viv**ieron** |
+
+## Czas przyszly - Futuro Simple
+
+<PhraseOfDay
+  word="Siempre te amare"
+  translation="Zawsze bede cie kochac"
+  pronunciation="siem-pre te a-ma-re"
+  context="Romantyczna obietnica"
+/>
+
+Przyszly jest latwy! Dodaj koncowki do CALEGO bezokolicznika:
+
+| Osoba | Koncowka | amar | vivir |
+|-------|----------|------|-------|
+| yo | **-e** | amare | vivire |
+| tu | **-as** | amaras | viviras |
+| el/ella | **-a** | amara | vivira |
+| nosotros | **-emos** | amaremos | viviremos |
+| ellos | **-an** | amaran | viviran |
+
+## Pytania i przeczenia
+
+### Tworzenie pytan
+
+W hiszpanskim nie trzeba zmieniac szyku zdania - wystarczy intonacja!
+
+| Twierdzenie | Pytanie |
+|-------------|---------|
+| Tu me quieres. | Tu me quieres**?** |
+| Vienes. | Vienes**?** |
+
+### Slowa pytajne
+
+| Hiszpanski | Polski |
+|------------|--------|
+| **Que?** | Co? |
+| **Donde?** | Gdzie? |
+| **Cuando?** | Kiedy? |
+| **Por que?** | Dlaczego? |
+| **Quien?** | Kto? |
+| **Como?** | Jak? |
+| **Cuanto/a?** | Ile? |
+
+### Przeczenia
+
+Po prostu dodaj **"no"** przed czasownikiem!
+
+| Twierdzenie | Przeczenie |
+|-------------|------------|
+| Te quiero | **No** te quiero |
+| Voy a casa | **No** voy a casa |
+
+## Przymiotniki - zgoda z rzeczownikiem
+
+<VocabCard
+  word="Eres hermosa / Eres hermoso"
+  translation="Jestes piekna / Jestes przystojny"
+  pronunciation="e-res er-mo-sa / er-mo-so"
+  example="Mi amor, eres tan hermosa!"
+/>
+
+Przymiotniki zgadzaja sie z rzeczownikiem w rodzaju i liczbie:
+
+| Rodzaj | L. pojedyncza | L. mnoga |
+|--------|---------------|----------|
+| Meski | amigo **guapo** | amigos **guapos** |
+| Zenski | amiga **guapa** | amigas **guapas** |
+
+## Cwiczenia dla par
+
+### Cwiczenie 1: SER vs ESTAR
+Uzupelnijcie razem:
+- Yo ___ polaco/a. (SER - narodowosc)
+- Tu ___ muy guapo/a hoy. (ESTAR - wyglad dzis)
+- Nosotros ___ en casa. (ESTAR - lokalizacja)
+- Ella ___ mi novia. (SER - tożsamość)
+
+### Cwiczenie 2: Odmiana czasownikow
+Odmieniajcie na przemian:
+- hablar (mowic), comer (jesc), vivir (zyc)
+- querer (chciec), poder (moc)
+
+### Cwiczenie 3: Pytania i odpowiedzi
+Zadawajcie sobie pytania:
+- "Donde vives?" - "Vivo en..."
+- "Como te llamas?" - "Me llamo..."
+- "Que quieres hacer?" - "Quiero..."
+
+## Podsumowanie
+
+Hiszpanska gramatyka jest logiczna i regularna! Kluczowe punkty:
+1. Rzeczowniki maja rodzaj (el/la)
+2. Czasowniki dziela sie na -AR, -ER, -IR
+3. SER = cechy stale, ESTAR = stan
+4. Pytania tworzymy intonacja
+5. Przeczenia: "no" + czasownik
+
+## Kontynuuj nauke
+
+- **[Wymowa hiszpanska](/learn/es/spanish-pronunciation-guide/)** - Mow pewnie
+- **[Niezbedne zwroty](/learn/es/spanish-essential-phrases-for-couples/)** - Gramatyka w praktyce
+- **[Czy hiszpanski jest trudny?](/learn/es/is-spanish-hard-to-learn/)** - Motywacja
+- **[Slownictwo na randke](/learn/es/spanish-date-night-vocabulary/)** - Romantyczne slowa
+
+<CTA text="Gotowi opanowac gramatyke razem?" buttonText="Zacznij teraz" />

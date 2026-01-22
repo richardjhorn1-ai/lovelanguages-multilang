@@ -1,0 +1,258 @@
+---
+title: "Podstawy gramatyki wegierskiej dla par - prosty przewodnik"
+description: "Poznaj podstawy gramatyki wegierskiej. Przystepny przewodnik dla polskich par uczacych sie jezyka razem."
+category: grammar
+difficulty: beginner
+readTime: 15
+date: '2026-01-22'
+image: '/blog/hungarian-grammar-basics.jpg'
+tags: ['gramatyka wegierska', 'wegierski dla par', 'podstawy wegierskiego', 'nauka wegierskiego', 'jezyk wegierski']
+language: hu
+nativeLanguage: pl
+---
+import VocabCard from '@components/VocabCard.astro';
+import ConjugationTable from '@components/ConjugationTable.astro';
+import CultureTip from '@components/CultureTip.astro';
+import PhraseOfDay from '@components/PhraseOfDay.astro';
+import CTA from '@components/CTA.astro';
+
+Gramatyka wegierska rozni sie znacznie od polskiej, ale ma tez swoje zalety - jest bardzo logiczna i regularna. Ten przewodnik pomoze wam jako parze zrozumiec podstawy wegierskiej struktury jezykowej.
+
+## Najwazniejsze roznice
+
+<CultureTip title="Wegierski - jezyk aglutynacyjny" flag="🇭🇺">
+Wegierski jest jezykiem aglutynacyjnym - oznacza to, ze do rdzenia slowa dodaje sie przyrostki wyrazajace rozne znaczenia. Jedno wegierskie slowo moze odpowiadac calemu polskiemu zdaniu!
+</CultureTip>
+
+### Przyklad aglutynacji
+
+| Wegierski | Rozklad | Polski |
+|-----------|---------|--------|
+| **ház** | ház | dom |
+| **házam** | ház-am | moj dom |
+| **házamban** | ház-am-ban | w moim domu |
+| **házamból** | ház-am-ból | z mojego domu |
+
+## Brak rodzajow gramatycznych
+
+W wegierskim nie ma rodzajow gramatycznych! To ogromne uproszczenie:
+
+<VocabCard
+  word="ő"
+  translation="on/ona/ono"
+  pronunciation="o (dlugie)"
+  example="Ő nagyon kedves. (On/Ona jest bardzo mily/a)"
+/>
+
+| Wegierski | Polski |
+|-----------|--------|
+| **a szép ember** | piekny czlowiek (m/f) |
+| **ő szeret** | on/ona kocha |
+| **az én párom** | moj partner/moja partnerka |
+
+## Zaimki osobowe
+
+<ConjugationTable
+  verb="zaimki osobowe"
+  meaning="osoby"
+  conjugations={[
+    { person: "én", word: "én", translation: "ja" },
+    { person: "te", word: "te", translation: "ty" },
+    { person: "ő", word: "ő", translation: "on/ona" },
+    { person: "mi", word: "mi", translation: "my" },
+    { person: "ti", word: "ti", translation: "wy" },
+    { person: "ők", word: "ők", translation: "oni/one" }
+  ]}
+/>
+
+<CultureTip title="Zaimki czesto pomijane" flag="🇭🇺">
+W wegierskim zaimki osobowe sa czesto pomijane, bo koncowka czasownika jasno wskazuje osobe: "Szeretlek" = "Kocham cie" (nie trzeba mowic "Én szeretlek").
+</CultureTip>
+
+## Odmiana czasownikow
+
+Wegierski ma dwa typy odmiany czasownikow: nieokreslona i okreslona.
+
+### Odmiana nieokreslona (gdy obiekt jest nieokreslony)
+
+<ConjugationTable
+  verb="szeretni"
+  meaning="kochac (odmiana nieokreslona)"
+  conjugations={[
+    { person: "én", word: "szeretek", translation: "kocham (cos)" },
+    { person: "te", word: "szeretsz", translation: "kochasz (cos)" },
+    { person: "ő", word: "szeret", translation: "kocha (cos)" },
+    { person: "mi", word: "szeretünk", translation: "kochamy (cos)" },
+    { person: "ti", word: "szerettek", translation: "kochacie (cos)" },
+    { person: "ők", word: "szeretnek", translation: "kochaja (cos)" }
+  ]}
+/>
+
+### Odmiana okreslona (gdy obiekt jest okreslony)
+
+<ConjugationTable
+  verb="szeretni"
+  meaning="kochac (odmiana okreslona)"
+  conjugations={[
+    { person: "én", word: "szeretem", translation: "kocham to/go/ja" },
+    { person: "te", word: "szereted", translation: "kochasz to/go/ja" },
+    { person: "ő", word: "szereti", translation: "kocha to/go/ja" },
+    { person: "mi", word: "szeretjük", translation: "kochamy to/go/ja" },
+    { person: "ti", word: "szeretitek", translation: "kochacie to/go/ja" },
+    { person: "ők", word: "szeretik", translation: "kochaja to/go/ja" }
+  ]}
+/>
+
+### Specjalna forma "ciebie"
+
+<VocabCard
+  word="Szeretlek"
+  translation="Kocham cie"
+  pronunciation="se-ret-lek"
+  example="Szeretlek, drágám."
+/>
+
+Forma **"-lek/-lak"** jest specjalna - oznacza "ja + ciebie":
+- **Szeretlek** = Kocham cie
+- **Látlak** = Widze cie
+- **Hívlak** = Dzwonie do ciebie
+
+## System przypadkow
+
+Wegierski ma okolo 18 przypadkow, ale na poczatek wystarczy znac kilka podstawowych:
+
+### Najwazniejsze przypadki
+
+| Przypadek | Koncowka | Przyklad | Znaczenie |
+|-----------|----------|----------|-----------|
+| Mianownik | - | ház | dom |
+| Biernik | -t | házat | dom (jako obiekt) |
+| Miejscownik | -ban/-ben | házban | w domu |
+| Ablatyw | -ból/-ből | házból | z domu |
+| Illatyw | -ba/-be | házba | do domu |
+
+<PhraseOfDay
+  word="Haza megyek"
+  translation="Ide do domu"
+  pronunciation="ha-za me-djek"
+  context="'Haza' to specjalna forma 'do domu'"
+/>
+
+## Harmonia samogloskowa
+
+Wegierski stosuje harmonie samogloskowa - przyrostki musza "pasowac" do samoglosek w rdzeniu slowa:
+
+### Samogloski przednie vs tylne
+
+| Typ | Samogloski | Przyklad |
+|-----|------------|----------|
+| Tylne | a, á, o, ó, u, ú | házban (w domu) |
+| Przednie | e, é, i, í, ö, ő, ü, ű | kertben (w ogrodzie) |
+
+<CultureTip title="Zasada harmonii" flag="🇭🇺">
+Jesli slowo ma samogloski tylne, dodajemy przyrostki z samogloskami tylnymi (np. -ban). Jesli ma przednie - dodajemy przednie (np. -ben). To jak muzyka!
+</CultureTip>
+
+## Szyk zdania
+
+Podstawowy szyk to SOV (Podmiot-Obiekt-Czasownik), ale jest elastyczny:
+
+| Szyk | Wegierski | Polski |
+|------|-----------|--------|
+| Neutralny | **Én szeretlek téged** | Ja kocham ciebie |
+| Nacisk na "ja" | **ÉN szeretlek téged** | TO JA cie kocham |
+| Nacisk na "ciebie" | **Téged szeretlek** | CIEBIE kocham |
+
+## Przeczenia
+
+<VocabCard
+  word="Nem szeretlek"
+  translation="Nie kocham cie"
+  pronunciation="nem se-ret-lek"
+  example="Ez nem igaz! Szeretlek!"
+/>
+
+Przeczenie tworzy sie przez dodanie **"nem"** przed czasownikiem:
+- Szeretlek → **Nem** szeretlek
+- Tudok → **Nem** tudok
+
+## Pytania
+
+### Pytania tak/nie
+Dodaj **"-e"** do czasownika lub zmien intonacje:
+- **Szeretsz engem?** (intonacja) = Kochasz mnie?
+- **Szeretsz-e engem?** (partykula) = Czy mnie kochasz?
+
+### Pytania ze slowem pytajnym
+
+| Wegierski | Wymowa | Polski |
+|-----------|--------|--------|
+| **ki?** | ki | kto? |
+| **mi?** | mi | co? |
+| **hol?** | hol | gdzie? |
+| **mikor?** | mi-kor | kiedy? |
+| **miért?** | mi-ert | dlaczego? |
+| **hogyan?** | ho-djan | jak? |
+
+## Przymiotniki
+
+Przymiotniki nie odmieniaja sie przez rodzaj (bo go nie ma!), ale przed rzeczownikiem maja forme podstawowa:
+
+| Wegierski | Polski |
+|-----------|--------|
+| **szép nő** | piekna kobieta |
+| **szép férfi** | piekny mezczyzna |
+| **szép virág** | piekny kwiat |
+
+## Przydatne struktury dla par
+
+### Wyrazanie checi
+
+| Wegierski | Polski |
+|-----------|--------|
+| **Szeretnék** + bezokolicznik | Chcialbym/Chcialabym |
+| **Szeretnélek megcsókolni** | Chcialbym/Chcialabym cie pocalowac |
+| **Szeretnénk sétálni** | Chcielibysmy spacerować |
+
+### Wyrazanie umiejetnosci
+
+| Wegierski | Polski |
+|-----------|--------|
+| **Tudok** + bezokolicznik | Umiem/Potrafie |
+| **Tudok magyarul** | Umiem po wegiersku |
+| **Tudsz főzni?** | Umiesz gotowac? |
+
+## Cwiczenia dla par
+
+### Cwiczenie 1: Odmiana "szeretni"
+Odmiencie na zmiane czasownik "szeretni" w obu formach (nieokreslona i okreslona).
+
+### Cwiczenie 2: Przypadki
+Tworz zdania z roznymi przypadkami:
+- Vagyok a **házban** (Jestem w domu)
+- Megyek a **házba** (Ide do domu)
+- Jövök a **házból** (Przychodze z domu)
+
+### Cwiczenie 3: Pytania i odpowiedzi
+Partner A zadaje pytanie, Partner B odpowiada:
+- A: **Szeretsz engem?** B: **Igen, szeretlek!**
+- A: **Hol vagy?** B: **Otthon vagyok.**
+
+## Podsumowanie
+
+Gramatyka wegierska jest inna niz polska, ale logiczna:
+- Brak rodzajow gramatycznych
+- System przyrostkow (aglutynacja)
+- Harmonia samogloskowa
+- Dwie odmiany czasownikow
+
+Najwazniejsze: nie probujcie nauczyc sie wszystkiego naraz. Zacznijcie od prostych zdan i stopniowo dodawajcie nowe struktury!
+
+## Kontynuuj nauke
+
+- **[Jak powiedziec "kocham cie"](/learn/hu/how-to-say-i-love-you-in-hungarian/)** - Praktyczne zastosowanie
+- **[Wegierskie zwroty dla par](/learn/hu/hungarian-essential-phrases-for-couples/)** - Codzienne wyrazenia
+- **[Przewodnik wymowy](/learn/hu/hungarian-pronunciation-guide/)** - Poprawna wymowa
+- **[Czy wegierski jest trudny?](/learn/hu/is-hungarian-hard-to-learn/)** - Realistyczna ocena
+
+<CTA text="Gotowi na nauke wegierskiej gramatyki razem?" buttonText="Zacznij teraz" />
