@@ -2065,7 +2065,7 @@ const HU_CONTENT: ComparisonContent = {
   languages18: { title: "18 nyelv", description: "Tanuljon lengyelül spanyolból. Koreaiul franciából. Minden nyelv, minden irány." }
 };
 
-// Content map
+// Content map (only languages with article content)
 const CONTENT_MAP: Record<string, ComparisonContent> = {
   en: EN_CONTENT,
   es: ES_CONTENT,
@@ -2074,18 +2074,14 @@ const CONTENT_MAP: Record<string, ComparisonContent> = {
   it: IT_CONTENT,
   pt: PT_CONTENT,
   nl: NL_CONTENT,
-  sv: SV_CONTENT,
-  no: NO_CONTENT,
-  da: DA_CONTENT,
   pl: PL_CONTENT,
-  cs: CS_CONTENT,
   ru: RU_CONTENT,
   uk: UK_CONTENT,
-  el: EL_CONTENT,
-  hu: HU_CONTENT,
   tr: TR_CONTENT,
   ro: RO_CONTENT
 };
+
+// Unused translations kept for future expansion: SV_CONTENT, NO_CONTENT, DA_CONTENT, CS_CONTENT, EL_CONTENT, HU_CONTENT
 
 // Get content for a specific language
 export function getComparisonContent(lang: string = 'en'): ComparisonContent {

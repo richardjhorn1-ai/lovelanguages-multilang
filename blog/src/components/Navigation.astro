@@ -6,8 +6,8 @@ interface Props {
 
 const { nativeLang = 'en', targetLang } = Astro.props;
 
-// Supported native languages for content (all 18 languages)
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'sv', 'no', 'da', 'pl', 'cs', 'ru', 'uk', 'el', 'hu', 'tr', 'ro'];
+// Supported native languages for content (only languages with article content)
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'uk', 'tr', 'ro'];
 
 const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   en: { flag: '🇬🇧', nativeName: 'English' },
@@ -17,15 +17,9 @@ const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   it: { flag: '🇮🇹', nativeName: 'Italiano' },
   pt: { flag: '🇵🇹', nativeName: 'Português' },
   nl: { flag: '🇳🇱', nativeName: 'Nederlands' },
-  sv: { flag: '🇸🇪', nativeName: 'Svenska' },
-  no: { flag: '🇳🇴', nativeName: 'Norsk' },
-  da: { flag: '🇩🇰', nativeName: 'Dansk' },
   pl: { flag: '🇵🇱', nativeName: 'Polski' },
-  cs: { flag: '🇨🇿', nativeName: 'Čeština' },
   ru: { flag: '🇷🇺', nativeName: 'Русский' },
   uk: { flag: '🇺🇦', nativeName: 'Українська' },
-  el: { flag: '🇬🇷', nativeName: 'Ελληνικά' },
-  hu: { flag: '🇭🇺', nativeName: 'Magyar' },
   tr: { flag: '🇹🇷', nativeName: 'Türkçe' },
   ro: { flag: '🇷🇴', nativeName: 'Română' },
 };
@@ -39,15 +33,9 @@ const NAV_TRANSLATIONS: Record<string, { compareApps: string; startLearning: str
   it: { compareApps: 'Confronta', startLearning: 'Inizia' },
   pt: { compareApps: 'Comparar', startLearning: 'Começar' },
   nl: { compareApps: 'Vergelijk', startLearning: 'Start' },
-  sv: { compareApps: 'Jämför', startLearning: 'Börja' },
-  no: { compareApps: 'Sammenlign', startLearning: 'Start' },
-  da: { compareApps: 'Sammenlign', startLearning: 'Start' },
   pl: { compareApps: 'Porównaj', startLearning: 'Zacznij' },
-  cs: { compareApps: 'Porovnat', startLearning: 'Začít' },
   ru: { compareApps: 'Сравнить', startLearning: 'Начать' },
   uk: { compareApps: 'Порівняти', startLearning: 'Почати' },
-  el: { compareApps: 'Σύγκριση', startLearning: 'Ξεκίνα' },
-  hu: { compareApps: 'Összehasonlítás', startLearning: 'Kezdés' },
   tr: { compareApps: 'Karşılaştır', startLearning: 'Başla' },
   ro: { compareApps: 'Compară', startLearning: 'Începe' },
 };
