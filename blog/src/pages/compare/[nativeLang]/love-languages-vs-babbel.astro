@@ -4,8 +4,8 @@ import FAQ from '../../../components/FAQ.astro';
 import { getComparisonContent } from '../../../data/comparison-features';
 
 export function getStaticPaths() {
-  // Supported native languages
-  const supportedLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr'];
+  // Supported native languages (all 18)
+  const supportedLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'sv', 'no', 'da', 'pl', 'cs', 'ru', 'uk', 'el', 'hu', 'tr', 'ro'];
   return supportedLangs.map(nativeLang => ({
     params: { nativeLang }
   }));
