@@ -61,7 +61,7 @@ function getSitemapChangefreq(url) {
 }
 
 export default defineConfig({
-  site: 'https://lovelanguages.io',
+  site: 'https://www.lovelanguages.io',
   output: 'static',
   vite: {
     resolve: {
