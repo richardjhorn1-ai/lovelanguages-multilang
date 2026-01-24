@@ -447,8 +447,8 @@ const WordParticleBackground: React.FC<{
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none hidden md:block"
-      style={{ zIndex: 15 }}
+      className="absolute inset-0 pointer-events-none hidden md:block z-0"
+      style={{ width: '100%', height: '100%' }}
     />
   );
 };
@@ -592,8 +592,8 @@ const FloatingHeartsBackground: React.FC<{
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: -1 }}
+      className="absolute inset-0 pointer-events-none z-0"
+      style={{ width: '100%', height: '100%' }}
     />
   );
 };
@@ -1139,7 +1139,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   // ============================================
   return (
     <OnboardingContext.Provider value={{ onQuit: handleQuit }}>
-      <div className="relative bg-[#fdfcfd]">
+      <div className="relative min-h-screen overflow-hidden bg-[#fdfcfd]">
         <FloatingHeartsBackground
           currentStep={currentStep}
           totalSteps={totalSteps}
