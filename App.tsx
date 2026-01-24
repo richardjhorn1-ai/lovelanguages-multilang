@@ -195,7 +195,8 @@ const App: React.FC = () => {
               || localStorage.getItem('preferredTargetLanguage')
               || 'pl';
             const storedNative = userMeta.native_language
-              || localStorage.getItem('preferredLanguage')
+              || localStorage.getItem('preferredNativeLanguage')
+              || localStorage.getItem('preferredLanguage')  // Legacy key fallback
               || 'en';
 
             // Read intended role from user metadata (set during signup in Hero)
