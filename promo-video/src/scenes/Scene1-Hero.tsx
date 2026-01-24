@@ -38,16 +38,16 @@ export const Scene1Hero: React.FC = () => {
     config: { damping: 8, stiffness: 100, mass: 0.5 }, // Bouncy entrance
   });
 
-  // Tagline with bounce
+  // Tagline with bounce - appears earlier for better visibility (3s visible)
   const taglineOpacity = interpolate(
     frame,
-    [5 * FPS, 5 * FPS + 10],
+    [4 * FPS + 15, 4 * FPS + 25],
     [0, 1],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const taglineScale = spring({
-    frame: frame - 5 * FPS,
+    frame: frame - (4 * FPS + 15),
     fps: FPS,
     config: { damping: 10, stiffness: 100, mass: 0.4 },
   });

@@ -1,78 +1,42 @@
-import { AbsoluteFill, useCurrentFrame, spring, interpolate } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, interpolate } from 'remotion';
 import { COLORS } from '../constants/colors';
-import { FONTS } from '../constants/fonts';
-import { FPS } from '../constants/timing';
 import { FloatingHearts } from '../components/FloatingHearts';
-import { PhoneFrame } from '../components/PhoneFrame';
 import { Caption } from '../components/Caption';
 import { SparkleBurst } from '../components/Sparkle';
 import { AnimatedGradient } from '../components/AnimatedGradient';
 import { CameraZoom, CameraKeyframe } from '../components/CameraZoom';
 import { BeatPulse } from '../components/BeatPulse';
+import { PhoneWithRole } from '../components/PhoneWithRole';
+import { TapRipple } from '../components/TapRipple';
+import { ScreenTransition } from '../components/ScreenTransition';
+import { LoveLogScreen } from '../components/screens/LoveLogScreen';
+import { WordDetailScreen } from '../components/screens/WordDetailScreen';
 
-// Camera path - smooth movements with good zoom and upper focus
+// Camera path - no vertical panning (8s = 240 frames)
 const CAMERA_PATH: CameraKeyframe[] = [
-  { frame: 0, zoom: 1, focusX: 50, focusY: 50 },           // Start normal
-  { frame: 40, zoom: 1, focusX: 50, focusY: 50 },          // Hold on caption
-  { frame: 70, zoom: 1.9, focusX: 50, focusY: 38 },        // Zoom into phone upper area
-  { frame: 115, zoom: 1.9, focusX: 50, focusY: 38 },       // Hold while cards appear
-  { frame: 145, zoom: 2.0, focusX: 50, focusY: 38 },       // Zoom on detail view
-  { frame: 200, zoom: 1.9, focusX: 50, focusY: 38 },       // Hold
-  { frame: 230, zoom: 1, focusX: 50, focusY: 50 },         // Smooth zoom out
+  { frame: 0, zoom: 1, focusX: 50, focusY: 50 },
+  { frame: 240, zoom: 1, focusX: 50, focusY: 50 },
 ];
 
-const VOCABULARY = [
-  { target: 'Te quiero', native: 'I love you', type: 'phrase', isGift: true, pronunciation: 'teh kee-EH-roh' },
-  { target: 'Mi corazón', native: 'My heart', type: 'noun', isGift: true, pronunciation: 'mee koh-rah-SOHN' },
-  { target: 'Bésame', native: 'Kiss me', type: 'verb', isGift: false, pronunciation: 'BEH-sah-meh' },
-  { target: 'Siempre', native: 'Always', type: 'adverb', isGift: true, pronunciation: 'see-EHM-preh' },
-];
-
-const WORD_TYPE_COLORS: Record<string, string> = {
-  noun: '#3B82F6',
-  verb: '#10B981',
-  adjective: '#8B5CF6',
-  adverb: '#F59E0B',
-  phrase: '#EC4899',
-};
-
-// Animation phases (8s = 240 frames)
-const LIST_PHASE_END = 140;
-const DETAIL_PHASE_START = 120;
+// Scene phases (8s = 240 frames)
+const TAP_NAV_LOG = 30;
+const LIST_APPEARS = 40;
+const TAP_WORD = 110;
+const DETAIL_VIEW_START = 120;
 
 export const Scene5LoveLog: React.FC = () => {
   const frame = useCurrentFrame();
 
-  // Phone animation
-  const phoneScale = spring({
-    frame,
-    fps: FPS,
-    config: { damping: 200 },
-  });
-
-  // Cards appear as a list progressively
+  // Cards visible in list
   const cardsVisible = Math.floor(
-    interpolate(frame, [30, 100], [0, 4], {
+    interpolate(frame, [LIST_APPEARS, 100], [0, 4], {
       extrapolateLeft: 'clamp',
       extrapolateRight: 'clamp',
     })
   );
 
-  // Detail view transition
-  const showDetailView = frame >= DETAIL_PHASE_START;
-  const detailProgress = interpolate(
-    frame,
-    [DETAIL_PHASE_START, DETAIL_PHASE_START + 20],
-    [0, 1],
-    { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
-  );
-
-  // Detail card scale
-  const detailScale = spring({
-    frame: frame - DETAIL_PHASE_START,
-    fps: FPS,
-    config: { damping: 200 },
-  });
+  // Detail view
+  const showDetailView = frame >= DETAIL_VIEW_START;
 
   return (
     <AbsoluteFill
@@ -81,509 +45,91 @@ export const Scene5LoveLog: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* Animated gradient background */}
       <AnimatedGradient style="aurora" />
 
-      {/* Camera follows vocabulary list and detail view */}
       <CameraZoom style="path" keyframes={CAMERA_PATH}>
         <AbsoluteFill
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
+            paddingTop: 340,
           }}
         >
-          {/* Floating hearts background */}
           <FloatingHearts count={8} />
 
-      {/* Caption explaining the feature */}
-      <Caption
-        text="Your Love Log"
-        subtext="Every word you've learned together"
-        startFrame={10}
-        position="top"
-      />
-      <Caption
-        text="Deep dive into any word"
-        subtext="Definitions, conjugations & more"
-        startFrame={DETAIL_PHASE_START + 5}
-        position="top"
-      />
+          {/* Captions */}
+          <Caption
+            text="Your Love Log"
+            subtext="Every word you've learned together"
+            startFrame={10}
+            position="top"
+          />
+          <Caption
+            text="Deep dive into any word"
+            subtext="Definitions, conjugations & more"
+            startFrame={DETAIL_VIEW_START + 5}
+            position="top"
+          />
 
-      {/* Phone with Love Log */}
-      <div
-        style={{
-          transform: `scale(${Math.max(0, phoneScale)})`,
-        }}
-      >
-        <PhoneFrame scale={1.4}>
-          <div
-            style={{
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              backgroundColor: COLORS.bgPrimary,
-              padding: 12,
-              position: 'relative',
-            }}
+          {/* Phone with Love Log */}
+          <PhoneWithRole
+            role="student"
+            partnerName="Student"
+            targetLanguage="Spanish"
+            scale={2.25}
+            startFrame={0}
+            glowIntensity={0.5}
           >
-            {/* Header */}
-            <div
-              style={{
-                backgroundColor: COLORS.bgCard,
-                borderRadius: 14,
-                padding: '10px 12px',
-                marginBottom: 8,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                opacity: showDetailView ? 1 - detailProgress * 0.3 : 1,
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <div
-                  style={{
-                    width: 26,
-                    height: 26,
-                    borderRadius: 8,
-                    backgroundColor: COLORS.accentPink,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 12,
-                  }}
-                >
-                  📚
-                </div>
-                <span
-                  style={{
-                    fontFamily: FONTS.header,
-                    fontSize: 17,
-                    fontWeight: 700,
-                    color: COLORS.textPrimary,
-                  }}
-                >
-                  Love Log
-                </span>
-              </div>
-              <span
-                style={{
-                  fontFamily: FONTS.body,
-                  fontSize: 11,
-                  fontWeight: 600,
-                  color: COLORS.textSecondary,
-                  backgroundColor: COLORS.bgPrimary,
-                  padding: '3px 8px',
-                  borderRadius: 8,
-                }}
-              >
-                42 words
-              </span>
-            </div>
+            <div style={{ position: 'relative', height: '100%' }}>
+              {/* Love Log Screen */}
+              {!showDetailView && (
+                <>
+                  <LoveLogScreen
+                    wordsVisible={cardsVisible}
+                    startFrame={LIST_APPEARS}
+                  />
 
-            {/* Filter chips */}
-            <div
-              style={{
-                display: 'flex',
-                gap: 4,
-                marginBottom: 10,
-                opacity: showDetailView ? 1 - detailProgress * 0.3 : 1,
-              }}
-            >
-              {['All', 'Nouns', 'Verbs', 'Phrases'].map((filter, i) => (
-                <div
-                  key={filter}
-                  style={{
-                    padding: '4px 8px',
-                    borderRadius: 10,
-                    border: `1.5px solid ${i === 0 ? COLORS.accentPink : COLORS.accentBorder}`,
-                    backgroundColor: i === 0 ? COLORS.accentPink : 'transparent',
-                    fontSize: 10,
-                    fontWeight: 600,
-                    fontFamily: FONTS.body,
-                    color: i === 0 ? 'white' : COLORS.textSecondary,
-                  }}
-                >
-                  {filter}
-                </div>
-              ))}
-              <div
-                style={{
-                  padding: '4px 8px',
-                  borderRadius: 10,
-                  border: `1.5px solid ${COLORS.accentBorder}`,
-                  backgroundColor: COLORS.accentLight,
-                  fontSize: 10,
-                  fontWeight: 600,
-                  fontFamily: FONTS.body,
-                  color: COLORS.accentPink,
-                }}
-              >
-                💝 Gifts
-              </div>
-            </div>
+                  {/* Tap on bottom nav */}
+                  <TapRipple x={37} y={95} startFrame={TAP_NAV_LOG} color={COLORS.accentPink} />
 
-            {/* Vocabulary list - scrollable list style */}
-            <div
-              style={{
-                flex: 1,
-                overflow: 'hidden',
-                opacity: showDetailView ? 1 - detailProgress : 1,
-              }}
-            >
-              {VOCABULARY.slice(0, cardsVisible).map((word, i) => {
-                const cardDelay = 30 + i * 18;
-                const cardScale = spring({
-                  frame: frame - cardDelay,
-                  fps: FPS,
-                  config: { damping: 200 },
-                });
+                  {/* Tap on a word */}
+                  <TapRipple x={50} y={40} startFrame={TAP_WORD} color={COLORS.accentPink} />
+                </>
+              )}
 
-                const typeColor = WORD_TYPE_COLORS[word.type] || COLORS.accentPink;
-
-                return (
-                  <div
-                    key={i}
-                    style={{
-                      backgroundColor: COLORS.bgCard,
-                      borderRadius: 14,
-                      padding: '10px 12px',
-                      marginBottom: 8,
-                      border: word.isGift ? `2px solid ${COLORS.accentBorder}` : `1px solid ${COLORS.accentBorder}`,
-                      transform: `scale(${Math.max(0, cardScale)})`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 10,
-                    }}
-                  >
-                    {/* Gift badge */}
-                    {word.isGift && (
-                      <div
-                        style={{
-                          width: 28,
-                          height: 28,
-                          borderRadius: 8,
-                          backgroundColor: COLORS.accentLight,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: 12,
-                          flexShrink: 0,
-                        }}
-                      >
-                        💝
-                      </div>
-                    )}
-                    {!word.isGift && (
-                      <div
-                        style={{
-                          width: 28,
-                          height: 28,
-                          borderRadius: 8,
-                          backgroundColor: `${typeColor}15`,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: 12,
-                          flexShrink: 0,
-                        }}
-                      >
-                        📖
-                      </div>
-                    )}
-
-                    {/* Word info */}
-                    <div style={{ flex: 1 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <span
-                          style={{
-                            fontFamily: FONTS.header,
-                            fontSize: 15,
-                            fontWeight: 700,
-                            color: COLORS.accentPink,
-                          }}
-                        >
-                          {word.target}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: 8,
-                            fontWeight: 700,
-                            color: typeColor,
-                            backgroundColor: `${typeColor}15`,
-                            padding: '2px 5px',
-                            borderRadius: 4,
-                            textTransform: 'uppercase',
-                            fontFamily: FONTS.body,
-                          }}
-                        >
-                          {word.type}
-                        </span>
-                      </div>
-                      <span
-                        style={{
-                          fontFamily: FONTS.body,
-                          fontSize: 12,
-                          color: COLORS.textSecondary,
-                        }}
-                      >
-                        {word.native}
-                      </span>
-                    </div>
-
-                    {/* Arrow */}
-                    <span style={{ fontSize: 10, color: COLORS.textMuted }}>›</span>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Detail view overlay */}
-            {showDetailView && (
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 12,
-                  backgroundColor: COLORS.bgPrimary,
-                  borderRadius: 16,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transform: `scale(${Math.max(0, detailScale)})`,
-                  opacity: detailProgress,
-                }}
-              >
-                {/* Sparkles when detail view appears */}
-                <SparkleBurst startFrame={DETAIL_PHASE_START} x={20} y={30} count={5} color="#FFD700" />
-                <SparkleBurst startFrame={DETAIL_PHASE_START + 5} x={80} y={25} count={5} color={COLORS.accentPink} />
-                {/* Back header */}
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    padding: '12px 12px 8px 12px',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 24,
-                      height: 24,
-                      borderRadius: 8,
-                      backgroundColor: COLORS.bgCard,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: 10,
-                    }}
-                  >
-                    ‹
-                  </div>
-                  <span
-                    style={{
-                      fontFamily: FONTS.body,
-                      fontSize: 13,
-                      color: COLORS.textSecondary,
-                    }}
-                  >
-                    Back to Love Log
-                  </span>
-                </div>
-
-                {/* Word detail card */}
-                <div
-                  style={{
-                    backgroundColor: COLORS.bgCard,
-                    borderRadius: 20,
-                    padding: 16,
-                    margin: '0 12px',
-                    border: `2px solid ${COLORS.accentBorder}`,
-                    textAlign: 'center',
-                  }}
-                >
-                  {/* Gift badge */}
-                  <div
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 4,
-                      backgroundColor: COLORS.accentLight,
-                      padding: '4px 10px',
-                      borderRadius: 12,
-                      marginBottom: 10,
-                    }}
-                  >
-                    <span style={{ fontSize: 12 }}>💝</span>
-                    <span
-                      style={{
-                        fontFamily: FONTS.body,
-                        fontSize: 11,
-                        fontWeight: 600,
-                        color: COLORS.accentPink,
+              {/* Word Detail View */}
+              {showDetailView && (
+                <>
+                  <ScreenTransition type="slide-left" startFrame={DETAIL_VIEW_START}>
+                    <WordDetailScreen
+                      word={{
+                        target: 'Te quiero',
+                        native: 'I love you',
+                        pronunciation: 'teh kee-EH-roh',
+                        type: 'phrase',
                       }}
-                    >
-                      Gift from Alex
-                    </span>
-                  </div>
-
-                  {/* Word */}
-                  <p
-                    style={{
-                      fontFamily: FONTS.header,
-                      fontSize: 32,
-                      fontWeight: 700,
-                      color: COLORS.accentPink,
-                      margin: 0,
-                    }}
-                  >
-                    Te quiero
-                  </p>
-
-                  {/* Pronunciation */}
-                  <p
-                    style={{
-                      fontFamily: FONTS.body,
-                      fontSize: 13,
-                      color: COLORS.textMuted,
-                      margin: '4px 0 8px 0',
-                    }}
-                  >
-                    (teh kee-EH-roh)
-                  </p>
-
-                  {/* Play audio button */}
-                  <div
-                    style={{
-                      width: 36,
-                      height: 36,
-                      borderRadius: '50%',
-                      backgroundColor: COLORS.accentLight,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      margin: '0 auto 10px auto',
-                      border: `2px solid ${COLORS.accentPink}`,
-                    }}
-                  >
-                    <span style={{ fontSize: 14 }}>▶</span>
-                  </div>
-
-                  {/* Translation */}
-                  <p
-                    style={{
-                      fontFamily: FONTS.body,
-                      fontSize: 18,
-                      fontWeight: 600,
-                      color: COLORS.textPrimary,
-                      margin: 0,
-                    }}
-                  >
-                    I love you
-                  </p>
-                </div>
-
-                {/* Action buttons */}
-                <div
-                  style={{
-                    display: 'flex',
-                    gap: 8,
-                    padding: '12px',
-                  }}
-                >
-                  <button
-                    style={{
-                      flex: 1,
-                      padding: '10px 12px',
-                      backgroundColor: COLORS.bgCard,
-                      border: `1.5px solid ${COLORS.accentBorder}`,
-                      borderRadius: 12,
-                      fontFamily: FONTS.body,
-                      fontSize: 12,
-                      fontWeight: 600,
-                      color: COLORS.textPrimary,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 4,
-                    }}
-                  >
-                    📝 Conjugations
-                  </button>
-                  <button
-                    style={{
-                      flex: 1,
-                      padding: '10px 12px',
-                      backgroundColor: COLORS.bgCard,
-                      border: `1.5px solid ${COLORS.accentBorder}`,
-                      borderRadius: 12,
-                      fontFamily: FONTS.body,
-                      fontSize: 12,
-                      fontWeight: 600,
-                      color: COLORS.textPrimary,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 4,
-                    }}
-                  >
-                    📚 Forms
-                  </button>
-                </div>
-
-                {/* Example sentences */}
-                <div style={{ padding: '0 12px', flex: 1 }}>
-                  <p
-                    style={{
-                      fontFamily: FONTS.body,
-                      fontSize: 11,
-                      fontWeight: 700,
-                      color: COLORS.textSecondary,
-                      textTransform: 'uppercase',
-                      marginBottom: 8,
-                    }}
-                  >
-                    Example Sentences
-                  </p>
-                  <div
-                    style={{
-                      backgroundColor: COLORS.bgCard,
-                      borderRadius: 12,
-                      padding: 10,
-                      borderLeft: `3px solid ${COLORS.accentPink}`,
-                    }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: FONTS.body,
-                        fontSize: 13,
-                        color: COLORS.accentPink,
-                        fontWeight: 600,
-                        margin: 0,
+                      isGift={true}
+                      senderName="Partner"
+                      exampleSentence={{
+                        target: 'Te quiero mucho, mi amor.',
+                        native: 'I love you so much, my love.',
                       }}
-                    >
-                      Te quiero mucho, mi amor.
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: FONTS.body,
-                        fontSize: 12,
-                        color: COLORS.textSecondary,
-                        margin: '4px 0 0 0',
-                      }}
-                    >
-                      I love you so much, my love.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </PhoneFrame>
-      </div>
+                      startFrame={DETAIL_VIEW_START}
+                    />
+                  </ScreenTransition>
+
+                  {/* Sparkles when detail view appears */}
+                  <SparkleBurst startFrame={DETAIL_VIEW_START + 5} x={20} y={30} count={5} color="#FFD700" />
+                  <SparkleBurst startFrame={DETAIL_VIEW_START + 10} x={80} y={25} count={5} color={COLORS.accentPink} />
+                </>
+              )}
+            </div>
+          </PhoneWithRole>
         </AbsoluteFill>
       </CameraZoom>
 
-      {/* Beat pulse on detail view reveal */}
-      <BeatPulse startFrame={DETAIL_PHASE_START} color={COLORS.accentPink} intensity={0.4} />
+      <BeatPulse startFrame={DETAIL_VIEW_START} color={COLORS.accentPink} intensity={0.4} />
     </AbsoluteFill>
   );
 };
