@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { speak } from '../services/audio';
@@ -46,27 +46,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   // Get dynamic pronouns for the target language
   const pronouns = getConjugationPersons(targetLanguage);
 
-  useEffect(() => { fetchEntries(); }, [profile, targetLanguage]);
-
-  // Listen for dictionary updates from other components (e.g., Listen Mode word extraction)
-  useEffect(() => {
-    const handleDictionaryUpdate = () => {
-      fetchEntries();
-    };
-    window.addEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
-    return () => window.removeEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
-  }, []);
-
-  // Listen for language switch events from Profile settings
-  useEffect(() => {
-    const handleLanguageSwitch = () => {
-      fetchEntries();
-    };
-    window.addEventListener('language-switched', handleLanguageSwitch);
-    return () => window.removeEventListener('language-switched', handleLanguageSwitch);
-  }, []);
-
-  const fetchEntries = async () => {
+  const fetchEntries = useCallback(async () => {
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
 
     // Fetch dictionary entries filtered by target language
@@ -116,7 +96,28 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     }
 
     setLoading(false);
-  };
+  }, [profile, targetLanguage]);
+
+  // Fetch entries on mount and when profile/language changes
+  useEffect(() => { fetchEntries(); }, [fetchEntries]);
+
+  // Listen for dictionary updates from other components (e.g., Listen Mode word extraction)
+  useEffect(() => {
+    const handleDictionaryUpdate = () => {
+      fetchEntries();
+    };
+    window.addEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
+    return () => window.removeEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
+  }, [fetchEntries]);
+
+  // Listen for language switch events from Profile settings
+  useEffect(() => {
+    const handleLanguageSwitch = () => {
+      fetchEntries();
+    };
+    window.addEventListener('language-switched', handleLanguageSwitch);
+    return () => window.removeEventListener('language-switched', handleLanguageSwitch);
+  }, [fetchEntries]);
 
   const handleSync = async () => {
     setIsSyncing(true);
