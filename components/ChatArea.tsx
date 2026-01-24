@@ -484,31 +484,37 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     // ACT 3: SAVE MODEL REPLY
     await saveMessage('model', replyText);
 
+    // Release loading state immediately so user can send next message
+    setLoading(false);
+
+    // ACT 4: BACKGROUND TASKS (don't block user input)
     // Extract vocabulary for streaming messages (images already get words from generateReply)
     if (currentAttachments.length === 0) {
-      const extracted = await geminiService.analyzeHistory(
+      geminiService.analyzeHistory(
         [...messageHistory, { role: 'user', content: userMessage }, { role: 'assistant', content: replyText }],
         userWords,
         languageParams
-      );
-      newWords = extracted;
-    }
-
-    // ACT 4: SAVE EXTRACTED WORDS & SHOW NOTIFICATION
-    if (newWords.length > 0) {
+      ).then(extracted => {
+        if (extracted.length > 0) {
+          saveExtractedWords(extracted).catch(console.error);
+          setNewWordsNotification(extracted);
+          setTimeout(() => setNewWordsNotification([]), 5000);
+        }
+      }).catch(console.error);
+    } else if (newWords.length > 0) {
+      // For image messages, words were already extracted - save them in background
       saveExtractedWords(newWords).catch(console.error);
       setNewWordsNotification(newWords);
-      // Auto-hide notification after 5 seconds
       setTimeout(() => setNewWordsNotification([]), 5000);
     }
 
+    // Generate title in background if needed
     if (activeChat.title === 'New Session') {
-      const title = await geminiService.generateTitle(userMessage);
-      await supabase.from('chats').update({ title }).eq('id', activeChat.id);
-      setChats(prev => prev.map(c => c.id === activeChat.id ? { ...c, title } : c));
+      geminiService.generateTitle(userMessage).then(async title => {
+        await supabase.from('chats').update({ title }).eq('id', activeChat.id);
+        setChats(prev => prev.map(c => c.id === activeChat.id ? { ...c, title } : c));
+      }).catch(console.error);
     }
-
-    setLoading(false);
   };
 
   const startLive = async () => {
