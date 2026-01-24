@@ -82,7 +82,8 @@ const categories = [
 
 // Hreflang: Find equivalent hub pages for different native languages learning the same target
 // E.g., /learn/en/pl/ links to /learn/es/pl/, /learn/fr/pl/, etc.
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt'];
+// Must include ALL native languages that have content
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk'];
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode && lang !== targetLanguageCode)
   .map(lang => ({

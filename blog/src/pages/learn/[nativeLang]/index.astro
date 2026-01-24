@@ -42,7 +42,8 @@ export async function getStaticPaths() {
 }
 
 // Native languages that have translated content (also available in template)
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr'];
+// Must include ALL native languages that have content
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk'];
 
 const { nativeLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
