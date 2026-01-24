@@ -297,11 +297,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     };
 
     window.addEventListener('dictionary-updated', invalidateContext);
-    window.addEventListener('level-changed', invalidateContext);
 
     return () => {
       window.removeEventListener('dictionary-updated', invalidateContext);
-      window.removeEventListener('level-changed', invalidateContext);
     };
   }, []);
 
@@ -426,10 +424,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     // Increment XP only for NEW words (1 XP per new word)
     if (newWordCount > 0) {
-      const result = await geminiService.incrementXP(newWordCount);
-      if (result.success) {
-        console.log(`+${newWordCount} XP! Total: ${result.newXp}`);
-      }
+      await geminiService.incrementXP(newWordCount);
     }
   };
 
@@ -597,8 +592,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       // Get voice session messages (messages added after session started)
       const voiceMessages = allMessages.slice(startIdx);
 
-      console.log(`Voice session ended. Extracting vocabulary from ${voiceMessages.length} messages...`);
-
       if (voiceMessages.length > 0) {
         // Get known words to avoid duplicates
         const { data: existingWords } = await supabase
@@ -614,8 +607,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           knownWords,
           languageParams
         );
-
-        console.log(`Extracted ${harvested.length} words from voice session`);
 
         if (harvested.length > 0) {
           // Save extracted words
@@ -835,7 +826,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log('[processTranscript] API response:', result);
 
         // Update entries with processed data, using the index from API response
         const processedEntries = entries.map((entry, idx) => {
@@ -851,8 +841,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           }
           return entry;
         });
-
-        console.log('[processTranscript] Processed entries:', processedEntries);
 
         // Update local state
         setListenEntries(processedEntries);
@@ -882,10 +870,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Extract words from listen session using analyze-history API
   const extractWordsFromSession = async () => {
-    console.log('[extractWords] Starting extraction, activeSession:', activeListenSession?.id, 'entries:', listenEntries.length);
-
     if (!activeListenSession || listenEntries.length === 0) {
-      console.log('[extractWords] Skipped - no active session or empty entries');
       return;
     }
 
@@ -909,8 +894,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             : e.word
         }));
 
-      console.log('[extractWords] Prepared', messages.length, 'messages for analysis');
-
       // Get user's current words to avoid duplicates
       const { data: existingWords } = await supabase
         .from('dictionary')
@@ -918,7 +901,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         .eq('user_id', profile.id);
 
       const currentWords = (existingWords || []).map((w: any) => w.word);
-      console.log('[extractWords] User has', currentWords.length, 'existing words');
 
       const response = await fetch('/api/analyze-history', {
         method: 'POST',
@@ -931,7 +913,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log('[extractWords] API response:', result);
         const words = result.newWords || [];
         setExtractedWords(words);
         // Select all words by default
@@ -972,7 +953,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         source: 'listen'
       }));
 
-      console.log('Adding words to dictionary:', entries);
       // Use upsert to handle duplicates - update existing words with new context
       const { data, error } = await supabase.from('dictionary').upsert(entries, {
         onConflict: 'user_id,word,language_code',
@@ -983,7 +963,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         console.error('Supabase error adding words:', error);
         alert(t('chat.errors.addWordsFailed', { message: error.message }));
       } else {
-        console.log('Words added successfully:', data);
         // Play new words sound
         sounds.play('new-words');
         setShowWordExtractor(false);

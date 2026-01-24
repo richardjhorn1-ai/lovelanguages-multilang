@@ -1,4 +1,3 @@
-import { createClient } from '@supabase/supabase-js';
 import { GoogleGenAI } from "@google/genai";
 import {
   setCorsHeaders,
@@ -9,6 +8,7 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 import { buildAnswerValidationPrompt } from '../utils/prompt-templates.js';
 import { buildBatchValidationSchema } from '../utils/schema-builders.js';
 
@@ -175,17 +175,10 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Challenge already completed' });
     }
 
-    // Get language settings from challenge and student profile
+    // Get language settings: use challenge's target language, student's native language
     const targetLanguage = challenge.language_code || 'pl';
-
-    // Fetch student's native language for validation prompts
-    const { data: studentProfile } = await supabase
-      .from('profiles')
-      .select('native_language')
-      .eq('id', auth.userId)
-      .single();
-
-    const nativeLanguage = studentProfile?.native_language || 'en';
+    const studentLangs = await getProfileLanguages(supabase, auth.userId);
+    const nativeLanguage = studentLangs.nativeLanguage;
 
     // Grade the answers using BATCH smart validation (one Gemini call for all answers)
     const wordsData = challenge.words_data || [];

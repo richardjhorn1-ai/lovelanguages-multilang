@@ -1,6 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 import { getLanguageName } from '../constants/language-config.js';
 
 // Get level display name from XP
@@ -40,24 +40,18 @@ export default async function handler(req: any, res: any) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-  const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
+  const supabase = createServiceClient();
+  if (!supabase) {
+    return res.status(500).json({ error: 'Server configuration error' });
+  }
 
   const { action = 'generate' } = req.body || {};
 
   // LIST: Return all past summaries for current language pair (for the index)
   if (action === 'list') {
     try {
-      // Get user's language settings
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('active_language, native_language')
-        .eq('id', auth.userId)
-        .single();
-
-      const targetLanguage = profile?.active_language || 'pl';
-      const nativeLanguage = profile?.native_language || 'en';
+      // Get user's language settings from profile
+      const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, auth.userId);
 
       const { data: summaries, error } = await supabase
         .from('progress_summaries')
@@ -137,15 +131,16 @@ export default async function handler(req: any, res: any) {
     const isIncremental = !!lastSummary;
     const sinceDate = lastSummary?.created_at || new Date(0).toISOString();
 
-    // STEP 2: Fetch profile with language settings (always needed)
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('xp, level, full_name, active_language, native_language')
-      .eq('id', auth.userId)
-      .single();
+    // STEP 2: Fetch profile and language settings
+    const [{ data: profile }, { targetLanguage, nativeLanguage }] = await Promise.all([
+      supabase
+        .from('profiles')
+        .select('xp, level, full_name')
+        .eq('id', auth.userId)
+        .single(),
+      getProfileLanguages(supabase, auth.userId)
+    ]);
 
-    const targetLanguage = profile?.active_language || 'pl';
-    const nativeLanguage = profile?.native_language || 'en';
     const targetName = getLanguageName(targetLanguage);
     const nativeName = getLanguageName(nativeLanguage);
 

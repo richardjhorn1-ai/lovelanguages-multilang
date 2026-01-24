@@ -6,6 +6,7 @@ import { ICONS } from '../constants';
 import { shuffleArray } from '../utils/array';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
+import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
 
 interface PlayQuizChallengeProps {
   challenge: TutorChallenge;
@@ -13,46 +14,6 @@ interface PlayQuizChallengeProps {
   onClose: () => void;
   onComplete: () => void;
   smartValidation?: boolean;
-}
-
-// Normalize answer for local matching (handles diacritics)
-function normalizeAnswer(s: string): string {
-  return s
-    .toLowerCase()
-    .trim()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
-}
-
-// Smart validation API call
-async function validateAnswerSmart(
-  userAnswer: string,
-  correctAnswer: string,
-  targetWord?: string
-): Promise<{ accepted: boolean; explanation: string }> {
-  // Fast local match first
-  if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
-    return { accepted: true, explanation: 'Exact match' };
-  }
-
-  try {
-    const response = await fetch('/api/validate-answer', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        userAnswer,
-        correctAnswer,
-        targetWord,
-        direction: 'target_to_native'
-      })
-    });
-
-    if (!response.ok) return { accepted: false, explanation: 'Validation error' };
-    const result = await response.json();
-    return { accepted: result.accepted, explanation: result.explanation || 'Validated' };
-  } catch {
-    return { accepted: false, explanation: 'Validation error' };
-  }
 }
 
 interface Question {
@@ -149,7 +110,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
       explanation = correct ? 'Self-assessed correct' : 'Self-assessed incorrect';
     } else if (smartValidation && question.type === 'type_it') {
       // Smart validation for type_it questions
-      const result = await validateAnswerSmart(answer, question.translation, question.word);
+      const result = await validateAnswerSmart(answer, question.translation, { targetWord: question.word });
       correct = result.accepted;
       explanation = result.explanation;
     } else {

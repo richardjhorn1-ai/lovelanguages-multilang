@@ -50,8 +50,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
   // Listen for dictionary updates from other components (e.g., Listen Mode word extraction)
   useEffect(() => {
-    const handleDictionaryUpdate = (event: CustomEvent) => {
-      console.log('Dictionary updated, refreshing Love Log...', event.detail);
+    const handleDictionaryUpdate = () => {
       fetchEntries();
     };
     window.addEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
@@ -61,7 +60,6 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   // Listen for language switch events from Profile settings
   useEffect(() => {
     const handleLanguageSwitch = () => {
-      console.log('Language switched, refreshing Love Log...');
       fetchEntries();
     };
     window.addEventListener('language-switched', handleLanguageSwitch);

@@ -50,14 +50,11 @@ const JoinInvite: React.FC = () => {
     setError(null);
 
     try {
-      console.log('[JoinInvite] Validating token:', token);
       const response = await fetch('/api/validate-invite', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token })
       });
-
-      console.log('[JoinInvite] Response status:', response.status);
 
       // Check if we got HTML instead of JSON (common when API doesn't exist)
       const contentType = response.headers.get('content-type');
@@ -69,7 +66,6 @@ const JoinInvite: React.FC = () => {
       }
 
       const data = await response.json();
-      console.log('[JoinInvite] Response data:', data);
 
       if (!response.ok || !data.valid) {
         setError(data.error || 'Invalid invite link');
@@ -153,7 +149,6 @@ const JoinInvite: React.FC = () => {
     setValidating(true);
 
     try {
-      console.log('[JoinInvite] Completing invite with token:', token);
       const response = await fetch('/api/complete-invite', {
         method: 'POST',
         headers: {
@@ -171,14 +166,12 @@ const JoinInvite: React.FC = () => {
       }
 
       const data = await response.json();
-      console.log('[JoinInvite] Complete invite response:', response.status, data);
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to complete invite');
       }
 
       // Success! Force a full page reload to get fresh profile data
-      console.log('[JoinInvite] Success! Reloading to fetch updated profile...');
       window.location.href = '/#/';
     } catch (e: any) {
       console.error('[JoinInvite] Complete invite error:', e);
