@@ -1,5 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 
 // Level name lookup
 const LEVEL_NAMES = [
@@ -97,29 +97,28 @@ export default async function handler(req: any, res: any) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-    if (!supabaseUrl || !supabaseServiceKey) {
+    const supabase = createServiceClient();
+    if (!supabase) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
-
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
     const bootedAt = new Date().toISOString();
 
-    // First fetch profile to get language settings
-    const { data: profile, error: profileError } = await supabase
-      .from('profiles')
-      .select('full_name, xp, level, partner_name, linked_user_id, role, active_language, native_language')
-      .eq('id', auth.userId)
-      .single();
+    // Fetch profile and language settings in parallel
+    const [profileResult, languageParams] = await Promise.all([
+      supabase
+        .from('profiles')
+        .select('full_name, xp, level, partner_name, linked_user_id, role')
+        .eq('id', auth.userId)
+        .single(),
+      getProfileLanguages(supabase, auth.userId)
+    ]);
 
+    const { data: profile, error: profileError } = profileResult;
     if (profileError || !profile) {
       return res.status(404).json({ error: 'Profile not found' });
     }
 
-    const targetLanguage = profile.active_language || 'pl';
-    const nativeLanguage = profile.native_language || 'en';
+    const { targetLanguage, nativeLanguage } = languageParams;
 
     // Fetch user's learning context with language filter
     const userContext = await fetchLearnerContext(supabase, auth.userId, targetLanguage);
@@ -163,15 +162,18 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // Fetch partner's profile first to get their language settings
-    const { data: partnerProfile } = await supabase
-      .from('profiles')
-      .select('full_name, xp, level, active_language, native_language')
-      .eq('id', profile.linked_user_id)
-      .single();
+    // Fetch partner's profile and language settings in parallel
+    const [partnerProfileResult, partnerLanguageParams] = await Promise.all([
+      supabase
+        .from('profiles')
+        .select('full_name, xp, level')
+        .eq('id', profile.linked_user_id)
+        .single(),
+      getProfileLanguages(supabase, profile.linked_user_id)
+    ]);
 
-    const partnerTargetLanguage = partnerProfile?.active_language || 'pl';
-    const partnerNativeLanguage = partnerProfile?.native_language || 'en';
+    const { data: partnerProfile } = partnerProfileResult;
+    const { targetLanguage: partnerTargetLanguage, nativeLanguage: partnerNativeLanguage } = partnerLanguageParams;
 
     // Fetch partner's learning context with their language
     const partnerContext = await fetchLearnerContext(supabase, profile.linked_user_id, partnerTargetLanguage);

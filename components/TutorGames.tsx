@@ -9,50 +9,7 @@ import CreateQuickFireChallenge from './CreateQuickFireChallenge';
 import WordRequestCreator from './WordRequestCreator';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
-
-// Normalize answer for local matching (handles diacritics)
-function normalizeAnswer(s: string): string {
-  return s
-    .toLowerCase()
-    .trim()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
-}
-
-// Smart validation API call
-async function validateAnswerSmart(
-  userAnswer: string,
-  correctAnswer: string,
-  targetWord: string,
-  targetLanguage: string,
-  nativeLanguage: string
-): Promise<{ accepted: boolean; explanation: string }> {
-  // Fast local match first
-  if (userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()) {
-    return { accepted: true, explanation: 'Exact match' };
-  }
-
-  try {
-    const response = await fetch('/api/validate-answer', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        userAnswer,
-        correctAnswer,
-        targetWord,
-        direction: 'target_to_native',
-        targetLanguage,
-        nativeLanguage
-      })
-    });
-
-    if (!response.ok) return { accepted: false, explanation: 'Validation error' };
-    const result = await response.json();
-    return { accepted: result.accepted, explanation: result.explanation || 'Validated' };
-  } catch {
-    return { accepted: false, explanation: 'Validation error' };
-  }
-}
+import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
 
 // Save Progress Dialog Component
 interface SaveProgressDialogProps {
@@ -472,7 +429,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     let isCorrect: boolean;
     let explanation = '';
     if (profile.smart_validation) {
-      const result = await validateAnswerSmart(typeItAnswer, currentWord.translation, currentWord.word, targetLanguage, nativeLanguage);
+      const result = await validateAnswerSmart(typeItAnswer, currentWord.translation, { targetWord: currentWord.word, languageParams: { targetLanguage, nativeLanguage } });
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
@@ -530,7 +487,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     let isCorrect: boolean;
     let explanation = '';
     if (profile.smart_validation) {
-      const result = await validateAnswerSmart(localQuickFireInput, currentWord.translation, currentWord.word, targetLanguage, nativeLanguage);
+      const result = await validateAnswerSmart(localQuickFireInput, currentWord.translation, { targetWord: currentWord.word, languageParams: { targetLanguage, nativeLanguage } });
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {

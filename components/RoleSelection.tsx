@@ -115,7 +115,8 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
       if (error) throw error;
 
       // Clear localStorage language preferences since they're now confirmed in database
-      localStorage.removeItem('preferredLanguage');
+      localStorage.removeItem('preferredNativeLanguage');
+      localStorage.removeItem('preferredLanguage');  // Legacy key cleanup
       localStorage.removeItem('preferredTargetLanguage');
 
       onRoleSelected();

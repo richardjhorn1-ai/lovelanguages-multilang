@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
@@ -7,6 +6,7 @@ import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { shuffleArray } from '../utils/array';
+import { isCorrectAnswer, validateAnswerSmart } from '../utils/answer-helpers';
 import { getRomanticPhrases, markPhrasesUsed, getAvailablePhraseCount } from '../services/romantic-phrases';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
@@ -81,57 +81,6 @@ interface ChallengeQuestion {
 // CHALLENGE_MODES moved inside component to use translations - see challengeModes useMemo
 
 const STREAK_TO_LEARN = 5; // Number of consecutive correct answers to mark as learned
-
-// Lenient answer matching (local, fast)
-function isCorrectAnswer(userAnswer: string, correctAnswer: string): boolean {
-  const normalize = (s: string) => s
-    .toLowerCase()
-    .trim()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, ''); // Remove diacritics
-
-  return normalize(userAnswer) === normalize(correctAnswer);
-}
-
-// Smart validation API call
-async function validateAnswerSmart(
-  userAnswer: string,
-  correctAnswer: string,
-  options?: {
-    targetWord?: string;
-    wordType?: string;
-    direction?: 'target_to_native' | 'native_to_target';
-    languageParams?: { targetLanguage: string; nativeLanguage: string };
-  }
-): Promise<{ accepted: boolean; explanation: string }> {
-  try {
-    const response = await fetch('/api/validate-answer', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        userAnswer,
-        correctAnswer,
-        targetWord: options?.targetWord,
-        wordType: options?.wordType,
-        direction: options?.direction,
-        ...options?.languageParams
-      })
-    });
-
-    if (!response.ok) {
-      // Fallback to local matching on error
-      const accepted = isCorrectAnswer(userAnswer, correctAnswer);
-      return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-    }
-
-    const result = await response.json();
-    return { accepted: result.accepted, explanation: result.explanation || 'Validated' };
-  } catch {
-    // Fallback to local matching on error
-    const accepted = isCorrectAnswer(userAnswer, correctAnswer);
-    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-  }
-}
 
 const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [deck, setDeck] = useState<DictionaryEntry[]>([]);
@@ -278,7 +227,6 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Listen for language switch events from Profile settings
   useEffect(() => {
     const handleLanguageSwitch = () => {
-      console.log('Language switched, refreshing games...');
       fetchData();
     };
     window.addEventListener('language-switched', handleLanguageSwitch);

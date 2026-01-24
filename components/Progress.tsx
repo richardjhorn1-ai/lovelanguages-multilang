@@ -217,7 +217,6 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   // Listen for language switch events from Profile settings
   useEffect(() => {
     const handleLanguageSwitch = () => {
-      console.log('Language switched, refreshing progress...');
       fetchEntries();
       fetchSummaryIndex();
       fetchTestAttempts();

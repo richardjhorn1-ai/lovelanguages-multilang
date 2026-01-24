@@ -1,4 +1,3 @@
-import { createClient } from '@supabase/supabase-js';
 import {
   setCorsHeaders,
   verifyAuth,
@@ -8,6 +7,7 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
@@ -64,20 +64,8 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
-    // Fetch student's language settings
-    const { data: studentProfile, error: studentError } = await supabase
-      .from('profiles')
-      .select('active_language, native_language')
-      .eq('id', profile.linked_user_id)
-      .single();
-
-    if (studentError || !studentProfile) {
-      return res.status(404).json({ error: 'Student profile not found' });
-    }
-
-    // Use student's language settings (with Polish/English fallback for backward compatibility)
-    const targetLanguage = studentProfile.active_language || 'pl';
-    const nativeLanguage = studentProfile.native_language || 'en';
+    // Get student's language settings
+    const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, profile.linked_user_id);
 
     const { challengeType, title, config, wordIds, newWords } = req.body;
 

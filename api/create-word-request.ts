@@ -1,6 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
 import { GoogleGenAI, Type } from "@google/genai";
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 import { getLanguageName } from '../constants/language-config.js';
 
 // Get AI suggestions for a topic - lightweight preview data only
@@ -81,14 +81,10 @@ export default async function handler(req: any, res: any) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-    if (!supabaseUrl || !supabaseServiceKey) {
+    const supabase = createServiceClient();
+    if (!supabase) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
-
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     // Get tutor's profile
     const { data: profile, error: profileError } = await supabase
@@ -109,15 +105,8 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
-    // Fetch student's language settings for word generation
-    const { data: studentProfile } = await supabase
-      .from('profiles')
-      .select('active_language, native_language')
-      .eq('id', profile.linked_user_id)
-      .single();
-
-    const targetLanguage = studentProfile?.active_language || 'pl';
-    const nativeLanguage = studentProfile?.native_language || 'en';
+    // Get student's language settings for word generation
+    const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, profile.linked_user_id);
 
     const { requestType, inputText, selectedWords, xpMultiplier, dryRun, excludeWords, count } = req.body;
 

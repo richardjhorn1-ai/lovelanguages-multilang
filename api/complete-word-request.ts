@@ -1,6 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
 import { GoogleGenAI, Type } from "@google/genai";
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 import { getLanguageName, getLanguageConfig } from '../constants/language-config.js';
 import { buildVocabularySchema } from '../utils/schema-builders.js';
 
@@ -104,14 +104,10 @@ export default async function handler(req: any, res: any) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-    if (!supabaseUrl || !supabaseServiceKey) {
+    const supabase = createServiceClient();
+    if (!supabase) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
-
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
     const { requestId } = req.body;
 
@@ -138,17 +134,10 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Already completed' });
     }
 
-    // Get language from word request (set during creation)
+    // Get language from word request (set during creation) and student's native language
     const targetLanguage = wordRequest.language_code || 'pl';
-
-    // Get student's native language from profile
-    const { data: studentLang } = await supabase
-      .from('profiles')
-      .select('native_language')
-      .eq('id', auth.userId)
-      .single();
-
-    const nativeLanguage = studentLang?.native_language || 'en';
+    const studentLangs = await getProfileLanguages(supabase, auth.userId);
+    const nativeLanguage = studentLangs.nativeLanguage;
 
     const selectedWords = wordRequest.selected_words || [];
     const xpMultiplier = wordRequest.xp_multiplier || 2.0;

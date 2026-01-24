@@ -53,7 +53,6 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         throw new Error('Not authenticated');
       }
 
-      console.log('[InviteLinkCard] Calling /api/generate-invite...');
       const response = await fetch('/api/generate-invite', {
         method: 'POST',
         headers: {
@@ -63,7 +62,6 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
       });
 
       const data = await response.json();
-      console.log('[InviteLinkCard] Response:', response.status, data);
 
       if (!response.ok) {
         throw new Error(data.error || `Failed to generate invite (${response.status})`);
