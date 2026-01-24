@@ -7,6 +7,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import './i18n';
 import { useI18nSync } from './hooks/useI18nSync';
+import { initGA, trackPageView } from './services/analytics';
 import Hero from './components/Hero';
 import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
@@ -77,6 +78,23 @@ const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({
 // Wrapper component that syncs i18n with native language (must be inside LanguageProvider)
 const I18nSyncWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   useI18nSync();
+  return <>{children}</>;
+};
+
+// Analytics wrapper - tracks page views on route changes
+const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const location = useLocation();
+
+  // Initialize GA on mount
+  useEffect(() => {
+    initGA();
+  }, []);
+
+  // Track page views on route changes
+  useEffect(() => {
+    trackPageView(location.pathname + location.hash);
+  }, [location]);
+
   return <>{children}</>;
 };
 
@@ -300,6 +318,7 @@ const App: React.FC = () => {
       <LanguageProvider profile={profile}>
         <I18nSyncWrapper>
         <HashRouter>
+          <AnalyticsWrapper>
           <div className="h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 overflow-hidden">
           {/* Success toast */}
           {successToast && (
@@ -372,6 +391,7 @@ const App: React.FC = () => {
           {/* Cookie consent banner */}
           <CookieConsent />
         </div>
+          </AnalyticsWrapper>
         </HashRouter>
         </I18nSyncWrapper>
       </LanguageProvider>
