@@ -63,8 +63,8 @@ export const Caption: React.FC<CaptionProps> = ({
   const textColor =
     style === 'highlight' || style === 'subtle' ? 'white' : COLORS.textPrimary;
 
-  // Positioned closer to the phone
-  const topPosition = position === 'top' ? 280 : 70;
+  // Positioned with good spacing from phone/role indicator
+  const topPosition = position === 'top' ? 60 : 70;
 
   return (
     <div
@@ -83,9 +83,9 @@ export const Caption: React.FC<CaptionProps> = ({
       <div
         style={{
           backgroundColor: bgColor,
-          borderRadius: 24,
-          padding: subtext ? '18px 32px' : '16px 32px',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+          borderRadius: 32,
+          padding: subtext ? '24px 48px' : '20px 44px',
+          boxShadow: '0 12px 40px rgba(0,0,0,0.18)',
           textAlign: 'center',
           maxWidth: '95%',
         }}
@@ -94,7 +94,7 @@ export const Caption: React.FC<CaptionProps> = ({
         <p
           style={{
             fontFamily: FONTS.header,
-            fontSize: 28,
+            fontSize: 44,
             fontWeight: 700,
             color: textColor,
             margin: 0,
@@ -110,11 +110,11 @@ export const Caption: React.FC<CaptionProps> = ({
           <p
             style={{
               fontFamily: FONTS.body,
-              fontSize: 18,
+              fontSize: 26,
               fontWeight: 500,
               color: style === 'highlight' || style === 'subtle' ? 'rgba(255,255,255,0.85)' : COLORS.textSecondary,
               margin: 0,
-              marginTop: 8,
+              marginTop: 12,
               lineHeight: 1.4,
               transform: `translateY(${subtextSlideY}px)`,
               opacity: subtextOpacity,

@@ -31,51 +31,30 @@ const LANGUAGES = [
 ];
 
 // Animation phases (in frames at 30fps, 8s = 240 frames)
+// Slower pacing for better readability
 const PHASE = {
-  flagsAppear: { start: 0, end: 45 },       // 0-1.5s: All flags appear
-  nativeHighlight: { start: 45, end: 100 }, // 1.5-3.3s: "18 Native" + quick pass
-  targetHighlight: { start: 100, end: 160 }, // 3.3-5.3s: "18 Target" + quick pass
-  pairsReveal: { start: 160, end: 240 },     // 5.3-8s: "306 Pairs" counter
+  flagsAppear: { start: 0, end: 60 },        // 0-2s: All flags appear with stagger
+  nativeHighlight: { start: 60, end: 120 },  // 2-4s: "18 Native" + highlight pass
+  targetHighlight: { start: 120, end: 175 }, // 4-5.8s: "18 Target" + highlight pass
+  pairsReveal: { start: 175, end: 240 },     // 5.8-8s: "306 Pairs" counter
 };
 
 export const Scene2Languages: React.FC = () => {
   const frame = useCurrentFrame();
 
-  // Calculate highlight speed to cycle through all 18 flags exactly once per phase
-  const nativePhaseDuration = PHASE.nativeHighlight.end - PHASE.nativeHighlight.start; // 55 frames
-  const targetPhaseDuration = PHASE.targetHighlight.end - PHASE.targetHighlight.start; // 60 frames
-  const nativeHighlightSpeed = nativePhaseDuration / 18; // ~3 frames per flag
-  const targetHighlightSpeed = targetPhaseDuration / 18; // ~3.3 frames per flag
-
-  // Native highlight phase - single pass through all flags
+  // Simplified highlighting - all flags glow together during each phase
+  // No individual flag cycling (too fast to perceive)
   const isNativePhase = frame >= PHASE.nativeHighlight.start && frame < PHASE.nativeHighlight.end;
-  const nativeHighlightIndex = isNativePhase
-    ? Math.min(17, Math.floor((frame - PHASE.nativeHighlight.start) / nativeHighlightSpeed))
-    : -1;
+  const isTargetPhase = frame >= PHASE.targetHighlight.start && frame < PHASE.pairsReveal.start;
 
-  // Target highlight phase - single pass through all flags
-  const isTargetPhase = frame >= PHASE.targetHighlight.start && frame < PHASE.targetHighlight.end;
-  const targetHighlightIndex = isTargetPhase
-    ? Math.min(17, Math.floor((frame - PHASE.targetHighlight.start) / targetHighlightSpeed))
-    : -1;
-
-  // Current phase label - show initial "18 Languages" at start, then transition to native/target/pairs
-  const showInitialLabel = frame < PHASE.nativeHighlight.start;
+  // Current phase label
   const showNativeLabel = frame >= PHASE.nativeHighlight.start && frame < PHASE.targetHighlight.start;
   const showTargetLabel = frame >= PHASE.targetHighlight.start && frame < PHASE.pairsReveal.start;
   const showPairsLabel = frame >= PHASE.pairsReveal.start;
 
-  // Initial label opacity
-  const initialLabelOpacity = interpolate(
-    frame,
-    [10, 20, PHASE.nativeHighlight.start - 10, PHASE.nativeHighlight.start],
-    [0, 1, 1, 0],
-    { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
-  );
-
-  // Counter animation for 306 - counts up quickly, then holds
+  // Counter animation for 306 - counts up over 60 frames (~2s) for readability
   const counterValue = Math.floor(
-    interpolate(frame, [PHASE.pairsReveal.start, PHASE.pairsReveal.start + 35], [0, 306], {
+    interpolate(frame, [PHASE.pairsReveal.start, PHASE.pairsReveal.start + 60], [0, 306], {
       extrapolateLeft: 'clamp',
       extrapolateRight: 'clamp',
     })
@@ -136,32 +115,6 @@ export const Scene2Languages: React.FC = () => {
 
       {/* Phase Label - positioned above flags */}
       <div style={{ height: 140, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
-        {/* Initial "18 Languages, Endless Combinations" */}
-        {showInitialLabel && (
-          <div style={{ textAlign: 'center', opacity: initialLabelOpacity }}>
-            <h2
-              style={{
-                fontFamily: FONTS.header,
-                fontSize: 36,
-                fontWeight: 700,
-                color: COLORS.textPrimary,
-                margin: 0,
-              }}
-            >
-              18 Languages, Endless Combinations
-            </h2>
-            <p
-              style={{
-                fontFamily: FONTS.body,
-                fontSize: 18,
-                color: COLORS.textSecondary,
-                marginTop: 8,
-              }}
-            >
-              Speak your partner's language
-            </p>
-          </div>
-        )}
         {showNativeLabel && (
           <h2
             style={{
@@ -237,23 +190,21 @@ export const Scene2Languages: React.FC = () => {
         }}
       >
         {LANGUAGES.map((lang, i) => {
-          // Initial appearance
-          const appearDelay = i * 1;
+          // Initial appearance - stagger for visible cascade effect
+          const appearDelay = i * 2;
           const baseScale = spring({
             frame: frame - appearDelay,
             fps: FPS,
             config: { damping: 200 },
           });
 
-          // Highlight states
-          const isNativeHighlighted = nativeHighlightIndex === i;
-          const isTargetHighlighted = targetHighlightIndex === i;
-          const isHighlighted = isNativeHighlighted || isTargetHighlighted;
+          // All flags glow together during highlight phases
+          const isHighlighted = isNativePhase || isTargetPhase;
+          const glowColor = isNativePhase ? COLORS.teal : COLORS.accentPink;
 
-          // Much more visible highlighting - scale up, full opacity, glow
-          const highlightScale = isHighlighted ? 1.2 : 1;
-          const highlightOpacity = isHighlighted ? 1 : 0.4;
-          const glowColor = isNativeHighlighted ? COLORS.teal : COLORS.accentPink;
+          // Subtle pulse effect during highlight phases
+          const highlightScale = isHighlighted ? 1.05 : 1;
+          const highlightOpacity = frame > appearDelay ? 1 : 0;
 
           return (
             <div
@@ -263,20 +214,20 @@ export const Scene2Languages: React.FC = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 transform: `scale(${Math.max(0, baseScale) * highlightScale})`,
-                opacity: frame > appearDelay ? highlightOpacity : 0,
+                opacity: highlightOpacity,
                 padding: 8,
-                filter: isHighlighted ? `drop-shadow(0 0 20px ${glowColor})` : 'none',
-                zIndex: isHighlighted ? 10 : 1,
+                filter: isHighlighted ? `drop-shadow(0 0 12px ${glowColor})` : 'none',
+                transition: 'filter 0.2s ease',
               }}
             >
               <span style={{ fontSize: 40 }}>{lang.flag}</span>
               <span
                 style={{
                   fontSize: 11,
-                  color: isHighlighted ? COLORS.textPrimary : COLORS.textSecondary,
+                  color: COLORS.textPrimary,
                   marginTop: 4,
                   fontFamily: FONTS.body,
-                  fontWeight: isHighlighted ? 700 : 400,
+                  fontWeight: 500,
                   textAlign: 'center',
                 }}
               >

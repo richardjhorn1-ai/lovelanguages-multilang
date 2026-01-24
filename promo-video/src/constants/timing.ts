@@ -12,11 +12,11 @@ export const SCENES = {
   loveLog: { start: secondsToFrames(39), duration: secondsToFrames(8) },       // 39-47s (vocabulary)
   games: { start: secondsToFrames(47), duration: secondsToFrames(14) },        // 47-61s (3 game modes)
   progress: { start: secondsToFrames(61), duration: secondsToFrames(10) },     // 61-71s (tracking)
-  aiChat: { start: secondsToFrames(71), duration: secondsToFrames(10) },       // 71-81s (AI context)
-  cta: { start: secondsToFrames(81), duration: secondsToFrames(7) },           // 81-88s (final CTA)
+  aiChat: { start: secondsToFrames(71), duration: secondsToFrames(8.5) },      // 71-79.5s (AI context - trimmed for content)
+  cta: { start: secondsToFrames(79.5), duration: secondsToFrames(7) },         // 79.5-86.5s (final CTA)
 };
 
-export const TOTAL_DURATION = secondsToFrames(88); // ~88 seconds
+export const TOTAL_DURATION = secondsToFrames(86.5); // ~86.5 seconds
 
 // Transition duration between scenes
 export const TRANSITION_FRAMES = 15;
