@@ -1,0 +1,370 @@
+{
+  "oldUrls404": [
+    {
+      "path": "/learn/es/it/vocabulario-italiano-viajes",
+      "status": 404,
+      "elapsed": 267,
+      "location": null
+    },
+    {
+      "path": "/learn/es/pl/frases-romanticas-polacas-para-cada-ocasion-expresa-tu-amor",
+      "status": 404,
+      "elapsed": 175,
+      "location": null
+    },
+    {
+      "path": "/learn/uk/ukrainian-texting-slang-chat-with-your-partner",
+      "status": 404,
+      "elapsed": 174,
+      "location": null
+    },
+    {
+      "path": "/learn/hu/hungarian-restaurant-vocabulary-dining-out",
+      "status": 404,
+      "elapsed": 174,
+      "location": null
+    },
+    {
+      "path": "/learn/ru/russian-compliments-for-your-partner",
+      "status": 404,
+      "elapsed": 214,
+      "location": null
+    },
+    {
+      "path": "/learn/fr/pl/conjugaison-verbes-polonais-present-bases-couples",
+      "status": 404,
+      "elapsed": 185,
+      "location": null
+    },
+    {
+      "path": "/learn/es/pl/que-son-diminutivos-polacos-arte-hacer-palabras-tiernas",
+      "status": 404,
+      "elapsed": 172,
+      "location": null
+    },
+    {
+      "path": "/learn/fr/pl/apprendre-le-polonais-seul-ou-en-couple-pourquoi-les-couples-progressent-plus-vite",
+      "status": 404,
+      "elapsed": 173,
+      "location": null
+    },
+    {
+      "path": "/learn/ru/russian-cyrillic-alphabet-guide-for-couples",
+      "status": 404,
+      "elapsed": 172,
+      "location": null
+    },
+    {
+      "path": "/learn/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart",
+      "status": 404,
+      "elapsed": 172,
+      "location": null
+    },
+    {
+      "path": "/learn/es/pl/entender-genero-polaco-masculino-femenino-neutro-sustantivos",
+      "status": 404,
+      "elapsed": 77,
+      "location": null
+    },
+    {
+      "path": "/learn/fr/pl/le-polonais-au-travail-vocabulaire-professionnel-que-votre-partenaire-utilise-au-quotidien",
+      "status": 404,
+      "elapsed": 69,
+      "location": null
+    },
+    {
+      "path": "/learn/tr/turkish-vowel-harmony-explained-for-couples",
+      "status": 404,
+      "elapsed": 88,
+      "location": null
+    },
+    {
+      "path": "/learn/pl/free-vs-paid-polish-learning-apps-whats-actually-worth-it-for-couples",
+      "status": 404,
+      "elapsed": 76,
+      "location": null
+    },
+    {
+      "path": "/learn/ru/is-russian-hard-to-learn-guide-for-english-speakers",
+      "status": 404,
+      "elapsed": 71,
+      "location": null
+    },
+    {
+      "path": "/learn/pl/meeting-your-polish-partners-parents-essential-phrases-and-cultural-tips",
+      "status": 404,
+      "elapsed": 90,
+      "location": null
+    },
+    {
+      "path": "/learn/fr/pl/le-polonais-chez-le-medecin-vocabulaire-medical-essentiel-pour-couples-en-pologne",
+      "status": 404,
+      "elapsed": 76,
+      "location": null
+    },
+    {
+      "path": "/learn/sv/swedish-compliments-for-your-partner",
+      "status": 404,
+      "elapsed": 75,
+      "location": null
+    },
+    {
+      "path": "/learn/nl/dutch-restaurant-vocabulary-dining-out",
+      "status": 404,
+      "elapsed": 89,
+      "location": null
+    },
+    {
+      "path": "/learn/tr/turkish-date-night-vocabulary",
+      "status": 404,
+      "elapsed": 75,
+      "location": null
+    },
+    {
+      "path": "/learn/cs/czech-restaurant-vocabulary-dining-out",
+      "status": 404,
+      "elapsed": 72,
+      "location": null
+    },
+    {
+      "path": "/learn/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple",
+      "status": 404,
+      "elapsed": 78,
+      "location": null
+    },
+    {
+      "path": "/learn/ro/romanian-compliments-for-your-partner",
+      "status": 404,
+      "elapsed": 78,
+      "location": null
+    },
+    {
+      "path": "/learn/pl/polish-negation-how-to-say-no-not-and-never-like-a-native",
+      "status": 404,
+      "elapsed": 80,
+      "location": null
+    },
+    {
+      "path": "/learn/pl/moving-in-together-essential-polish-household-vocabulary-for-couples",
+      "status": 404,
+      "elapsed": 76,
+      "location": null
+    },
+    {
+      "path": "/learn/nl/dutch-compliments-for-your-partner",
+      "status": 404,
+      "elapsed": 73,
+      "location": null
+    },
+    {
+      "path": "/learn/pl/is-polish-hard-to-learn-honest-answer-for-english-speakers",
+      "status": 404,
+      "elapsed": 77,
+      "location": null
+    },
+    {
+      "path": "/learn/fr/pl/souhaits-danniversaire-en-polonais-pour-votre-partenaire-messages-touchants",
+      "status": 404,
+      "elapsed": 77,
+      "location": null
+    },
+    {
+      "path": "/learn/pl/polish-future-tense-making-plans-together",
+      "status": 404,
+      "elapsed": 96,
+      "location": null
+    },
+    {
+      "path": "/learn/el/how-to-say-i-love-you-in-greek",
+      "status": 404,
+      "elapsed": 101,
+      "location": null
+    }
+  ],
+  "oldUrls200": [],
+  "oldUrlsOther": [],
+  "newUrls200": [],
+  "newUrls404": [],
+  "newUrlsOther": [
+    {
+      "path": "/learn/es/it/italian-travel-vocabulary/",
+      "status": 308,
+      "elapsed": 132,
+      "location": "/learn/es/it/italian-travel-vocabulary"
+    },
+    {
+      "path": "/learn/es/pl/polish-romantic-phrases-for-every-occasion-express-your-love-perfectly/",
+      "status": 308,
+      "elapsed": 132,
+      "location": "/learn/es/pl/polish-romantic-phrases-for-every-occasion-express-your-love-perfectly"
+    },
+    {
+      "path": "/learn/en/uk/ukrainian-texting-slang-chat-with-your-partner/",
+      "status": 308,
+      "elapsed": 132,
+      "location": "/learn/en/uk/ukrainian-texting-slang-chat-with-your-partner"
+    },
+    {
+      "path": "/learn/en/hu/hungarian-restaurant-vocabulary-dining-out/",
+      "status": 308,
+      "elapsed": 159,
+      "location": "/learn/en/hu/hungarian-restaurant-vocabulary-dining-out"
+    },
+    {
+      "path": "/learn/en/ru/russian-compliments-for-your-partner/",
+      "status": 308,
+      "elapsed": 159,
+      "location": "/learn/en/ru/russian-compliments-for-your-partner"
+    },
+    {
+      "path": "/learn/fr/pl/polish-verb-conjugation-present-tense-basics-for-couples/",
+      "status": 308,
+      "elapsed": 159,
+      "location": "/learn/fr/pl/polish-verb-conjugation-present-tense-basics-for-couples"
+    },
+    {
+      "path": "/learn/es/pl/what-are-polish-diminutives-the-art-of-making-words-cute/",
+      "status": 308,
+      "elapsed": 158,
+      "location": "/learn/es/pl/what-are-polish-diminutives-the-art-of-making-words-cute"
+    },
+    {
+      "path": "/learn/fr/pl/learning-polish-alone-vs-with-your-partner-why-couples-learn-faster/",
+      "status": 308,
+      "elapsed": 158,
+      "location": "/learn/fr/pl/learning-polish-alone-vs-with-your-partner-why-couples-learn-faster"
+    },
+    {
+      "path": "/learn/en/ru/russian-cyrillic-alphabet-guide-for-couples/",
+      "status": 308,
+      "elapsed": 158,
+      "location": "/learn/en/ru/russian-cyrillic-alphabet-guide-for-couples"
+    },
+    {
+      "path": "/learn/en/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart/",
+      "status": 308,
+      "elapsed": 175,
+      "location": "/learn/en/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart"
+    },
+    {
+      "path": "/learn/es/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple/",
+      "status": 308,
+      "elapsed": 71,
+      "location": "/learn/es/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple"
+    },
+    {
+      "path": "/learn/fr/pl/polish-at-work-professional-vocabulary-your-partner-uses-daily/",
+      "status": 308,
+      "elapsed": 74,
+      "location": "/learn/fr/pl/polish-at-work-professional-vocabulary-your-partner-uses-daily"
+    },
+    {
+      "path": "/learn/en/tr/turkish-vowel-harmony-explained-for-couples/",
+      "status": 308,
+      "elapsed": 83,
+      "location": "/learn/en/tr/turkish-vowel-harmony-explained-for-couples"
+    },
+    {
+      "path": "/learn/en/pl/free-vs-paid-polish-learning-apps-whats-actually-worth-it-for-couples/",
+      "status": 308,
+      "elapsed": 85,
+      "location": "/learn/en/pl/free-vs-paid-polish-learning-apps-whats-actually-worth-it-for-couples"
+    },
+    {
+      "path": "/learn/en/ru/is-russian-hard-to-learn-guide-for-english-speakers/",
+      "status": 308,
+      "elapsed": 85,
+      "location": "/learn/en/ru/is-russian-hard-to-learn-guide-for-english-speakers"
+    },
+    {
+      "path": "/learn/en/pl/meeting-your-polish-partners-parents-essential-phrases-and-cultural-tips/",
+      "status": 308,
+      "elapsed": 82,
+      "location": "/learn/en/pl/meeting-your-polish-partners-parents-essential-phrases-and-cultural-tips"
+    },
+    {
+      "path": "/learn/fr/pl/polish-at-the-doctor-essential-medical-vocabulary-for-couples-in-poland/",
+      "status": 308,
+      "elapsed": 82,
+      "location": "/learn/fr/pl/polish-at-the-doctor-essential-medical-vocabulary-for-couples-in-poland"
+    },
+    {
+      "path": "/learn/en/sv/swedish-compliments-for-your-partner/",
+      "status": 308,
+      "elapsed": 82,
+      "location": "/learn/en/sv/swedish-compliments-for-your-partner"
+    },
+    {
+      "path": "/learn/en/nl/dutch-restaurant-vocabulary-dining-out/",
+      "status": 308,
+      "elapsed": 84,
+      "location": "/learn/en/nl/dutch-restaurant-vocabulary-dining-out"
+    },
+    {
+      "path": "/learn/en/tr/turkish-date-night-vocabulary/",
+      "status": 308,
+      "elapsed": 81,
+      "location": "/learn/en/tr/turkish-date-night-vocabulary"
+    },
+    {
+      "path": "/learn/en/cs/czech-restaurant-vocabulary-dining-out/",
+      "status": 308,
+      "elapsed": 77,
+      "location": "/learn/en/cs/czech-restaurant-vocabulary-dining-out"
+    },
+    {
+      "path": "/learn/en/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple/",
+      "status": 308,
+      "elapsed": 77,
+      "location": "/learn/en/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple"
+    },
+    {
+      "path": "/learn/en/ro/romanian-compliments-for-your-partner/",
+      "status": 308,
+      "elapsed": 78,
+      "location": "/learn/en/ro/romanian-compliments-for-your-partner"
+    },
+    {
+      "path": "/learn/en/pl/polish-negation-how-to-say-no-not-and-never-like-a-native/",
+      "status": 308,
+      "elapsed": 68,
+      "location": "/learn/en/pl/polish-negation-how-to-say-no-not-and-never-like-a-native"
+    },
+    {
+      "path": "/learn/en/pl/moving-in-together-essential-polish-household-vocabulary-for-couples/",
+      "status": 308,
+      "elapsed": 72,
+      "location": "/learn/en/pl/moving-in-together-essential-polish-household-vocabulary-for-couples"
+    },
+    {
+      "path": "/learn/en/nl/dutch-compliments-for-your-partner/",
+      "status": 308,
+      "elapsed": 76,
+      "location": "/learn/en/nl/dutch-compliments-for-your-partner"
+    },
+    {
+      "path": "/learn/en/pl/is-polish-hard-to-learn-honest-answer-for-english-speakers/",
+      "status": 308,
+      "elapsed": 75,
+      "location": "/learn/en/pl/is-polish-hard-to-learn-honest-answer-for-english-speakers"
+    },
+    {
+      "path": "/learn/fr/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart/",
+      "status": 308,
+      "elapsed": 78,
+      "location": "/learn/fr/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart"
+    },
+    {
+      "path": "/learn/en/pl/polish-future-tense-making-plans-together/",
+      "status": 308,
+      "elapsed": 75,
+      "location": "/learn/en/pl/polish-future-tense-making-plans-together"
+    },
+    {
+      "path": "/learn/en/el/how-to-say-i-love-you-in-greek/",
+      "status": 308,
+      "elapsed": 82,
+      "location": "/learn/en/el/how-to-say-i-love-you-in-greek"
+    }
+  ]
+}

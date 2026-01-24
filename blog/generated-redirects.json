@@ -1,0 +1,3867 @@
+{
+  "generated": "2026-01-24T14:00:51.327Z",
+  "totalRedirects": 386,
+  "vercelRules": 772,
+  "redirects": [
+    {
+      "source": "/learn/es/cs/frases-esenciales-en-checo-para-parejas",
+      "destination": "/learn/es/cs/czech-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/cs/frases-esenciales-en-checo-para-parejas/",
+      "destination": "/learn/es/cs/czech-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/da/frases-esenciales-en-danes-para-parejas-aprendiendo-juntos",
+      "destination": "/learn/es/da/danish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/da/frases-esenciales-en-danes-para-parejas-aprendiendo-juntos/",
+      "destination": "/learn/es/da/danish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/100-palabras-mas-comunes-en-aleman",
+      "destination": "/learn/es/de/100-common-german-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/100-palabras-mas-comunes-en-aleman/",
+      "destination": "/learn/es/de/100-common-german-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/deseos-de-aniversario-en-aleman",
+      "destination": "/learn/es/de/german-anniversary-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/deseos-de-aniversario-en-aleman/",
+      "destination": "/learn/es/de/german-anniversary-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/felicitaciones-de-cumpleanos-en-aleman",
+      "destination": "/learn/es/de/german-birthday-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/felicitaciones-de-cumpleanos-en-aleman/",
+      "destination": "/learn/es/de/german-birthday-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/tradiciones-navidenas-alemanas-para-parejas",
+      "destination": "/learn/es/de/german-christmas-traditions/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/tradiciones-navidenas-alemanas-para-parejas/",
+      "destination": "/learn/es/de/german-christmas-traditions/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/cumplidos-en-aleman-para-parejas-formas-dulces-de-halagar-a-tu-pareja",
+      "destination": "/learn/es/de/german-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/cumplidos-en-aleman-para-parejas-formas-dulces-de-halagar-a-tu-pareja/",
+      "destination": "/learn/es/de/german-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/vocabulario-aleman-para-citas-romanticas-palabras-esenciales-para-parejas",
+      "destination": "/learn/es/de/german-date-night-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/vocabulario-aleman-para-citas-romanticas-palabras-esenciales-para-parejas/",
+      "destination": "/learn/es/de/german-date-night-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/25-frases-esenciales-en-aleman-para-parejas-aprende-romance-y-amor-juntos",
+      "destination": "/learn/es/de/german-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/25-frases-esenciales-en-aleman-para-parejas-aprende-romance-y-amor-juntos/",
+      "destination": "/learn/es/de/german-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/el-futuro-en-aleman-haciendo-planes-juntos",
+      "destination": "/learn/es/de/german-future-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/el-futuro-en-aleman-haciendo-planes-juntos/",
+      "destination": "/learn/es/de/german-future-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/los-casos-alemanes-explicados-simplemente",
+      "destination": "/learn/es/de/german-grammar-cases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/los-casos-alemanes-explicados-simplemente/",
+      "destination": "/learn/es/de/german-grammar-cases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/saludos-y-despedidas-en-aleman-para-parejas-aprende-juntos-con-amor",
+      "destination": "/learn/es/de/german-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/saludos-y-despedidas-en-aleman-para-parejas-aprende-juntos-con-amor/",
+      "destination": "/learn/es/de/german-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/la-negacion-en-aleman",
+      "destination": "/learn/es/de/german-negation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/la-negacion-en-aleman/",
+      "destination": "/learn/es/de/german-negation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/el-pasado-en-aleman-para-parejas-perfekt-y-prateritum",
+      "destination": "/learn/es/de/german-past-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/el-pasado-en-aleman-para-parejas-perfekt-y-prateritum/",
+      "destination": "/learn/es/de/german-past-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/llamadas-telefonicas-en-aleman",
+      "destination": "/learn/es/de/german-phone-call-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/llamadas-telefonicas-en-aleman/",
+      "destination": "/learn/es/de/german-phone-call-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/guia-de-pronunciacion-alemana-para-parejas-domina-los-sonidos-juntos-desde-el-primer-dia",
+      "destination": "/learn/es/de/german-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/guia-de-pronunciacion-alemana-para-parejas-domina-los-sonidos-juntos-desde-el-primer-dia/",
+      "destination": "/learn/es/de/german-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/preguntas-en-aleman-como-preguntar-cualquier-cosa",
+      "destination": "/learn/es/de/german-question-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/preguntas-en-aleman-como-preguntar-cualquier-cosa/",
+      "destination": "/learn/es/de/german-question-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/vocabulario-de-restaurante-en-aleman",
+      "destination": "/learn/es/de/german-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/vocabulario-de-restaurante-en-aleman/",
+      "destination": "/learn/es/de/german-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/frases-romanticas-alemanas-para-cada-ocasion",
+      "destination": "/learn/es/de/german-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/frases-romanticas-alemanas-para-cada-ocasion/",
+      "destination": "/learn/es/de/german-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/vocabulario-de-compras-en-aleman",
+      "destination": "/learn/es/de/german-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/vocabulario-de-compras-en-aleman/",
+      "destination": "/learn/es/de/german-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/jerga-de-mensajes-de-texto-en-aleman",
+      "destination": "/learn/es/de/german-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/jerga-de-mensajes-de-texto-en-aleman/",
+      "destination": "/learn/es/de/german-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/conjugacion-de-verbos-alemanes-guia-romantica-de-aprendizaje-para-parejas",
+      "destination": "/learn/es/de/german-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/conjugacion-de-verbos-alemanes-guia-romantica-de-aprendizaje-para-parejas/",
+      "destination": "/learn/es/de/german-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/el-orden-de-las-palabras-en-aleman",
+      "destination": "/learn/es/de/german-word-order/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/el-orden-de-las-palabras-en-aleman/",
+      "destination": "/learn/es/de/german-word-order/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/es-dificil-aprender-aleman-la-guia-definitiva-para-parejas",
+      "destination": "/learn/es/de/is-german-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/es-dificil-aprender-aleman-la-guia-definitiva-para-parejas/",
+      "destination": "/learn/es/de/is-german-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/el/frases-esenciales-en-griego-para-parejas",
+      "destination": "/learn/es/el/greek-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/el/frases-esenciales-en-griego-para-parejas/",
+      "destination": "/learn/es/el/greek-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/el/guia-de-pronunciacion-griega-para-principiantes",
+      "destination": "/learn/es/el/greek-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/el/guia-de-pronunciacion-griega-para-principiantes/",
+      "destination": "/learn/es/el/greek-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/articulos-en-ingles-a-an-the",
+      "destination": "/learn/es/en/english-articles-grammar/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/articulos-en-ingles-a-an-the/",
+      "destination": "/learn/es/en/english-articles-grammar/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/condicionales-en-ingles-if-clauses",
+      "destination": "/learn/es/en/english-conditionals-if-clauses/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/condicionales-en-ingles-if-clauses/",
+      "destination": "/learn/es/en/english-conditionals-if-clauses/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/frases-esenciales-en-ingles-para-parejas-aprende-con-amor",
+      "destination": "/learn/es/en/english-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/frases-esenciales-en-ingles-para-parejas-aprende-con-amor/",
+      "destination": "/learn/es/en/english-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/saludos-y-despedidas-en-ingles-para-parejas",
+      "destination": "/learn/es/en/english-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/saludos-y-despedidas-en-ingles-para-parejas/",
+      "destination": "/learn/es/en/english-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/vocabulario-ingles-para-restaurantes",
+      "destination": "/learn/es/en/english-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/vocabulario-ingles-para-restaurantes/",
+      "destination": "/learn/es/en/english-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/vocabulario-ingles-para-compras",
+      "destination": "/learn/es/en/english-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/vocabulario-ingles-para-compras/",
+      "destination": "/learn/es/en/english-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/vocabulario-ingles-para-viajes",
+      "destination": "/learn/es/en/english-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/vocabulario-ingles-para-viajes/",
+      "destination": "/learn/es/en/english-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/conjugacion-de-verbos-en-ingles-basico-para-parejas",
+      "destination": "/learn/es/en/english-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/conjugacion-de-verbos-en-ingles-basico-para-parejas/",
+      "destination": "/learn/es/en/english-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/vocabulario-del-clima-en-ingles",
+      "destination": "/learn/es/en/english-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/vocabulario-del-clima-en-ingles/",
+      "destination": "/learn/es/en/english-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/es-dificil-aprender-ingles-guia-para-hispanohablantes",
+      "destination": "/learn/es/en/is-english-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/es-dificil-aprender-ingles-guia-para-hispanohablantes/",
+      "destination": "/learn/es/en/is-english-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/100-palabras-mas-comunes-en-frances",
+      "destination": "/learn/es/fr/100-common-french-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/100-palabras-mas-comunes-en-frances/",
+      "destination": "/learn/es/fr/100-common-french-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/deseos-de-aniversario-en-frances",
+      "destination": "/learn/es/fr/french-anniversary-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/deseos-de-aniversario-en-frances/",
+      "destination": "/learn/es/fr/french-anniversary-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/felicitaciones-de-cumpleanos-en-frances",
+      "destination": "/learn/es/fr/french-birthday-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/felicitaciones-de-cumpleanos-en-frances/",
+      "destination": "/learn/es/fr/french-birthday-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/tradiciones-navidenas-francesas-para-parejas",
+      "destination": "/learn/es/fr/french-christmas-traditions/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/tradiciones-navidenas-francesas-para-parejas/",
+      "destination": "/learn/es/fr/french-christmas-traditions/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/cumplidos-en-frances-para-parejas-domina-palabras-romanticas",
+      "destination": "/learn/es/fr/french-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/cumplidos-en-frances-para-parejas-domina-palabras-romanticas/",
+      "destination": "/learn/es/fr/french-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/frases-esenciales-en-frances-para-parejas-aprende-y-di-je-taime",
+      "destination": "/learn/es/fr/french-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/frases-esenciales-en-frances-para-parejas-aprende-y-di-je-taime/",
+      "destination": "/learn/es/fr/french-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/el-futuro-en-frances-haciendo-planes-juntos",
+      "destination": "/learn/es/fr/french-future-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/el-futuro-en-frances-haciendo-planes-juntos/",
+      "destination": "/learn/es/fr/french-future-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/saludos-y-despedidas-en-frances-para-parejas-romance-y-aprendizaje",
+      "destination": "/learn/es/fr/french-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/saludos-y-despedidas-en-frances-para-parejas-romance-y-aprendizaje/",
+      "destination": "/learn/es/fr/french-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/la-negacion-en-frances-ne-pas-y-mas",
+      "destination": "/learn/es/fr/french-negation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/la-negacion-en-frances-ne-pas-y-mas/",
+      "destination": "/learn/es/fr/french-negation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/el-pasado-en-frances-para-parejas-passe-compose-vs-imparfait",
+      "destination": "/learn/es/fr/french-past-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/el-pasado-en-frances-para-parejas-passe-compose-vs-imparfait/",
+      "destination": "/learn/es/fr/french-past-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/25-apodos-y-terminos-carinosos-en-frances-para-parejas",
+      "destination": "/learn/es/fr/french-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/25-apodos-y-terminos-carinosos-en-frances-para-parejas/",
+      "destination": "/learn/es/fr/french-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/llamadas-telefonicas-en-frances",
+      "destination": "/learn/es/fr/french-phone-call-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/llamadas-telefonicas-en-frances/",
+      "destination": "/learn/es/fr/french-phone-call-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/guia-de-pronunciacion-francesa-para-parejas-domina-sonidos-hermosos",
+      "destination": "/learn/es/fr/french-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/guia-de-pronunciacion-francesa-para-parejas-domina-sonidos-hermosos/",
+      "destination": "/learn/es/fr/french-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/preguntas-en-frances-como-preguntar-cualquier-cosa",
+      "destination": "/learn/es/fr/french-question-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/preguntas-en-frances-como-preguntar-cualquier-cosa/",
+      "destination": "/learn/es/fr/french-question-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/vocabulario-de-restaurante-en-frances",
+      "destination": "/learn/es/fr/french-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/vocabulario-de-restaurante-en-frances/",
+      "destination": "/learn/es/fr/french-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/frases-romanticas-francesas-para-cada-ocasion",
+      "destination": "/learn/es/fr/french-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/frases-romanticas-francesas-para-cada-ocasion/",
+      "destination": "/learn/es/fr/french-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/vocabulario-de-compras-en-frances",
+      "destination": "/learn/es/fr/french-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/vocabulario-de-compras-en-frances/",
+      "destination": "/learn/es/fr/french-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/el-subjuntivo-frances-para-expresar-deseos",
+      "destination": "/learn/es/fr/french-subjunctive-mood/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/el-subjuntivo-frances-para-expresar-deseos/",
+      "destination": "/learn/es/fr/french-subjunctive-mood/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/jerga-de-mensajes-de-texto-en-frances",
+      "destination": "/learn/es/fr/french-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/jerga-de-mensajes-de-texto-en-frances/",
+      "destination": "/learn/es/fr/french-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/conjugacion-de-verbos-en-frances-para-parejas-enamorate-de-la-gramatica",
+      "destination": "/learn/es/fr/french-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/conjugacion-de-verbos-en-frances-para-parejas-enamorate-de-la-gramatica/",
+      "destination": "/learn/es/fr/french-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/el-orden-de-las-palabras-en-frances",
+      "destination": "/learn/es/fr/french-word-order/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/el-orden-de-las-palabras-en-frances/",
+      "destination": "/learn/es/fr/french-word-order/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/es-dificil-aprender-frances-guia-completa-para-hispanohablantes",
+      "destination": "/learn/es/fr/is-french-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/fr/es-dificil-aprender-frances-guia-completa-para-hispanohablantes/",
+      "destination": "/learn/es/fr/is-french-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/hu/frases-esenciales-en-hungaro-para-parejas",
+      "destination": "/learn/es/hu/hungarian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/hu/frases-esenciales-en-hungaro-para-parejas/",
+      "destination": "/learn/es/hu/hungarian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/es-dificil-aprender-italiano-guia-completa-para-parejas-hispanohablantes",
+      "destination": "/learn/es/it/is-italian-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/es-dificil-aprender-italiano-guia-completa-para-parejas-hispanohablantes/",
+      "destination": "/learn/es/it/is-italian-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/articulos-italiano-il-la-lo",
+      "destination": "/learn/es/it/italian-articles-grammar/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/articulos-italiano-il-la-lo/",
+      "destination": "/learn/es/it/italian-articles-grammar/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/cumplidos-italianos-para-parejas-frases-romanticas-para-enamorar",
+      "destination": "/learn/es/it/italian-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/cumplidos-italianos-para-parejas-frases-romanticas-para-enamorar/",
+      "destination": "/learn/es/it/italian-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/frases-esenciales-en-italiano-para-parejas-aprende-el-idioma-del-amor-juntos",
+      "destination": "/learn/es/it/italian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/frases-esenciales-en-italiano-para-parejas-aprende-el-idioma-del-amor-juntos/",
+      "destination": "/learn/es/it/italian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/saludos-y-despedidas-en-italiano-para-parejas-domina-frases-romanticas",
+      "destination": "/learn/es/it/italian-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/saludos-y-despedidas-en-italiano-para-parejas-domina-frases-romanticas/",
+      "destination": "/learn/es/it/italian-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/guia-de-pronunciacion-italiana-para-parejas-domina-sonidos-hermosos-juntos",
+      "destination": "/learn/es/it/italian-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/guia-de-pronunciacion-italiana-para-parejas-domina-sonidos-hermosos-juntos/",
+      "destination": "/learn/es/it/italian-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/vocabulario-italiano-restaurantes-comida",
+      "destination": "/learn/es/it/italian-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/vocabulario-italiano-restaurantes-comida/",
+      "destination": "/learn/es/it/italian-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/vocabulario-italiano-compras",
+      "destination": "/learn/es/it/italian-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/vocabulario-italiano-compras/",
+      "destination": "/learn/es/it/italian-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/vocabulario-italiano-viajes",
+      "destination": "/learn/es/it/italian-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/vocabulario-italiano-viajes/",
+      "destination": "/learn/es/it/italian-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/conjugacion-de-verbos-italianos-aprende-en-pareja-con-amor",
+      "destination": "/learn/es/it/italian-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/conjugacion-de-verbos-italianos-aprende-en-pareja-con-amor/",
+      "destination": "/learn/es/it/italian-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/vocabulario-clima-italiano",
+      "destination": "/learn/es/it/italian-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/vocabulario-clima-italiano/",
+      "destination": "/learn/es/it/italian-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/nl/frases-esenciales-en-neerlandes-para-parejas",
+      "destination": "/learn/es/nl/dutch-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/nl/frases-esenciales-en-neerlandes-para-parejas/",
+      "destination": "/learn/es/nl/dutch-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/nl/guia-de-pronunciacion-neerlandesa-para-principiantes",
+      "destination": "/learn/es/nl/dutch-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/nl/guia-de-pronunciacion-neerlandesa-para-principiantes/",
+      "destination": "/learn/es/nl/dutch-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/no/frases-esenciales-en-noruego-para-parejas",
+      "destination": "/learn/es/no/norwegian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/no/frases-esenciales-en-noruego-para-parejas/",
+      "destination": "/learn/es/no/norwegian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/es-dificil-aprender-portugues",
+      "destination": "/learn/es/pt/is-portuguese-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/es-dificil-aprender-portugues/",
+      "destination": "/learn/es/pt/is-portuguese-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/articulos-portugues-o-a-os-as",
+      "destination": "/learn/es/pt/portuguese-articles-grammar/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/articulos-portugues-o-a-os-as/",
+      "destination": "/learn/es/pt/portuguese-articles-grammar/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/cumplidos-portugues-para-parejas",
+      "destination": "/learn/es/pt/portuguese-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/cumplidos-portugues-para-parejas/",
+      "destination": "/learn/es/pt/portuguese-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-citas-romanticas-portugues",
+      "destination": "/learn/es/pt/portuguese-date-night-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-citas-romanticas-portugues/",
+      "destination": "/learn/es/pt/portuguese-date-night-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/frases-esenciales-en-portugues-para-parejas",
+      "destination": "/learn/es/pt/portuguese-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/frases-esenciales-en-portugues-para-parejas/",
+      "destination": "/learn/es/pt/portuguese-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/saludos-despedidas-portugues",
+      "destination": "/learn/es/pt/portuguese-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/saludos-despedidas-portugues/",
+      "destination": "/learn/es/pt/portuguese-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/guia-de-pronunciacion-del-portugues-para-principiantes",
+      "destination": "/learn/es/pt/portuguese-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/guia-de-pronunciacion-del-portugues-para-principiantes/",
+      "destination": "/learn/es/pt/portuguese-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-portugues-restaurantes",
+      "destination": "/learn/es/pt/portuguese-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-portugues-restaurantes/",
+      "destination": "/learn/es/pt/portuguese-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/frases-romanticas-portugues-para-parejas",
+      "destination": "/learn/es/pt/portuguese-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/frases-romanticas-portugues-para-parejas/",
+      "destination": "/learn/es/pt/portuguese-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-portugues-compras",
+      "destination": "/learn/es/pt/portuguese-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-portugues-compras/",
+      "destination": "/learn/es/pt/portuguese-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-viajes-portugues",
+      "destination": "/learn/es/pt/portuguese-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-viajes-portugues/",
+      "destination": "/learn/es/pt/portuguese-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/conjugacion-verbos-portugues-basico",
+      "destination": "/learn/es/pt/portuguese-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/conjugacion-verbos-portugues-basico/",
+      "destination": "/learn/es/pt/portuguese-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-clima-portugues",
+      "destination": "/learn/es/pt/portuguese-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/vocabulario-clima-portugues/",
+      "destination": "/learn/es/pt/portuguese-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/ro/frases-esenciales-en-rumano-para-parejas",
+      "destination": "/learn/es/ro/romanian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/ro/frases-esenciales-en-rumano-para-parejas/",
+      "destination": "/learn/es/ro/romanian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/ru/es-dificil-aprender-ruso-guia-para-hispanohablantes",
+      "destination": "/learn/es/ru/is-russian-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/ru/es-dificil-aprender-ruso-guia-para-hispanohablantes/",
+      "destination": "/learn/es/ru/is-russian-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/ru/frases-esenciales-en-ruso-para-parejas",
+      "destination": "/learn/es/ru/russian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/ru/frases-esenciales-en-ruso-para-parejas/",
+      "destination": "/learn/es/ru/russian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/ru/guia-de-pronunciacion-rusa-para-principiantes",
+      "destination": "/learn/es/ru/russian-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/ru/guia-de-pronunciacion-rusa-para-principiantes/",
+      "destination": "/learn/es/ru/russian-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/sv/frases-esenciales-sueco-para-parejas",
+      "destination": "/learn/es/sv/swedish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/sv/frases-esenciales-sueco-para-parejas/",
+      "destination": "/learn/es/sv/swedish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/tr/frases-esenciales-en-turco-para-parejas",
+      "destination": "/learn/es/tr/turkish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/tr/frases-esenciales-en-turco-para-parejas/",
+      "destination": "/learn/es/tr/turkish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/tr/guia-de-pronunciacion-turca-para-principiantes",
+      "destination": "/learn/es/tr/turkish-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/tr/guia-de-pronunciacion-turca-para-principiantes/",
+      "destination": "/learn/es/tr/turkish-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/uk/frases-esenciales-ucraniano-para-parejas",
+      "destination": "/learn/es/uk/ukrainian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/uk/frases-esenciales-ucraniano-para-parejas/",
+      "destination": "/learn/es/uk/ukrainian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/cs/phrases-essentielles-tcheques-pour-couples",
+      "destination": "/learn/fr/cs/czech-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/cs/phrases-essentielles-tcheques-pour-couples/",
+      "destination": "/learn/fr/cs/czech-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/da/25-phrases-essentielles-danois-pour-couples",
+      "destination": "/learn/fr/da/danish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/da/25-phrases-essentielles-danois-pour-couples/",
+      "destination": "/learn/fr/da/danish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/100-mots-allemands-plus-courants-vocabulaire-essentiel",
+      "destination": "/learn/fr/de/100-common-german-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/100-mots-allemands-plus-courants-vocabulaire-essentiel/",
+      "destination": "/learn/fr/de/100-common-german-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/voeux-anniversaire-mariage-allemand-celebrer-amour",
+      "destination": "/learn/fr/de/german-anniversary-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/voeux-anniversaire-mariage-allemand-celebrer-amour/",
+      "destination": "/learn/fr/de/german-anniversary-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/souhaits-anniversaire-allemand-celebrer-ensemble",
+      "destination": "/learn/fr/de/german-birthday-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/souhaits-anniversaire-allemand-celebrer-ensemble/",
+      "destination": "/learn/fr/de/german-birthday-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/compliments-allemands-pour-couples-facons-douces-de-flatter-votre-partenaire",
+      "destination": "/learn/fr/de/german-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/compliments-allemands-pour-couples-facons-douces-de-flatter-votre-partenaire/",
+      "destination": "/learn/fr/de/german-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/25-expressions-allemandes-essentielles-pour-couples-apprendre-amour-ensemble",
+      "destination": "/learn/fr/de/german-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/25-expressions-allemandes-essentielles-pour-couples-apprendre-amour-ensemble/",
+      "destination": "/learn/fr/de/german-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/le-futur-en-allemand-faire-des-projets-ensemble",
+      "destination": "/learn/fr/de/german-future-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/le-futur-en-allemand-faire-des-projets-ensemble/",
+      "destination": "/learn/fr/de/german-future-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/les-cas-allemands-expliques-simplement-guide-pour-couples",
+      "destination": "/learn/fr/de/german-grammar-cases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/les-cas-allemands-expliques-simplement-guide-pour-couples/",
+      "destination": "/learn/fr/de/german-grammar-cases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/salutations-et-au-revoir-allemands-pour-couples-apprendre-avec-amour",
+      "destination": "/learn/fr/de/german-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/salutations-et-au-revoir-allemands-pour-couples-apprendre-avec-amour/",
+      "destination": "/learn/fr/de/german-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/la-negation-en-allemand-guide-couples",
+      "destination": "/learn/fr/de/german-negation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/la-negation-en-allemand-guide-couples/",
+      "destination": "/learn/fr/de/german-negation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/le-passe-en-allemand-pour-les-couples-raconter-votre-histoire-amour",
+      "destination": "/learn/fr/de/german-past-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/le-passe-en-allemand-pour-les-couples-raconter-votre-histoire-amour/",
+      "destination": "/learn/fr/de/german-past-tense/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/les-appels-telephoniques-en-allemand-guide-couples",
+      "destination": "/learn/fr/de/german-phone-call-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/les-appels-telephoniques-en-allemand-guide-couples/",
+      "destination": "/learn/fr/de/german-phone-call-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/guide-prononciation-allemande-pour-couples-maitriser-les-sons-ensemble",
+      "destination": "/learn/fr/de/german-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/guide-prononciation-allemande-pour-couples-maitriser-les-sons-ensemble/",
+      "destination": "/learn/fr/de/german-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/les-questions-en-allemand-comment-tout-demander",
+      "destination": "/learn/fr/de/german-question-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/les-questions-en-allemand-comment-tout-demander/",
+      "destination": "/learn/fr/de/german-question-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/phrases-romantiques-allemandes-toutes-occasions",
+      "destination": "/learn/fr/de/german-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/phrases-romantiques-allemandes-toutes-occasions/",
+      "destination": "/learn/fr/de/german-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/vocabulaire-shopping-allemand-faire-des-courses-ensemble",
+      "destination": "/learn/fr/de/german-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/vocabulaire-shopping-allemand-faire-des-courses-ensemble/",
+      "destination": "/learn/fr/de/german-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/largot-sms-en-allemand-texter-votre-partenaire",
+      "destination": "/learn/fr/de/german-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/largot-sms-en-allemand-texter-votre-partenaire/",
+      "destination": "/learn/fr/de/german-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/conjugaison-allemande-guide-romantique-pour-couples",
+      "destination": "/learn/fr/de/german-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/conjugaison-allemande-guide-romantique-pour-couples/",
+      "destination": "/learn/fr/de/german-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/lordre-des-mots-en-allemand-guide-couples",
+      "destination": "/learn/fr/de/german-word-order/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/lordre-des-mots-en-allemand-guide-couples/",
+      "destination": "/learn/fr/de/german-word-order/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/lallemand-est-il-difficile-a-apprendre-guide-ultime-pour-couples",
+      "destination": "/learn/fr/de/is-german-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/lallemand-est-il-difficile-a-apprendre-guide-ultime-pour-couples/",
+      "destination": "/learn/fr/de/is-german-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/el/expressions-grecques-essentielles-pour-les-couples",
+      "destination": "/learn/fr/el/greek-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/el/expressions-grecques-essentielles-pour-les-couples/",
+      "destination": "/learn/fr/el/greek-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/el/guide-prononciation-grec-debutants",
+      "destination": "/learn/fr/el/greek-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/el/guide-prononciation-grec-debutants/",
+      "destination": "/learn/fr/el/greek-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/compliments-anglais-pour-charmer-votre-partenaire",
+      "destination": "/learn/fr/en/english-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/compliments-anglais-pour-charmer-votre-partenaire/",
+      "destination": "/learn/fr/en/english-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/25-phrases-essentielles-anglais-pour-couples-francophones",
+      "destination": "/learn/fr/en/english-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/25-phrases-essentielles-anglais-pour-couples-francophones/",
+      "destination": "/learn/fr/en/english-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/salutations-et-au-revoir-anglais-expressions-quotidiennes",
+      "destination": "/learn/fr/en/english-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/salutations-et-au-revoir-anglais-expressions-quotidiennes/",
+      "destination": "/learn/fr/en/english-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/nombres-dates-anglais",
+      "destination": "/learn/fr/en/english-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/nombres-dates-anglais/",
+      "destination": "/learn/fr/en/english-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/comment-prononcer-anglais-guide-prononciation-pour-francais",
+      "destination": "/learn/fr/en/english-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/comment-prononcer-anglais-guide-prononciation-pour-francais/",
+      "destination": "/learn/fr/en/english-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/vocabulaire-anglais-shopping",
+      "destination": "/learn/fr/en/english-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/vocabulaire-anglais-shopping/",
+      "destination": "/learn/fr/en/english-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/vocabulaire-anglais-voyage",
+      "destination": "/learn/fr/en/english-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/vocabulaire-anglais-voyage/",
+      "destination": "/learn/fr/en/english-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/conjugaison-verbes-anglais-guide-couples-francophones",
+      "destination": "/learn/fr/en/english-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/conjugaison-verbes-anglais-guide-couples-francophones/",
+      "destination": "/learn/fr/en/english-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/vocabulaire-meteo-anglais",
+      "destination": "/learn/fr/en/english-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/vocabulaire-meteo-anglais/",
+      "destination": "/learn/fr/en/english-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/100-mots-espagnols-courants-vocabulaire-essentiel",
+      "destination": "/learn/fr/es/100-common-spanish-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/100-mots-espagnols-courants-vocabulaire-essentiel/",
+      "destination": "/learn/fr/es/100-common-spanish-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/voeux-anniversaire-mariage-espagnol-couples",
+      "destination": "/learn/fr/es/spanish-anniversary-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/voeux-anniversaire-mariage-espagnol-couples/",
+      "destination": "/learn/fr/es/spanish-anniversary-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/souhaits-anniversaire-espagnol-feliz-cumpleanos-couples",
+      "destination": "/learn/fr/es/spanish-birthday-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/souhaits-anniversaire-espagnol-feliz-cumpleanos-couples/",
+      "destination": "/learn/fr/es/spanish-birthday-wishes/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/compliments-espagnols-pour-couples-50-phrases-romantiques-flatter-partenaire",
+      "destination": "/learn/fr/es/spanish-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/compliments-espagnols-pour-couples-50-phrases-romantiques-flatter-partenaire/",
+      "destination": "/learn/fr/es/spanish-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/25-phrases-essentielles-espagnol-pour-couples-apprendre-ensemble",
+      "destination": "/learn/fr/es/spanish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/25-phrases-essentielles-espagnol-pour-couples-apprendre-ensemble/",
+      "destination": "/learn/fr/es/spanish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/salutations-au-revoir-espagnol-couples-phrases-romantiques-apprendre-ensemble",
+      "destination": "/learn/fr/es/spanish-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/salutations-au-revoir-espagnol-couples-phrases-romantiques-apprendre-ensemble/",
+      "destination": "/learn/fr/es/spanish-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/guide-prononciation-espagnol-couples-maitriser-sons-amour-ensemble",
+      "destination": "/learn/fr/es/spanish-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/guide-prononciation-espagnol-couples-maitriser-sons-amour-ensemble/",
+      "destination": "/learn/fr/es/spanish-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/questions-espagnol-comment-demander-couples",
+      "destination": "/learn/fr/es/spanish-question-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/questions-espagnol-comment-demander-couples/",
+      "destination": "/learn/fr/es/spanish-question-words/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/phrases-romantiques-espagnoles-toutes-occasions-couples",
+      "destination": "/learn/fr/es/spanish-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/phrases-romantiques-espagnoles-toutes-occasions-couples/",
+      "destination": "/learn/fr/es/spanish-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/vocabulaire-shopping-espagnol-faire-courses-couples",
+      "destination": "/learn/fr/es/spanish-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/vocabulaire-shopping-espagnol-faire-courses-couples/",
+      "destination": "/learn/fr/es/spanish-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/subjonctif-espagnol-exprimer-souhaits-desirs-couples",
+      "destination": "/learn/fr/es/spanish-subjunctive-mood/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/subjonctif-espagnol-exprimer-souhaits-desirs-couples/",
+      "destination": "/learn/fr/es/spanish-subjunctive-mood/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/conjugaison-verbes-espagnols-bases-couples-apprendre-ensemble-amour",
+      "destination": "/learn/fr/es/spanish-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/conjugaison-verbes-espagnols-bases-couples-apprendre-ensemble-amour/",
+      "destination": "/learn/fr/es/spanish-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/hu/phrases-essentielles-hongrois-pour-couples",
+      "destination": "/learn/fr/hu/hungarian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/hu/phrases-essentielles-hongrois-pour-couples/",
+      "destination": "/learn/fr/hu/hungarian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/compliments-italiens-pour-couples-phrases-romantiques-pour-charmer-votre-partenaire",
+      "destination": "/learn/fr/it/italian-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/compliments-italiens-pour-couples-phrases-romantiques-pour-charmer-votre-partenaire/",
+      "destination": "/learn/fr/it/italian-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/phrases-essentielles-italien-pour-couples-apprenez-la-langue-de-lamour-ensemble",
+      "destination": "/learn/fr/it/italian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/phrases-essentielles-italien-pour-couples-apprenez-la-langue-de-lamour-ensemble/",
+      "destination": "/learn/fr/it/italian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/salutations-et-au-revoir-italiens-pour-couples-maitrisez-les-phrases-romantiques-ensemble",
+      "destination": "/learn/fr/it/italian-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/salutations-et-au-revoir-italiens-pour-couples-maitrisez-les-phrases-romantiques-ensemble/",
+      "destination": "/learn/fr/it/italian-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/nombres-dates-italien",
+      "destination": "/learn/fr/it/italian-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/nombres-dates-italien/",
+      "destination": "/learn/fr/it/italian-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/guide-prononciation-italienne-pour-couples-maitrisez-les-beaux-sons-ensemble",
+      "destination": "/learn/fr/it/italian-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/guide-prononciation-italienne-pour-couples-maitrisez-les-beaux-sons-ensemble/",
+      "destination": "/learn/fr/it/italian-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/vocabulaire-italien-shopping",
+      "destination": "/learn/fr/it/italian-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/vocabulaire-italien-shopping/",
+      "destination": "/learn/fr/it/italian-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/vocabulaire-italien-voyage",
+      "destination": "/learn/fr/it/italian-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/vocabulaire-italien-voyage/",
+      "destination": "/learn/fr/it/italian-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/bases-conjugaison-verbes-italiens-pour-couples-apprenez-ensemble-avec-amour",
+      "destination": "/learn/fr/it/italian-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/bases-conjugaison-verbes-italiens-pour-couples-apprenez-ensemble-avec-amour/",
+      "destination": "/learn/fr/it/italian-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/vocabulaire-meteo-italien",
+      "destination": "/learn/fr/it/italian-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/vocabulaire-meteo-italien/",
+      "destination": "/learn/fr/it/italian-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/nl/phrases-essentielles-neerlandais-couples",
+      "destination": "/learn/fr/nl/dutch-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/nl/phrases-essentielles-neerlandais-couples/",
+      "destination": "/learn/fr/nl/dutch-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/nl/guide-prononciation-neerlandais-debutants",
+      "destination": "/learn/fr/nl/dutch-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/nl/guide-prononciation-neerlandais-debutants/",
+      "destination": "/learn/fr/nl/dutch-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/no/phrases-essentielles-en-norvegien-pour-les-couples",
+      "destination": "/learn/fr/no/norwegian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/no/phrases-essentielles-en-norvegien-pour-les-couples/",
+      "destination": "/learn/fr/no/norwegian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/le-portugais-est-il-difficile-a-apprendre",
+      "destination": "/learn/fr/pt/is-portuguese-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/le-portugais-est-il-difficile-a-apprendre/",
+      "destination": "/learn/fr/pt/is-portuguese-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/compliments-portugais-couples",
+      "destination": "/learn/fr/pt/portuguese-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/compliments-portugais-couples/",
+      "destination": "/learn/fr/pt/portuguese-compliments-for-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/expressions-portugaises-essentielles-pour-couples",
+      "destination": "/learn/fr/pt/portuguese-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/expressions-portugaises-essentielles-pour-couples/",
+      "destination": "/learn/fr/pt/portuguese-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/salutations-au-revoir-portugais",
+      "destination": "/learn/fr/pt/portuguese-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/salutations-au-revoir-portugais/",
+      "destination": "/learn/fr/pt/portuguese-greetings-farewells/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/nombres-dates-portugais",
+      "destination": "/learn/fr/pt/portuguese-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/nombres-dates-portugais/",
+      "destination": "/learn/fr/pt/portuguese-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/guide-prononciation-portugaise-debutants",
+      "destination": "/learn/fr/pt/portuguese-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/guide-prononciation-portugaise-debutants/",
+      "destination": "/learn/fr/pt/portuguese-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/phrases-romantiques-portugais-couples",
+      "destination": "/learn/fr/pt/portuguese-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/phrases-romantiques-portugais-couples/",
+      "destination": "/learn/fr/pt/portuguese-romantic-phrases-every-occasion/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-portugais-shopping",
+      "destination": "/learn/fr/pt/portuguese-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-portugais-shopping/",
+      "destination": "/learn/fr/pt/portuguese-shopping-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-voyage-portugais",
+      "destination": "/learn/fr/pt/portuguese-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-voyage-portugais/",
+      "destination": "/learn/fr/pt/portuguese-travel-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/conjugaison-verbes-portugais-bases",
+      "destination": "/learn/fr/pt/portuguese-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/conjugaison-verbes-portugais-bases/",
+      "destination": "/learn/fr/pt/portuguese-verb-conjugation-basics/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-meteo-portugais",
+      "destination": "/learn/fr/pt/portuguese-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-meteo-portugais/",
+      "destination": "/learn/fr/pt/portuguese-weather-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/ro/expressions-roumaines-essentielles-pour-couples",
+      "destination": "/learn/fr/ro/romanian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/ro/expressions-roumaines-essentielles-pour-couples/",
+      "destination": "/learn/fr/ro/romanian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/ru/le-russe-est-il-difficile-a-apprendre",
+      "destination": "/learn/fr/ru/is-russian-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/ru/le-russe-est-il-difficile-a-apprendre/",
+      "destination": "/learn/fr/ru/is-russian-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/ru/expressions-russes-essentielles-pour-couples",
+      "destination": "/learn/fr/ru/russian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/ru/expressions-russes-essentielles-pour-couples/",
+      "destination": "/learn/fr/ru/russian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/ru/guide-prononciation-russe-pour-debutants",
+      "destination": "/learn/fr/ru/russian-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/ru/guide-prononciation-russe-pour-debutants/",
+      "destination": "/learn/fr/ru/russian-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/sv/expressions-suedoises-essentielles-pour-couples",
+      "destination": "/learn/fr/sv/swedish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/sv/expressions-suedoises-essentielles-pour-couples/",
+      "destination": "/learn/fr/sv/swedish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/tr/expressions-essentielles-turc-couples",
+      "destination": "/learn/fr/tr/turkish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/tr/expressions-essentielles-turc-couples/",
+      "destination": "/learn/fr/tr/turkish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/tr/guide-prononciation-turc-debutants",
+      "destination": "/learn/fr/tr/turkish-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/tr/guide-prononciation-turc-debutants/",
+      "destination": "/learn/fr/tr/turkish-pronunciation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/uk/phrases-ukrainiennes-essentielles-pour-couples",
+      "destination": "/learn/fr/uk/ukrainian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/uk/phrases-ukrainiennes-essentielles-pour-couples/",
+      "destination": "/learn/fr/uk/ukrainian-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/errores-comunes-de-hispanohablantes-en-ingles",
+      "destination": "/learn/es/en/common-english-mistakes-spanish-speakers-make/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/errores-comunes-de-hispanohablantes-en-ingles/",
+      "destination": "/learn/es/en/common-english-mistakes-spanish-speakers-make/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/futuro-en-ingles-will-vs-going-to",
+      "destination": "/learn/es/en/english-future-tense-will-vs-going-to/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/futuro-en-ingles-will-vs-going-to/",
+      "destination": "/learn/es/en/english-future-tense-will-vs-going-to/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/expresar-emociones-en-ingles",
+      "destination": "/learn/es/en/expressing-emotions-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/expresar-emociones-en-ingles/",
+      "destination": "/learn/es/en/expressing-emotions-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/phrasal-verbs-ingles-para-parejas",
+      "destination": "/learn/es/en/romantic-english-phrasal-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/phrasal-verbs-ingles-para-parejas/",
+      "destination": "/learn/es/en/romantic-english-phrasal-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/errores-comunes-hispanohablantes-italiano",
+      "destination": "/learn/es/it/common-spanish-speaker-mistakes-italian/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/errores-comunes-hispanohablantes-italiano/",
+      "destination": "/learn/es/it/common-spanish-speaker-mistakes-italian/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/expresar-emociones-italiano",
+      "destination": "/learn/es/it/expressing-emotions-italian/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/expresar-emociones-italiano/",
+      "destination": "/learn/es/it/expressing-emotions-italian/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/condicional-italiano-explicado",
+      "destination": "/learn/es/it/italian-conditional-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/condicional-italiano-explicado/",
+      "destination": "/learn/es/it/italian-conditional-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/futuro-italiano-explicado",
+      "destination": "/learn/es/it/italian-future-tense-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/futuro-italiano-explicado/",
+      "destination": "/learn/es/it/italian-future-tense-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/verbos-irregulares-italiano",
+      "destination": "/learn/es/it/italian-irregular-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/verbos-irregulares-italiano/",
+      "destination": "/learn/es/it/italian-irregular-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/italiano-del-norte-vs-sur-diferencias",
+      "destination": "/learn/es/it/italian-north-vs-south-differences/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/italiano-del-norte-vs-sur-diferencias/",
+      "destination": "/learn/es/it/italian-north-vs-south-differences/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/numeros-fechas-italiano",
+      "destination": "/learn/es/it/italian-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/numeros-fechas-italiano/",
+      "destination": "/learn/es/it/italian-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/preposiciones-italiano-guia",
+      "destination": "/learn/es/it/italian-prepositions-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/preposiciones-italiano-guia/",
+      "destination": "/learn/es/it/italian-prepositions-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/subjuntivo-italiano-explicado",
+      "destination": "/learn/es/it/italian-subjunctive-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/subjuntivo-italiano-explicado/",
+      "destination": "/learn/es/it/italian-subjunctive-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/slang-italiano-mensajes-texto",
+      "destination": "/learn/es/it/italian-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/slang-italiano-mensajes-texto/",
+      "destination": "/learn/es/it/italian-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/portugues-brasileno-vs-europeo",
+      "destination": "/learn/es/pt/brazilian-vs-european-portuguese/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/portugues-brasileno-vs-europeo/",
+      "destination": "/learn/es/pt/brazilian-vs-european-portuguese/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/errores-comunes-hispanohablantes-portugues",
+      "destination": "/learn/es/pt/common-spanish-speaker-mistakes-portuguese/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/errores-comunes-hispanohablantes-portugues/",
+      "destination": "/learn/es/pt/common-spanish-speaker-mistakes-portuguese/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/condicional-portugues-explicado",
+      "destination": "/learn/es/pt/portuguese-conditional-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/condicional-portugues-explicado/",
+      "destination": "/learn/es/pt/portuguese-conditional-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/futuro-portugues-explicado",
+      "destination": "/learn/es/pt/portuguese-future-tense-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/futuro-portugues-explicado/",
+      "destination": "/learn/es/pt/portuguese-future-tense-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/verbos-irregulares-portugues",
+      "destination": "/learn/es/pt/portuguese-irregular-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/verbos-irregulares-portugues/",
+      "destination": "/learn/es/pt/portuguese-irregular-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/numeros-fechas-portugues",
+      "destination": "/learn/es/pt/portuguese-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/numeros-fechas-portugues/",
+      "destination": "/learn/es/pt/portuguese-numbers-dates/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/preposiciones-portugues-guia",
+      "destination": "/learn/es/pt/portuguese-prepositions-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/preposiciones-portugues-guia/",
+      "destination": "/learn/es/pt/portuguese-prepositions-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/subjuntivo-portugues-explicado",
+      "destination": "/learn/es/pt/portuguese-subjunctive-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/subjuntivo-portugues-explicado/",
+      "destination": "/learn/es/pt/portuguese-subjunctive-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/slang-portugues-mensajes-texto",
+      "destination": "/learn/es/pt/portuguese-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/slang-portugues-mensajes-texto/",
+      "destination": "/learn/es/pt/portuguese-texting-slang/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/anglais-britannique-vs-americain",
+      "destination": "/learn/fr/en/british-vs-american-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/anglais-britannique-vs-americain/",
+      "destination": "/learn/fr/en/british-vs-american-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/erreurs-courantes-francophones-anglais",
+      "destination": "/learn/fr/en/common-english-mistakes-french-speakers-make/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/erreurs-courantes-francophones-anglais/",
+      "destination": "/learn/fr/en/common-english-mistakes-french-speakers-make/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/articles-anglais-a-an-the",
+      "destination": "/learn/fr/en/english-articles-a-an-the/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/articles-anglais-a-an-the/",
+      "destination": "/learn/fr/en/english-articles-a-an-the/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/conditionnels-anglais-if-clauses",
+      "destination": "/learn/fr/en/english-conditionals-if-clauses/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/conditionnels-anglais-if-clauses/",
+      "destination": "/learn/fr/en/english-conditionals-if-clauses/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/exprimer-emotions-anglais",
+      "destination": "/learn/fr/en/expressing-emotions-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/exprimer-emotions-anglais/",
+      "destination": "/learn/fr/en/expressing-emotions-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/phrasal-verbs-anglais-couples",
+      "destination": "/learn/fr/en/romantic-english-phrasal-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/phrasal-verbs-anglais-couples/",
+      "destination": "/learn/fr/en/romantic-english-phrasal-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/est-ce-difficile-apprendre-espagnol-guide-romantique-couples",
+      "destination": "/learn/fr/es/is-spanish-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/est-ce-difficile-apprendre-espagnol-guide-romantique-couples/",
+      "destination": "/learn/fr/es/is-spanish-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/traditions-noel-espagnoles-couples-fetes",
+      "destination": "/learn/fr/es/spanish-christmas-traditions/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/traditions-noel-espagnoles-couples-fetes/",
+      "destination": "/learn/fr/es/spanish-christmas-traditions/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/futur-espagnol-faire-projets-ensemble-couples",
+      "destination": "/learn/fr/es/spanish-future-tense-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/futur-espagnol-faire-projets-ensemble-couples/",
+      "destination": "/learn/fr/es/spanish-future-tense-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/negation-espagnol-dire-non-couples",
+      "destination": "/learn/fr/es/spanish-negation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/negation-espagnol-dire-non-couples/",
+      "destination": "/learn/fr/es/spanish-negation-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/passe-espagnol-couples-preterito-imperfecto-apprendre-ensemble",
+      "destination": "/learn/fr/es/spanish-past-tense-preterito-imperfecto/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/passe-espagnol-couples-preterito-imperfecto-apprendre-ensemble/",
+      "destination": "/learn/fr/es/spanish-past-tense-preterito-imperfecto/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/appels-telephoniques-espagnol-parler-telephone-couples",
+      "destination": "/learn/fr/es/spanish-phone-calls-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/appels-telephoniques-espagnol-parler-telephone-couples/",
+      "destination": "/learn/fr/es/spanish-phone-calls-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/argot-sms-espagnol-textos-couples",
+      "destination": "/learn/fr/es/spanish-texting-slang-sms/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/argot-sms-espagnol-textos-couples/",
+      "destination": "/learn/fr/es/spanish-texting-slang-sms/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/ordre-mots-espagnol-structure-phrases-couples",
+      "destination": "/learn/fr/es/spanish-word-order-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/ordre-mots-espagnol-structure-phrases-couples/",
+      "destination": "/learn/fr/es/spanish-word-order-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/erreurs-courantes-francophones-italien",
+      "destination": "/learn/fr/it/common-french-speaker-mistakes-italian/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/erreurs-courantes-francophones-italien/",
+      "destination": "/learn/fr/it/common-french-speaker-mistakes-italian/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/exprimer-emotions-italien",
+      "destination": "/learn/fr/it/expressing-emotions-italian/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/exprimer-emotions-italien/",
+      "destination": "/learn/fr/it/expressing-emotions-italian/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/est-ce-difficile-apprendre-italien-guide-complet-pour-couples-francophones",
+      "destination": "/learn/fr/it/is-italian-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/est-ce-difficile-apprendre-italien-guide-complet-pour-couples-francophones/",
+      "destination": "/learn/fr/it/is-italian-hard-to-learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/articles-italien-il-la-lo",
+      "destination": "/learn/fr/it/italian-articles-il-la-lo/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/articles-italien-il-la-lo/",
+      "destination": "/learn/fr/it/italian-articles-il-la-lo/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/conditionnel-italien-explique",
+      "destination": "/learn/fr/it/italian-conditional-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/conditionnel-italien-explique/",
+      "destination": "/learn/fr/it/italian-conditional-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/futur-italien-explique",
+      "destination": "/learn/fr/it/italian-future-tense-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/futur-italien-explique/",
+      "destination": "/learn/fr/it/italian-future-tense-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/verbes-irreguliers-italien",
+      "destination": "/learn/fr/it/italian-irregular-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/verbes-irreguliers-italien/",
+      "destination": "/learn/fr/it/italian-irregular-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/italien-nord-vs-sud-differences",
+      "destination": "/learn/fr/it/italian-north-vs-south-differences/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/italien-nord-vs-sud-differences/",
+      "destination": "/learn/fr/it/italian-north-vs-south-differences/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/prepositions-italien-guide",
+      "destination": "/learn/fr/it/italian-prepositions-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/prepositions-italien-guide/",
+      "destination": "/learn/fr/it/italian-prepositions-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/subjonctif-italien-explique",
+      "destination": "/learn/fr/it/italian-subjunctive-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/subjonctif-italien-explique/",
+      "destination": "/learn/fr/it/italian-subjunctive-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/slang-italien-textos-couples",
+      "destination": "/learn/fr/it/italian-texting-slang-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/slang-italien-textos-couples/",
+      "destination": "/learn/fr/it/italian-texting-slang-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/portugais-bresilien-vs-europeen",
+      "destination": "/learn/fr/pt/brazilian-vs-european-portuguese/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/portugais-bresilien-vs-europeen/",
+      "destination": "/learn/fr/pt/brazilian-vs-european-portuguese/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/erreurs-courantes-francophones-portugais",
+      "destination": "/learn/fr/pt/common-french-speaker-mistakes-portuguese/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/erreurs-courantes-francophones-portugais/",
+      "destination": "/learn/fr/pt/common-french-speaker-mistakes-portuguese/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/articles-portugais-o-a-os-as",
+      "destination": "/learn/fr/pt/portuguese-articles-o-a-os-as/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/articles-portugais-o-a-os-as/",
+      "destination": "/learn/fr/pt/portuguese-articles-o-a-os-as/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/conditionnel-portugais-explique",
+      "destination": "/learn/fr/pt/portuguese-conditional-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/conditionnel-portugais-explique/",
+      "destination": "/learn/fr/pt/portuguese-conditional-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/futur-portugais-explique",
+      "destination": "/learn/fr/pt/portuguese-future-tense-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/futur-portugais-explique/",
+      "destination": "/learn/fr/pt/portuguese-future-tense-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/verbes-irreguliers-portugais",
+      "destination": "/learn/fr/pt/portuguese-irregular-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/verbes-irreguliers-portugais/",
+      "destination": "/learn/fr/pt/portuguese-irregular-verbs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/prepositions-portugais-guide",
+      "destination": "/learn/fr/pt/portuguese-prepositions-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/prepositions-portugais-guide/",
+      "destination": "/learn/fr/pt/portuguese-prepositions-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/subjonctif-portugais-explique",
+      "destination": "/learn/fr/pt/portuguese-subjunctive-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/subjonctif-portugais-explique/",
+      "destination": "/learn/fr/pt/portuguese-subjunctive-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/slang-portugais-textos-couples",
+      "destination": "/learn/fr/pt/portuguese-texting-slang-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/slang-portugais-textos-couples/",
+      "destination": "/learn/fr/pt/portuguese-texting-slang-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/apodos-carinosos-en-aleman-para-parejas-25-terminos-romanticos-para-aprender-juntos",
+      "destination": "/learn/es/de/german-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/de/apodos-carinosos-en-aleman-para-parejas-25-terminos-romanticos-para-aprender-juntos/",
+      "destination": "/learn/es/de/german-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/apodos-carinosos-en-ingles-terminos-de-amor-para-parejas",
+      "destination": "/learn/es/en/english-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/apodos-carinosos-en-ingles-terminos-de-amor-para-parejas/",
+      "destination": "/learn/es/en/english-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/como-decir-te-amo-en-ingles-guia-romantica-para-parejas",
+      "destination": "/learn/es/en/how-to-say-i-love-you-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/en/como-decir-te-amo-en-ingles-guia-romantica-para-parejas/",
+      "destination": "/learn/es/en/how-to-say-i-love-you-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/apodos-carinosos-en-italiano-guia-romantica-para-parejas",
+      "destination": "/learn/es/it/italian-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/it/apodos-carinosos-en-italiano-guia-romantica-para-parejas/",
+      "destination": "/learn/es/it/italian-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/apodos-carinosos-en-portugues",
+      "destination": "/learn/es/pt/portuguese-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pt/apodos-carinosos-en-portugues/",
+      "destination": "/learn/es/pt/portuguese-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/vocabulaire-soiree-romantique-allemand-mots-essentiels-pour-couples",
+      "destination": "/learn/fr/de/german-date-night-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/vocabulaire-soiree-romantique-allemand-mots-essentiels-pour-couples/",
+      "destination": "/learn/fr/de/german-date-night-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/surnoms-affectueux-allemands-25-mots-tendres-pour-couples",
+      "destination": "/learn/fr/de/german-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/surnoms-affectueux-allemands-25-mots-tendres-pour-couples/",
+      "destination": "/learn/fr/de/german-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/vocabulaire-restaurant-allemand-sortie-romantique",
+      "destination": "/learn/fr/de/german-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/de/vocabulaire-restaurant-allemand-sortie-romantique/",
+      "destination": "/learn/fr/de/german-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/surnoms-affectueux-anglais-guide-complet-pour-couples",
+      "destination": "/learn/fr/en/english-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/surnoms-affectueux-anglais-guide-complet-pour-couples/",
+      "destination": "/learn/fr/en/english-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/vocabulaire-anglais-restaurant",
+      "destination": "/learn/fr/en/english-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/vocabulaire-anglais-restaurant/",
+      "destination": "/learn/fr/en/english-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/comment-dire-je-taime-en-anglais-expressions-romantiques",
+      "destination": "/learn/fr/en/how-to-say-i-love-you-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/en/comment-dire-je-taime-en-anglais-expressions-romantiques/",
+      "destination": "/learn/fr/en/how-to-say-i-love-you-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/surnoms-affectueux-espagnols-couples-25-termes-tendresse-apprendre-ensemble",
+      "destination": "/learn/fr/es/spanish-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/surnoms-affectueux-espagnols-couples-25-termes-tendresse-apprendre-ensemble/",
+      "destination": "/learn/fr/es/spanish-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/vocabulaire-restaurant-espagnol-sortie-romantique-couples",
+      "destination": "/learn/fr/es/spanish-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/es/vocabulaire-restaurant-espagnol-sortie-romantique-couples/",
+      "destination": "/learn/fr/es/spanish-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/surnoms-affectueux-italiens-guide-romantique-pour-couples",
+      "destination": "/learn/fr/it/italian-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/surnoms-affectueux-italiens-guide-romantique-pour-couples/",
+      "destination": "/learn/fr/it/italian-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/vocabulaire-italien-restaurant",
+      "destination": "/learn/fr/it/italian-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/it/vocabulaire-italien-restaurant/",
+      "destination": "/learn/fr/it/italian-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-rendez-vous-portugais",
+      "destination": "/learn/fr/pt/portuguese-date-night-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-rendez-vous-portugais/",
+      "destination": "/learn/fr/pt/portuguese-date-night-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/surnoms-affectueux-portugais-termes-tendresse",
+      "destination": "/learn/fr/pt/portuguese-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/surnoms-affectueux-portugais-termes-tendresse/",
+      "destination": "/learn/fr/pt/portuguese-pet-names-terms-of-endearment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-portugais-restaurant",
+      "destination": "/learn/fr/pt/portuguese-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pt/vocabulaire-portugais-restaurant/",
+      "destination": "/learn/fr/pt/portuguese-restaurant-vocabulary/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/100-palabras-mas-comunes-en-polaco-vocabulario-esencial-para-parejas",
+      "destination": "/learn/es/pl/100-most-common-polish-words-essential-vocabulary-for-couples-learning-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/100-palabras-mas-comunes-en-polaco-vocabulario-esencial-para-parejas/",
+      "destination": "/learn/es/pl/100-most-common-polish-words-essential-vocabulary-for-couples-learning-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/50-terminos-de-carino-en-polaco-guia-completa-de-apodos-romanticos",
+      "destination": "/learn/es/pl/50-polish-terms-of-endearment-complete-guide-to-polish-pet-names/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/50-terminos-de-carino-en-polaco-guia-completa-de-apodos-romanticos/",
+      "destination": "/learn/es/pl/50-polish-terms-of-endearment-complete-guide-to-polish-pet-names/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/7-errores-de-pronunciacion-polaca-que-cometen-los-hispanohablantes",
+      "destination": "/learn/es/pl/7-polish-pronunciation-mistakes-english-speakers-make-and-how-to-fix-them/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/7-errores-de-pronunciacion-polaca-que-cometen-los-hispanohablantes/",
+      "destination": "/learn/es/pl/7-polish-pronunciation-mistakes-english-speakers-make-and-how-to-fix-them/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/discutir-constructivamente-en-polaco-frases-de-comunicacion-para-parejas",
+      "destination": "/learn/es/pl/arguing-constructively-in-polish-communication-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/discutir-constructivamente-en-polaco-frases-de-comunicacion-para-parejas/",
+      "destination": "/learn/es/pl/arguing-constructively-in-polish-communication-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/hermosos-poemas-romanticos-polacos-con-traducciones-al-espanol",
+      "destination": "/learn/es/pl/beautiful-romantic-polish-poems-with-english-translations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/hermosos-poemas-romanticos-polacos-con-traducciones-al-espanol/",
+      "destination": "/learn/es/pl/beautiful-romantic-polish-poems-with-english-translations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/mejor-manera-de-aprender-polaco-para-tu-pareja-en-2025-guia-completa",
+      "destination": "/learn/es/pl/best-way-to-learn-polish-for-your-partner-in-2025-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/mejor-manera-de-aprender-polaco-para-tu-pareja-en-2025-guia-completa/",
+      "destination": "/learn/es/pl/best-way-to-learn-polish-for-your-partner-in-2025-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/puedes-aprender-polaco-con-series-y-peliculas-guia-completa-para-parejas",
+      "destination": "/learn/es/pl/can-you-learn-polish-from-tv-shows-and-movies-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/puedes-aprender-polaco-con-series-y-peliculas-guia-completa-para-parejas/",
+      "destination": "/learn/es/pl/can-you-learn-polish-from-tv-shows-and-movies-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/los-polacos-hablan-espanol-consejos-para-visitar-polonia",
+      "destination": "/learn/es/pl/do-polish-people-speak-english-language-tips-for-visiting-poland/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/los-polacos-hablan-espanol-consejos-para-visitar-polonia/",
+      "destination": "/learn/es/pl/do-polish-people-speak-english-language-tips-for-visiting-poland/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/vocabulario-polaco-esencial-para-citas-romanticas",
+      "destination": "/learn/es/pl/essential-polish-date-night-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/vocabulario-polaco-esencial-para-citas-romanticas/",
+      "destination": "/learn/es/pl/essential-polish-date-night-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-esenciales-para-relaciones-a-distancia",
+      "destination": "/learn/es/pl/essential-polish-phrases-for-long-distance-relationships/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-esenciales-para-relaciones-a-distancia/",
+      "destination": "/learn/es/pl/essential-polish-phrases-for-long-distance-relationships/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-esenciales-para-videollamadas-con-la-familia-de-tu-pareja",
+      "destination": "/learn/es/pl/essential-polish-phrases-for-video-calls-with-your-partners-family/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-esenciales-para-videollamadas-con-la-familia-de-tu-pareja/",
+      "destination": "/learn/es/pl/essential-polish-phrases-for-video-calls-with-your-partners-family/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-esenciales-para-bodas",
+      "destination": "/learn/es/pl/essential-polish-wedding-phrases-for-your-special-day/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-esenciales-para-bodas/",
+      "destination": "/learn/es/pl/essential-polish-wedding-phrases-for-your-special-day/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/apps-gratis-vs-pagas-para-aprender-polaco-que-vale-la-pena-para-parejas",
+      "destination": "/learn/es/pl/free-vs-paid-polish-learning-apps-whats-actually-worth-it-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/apps-gratis-vs-pagas-para-aprender-polaco-que-vale-la-pena-para-parejas/",
+      "destination": "/learn/es/pl/free-vs-paid-polish-learning-apps-whats-actually-worth-it-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/buenos-dias-y-buenas-noches-en-polaco-saludos-dulces-para-parejas",
+      "destination": "/learn/es/pl/good-morning-and-goodnight-in-polish-sweet-greetings-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/buenos-dias-y-buenas-noches-en-polaco-saludos-dulces-para-parejas/",
+      "destination": "/learn/es/pl/good-morning-and-goodnight-in-polish-sweet-greetings-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/cuanto-tiempo-toma-aprender-polaco-linea-temporal-realista-para-parejas",
+      "destination": "/learn/es/pl/how-long-does-it-take-to-learn-polish-realistic-timeline-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/cuanto-tiempo-toma-aprender-polaco-linea-temporal-realista-para-parejas/",
+      "destination": "/learn/es/pl/how-long-does-it-take-to-learn-polish-realistic-timeline-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/cuantas-personas-hablan-polaco-estadisticas-y-datos-globales",
+      "destination": "/learn/es/pl/how-many-people-speak-polish-language-statistics-and-global-facts/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/cuantas-personas-hablan-polaco-estadisticas-y-datos-globales/",
+      "destination": "/learn/es/pl/how-many-people-speak-polish-language-statistics-and-global-facts/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-disculparse-en-polaco-frases-esenciales-para-parejas",
+      "destination": "/learn/es/pl/how-to-apologize-in-polish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-disculparse-en-polaco-frases-esenciales-para-parejas/",
+      "destination": "/learn/es/pl/how-to-apologize-in-polish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-expresar-tus-emociones-en-polaco-guia-completa-para-parejas",
+      "destination": "/learn/es/pl/how-to-express-your-emotions-in-polish-a-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-expresar-tus-emociones-en-polaco-guia-completa-para-parejas/",
+      "destination": "/learn/es/pl/how-to-express-your-emotions-in-polish-a-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-coquetear-en-polaco-frases-romanticas-para-parejas",
+      "destination": "/learn/es/pl/how-to-flirt-in-polish-romantic-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-coquetear-en-polaco-frases-romanticas-para-parejas/",
+      "destination": "/learn/es/pl/how-to-flirt-in-polish-romantic-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-dar-hermosos-cumplidos-en-polaco-30-frases-esenciales",
+      "destination": "/learn/es/pl/how-to-give-beautiful-compliments-in-polish-30-essential-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-dar-hermosos-cumplidos-en-polaco-30-frases-esenciales/",
+      "destination": "/learn/es/pl/how-to-give-beautiful-compliments-in-polish-30-essential-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-pronunciar-letras-polacas-s-c-z-z-guia-completa",
+      "destination": "/learn/es/pl/how-to-pronounce-polish-letters-s-c-z-z-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-pronunciar-letras-polacas-s-c-z-z-guia-completa/",
+      "destination": "/learn/es/pl/how-to-pronounce-polish-letters-s-c-z-z-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-decir-hermoso-en-polaco-guia-completa-para-parejas",
+      "destination": "/learn/es/pl/how-to-say-beautiful-in-polish-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-decir-hermoso-en-polaco-guia-completa-para-parejas/",
+      "destination": "/learn/es/pl/how-to-say-beautiful-in-polish-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-decir-te-amo-en-polaco",
+      "destination": "/learn/es/pl/how-to-say-i-love-you-in-polish/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-decir-te-amo-en-polaco/",
+      "destination": "/learn/es/pl/how-to-say-i-love-you-in-polish/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-escribir-caracteres-polacos-en-teclado-espanol-guia-completa-para-parejas",
+      "destination": "/learn/es/pl/how-to-type-polish-characters-on-english-keyboard-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/como-escribir-caracteres-polacos-en-teclado-espanol-guia-completa-para-parejas/",
+      "destination": "/learn/es/pl/how-to-type-polish-characters-on-english-keyboard-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/es-el-polaco-dificil-de-aprender-respuesta-honesta-para-hispanohablantes",
+      "destination": "/learn/es/pl/is-polish-hard-to-learn-honest-answer-for-english-speakers/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/es-el-polaco-dificil-de-aprender-respuesta-honesta-para-hispanohablantes/",
+      "destination": "/learn/es/pl/is-polish-hard-to-learn-honest-answer-for-english-speakers/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/el-polaco-se-parece-al-ruso-guia-completa-de-similitudes-eslavas",
+      "destination": "/learn/es/pl/is-polish-similar-to-russian-a-complete-guide-to-slavic-language-similarities/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/el-polaco-se-parece-al-ruso-guia-completa-de-similitudes-eslavas/",
+      "destination": "/learn/es/pl/is-polish-similar-to-russian-a-complete-guide-to-slavic-language-similarities/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/aprender-polaco-solo-vs-con-tu-pareja-por-que-las-parejas-aprenden-mas-rapido",
+      "destination": "/learn/es/pl/learning-polish-alone-vs-with-your-partner-why-couples-learn-faster/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/aprender-polaco-solo-vs-con-tu-pareja-por-que-las-parejas-aprenden-mas-rapido/",
+      "destination": "/learn/es/pl/learning-polish-alone-vs-with-your-partner-why-couples-learn-faster/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/conocer-a-los-padres-de-tu-pareja-polaca-frases-esenciales-y-consejos-culturales",
+      "destination": "/learn/es/pl/meeting-your-polish-partners-parents-essential-phrases-and-cultural-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/conocer-a-los-padres-de-tu-pareja-polaca-frases-esenciales-y-consejos-culturales/",
+      "destination": "/learn/es/pl/meeting-your-polish-partners-parents-essential-phrases-and-cultural-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/mudarse-juntos-vocabulario-esencial-del-hogar-en-polaco-para-parejas",
+      "destination": "/learn/es/pl/moving-in-together-essential-polish-household-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/mudarse-juntos-vocabulario-esencial-del-hogar-en-polaco-para-parejas/",
+      "destination": "/learn/es/pl/moving-in-together-essential-polish-household-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/pedir-comida-en-polaco-vocabulario-esencial-de-restaurante-para-parejas",
+      "destination": "/learn/es/pl/ordering-food-in-polish-essential-restaurant-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/pedir-comida-en-polaco-vocabulario-esencial-de-restaurante-para-parejas/",
+      "destination": "/learn/es/pl/ordering-food-in-polish-essential-restaurant-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/planear-una-luna-de-miel-en-polonia-frases-de-viaje-y-destinos-romanticos",
+      "destination": "/learn/es/pl/planning-a-polish-honeymoon-essential-travel-phrases-and-romantic-destinations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/planear-una-luna-de-miel-en-polonia-frases-de-viaje-y-destinos-romanticos/",
+      "destination": "/learn/es/pl/planning-a-polish-honeymoon-essential-travel-phrases-and-romantic-destinations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/concordancia-de-adjetivos-en-polaco-domina-el-arte-de-describir-correctamente",
+      "destination": "/learn/es/pl/polish-adjective-agreement-master-the-art-of-describing-things-correctly/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/concordancia-de-adjetivos-en-polaco-domina-el-arte-de-describir-correctamente/",
+      "destination": "/learn/es/pl/polish-adjective-agreement-master-the-art-of-describing-things-correctly/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/felicitaciones-de-aniversario-en-polaco-mensajes-hermosos-para-parejas",
+      "destination": "/learn/es/pl/polish-anniversary-wishes-beautiful-messages-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/felicitaciones-de-aniversario-en-polaco-mensajes-hermosos-para-parejas/",
+      "destination": "/learn/es/pl/polish-anniversary-wishes-beautiful-messages-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/polaco-en-el-medico-vocabulario-medico-esencial-para-parejas-en-polonia",
+      "destination": "/learn/es/pl/polish-at-the-doctor-essential-medical-vocabulary-for-couples-in-poland/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/polaco-en-el-medico-vocabulario-medico-esencial-para-parejas-en-polonia/",
+      "destination": "/learn/es/pl/polish-at-the-doctor-essential-medical-vocabulary-for-couples-in-poland/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/polaco-en-el-trabajo-vocabulario-profesional-que-tu-pareja-usa-diariamente",
+      "destination": "/learn/es/pl/polish-at-work-professional-vocabulary-your-partner-uses-daily/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/polaco-en-el-trabajo-vocabulario-profesional-que-tu-pareja-usa-diariamente/",
+      "destination": "/learn/es/pl/polish-at-work-professional-vocabulary-your-partner-uses-daily/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/vocabulario-polaco-de-embarazo-y-bebe-palabras-esenciales-para-parejas-que-esperan",
+      "destination": "/learn/es/pl/polish-baby-and-pregnancy-vocabulary-essential-words-for-expecting-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/vocabulario-polaco-de-embarazo-y-bebe-palabras-esenciales-para-parejas-que-esperan/",
+      "destination": "/learn/es/pl/polish-baby-and-pregnancy-vocabulary-essential-words-for-expecting-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/felicitaciones-de-cumpleanos-en-polaco-mensajes-dulces-que-tocan-el-corazon",
+      "destination": "/learn/es/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/felicitaciones-de-cumpleanos-en-polaco-mensajes-dulces-que-tocan-el-corazon/",
+      "destination": "/learn/es/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-para-rupturas-y-reconciliacion-navega-conversaciones-dificiles",
+      "destination": "/learn/es/pl/polish-breakup-and-reconciliation-phrases-navigate-difficult-conversations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-para-rupturas-y-reconciliacion-navega-conversaciones-dificiles/",
+      "destination": "/learn/es/pl/polish-breakup-and-reconciliation-phrases-navigate-difficult-conversations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/casos-polacos-explicados-facilmente-guia-para-principiantes",
+      "destination": "/learn/es/pl/polish-cases-explained-simply-a-beginners-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/casos-polacos-explicados-facilmente-guia-para-principiantes/",
+      "destination": "/learn/es/pl/polish-cases-explained-simply-a-beginners-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tradiciones-navidenas-polacas-para-parejas-guia-completa",
+      "destination": "/learn/es/pl/polish-christmas-traditions-for-couples-a-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tradiciones-navidenas-polacas-para-parejas-guia-completa/",
+      "destination": "/learn/es/pl/polish-christmas-traditions-for-couples-a-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/cocinar-juntos-en-polaco-vocabulario-esencial-de-comida-para-parejas",
+      "destination": "/learn/es/pl/polish-cooking-together-essential-food-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/cocinar-juntos-en-polaco-vocabulario-esencial-de-comida-para-parejas/",
+      "destination": "/learn/es/pl/polish-cooking-together-essential-food-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tradiciones-de-pascua-polacas-para-parejas-celebra-wielkanoc-juntos",
+      "destination": "/learn/es/pl/polish-easter-traditions-for-couples-celebrate-wielkanoc-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tradiciones-de-pascua-polacas-para-parejas-celebra-wielkanoc-juntos/",
+      "destination": "/learn/es/pl/polish-easter-traditions-for-couples-celebrate-wielkanoc-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-para-la-primera-cita-en-polaco-palabras-romanticas-para-tu-noche-especial",
+      "destination": "/learn/es/pl/polish-first-date-phrases-romantic-polish-words-for-your-special-night/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-para-la-primera-cita-en-polaco-palabras-romanticas-para-tu-noche-especial/",
+      "destination": "/learn/es/pl/polish-first-date-phrases-romantic-polish-words-for-your-special-night/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tiempo-futuro-en-polaco-haciendo-planes-juntos",
+      "destination": "/learn/es/pl/polish-future-tense-making-plans-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tiempo-futuro-en-polaco-haciendo-planes-juntos/",
+      "destination": "/learn/es/pl/polish-future-tense-making-plans-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/humor-y-chistes-polacos-para-parejas-aprendan-a-reir-juntos",
+      "destination": "/learn/es/pl/polish-humor-and-jokes-for-couples-learn-to-laugh-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/humor-y-chistes-polacos-para-parejas-aprendan-a-reir-juntos/",
+      "destination": "/learn/es/pl/polish-humor-and-jokes-for-couples-learn-to-laugh-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/canciones-de-amor-polacas-para-aprender-juntos-musica-romantica-para-parejas",
+      "destination": "/learn/es/pl/polish-love-songs-to-learn-together-romantic-music-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/canciones-de-amor-polacas-para-aprender-juntos-musica-romantica-para-parejas/",
+      "destination": "/learn/es/pl/polish-love-songs-to-learn-together-romantic-music-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/dias-del-santo-y-tradiciones-polacas-guia-completa-para-parejas",
+      "destination": "/learn/es/pl/polish-name-days-and-traditions-a-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/dias-del-santo-y-tradiciones-polacas-guia-completa-para-parejas/",
+      "destination": "/learn/es/pl/polish-name-days-and-traditions-a-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/negacion-en-polaco-como-decir-no-y-nunca-como-un-nativo",
+      "destination": "/learn/es/pl/polish-negation-how-to-say-no-not-and-never-like-a-native/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/negacion-en-polaco-como-decir-no-y-nunca-como-un-nativo/",
+      "destination": "/learn/es/pl/polish-negation-how-to-say-no-not-and-never-like-a-native/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tiempo-pasado-en-polaco-facil-cuenta-a-tu-pareja-sobre-tu-dia",
+      "destination": "/learn/es/pl/polish-past-tense-made-easy-tell-your-partner-about-your-day/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tiempo-pasado-en-polaco-facil-cuenta-a-tu-pareja-sobre-tu-dia/",
+      "destination": "/learn/es/pl/polish-past-tense-made-easy-tell-your-partner-about-your-day/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/llamadas-telefonicas-en-polaco-domina-contestar-y-hacer-llamadas-como-un-local",
+      "destination": "/learn/es/pl/polish-phone-calls-master-answering-and-making-calls-like-a-local/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/llamadas-telefonicas-en-polaco-domina-contestar-y-hacer-llamadas-como-un-local/",
+      "destination": "/learn/es/pl/polish-phone-calls-master-answering-and-making-calls-like-a-local/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/pronombres-polacos-yo-tu-nosotros-formas-esenciales-para-parejas",
+      "destination": "/learn/es/pl/polish-pronouns-i-you-we-essential-forms-for-couples-learning-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/pronombres-polacos-yo-tu-nosotros-formas-esenciales-para-parejas/",
+      "destination": "/learn/es/pl/polish-pronouns-i-you-we-essential-forms-for-couples-learning-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/guia-pronunciacion-polaca-sonidos-que-no-existen-en-espanol",
+      "destination": "/learn/es/pl/polish-pronunciation-guide-sounds-that-dont-exist-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/guia-pronunciacion-polaca-sonidos-que-no-existen-en-espanol/",
+      "destination": "/learn/es/pl/polish-pronunciation-guide-sounds-that-dont-exist-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-propuesta-compromiso-expresiones-romanticas-momento-especial",
+      "destination": "/learn/es/pl/polish-proposal-and-engagement-phrases-romantic-expressions-for-your-big-moment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-propuesta-compromiso-expresiones-romanticas-momento-especial/",
+      "destination": "/learn/es/pl/polish-proposal-and-engagement-phrases-romantic-expressions-for-your-big-moment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-transporte-publico-viajando-juntos",
+      "destination": "/learn/es/pl/polish-public-transport-phrases-getting-around-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-polacas-transporte-publico-viajando-juntos/",
+      "destination": "/learn/es/pl/polish-public-transport-phrases-getting-around-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/preguntas-en-polaco-como-preguntarle-cualquier-cosa-a-tu-pareja",
+      "destination": "/learn/es/pl/polish-questions-how-to-ask-your-partner-anything/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/preguntas-en-polaco-como-preguntarle-cualquier-cosa-a-tu-pareja/",
+      "destination": "/learn/es/pl/polish-questions-how-to-ask-your-partner-anything/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/peliculas-romanticas-polacas-para-ver-en-pareja-guia-de-cine",
+      "destination": "/learn/es/pl/polish-romantic-movies-to-watch-together-a-film-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/peliculas-romanticas-polacas-para-ver-en-pareja-guia-de-cine/",
+      "destination": "/learn/es/pl/polish-romantic-movies-to-watch-together-a-film-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-romanticas-polacas-para-cada-ocasion-expresa-tu-amor",
+      "destination": "/learn/es/pl/polish-romantic-phrases-for-every-occasion-express-your-love-perfectly/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/frases-romanticas-polacas-para-cada-ocasion-expresa-tu-amor/",
+      "destination": "/learn/es/pl/polish-romantic-phrases-for-every-occasion-express-your-love-perfectly/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/vocabulario-polaco-para-compras-palabras-esenciales-tienda",
+      "destination": "/learn/es/pl/polish-shopping-vocabulary-essential-words-for-going-to-the-store-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/vocabulario-polaco-para-compras-palabras-esenciales-tienda/",
+      "destination": "/learn/es/pl/polish-shopping-vocabulary-essential-words-for-going-to-the-store-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/conversacion-casual-polaca-iniciar-charlas-conocer-gente",
+      "destination": "/learn/es/pl/polish-small-talk-conversation-starters-for-meeting-new-people/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/conversacion-casual-polaca-iniciar-charlas-conocer-gente/",
+      "destination": "/learn/es/pl/polish-small-talk-conversation-starters-for-meeting-new-people/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/redes-sociales-polacas-entender-publicaciones-comentarios-pareja",
+      "destination": "/learn/es/pl/polish-social-media-understanding-your-partners-posts-and-comments/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/redes-sociales-polacas-entender-publicaciones-comentarios-pareja/",
+      "destination": "/learn/es/pl/polish-social-media-understanding-your-partners-posts-and-comments/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/patrones-acentuacion-polaca-donde-poner-enfasis-pronunciacion-perfecta",
+      "destination": "/learn/es/pl/polish-stress-patterns-where-to-put-the-emphasis-for-perfect-pronunciation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/patrones-acentuacion-polaca-donde-poner-enfasis-pronunciacion-perfecta/",
+      "destination": "/learn/es/pl/polish-stress-patterns-where-to-put-the-emphasis-for-perfect-pronunciation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/jerga-mensajes-polaca-que-significan-realmente-esos-mensajes",
+      "destination": "/learn/es/pl/polish-texting-slang-what-those-messages-actually-mean/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/jerga-mensajes-polaca-que-significan-realmente-esos-mensajes/",
+      "destination": "/learn/es/pl/polish-texting-slang-what-those-messages-actually-mean/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/trabalenguas-polacos-para-parejas-practica-pronunciacion-divertida",
+      "destination": "/learn/es/pl/polish-tongue-twisters-for-couples-fun-pronunciation-practice/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/trabalenguas-polacos-para-parejas-practica-pronunciacion-divertida/",
+      "destination": "/learn/es/pl/polish-tongue-twisters-for-couples-fun-pronunciation-practice/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tradiciones-polacas-san-valentin-frases-romanticas-enamorar-pareja",
+      "destination": "/learn/es/pl/polish-valentines-day-traditions-and-romantic-phrases-to-enchant-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/tradiciones-polacas-san-valentin-frases-romanticas-enamorar-pareja/",
+      "destination": "/learn/es/pl/polish-valentines-day-traditions-and-romantic-phrases-to-enchant-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/conjugacion-verbos-polacos-presente-basicos-parejas",
+      "destination": "/learn/es/pl/polish-verb-conjugation-present-tense-basics-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/conjugacion-verbos-polacos-presente-basicos-parejas/",
+      "destination": "/learn/es/pl/polish-verb-conjugation-present-tense-basics-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/orden-palabras-polaco-diferencias-con-espanol-guia-gramatica-parejas",
+      "destination": "/learn/es/pl/polish-word-order-how-it-differs-from-english-grammar-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/orden-palabras-polaco-diferencias-con-espanol-guia-gramatica-parejas/",
+      "destination": "/learn/es/pl/polish-word-order-how-it-differs-from-english-grammar-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/viajar-polonia-pareja-frases-esenciales-consejos",
+      "destination": "/learn/es/pl/traveling-to-poland-with-your-partner-essential-phrases-and-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/viajar-polonia-pareja-frases-esenciales-consejos/",
+      "destination": "/learn/es/pl/traveling-to-poland-with-your-partner-essential-phrases-and-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/entender-genero-polaco-masculino-femenino-neutro-sustantivos",
+      "destination": "/learn/es/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/entender-genero-polaco-masculino-femenino-neutro-sustantivos/",
+      "destination": "/learn/es/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/que-son-diminutivos-polacos-arte-hacer-palabras-tiernas",
+      "destination": "/learn/es/pl/what-are-polish-diminutives-the-art-of-making-words-cute/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/que-son-diminutivos-polacos-arte-hacer-palabras-tiernas/",
+      "destination": "/learn/es/pl/what-are-polish-diminutives-the-art-of-making-words-cute/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/que-es-alfabeto-polaco-guia-completa-letras-parejas",
+      "destination": "/learn/es/pl/what-is-the-polish-alphabet-complete-letter-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/que-es-alfabeto-polaco-guia-completa-letras-parejas/",
+      "destination": "/learn/es/pl/what-is-the-polish-alphabet-complete-letter-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/que-dialecto-polaco-aprender-diferencias-regionales-explicadas",
+      "destination": "/learn/es/pl/what-polish-dialect-should-i-learn-regional-differences-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/que-dialecto-polaco-aprender-diferencias-regionales-explicadas/",
+      "destination": "/learn/es/pl/what-polish-dialect-should-i-learn-regional-differences-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/por-que-polaco-tiene-tantas-consonantes-idioma-explicado",
+      "destination": "/learn/es/pl/why-does-polish-have-so-many-consonants-language-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/por-que-polaco-tiene-tantas-consonantes-idioma-explicado/",
+      "destination": "/learn/es/pl/why-does-polish-have-so-many-consonants-language-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/escribir-cartas-amor-polaco-guia-romantica-parejas",
+      "destination": "/learn/es/pl/writing-love-letters-in-polish-a-romantic-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/pl/escribir-cartas-amor-polaco-guia-romantica-parejas/",
+      "destination": "/learn/es/pl/writing-love-letters-in-polish-a-romantic-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/100-mots-polonais-les-plus-courants-vocabulaire-essentiel-pour-couples",
+      "destination": "/learn/fr/pl/100-most-common-polish-words-essential-vocabulary-for-couples-learning-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/100-mots-polonais-les-plus-courants-vocabulaire-essentiel-pour-couples/",
+      "destination": "/learn/fr/pl/100-most-common-polish-words-essential-vocabulary-for-couples-learning-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/50-surnoms-affectueux-polonais-guide-complet-petits-noms-damour",
+      "destination": "/learn/fr/pl/50-polish-terms-of-endearment-complete-guide-to-polish-pet-names/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/50-surnoms-affectueux-polonais-guide-complet-petits-noms-damour/",
+      "destination": "/learn/fr/pl/50-polish-terms-of-endearment-complete-guide-to-polish-pet-names/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/7-erreurs-prononciation-polonais-francophones-comment-corriger",
+      "destination": "/learn/fr/pl/7-polish-pronunciation-mistakes-english-speakers-make-and-how-to-fix-them/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/7-erreurs-prononciation-polonais-francophones-comment-corriger/",
+      "destination": "/learn/fr/pl/7-polish-pronunciation-mistakes-english-speakers-make-and-how-to-fix-them/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/argumenter-constructivement-polonais-phrases-communication-couples",
+      "destination": "/learn/fr/pl/arguing-constructively-in-polish-communication-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/argumenter-constructivement-polonais-phrases-communication-couples/",
+      "destination": "/learn/fr/pl/arguing-constructively-in-polish-communication-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/beaux-poemes-romantiques-polonais-traductions-francaises",
+      "destination": "/learn/fr/pl/beautiful-romantic-polish-poems-with-english-translations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/beaux-poemes-romantiques-polonais-traductions-francaises/",
+      "destination": "/learn/fr/pl/beautiful-romantic-polish-poems-with-english-translations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/meilleure-methode-apprendre-polonais-partenaire-2025-guide-complet",
+      "destination": "/learn/fr/pl/best-way-to-learn-polish-for-your-partner-in-2025-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/meilleure-methode-apprendre-polonais-partenaire-2025-guide-complet/",
+      "destination": "/learn/fr/pl/best-way-to-learn-polish-for-your-partner-in-2025-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/apprendre-polonais-series-films-guide-complet-couples",
+      "destination": "/learn/fr/pl/can-you-learn-polish-from-tv-shows-and-movies-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/apprendre-polonais-series-films-guide-complet-couples/",
+      "destination": "/learn/fr/pl/can-you-learn-polish-from-tv-shows-and-movies-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/polonais-parlent-ils-anglais-conseils-linguistiques-visite-pologne",
+      "destination": "/learn/fr/pl/do-polish-people-speak-english-language-tips-for-visiting-poland/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/polonais-parlent-ils-anglais-conseils-linguistiques-visite-pologne/",
+      "destination": "/learn/fr/pl/do-polish-people-speak-english-language-tips-for-visiting-poland/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/vocabulaire-essentiel-polonais-soiree-romantique-couples",
+      "destination": "/learn/fr/pl/essential-polish-date-night-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/vocabulaire-essentiel-polonais-soiree-romantique-couples/",
+      "destination": "/learn/fr/pl/essential-polish-date-night-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-essentielles-relations-longue-distance",
+      "destination": "/learn/fr/pl/essential-polish-phrases-for-long-distance-relationships/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-essentielles-relations-longue-distance/",
+      "destination": "/learn/fr/pl/essential-polish-phrases-for-long-distance-relationships/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-essentielles-appels-video-famille-partenaire",
+      "destination": "/learn/fr/pl/essential-polish-phrases-for-video-calls-with-your-partners-family/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-essentielles-appels-video-famille-partenaire/",
+      "destination": "/learn/fr/pl/essential-polish-phrases-for-video-calls-with-your-partners-family/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-mariage-jour-special",
+      "destination": "/learn/fr/pl/essential-polish-wedding-phrases-for-your-special-day/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-mariage-jour-special/",
+      "destination": "/learn/fr/pl/essential-polish-wedding-phrases-for-your-special-day/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/applications-polonais-gratuites-vs-payantes-comparaison-couples",
+      "destination": "/learn/fr/pl/free-vs-paid-polish-learning-apps-whats-actually-worth-it-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/applications-polonais-gratuites-vs-payantes-comparaison-couples/",
+      "destination": "/learn/fr/pl/free-vs-paid-polish-learning-apps-whats-actually-worth-it-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/bonjour-bonne-nuit-polonais-salutations-couples",
+      "destination": "/learn/fr/pl/good-morning-and-goodnight-in-polish-sweet-greetings-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/bonjour-bonne-nuit-polonais-salutations-couples/",
+      "destination": "/learn/fr/pl/good-morning-and-goodnight-in-polish-sweet-greetings-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/combien-temps-apprendre-polonais-calendrier-realiste-couples",
+      "destination": "/learn/fr/pl/how-long-does-it-take-to-learn-polish-realistic-timeline-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/combien-temps-apprendre-polonais-calendrier-realiste-couples/",
+      "destination": "/learn/fr/pl/how-long-does-it-take-to-learn-polish-realistic-timeline-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/combien-personnes-parlent-polonais-statistiques-faits-mondiaux",
+      "destination": "/learn/fr/pl/how-many-people-speak-polish-language-statistics-and-global-facts/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/combien-personnes-parlent-polonais-statistiques-faits-mondiaux/",
+      "destination": "/learn/fr/pl/how-many-people-speak-polish-language-statistics-and-global-facts/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/comment-sexcuser-polonais-phrases-essentielles-couples",
+      "destination": "/learn/fr/pl/how-to-apologize-in-polish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/comment-sexcuser-polonais-phrases-essentielles-couples/",
+      "destination": "/learn/fr/pl/how-to-apologize-in-polish-essential-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/exprimer-emotions-polonais-guide-complet-couples",
+      "destination": "/learn/fr/pl/how-to-express-your-emotions-in-polish-a-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/exprimer-emotions-polonais-guide-complet-couples/",
+      "destination": "/learn/fr/pl/how-to-express-your-emotions-in-polish-a-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/comment-flirter-polonais-phrases-romantiques-couples",
+      "destination": "/learn/fr/pl/how-to-flirt-in-polish-romantic-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/comment-flirter-polonais-phrases-romantiques-couples/",
+      "destination": "/learn/fr/pl/how-to-flirt-in-polish-romantic-phrases-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/faire-beaux-compliments-polonais-30-phrases-essentielles",
+      "destination": "/learn/fr/pl/how-to-give-beautiful-compliments-in-polish-30-essential-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/faire-beaux-compliments-polonais-30-phrases-essentielles/",
+      "destination": "/learn/fr/pl/how-to-give-beautiful-compliments-in-polish-30-essential-phrases/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/prononcer-lettres-polonaises-s-c-z-z-l-guide-complet",
+      "destination": "/learn/fr/pl/how-to-pronounce-polish-letters-s-c-z-z-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/prononcer-lettres-polonaises-s-c-z-z-l-guide-complet/",
+      "destination": "/learn/fr/pl/how-to-pronounce-polish-letters-s-c-z-z-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/comment-dire-beau-belle-polonais-guide-complet-couples",
+      "destination": "/learn/fr/pl/how-to-say-beautiful-in-polish-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/comment-dire-beau-belle-polonais-guide-complet-couples/",
+      "destination": "/learn/fr/pl/how-to-say-beautiful-in-polish-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/le-polonais-est-il-similaire-au-russe-guide-complet-des-langues-slaves",
+      "destination": "/learn/fr/pl/is-polish-similar-to-russian-a-complete-guide-to-slavic-language-similarities/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/le-polonais-est-il-similaire-au-russe-guide-complet-des-langues-slaves/",
+      "destination": "/learn/fr/pl/is-polish-similar-to-russian-a-complete-guide-to-slavic-language-similarities/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/apprendre-le-polonais-seul-ou-en-couple-pourquoi-les-couples-progressent-plus-vite",
+      "destination": "/learn/fr/pl/learning-polish-alone-vs-with-your-partner-why-couples-learn-faster/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/apprendre-le-polonais-seul-ou-en-couple-pourquoi-les-couples-progressent-plus-vite/",
+      "destination": "/learn/fr/pl/learning-polish-alone-vs-with-your-partner-why-couples-learn-faster/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/rencontrer-les-parents-de-votre-partenaire-polonais-phrases-essentielles-et-conseils-culturels",
+      "destination": "/learn/fr/pl/meeting-your-polish-partners-parents-essential-phrases-and-cultural-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/rencontrer-les-parents-de-votre-partenaire-polonais-phrases-essentielles-et-conseils-culturels/",
+      "destination": "/learn/fr/pl/meeting-your-polish-partners-parents-essential-phrases-and-cultural-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/emmenager-ensemble-vocabulaire-polonais-essentiel-de-la-maison-pour-couples",
+      "destination": "/learn/fr/pl/moving-in-together-essential-polish-household-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/emmenager-ensemble-vocabulaire-polonais-essentiel-de-la-maison-pour-couples/",
+      "destination": "/learn/fr/pl/moving-in-together-essential-polish-household-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/commander-au-restaurant-en-polonais-vocabulaire-essentiel-pour-couples",
+      "destination": "/learn/fr/pl/ordering-food-in-polish-essential-restaurant-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/commander-au-restaurant-en-polonais-vocabulaire-essentiel-pour-couples/",
+      "destination": "/learn/fr/pl/ordering-food-in-polish-essential-restaurant-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/preparer-une-lune-de-miel-en-pologne-phrases-de-voyage-essentielles-et-destinations-romantiques",
+      "destination": "/learn/fr/pl/planning-a-polish-honeymoon-essential-travel-phrases-and-romantic-destinations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/preparer-une-lune-de-miel-en-pologne-phrases-de-voyage-essentielles-et-destinations-romantiques/",
+      "destination": "/learn/fr/pl/planning-a-polish-honeymoon-essential-travel-phrases-and-romantic-destinations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/accord-des-adjectifs-en-polonais-maitriser-lart-de-decrire-correctement",
+      "destination": "/learn/fr/pl/polish-adjective-agreement-master-the-art-of-describing-things-correctly/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/accord-des-adjectifs-en-polonais-maitriser-lart-de-decrire-correctement/",
+      "destination": "/learn/fr/pl/polish-adjective-agreement-master-the-art-of-describing-things-correctly/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/voeux-danniversaire-en-polonais-beaux-messages-pour-couples",
+      "destination": "/learn/fr/pl/polish-anniversary-wishes-beautiful-messages-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/voeux-danniversaire-en-polonais-beaux-messages-pour-couples/",
+      "destination": "/learn/fr/pl/polish-anniversary-wishes-beautiful-messages-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/le-polonais-chez-le-medecin-vocabulaire-medical-essentiel-pour-couples-en-pologne",
+      "destination": "/learn/fr/pl/polish-at-the-doctor-essential-medical-vocabulary-for-couples-in-poland/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/le-polonais-chez-le-medecin-vocabulaire-medical-essentiel-pour-couples-en-pologne/",
+      "destination": "/learn/fr/pl/polish-at-the-doctor-essential-medical-vocabulary-for-couples-in-poland/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/le-polonais-au-travail-vocabulaire-professionnel-que-votre-partenaire-utilise-au-quotidien",
+      "destination": "/learn/fr/pl/polish-at-work-professional-vocabulary-your-partner-uses-daily/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/le-polonais-au-travail-vocabulaire-professionnel-que-votre-partenaire-utilise-au-quotidien/",
+      "destination": "/learn/fr/pl/polish-at-work-professional-vocabulary-your-partner-uses-daily/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/vocabulaire-polonais-bebe-et-grossesse-mots-essentiels-pour-futurs-parents",
+      "destination": "/learn/fr/pl/polish-baby-and-pregnancy-vocabulary-essential-words-for-expecting-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/vocabulaire-polonais-bebe-et-grossesse-mots-essentiels-pour-futurs-parents/",
+      "destination": "/learn/fr/pl/polish-baby-and-pregnancy-vocabulary-essential-words-for-expecting-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/souhaits-danniversaire-en-polonais-pour-votre-partenaire-messages-touchants",
+      "destination": "/learn/fr/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/souhaits-danniversaire-en-polonais-pour-votre-partenaire-messages-touchants/",
+      "destination": "/learn/fr/pl/polish-birthday-wishes-for-your-partner-sweet-messages-that-touch-the-heart/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-de-rupture-et-reconciliation-naviguer-les-conversations-difficiles",
+      "destination": "/learn/fr/pl/polish-breakup-and-reconciliation-phrases-navigate-difficult-conversations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-de-rupture-et-reconciliation-naviguer-les-conversations-difficiles/",
+      "destination": "/learn/fr/pl/polish-breakup-and-reconciliation-phrases-navigate-difficult-conversations/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/les-cas-polonais-expliques-simplement-guide-pour-debutants-en-couple",
+      "destination": "/learn/fr/pl/polish-cases-explained-simply-a-beginners-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/les-cas-polonais-expliques-simplement-guide-pour-debutants-en-couple/",
+      "destination": "/learn/fr/pl/polish-cases-explained-simply-a-beginners-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/traditions-de-noel-polonaises-pour-couples-guide-complet",
+      "destination": "/learn/fr/pl/polish-christmas-traditions-for-couples-a-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/traditions-de-noel-polonaises-pour-couples-guide-complet/",
+      "destination": "/learn/fr/pl/polish-christmas-traditions-for-couples-a-complete-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/cuisiner-ensemble-en-polonais-vocabulaire-alimentaire-essentiel-pour-couples",
+      "destination": "/learn/fr/pl/polish-cooking-together-essential-food-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/cuisiner-ensemble-en-polonais-vocabulaire-alimentaire-essentiel-pour-couples/",
+      "destination": "/learn/fr/pl/polish-cooking-together-essential-food-vocabulary-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/traditions-de-paques-polonaises-pour-couples-celebrer-wielkanoc-ensemble",
+      "destination": "/learn/fr/pl/polish-easter-traditions-for-couples-celebrate-wielkanoc-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/traditions-de-paques-polonaises-pour-couples-celebrer-wielkanoc-ensemble/",
+      "destination": "/learn/fr/pl/polish-easter-traditions-for-couples-celebrate-wielkanoc-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-de-premier-rendez-vous-mots-romantiques-pour-votre-soiree-speciale",
+      "destination": "/learn/fr/pl/polish-first-date-phrases-romantic-polish-words-for-your-special-night/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-polonaises-de-premier-rendez-vous-mots-romantiques-pour-votre-soiree-speciale/",
+      "destination": "/learn/fr/pl/polish-first-date-phrases-romantic-polish-words-for-your-special-night/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/futur-en-polonais-faire-des-projets-ensemble",
+      "destination": "/learn/fr/pl/polish-future-tense-making-plans-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/futur-en-polonais-faire-des-projets-ensemble/",
+      "destination": "/learn/fr/pl/polish-future-tense-making-plans-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/humour-polonais-et-blagues-pour-couples-apprendre-a-rire-ensemble",
+      "destination": "/learn/fr/pl/polish-humor-and-jokes-for-couples-learn-to-laugh-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/humour-polonais-et-blagues-pour-couples-apprendre-a-rire-ensemble/",
+      "destination": "/learn/fr/pl/polish-humor-and-jokes-for-couples-learn-to-laugh-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/chansons-damour-polonaises-a-apprendre-ensemble-musique-romantique-pour-couples",
+      "destination": "/learn/fr/pl/polish-love-songs-to-learn-together-romantic-music-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/chansons-damour-polonaises-a-apprendre-ensemble-musique-romantique-pour-couples/",
+      "destination": "/learn/fr/pl/polish-love-songs-to-learn-together-romantic-music-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/fetes-et-traditions-polonaises-guide-complet-pour-couples",
+      "destination": "/learn/fr/pl/polish-name-days-and-traditions-a-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/fetes-et-traditions-polonaises-guide-complet-pour-couples/",
+      "destination": "/learn/fr/pl/polish-name-days-and-traditions-a-complete-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/negation-en-polonais-comment-dire-non-pas-et-jamais-comme-un-natif",
+      "destination": "/learn/fr/pl/polish-negation-how-to-say-no-not-and-never-like-a-native/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/negation-en-polonais-comment-dire-non-pas-et-jamais-comme-un-natif/",
+      "destination": "/learn/fr/pl/polish-negation-how-to-say-no-not-and-never-like-a-native/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/pronoms-polonais-je-tu-nous-formes-essentielles-pour-couples",
+      "destination": "/learn/fr/pl/polish-pronouns-i-you-we-essential-forms-for-couples-learning-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/pronoms-polonais-je-tu-nous-formes-essentielles-pour-couples/",
+      "destination": "/learn/fr/pl/polish-pronouns-i-you-we-essential-forms-for-couples-learning-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/guide-prononciation-polonais-sons-qui-nexistent-pas-en-francais",
+      "destination": "/learn/fr/pl/polish-pronunciation-guide-sounds-that-dont-exist-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/guide-prononciation-polonais-sons-qui-nexistent-pas-en-francais/",
+      "destination": "/learn/fr/pl/polish-pronunciation-guide-sounds-that-dont-exist-in-english/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/demande-mariage-fiancailles-phrases-polonais-romantiques",
+      "destination": "/learn/fr/pl/polish-proposal-and-engagement-phrases-romantic-expressions-for-your-big-moment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/demande-mariage-fiancailles-phrases-polonais-romantiques/",
+      "destination": "/learn/fr/pl/polish-proposal-and-engagement-phrases-romantic-expressions-for-your-big-moment/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-transports-publics-polonais-se-deplacer-ensemble",
+      "destination": "/learn/fr/pl/polish-public-transport-phrases-getting-around-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-transports-publics-polonais-se-deplacer-ensemble/",
+      "destination": "/learn/fr/pl/polish-public-transport-phrases-getting-around-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/questions-polonais-comment-demander-a-votre-partenaire",
+      "destination": "/learn/fr/pl/polish-questions-how-to-ask-your-partner-anything/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/questions-polonais-comment-demander-a-votre-partenaire/",
+      "destination": "/learn/fr/pl/polish-questions-how-to-ask-your-partner-anything/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/films-romantiques-polonais-guide-cinema-couples",
+      "destination": "/learn/fr/pl/polish-romantic-movies-to-watch-together-a-film-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/films-romantiques-polonais-guide-cinema-couples/",
+      "destination": "/learn/fr/pl/polish-romantic-movies-to-watch-together-a-film-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-romantiques-polonais-toutes-occasions-exprimer-amour",
+      "destination": "/learn/fr/pl/polish-romantic-phrases-for-every-occasion-express-your-love-perfectly/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/phrases-romantiques-polonais-toutes-occasions-exprimer-amour/",
+      "destination": "/learn/fr/pl/polish-romantic-phrases-for-every-occasion-express-your-love-perfectly/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/vocabulaire-courses-polonais-mots-essentiels-magasin-ensemble",
+      "destination": "/learn/fr/pl/polish-shopping-vocabulary-essential-words-for-going-to-the-store-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/vocabulaire-courses-polonais-mots-essentiels-magasin-ensemble/",
+      "destination": "/learn/fr/pl/polish-shopping-vocabulary-essential-words-for-going-to-the-store-together/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/small-talk-polonais-phrases-conversation-rencontrer-gens",
+      "destination": "/learn/fr/pl/polish-small-talk-conversation-starters-for-meeting-new-people/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/small-talk-polonais-phrases-conversation-rencontrer-gens/",
+      "destination": "/learn/fr/pl/polish-small-talk-conversation-starters-for-meeting-new-people/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/reseaux-sociaux-polonais-comprendre-publications-partenaire",
+      "destination": "/learn/fr/pl/polish-social-media-understanding-your-partners-posts-and-comments/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/reseaux-sociaux-polonais-comprendre-publications-partenaire/",
+      "destination": "/learn/fr/pl/polish-social-media-understanding-your-partners-posts-and-comments/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/accentuation-polonais-ou-mettre-emphase-prononciation",
+      "destination": "/learn/fr/pl/polish-stress-patterns-where-to-put-the-emphasis-for-perfect-pronunciation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/accentuation-polonais-ou-mettre-emphase-prononciation/",
+      "destination": "/learn/fr/pl/polish-stress-patterns-where-to-put-the-emphasis-for-perfect-pronunciation/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/argot-sms-polonais-comprendre-messages-partenaire",
+      "destination": "/learn/fr/pl/polish-texting-slang-what-those-messages-actually-mean/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/argot-sms-polonais-comprendre-messages-partenaire/",
+      "destination": "/learn/fr/pl/polish-texting-slang-what-those-messages-actually-mean/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/virelangues-polonais-couples-pratique-prononciation",
+      "destination": "/learn/fr/pl/polish-tongue-twisters-for-couples-fun-pronunciation-practice/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/virelangues-polonais-couples-pratique-prononciation/",
+      "destination": "/learn/fr/pl/polish-tongue-twisters-for-couples-fun-pronunciation-practice/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/traditions-saint-valentin-polonais-phrases-romantiques",
+      "destination": "/learn/fr/pl/polish-valentines-day-traditions-and-romantic-phrases-to-enchant-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/traditions-saint-valentin-polonais-phrases-romantiques/",
+      "destination": "/learn/fr/pl/polish-valentines-day-traditions-and-romantic-phrases-to-enchant-your-partner/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/conjugaison-verbes-polonais-present-bases-couples",
+      "destination": "/learn/fr/pl/polish-verb-conjugation-present-tense-basics-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/conjugaison-verbes-polonais-present-bases-couples/",
+      "destination": "/learn/fr/pl/polish-verb-conjugation-present-tense-basics-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/ordre-mots-polonais-differences-francais-guide-grammaire",
+      "destination": "/learn/fr/pl/polish-word-order-how-it-differs-from-english-grammar-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/ordre-mots-polonais-differences-francais-guide-grammaire/",
+      "destination": "/learn/fr/pl/polish-word-order-how-it-differs-from-english-grammar-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/voyager-pologne-partenaire-phrases-essentielles-conseils",
+      "destination": "/learn/fr/pl/traveling-to-poland-with-your-partner-essential-phrases-and-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/voyager-pologne-partenaire-phrases-essentielles-conseils/",
+      "destination": "/learn/fr/pl/traveling-to-poland-with-your-partner-essential-phrases-and-tips/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/comprendre-genre-polonais-masculin-feminin-neutre-simplifie",
+      "destination": "/learn/fr/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/comprendre-genre-polonais-masculin-feminin-neutre-simplifie/",
+      "destination": "/learn/fr/pl/understanding-polish-gender-masculine-feminine-and-neuter-nouns-made-simple/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/diminutifs-polonais-art-rendre-mots-mignons",
+      "destination": "/learn/fr/pl/what-are-polish-diminutives-the-art-of-making-words-cute/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/diminutifs-polonais-art-rendre-mots-mignons/",
+      "destination": "/learn/fr/pl/what-are-polish-diminutives-the-art-of-making-words-cute/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/alphabet-polonais-guide-complet-couples",
+      "destination": "/learn/fr/pl/what-is-the-polish-alphabet-complete-letter-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/alphabet-polonais-guide-complet-couples/",
+      "destination": "/learn/fr/pl/what-is-the-polish-alphabet-complete-letter-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/dialecte-polonais-apprendre-differences-regionales",
+      "destination": "/learn/fr/pl/what-polish-dialect-should-i-learn-regional-differences-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/dialecte-polonais-apprendre-differences-regionales/",
+      "destination": "/learn/fr/pl/what-polish-dialect-should-i-learn-regional-differences-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/pourquoi-polonais-tant-consonnes-langue-expliquee",
+      "destination": "/learn/fr/pl/why-does-polish-have-so-many-consonants-language-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/pourquoi-polonais-tant-consonnes-langue-expliquee/",
+      "destination": "/learn/fr/pl/why-does-polish-have-so-many-consonants-language-explained/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/ecrire-lettres-amour-polonais-guide-romantique-couples",
+      "destination": "/learn/fr/pl/writing-love-letters-in-polish-a-romantic-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/fr/pl/ecrire-lettres-amour-polonais-guide-romantique-couples/",
+      "destination": "/learn/fr/pl/writing-love-letters-in-polish-a-romantic-guide-for-couples/",
+      "permanent": true
+    }
+  ]
+}
