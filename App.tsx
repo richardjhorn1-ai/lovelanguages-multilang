@@ -27,6 +27,7 @@ import FAQ from './components/FAQ';
 import Method from './components/Method';
 import Pricing from './components/Pricing';
 import CookieConsent from './components/CookieConsent';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
@@ -51,16 +52,24 @@ const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({
     <>
       {/* Persistent tabs - always mounted, shown/hidden via CSS */}
       <div className={path === '/' ? 'h-full' : 'hidden'}>
-        <ChatArea profile={profile} />
+        <ErrorBoundary>
+          <ChatArea profile={profile} />
+        </ErrorBoundary>
       </div>
       <div className={path === '/log' ? 'h-full' : 'hidden'}>
-        <LoveLog profile={profile} />
+        <ErrorBoundary>
+          <LoveLog profile={profile} />
+        </ErrorBoundary>
       </div>
       <div className={path === '/play' ? 'h-full' : 'hidden'}>
-        <FlashcardGame profile={profile} />
+        <ErrorBoundary>
+          <FlashcardGame profile={profile} />
+        </ErrorBoundary>
       </div>
       <div className={path === '/progress' ? 'h-full' : 'hidden'}>
-        <Progress profile={profile} />
+        <ErrorBoundary>
+          <Progress profile={profile} />
+        </ErrorBoundary>
       </div>
 
       {/* Non-persistent routes - mounted/unmounted normally */}

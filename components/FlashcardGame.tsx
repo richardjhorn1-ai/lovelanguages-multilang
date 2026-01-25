@@ -15,6 +15,7 @@ import { haptics } from '../services/haptics';
 import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
 import TutorGames from './TutorGames';
+import ErrorBoundary from './ErrorBoundary';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
@@ -1379,7 +1380,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   // Tutor games view - Use TutorGames component
   if (profile.role === 'tutor') {
-    return <TutorGames profile={profile} />;
+    return (
+      <ErrorBoundary>
+        <TutorGames profile={profile} />
+      </ErrorBoundary>
+    );
   }
 
   // Empty state
