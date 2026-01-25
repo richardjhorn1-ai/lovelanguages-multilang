@@ -151,6 +151,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [quickFireTimeLeft, setQuickFireTimeLeft] = useState(60);
   const [quickFireStarted, setQuickFireStarted] = useState(false);
   const [quickFireShowFeedback, setQuickFireShowFeedback] = useState<'correct' | 'wrong' | null>(null);
+  const [showIncorrectShake, setShowIncorrectShake] = useState(false);
   const quickFireTimerRef = useRef<NodeJS.Timeout | null>(null);
   const quickFireAnswersRef = useRef<GameSessionAnswer[]>([]);
   const quickFireScoreRef = useRef({ correct: 0, incorrect: 0 });
@@ -410,6 +411,12 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     return { justLearned, newStreak };
   };
 
+  // Trigger shake animation for incorrect answers
+  const triggerIncorrectFeedback = () => {
+    setShowIncorrectShake(true);
+    setTimeout(() => setShowIncorrectShake(false), 500);
+  };
+
   // Save game session to database
   const saveGameSession = async (gameMode: string, answers: GameSessionAnswer[], correct: number, incorrect: number) => {
     try {
@@ -592,6 +599,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(correct ? 'correct' : 'incorrect');
+    
+    // Visual feedback for incorrect
+    if (!correct) {
+      triggerIncorrectFeedback();
+    }
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -641,6 +653,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(correct ? 'correct' : 'incorrect');
+    
+    // Visual feedback for incorrect
+    if (!correct) {
+      triggerIncorrectFeedback();
+    }
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -995,6 +1012,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+    
+    // Visual feedback for incorrect
+    if (!isCorrect) {
+      triggerIncorrectFeedback();
+    }
 
     setVerbMasterySubmitted(true);
     setVerbMasteryCorrect(isCorrect);
@@ -1135,6 +1157,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+    
+    // Visual feedback for incorrect
+    if (!isCorrect) {
+      triggerIncorrectFeedback();
+    }
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -1218,6 +1245,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+    
+    // Visual feedback for incorrect
+    if (!isCorrect) {
+      triggerIncorrectFeedback();
+    }
 
     // Record answer
     const answer: GameSessionAnswer = {
@@ -1610,7 +1642,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
           {/* Multiple Choice Mode */}
           {localGameType === 'multiple_choice' && (
-            <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
+            <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
               <span
                 className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
                 style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
@@ -1666,7 +1698,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
           {/* Type It Mode */}
           {localGameType === 'type_it' && typeItQuestions.length > 0 && (
-            <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
+            <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
               {(() => {
                 const question = typeItQuestions[currentIndex];
                 const isTargetToNative = question.direction === 'target_to_native';
@@ -1992,7 +2024,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
           {/* Verb Mastery - Active Game */}
           {localGameType === 'verb_mastery' && verbMasteryStarted && !finished && verbMasteryQuestions.length > 0 && (
-            <div className="w-full max-w-md mx-auto">
+            <div className={`w-full max-w-md mx-auto ${showIncorrectShake ? 'animate-shake' : ''}`}>
               {/* Progress Header */}
               <div className="flex items-center justify-between mb-4">
                 <span className="text-scale-label font-bold text-[var(--text-secondary)]">
@@ -2243,7 +2275,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
                     {/* Multiple Choice question */}
                     {q.type === 'multiple_choice' && q.options && (
-                      <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
+                      <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
                         <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6" style={{ backgroundColor: `${tierColor}15`, color: tierColor }}>{targetName} → {nativeName}</span>
                         <h3 className="text-3xl font-black text-[var(--text-primary)] mb-8 text-center">{q.word}</h3>
                         <div className="space-y-3">
@@ -2270,7 +2302,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
                     {/* Type It question */}
                     {q.type === 'type_it' && (
-                      <div className="bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)]">
+                      <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
                         <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6" style={{ backgroundColor: `${tierColor}15`, color: tierColor }}>{targetName} → {nativeName}</span>
                         <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">{q.word}</h3>
                         {challengeTypeSubmitted && (
