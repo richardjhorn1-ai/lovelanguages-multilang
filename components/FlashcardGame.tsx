@@ -110,6 +110,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
   const [sessionStartTime] = useState<number>(Date.now());
 
+  // Exit confirmation modal
+  const [showExitConfirm, setShowExitConfirm] = useState(false);
+
   // Flashcard state
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -755,8 +758,23 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
   };
 
-  // Return to game selection grid
+  // Check if game is in progress (has started answering questions)
+  const isGameInProgress = localGameType !== null && !finished && (
+    challengeStarted || quickFireStarted || verbMasteryStarted ||
+    currentIndex > 0 || sessionScore.correct > 0 || sessionScore.incorrect > 0
+  );
+
+  // Return to game selection grid (with confirmation if game in progress)
+  const handleExitRequest = () => {
+    if (isGameInProgress) {
+      setShowExitConfirm(true);
+    } else {
+      exitLocalGame();
+    }
+  };
+
   const exitLocalGame = () => {
+    setShowExitConfirm(false);
     setLocalGameType(null);
     setFinished(false);
     resetChallenge();
@@ -1037,6 +1055,31 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
     };
   }, []);
+
+  // Exit confirmation when game is in progress
+  useEffect(() => {
+    const isGameInProgress = localGameType !== null && !finished && (
+      challengeStarted || quickFireStarted || verbMasteryStarted ||
+      currentIndex > 0 || sessionScore.correct > 0 || sessionScore.incorrect > 0
+    );
+
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (isGameInProgress) {
+        e.preventDefault();
+        // Modern browsers ignore custom messages, but this triggers the dialog
+        e.returnValue = '';
+        return '';
+      }
+    };
+
+    if (isGameInProgress) {
+      window.addEventListener('beforeunload', handleBeforeUnload);
+    }
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [localGameType, finished, challengeStarted, quickFireStarted, verbMasteryStarted, currentIndex, sessionScore]);
 
   const handleFlashcardResponse = async (isCorrect: boolean) => {
     const word = deck[currentIndex];
@@ -1360,7 +1403,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             <>
               <div className="flex items-center justify-between mb-2">
                 <button
-                  onClick={exitLocalGame}
+                  onClick={handleExitRequest}
                   className="p-2 hover:bg-[var(--bg-card)] rounded-xl transition-colors"
                 >
                   <ICONS.ChevronLeft className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -2301,6 +2344,39 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           userName={profile.full_name || 'Friend'}
           onClose={() => setShowConversationPractice(false)}
         />
+      )}
+
+      {/* Exit Confirmation Modal */}
+      {showExitConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-[var(--bg-card)] rounded-2xl shadow-xl max-w-sm w-full p-6 animate-in fade-in zoom-in duration-200">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4 text-4xl">
+                ⚠️
+              </div>
+              <h3 className="text-xl font-black text-[var(--text-primary)] mb-2">
+                {t('play.exitConfirm.title', 'Exit Game?')}
+              </h3>
+              <p className="text-[var(--text-secondary)] mb-6">
+                {t('play.exitConfirm.message', 'Your progress in this session will be lost. Are you sure you want to exit?')}
+              </p>
+              <div className="flex gap-3 w-full">
+                <button
+                  onClick={() => setShowExitConfirm(false)}
+                  className="flex-1 px-4 py-3 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors"
+                >
+                  {t('play.exitConfirm.cancel', 'Keep Playing')}
+                </button>
+                <button
+                  onClick={exitLocalGame}
+                  className="flex-1 px-4 py-3 rounded-xl font-bold text-white bg-red-500 hover:bg-red-600 transition-colors"
+                >
+                  {t('play.exitConfirm.confirm', 'Exit')}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
       <style>{`
