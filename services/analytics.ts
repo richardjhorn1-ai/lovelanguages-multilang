@@ -1,8 +1,8 @@
 /**
- * Google Analytics 4 Integration
+ * Google Analytics 4 Event Tracking
  * 
- * Handles page views and custom event tracking for Love Languages.
- * Configure by setting VITE_GA4_MEASUREMENT_ID in your .env.local
+ * GA4 is initialized via script tag in index.html.
+ * This module provides event tracking helpers for the SPA.
  */
 
 // Extend Window interface for gtag
@@ -13,50 +13,11 @@ declare global {
   }
 }
 
-const GA_MEASUREMENT_ID = import.meta.env.VITE_GA4_MEASUREMENT_ID;
-
-// Track if we've initialized
-let isInitialized = false;
-
 /**
- * Initialize Google Analytics 4
- * Call this once when the app loads
- */
-export const initGA = (): void => {
-  if (isInitialized || !GA_MEASUREMENT_ID) {
-    if (!GA_MEASUREMENT_ID) {
-      console.log('[Analytics] GA4 not configured (VITE_GA4_MEASUREMENT_ID missing)');
-    }
-    return;
-  }
-
-  // Create script element for gtag.js
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  document.head.appendChild(script);
-
-  // Initialize dataLayer and gtag function
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer.push(args);
-  };
-
-  window.gtag('js', new Date());
-  window.gtag('config', GA_MEASUREMENT_ID, {
-    send_page_view: false, // We'll track page views manually for SPA
-  });
-
-  isInitialized = true;
-  console.log('[Analytics] GA4 initialized');
-};
-
-/**
- * Track a page view
- * Call this on route changes
+ * Track a page view (for SPA navigation)
  */
 export const trackPageView = (path: string, title?: string): void => {
-  if (!isInitialized || !GA_MEASUREMENT_ID) return;
+  if (typeof window === 'undefined' || !window.gtag) return;
 
   window.gtag('event', 'page_view', {
     page_path: path,
@@ -71,7 +32,7 @@ export const trackEvent = (
   eventName: string,
   params?: Record<string, string | number | boolean>
 ): void => {
-  if (!isInitialized || !GA_MEASUREMENT_ID) return;
+  if (typeof window === 'undefined' || !window.gtag) return;
 
   window.gtag('event', eventName, params);
 };

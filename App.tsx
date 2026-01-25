@@ -7,7 +7,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import './i18n';
 import { useI18nSync } from './hooks/useI18nSync';
-import { initGA, trackPageView } from './services/analytics';
+import { trackPageView } from './services/analytics';
 import Hero from './components/Hero';
 import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
@@ -85,12 +85,7 @@ const I18nSyncWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) 
 const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
 
-  // Initialize GA on mount
-  useEffect(() => {
-    initGA();
-  }, []);
-
-  // Track page views on route changes
+  // Track page views on route changes (GA4 initialized in index.html)
   useEffect(() => {
     trackPageView(location.pathname + location.hash);
   }, [location]);
