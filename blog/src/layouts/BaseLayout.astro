@@ -44,6 +44,15 @@ const { title, description, image, article, hideNavigation = false, nativeLang =
 
   <!-- Allow child layouts to inject hreflang and other head tags -->
   <slot name="head" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJWLDBC5QP"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZJWLDBC5QP');
+  </script>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased" style="font-family: 'Outfit', sans-serif;">
   {!hideNavigation && <Navigation nativeLang={nativeLang} targetLang={targetLang} />}
