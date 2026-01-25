@@ -12,7 +12,7 @@ import path from 'path';
  */
 function getSitemapPriority(url) {
   // Homepage and main hubs - highest priority
-  if (url.endsWith('/learn/') || url === 'https://lovelanguages.io/') {
+  if (url.endsWith('/learn/') || url === 'https://www.lovelanguages.io/') {
     return 1.0;
   }
   // Native language hubs (e.g., /learn/en/, /learn/es/)
