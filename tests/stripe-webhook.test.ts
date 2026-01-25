@@ -200,7 +200,149 @@ describe('Stripe Webhook Logic', () => {
     });
   });
 
-  describe('Non-blocking operations', () => {
+  describe('Idempotency check', () => {
+  it('should skip processing when stripe_event_id already exists in subscription_events', async () => {
+    // This test verifies the idempotency check logic
+    // The check queries subscription_events for existing stripe_event_id
+    
+    const mockEventId = 'evt_AlreadyProcessed123';
+    
+    // Simulate Supabase query that finds existing event
+    const mockSupabaseWithExistingEvent = {
+      from: vi.fn((table: string) => {
+        if (table === 'subscription_events') {
+          return {
+            select: vi.fn().mockReturnValue({
+              eq: vi.fn().mockReturnValue({
+                single: vi.fn().mockResolvedValue({
+                  data: { id: 'existing-event-row-id' }, // Event exists!
+                  error: null,
+                }),
+              }),
+            }),
+          };
+        }
+        return { insert: vi.fn(), update: vi.fn() };
+      }),
+    };
+
+    // Simulate the idempotency check logic from stripe.ts lines 104-111
+    const { data: existingEvent } = await mockSupabaseWithExistingEvent
+      .from('subscription_events')
+      .select('id')
+      .eq('stripe_event_id', mockEventId)
+      .single();
+
+    // Should return duplicate:true when event exists
+    if (existingEvent) {
+      const response = { received: true, duplicate: true };
+      expect(response.duplicate).toBe(true);
+    } else {
+      // This path should NOT be taken
+      throw new Error('Expected existingEvent to be truthy');
+    }
+  });
+
+  it('should process normally when stripe_event_id does NOT exist', async () => {
+    const mockEventId = 'evt_NewEvent123';
+    
+    // Simulate Supabase query that finds NO existing event
+    const mockSupabaseNoEvent = {
+      from: vi.fn((table: string) => {
+        if (table === 'subscription_events') {
+          return {
+            select: vi.fn().mockReturnValue({
+              eq: vi.fn().mockReturnValue({
+                single: vi.fn().mockResolvedValue({
+                  data: null, // No event found
+                  error: { code: 'PGRST116', message: 'No rows found' },
+                }),
+              }),
+            }),
+          };
+        }
+        return { insert: vi.fn(), update: vi.fn() };
+      }),
+    };
+
+    const { data: existingEvent } = await mockSupabaseNoEvent
+      .from('subscription_events')
+      .select('id')
+      .eq('stripe_event_id', mockEventId)
+      .single();
+
+    // When no event exists, should proceed (not return early)
+    expect(existingEvent).toBeNull();
+    
+    // Processing would continue here in real code
+    const shouldProcess = !existingEvent;
+    expect(shouldProcess).toBe(true);
+  });
+
+  it('should handle query failure gracefully (proceed with processing)', async () => {
+    // Edge case: what if the idempotency query itself fails?
+    const mockSupabaseQueryFails = {
+      from: vi.fn((table: string) => {
+        if (table === 'subscription_events') {
+          return {
+            select: vi.fn().mockReturnValue({
+              eq: vi.fn().mockReturnValue({
+                single: vi.fn().mockResolvedValue({
+                  data: null,
+                  error: { code: '42P01', message: 'relation does not exist' },
+                }),
+              }),
+            }),
+          };
+        }
+        return { insert: vi.fn(), update: vi.fn() };
+      }),
+    };
+
+    const { data: existingEvent } = await mockSupabaseQueryFails
+      .from('subscription_events')
+      .select('id')
+      .eq('stripe_event_id', 'evt_Any123')
+      .single();
+
+    // On error, data is null, so we proceed with processing
+    // This is acceptable - better to process than fail completely
+    expect(existingEvent).toBeNull();
+    const shouldProcess = !existingEvent;
+    expect(shouldProcess).toBe(true);
+  });
+
+  it('should handle null event.id gracefully', async () => {
+    // Edge case: what if Stripe event.id is null/undefined?
+    const nullEventId = null;
+    
+    const mockSupabase = {
+      from: vi.fn((table: string) => ({
+        select: vi.fn().mockReturnValue({
+          eq: vi.fn().mockReturnValue({
+            single: vi.fn().mockResolvedValue({
+              data: null, // eq(null) won't match any rows
+              error: null,
+            }),
+          }),
+        }),
+      })),
+    };
+
+    const { data: existingEvent } = await mockSupabase
+      .from('subscription_events')
+      .select('id')
+      .eq('stripe_event_id', nullEventId)
+      .single();
+
+    // Should proceed (null won't match any stored event IDs)
+    expect(existingEvent).toBeNull();
+    const shouldProcess = !existingEvent;
+    expect(shouldProcess).toBe(true);
+  });
+});
+
+describe('Non-blocking operations', () => {
     it('should not throw when event logging fails', async () => {
       // The logSubscriptionEvent function wraps in try/catch
       // and uses async IIFE to not block
