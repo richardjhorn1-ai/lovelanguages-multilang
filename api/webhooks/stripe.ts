@@ -112,6 +112,18 @@ export default async function handler(req: any, res: any) {
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
+  // Idempotency check - prevent duplicate event processing
+  const { data: existingEvent } = await supabase
+    .from('subscription_events')
+    .select('id')
+    .eq('stripe_event_id', event.id)
+    .single();
+
+  if (existingEvent) {
+    console.log(`[stripe-webhook] Duplicate event ${event.id}, skipping`);
+    return res.status(200).json({ received: true, duplicate: true });
+  }
+
   try {
     switch (event.type) {
       // =========================================
