@@ -281,6 +281,13 @@ const App: React.FC = () => {
         }
       } else {
         setProfile(data);
+        // Sync localStorage with profile settings (self-healing if localStorage is stale)
+        if (data?.active_language) {
+          localStorage.setItem('preferredTargetLanguage', data.active_language);
+        }
+        if (data?.native_language) {
+          localStorage.setItem('preferredNativeLanguage', data.native_language);
+        }
       }
     } catch (err: any) {
       setDbError(`Unexpected error connecting to Supabase: ${err?.message || 'Unknown error'}`);
