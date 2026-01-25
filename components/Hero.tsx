@@ -431,7 +431,11 @@ const Hero: React.FC = () => {
 
     setNativeLanguage(code);
     i18n.changeLanguage(code);
-    localStorage.setItem('preferredNativeLanguage', code);
+    // Only set localStorage if user is NOT logged in (prevents overwriting profile settings)
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      localStorage.setItem('preferredNativeLanguage', code);
+    }
 
     // Always go to target step after selecting native
     // User must confirm/select target language before proceeding
@@ -458,7 +462,11 @@ const Hero: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 200));
 
     setSelectedTargetLanguage(code);
-    localStorage.setItem('preferredTargetLanguage', code);
+    // Only set localStorage if user is NOT logged in (prevents overwriting profile settings)
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      localStorage.setItem('preferredTargetLanguage', code);
+    }
     setCurrentStep('marketing');
 
     // Animate in
