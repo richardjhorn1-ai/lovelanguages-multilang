@@ -82,6 +82,49 @@ interface ChallengeQuestion {
 
 const STREAK_TO_LEARN = 5; // Number of consecutive correct answers to mark as learned
 
+// Streak Indicator Component
+const StreakIndicator: React.FC<{ streak: number; maxStreak?: number }> = ({ streak, maxStreak = STREAK_TO_LEARN }) => {
+  if (streak === 0) return null;
+  
+  const isComplete = streak >= maxStreak;
+  
+  return (
+    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
+      isComplete 
+        ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400' 
+        : 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
+    }`}>
+      <span>{streak}/{maxStreak}</span>
+      <span>{isComplete ? '✅' : '🔥'}</span>
+    </div>
+  );
+};
+
+// Streak Celebration Modal Component
+const StreakCelebrationModal: React.FC<{ show: boolean; word?: string }> = ({ show, word }) => {
+  if (!show) return null;
+  
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+      <div className="bg-gradient-to-br from-green-400 to-emerald-500 rounded-3xl p-8 shadow-2xl animate-bounce text-center max-w-sm mx-4">
+        <div className="text-6xl mb-4">🎉</div>
+        <h2 className="text-2xl font-black text-white mb-2">Word Mastered!</h2>
+        {word && <p className="text-white/90 font-bold text-lg mb-2">{word}</p>}
+        <p className="text-white/80 text-sm">
+          5 correct in a row! This word is now learned! 🎓
+        </p>
+        <div className="mt-4 flex justify-center gap-2">
+          {['🌟', '⭐', '✨', '💫', '🌟'].map((star, i) => (
+            <span key={i} className="text-2xl animate-pulse" style={{ animationDelay: `${i * 100}ms` }}>
+              {star}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [deck, setDeck] = useState<DictionaryEntry[]>([]);
   const [scores, setScores] = useState<WordScore[]>([]);
@@ -109,6 +152,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Game session tracking
   const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
   const [sessionStartTime] = useState<number>(Date.now());
+  
+  // Streak tracking for current word
+  const [currentWordStreak, setCurrentWordStreak] = useState(0);
+  const [showStreakCelebration, setShowStreakCelebration] = useState(false);
 
   // Exit confirmation modal
   const [showExitConfirm, setShowExitConfirm] = useState(false);
@@ -408,6 +455,17 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       return newMap;
     });
 
+    // Update UI streak tracking
+    setCurrentWordStreak(newStreak);
+    
+    // Trigger celebration when word is mastered (5 correct in a row)
+    if (justLearned) {
+      setShowStreakCelebration(true);
+      sounds.play('perfect');
+      haptics.trigger('tier-up');
+      setTimeout(() => setShowStreakCelebration(false), 3000);
+    }
+
     return { justLearned, newStreak };
   };
 
@@ -416,6 +474,22 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setShowIncorrectShake(true);
     setTimeout(() => setShowIncorrectShake(false), 500);
   };
+
+  // Get streak for current word from scores
+  const getCurrentWordStreak = (wordId: string): number => {
+    const score = scoresMap.get(wordId);
+    return score?.correct_streak || 0;
+  };
+
+  // Update current word streak when word changes
+  useEffect(() => {
+    if (deck.length > 0 && currentIndex < deck.length) {
+      const wordId = deck[currentIndex]?.id;
+      if (wordId) {
+        setCurrentWordStreak(getCurrentWordStreak(wordId));
+      }
+    }
+  }, [currentIndex, deck, scoresMap]);
 
   // Save game session to database
   const saveGameSession = async (gameMode: string, answers: GameSessionAnswer[], correct: number, incorrect: number) => {
@@ -1373,6 +1447,12 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   return (
     <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-primary)]">
+      {/* Streak Celebration Modal */}
+      <StreakCelebrationModal 
+        show={showStreakCelebration} 
+        word={deck[currentIndex]?.word}
+      />
+      
       {/* Offline Indicator */}
       {!isOnline && (
         <div className="shrink-0 px-4 pt-4">
@@ -1610,7 +1690,12 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
                   <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">{t('play.flashcard.word', { language: targetName.toUpperCase() })}</span>
                   <h3 className="text-4xl font-black text-[var(--text-primary)]">{deck[currentIndex].word}</h3>
-                  <p className="mt-12 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">{t('play.flashcard.tapToReveal')}</p>
+                  {currentWordStreak > 0 && (
+                    <div className="mt-4">
+                      <StreakIndicator streak={currentWordStreak} />
+                    </div>
+                  )}
+                  <p className="mt-8 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">{t('play.flashcard.tapToReveal')}</p>
                 </div>
 
                 {/* Back */}
@@ -1650,9 +1735,16 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 {t('play.directions.targetToNative', { target: targetName, native: nativeName })}
               </span>
 
-              <h3 className="text-3xl font-black text-[var(--text-primary)] mb-8 text-center">
-                {deck[currentIndex].word}
-              </h3>
+              <div className="text-center mb-8">
+                <h3 className="text-3xl font-black text-[var(--text-primary)]">
+                  {deck[currentIndex].word}
+                </h3>
+                {currentWordStreak > 0 && (
+                  <div className="mt-2">
+                    <StreakIndicator streak={currentWordStreak} />
+                  </div>
+                )}
+              </div>
 
               <div className="space-y-3">
                 {mcOptions.map((option, idx) => {
@@ -1716,9 +1808,16 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                         : t('play.directions.nativeToTarget', { native: nativeName, target: targetName })}
                     </span>
 
-                    <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">
-                      {prompt}
-                    </h3>
+                    <div className="text-center mb-2">
+                      <h3 className="text-3xl font-black text-[var(--text-primary)]">
+                        {prompt}
+                      </h3>
+                      {currentWordStreak > 0 && (
+                        <div className="mt-2">
+                          <StreakIndicator streak={currentWordStreak} />
+                        </div>
+                      )}
+                    </div>
 
                     {showHint && !typeItSubmitted && (
                       <p className="text-center text-[var(--text-secondary)] text-scale-label mb-4">
