@@ -280,14 +280,10 @@ Main app tabs stay mounted and hidden via CSS (`display: none`) rather than unmo
 
 ## Mistakes (don't repeat these)
 
-Pushed directly to main without using a branch. Always use feature branches and Vercel previews.
+2026-01-25: Pushed GA4 integration and heart background fix directly to main instead of creating a branch first. Richard had to wait for rebuilds of broken code.
 
-Fixed one CSP issue but missed the related one (fonts). When fixing CSP or similar config issues, check for ALL related services at once.
+2026-01-25: Fixed CSP for googletagmanager.com but didn't notice the console also showed fonts.googleapis.com being blocked. Had to do two separate deploys when one would have caught both.
 
-Said "fixed" without actually testing. Always verify changes work - use browser, check console, check network tab.
+2026-01-25: Implemented GA4 with dynamic script loading which caused ERR_UNSAFE_REDIRECT. Should have used Google's standard script tag approach from the start.
 
-Made assumptions about business logic. Ask Richard for design decisions when there are multiple valid solutions.
-
-Changed code without checking if similar code exists elsewhere. Search the codebase first - don't duplicate.
-
-Claimed something was done without reading the actual file to verify. Always verify state before making claims.
+2026-01-25: The SEO analyst reported blog dates were wrong (2026 vs 2025) but it's actually 2026. I didn't catch that the agent was confused about the current year.
