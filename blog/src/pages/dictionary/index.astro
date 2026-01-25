@@ -30,12 +30,12 @@ const jsonLd = {
   "@type": "DefinedTermSet",
   "name": "Polish Dictionary for Couples",
   "description": "Learn Polish vocabulary with pronunciation, examples, and cultural notes. Perfect for couples learning Polish together.",
-  "url": "https://lovelanguages.io/dictionary",
+  "url": "https://www.lovelanguages.io/dictionary",
   "hasDefinedTerm": polishDictionary.slice(0, 50).map(word => ({
     "@type": "DefinedTerm",
     "name": word.polish,
     "description": word.english,
-    "url": `https://lovelanguages.io/dictionary/${word.slug}`
+    "url": `https://www.lovelanguages.io/dictionary/${word.slug}`
   }))
 };
 ---

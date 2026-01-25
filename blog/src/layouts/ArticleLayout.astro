@@ -146,7 +146,7 @@ const LANG_FLAGS: Record<string, string> = {
 };
 
 // Build canonical URL
-const canonicalUrl = `https://lovelanguages.io${Astro.url.pathname}`;
+const canonicalUrl = `https://www.lovelanguages.io${Astro.url.pathname}`;
 
 // Use language flag for culture category
 const categoryConfig = {
@@ -172,25 +172,25 @@ const jsonLd = {
   "@type": "BlogPosting",
   "headline": title,
   "description": description,
-  "image": image ? `https://lovelanguages.io${image}` : "https://lovelanguages.io/og-image.png",
+  "image": image ? `https://www.lovelanguages.io${image}` : "https://www.lovelanguages.io/og-image.png",
   "datePublished": date,
   "dateModified": date,
   "author": {
     "@type": "Organization",
     "name": "Love Languages",
-    "url": "https://lovelanguages.io"
+    "url": "https://www.lovelanguages.io"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://lovelanguages.io/favicon.svg"
+      "url": "https://www.lovelanguages.io/favicon.svg"
     }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://lovelanguages.io${Astro.url.pathname}`
+    "@id": `https://www.lovelanguages.io${Astro.url.pathname}`
   },
   "articleSection": category,
   "keywords": tags?.join(', '),
@@ -219,25 +219,25 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://lovelanguages.io"
+      "item": "https://www.lovelanguages.io"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Learn",
-      "item": "https://lovelanguages.io/learn/"
+      "item": "https://www.lovelanguages.io/learn/"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": `${nativeLanguageInfo.nativeName} Speakers`,
-      "item": `https://lovelanguages.io${nativeHubUrl}`
+      "item": `https://www.lovelanguages.io${nativeHubUrl}`
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": `Learning ${languageInfo.name}`,
-      "item": `https://lovelanguages.io${languagePairUrl}`
+      "item": `https://www.lovelanguages.io${languagePairUrl}`
     },
     {
       "@type": "ListItem",
@@ -255,7 +255,7 @@ const howToJsonLd = isHowTo ? {
   "@type": "HowTo",
   "name": title,
   "description": description,
-  "image": image ? `https://lovelanguages.io${image}` : "https://lovelanguages.io/og-image.png",
+  "image": image ? `https://www.lovelanguages.io${image}` : "https://www.lovelanguages.io/og-image.png",
   "totalTime": `PT${readTime}M`,
   "estimatedCost": {
     "@type": "MonetaryAmount",

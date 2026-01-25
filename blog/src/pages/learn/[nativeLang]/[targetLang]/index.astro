@@ -88,11 +88,11 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode && lang !== targetLanguageCode)
   .map(lang => ({
     lang,
-    href: `https://lovelanguages.io/learn/${lang}/${targetLanguageCode}/`
+    href: `https://www.lovelanguages.io/learn/${lang}/${targetLanguageCode}/`
   }));
 
-const canonicalUrl = `https://lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`;
-const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : `https://lovelanguages.io/learn/en/${targetLanguageCode}/`;
+const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`;
+const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : `https://www.lovelanguages.io/learn/en/${targetLanguageCode}/`;
 
 // JSON-LD for the blog listing page
 const jsonLd = {
@@ -100,18 +100,18 @@ const jsonLd = {
   "@type": "Blog",
   "name": `Love Languages - Learn ${targetInfo.name} Blog`,
   "description": `Free ${targetInfo.name} lessons, vocabulary guides, and cultural tips for couples learning together.`,
-  "url": `https://lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`,
+  "url": `https://www.lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
-    "url": "https://lovelanguages.io"
+    "url": "https://www.lovelanguages.io"
   },
   "blogPost": articles.map(article => ({
     "@type": "BlogPosting",
     "headline": article.data.title,
     "description": article.data.description,
-    "url": `https://lovelanguages.io/learn/${article.slug}/`,
+    "url": `https://www.lovelanguages.io/learn/${article.slug}/`,
     "datePublished": article.data.date
   }))
 };
