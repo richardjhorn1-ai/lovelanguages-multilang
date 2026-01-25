@@ -277,3 +277,17 @@ Main app tabs stay mounted and hidden via CSS (`display: none`) rather than unmo
 - All tabs initialize on first load
 - Event listeners in hidden tabs still fire
 - State persists across tab switches
+
+## Mistakes (don't repeat these)
+
+Pushed directly to main without using a branch. Always use feature branches and Vercel previews.
+
+Fixed one CSP issue but missed the related one (fonts). When fixing CSP or similar config issues, check for ALL related services at once.
+
+Said "fixed" without actually testing. Always verify changes work - use browser, check console, check network tab.
+
+Made assumptions about business logic. Ask Richard for design decisions when there are multiple valid solutions.
+
+Changed code without checking if similar code exists elsewhere. Search the codebase first - don't duplicate.
+
+Claimed something was done without reading the actual file to verify. Always verify state before making claims.
