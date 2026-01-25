@@ -15,7 +15,7 @@ function generateToken(): string {
 }
 
 // Production fallback URL - used when APP_URL and ALLOWED_ORIGINS are not configured
-const PRODUCTION_FALLBACK_URL = 'https://lovelanguages.io';
+const PRODUCTION_FALLBACK_URL = 'https://www.lovelanguages.io';
 
 function getValidOrigin(origin: string | undefined | null): string | null {
   if (!origin) {

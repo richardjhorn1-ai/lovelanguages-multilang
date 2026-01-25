@@ -387,11 +387,11 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode)
   .map(lang => ({
     lang,
-    href: `https://lovelanguages.io/learn/${lang}/`
+    href: `https://www.lovelanguages.io/learn/${lang}/`
   }));
 
-const canonicalUrl = `https://lovelanguages.io/learn/${nativeLanguageCode}/`;
-const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : 'https://lovelanguages.io/learn/en/';
+const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/`;
+const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : 'https://www.lovelanguages.io/learn/en/';
 
 // JSON-LD for the language hub
 const jsonLd = {
@@ -399,12 +399,12 @@ const jsonLd = {
   "@type": "CollectionPage",
   "name": `Love Languages - ${text.heroTitle}`,
   "description": text.heroSubtitle,
-  "url": `https://lovelanguages.io/learn/${nativeLanguageCode}/`,
+  "url": `https://www.lovelanguages.io/learn/${nativeLanguageCode}/`,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
-    "url": "https://lovelanguages.io"
+    "url": "https://www.lovelanguages.io"
   },
   "numberOfItems": totalArticles
 };

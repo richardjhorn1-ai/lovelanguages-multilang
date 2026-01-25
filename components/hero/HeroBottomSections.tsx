@@ -290,7 +290,7 @@ export const HeroBlog: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
           {featuredTopics.map((topic, index) => (
             <a
               key={index}
-              href="https://lovelanguages.io/learn/"
+              href="https://www.lovelanguages.io/learn/"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 md:p-6 rounded-xl md:rounded-2xl bg-white shadow-sm hover:shadow-lg transition-all text-left hover:-translate-y-1"
@@ -310,7 +310,7 @@ export const HeroBlog: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
         {/* CTA - on mobile, include social buttons inline */}
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-0">
           <a
-            href="https://lovelanguages.io/learn/"
+            href="https://www.lovelanguages.io/learn/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-8 md:py-4 rounded-full font-bold text-xs md:text-base text-white transition-all hover:scale-105 shadow-lg"
@@ -394,7 +394,7 @@ export const HeroFooter: React.FC<{ isStudent: boolean; isVisible?: boolean; sec
           <span style={{ color: '#d1d5db' }}>·</span>
           <a href="#/privacy" className="font-medium hover:underline transition-colors" style={{ color: '#6b7280' }}>{t('hero.bottomSections.footer.privacy')}</a>
           <span style={{ color: '#d1d5db' }}>·</span>
-          <a href="https://lovelanguages.io/learn/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline transition-colors" style={{ color: '#6b7280' }}>{t('hero.bottomSections.footer.blog')}</a>
+          <a href="https://www.lovelanguages.io/learn/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline transition-colors" style={{ color: '#6b7280' }}>{t('hero.bottomSections.footer.blog')}</a>
           <span style={{ color: '#d1d5db' }}>·</span>
           <a href="mailto:hello@lovelanguages.xyz" className="font-medium hover:underline transition-colors" style={{ color: '#6b7280' }}>{t('hero.bottomSections.footer.contact')}</a>
         </div>
