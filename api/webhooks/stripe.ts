@@ -42,8 +42,8 @@ function generateGiftCode(): string {
   return code;
 }
 
-// Non-blocking event logger - won't crash webhook if it fails
-function logSubscriptionEvent(
+// Atomic event claim - returns true if we claimed the event, false if duplicate
+async function claimEvent(
   supabase: any,
   data: {
     user_id: string;
@@ -53,15 +53,20 @@ function logSubscriptionEvent(
     new_plan?: string;
     metadata?: any;
   }
-) {
-  (async () => {
-    try {
-      await supabase.from('subscription_events').insert(data);
-      console.log(`[stripe-webhook] Logged event: ${data.event_type}`);
-    } catch (err: any) {
-      console.error('[stripe-webhook] Failed to log event:', err.message);
-    }
-  })();
+): Promise<{ claimed: boolean }> {
+  const { error } = await supabase.from('subscription_events').insert(data);
+
+  if (error?.code === '23505') {
+    // Duplicate key - event already processed
+    return { claimed: false };
+  }
+
+  if (error) {
+    // Log other errors but don't block processing
+    console.error('[stripe-webhook] Failed to claim event:', error.message);
+  }
+
+  return { claimed: true };
 }
 
 export default async function handler(req: any, res: any) {
@@ -112,18 +117,6 @@ export default async function handler(req: any, res: any) {
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-  // Idempotency check - prevent duplicate event processing
-  const { data: existingEvent } = await supabase
-    .from('subscription_events')
-    .select('id')
-    .eq('stripe_event_id', event.id)
-    .single();
-
-  if (existingEvent) {
-    console.log(`[stripe-webhook] Duplicate event ${event.id}, skipping`);
-    return res.status(200).json({ received: true, duplicate: true });
-  }
-
   try {
     switch (event.type) {
       // =========================================
@@ -144,6 +137,21 @@ export default async function handler(req: any, res: any) {
         const subscription = await stripe.subscriptions.retrieve(subscriptionId);
         const priceId = subscription.items.data[0]?.price.id;
         const { plan, period } = getPlanFromPriceId(priceId);
+
+        // Atomic idempotency: claim the event first
+        const { claimed } = await claimEvent(supabase, {
+          user_id: userId,
+          event_type: 'checkout_completed',
+          stripe_event_id: event.id,
+          previous_plan: 'none',
+          new_plan: plan,
+          metadata: { period, subscription_id: subscriptionId },
+        });
+
+        if (!claimed) {
+          console.log(`[stripe-webhook] Duplicate event ${event.id}, skipping`);
+          return res.status(200).json({ received: true, duplicate: true });
+        }
 
         // FIX: current_period_end is on subscription object, not item
         const periodEnd = (subscription as any).current_period_end || Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60;
@@ -166,16 +174,6 @@ export default async function handler(req: any, res: any) {
           console.error('[stripe-webhook] Failed to update profile:', updateError);
           throw updateError;
         }
-
-        // Non-blocking: Log the event
-        logSubscriptionEvent(supabase, {
-          user_id: userId,
-          event_type: 'checkout_completed',
-          stripe_event_id: event.id,
-          previous_plan: 'none',
-          new_plan: plan,
-          metadata: { period, subscription_id: subscriptionId },
-        });
 
         // Non-blocking: Create gift pass for unlimited yearly subscribers
         if (plan === 'unlimited' && period === 'yearly') {
@@ -251,6 +249,21 @@ export default async function handler(req: any, res: any) {
           status = 'past_due';
         }
 
+        // Atomic idempotency: claim the event first
+        const { claimed } = await claimEvent(supabase, {
+          user_id: userId,
+          event_type: 'subscription_updated',
+          stripe_event_id: event.id,
+          previous_plan: previousPlan,
+          new_plan: plan,
+          metadata: { status, period },
+        });
+
+        if (!claimed) {
+          console.log(`[stripe-webhook] Duplicate event ${event.id}, skipping`);
+          return res.status(200).json({ received: true, duplicate: true });
+        }
+
         // FIX: current_period_end is on subscription object
         const periodEnd = (subscription as any).current_period_end || Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60;
 
@@ -286,16 +299,6 @@ export default async function handler(req: any, res: any) {
           console.log(`[stripe-webhook] Cascaded update to ${updatedPartners.length} partner(s)`);
         }
 
-        // Non-blocking: Log the event
-        logSubscriptionEvent(supabase, {
-          user_id: userId,
-          event_type: 'subscription_updated',
-          stripe_event_id: event.id,
-          previous_plan: previousPlan,
-          new_plan: plan,
-          metadata: { status, period, updated_partners: updatedPartners?.map(p => p.id) || [] },
-        });
-
         console.log(`[stripe-webhook] Updated subscription for user ${userId}: ${plan} (${status})`);
         break;
       }
@@ -317,6 +320,20 @@ export default async function handler(req: any, res: any) {
         if (!profile) {
           console.error(`[stripe-webhook] No user found for deleted subscription (customer: ${customerId})`);
           break;
+        }
+
+        // Atomic idempotency: claim the event first
+        const { claimed } = await claimEvent(supabase, {
+          user_id: profile.id,
+          event_type: 'subscription_deleted',
+          stripe_event_id: event.id,
+          previous_plan: profile.subscription_plan,
+          new_plan: 'none',
+        });
+
+        if (!claimed) {
+          console.log(`[stripe-webhook] Duplicate event ${event.id}, skipping`);
+          return res.status(200).json({ received: true, duplicate: true });
         }
 
         // Update profile to canceled
@@ -351,16 +368,6 @@ export default async function handler(req: any, res: any) {
           console.log(`[stripe-webhook] Revoked access for ${revokedPartners.length} partner(s)`);
         }
 
-        // Non-blocking: Log the event
-        logSubscriptionEvent(supabase, {
-          user_id: profile.id,
-          event_type: 'subscription_deleted',
-          stripe_event_id: event.id,
-          previous_plan: profile.subscription_plan,
-          new_plan: 'none',
-          metadata: { revoked_partners: revokedPartners?.map(p => p.id) || [] },
-        });
-
         console.log(`[stripe-webhook] Subscription canceled for user ${profile.id}`);
         break;
       }
@@ -384,6 +391,19 @@ export default async function handler(req: any, res: any) {
           break;
         }
 
+        // Atomic idempotency: claim the event first
+        const { claimed } = await claimEvent(supabase, {
+          user_id: profile.id,
+          event_type: 'payment_failed',
+          stripe_event_id: event.id,
+          metadata: { invoice_id: invoice.id },
+        });
+
+        if (!claimed) {
+          console.log(`[stripe-webhook] Duplicate event ${event.id}, skipping`);
+          return res.status(200).json({ received: true, duplicate: true });
+        }
+
         // Update status to past_due
         const { error: updateError } = await supabase
           .from('profiles')
@@ -394,14 +414,6 @@ export default async function handler(req: any, res: any) {
           console.error('[stripe-webhook] Failed to update payment status:', updateError);
           throw updateError;
         }
-
-        // Non-blocking: Log the event
-        logSubscriptionEvent(supabase, {
-          user_id: profile.id,
-          event_type: 'payment_failed',
-          stripe_event_id: event.id,
-          metadata: { invoice_id: invoice.id },
-        });
 
         console.log(`[stripe-webhook] Payment failed for user ${profile.id}`);
         break;
