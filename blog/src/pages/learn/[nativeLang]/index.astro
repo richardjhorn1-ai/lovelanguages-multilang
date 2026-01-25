@@ -35,7 +35,7 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
 // Generate static paths for each native language
 export async function getStaticPaths() {
   // Native languages that have translated content (defined inside getStaticPaths for Astro hoisting)
-  const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr'];
+  const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr', 'nl', 'ro', 'uk'];
   return supportedNativeLangs.map(nativeLang => ({
     params: { nativeLang }
   }));
