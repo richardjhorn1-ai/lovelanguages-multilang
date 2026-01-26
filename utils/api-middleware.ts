@@ -561,6 +561,9 @@ export async function requireSubscription(
  * Checks if user has exceeded their rate limit for a specific endpoint.
  * Uses monthly limits stored in RATE_LIMITS configuration.
  *
+ * Also checks for active promotional access (promo_expires_at > now),
+ * which grants standard tier limits to free users.
+ *
  * @param supabase - Supabase client with service key
  * @param userId - User ID to check
  * @param limitKey - Key from RATE_LIMITS (e.g., 'chat', 'validateWord')
@@ -584,21 +587,31 @@ export async function checkRateLimit(
   options?: { failClosed?: boolean }
 ): Promise<RateLimitResult> {
   const config = RATE_LIMITS[limitKey];
-  const monthlyLimit = config.monthly[plan];
+  const now = new Date();
+
+  // Get user's profile for promo check and rolling 30-day window calculation
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select('created_at, promo_expires_at')
+    .eq('id', userId)
+    .single();
+
+  // Check for active promotional access
+  // If promo_expires_at > now, treat user as 'standard' tier regardless of subscription
+  let effectivePlan = plan;
+  if (profile?.promo_expires_at) {
+    const promoExpiry = new Date(profile.promo_expires_at);
+    if (promoExpiry > now) {
+      effectivePlan = 'standard';
+    }
+  }
+
+  const monthlyLimit = config.monthly[effectivePlan];
 
   // null = unlimited
   if (monthlyLimit === null) {
     return { allowed: true };
   }
-
-  const now = new Date();
-
-  // Get user's signup date for rolling 30-day window calculation
-  const { data: profile, error: profileError } = await supabase
-    .from('profiles')
-    .select('created_at')
-    .eq('id', userId)
-    .single();
 
   if (profileError || !profile?.created_at) {
     console.error('[api-middleware] Failed to fetch user profile:', profileError?.message);
