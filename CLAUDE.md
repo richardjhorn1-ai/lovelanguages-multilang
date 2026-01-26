@@ -278,6 +278,38 @@ Main app tabs stay mounted and hidden via CSS (`display: none`) rather than unmo
 - Event listeners in hidden tabs still fire
 - State persists across tab switches
 
+## Security Checklist (MANDATORY before completing any task)
+
+**Every task, every time. No exceptions.**
+
+### Before Committing Code:
+- [ ] **Secrets scan** — No hardcoded API keys, passwords, tokens in code or comments
+- [ ] **Input validation** — All user inputs sanitized (use `sanitizeInput()` from `utils/sanitize.ts`)
+- [ ] **SQL injection** — Using parameterized queries (Supabase client handles this)
+- [ ] **Auth check** — Every API endpoint calls `verifyAuth(req)` first
+- [ ] **Type safety** — Run `npx tsc --noEmit` passes
+- [ ] **Build check** — Run `npm run build` passes
+
+### Before Pushing:
+- [ ] **Branch check** — NOT on `main` (create feature branch first!)
+- [ ] **Diff review** — `git diff` looks correct, no debug code left
+- [ ] **Test** — Verified the change works (browser, console, network)
+
+### Red Flags to Watch For:
+- `.env` values appearing in code
+- `console.log` with sensitive data
+- `eval()`, `dangerouslySetInnerHTML`, `innerHTML`
+- Disabled TypeScript (`// @ts-ignore`, `any` types)
+- Direct string concatenation in queries
+
+### Self-Testing Prompts (use these):
+When completing complex features, ask yourself:
+1. "Write 20 unit tests designed to break this function"
+2. "Find every security vulnerability in this code"
+3. "What happens with null, undefined, empty string, huge array?"
+
+---
+
 ## Mistakes (don't repeat these)
 
 2026-01-25: Pushed GA4 integration and heart background fix directly to main instead of creating a branch first. Richard had to wait for rebuilds of broken code.
