@@ -425,23 +425,23 @@ export type SubscriptionPlan = 'free' | 'standard' | 'unlimited';
  * To modify limits, edit this object - changes apply to all endpoints.
  */
 export const RATE_LIMITS = {
-  // AI-powered endpoints (high cost) - no free tier
-  chat: { type: 'text_messages', monthly: { free: 0, standard: 5000, unlimited: null } },
-  validateWord: { type: 'word_validations', monthly: { free: 0, standard: 2000, unlimited: null } },
-  validateAnswer: { type: 'answer_validations', monthly: { free: 0, standard: 3000, unlimited: null } },
+  // AI-powered endpoints - free tier has limited access
+  chat: { type: 'text_messages', monthly: { free: 25, standard: 5000, unlimited: null } },
+  validateWord: { type: 'word_validations', monthly: { free: 50, standard: 2000, unlimited: null } },
+  validateAnswer: { type: 'answer_validations', monthly: { free: 75, standard: 3000, unlimited: null } },
   analyzeHistory: { type: 'history_analysis', monthly: { free: 0, standard: 500, unlimited: null } },
   processTranscript: { type: 'transcript_process', monthly: { free: 0, standard: 200, unlimited: null } },
-  generateLevelTest: { type: 'level_tests', monthly: { free: 0, standard: 50, unlimited: null } },
-  submitLevelTest: { type: 'level_test_submissions', monthly: { free: 0, standard: 100, unlimited: null } },
-  createChallenge: { type: 'challenge_creations', monthly: { free: 0, standard: 200, unlimited: null } },
-  submitChallenge: { type: 'challenge_submissions', monthly: { free: 0, standard: 500, unlimited: null } },
+  generateLevelTest: { type: 'level_tests', monthly: { free: 2, standard: 50, unlimited: null } },
+  submitLevelTest: { type: 'level_test_submissions', monthly: { free: 4, standard: 100, unlimited: null } },
+  createChallenge: { type: 'challenge_creations', monthly: { free: 5, standard: 200, unlimited: null } },
+  submitChallenge: { type: 'challenge_submissions', monthly: { free: 10, standard: 500, unlimited: null } },
 
-  // TTS - available to free users with lower limit
+  // TTS - available to free users
   tts: { type: 'tts_requests', monthly: { free: 100, standard: 1000, unlimited: null } },
 
-  // Voice endpoints (very high cost) - no free tier
-  liveToken: { type: 'voice_sessions', monthly: { free: 0, standard: 20, unlimited: null } },
-  gladiaToken: { type: 'listen_sessions', monthly: { free: 0, standard: 40, unlimited: null } },
+  // Voice endpoints - free tier gets 1 session (2 min max enforced client-side)
+  liveToken: { type: 'voice_sessions', monthly: { free: 1, standard: 20, unlimited: null } },
+  gladiaToken: { type: 'listen_sessions', monthly: { free: 1, standard: 40, unlimited: null } },
 
   // Abuse prevention (same limits for all tiers)
   deleteAccount: { type: 'account_deletions', monthly: { free: 1, standard: 1, unlimited: 1 } },
@@ -591,22 +591,50 @@ export async function checkRateLimit(
     return { allowed: true };
   }
 
-  // Calculate current month boundaries
   const now = new Date();
-  const currentMonth = now.toISOString().slice(0, 7); // "2026-01"
-  const [year, month] = currentMonth.split('-').map(Number);
-  const nextMonth = month === 12
-    ? `${year + 1}-01`
-    : `${year}-${String(month + 1).padStart(2, '0')}`;
 
-  // Get usage for current month
-  const { data: monthlyUsage, error } = await supabase
+  // Get user's signup date for rolling 30-day window calculation
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select('created_at')
+    .eq('id', userId)
+    .single();
+
+  if (profileError || !profile?.created_at) {
+    console.error('[api-middleware] Failed to fetch user profile:', profileError?.message);
+    if (options?.failClosed) {
+      return {
+        allowed: false,
+        error: 'Unable to verify usage limits. Please try again.'
+      };
+    }
+    return { allowed: true };
+  }
+
+  // Calculate rolling 30-day window based on signup date
+  // The window resets every 30 days from signup, not calendar month
+  const signupDate = new Date(profile.created_at);
+  const daysSinceSignup = Math.floor((now.getTime() - signupDate.getTime()) / (1000 * 60 * 60 * 24));
+  const currentPeriod = Math.floor(daysSinceSignup / 30);
+
+  // Calculate the start of the current 30-day period
+  const periodStartDate = new Date(signupDate);
+  periodStartDate.setDate(periodStartDate.getDate() + (currentPeriod * 30));
+  const periodStart = periodStartDate.toISOString().split('T')[0];
+
+  // Calculate the end of the current 30-day period (start of next period)
+  const periodEndDate = new Date(periodStartDate);
+  periodEndDate.setDate(periodEndDate.getDate() + 30);
+  const periodEnd = periodEndDate.toISOString().split('T')[0];
+
+  // Get usage for current rolling 30-day period
+  const { data: periodUsage, error } = await supabase
     .from('usage_tracking')
     .select('count')
     .eq('user_id', userId)
     .eq('usage_type', config.type)
-    .gte('usage_date', `${currentMonth}-01`)
-    .lt('usage_date', `${nextMonth}-01`);
+    .gte('usage_date', periodStart)
+    .lt('usage_date', periodEnd);
 
   if (error) {
     console.error('[api-middleware] Failed to check usage:', error.message);
@@ -620,12 +648,11 @@ export async function checkRateLimit(
     return { allowed: true };
   }
 
-  const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
+  const currentCount = (periodUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
   const remaining = Math.max(0, monthlyLimit - currentCount);
 
-  // Calculate reset time (first of next month)
-  const resetDate = new Date(year, month, 1); // month is 0-indexed, so this is next month
-  const resetAt = resetDate.toISOString();
+  // Reset time is the start of the next 30-day period
+  const resetAt = periodEndDate.toISOString();
 
   if (currentCount >= monthlyLimit) {
     return {
@@ -633,7 +660,7 @@ export async function checkRateLimit(
       remaining: 0,
       limit: monthlyLimit,
       resetAt,
-      error: `Monthly limit reached (${monthlyLimit}). Resets ${resetDate.toLocaleDateString()}.`
+      error: `Monthly limit reached (${monthlyLimit}). Resets ${periodEndDate.toLocaleDateString()}.`
     };
   }
 
