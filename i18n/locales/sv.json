@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Du har använt alla smarta valideringar",
     "outOfVoice": "Du har nått gränsen för röstsessioner",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Uppgradera för obegränsade smarta valideringar, eller fortsätt med grundläggande kontroll.",
     "upgradeDescGeneric": "Uppgradera för att fortsätta använda denna funktion utan begränsningar."
   },
-
   "signup": {
-    "freeStart": "Börja lära dig gratis"
+    "freeStartLearning": "Börja lära dig gratis",
+    "freeStartTeaching": "Börja undervisa gratis"
   },
-
   "promo": {
     "title": "Skapare-åtkomst",
     "enterCode": "Har du en skaparkod?",

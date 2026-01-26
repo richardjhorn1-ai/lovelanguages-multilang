@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Je hebt je slimme validaties opgebruikt",
     "outOfVoice": "Je hebt je spraaksessielimiet bereikt",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Upgrade voor onbeperkte slimme validaties, of ga door met basis controle.",
     "upgradeDescGeneric": "Upgrade om deze functie zonder limieten te blijven gebruiken."
   },
-
   "signup": {
-    "freeStart": "Begin gratis met leren"
+    "freeStartLearning": "Begin gratis te leren",
+    "freeStartTeaching": "Begin gratis les te geven"
   },
-
   "promo": {
     "title": "Creator Toegang",
     "enterCode": "Heb je een creator code?",

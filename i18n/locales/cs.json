@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Vyčerpali jste chytré validace",
     "outOfVoice": "Dosáhli jste limitu hlasových relací",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Upgradujte pro neomezené chytré validace, nebo pokračujte se základní kontrolou.",
     "upgradeDescGeneric": "Upgradujte, abyste mohli tuto funkci používat bez limitů."
   },
-
   "signup": {
-    "freeStart": "Začněte se učit zdarma"
+    "freeStartLearning": "Začněte se učit zdarma",
+    "freeStartTeaching": "Začněte vyučovat zdarma"
   },
-
   "promo": {
     "title": "Přístup pro tvůrce",
     "enterCode": "Máte kód tvůrce?",

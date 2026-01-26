@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Wykorzystałeś inteligentne walidacje",
     "outOfVoice": "Osiągnąłeś limit sesji głosowych",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Ulepsz plan, aby mieć nieograniczone inteligentne walidacje, lub kontynuuj z podstawową weryfikacją.",
     "upgradeDescGeneric": "Ulepsz plan, aby korzystać z tej funkcji bez limitów."
   },
-
   "signup": {
-    "freeStart": "Zacznij uczyć się za darmo"
+    "freeStartLearning": "Zacznij się uczyć za darmo",
+    "freeStartTeaching": "Zacznij uczyć za darmo"
   },
-
   "promo": {
     "title": "Dostęp Twórcy",
     "enterCode": "Masz kod twórcy?",
