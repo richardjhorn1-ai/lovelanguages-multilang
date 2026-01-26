@@ -37,6 +37,30 @@ const LoginForm: React.FC<LoginFormProps> = ({
   currentStep
 }) => {
   const [oauthLoading, setOauthLoading] = useState<'google' | 'apple' | null>(null);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      setMessage(t('hero.login.enterEmailFirst'));
+      return;
+    }
+    setResetLoading(true);
+    setMessage('');
+
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/#/reset-password`,
+    });
+
+    setResetLoading(false);
+    if (error) {
+      setMessage(error.message);
+    } else {
+      setMessage(t('hero.login.resetEmailSent'));
+      setShowForgotPassword(false);
+    }
+  };
 
   const handleOAuthSignIn = async (provider: 'google' | 'apple') => {
     setOauthLoading(provider);
@@ -122,29 +146,55 @@ const LoginForm: React.FC<LoginFormProps> = ({
             autoComplete="current-password"
             value={password}
             onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); }}
-            required
+            required={!showForgotPassword}
             className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
             style={{ backgroundColor: '#ffffff', color: '#1a1a2e', borderColor: hasError ? errorBorderColor : '#e5e7eb' }}
             onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
             onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : '#e5e7eb'}
             placeholder={t('hero.login.passwordPlaceholder')}
           />
+          {/* Forgot Password Link */}
+          {!isSignUp && (
+            <button
+              type="button"
+              onClick={() => setShowForgotPassword(!showForgotPassword)}
+              className="mt-2 text-scale-caption font-semibold transition-all hover:opacity-70"
+              style={{ color: accentColor }}
+            >
+              {showForgotPassword ? t('hero.login.backToLogin') : t('hero.login.forgotPassword')}
+            </button>
+          )}
         </div>
 
-        <button
-          type="submit"
-          disabled={loading || oauthLoading !== null}
-          className="w-full text-white font-black py-5 rounded-[2rem] shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
-          style={{ backgroundColor: accentColor, boxShadow: `0 20px 40px -10px ${accentShadow}` }}
-          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
-          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
-        >
-          {loading ? t('hero.login.entering') : (
-            currentStep === 'marketing' ? context.cta : (
-              isSignUp ? t('hero.login.createAccount') : t('hero.login.signIn')
-            )
-          )}
-        </button>
+        {/* Reset Password Button (when forgot password mode) */}
+        {showForgotPassword ? (
+          <button
+            type="button"
+            onClick={handleForgotPassword}
+            disabled={resetLoading || !email}
+            className="w-full text-white font-black py-5 rounded-[2rem] shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
+            style={{ backgroundColor: accentColor, boxShadow: `0 20px 40px -10px ${accentShadow}` }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
+          >
+            {resetLoading ? t('hero.login.sending') : t('hero.login.sendResetLink')}
+          </button>
+        ) : (
+          <button
+            type="submit"
+            disabled={loading || oauthLoading !== null}
+            className="w-full text-white font-black py-5 rounded-[2rem] shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
+            style={{ backgroundColor: accentColor, boxShadow: `0 20px 40px -10px ${accentShadow}` }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
+          >
+            {loading ? t('hero.login.entering') : (
+              currentStep === 'marketing' ? context.cta : (
+                isSignUp ? t('hero.login.createAccount') : t('hero.login.signIn')
+              )
+            )}
+          </button>
+        )}
       </form>
 
       {/* OAuth Divider */}

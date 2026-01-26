@@ -1104,6 +1104,33 @@ const Hero: React.FC = () => {
                 placeholder={t('hero.login.passwordPlaceholder')}
               />
 
+              {/* Forgot Password Link (Mobile) */}
+              {!isSignUp && (
+                <button
+                  type="button"
+                  onClick={async () => {
+                    if (!email) {
+                      setMessage(t('hero.login.enterEmailFirst'));
+                      return;
+                    }
+                    setLoading(true);
+                    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                      redirectTo: `${window.location.origin}/#/reset-password`,
+                    });
+                    setLoading(false);
+                    if (error) {
+                      setMessage(error.message);
+                    } else {
+                      setMessage(t('hero.login.resetEmailSent'));
+                    }
+                  }}
+                  className="mt-1 text-scale-caption font-semibold transition-all hover:opacity-70"
+                  style={{ color: accentColor }}
+                >
+                  {t('hero.login.forgotPassword')}
+                </button>
+              )}
+
               <button
                 type="submit"
                 disabled={loading || oauthLoading !== null}

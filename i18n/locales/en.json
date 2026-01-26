@@ -1820,7 +1820,13 @@
       "alreadyHaveAccount": "Already have an account? Sign in",
       "newHere": "New here? Create an account",
       "checkEmail": "Check your email for confirmation!",
-      "continueWithGoogle": "Continue with Google"
+      "continueWithGoogle": "Continue with Google",
+      "forgotPassword": "Forgot password?",
+      "backToLogin": "Back to login",
+      "sendResetLink": "Send reset link",
+      "sending": "Sending...",
+      "resetEmailSent": "Check your email for a password reset link!",
+      "enterEmailFirst": "Please enter your email address first"
     },
     "legal": {
       "terms": "Terms",
@@ -2003,5 +2009,19 @@
         "copyright": "Love Languages · Made with ♥ for lovers everywhere"
       }
     }
+  },
+
+  "resetPassword": {
+    "title": "Reset Your Password",
+    "subtitle": "Enter your new password below",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "updatePassword": "Update Password",
+    "updating": "Updating...",
+    "success": "Password updated successfully!",
+    "redirecting": "Redirecting to login...",
+    "invalidLink": "This password reset link is invalid or has expired. Please request a new one.",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "passwordsMustMatch": "Passwords must match"
   }
 }
