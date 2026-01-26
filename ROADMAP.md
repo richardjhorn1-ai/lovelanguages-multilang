@@ -1,7 +1,89 @@
 # Love Languages - Development Roadmap
 
-**Last Updated:** January 2025  
+**Last Updated:** January 2026  
 **Project:** Love Languages Multilang
+
+---
+
+## 🏗️ Major System Improvements
+
+These are foundational systems that need holistic redesign, not quick fixes.
+
+### A. XP & Progression System Overhaul
+The current XP system is essentially "number of words in dictionary." Needs complete rethink.
+
+**Problems:**
+- XP not awarded for actual practice (games, challenges)
+- Levels don't mean anything
+- No daily/streak incentives
+- Score tracking columns inconsistent (`success_count` vs `total_attempts`)
+
+**Needs:**
+- XP formula based on actual learning (practice, streaks, mastery)
+- Meaningful level progression
+- Daily bonuses, streak rewards
+- Unified score tracking across all features
+- Connect XP to skill progression, not just word count
+
+**Related items:** #1, #2, #6, #16, #22
+
+---
+
+### B. Verb System & Conjugation
+Verb Mastery is Polish-only and limited to 3 tenses. Real languages have many more.
+
+**Problems:**
+- Hardcoded Polish pronouns in Verb Mastery
+- Only present/past/future — missing conditional, subjunctive, imperative, perfect, etc.
+- No way to add new tenses
+- Love Log doesn't handle verbs properly
+
+**Needs:**
+- Per-language conjugation structures (each language is different)
+- Full tense support (varies by language)
+- Verb data generation/sourcing pipeline
+- Love Log verb integration
+- Works for all 18 languages
+
+**Related items:** #5, #20
+
+---
+
+### C. Curriculum & Tutor Guidance
+No structured learning path. Users wander aimlessly.
+
+**Problems:**
+- Tutor has no curriculum to follow
+- No connection between learned words and next steps
+- No milestones or progression targets
+- Each language needs its own path (grammar structures differ)
+
+**Needs:**
+- Per-language learning curriculum
+- Tutor targets based on user's current vocabulary
+- "You've learned X, now practice Y" guidance
+- Fixed progression milestones per level
+- Connect vocabulary → grammar → conversation skills
+
+**Related items:** #24
+
+---
+
+### D. Component Architecture Refactor
+Giant components are unmaintainable and slow to iterate on.
+
+**Problems:**
+- `FlashcardGame.tsx` — 2,321 lines
+- `ChatArea.tsx` — 1,877 lines
+- `TutorGames.tsx` — 1,355 lines
+- `Progress.tsx` — 1,287 lines
+
+**Needs:**
+- Split into focused, testable components
+- Shared hooks for common logic
+- Enables faster iteration on other improvements
+
+**Related items:** #11
 
 ---
 
