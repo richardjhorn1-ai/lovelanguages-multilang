@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Has agotado las validaciones inteligentes",
     "outOfVoice": "Has alcanzado el límite de sesiones de voz",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Mejora tu plan para validaciones inteligentes ilimitadas, o continúa con verificación básica.",
     "upgradeDescGeneric": "Mejora tu plan para seguir usando esta función sin límites."
   },
-
   "signup": {
-    "freeStart": "Empieza a aprender por $0.00"
+    "freeStartLearning": "Empieza a aprender gratis",
+    "freeStartTeaching": "Empieza a enseñar gratis"
   },
-
   "promo": {
     "title": "Acceso de Creador",
     "enterCode": "¿Tienes un código de creador?",

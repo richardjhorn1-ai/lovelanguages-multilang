@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Du har brukt opp smarte valideringer",
     "outOfVoice": "Du har nådd grensen for taleøkter",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Oppgrader for ubegrensede smarte valideringer, eller fortsett med grunnleggende sjekk.",
     "upgradeDescGeneric": "Oppgrader for å fortsette å bruke denne funksjonen uten begrensninger."
   },
-
   "signup": {
-    "freeStart": "Begynn å lære gratis"
+    "freeStartLearning": "Begynn å lære gratis",
+    "freeStartTeaching": "Begynn å undervise gratis"
   },
-
   "promo": {
     "title": "Skaper-tilgang",
     "enterCode": "Har du en skaperkode?",

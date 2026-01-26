@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Elfogytak az okos ellenőrzések",
     "outOfVoice": "Elérted a hangsessziók korlátját",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Frissíts korlátlan okos ellenőrzésekért, vagy folytasd alapvető ellenőrzéssel.",
     "upgradeDescGeneric": "Frissíts, hogy korlátlanul használhasd ezt a funkciót."
   },
-
   "signup": {
-    "freeStart": "Kezdj el tanulni ingyen"
+    "freeStartLearning": "Kezdj el tanulni ingyen",
+    "freeStartTeaching": "Kezdj el tanítani ingyen"
   },
-
   "promo": {
     "title": "Alkotói hozzáférés",
     "enterCode": "Van alkotói kódod?",

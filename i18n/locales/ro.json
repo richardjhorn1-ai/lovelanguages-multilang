@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Ai epuizat validările inteligente",
     "outOfVoice": "Ai atins limita de sesiuni vocale",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Fă upgrade pentru validări inteligente nelimitate, sau continuă cu verificare de bază.",
     "upgradeDescGeneric": "Fă upgrade pentru a folosi această funcție fără limite."
   },
-
   "signup": {
-    "freeStart": "Începe să înveți gratuit"
+    "freeStartLearning": "Începe să înveți gratuit",
+    "freeStartTeaching": "Începe să predai gratuit"
   },
-
   "promo": {
     "title": "Acces Creator",
     "enterCode": "Ai un cod de creator?",

@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Akıllı doğrulamalarınız tükendi",
     "outOfVoice": "Sesli oturum limitine ulaştınız",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Sınırsız akıllı doğrulama için yükseltin veya temel kontrolle devam edin.",
     "upgradeDescGeneric": "Bu özelliği sınırsız kullanmak için yükseltin."
   },
-
   "signup": {
-    "freeStart": "Ücretsiz öğrenmeye başla"
+    "freeStartLearning": "Ücretsiz öğrenmeye başla",
+    "freeStartTeaching": "Ücretsiz öğretmeye başla"
   },
-
   "promo": {
     "title": "İçerik Üretici Erişimi",
     "enterCode": "İçerik üretici kodunuz var mı?",

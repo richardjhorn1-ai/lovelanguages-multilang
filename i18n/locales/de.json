@@ -1969,7 +1969,6 @@
       }
     }
   },
-
   "limits": {
     "outOfValidations": "Du hast deine smarten Validierungen aufgebraucht",
     "outOfVoice": "Du hast dein Limit für Sprachsitzungen erreicht",
@@ -1982,11 +1981,10 @@
     "upgradeDesc": "Upgrade für unbegrenzte smarte Validierungen, oder fahre mit einfacher Überprüfung fort.",
     "upgradeDescGeneric": "Upgrade, um diese Funktion ohne Limits zu nutzen."
   },
-
   "signup": {
-    "freeStart": "Lerne kostenlos los"
+    "freeStartLearning": "Kostenlos lernen starten",
+    "freeStartTeaching": "Kostenlos unterrichten starten"
   },
-
   "promo": {
     "title": "Creator-Zugang",
     "enterCode": "Hast du einen Creator-Code?",
