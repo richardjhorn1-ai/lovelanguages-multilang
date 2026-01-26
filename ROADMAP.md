@@ -5,6 +5,43 @@
 
 ---
 
+## 📊 Analytics Implementation (Do First — Data Foundation)
+
+**Before optimizing, we need to see what's happening.**
+
+Comprehensive event tracking to understand the full user journey. See `docs/ANALYTICS_IMPLEMENTATION.md` for full spec.
+
+### Event Categories
+- **Acquisition:** Blog views, CTA clicks, source attribution
+- **Activation:** Signup, onboarding steps, first word, first chat
+- **Monetization:** Paywall views, plan selection, checkout, conversion
+- **Engagement:** Chat, games, vocabulary, challenges, voice
+- **Retention:** Streaks, partner invites, return visits
+- **Churn signals:** Errors, rage clicks, abandoned features
+
+### Agent Assignments
+| Agent | Responsibility |
+|-------|----------------|
+| Felix 🎨 | `services/analytics.ts`, frontend event triggers |
+| Bruno 🔧 | Supabase events table, server-side validation |
+| Diana 🚀 | GA4 configuration, BigQuery export |
+| Sofia ✍️ | Blog-specific events, content performance |
+
+### Phases
+1. **Foundation** — Core funnel events (signup → paywall → convert)
+2. **Engagement** — Feature usage events
+3. **Analysis** — GA4 funnels, dashboards
+4. **Optimization** — A/B tests, automated reports
+
+### Success = Answering These Questions
+- Where do users come from?
+- Where do they drop off?
+- What features drive retention?
+- What content converts best?
+- Why do people churn?
+
+---
+
 ## 📚 Skills Development
 
 Formalize repeatable workflows into skills. See `SKILLS_TODO.md` for full list.
