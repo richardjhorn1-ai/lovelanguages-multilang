@@ -26,6 +26,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import FAQ from './components/FAQ';
 import Method from './components/Method';
 import Pricing from './components/Pricing';
+import ResetPassword from './components/ResetPassword';
 import CookieConsent from './components/CookieConsent';
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -197,7 +198,7 @@ const App: React.FC = () => {
         .single();
 
       if (error) {
-        // Fix: PostgrestError does not have a status property. 
+        // Fix: PostgrestError does not have a status property.
         // PGRST116 is the code for "no rows returned" when using .single()
         if (error.code === 'PGRST116') {
           const { data: userData } = await supabase.auth.getUser();
@@ -341,7 +342,7 @@ const App: React.FC = () => {
         <div className="text-6xl mb-4">⚠️</div>
         <h2 className="text-2xl font-bold text-red-700 mb-2">Connection Issue</h2>
         <p className="text-red-600 max-w-md mb-6">{dbError}</p>
-        <button 
+        <button
           onClick={() => window.location.reload()}
           className="bg-red-600 text-white px-6 py-2 rounded-xl font-bold shadow-lg"
         >
@@ -370,6 +371,7 @@ const App: React.FC = () => {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/method" element={<Method />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
 
             {/* Target language routes - /pl, /es, /fr, etc. */}
             {/* Only match actual language codes, not app routes like /log, /play */}
