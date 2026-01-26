@@ -1,0 +1,38 @@
+# Gitleaks configuration for Love Languages
+# https://github.com/gitleaks/gitleaks
+
+title = "Love Languages Gitleaks Config"
+
+[extend]
+# Use default rules
+useDefault = true
+
+# Paths to ignore
+[allowlist]
+paths = [
+  '''\.env\.example''',
+  '''\.env\.local\.example''',
+  '''package-lock\.json''',
+  '''pnpm-lock\.yaml''',
+  '''yarn\.lock''',
+  '''\.md$''',  # Documentation may contain example keys
+  '''e2e/''',   # Test files may have test credentials
+]
+
+# Specific patterns to ignore (false positives)
+regexes = [
+  # Test account passwords (intentionally in code)
+  '''tester[1-7]''',
+  # Example/placeholder keys in docs
+  '''sk-xxx''',
+  '''your-api-key-here''',
+  # Supabase anon keys are public (safe to expose)
+  '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.eyJpc3MiOiJzdXBhYmFzZS''',
+]
+
+# Custom rules for this project
+[[rules]]
+id = "env-file-check"
+description = "Detect .env files that shouldn't be committed"
+regex = '''\.env(?!\.example|\.local\.example)'''
+path = '''\.env'''

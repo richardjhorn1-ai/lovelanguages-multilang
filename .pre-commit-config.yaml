@@ -1,0 +1,51 @@
+# Pre-commit hooks for Love Languages
+# Install: pip install pre-commit && pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  # Gitleaks - scan for secrets
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.1
+    hooks:
+      - id: gitleaks
+
+  # Standard pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: '\.md$'
+      - id: end-of-file-fixer
+        exclude: '\.md$'
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+      - id: detect-private-key
+      - id: check-merge-conflict
+
+  # ESLint for TypeScript/JavaScript
+  - repo: local
+    hooks:
+      - id: eslint
+        name: eslint
+        entry: npx eslint --fix
+        language: system
+        types: [javascript, jsx, ts, tsx]
+        pass_filenames: true
+
+      # TypeScript type checking
+      - id: tsc
+        name: tsc
+        entry: npx tsc --noEmit
+        language: system
+        pass_filenames: false
+        types: [ts, tsx]
+
+      # Build check (catches more issues than tsc alone)
+      - id: build-check
+        name: build-check
+        entry: npm run build
+        language: system
+        pass_filenames: false
+        stages: [push]  # Only on push, not every commit
