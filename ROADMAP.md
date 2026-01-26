@@ -64,6 +64,34 @@ Add to agent workflow:
 
 ---
 
+## 🤖 Self-Service & Support Automation
+
+Reduce manual support burden before it becomes a ceiling.
+
+### Password Reset in UI
+Supabase supports it, but no UI button exists. Users can't reset password themselves.
+
+**Fix:** Add "Forgot password?" link to login, "Change password" in profile settings.
+
+**Effort:** Quick (1 hour)
+
+### Email Change Self-Service
+Let users change their own email in profile settings.
+
+**Effort:** Quick (Supabase has `updateUser()`)
+
+### FAQ Enhancement
+FAQ exists but could be smarter:
+- Train AI tutor on FAQ content
+- Add pricing explanation
+- Add "How do I...?" common questions
+- Link FAQ from error states / confusion points
+
+### Help Chatbot
+The tutor already knows the product. Could add a "Help" mode that answers account/billing/how-to questions instead of language learning.
+
+---
+
 ## 💰 Monetization & Conversion (User Feedback)
 
 Real feedback from early users — high priority.
