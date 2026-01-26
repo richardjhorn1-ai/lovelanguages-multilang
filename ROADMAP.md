@@ -5,6 +5,47 @@
 
 ---
 
+## 🔒 Code Review & Security Automation (Do First)
+
+Set up before next coding session. Claude writes fast — including bugs.
+
+### Add Security Checklist to CLAUDE.md
+```markdown
+## Before completing any task:
+- [ ] Scan for hardcoded secrets, API keys, passwords
+- [ ] Check for SQL injection, shell injection, path traversal
+- [ ] Verify all user inputs are validated
+- [ ] Run `npx tsc --noEmit && npm run build`
+- [ ] Check for type errors
+```
+
+### Pre-commit Hooks
+Block bad commits locally before they ever get pushed.
+
+```bash
+pip install pre-commit
+# Add .pre-commit-config.yaml with:
+# - gitleaks (secrets)
+# - eslint/prettier
+# - tsc --noEmit
+```
+
+### Automated Scanners
+- `gitleaks detect` — leaked secrets
+- `semgrep` — SAST, OWASP top 10
+- `npm audit` — dependency CVEs
+
+### GitHub Action for PR Review
+Add `.github/workflows/pr-review.yml` to auto-check PRs.
+
+### Self-Testing Prompts in Workflow
+Add to agent workflow:
+- "Write 20 unit tests designed to break this function"
+- "Find every security vulnerability in this file"
+- "Audit for leaked secrets"
+
+---
+
 ## 💰 Monetization & Conversion (User Feedback)
 
 Real feedback from early users — high priority.
