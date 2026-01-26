@@ -2059,7 +2059,8 @@
   },
 
   "signup": {
-    "freeStart": "Start learning for $0.00"
+    "freeStartLearning": "Start learning for $0.00",
+    "freeStartTeaching": "Start teaching for $0.00"
   },
 
   "promo": {

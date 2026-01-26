@@ -199,7 +199,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         {/* Free tier text */}
         {isSignUp && (
           <p className="text-center text-scale-caption text-gray-500 mt-3">
-            ✨ {t('signup.freeStart', 'Start learning for $0.00')}
+            ✨ {isStudent ? t('signup.freeStartLearning', 'Start learning for $0.00') : t('signup.freeStartTeaching', 'Start teaching for $0.00')}
           </p>
         )}
       </form>
