@@ -1985,5 +1985,19 @@
 
   "signup": {
     "freeStart": "Börja lära dig gratis"
+  },
+
+  "promo": {
+    "title": "Skapare-åtkomst",
+    "enterCode": "Har du en skaparkod?",
+    "placeholder": "Ange kod",
+    "apply": "Använd",
+    "success": "Skapare-åtkomst aktiverad! Njut av {{days}} dagars obegränsad åtkomst.",
+    "activeUntil": "Skapare-åtkomst går ut om {{days}} dagar",
+    "expired": "Din skapare-åtkomst har upphört. Behöver du mer tid? Maila creators@lovelanguages.io",
+    "errorInvalid": "Ogiltig eller utgången kod",
+    "errorSubscribed": "Du har redan en aktiv prenumeration",
+    "errorActive": "Du har redan aktiv skapare-åtkomst",
+    "errorMaxUses": "Denna kod har nått sin gräns"
   }
 }

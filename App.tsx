@@ -29,6 +29,7 @@ import Pricing from './components/Pricing';
 import ResetPassword from './components/ResetPassword';
 import CookieConsent from './components/CookieConsent';
 import ErrorBoundary from './components/ErrorBoundary';
+import PromoExpiredBanner from './components/PromoExpiredBanner';
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
@@ -363,6 +364,10 @@ const App: React.FC = () => {
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
           )}
+          {/* Promo expired banner */}
+          {profile && (
+            <PromoExpiredBanner promoExpiresAt={(profile as any).promo_expires_at} />
+          )}
           <Routes>
             {/* Public routes - accessible without auth */}
             <Route path="/join/:token" element={<JoinInvite />} />
@@ -405,10 +410,11 @@ const App: React.FC = () => {
                     onQuit={() => supabase.auth.signOut()}
                     hasInheritedSubscription={!!profile.subscription_granted_by}
                   />
-                ) : // Step 3: Check if user has active subscription (direct or inherited) or is beta tester
+                ) : // Step 3: Check if user has active subscription (direct, inherited, promo) or is beta tester
                 !profile.subscription_status || (
                   profile.subscription_status !== 'active' &&
                   !profile.subscription_granted_by &&  // Partner with inherited access
+                  !((profile as any).promo_expires_at && new Date((profile as any).promo_expires_at) > new Date()) &&  // Active promo
                   !isBetaTester(profile.email)
                 ) ? (
                   <SubscriptionRequired

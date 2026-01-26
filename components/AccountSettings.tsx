@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 
+interface PromoStatus {
+  hasPromo: boolean;
+  expiresAt: string | null;
+  daysRemaining: number;
+}
+
 interface AccountSettingsProps {
   email: string;
   accentHex: string;
+  subscriptionPlan?: string | null;
+  promoExpiresAt?: string | null;
 }
 
-const AccountSettings: React.FC<AccountSettingsProps> = ({ email, accentHex }) => {
+const AccountSettings: React.FC<AccountSettingsProps> = ({
+  email,
+  accentHex,
+  subscriptionPlan,
+  promoExpiresAt
+}) => {
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
@@ -16,6 +29,108 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({ email, accentHex }) =
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+
+  // Promo code state
+  const [promoCode, setPromoCode] = useState('');
+  const [promoLoading, setPromoLoading] = useState(false);
+  const [promoMessage, setPromoMessage] = useState('');
+  const [promoError, setPromoError] = useState('');
+  const [promoStatus, setPromoStatus] = useState<PromoStatus | null>(null);
+
+  // Check if user has active subscription
+  const hasSubscription = subscriptionPlan && subscriptionPlan !== 'none' && subscriptionPlan !== 'free';
+
+  // Check if user has active promo (from prop or fetched status)
+  const hasActivePromo = promoExpiresAt && new Date(promoExpiresAt) > new Date();
+
+  // Fetch promo status on mount
+  useEffect(() => {
+    if (!hasSubscription) {
+      fetchPromoStatus();
+    }
+  }, [hasSubscription]);
+
+  const fetchPromoStatus = async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
+
+      const response = await fetch('/api/promo/status', {
+        headers: { Authorization: `Bearer ${session.access_token}` }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPromoStatus(data);
+      }
+    } catch (err) {
+      console.error('[AccountSettings] Error fetching promo status:', err);
+    }
+  };
+
+  const handlePromoRedeem = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPromoError('');
+    setPromoMessage('');
+
+    if (!promoCode.trim()) {
+      setPromoError(t('promo.errorInvalid'));
+      return;
+    }
+
+    setPromoLoading(true);
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        setPromoError('Not authenticated');
+        setPromoLoading(false);
+        return;
+      }
+
+      const response = await fetch('/api/promo/redeem', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ code: promoCode.trim() })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Map API errors to translation keys
+        if (data.error?.includes('subscription')) {
+          setPromoError(t('promo.errorSubscribed'));
+        } else if (data.error?.includes('active')) {
+          setPromoError(t('promo.errorActive'));
+        } else if (data.error?.includes('limit')) {
+          setPromoError(t('promo.errorMaxUses'));
+        } else {
+          setPromoError(t('promo.errorInvalid'));
+        }
+      } else {
+        setPromoMessage(t('promo.success', { days: data.grantDays || 7 }));
+        setPromoCode('');
+        // Refresh promo status
+        fetchPromoStatus();
+      }
+    } catch (err) {
+      console.error('[AccountSettings] Error redeeming promo:', err);
+      setPromoError(t('promo.errorInvalid'));
+    } finally {
+      setPromoLoading(false);
+    }
+  };
+
+  // Calculate days remaining for active promo
+  const getDaysRemaining = (): number => {
+    const expiresAt = promoStatus?.expiresAt || promoExpiresAt;
+    if (!expiresAt) return 0;
+    const diff = new Date(expiresAt).getTime() - new Date().getTime();
+    return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+  };
 
   const handleEmailChange = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -169,6 +284,68 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({ email, accentHex }) =
               </button>
             </div>
           </div>
+
+          {/* Creator Access - Only show for non-subscribers */}
+          {!hasSubscription && (
+            <div className="p-4 bg-[var(--bg-secondary)] rounded-2xl">
+              <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] mb-3">
+                {t('promo.title')}
+              </p>
+
+              {/* Promo messages */}
+              {promoError && (
+                <div className="p-3 mb-3 bg-red-50 border border-red-200 rounded-xl">
+                  <p className="text-red-700 text-sm font-semibold">{promoError}</p>
+                </div>
+              )}
+              {promoMessage && (
+                <div className="p-3 mb-3 bg-green-50 border border-green-200 rounded-xl">
+                  <p className="text-green-700 text-sm font-semibold">{promoMessage}</p>
+                </div>
+              )}
+
+              {/* Show different UI based on promo status */}
+              {(hasActivePromo || (promoStatus?.hasPromo && getDaysRemaining() > 0)) ? (
+                // Active promo - show expiry countdown
+                <div
+                  className="p-4 rounded-xl text-center"
+                  style={{ backgroundColor: `${accentHex}15` }}
+                >
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <ICONS.Sparkles className="w-5 h-5" style={{ color: accentHex }} />
+                    <span className="font-black text-lg" style={{ color: accentHex }}>
+                      {t('promo.activeUntil', { days: getDaysRemaining() })}
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                // No active promo - show code input
+                <form onSubmit={handlePromoRedeem} className="space-y-3">
+                  <p className="text-sm text-[var(--text-secondary)] mb-2">
+                    {t('promo.enterCode')}
+                  </p>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={promoCode}
+                      onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
+                      placeholder={t('promo.placeholder')}
+                      className="flex-1 px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-rose-400 focus:outline-none transition-all uppercase"
+                      disabled={promoLoading}
+                    />
+                    <button
+                      type="submit"
+                      disabled={promoLoading || !promoCode.trim()}
+                      className="px-6 py-3 rounded-xl text-white font-bold transition-all disabled:opacity-50"
+                      style={{ backgroundColor: accentHex }}
+                    >
+                      {promoLoading ? '...' : t('promo.apply')}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -1985,5 +1985,19 @@
 
   "signup": {
     "freeStart": "Kezdj el tanulni ingyen"
+  },
+
+  "promo": {
+    "title": "Alkotói hozzáférés",
+    "enterCode": "Van alkotói kódod?",
+    "placeholder": "Add meg a kódot",
+    "apply": "Alkalmaz",
+    "success": "Alkotói hozzáférés aktiválva! Élvezz {{days}} nap korlátlan hozzáférést.",
+    "activeUntil": "Az alkotói hozzáférés {{days}} nap múlva lejár",
+    "expired": "Az alkotói hozzáférésed lejárt. Több időre van szükséged? Írj a creators@lovelanguages.io címre",
+    "errorInvalid": "Érvénytelen vagy lejárt kód",
+    "errorSubscribed": "Már van aktív előfizetésed",
+    "errorActive": "Már van aktív alkotói hozzáférésed",
+    "errorMaxUses": "Ez a kód elérte a limitjét"
   }
 }

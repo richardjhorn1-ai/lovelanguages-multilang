@@ -1985,5 +1985,19 @@
 
   "signup": {
     "freeStart": "Începe să înveți gratuit"
+  },
+
+  "promo": {
+    "title": "Acces Creator",
+    "enterCode": "Ai un cod de creator?",
+    "placeholder": "Introdu codul",
+    "apply": "Aplică",
+    "success": "Acces creator activat! Bucură-te de {{days}} zile de acces nelimitat.",
+    "activeUntil": "Accesul creator expiră în {{days}} zile",
+    "expired": "Accesul tău de creator s-a încheiat. Ai nevoie de mai mult timp? Scrie la creators@lovelanguages.io",
+    "errorInvalid": "Cod invalid sau expirat",
+    "errorSubscribed": "Ai deja un abonament activ",
+    "errorActive": "Ai deja acces creator activ",
+    "errorMaxUses": "Acest cod a atins limita"
   }
 }

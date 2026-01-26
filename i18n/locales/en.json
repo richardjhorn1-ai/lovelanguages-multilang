@@ -2060,5 +2060,19 @@
 
   "signup": {
     "freeStart": "Start learning for $0.00"
+  },
+
+  "promo": {
+    "title": "Creator Access",
+    "enterCode": "Have a creator code?",
+    "placeholder": "Enter code",
+    "apply": "Apply",
+    "success": "Creator access activated! Enjoy {{days}} days of unlimited access.",
+    "activeUntil": "Creator access expires in {{days}} days",
+    "expired": "Your creator access has ended. Need more time? Email creators@lovelanguages.io",
+    "errorInvalid": "Invalid or expired code",
+    "errorSubscribed": "You already have an active subscription",
+    "errorActive": "You already have active creator access",
+    "errorMaxUses": "This code has reached its limit"
   }
 }

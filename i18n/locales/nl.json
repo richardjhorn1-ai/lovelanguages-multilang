@@ -1985,5 +1985,19 @@
 
   "signup": {
     "freeStart": "Begin gratis met leren"
+  },
+
+  "promo": {
+    "title": "Creator Toegang",
+    "enterCode": "Heb je een creator code?",
+    "placeholder": "Voer code in",
+    "apply": "Toepassen",
+    "success": "Creator toegang geactiveerd! Geniet van {{days}} dagen onbeperkte toegang.",
+    "activeUntil": "Creator toegang verloopt over {{days}} dagen",
+    "expired": "Je creator toegang is verlopen. Meer tijd nodig? Mail naar creators@lovelanguages.io",
+    "errorInvalid": "Ongeldige of verlopen code",
+    "errorSubscribed": "Je hebt al een actief abonnement",
+    "errorActive": "Je hebt al actieve creator toegang",
+    "errorMaxUses": "Deze code heeft zijn limiet bereikt"
   }
 }

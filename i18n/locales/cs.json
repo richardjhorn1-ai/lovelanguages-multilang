@@ -1985,5 +1985,19 @@
 
   "signup": {
     "freeStart": "Začněte se učit zdarma"
+  },
+
+  "promo": {
+    "title": "Přístup pro tvůrce",
+    "enterCode": "Máte kód tvůrce?",
+    "placeholder": "Zadejte kód",
+    "apply": "Použít",
+    "success": "Přístup pro tvůrce aktivován! Užijte si {{days}} dní neomezeného přístupu.",
+    "activeUntil": "Přístup pro tvůrce vyprší za {{days}} dní",
+    "expired": "Váš přístup pro tvůrce skončil. Potřebujete více času? Napište na creators@lovelanguages.io",
+    "errorInvalid": "Neplatný nebo vypršelý kód",
+    "errorSubscribed": "Již máte aktivní předplatné",
+    "errorActive": "Již máte aktivní přístup pro tvůrce",
+    "errorMaxUses": "Tento kód dosáhl svého limitu"
   }
 }
