@@ -5,40 +5,45 @@
 
 ---
 
-## 📊 Analytics Implementation (Do First — Data Foundation)
+## 📊 Analytics Implementation
 
-**Before optimizing, we need to see what's happening.**
+### ✅ Phase 1: Core Funnel (DONE)
+**Branch:** `feat/analytics-implementation`
 
-Comprehensive event tracking to understand the full user journey. See `docs/ANALYTICS_IMPLEMENTATION.md` for full spec.
+Tracking the essential conversion funnel:
+```
+signup_started → signup_completed → paywall_view → checkout_started → subscription_completed
+```
 
-### Event Categories
-- **Acquisition:** Blog views, CTA clicks, source attribution
-- **Activation:** Signup, onboarding steps, first word, first chat
-- **Monetization:** Paywall views, plan selection, checkout, conversion
-- **Engagement:** Chat, games, vocabulary, challenges, voice
-- **Retention:** Streaks, partner invites, return visits
-- **Churn signals:** Errors, rage clicks, abandoned features
+This answers: **"Where do users drop off?"**
 
-### Agent Assignments
-| Agent | Responsibility |
-|-------|----------------|
-| Felix 🎨 | `services/analytics.ts`, frontend event triggers |
-| Bruno 🔧 | Supabase events table, server-side validation |
-| Diana 🚀 | GA4 configuration, BigQuery export |
-| Sofia ✍️ | Blog-specific events, content performance |
+### ⏸️ Phase 2: Engagement Tracking (CONDITIONAL)
 
-### Phases
-1. **Foundation** — Core funnel events (signup → paywall → convert)
-2. **Engagement** — Feature usage events
-3. **Analysis** — GA4 funnels, dashboards
-4. **Optimization** — A/B tests, automated reports
+**Trigger criteria — implement when ANY of these are true:**
+- [ ] 100+ signups (need retention data at scale)
+- [ ] Conversion rate known and we're optimizing for retention
+- [ ] Specific question like "do game users convert better?"
 
-### Success = Answering These Questions
-- Where do users come from?
-- Where do they drop off?
-- What features drive retention?
-- What content converts best?
-- Why do people churn?
+**Events to add when triggered:**
+- Chat: `chat_message_sent`, `chat_response_received`
+- Games: `game_started`, `game_completed`, `word_practiced`
+- Learning: `word_added`, `level_test_completed`
+- Retention: `streak_maintained`, `partner_invited`
+- Churn: `error_encountered`, `feature_abandoned`
+
+Full spec: `docs/ANALYTICS_IMPLEMENTATION.md`
+
+### ⏸️ Phase 3: Advanced Analytics (CONDITIONAL)
+
+**Trigger criteria:**
+- [ ] 1000+ users (need volume for cohort analysis)
+- [ ] Revenue > €1000/mo (worth investing in optimization)
+
+**What to add:**
+- Supabase events table for raw data
+- BigQuery export for complex queries
+- Cohort retention dashboards
+- A/B testing infrastructure
 
 ---
 
