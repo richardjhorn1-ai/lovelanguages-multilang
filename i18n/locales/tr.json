@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Dünyanın her yerindeki aşıklar için sevgiyle yapıldı"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Akıllı doğrulamalarınız tükendi",
+    "outOfVoice": "Sesli oturum limitine ulaştınız",
+    "outOfChat": "Sohbet limitine ulaştınız",
+    "continueBasic": "Akıllı doğrulama olmadan devam et",
+    "upgrade": "Yükselt",
+    "remaining": "{{count}} kaldı",
+    "warningLow": "Sadece {{count}} kaldı",
+    "usageOf": "{{used}} / {{total}} kullanıldı",
+    "upgradeDesc": "Sınırsız akıllı doğrulama için yükseltin veya temel kontrolle devam edin.",
+    "upgradeDescGeneric": "Bu özelliği sınırsız kullanmak için yükseltin."
+  },
+
+  "signup": {
+    "freeStart": "Ücretsiz öğrenmeye başla"
   }
 }

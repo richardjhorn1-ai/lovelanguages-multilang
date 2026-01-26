@@ -195,6 +195,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
             )}
           </button>
         )}
+
+        {/* Free tier text */}
+        {isSignUp && (
+          <p className="text-center text-scale-caption text-gray-500 mt-3">
+            ✨ {t('signup.freeStart', 'Start learning for $0.00')}
+          </p>
+        )}
       </form>
 
       {/* OAuth Divider */}

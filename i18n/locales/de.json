@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Mit ♥ gemacht für Liebende überall"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Du hast deine smarten Validierungen aufgebraucht",
+    "outOfVoice": "Du hast dein Limit für Sprachsitzungen erreicht",
+    "outOfChat": "Du hast dein Limit für Unterhaltungen erreicht",
+    "continueBasic": "Ohne smarte Validierung fortfahren",
+    "upgrade": "Upgraden",
+    "remaining": "{{count}} übrig",
+    "warningLow": "Nur noch {{count}}",
+    "usageOf": "{{used}} von {{total}} verwendet",
+    "upgradeDesc": "Upgrade für unbegrenzte smarte Validierungen, oder fahre mit einfacher Überprüfung fort.",
+    "upgradeDescGeneric": "Upgrade, um diese Funktion ohne Limits zu nutzen."
+  },
+
+  "signup": {
+    "freeStart": "Lerne kostenlos los"
   }
 }

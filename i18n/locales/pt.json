@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Feito com ♥ para amantes em todo lugar"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Você esgotou as validações inteligentes",
+    "outOfVoice": "Você atingiu o limite de sessões de voz",
+    "outOfChat": "Você atingiu o limite de conversas",
+    "continueBasic": "Continuar sem validação inteligente",
+    "upgrade": "Fazer upgrade",
+    "remaining": "{{count}} restantes",
+    "warningLow": "Apenas {{count}} restantes",
+    "usageOf": "{{used}} de {{total}} usados",
+    "upgradeDesc": "Faça upgrade para validações inteligentes ilimitadas, ou continue com verificação básica.",
+    "upgradeDescGeneric": "Faça upgrade para continuar usando este recurso sem limites."
+  },
+
+  "signup": {
+    "freeStart": "Comece a aprender de graça"
   }
 }
