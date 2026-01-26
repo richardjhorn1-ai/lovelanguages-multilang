@@ -7,7 +7,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import './i18n';
 import { useI18nSync } from './hooks/useI18nSync';
-import { trackPageView } from './services/analytics';
+import { trackPageView, analytics } from './services/analytics';
 import Hero from './components/Hero';
 import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
@@ -168,6 +168,17 @@ const App: React.FC = () => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('subscription') === 'success') {
       setSuccessToast("You're all set!");
+
+      // Track subscription completed
+      // Note: Actual plan/price details would come from the Stripe webhook
+      // This is a fallback client-side tracking
+      analytics.track('subscription_completed', {
+        plan: 'unknown', // Will be enriched by Stripe webhook data
+        billing_period: 'unknown',
+        price: 0,
+        currency: 'EUR',
+      });
+
       // Clean up URL
       const url = new URL(window.location.href);
       url.searchParams.delete('subscription');
@@ -228,6 +239,21 @@ const App: React.FC = () => {
               })
               .select()
               .single();
+
+            // Track signup completed for new users
+            if (newProfile) {
+              const provider = userData.user.app_metadata?.provider || 'email';
+              analytics.identify(userData.user.id, {
+                signup_date: new Date().toISOString(),
+                native_language: storedNative,
+                target_language: storedTarget,
+                subscription_plan: 'free',
+              });
+              analytics.trackSignupCompleted({
+                method: provider as 'google' | 'apple' | 'email',
+                referral_source: document.referrer || 'direct',
+              });
+            }
 
             if (createError) {
               // Duplicate key error (23505) means profile was created by auth trigger - fetch and update it
