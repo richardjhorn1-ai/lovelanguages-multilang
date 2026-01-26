@@ -10,6 +10,7 @@ import InvitePartnerSection from './InvitePartnerSection';
 import BreakupModal from './BreakupModal';
 import AvatarUpload from './AvatarUpload';
 import LanguagesSection from './LanguagesSection';
+import AccountSettings from './AccountSettings';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
@@ -251,6 +252,9 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
         {/* Usage Section - Shows usage against plan limits */}
         <UsageSection userId={profile.id} />
+
+        {/* Account Settings - Email and Password */}
+        <AccountSettings email={profile.email} accentHex={accentHex} />
 
         {/* Invite Partner Section - Only for payers without a partner */}
         <InvitePartnerSection

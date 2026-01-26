@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 
 const ResetPassword: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
   // Check if we have a valid session (user clicked email link)
+  // Supabase needs a moment to process the token from the URL
   useEffect(() => {
     const checkSession = async () => {
+      // Give Supabase time to process the URL token
+      await new Promise(resolve => setTimeout(resolve, 500));
+
       const { data: { session } } = await supabase.auth.getSession();
+      setChecking(false);
       if (!session) {
         setError(t('resetPassword.invalidLink'));
       }
@@ -52,7 +60,7 @@ const ResetPassword: React.FC = () => {
       setMessage(t('resetPassword.success'));
       // Redirect to home after 2 seconds
       setTimeout(() => {
-        window.location.href = '/';
+        navigate('/');
       }, 2000);
     }
   };
@@ -70,19 +78,26 @@ const ResetPassword: React.FC = () => {
           </p>
         </div>
 
-        {error && (
+        {checking && (
+          <div className="text-center py-8">
+            <div className="w-8 h-8 border-4 border-rose-200 border-t-rose-500 rounded-full animate-spin mx-auto mb-4" />
+            <p className="text-gray-500">{t('resetPassword.verifying')}</p>
+          </div>
+        )}
+
+        {!checking && error && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl">
             <p className="text-red-700 text-sm font-semibold">{error}</p>
           </div>
         )}
 
-        {message && (
+        {!checking && message && (
           <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-2xl">
             <p className="text-green-700 text-sm font-semibold">{message}</p>
           </div>
         )}
 
-        {!success && (
+        {!checking && !error && !success && (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">

@@ -2011,6 +2011,25 @@
     }
   },
 
+  "accountSettings": {
+    "title": "Account Settings",
+    "subtitle": "Email and password",
+    "email": "Email Address",
+    "password": "Password",
+    "change": "Change",
+    "cancel": "Cancel",
+    "newEmailPlaceholder": "Enter new email",
+    "updateEmail": "Update Email",
+    "updating": "Updating...",
+    "sending": "Sending...",
+    "changePassword": "Reset Password",
+    "emailUpdateSent": "Check your new email to confirm the change!",
+    "passwordResetSent": "Check your email for a password reset link!",
+    "enterNewEmail": "Please enter a new email address",
+    "invalidEmail": "Please enter a valid email address",
+    "emailConfirmNote": "You'll need to confirm both your old and new email addresses"
+  },
+
   "resetPassword": {
     "title": "Reset Your Password",
     "subtitle": "Enter your new password below",
@@ -2018,6 +2037,7 @@
     "confirmPassword": "Confirm Password",
     "updatePassword": "Update Password",
     "updating": "Updating...",
+    "verifying": "Verifying link...",
     "success": "Password updated successfully!",
     "redirecting": "Redirecting to login...",
     "invalidLink": "This password reset link is invalid or has expired. Please request a new one.",
