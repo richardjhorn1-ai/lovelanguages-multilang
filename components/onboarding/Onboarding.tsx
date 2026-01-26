@@ -724,7 +724,28 @@ export const Onboarding: React.FC<OnboardingProps> = ({
 
       localStorage.removeItem(STORAGE_KEY);
 
-      if (data.selectedPriceId) {
+      // Handle plan selection
+      if (data.selectedPlan === 'free') {
+        // User chose free tier - call API to set free_tier_chosen_at
+        try {
+          const session = await supabase.auth.getSession();
+          const token = session.data.session?.access_token;
+
+          if (token) {
+            await fetch('/api/choose-free-tier', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              }
+            });
+          }
+        } catch (freeErr) {
+          console.error('Error activating free tier:', freeErr);
+        }
+        onComplete();
+      } else if (data.selectedPriceId) {
+        // User chose paid plan - redirect to Stripe
         try {
           const session = await supabase.auth.getSession();
           const token = session.data.session?.access_token;
@@ -753,9 +774,11 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         } catch (stripeErr) {
           console.error('Error creating checkout session:', stripeErr);
         }
+        onComplete();
+      } else {
+        // No plan selected (shouldn't happen) - just complete
+        onComplete();
       }
-
-      onComplete();
     } catch (err) {
       console.error('Error saving onboarding:', err);
       localStorage.removeItem(STORAGE_KEY);
