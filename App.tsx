@@ -410,18 +410,11 @@ const App: React.FC = () => {
                     onQuit={() => supabase.auth.signOut()}
                     hasInheritedSubscription={!!profile.subscription_granted_by}
                   />
-                ) : // Step 3: Check if user has active subscription (direct, inherited, promo) or is beta tester
-                !profile.subscription_status || (
-                  profile.subscription_status !== 'active' &&
-                  !profile.subscription_granted_by &&  // Partner with inherited access
-                  !((profile as any).promo_expires_at && new Date((profile as any).promo_expires_at) > new Date()) &&  // Active promo
-                  !isBetaTester(profile.email)
-                ) ? (
-                  <SubscriptionRequired
-                    profile={profile}
-                    onSubscribed={() => fetchProfile(profile.id)}
-                  />
-                ) : (
+                ) : // Step 3: Free tier now available - let users through!
+                // Paywall shows when they hit usage limits (in-app), not at the door
+                // Users with subscription, promo, inherited access, or beta status get unlimited
+                // Free users get 25 chats, 50 validations, etc. (see FREE_TIER_SPEC.md)
+                (
                   <div className="flex flex-col h-full">
                     <Navbar profile={profile} />
                     <main className="flex-1 h-0 overflow-hidden">
