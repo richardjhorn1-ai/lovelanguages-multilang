@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Jederzeit kündbar. Sichere Zahlung über Stripe.",
       "questionsEmail": "Fragen? Schreib uns an",
       "friend": "Freund",
-      "copy": "Kopieren"
+      "copy": "Kopieren",
+      "billedWeekly": "({{price}}€ wöchentlich)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} hat durch dich kostenlosen Zugang",
       "cancelWarning": "Wenn du dein Abo kündigst, verliert auch {{name}} den Zugang.",
       "manageSubscription": "Abonnement verwalten",
-      "continueToManage": "Weiter zur Verwaltung"
+      "continueToManage": "Weiter zur Verwaltung",
+      "freePlan": "Kostenlose Testversion",
+      "freeDescription": "25 Gespräche • Eingeschränkte Funktionen",
+      "upgradeButton": "Upgrade für alle Funktionen",
+      "promoExpires": "Vollzugriff endet in {{days}} Tagen",
+      "subscribeToKeep": "Abonnieren um Zugang zu behalten"
     },
     "required": {
       "title": "Noch ein Schritt, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Checkout konnte nicht gestartet werden",
       "failedPortal": "Abo-Verwaltung konnte nicht geöffnet werden",
       "somethingWrong": "Etwas ist schiefgelaufen"
+    },
+    "choice": {
+      "title": "Wähle deinen Plan",
+      "subtitle": "Jede Liebesgeschichte verdient die richtigen Worte",
+      "free": {
+        "title": "Kostenlos testen",
+        "price": "0€",
+        "perMonth": "/Monat",
+        "features": {
+          "conversations": "25 KI-Gespräche/Monat",
+          "validations": "50 Wortvalidierungen/Monat",
+          "games": "Basis-Vokabelspiele",
+          "voiceLimited": "Sprachchat (1x testen)",
+          "listenLimited": "Hörmodus (1x testen)",
+          "challengesLimited": "5 Partner-Challenges"
+        },
+        "cta": "Kostenlos starten",
+        "subtext": "Perfekt zum Ausprobieren",
+        "noCardRequired": "Keine Kreditkarte erforderlich"
+      }
     }
   },
   "pendingChallenges": {

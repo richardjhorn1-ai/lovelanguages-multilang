@@ -1225,7 +1225,8 @@
       "cancelAnytime": "İstediğin zaman iptal et. Stripe ile güvenli ödeme.",
       "questionsEmail": "Soruların mı var? Bize e-posta gönder:",
       "friend": "Arkadaş",
-      "copy": "Kopyala"
+      "copy": "Kopyala",
+      "billedWeekly": "({{price}}₺ haftalık faturalandırma)"
     },
     "plans": {
       "standard": "Standart",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} senin sayende ücretsiz erişime sahip",
       "cancelWarning": "Aboneliğini iptal edersen, {{name}} de erişimini kaybeder.",
       "manageSubscription": "Aboneliği Yönet",
-      "continueToManage": "Yönetmeye Devam Et"
+      "continueToManage": "Yönetmeye Devam Et",
+      "freePlan": "Ücretsiz Deneme",
+      "freeDescription": "25 sohbet • Sınırlı özellikler",
+      "upgradeButton": "Her şeyin kilidini açmak için yükseltin",
+      "promoExpires": "Tam erişim {{days}} gün içinde sona eriyor",
+      "subscribeToKeep": "Erişimi korumak için abone olun"
     },
     "required": {
       "title": "Bir adım daha, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Ödeme başlatılamadı",
       "failedPortal": "Abonelik yönetimi açılamadı",
       "somethingWrong": "Bir şeyler yanlış gitti"
+    },
+    "choice": {
+      "title": "Planınızı seçin",
+      "subtitle": "Her aşk hikayesi doğru kelimeleri hak eder",
+      "free": {
+        "title": "Ücretsiz Deneme",
+        "price": "0₺",
+        "perMonth": "/ay",
+        "features": {
+          "conversations": "25 AI sohbeti/ay",
+          "validations": "50 kelime doğrulama/ay",
+          "games": "Temel kelime oyunları",
+          "voiceLimited": "Sesli sohbet (1 deneme)",
+          "listenLimited": "Dinleme modu (1 deneme)",
+          "challengesLimited": "5 partner meydan okuması"
+        },
+        "cta": "Ücretsiz Başla",
+        "subtext": "Love Languages'i denemek için mükemmel",
+        "noCardRequired": "Kredi kartı gerekli değil"
+      }
     }
   },
   "pendingChallenges": {

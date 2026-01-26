@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Anuleaza oricand. Plata securizata prin Stripe.",
       "questionsEmail": "Intrebari? Trimite-ne email la",
       "friend": "Prieten",
-      "copy": "Copiaza"
+      "copy": "Copiaza",
+      "billedWeekly": "({{price}} lei facturat săptămânal)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} are acces gratuit prin tine",
       "cancelWarning": "Daca anulezi abonamentul, {{name}} va pierde si iubirea ta accesul.",
       "manageSubscription": "Gestioneaza Abonamentul",
-      "continueToManage": "Continua la Gestionare"
+      "continueToManage": "Continua la Gestionare",
+      "freePlan": "Perioadă de Probă",
+      "freeDescription": "25 conversații • Funcții limitate",
+      "upgradeButton": "Faceți upgrade pentru a debloca totul",
+      "promoExpires": "Acces complet expiră în {{days}} zile",
+      "subscribeToKeep": "Abonați-vă pentru a păstra accesul"
     },
     "required": {
       "title": "Inca un pas, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Nu am putut incepe plata",
       "failedPortal": "Nu am putut deschide gestionarea abonamentului",
       "somethingWrong": "Ceva nu a mers bine"
+    },
+    "choice": {
+      "title": "Alegeți planul dvs.",
+      "subtitle": "Fiecare poveste de dragoste merită cuvintele potrivite",
+      "free": {
+        "title": "Perioadă de Probă",
+        "price": "0 lei",
+        "perMonth": "/lună",
+        "features": {
+          "conversations": "25 conversații AI/lună",
+          "validations": "50 validări de cuvinte/lună",
+          "games": "Jocuri de vocabular de bază",
+          "voiceLimited": "Chat vocal (1 încercare)",
+          "listenLimited": "Mod ascultare (1 încercare)",
+          "challengesLimited": "5 provocări pentru partener"
+        },
+        "cta": "Începeți Gratuit",
+        "subtext": "Perfect pentru a încerca Love Languages",
+        "noCardRequired": "Nu este necesar card de credit"
+      }
     }
   },
   "pendingChallenges": {

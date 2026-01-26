@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Отмена в любое время. Безопасная оплата через Stripe.",
       "questionsEmail": "Вопросы? Напиши нам на",
       "friend": "Друг",
-      "copy": "Копировать"
+      "copy": "Копировать",
+      "billedWeekly": "({{price}}₽ в неделю)"
     },
     "plans": {
       "standard": "Стандартный",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} имеет бесплатный доступ через тебя",
       "cancelWarning": "Если ты отменишь подписку, {{name}} тоже потеряет доступ.",
       "manageSubscription": "Управление подпиской",
-      "continueToManage": "Перейти к управлению"
+      "continueToManage": "Перейти к управлению",
+      "freePlan": "Бесплатная версия",
+      "freeDescription": "25 разговоров • Ограниченные функции",
+      "upgradeButton": "Обновить для полного доступа",
+      "promoExpires": "Полный доступ истекает через {{days}} дней",
+      "subscribeToKeep": "Подпишитесь чтобы сохранить доступ"
     },
     "required": {
       "title": "Ещё один шаг, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Не удалось начать оплату",
       "failedPortal": "Не удалось открыть управление подпиской",
       "somethingWrong": "Что-то пошло не так"
+    },
+    "choice": {
+      "title": "Выберите свой план",
+      "subtitle": "Каждая история любви заслуживает правильных слов",
+      "free": {
+        "title": "Бесплатная версия",
+        "price": "0₽",
+        "perMonth": "/месяц",
+        "features": {
+          "conversations": "25 ИИ-разговоров/месяц",
+          "validations": "50 проверок слов/месяц",
+          "games": "Базовые игры со словарём",
+          "voiceLimited": "Голосовой чат (1 попытка)",
+          "listenLimited": "Режим прослушивания (1 попытка)",
+          "challengesLimited": "5 заданий для партнёра"
+        },
+        "cta": "Начать бесплатно",
+        "subtext": "Идеально для знакомства с Love Languages",
+        "noCardRequired": "Кредитная карта не требуется"
+      }
     }
   },
   "pendingChallenges": {

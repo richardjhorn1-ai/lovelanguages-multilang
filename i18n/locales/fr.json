@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Annulation à tout moment. Paiement sécurisé via Stripe.",
       "questionsEmail": "Des questions ? Écris-nous à",
       "friend": "Ami",
-      "copy": "Copier"
+      "copy": "Copier",
+      "billedWeekly": "({{price}}€ facturé hebdomadairement)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} a un accès gratuit grâce à toi",
       "cancelWarning": "Si tu annules ton abonnement, {{name}} perdra aussi son accès.",
       "manageSubscription": "Gérer l'abonnement",
-      "continueToManage": "Continuer vers la gestion"
+      "continueToManage": "Continuer vers la gestion",
+      "freePlan": "Essai Gratuit",
+      "freeDescription": "25 conversations • Fonctionnalités limitées",
+      "upgradeButton": "Passer à la version complète",
+      "promoExpires": "Accès complet expire dans {{days}} jours",
+      "subscribeToKeep": "Abonnez-vous pour garder l'accès"
     },
     "required": {
       "title": "Encore une étape, {{name}} !",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Échec du lancement du paiement",
       "failedPortal": "Échec de l'ouverture de la gestion d'abonnement",
       "somethingWrong": "Une erreur s'est produite"
+    },
+    "choice": {
+      "title": "Choisissez votre forfait",
+      "subtitle": "Chaque histoire d'amour mérite les bons mots",
+      "free": {
+        "title": "Essai Gratuit",
+        "price": "0€",
+        "perMonth": "/mois",
+        "features": {
+          "conversations": "25 conversations IA/mois",
+          "validations": "50 validations de mots/mois",
+          "games": "Jeux de vocabulaire basiques",
+          "voiceLimited": "Chat vocal (1 essai)",
+          "listenLimited": "Mode écoute (1 essai)",
+          "challengesLimited": "5 défis partenaire"
+        },
+        "cta": "Commencer Gratuitement",
+        "subtext": "Parfait pour essayer Love Languages",
+        "noCardRequired": "Aucune carte de crédit requise"
+      }
     }
   },
   "pendingChallenges": {
