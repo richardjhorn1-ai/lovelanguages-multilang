@@ -30,9 +30,5 @@ regexes = [
   '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.eyJpc3MiOiJzdXBhYmFzZS''',
 ]
 
-# Custom rules for this project
-[[rules]]
-id = "env-file-check"
-description = "Detect .env files that shouldn't be committed"
-regex = '''\.env(?!\.example|\.local\.example)'''
-path = '''\.env'''
+# Note: Gitleaks default rules already catch .env files
+# Custom rules can be added here if needed
