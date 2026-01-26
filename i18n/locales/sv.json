@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Avsluta när som helst. Säker betalning via Stripe.",
       "questionsEmail": "Frågor? Maila oss på",
       "friend": "Vän",
-      "copy": "Kopiera"
+      "copy": "Kopiera",
+      "billedWeekly": "({{price}} kr faktureras veckovis)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} har gratis tillgång genom dig",
       "cancelWarning": "Om du avslutar din prenumeration förlorar {{name}} också tillgång.",
       "manageSubscription": "Hantera prenumeration",
-      "continueToManage": "Fortsätt till hantering"
+      "continueToManage": "Fortsätt till hantering",
+      "freePlan": "Gratis Provperiod",
+      "freeDescription": "25 samtal • Begränsade funktioner",
+      "upgradeButton": "Uppgradera för att låsa upp allt",
+      "promoExpires": "Full åtkomst upphör om {{days}} dagar",
+      "subscribeToKeep": "Prenumerera för att behålla åtkomst"
     },
     "required": {
       "title": "Ett steg till, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Kunde inte starta betalning",
       "failedPortal": "Kunde inte öppna prenumerationshantering",
       "somethingWrong": "Något gick fel"
+    },
+    "choice": {
+      "title": "Välj din plan",
+      "subtitle": "Varje kärlekshistoria förtjänar rätt ord",
+      "free": {
+        "title": "Gratis Provperiod",
+        "price": "0 kr",
+        "perMonth": "/månad",
+        "features": {
+          "conversations": "25 AI-samtal/månad",
+          "validations": "50 ordvalideringar/månad",
+          "games": "Grundläggande ordförråd spel",
+          "voiceLimited": "Röstchatt (1 försök)",
+          "listenLimited": "Lyssningsläge (1 försök)",
+          "challengesLimited": "5 partner-utmaningar"
+        },
+        "cta": "Börja Gratis",
+        "subtext": "Perfekt för att prova Love Languages",
+        "noCardRequired": "Inget kreditkort krävs"
+      }
     }
   },
   "pendingChallenges": {

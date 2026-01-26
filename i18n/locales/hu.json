@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Bármikor lemondható. Biztonságos fizetés Stripe-on keresztül.",
       "questionsEmail": "Kérdésed van? Írj nekünk:",
       "friend": "Barát",
-      "copy": "Másolás"
+      "copy": "Másolás",
+      "billedWeekly": "({{price}} Ft hetente)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}}-nak ingyenes hozzáférése van általad",
       "cancelWarning": "Ha lemondod az előfizetésedet, {{name}} is elveszíti a hozzáférését.",
       "manageSubscription": "Előfizetés kezelése",
-      "continueToManage": "Folytatás a kezeléshez"
+      "continueToManage": "Folytatás a kezeléshez",
+      "freePlan": "Ingyenes Próba",
+      "freeDescription": "25 beszélgetés • Korlátozott funkciók",
+      "upgradeButton": "Frissítsen a teljes hozzáférésért",
+      "promoExpires": "A teljes hozzáférés {{days}} nap múlva lejár",
+      "subscribeToKeep": "Fizessen elő a hozzáférés megtartásához"
     },
     "required": {
       "title": "Még egy lépés, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Nem sikerült elindítani a fizetést",
       "failedPortal": "Nem sikerült megnyitni az előfizetés-kezelést",
       "somethingWrong": "Valami hiba történt"
+    },
+    "choice": {
+      "title": "Válassza ki csomagját",
+      "subtitle": "Minden szerelmi történet megérdemli a megfelelő szavakat",
+      "free": {
+        "title": "Ingyenes Próba",
+        "price": "0 Ft",
+        "perMonth": "/hónap",
+        "features": {
+          "conversations": "25 AI beszélgetés/hónap",
+          "validations": "50 szóellenőrzés/hónap",
+          "games": "Alapvető szókincsjátékok",
+          "voiceLimited": "Hangchat (1 próba)",
+          "listenLimited": "Hallgatási mód (1 próba)",
+          "challengesLimited": "5 partnerkihívás"
+        },
+        "cta": "Kezdje Ingyen",
+        "subtext": "Tökéletes a Love Languages kipróbálásához",
+        "noCardRequired": "Nincs szükség bankkártyára"
+      }
     }
   },
   "pendingChallenges": {

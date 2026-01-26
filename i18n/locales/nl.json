@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Annuleer wanneer je wilt. Veilig betalen via Stripe.",
       "questionsEmail": "Vragen? Mail ons op",
       "friend": "Vriend(in)",
-      "copy": "Kopiëren"
+      "copy": "Kopiëren",
+      "billedWeekly": "(€{{price}} wekelijks gefactureerd)"
     },
     "plans": {
       "standard": "Standaard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} heeft gratis toegang via jou",
       "cancelWarning": "Als je je abonnement opzegt, verliest {{name}} ook toegang.",
       "manageSubscription": "Abonnement Beheren",
-      "continueToManage": "Doorgaan naar Beheren"
+      "continueToManage": "Doorgaan naar Beheren",
+      "freePlan": "Gratis Proefversie",
+      "freeDescription": "25 gesprekken • Beperkte functies",
+      "upgradeButton": "Upgrade om alles te ontgrendelen",
+      "promoExpires": "Volledige toegang verloopt over {{days}} dagen",
+      "subscribeToKeep": "Abonneer om toegang te behouden"
     },
     "required": {
       "title": "Nog één stap, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Checkout starten mislukt",
       "failedPortal": "Abonnementbeheer openen mislukt",
       "somethingWrong": "Er ging iets mis"
+    },
+    "choice": {
+      "title": "Kies je abonnement",
+      "subtitle": "Elk liefdesverhaal verdient de juiste woorden",
+      "free": {
+        "title": "Gratis Proefversie",
+        "price": "€0",
+        "perMonth": "/maand",
+        "features": {
+          "conversations": "25 AI-gesprekken/maand",
+          "validations": "50 woordvalidaties/maand",
+          "games": "Basis woordenschat spelletjes",
+          "voiceLimited": "Spraakchat (1 poging)",
+          "listenLimited": "Luistermodus (1 poging)",
+          "challengesLimited": "5 partner uitdagingen"
+        },
+        "cta": "Gratis Starten",
+        "subtext": "Perfect om Love Languages uit te proberen",
+        "noCardRequired": "Geen creditcard nodig"
+      }
     }
   },
   "pendingChallenges": {

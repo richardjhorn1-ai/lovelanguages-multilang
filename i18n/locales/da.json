@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Opsig når som helst. Sikker betaling via Stripe.",
       "questionsEmail": "Spørgsmål? Email os på",
       "friend": "Ven",
-      "copy": "Kopier"
+      "copy": "Kopier",
+      "billedWeekly": "({{price}} kr faktureres ugentligt)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} har gratis adgang gennem dig",
       "cancelWarning": "Hvis du opsiger dit abonnement, mister {{name}} også adgang.",
       "manageSubscription": "Administrer abonnement",
-      "continueToManage": "Fortsæt til administration"
+      "continueToManage": "Fortsæt til administration",
+      "freePlan": "Gratis Prøveperiode",
+      "freeDescription": "25 samtaler • Begrænsede funktioner",
+      "upgradeButton": "Opgrader for at låse alt op",
+      "promoExpires": "Fuld adgang udløber om {{days}} dage",
+      "subscribeToKeep": "Abonner for at beholde adgang"
     },
     "required": {
       "title": "Et skridt mere, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Kunne ikke starte betaling",
       "failedPortal": "Kunne ikke åbne abonnementsadministration",
       "somethingWrong": "Noget gik galt"
+    },
+    "choice": {
+      "title": "Vælg din plan",
+      "subtitle": "Hver kærlighedshistorie fortjener de rigtige ord",
+      "free": {
+        "title": "Gratis Prøveperiode",
+        "price": "0 kr",
+        "perMonth": "/måned",
+        "features": {
+          "conversations": "25 AI-samtaler/måned",
+          "validations": "50 ordvalideringer/måned",
+          "games": "Grundlæggende ordforråd spil",
+          "voiceLimited": "Talechat (1 forsøg)",
+          "listenLimited": "Lyttetilstand (1 forsøg)",
+          "challengesLimited": "5 partner-udfordringer"
+        },
+        "cta": "Start Gratis",
+        "subtext": "Perfekt til at prøve Love Languages",
+        "noCardRequired": "Intet kreditkort påkrævet"
+      }
     }
   },
   "pendingChallenges": {

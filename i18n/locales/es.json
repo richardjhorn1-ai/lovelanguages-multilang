@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Cancela cuando quieras. Pago seguro vía Stripe.",
       "questionsEmail": "¿Preguntas? Escríbenos a",
       "friend": "Amigo",
-      "copy": "Copiar"
+      "copy": "Copiar",
+      "billedWeekly": "({{price}}€ cobrado semanalmente)"
     },
     "plans": {
       "standard": "Estándar",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} tiene acceso gratuito a través de ti",
       "cancelWarning": "Si cancelas tu suscripción, {{name}} también perderá el acceso.",
       "manageSubscription": "Gestionar Suscripción",
-      "continueToManage": "Continuar para Gestionar"
+      "continueToManage": "Continuar para Gestionar",
+      "freePlan": "Prueba Gratuita",
+      "freeDescription": "25 conversaciones • Funciones limitadas",
+      "upgradeButton": "Mejora para desbloquear todo",
+      "promoExpires": "Acceso completo expira en {{days}} días",
+      "subscribeToKeep": "Suscríbete para mantener acceso"
     },
     "required": {
       "title": "¡Un paso más, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Error al iniciar el pago",
       "failedPortal": "Error al abrir gestión de suscripción",
       "somethingWrong": "Algo salió mal"
+    },
+    "choice": {
+      "title": "Elige tu plan",
+      "subtitle": "Cada historia de amor merece las palabras correctas",
+      "free": {
+        "title": "Prueba Gratis",
+        "price": "0€",
+        "perMonth": "/mes",
+        "features": {
+          "conversations": "25 conversaciones IA/mes",
+          "validations": "50 validaciones/mes",
+          "games": "Juegos de vocabulario básicos",
+          "voiceLimited": "Chat de voz (1 prueba)",
+          "listenLimited": "Modo escucha (1 prueba)",
+          "challengesLimited": "5 desafíos de pareja"
+        },
+        "cta": "Comenzar Gratis",
+        "subtext": "Perfecto para probar Love Languages",
+        "noCardRequired": "No se requiere tarjeta de crédito"
+      }
     }
   },
   "pendingChallenges": {

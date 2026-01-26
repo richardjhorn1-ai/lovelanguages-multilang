@@ -410,18 +410,31 @@ const App: React.FC = () => {
                     onQuit={() => supabase.auth.signOut()}
                     hasInheritedSubscription={!!profile.subscription_granted_by}
                   />
-                ) : // Step 3: Free tier now available - let users through!
-                // Paywall shows when they hit usage limits (in-app), not at the door
-                // Users with subscription, promo, inherited access, or beta status get unlimited
-                // Free users get 25 chats, 50 validations, etc. (see FREE_TIER_SPEC.md)
-                (
-                  <div className="flex flex-col h-full">
-                    <Navbar profile={profile} />
-                    <main className="flex-1 h-0 overflow-hidden">
-                      <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
-                    </main>
-                  </div>
-                )
+                ) : // Step 3: Check subscription/access status
+                // Allow if: subscription active, inherited access, active promo, free tier chosen, or beta tester
+                (() => {
+                  const hasActiveSubscription = profile.subscription_status === 'active';
+                  const hasInheritedAccess = !!profile.subscription_granted_by;
+                  const hasActivePromo = (profile as any).promo_expires_at && new Date((profile as any).promo_expires_at) > new Date();
+                  const hasChosenFreeTier = !!(profile as any).free_tier_chosen_at;
+                  const betaTester = isBetaTester(profile.email || '');
+
+                  const hasAccess = hasActiveSubscription || hasInheritedAccess || hasActivePromo || hasChosenFreeTier || betaTester;
+
+                  return !hasAccess ? (
+                    <SubscriptionRequired
+                      profile={profile}
+                      onSubscribed={() => fetchProfile(profile.id)}
+                    />
+                  ) : (
+                    <div className="flex flex-col h-full">
+                      <Navbar profile={profile} />
+                      <main className="flex-1 h-0 overflow-hidden">
+                        <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
+                      </main>
+                    </div>
+                  );
+                })()
               ) : (
                 <Hero />
               )

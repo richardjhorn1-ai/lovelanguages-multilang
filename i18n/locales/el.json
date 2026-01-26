@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Ακύρωση ανά πάσα στιγμή. Ασφαλής πληρωμή μέσω Stripe.",
       "questionsEmail": "Ερωτήσεις; Γράψε μας:",
       "friend": "Φίλος",
-      "copy": "Αντιγραφή"
+      "copy": "Αντιγραφή",
+      "billedWeekly": "({{price}}€ εβδομαδιαία χρέωση)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "Ο/Η {{name}} έχει δωρεάν πρόσβαση μέσω σου",
       "cancelWarning": "Αν ακυρώσεις τη συνδρομή σου, ο/η {{name}} θα χάσει επίσης την πρόσβαση.",
       "manageSubscription": "Διαχείριση συνδρομής",
-      "continueToManage": "Συνέχεια στη διαχείριση"
+      "continueToManage": "Συνέχεια στη διαχείριση",
+      "freePlan": "Δωρεάν Δοκιμή",
+      "freeDescription": "25 συνομιλίες • Περιορισμένες λειτουργίες",
+      "upgradeButton": "Αναβαθμίστε για να ξεκλειδώσετε τα πάντα",
+      "promoExpires": "Η πλήρης πρόσβαση λήγει σε {{days}} ημέρες",
+      "subscribeToKeep": "Εγγραφείτε για να διατηρήσετε πρόσβαση"
     },
     "required": {
       "title": "Ένα ακόμα βήμα, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Αποτυχία έναρξης πληρωμής",
       "failedPortal": "Αποτυχία ανοίγματος διαχείρισης συνδρομής",
       "somethingWrong": "Κάτι πήγε στραβά"
+    },
+    "choice": {
+      "title": "Επιλέξτε το πλάνο σας",
+      "subtitle": "Κάθε ιστορία αγάπης αξίζει τις σωστές λέξεις",
+      "free": {
+        "title": "Δωρεάν Δοκιμή",
+        "price": "0€",
+        "perMonth": "/μήνα",
+        "features": {
+          "conversations": "25 συνομιλίες AI/μήνα",
+          "validations": "50 επαληθεύσεις λέξεων/μήνα",
+          "games": "Βασικά παιχνίδια λεξιλογίου",
+          "voiceLimited": "Φωνητική συνομιλία (1 δοκιμή)",
+          "listenLimited": "Λειτουργία ακρόασης (1 δοκιμή)",
+          "challengesLimited": "5 προκλήσεις συντρόφου"
+        },
+        "cta": "Ξεκινήστε Δωρεάν",
+        "subtext": "Ιδανικό για δοκιμή του Love Languages",
+        "noCardRequired": "Δεν απαιτείται πιστωτική κάρτα"
+      }
     }
   },
   "pendingChallenges": {

@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Cancele quando quiser. Pagamento seguro via Stripe.",
       "questionsEmail": "Dúvidas? Envie email para",
       "friend": "Amigessa pessoa",
-      "copy": "Copiar"
+      "copy": "Copiar",
+      "billedWeekly": "({{price}}€ cobrado semanalmente)"
     },
     "plans": {
       "standard": "Padrão",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} tem acesso gratuito através de você",
       "cancelWarning": "Se você cancelar sua assinatura, {{name}} também perderá o acesso.",
       "manageSubscription": "Gerenciar Assinatura",
-      "continueToManage": "Continuar para Gerenciar"
+      "continueToManage": "Continuar para Gerenciar",
+      "freePlan": "Teste Grátis",
+      "freeDescription": "25 conversas • Recursos limitados",
+      "upgradeButton": "Atualizar para desbloquear tudo",
+      "promoExpires": "Acesso completo expira em {{days}} dias",
+      "subscribeToKeep": "Assine para manter o acesso"
     },
     "required": {
       "title": "Mais um passo, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Falha ao iniciar checkout",
       "failedPortal": "Falha ao abrir gerenciamento de assinatura",
       "somethingWrong": "Algo deu errado"
+    },
+    "choice": {
+      "title": "Escolha seu plano",
+      "subtitle": "Cada história de amor merece as palavras certas",
+      "free": {
+        "title": "Teste Grátis",
+        "price": "0€",
+        "perMonth": "/mês",
+        "features": {
+          "conversations": "25 conversas IA/mês",
+          "validations": "50 validações de palavras/mês",
+          "games": "Jogos de vocabulário básicos",
+          "voiceLimited": "Chat de voz (1 teste)",
+          "listenLimited": "Modo escuta (1 teste)",
+          "challengesLimited": "5 desafios de parceiro"
+        },
+        "cta": "Começar Grátis",
+        "subtext": "Perfeito para experimentar Love Languages",
+        "noCardRequired": "Não é necessário cartão de crédito"
+      }
     }
   },
   "pendingChallenges": {
