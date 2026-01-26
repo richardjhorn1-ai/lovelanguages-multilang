@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import type { TFunction } from 'i18next';
 import { supabase } from '../services/supabase';
+import { analytics } from '../services/analytics';
 import { ICONS } from '../constants';
 import { DEFAULT_THEME, applyTheme } from '../services/theme';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES, LanguageCode } from '../constants/language-config';
@@ -260,6 +261,9 @@ const Hero: React.FC = () => {
   const handleMobileOAuthSignIn = async (provider: 'google' | 'apple') => {
     setOauthLoading(provider);
     setMessage('');
+
+    // Track signup started
+    analytics.trackSignupStarted(provider);
 
     // Store the selected role in localStorage so we can retrieve it after OAuth redirect
     localStorage.setItem('intended_role', selectedRole);
