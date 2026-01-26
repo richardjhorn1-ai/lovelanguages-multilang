@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Vytvořeno s ♥ pro milující všude na světě"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Vyčerpali jste chytré validace",
+    "outOfVoice": "Dosáhli jste limitu hlasových relací",
+    "outOfChat": "Dosáhli jste limitu konverzací",
+    "continueBasic": "Pokračovat bez chytré validace",
+    "upgrade": "Upgradovat",
+    "remaining": "Zbývá {{count}}",
+    "warningLow": "Zbývá pouze {{count}}",
+    "usageOf": "{{used}} z {{total}} využito",
+    "upgradeDesc": "Upgradujte pro neomezené chytré validace, nebo pokračujte se základní kontrolou.",
+    "upgradeDescGeneric": "Upgradujte, abyste mohli tuto funkci používat bez limitů."
+  },
+
+  "signup": {
+    "freeStart": "Začněte se učit zdarma"
   }
 }

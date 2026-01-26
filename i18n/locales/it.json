@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Fatto con ♥ per gli innamorati di tutto il mondo"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Hai esaurito le validazioni intelligenti",
+    "outOfVoice": "Hai raggiunto il limite delle sessioni vocali",
+    "outOfChat": "Hai raggiunto il limite delle conversazioni",
+    "continueBasic": "Continua senza validazione intelligente",
+    "upgrade": "Passa a Premium",
+    "remaining": "{{count}} rimanenti",
+    "warningLow": "Solo {{count}} rimasti",
+    "usageOf": "{{used}} di {{total}} utilizzati",
+    "upgradeDesc": "Passa a Premium per validazioni intelligenti illimitate, o continua con la verifica base.",
+    "upgradeDescGeneric": "Passa a Premium per continuare a usare questa funzione senza limiti."
+  },
+
+  "signup": {
+    "freeStart": "Inizia a imparare gratis"
   }
 }

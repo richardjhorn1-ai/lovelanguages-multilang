@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Facut cu ♥ pentru indragostiti de pretutindeni"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Ai epuizat validările inteligente",
+    "outOfVoice": "Ai atins limita de sesiuni vocale",
+    "outOfChat": "Ai atins limita de conversații",
+    "continueBasic": "Continuă fără validare inteligentă",
+    "upgrade": "Fă upgrade",
+    "remaining": "{{count}} rămase",
+    "warningLow": "Mai sunt doar {{count}}",
+    "usageOf": "{{used}} din {{total}} folosite",
+    "upgradeDesc": "Fă upgrade pentru validări inteligente nelimitate, sau continuă cu verificare de bază.",
+    "upgradeDescGeneric": "Fă upgrade pentru a folosi această funcție fără limite."
+  },
+
+  "signup": {
+    "freeStart": "Începe să înveți gratuit"
   }
 }

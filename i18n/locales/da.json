@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Lavet med ♥ til elskere overalt"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Du har opbrugt dine smarte valideringer",
+    "outOfVoice": "Du har nået grænsen for stemmesessioner",
+    "outOfChat": "Du har nået grænsen for samtaler",
+    "continueBasic": "Fortsæt uden smart validering",
+    "upgrade": "Opgrader",
+    "remaining": "{{count}} tilbage",
+    "warningLow": "Kun {{count}} tilbage",
+    "usageOf": "{{used}} af {{total}} brugt",
+    "upgradeDesc": "Opgrader for ubegrænsede smarte valideringer, eller fortsæt med grundlæggende kontrol.",
+    "upgradeDescGeneric": "Opgrader for at fortsætte med at bruge denne funktion uden begrænsninger."
+  },
+
+  "signup": {
+    "freeStart": "Begynd at lære gratis"
   }
 }

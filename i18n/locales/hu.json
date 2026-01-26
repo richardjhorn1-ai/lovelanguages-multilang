@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Szeretettel készítve szerelmeseknek mindenhol"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Elfogytak az okos ellenőrzések",
+    "outOfVoice": "Elérted a hangsessziók korlátját",
+    "outOfChat": "Elérted a beszélgetések korlátját",
+    "continueBasic": "Folytatás okos ellenőrzés nélkül",
+    "upgrade": "Frissítés",
+    "remaining": "{{count}} maradt",
+    "warningLow": "Csak {{count}} maradt",
+    "usageOf": "{{used}} / {{total}} felhasználva",
+    "upgradeDesc": "Frissíts korlátlan okos ellenőrzésekért, vagy folytasd alapvető ellenőrzéssel.",
+    "upgradeDescGeneric": "Frissíts, hogy korlátlanul használhasd ezt a funkciót."
+  },
+
+  "signup": {
+    "freeStart": "Kezdj el tanulni ingyen"
   }
 }

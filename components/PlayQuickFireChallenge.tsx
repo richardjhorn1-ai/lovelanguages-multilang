@@ -6,6 +6,7 @@ import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
+import LimitReachedModal from './LimitReachedModal';
 
 interface PlayQuickFireChallengeProps {
   challenge: TutorChallenge;
@@ -32,6 +33,10 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   const [submitting, setSubmitting] = useState(false);
   const [countdown, setCountdown] = useState(3);
   const [showFeedback, setShowFeedback] = useState<'correct' | 'wrong' | null>(null);
+
+  // Rate limit / free tier state
+  const [showLimitModal, setShowLimitModal] = useState(false);
+  const [useBasicValidation, setUseBasicValidation] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -100,13 +105,17 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
     const word = words[currentIndex];
 
-    // Use smart validation if enabled, otherwise local matching
+    // Use smart validation if enabled and not rate-limited, otherwise local matching
     let isCorrect: boolean;
     let explanation = '';
-    if (smartValidation) {
+    if (smartValidation && !useBasicValidation) {
       const result = await validateAnswerSmart(userInput, word.translation, { targetWord: word.word });
       isCorrect = result.accepted;
       explanation = result.explanation;
+      // Check if rate limit was hit
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
     } else {
       // Use diacritics-normalized comparison for consistency
       isCorrect = normalizeAnswer(userInput) === normalizeAnswer(word.translation);
@@ -413,6 +422,14 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Rate Limit Modal */}
+      <LimitReachedModal
+        isOpen={showLimitModal}
+        onClose={() => setShowLimitModal(false)}
+        limitType="validation"
+        onContinueBasic={() => setUseBasicValidation(true)}
+      />
     </div>
   );
 };

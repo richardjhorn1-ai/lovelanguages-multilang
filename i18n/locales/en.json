@@ -2043,5 +2043,22 @@
     "invalidLink": "This password reset link is invalid or has expired. Please request a new one.",
     "passwordTooShort": "Password must be at least 6 characters",
     "passwordsMustMatch": "Passwords must match"
+  },
+
+  "limits": {
+    "outOfValidations": "You've run out of smart validations",
+    "outOfVoice": "You've reached your voice session limit",
+    "outOfChat": "You've reached your conversation limit",
+    "continueBasic": "Continue without smart validation",
+    "upgrade": "Upgrade",
+    "remaining": "{{count}} remaining",
+    "warningLow": "Only {{count}} left",
+    "usageOf": "{{used}} of {{total}} used",
+    "upgradeDesc": "Upgrade for unlimited smart validations, or continue with basic exact-match checking.",
+    "upgradeDescGeneric": "Upgrade to continue using this feature without limits."
+  },
+
+  "signup": {
+    "freeStart": "Start learning for $0.00"
   }
 }

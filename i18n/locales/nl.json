@@ -1968,5 +1968,22 @@
         "copyright": "Love Languages · Met liefde gemaakt voor geliefden overal"
       }
     }
+  },
+
+  "limits": {
+    "outOfValidations": "Je hebt je slimme validaties opgebruikt",
+    "outOfVoice": "Je hebt je spraaksessielimiet bereikt",
+    "outOfChat": "Je hebt je gesprekslimiet bereikt",
+    "continueBasic": "Doorgaan zonder slimme validatie",
+    "upgrade": "Upgraden",
+    "remaining": "{{count}} over",
+    "warningLow": "Nog maar {{count}} over",
+    "usageOf": "{{used}} van {{total}} gebruikt",
+    "upgradeDesc": "Upgrade voor onbeperkte slimme validaties, of ga door met basis controle.",
+    "upgradeDescGeneric": "Upgrade om deze functie zonder limieten te blijven gebruiken."
+  },
+
+  "signup": {
+    "freeStart": "Begin gratis met leren"
   }
 }

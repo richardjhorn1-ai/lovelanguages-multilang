@@ -1143,6 +1143,13 @@ const Hero: React.FC = () => {
                   )
                 )}
               </button>
+
+              {/* Free tier text */}
+              {isSignUp && (
+                <p className="text-center text-scale-micro text-gray-500 mt-2">
+                  ✨ {t('signup.freeStart', 'Start learning for $0.00')}
+                </p>
+              )}
             </form>
 
             {/* Mobile OAuth Divider */}
