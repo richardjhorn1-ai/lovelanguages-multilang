@@ -5,6 +5,24 @@
 
 ---
 
+## 📚 Skills Development
+
+Formalize repeatable workflows into skills. See `SKILLS_TODO.md` for full list.
+
+**Priority skills (create first):**
+- `security-review` — code security audit workflow
+- `testing-workflow` — formalize 4-level testing
+- `agent-workflow` — formalize agent team management
+- `create-article` — multi-language article generation
+
+**With major features:**
+- `add-game` — after XP overhaul
+- `add-language` — after Verb System
+
+These make operations repeatable, teachable to agents, and potentially shareable via ClawdHub.
+
+---
+
 ## 🔒 Code Review & Security Automation (Do First)
 
 Set up before next coding session. Claude writes fast — including bugs.
