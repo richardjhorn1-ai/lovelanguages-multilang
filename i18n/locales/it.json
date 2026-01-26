@@ -1985,5 +1985,19 @@
 
   "signup": {
     "freeStart": "Inizia a imparare gratis"
+  },
+
+  "promo": {
+    "title": "Accesso Creatore",
+    "enterCode": "Hai un codice creatore?",
+    "placeholder": "Inserisci il codice",
+    "apply": "Applica",
+    "success": "Accesso creatore attivato! Goditi {{days}} giorni di accesso illimitato.",
+    "activeUntil": "L'accesso creatore scade tra {{days}} giorni",
+    "expired": "Il tuo accesso creatore è terminato. Hai bisogno di più tempo? Scrivi a creators@lovelanguages.io",
+    "errorInvalid": "Codice non valido o scaduto",
+    "errorSubscribed": "Hai già un abbonamento attivo",
+    "errorActive": "Hai già un accesso creatore attivo",
+    "errorMaxUses": "Questo codice ha raggiunto il suo limite"
   }
 }

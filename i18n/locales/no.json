@@ -1985,5 +1985,19 @@
 
   "signup": {
     "freeStart": "Begynn å lære gratis"
+  },
+
+  "promo": {
+    "title": "Skaper-tilgang",
+    "enterCode": "Har du en skaperkode?",
+    "placeholder": "Skriv inn kode",
+    "apply": "Bruk",
+    "success": "Skaper-tilgang aktivert! Nyt {{days}} dager med ubegrenset tilgang.",
+    "activeUntil": "Skaper-tilgang utløper om {{days}} dager",
+    "expired": "Din skaper-tilgang har utløpt. Trenger du mer tid? Send e-post til creators@lovelanguages.io",
+    "errorInvalid": "Ugyldig eller utløpt kode",
+    "errorSubscribed": "Du har allerede et aktivt abonnement",
+    "errorActive": "Du har allerede aktiv skaper-tilgang",
+    "errorMaxUses": "Denne koden har nådd sin grense"
   }
 }

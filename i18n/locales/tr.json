@@ -1985,5 +1985,19 @@
 
   "signup": {
     "freeStart": "Ücretsiz öğrenmeye başla"
+  },
+
+  "promo": {
+    "title": "İçerik Üretici Erişimi",
+    "enterCode": "İçerik üretici kodunuz var mı?",
+    "placeholder": "Kodu girin",
+    "apply": "Uygula",
+    "success": "İçerik üretici erişimi etkinleştirildi! {{days}} gün sınırsız erişimin tadını çıkarın.",
+    "activeUntil": "İçerik üretici erişimi {{days}} gün içinde sona erecek",
+    "expired": "İçerik üretici erişiminiz sona erdi. Daha fazla zamana mı ihtiyacınız var? creators@lovelanguages.io adresine yazın",
+    "errorInvalid": "Geçersiz veya süresi dolmuş kod",
+    "errorSubscribed": "Zaten aktif bir aboneliğiniz var",
+    "errorActive": "Zaten aktif içerik üretici erişiminiz var",
+    "errorMaxUses": "Bu kod limitine ulaştı"
   }
 }

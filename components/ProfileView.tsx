@@ -253,8 +253,13 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
         {/* Usage Section - Shows usage against plan limits */}
         <UsageSection userId={profile.id} />
 
-        {/* Account Settings - Email and Password */}
-        <AccountSettings email={profile.email} accentHex={accentHex} />
+        {/* Account Settings - Email, Password, and Creator Access */}
+        <AccountSettings
+          email={profile.email}
+          accentHex={accentHex}
+          subscriptionPlan={profile.subscription_plan}
+          promoExpiresAt={(profile as any).promo_expires_at}
+        />
 
         {/* Invite Partner Section - Only for payers without a partner */}
         <InvitePartnerSection
