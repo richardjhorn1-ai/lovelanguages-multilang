@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
+import { analytics } from '../services/analytics';
 import { Profile } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
@@ -13,12 +14,33 @@ interface SubscriptionRequiredProps {
 const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, onSubscribed }) => {
   const [selectedPlan, setSelectedPlan] = useState<'standard' | 'unlimited'>('unlimited');
   const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('yearly');
+
+  // Handle plan selection with analytics
+  const handlePlanSelect = (planId: 'standard' | 'unlimited') => {
+    setSelectedPlan(planId);
+    analytics.trackPlanSelected({
+      plan: planId,
+      billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod,
+    });
+  };
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showCanceledMessage, setShowCanceledMessage] = useState(false);
 
   const { t } = useTranslation();
   const { targetName } = useLanguage();
+
+  // Track paywall view on mount
+  const paywallViewedRef = useRef(false);
+  useEffect(() => {
+    if (!paywallViewedRef.current) {
+      paywallViewedRef.current = true;
+      analytics.trackPaywallView({
+        trigger_reason: 'subscription_required',
+        page_context: 'onboarding',
+      });
+    }
+  }, []);
 
   // Detect subscription=canceled URL param from Stripe checkout
   useEffect(() => {
@@ -67,6 +89,22 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
   const handleSubscribe = async () => {
     setLoading(true);
     setError(null);
+
+    // Get price for analytics
+    const selectedPlanData = plans.find(p => p.id === selectedPlan);
+    const price = billingPeriod === 'weekly'
+      ? selectedPlanData?.weeklyPrice
+      : billingPeriod === 'monthly'
+        ? selectedPlanData?.monthlyPrice
+        : selectedPlanData?.yearlyPrice;
+
+    // Track checkout started
+    analytics.trackCheckoutStarted({
+      plan: selectedPlan,
+      billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod, // GA4 expects monthly/yearly
+      price: price || 0,
+      currency: 'EUR',
+    });
 
     try {
       const session = await supabase.auth.getSession();
@@ -249,7 +287,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
             return (
               <button
                 key={plan.id}
-                onClick={() => setSelectedPlan(plan.id)}
+                onClick={() => handlePlanSelect(plan.id)}
                 className={`relative w-full text-left p-4 rounded-2xl border-2 transition-all ${
                   isSelected
                     ? 'border-rose-400 bg-rose-50'
