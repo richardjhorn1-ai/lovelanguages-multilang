@@ -207,15 +207,180 @@ New strings:
 
 ---
 
-## Phase 2: Promo Codes (After Phase 1 Complete)
+## Phase 2: Promo Codes
 
-### Task 2.1: Database Migration
-### Task 2.2: Promo Code API Endpoints  
-### Task 2.3: Promo Code UI in Settings
-### Task 2.4: Promo Code Validation Logic
-### Task 2.5: Creator Access Expiry Handling
+### Task 2.1: Database Migration (Backend)
+**Owner:** Bruno
 
-(Details to be added after Phase 1 ships)
+Create Supabase migration:
+
+```sql
+-- Add promo expiry to profiles
+ALTER TABLE profiles ADD COLUMN promo_expires_at timestamptz;
+
+-- Promo codes table
+CREATE TABLE promo_codes (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  code text UNIQUE NOT NULL,
+  grant_days int DEFAULT 7,
+  max_uses int DEFAULT 50,
+  current_uses int DEFAULT 0,
+  expires_at timestamptz,
+  created_by text, -- e.g., 'postedapp-sophie'
+  created_at timestamptz DEFAULT now()
+);
+
+-- Track redemptions
+CREATE TABLE promo_redemptions (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id),
+  code_id uuid REFERENCES promo_codes(id),
+  redeemed_at timestamptz DEFAULT now(),
+  UNIQUE(user_id, code_id)
+);
+
+-- Index for fast lookups
+CREATE INDEX idx_promo_codes_code ON promo_codes(code);
+CREATE INDEX idx_promo_redemptions_user ON promo_redemptions(user_id);
+```
+
+**Acceptance criteria:**
+- [ ] Migration runs without errors
+- [ ] profiles.promo_expires_at column exists
+- [ ] promo_codes and promo_redemptions tables created
+
+---
+
+### Task 2.2: Update Rate Limit Logic (Backend)
+**Owner:** Bruno
+**File:** `utils/api-middleware.ts`
+
+Update `checkRateLimit` to check `promo_expires_at`:
+- If `promo_expires_at > now()`, treat user as "standard" tier
+- Otherwise use their normal subscription status
+
+```typescript
+// Pseudo-logic
+const plan = profile.promo_expires_at && new Date(profile.promo_expires_at) > new Date()
+  ? 'standard'
+  : profile.subscription_plan || 'free';
+```
+
+**Acceptance criteria:**
+- [ ] Users with active promo get standard limits
+- [ ] Expired promo falls back to free/subscription
+
+---
+
+### Task 2.3: Promo Redemption API (Backend)
+**Owner:** Bruno
+**File:** New `api/promo-redeem.ts`
+
+POST `/api/promo/redeem`
+Body: `{ code: string }`
+
+Logic:
+1. Validate user is authenticated
+2. Check user doesn't have active subscription (error if they do)
+3. Check user doesn't have active promo (error if they do)
+4. Find code in promo_codes table
+5. Check code exists, not expired, under max_uses
+6. Increment current_uses
+7. Create promo_redemptions record
+8. Set profiles.promo_expires_at = now + grant_days
+9. Return success
+
+Error responses:
+- 400: "You already have an active subscription"
+- 400: "You already have active creator access"
+- 404: "Invalid or expired code"
+- 400: "This code has reached its limit"
+
+**Acceptance criteria:**
+- [ ] Valid code grants access
+- [ ] All error cases handled
+- [ ] current_uses incremented
+- [ ] promo_expires_at set correctly
+
+---
+
+### Task 2.4: Promo Status API (Backend)
+**Owner:** Bruno
+**File:** New `api/promo-status.ts`
+
+GET `/api/promo/status`
+
+Returns:
+```json
+{
+  "hasPromo": true,
+  "expiresAt": "2026-02-02T00:00:00Z",
+  "daysRemaining": 7
+}
+```
+
+**Acceptance criteria:**
+- [ ] Returns correct promo status
+- [ ] daysRemaining calculated correctly
+
+---
+
+### Task 2.5: Promo UI in Settings (Frontend)
+**Owner:** Felix
+**File:** `components/AccountSettings.tsx`
+
+Add section "Creator Access":
+- If no promo active: Show input "Have a creator code?" + Apply button
+- If promo active: Show "Creator access expires in X days"
+- If subscribed: Don't show this section at all
+
+**Acceptance criteria:**
+- [ ] Input field for code
+- [ ] Apply button calls /api/promo/redeem
+- [ ] Success/error messages shown
+- [ ] Active promo shows expiry
+- [ ] Hidden for subscribers
+
+---
+
+### Task 2.6: Promo Expiry Message (Frontend)
+**Owner:** Felix
+
+When promo_expires_at passes:
+- User drops to free tier (automatic via backend)
+- Show message on next app open: "Your creator access has ended. Need more time? Email creators@lovelanguages.io"
+
+**Acceptance criteria:**
+- [ ] Message shows after promo expires
+- [ ] Dismissible
+- [ ] Email link works
+
+---
+
+### Task 2.7: Translations (Frontend)
+**Owner:** Felix
+**Files:** All 18 locale files
+
+New strings:
+```json
+"promo": {
+  "title": "Creator Access",
+  "enterCode": "Have a creator code?",
+  "placeholder": "Enter code",
+  "apply": "Apply",
+  "success": "Creator access activated! Enjoy {{days}} days of unlimited access.",
+  "activeUntil": "Creator access expires in {{days}} days",
+  "expired": "Your creator access has ended. Need more time? Email creators@lovelanguages.io",
+  "errorInvalid": "Invalid or expired code",
+  "errorSubscribed": "You already have an active subscription",
+  "errorActive": "You already have active creator access",
+  "errorMaxUses": "This code has reached its limit"
+}
+```
+
+**Acceptance criteria:**
+- [ ] All strings in all 18 locales
+- [ ] Natural translations
 
 ---
 
