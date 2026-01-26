@@ -128,8 +128,8 @@ const PrivacyPolicy: React.FC = () => {
                 <strong>Supabase:</strong> Database hosting and user authentication
               </li>
               <li>
-                <strong>Google (Gemini API):</strong> AI-powered language coaching, translations, and content
-                generation
+                <strong>Google (Gemini API, Analytics):</strong> AI-powered language coaching, translations,
+                content generation, and anonymized usage analytics
               </li>
               <li>
                 <strong>Gladia:</strong> Speech-to-text transcription for voice features
@@ -346,8 +346,12 @@ const PrivacyPolicy: React.FC = () => {
                 <strong>Preference Cookies:</strong> Store your theme, font size, and display preferences
               </li>
               <li>
-                <strong>Analytics:</strong> Help us understand how users interact with the Service (Vercel
-                Analytics)
+                <strong>Analytics:</strong> Help us understand how users interact with the Service (Google
+                Analytics 4, Vercel Analytics). Google Analytics collects anonymized usage data including
+                pages visited, session duration, and general location. You can opt out via{' '}
+                <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color: accentHex }}>
+                  Google's opt-out browser add-on
+                </a>.
               </li>
             </ul>
             <p className="mt-3">
