@@ -5,6 +5,41 @@
 
 ---
 
+## 💰 Monetization & Conversion (User Feedback)
+
+Real feedback from early users — high priority.
+
+### Paywall Hits Too Early
+Users hit the paywall before experiencing value. Current state: `free: 0` on almost all endpoints. Free users can't chat, validate words, or do anything meaningful.
+
+**Options:**
+1. **Free allowance** — 10 chats, 20 word validations, 1 level test, etc. Let them taste it.
+2. **Time-based trial** — 7 days full access, no card required. Convert after they're hooked.
+
+**Files:** `utils/api-middleware.ts` → `RATE_LIMITS`
+
+---
+
+### Pricing Display Psychology
+Show smaller numbers to reduce friction.
+
+**Changes needed:**
+- Show monthly equivalent for yearly plans ("$5.75/mo" not "$69")
+- Lead with monthly option, yearly as "save 70%"
+- Remove or de-emphasize large annual totals
+
+**Files:** `components/PricingPage.tsx`, `components/onboarding/steps/shared/PlanSelectionStep.tsx`
+
+---
+
+### Custom Learning Goals
+Let users input open-ended goals like "meet the in-laws" or "order food on vacation." Tutor focuses content around their specific goal.
+
+**Currently:** Fixed goal options during onboarding.
+**Needed:** Free-text goal input → stored in profile → tutor references it.
+
+---
+
 ## 🏗️ Major System Improvements
 
 These are foundational systems that need holistic redesign, not quick fixes.
