@@ -295,6 +295,12 @@ Main app tabs stay mounted and hidden via CSS (`display: none`) rather than unmo
 - [ ] **Diff review** — `git diff` looks correct, no debug code left
 - [ ] **Test** — Verified the change works (browser, console, network)
 
+### Git Workflow (IMPORTANT):
+- **ONE branch per feature/session** — Don't create separate branches for every small fix
+- **Batch commits** — Make multiple commits locally, push once when ready
+- **Push sparingly** — Each push triggers a Vercel build. Push when feature is complete, not continuously
+- **Consolidate before pushing** — If you have related fixes, commit them all, then push once
+
 ### Red Flags to Watch For:
 - `.env` values appearing in code
 - `console.log` with sensitive data
