@@ -17,7 +17,8 @@ const {
   <p class="text-white/90 mb-5 text-lg">AI coaching, voice practice, and games designed for couples.</p>
   <a
     href="/"
-    class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+    class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg cta-button"
+    onclick="if(typeof gtag !== 'undefined') gtag('event', 'cta_click', { cta_location: 'blog_article', cta_text: this.textContent.trim(), destination: 'signup' });"
   >
     {buttonText} →
   </a>
