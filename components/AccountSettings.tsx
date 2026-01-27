@@ -285,9 +285,8 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
             </div>
           </div>
 
-          {/* Creator Access - Only show for non-subscribers */}
-          {!hasSubscription && (
-            <div className="p-4 bg-[var(--bg-secondary)] rounded-2xl">
+          {/* Creator Access - Show for all users */}
+          <div className="p-4 bg-[var(--bg-secondary)] rounded-2xl">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] mb-3">
                 {t('promo.title')}
               </p>
@@ -345,7 +344,6 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
                 </form>
               )}
             </div>
-          )}
         </div>
       )}
     </div>
