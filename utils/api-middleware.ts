@@ -429,7 +429,7 @@ export const RATE_LIMITS = {
   chat: { type: 'text_messages', monthly: { free: 25, standard: 5000, unlimited: null } },
   validateWord: { type: 'word_validations', monthly: { free: 50, standard: 2000, unlimited: null } },
   validateAnswer: { type: 'answer_validations', monthly: { free: 75, standard: 3000, unlimited: null } },
-  analyzeHistory: { type: 'history_analysis', monthly: { free: 0, standard: 500, unlimited: null } },
+  analyzeHistory: { type: 'history_analysis', monthly: { free: 1, standard: 500, unlimited: null } },
   processTranscript: { type: 'transcript_process', monthly: { free: 0, standard: 200, unlimited: null } },
   generateLevelTest: { type: 'level_tests', monthly: { free: 2, standard: 50, unlimited: null } },
   submitLevelTest: { type: 'level_test_submissions', monthly: { free: 4, standard: 100, unlimited: null } },
