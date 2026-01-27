@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
@@ -36,14 +36,14 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   const { t } = useTranslation();
   const [selected, setSelected] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
-  const [options, setOptions] = useState<string[]>([]);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   const currentWord = words[currentIndex];
   const isLastWord = currentIndex >= words.length - 1;
 
-  // Generate options when word changes
-  useEffect(() => {
-    if (!currentWord || words.length < optionCount) return;
+  // Generate options with useMemo (stable per word ID)
+  const options = useMemo(() => {
+    if (!currentWord || words.length < optionCount) return [];
 
     // Get wrong options from other words
     const otherTranslations = words
@@ -51,12 +51,21 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
       .map((w) => w.translation);
 
     const wrongOptions = shuffleArray(otherTranslations).slice(0, optionCount - 1);
-    const allOptions = shuffleArray([currentWord.translation, ...wrongOptions]);
+    return shuffleArray([currentWord.translation, ...wrongOptions]);
+  }, [currentWord?.id, words.length, optionCount]);
 
-    setOptions(allOptions);
+  // Reset interaction state when word changes
+  useEffect(() => {
     setSelected(null);
     setShowFeedback(false);
-  }, [currentWord, words, optionCount]);
+  }, [currentIndex]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const handleSelect = useCallback(
     (option: string) => {
@@ -76,9 +85,9 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
         isCorrect,
       });
 
-      // Auto-advance after delay
+      // Auto-advance after delay (with cleanup)
       const delay = isCorrect ? correctDelay : incorrectDelay;
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         if (isLastWord) {
           onComplete();
         } else {
