@@ -78,9 +78,9 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         )}
       </div>
 
-      {/* Main content area with animation */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 pb-12 animate-fadeIn">
-        <div className="w-full max-w-md">
+      {/* Main content area with animation - scrollable on mobile */}
+      <div className="flex-1 flex flex-col items-center px-6 pb-12 animate-fadeIn overflow-y-auto">
+        <div className="w-full max-w-md my-auto">
           {children}
         </div>
       </div>
