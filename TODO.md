@@ -1,18 +1,78 @@
-## Pending Issues (2026-01-27)
+## Current Sprint - Post-Merge Cleanup
 
-### ✅ FIXED: Onboarding Words → Love Log
-**Fixed in:** commit 9112c1d
-- Onboarding now saves 2 starter words (hello, I love you) to dictionary
-- Awards 1 XP per word (2 XP total instead of flat 10 XP)
-- Words appear in Love Log with source="onboarding"
+### 🎯 Phase 1: Clean Up (This Week)
 
-### ✅ FIXED: Verb Conjugations Empty in Love Log
-**Fixed in:** commits 9112c1d, 3589439, 9f4815e
-**Root cause:** UI used Polish-specific keys (ja, ty, onOna) but API returns normalized keys (first_singular, second_singular, etc.)
-**Fixes applied:**
-1. Updated LoveLog.tsx to use normalized keys
-2. Added backward compatibility helper for legacy Polish keys
-3. Added auto-backfill: if AI returns verbs without conjugations, makes follow-up request to fill them
+#### 1. TTS in Games 🔊
+Games have no audio pronunciation - users can't hear words while practicing.
+
+**Files:** `FlashcardGame.tsx`, `PlayQuizChallenge.tsx`
+**Fix:** Add speaker icon buttons that call `speak(word, targetLanguage)`
+**Effort:** 1-2 hours
+
+#### 2. Split Giant Components 📦
+- `FlashcardGame.tsx` — 2,321 lines 😱
+- `ChatArea.tsx` — 1,877 lines
+- `TutorGames.tsx` — 1,355 lines
+
+**Target structure:**
+```
+FlashcardGame/
+  ├── index.tsx (orchestration)
+  ├── VerbMastery.tsx
+  ├── AIChallenge.tsx
+  ├── TypeIt.tsx
+  ├── MultipleChoice.tsx
+  └── hooks/useScores.ts
+```
+
+---
+
+### 🎯 Phase 2: Major Features (Next)
+
+#### 3. XP System Overhaul ⭐
+- XP not awarded for games (critical bug)
+- Levels don't mean anything
+- No streak rewards
+
+#### 4. Verb System + Verb Mastery Game 🇵🇱→🌍
+- Currently Polish-only
+- Add full conjugation support for all languages
+- New dedicated Verb Mastery game mode
+
+#### 5. Curriculum/Tutor Guidance 📚
+- No structured learning path
+- Tutor needs curriculum to follow
+- Per-language progression milestones
+
+---
+
+### 🎯 Phase 3: iOS Launch 📱
+
+#### 6. Heavy Testing
+- Full regression testing
+- Edge cases
+- Performance testing
+
+#### 7. TestFlight → App Store
+- Capacitor build
+- Apple submission
+
+---
+
+## ✅ Recently Completed (Jan 27)
+
+### Security & Analytics Release
+- [x] Free tier (25 chats + limited voice)
+- [x] Promo codes for creators
+- [x] GA4 analytics funnel (signup → onboarding → paywall → checkout)
+- [x] Password reset & account settings
+- [x] Blog translations (12 languages: en, es, fr, de, it, pt, pl, ru, tr, nl, ro, uk)
+- [x] Blog + app unified in same GA4 property
+- [x] Verb conjugations fix
+- [x] Onboarding words to Love Log
+- [x] Analytics for returning users
+- [x] CTA copy: "Speak their language, touch their heart"
+- [x] Learn Hub: added Dutch, Romanian, Ukrainian
 
 ---
 
@@ -21,3 +81,7 @@
 ### Master Vocabulary Bank
 See ROADMAP.md section "E. Master Vocabulary Bank (Cost Optimization)"
 Pre-computed vocabulary to reduce AI costs and improve response times.
+
+### Creator/Affiliate Program
+See ROADMAP.md section "F. Creator/Affiliate Program"
+10% commission for referrals.
