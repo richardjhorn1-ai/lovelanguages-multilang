@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Bármikor lemondható. Biztonságos fizetés Stripe-on keresztül.",
       "questionsEmail": "Kérdésed van? Írj nekünk:",
       "friend": "Barát",
-      "copy": "Másolás"
+      "copy": "Másolás",
+      "billedWeekly": "({{price}} Ft hetente)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}}-nak ingyenes hozzáférése van általad",
       "cancelWarning": "Ha lemondod az előfizetésedet, {{name}} is elveszíti a hozzáférését.",
       "manageSubscription": "Előfizetés kezelése",
-      "continueToManage": "Folytatás a kezeléshez"
+      "continueToManage": "Folytatás a kezeléshez",
+      "freePlan": "Ingyenes Próba",
+      "freeDescription": "25 beszélgetés • Korlátozott funkciók",
+      "upgradeButton": "Frissítsen a teljes hozzáférésért",
+      "promoExpires": "A teljes hozzáférés {{days}} nap múlva lejár",
+      "subscribeToKeep": "Fizessen elő a hozzáférés megtartásához"
     },
     "required": {
       "title": "Még egy lépés, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Nem sikerült elindítani a fizetést",
       "failedPortal": "Nem sikerült megnyitni az előfizetés-kezelést",
       "somethingWrong": "Valami hiba történt"
+    },
+    "choice": {
+      "title": "Válassza ki csomagját",
+      "subtitle": "Minden szerelmi történet megérdemli a megfelelő szavakat",
+      "free": {
+        "title": "Ingyenes Próba",
+        "price": "0 Ft",
+        "perMonth": "/hónap",
+        "features": {
+          "conversations": "25 AI beszélgetés/hónap",
+          "validations": "50 szóellenőrzés/hónap",
+          "games": "Alapvető szókincsjátékok",
+          "voiceLimited": "Hangchat (1 próba)",
+          "listenLimited": "Hallgatási mód (1 próba)",
+          "challengesLimited": "5 partnerkihívás"
+        },
+        "cta": "Kezdje Ingyen",
+        "subtext": "Tökéletes a Love Languages kipróbálásához",
+        "noCardRequired": "Nincs szükség bankkártyára"
+      }
     }
   },
   "pendingChallenges": {
@@ -1968,5 +1994,34 @@
         "copyright": "Love Languages · Szeretettel készítve szerelmeseknek mindenhol"
       }
     }
+  },
+  "limits": {
+    "outOfValidations": "Elfogytak az okos ellenőrzések",
+    "outOfVoice": "Elérted a hangsessziók korlátját",
+    "outOfChat": "Elérted a beszélgetések korlátját",
+    "continueBasic": "Folytatás okos ellenőrzés nélkül",
+    "upgrade": "Frissítés",
+    "remaining": "{{count}} maradt",
+    "warningLow": "Csak {{count}} maradt",
+    "usageOf": "{{used}} / {{total}} felhasználva",
+    "upgradeDesc": "Frissíts korlátlan okos ellenőrzésekért, vagy folytasd alapvető ellenőrzéssel.",
+    "upgradeDescGeneric": "Frissíts, hogy korlátlanul használhasd ezt a funkciót."
+  },
+  "signup": {
+    "freeStartLearning": "Kezdj el tanulni ingyen",
+    "freeStartTeaching": "Kezdj el tanítani ingyen"
+  },
+  "promo": {
+    "title": "Alkotói hozzáférés",
+    "enterCode": "Van alkotói kódod?",
+    "placeholder": "Add meg a kódot",
+    "apply": "Alkalmaz",
+    "success": "Alkotói hozzáférés aktiválva! Élvezz {{days}} nap korlátlan hozzáférést.",
+    "activeUntil": "Az alkotói hozzáférés {{days}} nap múlva lejár",
+    "expired": "Az alkotói hozzáférésed lejárt. Több időre van szükséged? Írj a creators@lovelanguages.io címre",
+    "errorInvalid": "Érvénytelen vagy lejárt kód",
+    "errorSubscribed": "Már van aktív előfizetésed",
+    "errorActive": "Már van aktív alkotói hozzáférésed",
+    "errorMaxUses": "Ez a kód elérte a limitjét"
   }
 }

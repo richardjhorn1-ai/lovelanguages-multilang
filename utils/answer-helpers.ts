@@ -63,6 +63,7 @@ export interface ValidateAnswerOptions {
 export interface ValidationResult {
   accepted: boolean;
   explanation: string;
+  rateLimitHit?: boolean;
 }
 
 /**
@@ -107,7 +108,12 @@ export async function validateAnswerSmart(
     });
 
     if (!response.ok) {
-      // Fallback to local matching on API error
+      // Handle rate limit (429) specially - let caller know
+      if (response.status === 429) {
+        const accepted = isCorrectAnswer(userAnswer, correctAnswer);
+        return { accepted, explanation: accepted ? 'Exact match' : 'No match', rateLimitHit: true };
+      }
+      // Fallback to local matching on other API errors
       const accepted = isCorrectAnswer(userAnswer, correctAnswer);
       return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
     }

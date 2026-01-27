@@ -4,6 +4,7 @@ import { supabase } from '../../services/supabase';
 import type { OnboardingData } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../constants/language-config';
+import { analytics } from '../../services/analytics';
 
 // Context for sharing onQuit across all step components
 export const OnboardingContext = createContext<{
@@ -671,6 +672,30 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   const goNext = () => setCurrentStep(s => Math.min(s + 1, totalSteps));
   const goBack = () => setCurrentStep(s => Math.max(s - 1, 1));
 
+  // Track onboarding step changes for analytics
+  const stepStartTime = useRef(Date.now());
+  useEffect(() => {
+    // Get step name based on role and step number
+    const getStepName = (step: number): string => {
+      if (role === 'student') {
+        const studentSteps = ['name', 'partner_name', 'photo', 'why', 'time', 'when', 'fear', 'prior', 'vibe', 'learn_hello', 'learn_love', 'try_it', 'celebration', 'goal', 'validation', 'plan', 'start'];
+        return studentSteps[step - 1] || `step_${step}`;
+      } else {
+        const tutorSteps = ['name', 'partner_name', 'relation', 'language_connection', 'origin', 'dream_phrase', 'teaching_style', 'preview', 'validation', 'plan', 'start'];
+        return tutorSteps[step - 1] || `step_${step}`;
+      }
+    };
+
+    analytics.track('onboarding_step', {
+      step_number: currentStep,
+      step_name: getStepName(currentStep),
+      role: role,
+      total_steps: totalSteps,
+      time_on_previous_step_ms: Date.now() - stepStartTime.current,
+    });
+    stepStartTime.current = Date.now();
+  }, [currentStep, role, totalSteps]);
+
   // Handle quitting onboarding - clear progress and call onQuit
   const handleQuit = () => {
     localStorage.removeItem(STORAGE_KEY);
@@ -719,12 +744,98 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       setLanguageOverride(null);
 
       if (role === 'student') {
-        supabase.rpc('increment_xp', { user_id: userId, amount: 10 }).then(() => {});
+        // Save onboarding words to dictionary and award XP
+        const targetLanguage = data.targetLanguage || 'pl';
+        const targetConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[targetLanguage];
+        const nativeLanguage = data.nativeLanguage || 'en';
+        const nativeConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[nativeLanguage];
+
+        // Words learned in onboarding
+        const onboardingWords = [
+          {
+            user_id: userId,
+            word: (targetConfig?.examples.hello || 'hello').toLowerCase(),
+            translation: nativeConfig?.examples.hello || 'hello',
+            word_type: 'phrase',
+            language_code: targetLanguage,
+            source: 'onboarding',
+            pro_tip: 'Your first word! Use it to greet your partner.',
+            example_sentence: `${targetConfig?.examples.hello || 'Hello'}! (${nativeConfig?.examples.hello || 'Hello'}!)`
+          },
+          {
+            user_id: userId,
+            word: (targetConfig?.examples.iLoveYou || 'i love you').toLowerCase(),
+            translation: nativeConfig?.examples.iLoveYou || 'I love you',
+            word_type: 'phrase',
+            language_code: targetLanguage,
+            source: 'onboarding',
+            pro_tip: 'The most important phrase! Say it often.',
+            example_sentence: `${targetConfig?.examples.iLoveYou || 'I love you'}, ${data.partnerName || 'my love'}! (${nativeConfig?.examples.iLoveYou || 'I love you'}!)`
+          }
+        ];
+
+        // Save words to dictionary (don't await)
+        supabase.from('dictionary').upsert(onboardingWords, {
+          onConflict: 'user_id,word,language_code',
+          ignoreDuplicates: true
+        }).then(() => {
+          window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: 2 } }));
+        }).catch(() => {});
+
+        // Award 1 XP per word (2 words = 2 XP)
+        fetch('/api/increment-xp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
+          body: JSON.stringify({ amount: onboardingWords.length })
+        }).catch(() => {}); // Ignore errors
       }
 
       localStorage.removeItem(STORAGE_KEY);
 
-      if (data.selectedPriceId) {
+      // Track onboarding completion
+      analytics.track('onboarding_completed', {
+        role: role,
+        total_steps: totalSteps,
+        target_language: data.targetLanguage,
+        native_language: data.nativeLanguage,
+        selected_plan: data.selectedPlan || 'none',
+        has_inherited_subscription: hasInheritedSubscription,
+      });
+
+      // Handle plan selection
+      console.log('[Onboarding] Selected plan:', data.selectedPlan, 'Price ID:', data.selectedPriceId);
+
+      if (data.selectedPlan === 'free') {
+        // User chose free tier - call API to set free_tier_chosen_at
+        console.log('[Onboarding] Activating free tier...');
+        try {
+          const session = await supabase.auth.getSession();
+          const token = session.data.session?.access_token;
+
+          if (token) {
+            const response = await fetch('/api/choose-free-tier', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+              }
+            });
+
+            const result = await response.json();
+            console.log('[Onboarding] Free tier API response:', response.status, result);
+
+            if (!response.ok) {
+              console.error('[Onboarding] Free tier activation failed:', result);
+            }
+          } else {
+            console.error('[Onboarding] No auth token available for free tier activation');
+          }
+        } catch (freeErr) {
+          console.error('[Onboarding] Error activating free tier:', freeErr);
+        }
+        onComplete();
+      } else if (data.selectedPriceId) {
+        // User chose paid plan - redirect to Stripe
         try {
           const session = await supabase.auth.getSession();
           const token = session.data.session?.access_token;
@@ -753,9 +864,11 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         } catch (stripeErr) {
           console.error('Error creating checkout session:', stripeErr);
         }
+        onComplete();
+      } else {
+        // No plan selected (shouldn't happen) - just complete
+        onComplete();
       }
-
-      onComplete();
     } catch (err) {
       console.error('Error saving onboarding:', err);
       localStorage.removeItem(STORAGE_KEY);

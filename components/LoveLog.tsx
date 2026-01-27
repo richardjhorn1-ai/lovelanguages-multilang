@@ -46,6 +46,24 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   // Get dynamic pronouns for the target language
   const pronouns = getConjugationPersons(targetLanguage);
 
+  // Helper to get conjugation value with fallback to legacy Polish keys
+  const getConjValue = (tenseData: Record<string, any>, normalizedKey: string): string | undefined => {
+    // Try normalized key first
+    if (tenseData[normalizedKey]) return tenseData[normalizedKey];
+
+    // Fallback to legacy Polish keys for backward compatibility
+    const legacyKeyMap: Record<string, string> = {
+      'first_singular': 'ja',
+      'second_singular': 'ty',
+      'third_singular': 'onOna',
+      'first_plural': 'my',
+      'second_plural': 'wy',
+      'third_plural': 'oni'
+    };
+    const legacyKey = legacyKeyMap[normalizedKey];
+    return legacyKey ? tenseData[legacyKey] : undefined;
+  };
+
   const fetchEntries = useCallback(async () => {
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
 
@@ -722,12 +740,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Present tense - simple format
                       if (isPresent && tenseData) {
                         const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
                         ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
@@ -736,7 +754,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                 {pronounLabels.map(row => (
                                   <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                                     <td className="px-4 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
-                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{tenseData[row.key] || '—'}</td>
+                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{getConjValue(tenseData, row.key) || '—'}</td>
                                   </tr>
                                 ))}
                               </tbody>
@@ -748,12 +766,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Past tense - with gender
                       if (activeTenseTab === 'past' && tenseData) {
                         const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
                         ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
@@ -767,7 +785,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               </thead>
                               <tbody className="divide-y divide-[var(--border-color)]">
                                 {pronounLabels.map(row => {
-                                  const data = tenseData[row.key];
+                                  const data = getConjValue(tenseData, row.key);
                                   return (
                                     <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                                       <td className="px-3 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
@@ -794,12 +812,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Future tense - simple format
                       if (activeTenseTab === 'future' && tenseData) {
                         const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
                         ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
@@ -808,7 +826,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                 {pronounLabels.map(row => (
                                   <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                                     <td className="px-4 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
-                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{tenseData[row.key] || '—'}</td>
+                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{getConjValue(tenseData, row.key) || '—'}</td>
                                   </tr>
                                 ))}
                               </tbody>

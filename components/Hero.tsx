@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import type { TFunction } from 'i18next';
 import { supabase } from '../services/supabase';
+import { analytics } from '../services/analytics';
 import { ICONS } from '../constants';
 import { DEFAULT_THEME, applyTheme } from '../services/theme';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES, LanguageCode } from '../constants/language-config';
@@ -260,6 +261,9 @@ const Hero: React.FC = () => {
   const handleMobileOAuthSignIn = async (provider: 'google' | 'apple') => {
     setOauthLoading(provider);
     setMessage('');
+
+    // Track signup started
+    analytics.trackSignupStarted(provider);
 
     // Store the selected role in localStorage so we can retrieve it after OAuth redirect
     localStorage.setItem('intended_role', selectedRole);
@@ -604,6 +608,11 @@ const Hero: React.FC = () => {
       }
       setLoading(false);
       return;
+    }
+
+    // Track signup attempt for email signups
+    if (isSignUp) {
+      analytics.trackSignupStarted('email');
     }
 
     const { error } = isSignUp
@@ -1100,6 +1109,33 @@ const Hero: React.FC = () => {
                 placeholder={t('hero.login.passwordPlaceholder')}
               />
 
+              {/* Forgot Password Link (Mobile) */}
+              {!isSignUp && (
+                <button
+                  type="button"
+                  onClick={async () => {
+                    if (!email) {
+                      setMessage(t('hero.login.enterEmailFirst'));
+                      return;
+                    }
+                    setLoading(true);
+                    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                      redirectTo: `${window.location.origin}/#/reset-password`,
+                    });
+                    setLoading(false);
+                    if (error) {
+                      setMessage(error.message);
+                    } else {
+                      setMessage(t('hero.login.resetEmailSent'));
+                    }
+                  }}
+                  className="mt-1 text-scale-caption font-semibold transition-all hover:opacity-70"
+                  style={{ color: accentColor }}
+                >
+                  {t('hero.login.forgotPassword')}
+                </button>
+              )}
+
               <button
                 type="submit"
                 disabled={loading || oauthLoading !== null}
@@ -1112,6 +1148,13 @@ const Hero: React.FC = () => {
                   )
                 )}
               </button>
+
+              {/* Free tier text */}
+              {isSignUp && (
+                <p className="text-center text-scale-micro text-gray-500 mt-2">
+                  ✨ {isStudent ? t('signup.freeStartLearning', 'Start learning for $0.00') : t('signup.freeStartTeaching', 'Start teaching for $0.00')}
+                </p>
+              )}
             </form>
 
             {/* Mobile OAuth Divider */}

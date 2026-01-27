@@ -486,8 +486,37 @@ export const LEVEL_THEMES: Record<string, LevelTheme> = {
 
 // Get theme for a level transition
 export function getThemeForTransition(fromLevel: string, toLevel: string): LevelTheme | null {
-  const key = `${fromLevel}->${toLevel}`;
-  return LEVEL_THEMES[key] || null;
+  // Try full key first (e.g., "Beginner 1->Beginner 2")
+  const fullKey = `${fromLevel}->${toLevel}`;
+  if (LEVEL_THEMES[fullKey]) {
+    return LEVEL_THEMES[fullKey];
+  }
+
+  // Try short key format (e.g., "Beginner 1->2")
+  // Extract tier and level from both
+  const fromMatch = fromLevel.match(/^(\w+)\s+(\d+)$/);
+  const toMatch = toLevel.match(/^(\w+)\s+(\d+)$/);
+
+  if (fromMatch && toMatch) {
+    const [, fromTier, fromNum] = fromMatch;
+    const [, toTier, toNum] = toMatch;
+
+    if (fromTier === toTier) {
+      // Same tier: "Beginner 1->2"
+      const shortKey = `${fromLevel}->${toNum}`;
+      if (LEVEL_THEMES[shortKey]) {
+        return LEVEL_THEMES[shortKey];
+      }
+    } else {
+      // Cross tier: "Beginner 3->Elementary 1"
+      const crossKey = `${fromLevel}->${toLevel}`;
+      if (LEVEL_THEMES[crossKey]) {
+        return LEVEL_THEMES[crossKey];
+      }
+    }
+  }
+
+  return null;
 }
 
 // Get all available transitions

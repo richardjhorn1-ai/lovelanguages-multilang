@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Anuleaza oricand. Plata securizata prin Stripe.",
       "questionsEmail": "Intrebari? Trimite-ne email la",
       "friend": "Prieten",
-      "copy": "Copiaza"
+      "copy": "Copiaza",
+      "billedWeekly": "({{price}} lei facturat săptămânal)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} are acces gratuit prin tine",
       "cancelWarning": "Daca anulezi abonamentul, {{name}} va pierde si iubirea ta accesul.",
       "manageSubscription": "Gestioneaza Abonamentul",
-      "continueToManage": "Continua la Gestionare"
+      "continueToManage": "Continua la Gestionare",
+      "freePlan": "Perioadă de Probă",
+      "freeDescription": "25 conversații • Funcții limitate",
+      "upgradeButton": "Faceți upgrade pentru a debloca totul",
+      "promoExpires": "Acces complet expiră în {{days}} zile",
+      "subscribeToKeep": "Abonați-vă pentru a păstra accesul"
     },
     "required": {
       "title": "Inca un pas, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Nu am putut incepe plata",
       "failedPortal": "Nu am putut deschide gestionarea abonamentului",
       "somethingWrong": "Ceva nu a mers bine"
+    },
+    "choice": {
+      "title": "Alegeți planul dvs.",
+      "subtitle": "Fiecare poveste de dragoste merită cuvintele potrivite",
+      "free": {
+        "title": "Perioadă de Probă",
+        "price": "0 lei",
+        "perMonth": "/lună",
+        "features": {
+          "conversations": "25 conversații AI/lună",
+          "validations": "50 validări de cuvinte/lună",
+          "games": "Jocuri de vocabular de bază",
+          "voiceLimited": "Chat vocal (1 încercare)",
+          "listenLimited": "Mod ascultare (1 încercare)",
+          "challengesLimited": "5 provocări pentru partener"
+        },
+        "cta": "Începeți Gratuit",
+        "subtext": "Perfect pentru a încerca Love Languages",
+        "noCardRequired": "Nu este necesar card de credit"
+      }
     }
   },
   "pendingChallenges": {
@@ -1968,5 +1994,34 @@
         "copyright": "Love Languages · Facut cu ♥ pentru indragostiti de pretutindeni"
       }
     }
+  },
+  "limits": {
+    "outOfValidations": "Ai epuizat validările inteligente",
+    "outOfVoice": "Ai atins limita de sesiuni vocale",
+    "outOfChat": "Ai atins limita de conversații",
+    "continueBasic": "Continuă fără validare inteligentă",
+    "upgrade": "Fă upgrade",
+    "remaining": "{{count}} rămase",
+    "warningLow": "Mai sunt doar {{count}}",
+    "usageOf": "{{used}} din {{total}} folosite",
+    "upgradeDesc": "Fă upgrade pentru validări inteligente nelimitate, sau continuă cu verificare de bază.",
+    "upgradeDescGeneric": "Fă upgrade pentru a folosi această funcție fără limite."
+  },
+  "signup": {
+    "freeStartLearning": "Începe să înveți gratuit",
+    "freeStartTeaching": "Începe să predai gratuit"
+  },
+  "promo": {
+    "title": "Acces Creator",
+    "enterCode": "Ai un cod de creator?",
+    "placeholder": "Introdu codul",
+    "apply": "Aplică",
+    "success": "Acces creator activat! Bucură-te de {{days}} zile de acces nelimitat.",
+    "activeUntil": "Accesul creator expiră în {{days}} zile",
+    "expired": "Accesul tău de creator s-a încheiat. Ai nevoie de mai mult timp? Scrie la creators@lovelanguages.io",
+    "errorInvalid": "Cod invalid sau expirat",
+    "errorSubscribed": "Ai deja un abonament activ",
+    "errorActive": "Ai deja acces creator activ",
+    "errorMaxUses": "Acest cod a atins limita"
   }
 }

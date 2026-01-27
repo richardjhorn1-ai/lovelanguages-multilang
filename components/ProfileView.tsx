@@ -10,6 +10,7 @@ import InvitePartnerSection from './InvitePartnerSection';
 import BreakupModal from './BreakupModal';
 import AvatarUpload from './AvatarUpload';
 import LanguagesSection from './LanguagesSection';
+import AccountSettings from './AccountSettings';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
@@ -244,13 +245,23 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             subscription_ends_at: profile.subscription_ends_at || null,
             subscription_granted_by: profile.subscription_granted_by || null,
             linked_user_id: profile.linked_user_id || null,
-            stripe_customer_id: profile.stripe_customer_id || null
+            stripe_customer_id: profile.stripe_customer_id || null,
+            free_tier_chosen_at: profile.free_tier_chosen_at || null,
+            promo_expires_at: profile.promo_expires_at || null
           }}
           partnerName={partner?.full_name}
         />
 
         {/* Usage Section - Shows usage against plan limits */}
         <UsageSection userId={profile.id} />
+
+        {/* Account Settings - Email, Password, and Creator Access */}
+        <AccountSettings
+          email={profile.email}
+          accentHex={accentHex}
+          subscriptionPlan={profile.subscription_plan}
+          promoExpiresAt={(profile as any).promo_expires_at}
+        />
 
         {/* Invite Partner Section - Only for payers without a partner */}
         <InvitePartnerSection

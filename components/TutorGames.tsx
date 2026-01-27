@@ -10,6 +10,7 @@ import WordRequestCreator from './WordRequestCreator';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
+import LimitReachedModal from './LimitReachedModal';
 
 // Save Progress Dialog Component
 interface SaveProgressDialogProps {
@@ -160,6 +161,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const [showSaveDialog, setShowSaveDialog] = useState(false);
   const [savingProgress, setSavingProgress] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
+
+  // Rate limit / free tier state
+  const [showLimitModal, setShowLimitModal] = useState(false);
+  const [useBasicValidation, setUseBasicValidation] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -425,13 +430,17 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     }
     const currentWord = localGameWords[localGameIndex];
 
-    // Use smart validation if enabled, otherwise local matching
+    // Use smart validation if enabled and not rate-limited, otherwise local matching
     let isCorrect: boolean;
     let explanation = '';
-    if (profile.smart_validation) {
+    if (profile.smart_validation && !useBasicValidation) {
       const result = await validateAnswerSmart(typeItAnswer, currentWord.translation, { targetWord: currentWord.word, languageParams: { targetLanguage, nativeLanguage } });
       isCorrect = result.accepted;
       explanation = result.explanation;
+      // Check if rate limit was hit
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
     } else {
       // Use diacritics-normalized comparison for consistency
       isCorrect = normalizeAnswer(typeItAnswer) === normalizeAnswer(currentWord.translation);
@@ -483,13 +492,17 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     if (!localQuickFireInput.trim()) return;
     const currentWord = localGameWords[localGameIndex];
 
-    // Use smart validation if enabled, otherwise local matching
+    // Use smart validation if enabled and not rate-limited, otherwise local matching
     let isCorrect: boolean;
     let explanation = '';
-    if (profile.smart_validation) {
+    if (profile.smart_validation && !useBasicValidation) {
       const result = await validateAnswerSmart(localQuickFireInput, currentWord.translation, { targetWord: currentWord.word, languageParams: { targetLanguage, nativeLanguage } });
       isCorrect = result.accepted;
       explanation = result.explanation;
+      // Check if rate limit was hit
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
     } else {
       // Use diacritics-normalized comparison for consistency
       isCorrect = normalizeAnswer(localQuickFireInput) === normalizeAnswer(currentWord.translation);
@@ -1348,6 +1361,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           onCreated={handleWordRequestCreated}
         />
       )}
+
+      {/* Rate Limit Modal */}
+      <LimitReachedModal
+        isOpen={showLimitModal}
+        onClose={() => setShowLimitModal(false)}
+        limitType="validation"
+        onContinueBasic={() => setUseBasicValidation(true)}
+      />
     </div>
   );
 };

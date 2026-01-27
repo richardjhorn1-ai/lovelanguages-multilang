@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Opsig når som helst. Sikker betaling via Stripe.",
       "questionsEmail": "Spørgsmål? Email os på",
       "friend": "Ven",
-      "copy": "Kopier"
+      "copy": "Kopier",
+      "billedWeekly": "({{price}} kr faktureres ugentligt)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} har gratis adgang gennem dig",
       "cancelWarning": "Hvis du opsiger dit abonnement, mister {{name}} også adgang.",
       "manageSubscription": "Administrer abonnement",
-      "continueToManage": "Fortsæt til administration"
+      "continueToManage": "Fortsæt til administration",
+      "freePlan": "Gratis Prøveperiode",
+      "freeDescription": "25 samtaler • Begrænsede funktioner",
+      "upgradeButton": "Opgrader for at låse alt op",
+      "promoExpires": "Fuld adgang udløber om {{days}} dage",
+      "subscribeToKeep": "Abonner for at beholde adgang"
     },
     "required": {
       "title": "Et skridt mere, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Kunne ikke starte betaling",
       "failedPortal": "Kunne ikke åbne abonnementsadministration",
       "somethingWrong": "Noget gik galt"
+    },
+    "choice": {
+      "title": "Vælg din plan",
+      "subtitle": "Hver kærlighedshistorie fortjener de rigtige ord",
+      "free": {
+        "title": "Gratis Prøveperiode",
+        "price": "0 kr",
+        "perMonth": "/måned",
+        "features": {
+          "conversations": "25 AI-samtaler/måned",
+          "validations": "50 ordvalideringer/måned",
+          "games": "Grundlæggende ordforråd spil",
+          "voiceLimited": "Talechat (1 forsøg)",
+          "listenLimited": "Lyttetilstand (1 forsøg)",
+          "challengesLimited": "5 partner-udfordringer"
+        },
+        "cta": "Start Gratis",
+        "subtext": "Perfekt til at prøve Love Languages",
+        "noCardRequired": "Intet kreditkort påkrævet"
+      }
     }
   },
   "pendingChallenges": {
@@ -1968,5 +1994,34 @@
         "copyright": "Love Languages · Lavet med ♥ til elskere overalt"
       }
     }
+  },
+  "limits": {
+    "outOfValidations": "Du har opbrugt dine smarte valideringer",
+    "outOfVoice": "Du har nået grænsen for stemmesessioner",
+    "outOfChat": "Du har nået grænsen for samtaler",
+    "continueBasic": "Fortsæt uden smart validering",
+    "upgrade": "Opgrader",
+    "remaining": "{{count}} tilbage",
+    "warningLow": "Kun {{count}} tilbage",
+    "usageOf": "{{used}} af {{total}} brugt",
+    "upgradeDesc": "Opgrader for ubegrænsede smarte valideringer, eller fortsæt med grundlæggende kontrol.",
+    "upgradeDescGeneric": "Opgrader for at fortsætte med at bruge denne funktion uden begrænsninger."
+  },
+  "signup": {
+    "freeStartLearning": "Start med at lære gratis",
+    "freeStartTeaching": "Start med at undervise gratis"
+  },
+  "promo": {
+    "title": "Skaber-adgang",
+    "enterCode": "Har du en skaberkode?",
+    "placeholder": "Indtast kode",
+    "apply": "Anvend",
+    "success": "Skaber-adgang aktiveret! Nyd {{days}} dages ubegrænset adgang.",
+    "activeUntil": "Skaber-adgang udløber om {{days}} dage",
+    "expired": "Din skaber-adgang er udløbet. Brug for mere tid? Skriv til creators@lovelanguages.io",
+    "errorInvalid": "Ugyldig eller udløbet kode",
+    "errorSubscribed": "Du har allerede et aktivt abonnement",
+    "errorActive": "Du har allerede aktiv skaber-adgang",
+    "errorMaxUses": "Denne kode har nået sin grænse"
   }
 }

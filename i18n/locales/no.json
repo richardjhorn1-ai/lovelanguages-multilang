@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Avslutt når som helst. Sikker betaling via Stripe.",
       "questionsEmail": "Spørsmål? Send e-post til",
       "friend": "Venn",
-      "copy": "Kopier"
+      "copy": "Kopier",
+      "billedWeekly": "({{price}} kr faktureres ukentlig)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} har gratis tilgang gjennom deg",
       "cancelWarning": "Hvis du avslutter abonnementet, mister {{name}} også tilgang.",
       "manageSubscription": "Administrer abonnement",
-      "continueToManage": "Fortsett til administrasjon"
+      "continueToManage": "Fortsett til administrasjon",
+      "freePlan": "Gratis Prøveperiode",
+      "freeDescription": "25 samtaler • Begrensede funksjoner",
+      "upgradeButton": "Oppgrader for å låse opp alt",
+      "promoExpires": "Full tilgang utløper om {{days}} dager",
+      "subscribeToKeep": "Abonner for å beholde tilgang"
     },
     "required": {
       "title": "Ett steg til, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Kunne ikke starte betaling",
       "failedPortal": "Kunne ikke åpne abonnementsadministrasjon",
       "somethingWrong": "Noe gikk galt"
+    },
+    "choice": {
+      "title": "Velg din plan",
+      "subtitle": "Hver kjærlighetshistorie fortjener de rette ordene",
+      "free": {
+        "title": "Gratis Prøveperiode",
+        "price": "0 kr",
+        "perMonth": "/måned",
+        "features": {
+          "conversations": "25 AI-samtaler/måned",
+          "validations": "50 ordvalideringer/måned",
+          "games": "Grunnleggende ordforråd spill",
+          "voiceLimited": "Talechat (1 forsøk)",
+          "listenLimited": "Lyttemodus (1 forsøk)",
+          "challengesLimited": "5 partner-utfordringer"
+        },
+        "cta": "Start Gratis",
+        "subtext": "Perfekt for å prøve Love Languages",
+        "noCardRequired": "Ingen kredittkort nødvendig"
+      }
     }
   },
   "pendingChallenges": {
@@ -1968,5 +1994,34 @@
         "copyright": "Love Languages · Laget med ♥ for elskere overalt"
       }
     }
+  },
+  "limits": {
+    "outOfValidations": "Du har brukt opp smarte valideringer",
+    "outOfVoice": "Du har nådd grensen for taleøkter",
+    "outOfChat": "Du har nådd grensen for samtaler",
+    "continueBasic": "Fortsett uten smart validering",
+    "upgrade": "Oppgrader",
+    "remaining": "{{count}} igjen",
+    "warningLow": "Bare {{count}} igjen",
+    "usageOf": "{{used}} av {{total}} brukt",
+    "upgradeDesc": "Oppgrader for ubegrensede smarte valideringer, eller fortsett med grunnleggende sjekk.",
+    "upgradeDescGeneric": "Oppgrader for å fortsette å bruke denne funksjonen uten begrensninger."
+  },
+  "signup": {
+    "freeStartLearning": "Begynn å lære gratis",
+    "freeStartTeaching": "Begynn å undervise gratis"
+  },
+  "promo": {
+    "title": "Skaper-tilgang",
+    "enterCode": "Har du en skaperkode?",
+    "placeholder": "Skriv inn kode",
+    "apply": "Bruk",
+    "success": "Skaper-tilgang aktivert! Nyt {{days}} dager med ubegrenset tilgang.",
+    "activeUntil": "Skaper-tilgang utløper om {{days}} dager",
+    "expired": "Din skaper-tilgang har utløpt. Trenger du mer tid? Send e-post til creators@lovelanguages.io",
+    "errorInvalid": "Ugyldig eller utløpt kode",
+    "errorSubscribed": "Du har allerede et aktivt abonnement",
+    "errorActive": "Du har allerede aktiv skaper-tilgang",
+    "errorMaxUses": "Denne koden har nådd sin grense"
   }
 }

@@ -7,7 +7,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import './i18n';
 import { useI18nSync } from './hooks/useI18nSync';
-import { trackPageView } from './services/analytics';
+import { trackPageView, analytics } from './services/analytics';
 import Hero from './components/Hero';
 import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
@@ -26,8 +26,10 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import FAQ from './components/FAQ';
 import Method from './components/Method';
 import Pricing from './components/Pricing';
+import ResetPassword from './components/ResetPassword';
 import CookieConsent from './components/CookieConsent';
 import ErrorBoundary from './components/ErrorBoundary';
+import PromoExpiredBanner from './components/PromoExpiredBanner';
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
@@ -168,6 +170,17 @@ const App: React.FC = () => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('subscription') === 'success') {
       setSuccessToast("You're all set!");
+
+      // Track subscription completed
+      // Note: Actual plan/price details would come from the Stripe webhook
+      // This is a fallback client-side tracking
+      analytics.track('subscription_completed', {
+        plan: 'unknown', // Will be enriched by Stripe webhook data
+        billing_period: 'unknown',
+        price: 0,
+        currency: 'EUR',
+      });
+
       // Clean up URL
       const url = new URL(window.location.href);
       url.searchParams.delete('subscription');
@@ -186,7 +199,7 @@ const App: React.FC = () => {
         .single();
 
       if (error) {
-        // Fix: PostgrestError does not have a status property. 
+        // Fix: PostgrestError does not have a status property.
         // PGRST116 is the code for "no rows returned" when using .single()
         if (error.code === 'PGRST116') {
           const { data: userData } = await supabase.auth.getUser();
@@ -228,6 +241,21 @@ const App: React.FC = () => {
               })
               .select()
               .single();
+
+            // Track signup completed for new users
+            if (newProfile) {
+              const provider = userData.user.app_metadata?.provider || 'email';
+              analytics.identify(userData.user.id, {
+                signup_date: new Date().toISOString(),
+                native_language: storedNative,
+                target_language: storedTarget,
+                subscription_plan: 'free',
+              });
+              analytics.trackSignupCompleted({
+                method: provider as 'google' | 'apple' | 'email',
+                referral_source: document.referrer || 'direct',
+              });
+            }
 
             if (createError) {
               // Duplicate key error (23505) means profile was created by auth trigger - fetch and update it
@@ -281,6 +309,13 @@ const App: React.FC = () => {
         }
       } else {
         setProfile(data);
+        // Initialize analytics for returning users (enables event tracking)
+        analytics.identify(userId, {
+          signup_date: data.created_at,
+          native_language: data.native_language,
+          target_language: data.active_language,
+          subscription_plan: data.subscription_plan || 'free',
+        });
         // Sync localStorage with profile settings (self-healing if localStorage is stale)
         if (data?.active_language) {
           localStorage.setItem('preferredTargetLanguage', data.active_language);
@@ -315,7 +350,7 @@ const App: React.FC = () => {
         <div className="text-6xl mb-4">⚠️</div>
         <h2 className="text-2xl font-bold text-red-700 mb-2">Connection Issue</h2>
         <p className="text-red-600 max-w-md mb-6">{dbError}</p>
-        <button 
+        <button
           onClick={() => window.location.reload()}
           className="bg-red-600 text-white px-6 py-2 rounded-xl font-bold shadow-lg"
         >
@@ -336,6 +371,10 @@ const App: React.FC = () => {
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
           )}
+          {/* Promo expired banner */}
+          {profile && (
+            <PromoExpiredBanner promoExpiresAt={(profile as any).promo_expires_at} />
+          )}
           <Routes>
             {/* Public routes - accessible without auth */}
             <Route path="/join/:token" element={<JoinInvite />} />
@@ -344,6 +383,7 @@ const App: React.FC = () => {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/method" element={<Method />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
 
             {/* Target language routes - /pl, /es, /fr, etc. */}
             {/* Only match actual language codes, not app routes like /log, /play */}
@@ -377,24 +417,31 @@ const App: React.FC = () => {
                     onQuit={() => supabase.auth.signOut()}
                     hasInheritedSubscription={!!profile.subscription_granted_by}
                   />
-                ) : // Step 3: Check if user has active subscription (direct or inherited) or is beta tester
-                !profile.subscription_status || (
-                  profile.subscription_status !== 'active' &&
-                  !profile.subscription_granted_by &&  // Partner with inherited access
-                  !isBetaTester(profile.email)
-                ) ? (
-                  <SubscriptionRequired
-                    profile={profile}
-                    onSubscribed={() => fetchProfile(profile.id)}
-                  />
-                ) : (
-                  <div className="flex flex-col h-full">
-                    <Navbar profile={profile} />
-                    <main className="flex-1 h-0 overflow-hidden">
-                      <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
-                    </main>
-                  </div>
-                )
+                ) : // Step 3: Check subscription/access status
+                // Allow if: subscription active, inherited access, active promo, free tier chosen, or beta tester
+                (() => {
+                  const hasActiveSubscription = profile.subscription_status === 'active';
+                  const hasInheritedAccess = !!profile.subscription_granted_by;
+                  const hasActivePromo = (profile as any).promo_expires_at && new Date((profile as any).promo_expires_at) > new Date();
+                  const hasChosenFreeTier = !!(profile as any).free_tier_chosen_at;
+                  const betaTester = isBetaTester(profile.email || '');
+
+                  const hasAccess = hasActiveSubscription || hasInheritedAccess || hasActivePromo || hasChosenFreeTier || betaTester;
+
+                  return !hasAccess ? (
+                    <SubscriptionRequired
+                      profile={profile}
+                      onSubscribed={() => fetchProfile(profile.id)}
+                    />
+                  ) : (
+                    <div className="flex flex-col h-full">
+                      <Navbar profile={profile} />
+                      <main className="flex-1 h-0 overflow-hidden">
+                        <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
+                      </main>
+                    </div>
+                  );
+                })()
               ) : (
                 <Hero />
               )
