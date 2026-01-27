@@ -3,18 +3,42 @@ interface Props {
   text?: string;
   buttonText?: string;
   showSocialProof?: boolean;
+  language?: string; // Target language name (e.g., "Polish", "Spanish")
 }
 
+// Translations for CTA copy
+const CTA_TRANSLATIONS: Record<string, { subtitle: string; socialProof: string }> = {
+  en: { subtitle: "Learn together with AI coaching, voice practice & fun games.", socialProof: "✨ Try free — no credit card needed" },
+  es: { subtitle: "Aprende junto a tu pareja con IA, práctica de voz y juegos.", socialProof: "✨ Prueba gratis — sin tarjeta" },
+  fr: { subtitle: "Apprenez ensemble avec coaching IA, pratique vocale et jeux.", socialProof: "✨ Essai gratuit — sans carte" },
+  de: { subtitle: "Lernt zusammen mit KI-Coaching, Sprachübungen & Spielen.", socialProof: "✨ Kostenlos testen — keine Karte" },
+  it: { subtitle: "Imparate insieme con coaching IA, pratica vocale e giochi.", socialProof: "✨ Prova gratis — senza carta" },
+  pt: { subtitle: "Aprendam juntos com coaching IA, prática de voz e jogos.", socialProof: "✨ Experimente grátis — sem cartão" },
+  pl: { subtitle: "Uczcie się razem z AI, ćwiczeniami głosowymi i grami.", socialProof: "✨ Wypróbuj za darmo — bez karty" },
+  ru: { subtitle: "Учитесь вместе с ИИ-коучем, голосовой практикой и играми.", socialProof: "✨ Попробуйте бесплатно — без карты" },
+  nl: { subtitle: "Leer samen met AI-coaching, spraakpraktijk & spelletjes.", socialProof: "✨ Probeer gratis — geen kaart nodig" },
+  ro: { subtitle: "Învățați împreună cu coaching AI, practică vocală și jocuri.", socialProof: "✨ Încearcă gratuit — fără card" },
+  uk: { subtitle: "Вчіться разом з ІІ-коучем, голосовою практикою та іграми.", socialProof: "✨ Спробуйте безкоштовно — без картки" },
+  tr: { subtitle: "Yapay zeka koçluğu, ses pratiği ve oyunlarla birlikte öğrenin.", socialProof: "✨ Ücretsiz deneyin — kart gerekmez" },
+};
+
 const {
-  text = "Ready to learn Polish together?",
-  buttonText = "Start Your Journey",
-  showSocialProof = true
+  text = "Ready to learn together?",
+  buttonText = "Start Learning for $0",
+  showSocialProof = true,
+  language
 } = Astro.props;
+
+// Get native language from URL path (e.g., /learn/es/pl/ -> es)
+const pathname = Astro.url.pathname;
+const pathParts = pathname.split('/').filter(Boolean);
+const nativeLang = pathParts[1] && pathParts[1].length === 2 ? pathParts[1] : 'en';
+const translations = CTA_TRANSLATIONS[nativeLang] || CTA_TRANSLATIONS.en;
 ---
 
 <div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
   <h3 class="text-2xl font-bold font-header mb-3">{text}</h3>
-  <p class="text-white/90 mb-5 text-lg">AI coaching, voice practice, and games designed for couples.</p>
+  <p class="text-white/90 mb-5 text-lg">{translations.subtitle}</p>
   <a
     href="/"
     class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg cta-button"
@@ -24,7 +48,7 @@ const {
   </a>
   {showSocialProof && (
     <p class="mt-4 text-white/80 text-sm">
-      Join couples learning Polish across 30+ countries
+      {translations.socialProof}
     </p>
   )}
 </div>

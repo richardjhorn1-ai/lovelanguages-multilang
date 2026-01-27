@@ -3,11 +3,13 @@ interface Props {
   title?: string;
   description?: string;
   buttonText?: string;
+  language?: string; // Target language name for dynamic content
 }
 
+// Language-agnostic defaults
 const {
-  title = "Get Our Polish Phrasebook",
-  description = "50 essential Polish phrases for couples - pronunciation guides, romantic expressions, and conversation starters. Delivered to your inbox.",
+  title = "Get Our Free Phrasebook",
+  description = "50 essential phrases for couples - pronunciation guides, romantic expressions, and conversation starters. Delivered to your inbox.",
   buttonText = "Send Me the Guide"
 } = Astro.props;
 ---
