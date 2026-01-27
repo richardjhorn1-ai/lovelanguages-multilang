@@ -64,7 +64,7 @@ export const TypeIt: React.FC<TypeItProps> = ({
       word,
       direction: (Math.random() > 0.5 ? 'target_to_native' : 'native_to_target') as TypeItDirection,
     }));
-  }, [words.length]); // Only regenerate when word count changes
+  }, [words]); // Regenerate when words array changes
 
   const question = questions[currentIndex];
   const isTargetToNative = question?.direction === 'target_to_native';
