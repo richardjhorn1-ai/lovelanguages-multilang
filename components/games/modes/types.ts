@@ -30,6 +30,7 @@ export interface AnswerResult {
   wordText: string;
   correctAnswer: string;
   userAnswer?: string;
+  questionType: 'flashcard' | 'multiple_choice' | 'type_it';
   isCorrect: boolean;
 }
 
