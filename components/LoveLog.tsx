@@ -46,6 +46,24 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   // Get dynamic pronouns for the target language
   const pronouns = getConjugationPersons(targetLanguage);
 
+  // Helper to get conjugation value with fallback to legacy Polish keys
+  const getConjValue = (tenseData: Record<string, any>, normalizedKey: string): string | undefined => {
+    // Try normalized key first
+    if (tenseData[normalizedKey]) return tenseData[normalizedKey];
+
+    // Fallback to legacy Polish keys for backward compatibility
+    const legacyKeyMap: Record<string, string> = {
+      'first_singular': 'ja',
+      'second_singular': 'ty',
+      'third_singular': 'onOna',
+      'first_plural': 'my',
+      'second_plural': 'wy',
+      'third_plural': 'oni'
+    };
+    const legacyKey = legacyKeyMap[normalizedKey];
+    return legacyKey ? tenseData[legacyKey] : undefined;
+  };
+
   const fetchEntries = useCallback(async () => {
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
 
@@ -736,7 +754,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                 {pronounLabels.map(row => (
                                   <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                                     <td className="px-4 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
-                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{tenseData[row.key] || '—'}</td>
+                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{getConjValue(tenseData, row.key) || '—'}</td>
                                   </tr>
                                 ))}
                               </tbody>
@@ -767,7 +785,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               </thead>
                               <tbody className="divide-y divide-[var(--border-color)]">
                                 {pronounLabels.map(row => {
-                                  const data = tenseData[row.key];
+                                  const data = getConjValue(tenseData, row.key);
                                   return (
                                     <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                                       <td className="px-3 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
@@ -808,7 +826,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                 {pronounLabels.map(row => (
                                   <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                                     <td className="px-4 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
-                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{tenseData[row.key] || '—'}</td>
+                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{getConjValue(tenseData, row.key) || '—'}</td>
                                   </tr>
                                 ))}
                               </tbody>
