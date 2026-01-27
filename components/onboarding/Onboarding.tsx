@@ -719,12 +719,50 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       setLanguageOverride(null);
 
       if (role === 'student') {
-        // Award initial XP via API (don't await - fire and forget)
+        // Save onboarding words to dictionary and award XP
+        const targetLanguage = data.targetLanguage || 'pl';
+        const targetConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[targetLanguage];
+        const nativeLanguage = data.nativeLanguage || 'en';
+        const nativeConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[nativeLanguage];
+
+        // Words learned in onboarding
+        const onboardingWords = [
+          {
+            user_id: userId,
+            word: (targetConfig?.examples.hello || 'hello').toLowerCase(),
+            translation: nativeConfig?.examples.hello || 'hello',
+            word_type: 'phrase',
+            language_code: targetLanguage,
+            source: 'onboarding',
+            pro_tip: 'Your first word! Use it to greet your partner.',
+            example_sentence: `${targetConfig?.examples.hello || 'Hello'}! (${nativeConfig?.examples.hello || 'Hello'}!)`
+          },
+          {
+            user_id: userId,
+            word: (targetConfig?.examples.iLoveYou || 'i love you').toLowerCase(),
+            translation: nativeConfig?.examples.iLoveYou || 'I love you',
+            word_type: 'phrase',
+            language_code: targetLanguage,
+            source: 'onboarding',
+            pro_tip: 'The most important phrase! Say it often.',
+            example_sentence: `${targetConfig?.examples.iLoveYou || 'I love you'}, ${data.partnerName || 'my love'}! (${nativeConfig?.examples.iLoveYou || 'I love you'}!)`
+          }
+        ];
+
+        // Save words to dictionary (don't await)
+        supabase.from('dictionary').upsert(onboardingWords, {
+          onConflict: 'user_id,word,language_code',
+          ignoreDuplicates: true
+        }).then(() => {
+          window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: 2 } }));
+        }).catch(() => {});
+
+        // Award 1 XP per word (2 words = 2 XP)
         fetch('/api/increment-xp', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
-          body: JSON.stringify({ amount: 10 })
-        }).catch(() => {}); // Ignore errors for initial XP
+          body: JSON.stringify({ amount: onboardingWords.length })
+        }).catch(() => {}); // Ignore errors
       }
 
       localStorage.removeItem(STORAGE_KEY);

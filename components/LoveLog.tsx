@@ -722,12 +722,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Present tense - simple format
                       if (isPresent && tenseData) {
                         const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
                         ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
@@ -748,12 +748,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Past tense - with gender
                       if (activeTenseTab === 'past' && tenseData) {
                         const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
                         ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
@@ -794,12 +794,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       // Future tense - simple format
                       if (activeTenseTab === 'future' && tenseData) {
                         const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'ja' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'ty' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'onOna' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'my' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'wy' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'oni' as const }
+                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
+                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
+                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
+                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
+                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
+                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
                         ];
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
