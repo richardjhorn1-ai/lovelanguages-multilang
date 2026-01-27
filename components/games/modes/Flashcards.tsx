@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
@@ -22,6 +22,11 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isFlipped, setIsFlipped] = useState(false);
+
+  // Reset flip state when word changes
+  useEffect(() => {
+    setIsFlipped(false);
+  }, [currentIndex]);
 
   const currentWord = words[currentIndex];
   const isLastWord = currentIndex >= words.length - 1;
