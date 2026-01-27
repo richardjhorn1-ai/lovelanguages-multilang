@@ -8,7 +8,8 @@ import {
   incrementUsage,
   RATE_LIMITS,
   logSecurityEvent,
-  getClientIp
+  getClientIp,
+  SubscriptionPlan,
 } from '../utils/api-middleware.js';
 
 const CONFIRMATION_STRING = 'DELETE MY ACCOUNT';
@@ -42,7 +43,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Check rate limit (abuse prevention)
-    const limit = await checkRateLimit(supabase, auth.userId, 'deleteAccount', sub.plan as 'standard' | 'unlimited');
+    const limit = await checkRateLimit(supabase, auth.userId, 'deleteAccount', sub.plan as SubscriptionPlan);
     if (!limit.allowed) {
       return res.status(429).json({
         error: limit.error,

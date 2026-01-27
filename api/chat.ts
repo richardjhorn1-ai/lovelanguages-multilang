@@ -7,7 +7,8 @@ import {
   requireSubscription,
   checkRateLimit,
   incrementUsage,
-  RATE_LIMITS
+  RATE_LIMITS,
+  SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages, type LanguageParams } from '../utils/language-helpers.js';
 import { getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
@@ -282,7 +283,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Check rate limit for chat endpoint (sub.plan is guaranteed to be 'standard' or 'unlimited' after requireSubscription)
-    const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as 'standard' | 'unlimited', { failClosed: true });
+    const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as SubscriptionPlan, { failClosed: true });
     if (!limit.allowed) {
       return res.status(429).json({
         error: limit.error,
@@ -294,7 +295,7 @@ export default async function handler(req: any, res: any) {
 
     // Priority 1: GEMINI_API_KEY
     const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
-    
+
     if (!apiKey) {
       console.error("API Configuration Error: GEMINI_API_KEY not found.");
       return res.status(500).json({ error: "Server Configuration Error: GEMINI_API_KEY missing." });

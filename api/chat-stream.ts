@@ -16,7 +16,8 @@ import {
   requireSubscription,
   checkRateLimit,
   incrementUsage,
-  RATE_LIMITS
+  RATE_LIMITS,
+  SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
 import {
@@ -173,7 +174,7 @@ export default async function handler(req: any, res: any) {
   console.log('[chat-stream] Subscription check:', { allowed: sub.allowed, plan: sub.plan, userId: auth.userId });
   if (!sub.allowed) return res.status(403).json({ error: sub.error });
 
-  const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as 'standard' | 'unlimited');
+  const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as SubscriptionPlan);
   console.log('[chat-stream] Rate limit check:', { allowed: limit.allowed, remaining: limit.remaining, plan: sub.plan });
   if (!limit.allowed) return res.status(429).json({ error: limit.error, remaining: limit.remaining });
 
