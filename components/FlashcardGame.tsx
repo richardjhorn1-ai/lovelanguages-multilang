@@ -18,6 +18,7 @@ import TutorGames from './TutorGames';
 import ErrorBoundary from './ErrorBoundary';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
+import { StreakIndicator, StreakCelebrationModal } from './games/components';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
@@ -83,49 +84,6 @@ interface ChallengeQuestion {
 // CHALLENGE_MODES moved inside component to use translations - see challengeModes useMemo
 
 const STREAK_TO_LEARN = 5; // Number of consecutive correct answers to mark as learned
-
-// Streak Indicator Component
-const StreakIndicator: React.FC<{ streak: number; maxStreak?: number }> = ({ streak, maxStreak = STREAK_TO_LEARN }) => {
-  if (streak === 0) return null;
-
-  const isComplete = streak >= maxStreak;
-
-  return (
-    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
-      isComplete
-        ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
-        : 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
-    }`}>
-      <span>{streak}/{maxStreak}</span>
-      <span>{isComplete ? '✅' : '🔥'}</span>
-    </div>
-  );
-};
-
-// Streak Celebration Modal Component
-const StreakCelebrationModal: React.FC<{ show: boolean; word?: string }> = ({ show, word }) => {
-  if (!show) return null;
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
-      <div className="bg-gradient-to-br from-green-400 to-emerald-500 rounded-3xl p-8 shadow-2xl animate-bounce text-center max-w-sm mx-4">
-        <div className="text-6xl mb-4">🎉</div>
-        <h2 className="text-2xl font-black text-white mb-2">Word Mastered!</h2>
-        {word && <p className="text-white/90 font-bold text-lg mb-2">{word}</p>}
-        <p className="text-white/80 text-sm">
-          5 correct in a row! This word is now learned! 🎓
-        </p>
-        <div className="mt-4 flex justify-center gap-2">
-          {['🌟', '⭐', '✨', '💫', '🌟'].map((star, i) => (
-            <span key={i} className="text-2xl animate-pulse" style={{ animationDelay: `${i * 100}ms` }}>
-              {star}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [deck, setDeck] = useState<DictionaryEntry[]>([]);
