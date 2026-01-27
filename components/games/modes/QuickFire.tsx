@@ -67,8 +67,21 @@ export const QuickFire: React.FC<QuickFireProps> = ({
   const timerRef = useRef<ReturnType<typeof setInterval>>();
   const feedbackTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
+  // Refs for callbacks to avoid stale closures in timer/handlers
+  const onCompleteRef = useRef(onComplete);
+  const onAnswerRef = useRef(onAnswer);
+
   const currentWord = gameWords[currentIndex];
   const isLastWord = currentIndex >= gameWords.length - 1;
+
+  // Keep callback refs current
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  useEffect(() => {
+    onAnswerRef.current = onAnswer;
+  }, [onAnswer]);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -99,7 +112,8 @@ export const QuickFire: React.FC<QuickFireProps> = ({
           // Time's up
           if (timerRef.current) clearInterval(timerRef.current);
           setPhase('finished');
-          onComplete({
+          // Use ref to avoid stale closure
+          onCompleteRef.current({
             answers: answersRef.current,
             score: scoreRef.current,
             timeRemaining: 0,
@@ -109,7 +123,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
         return prev - 1;
       });
     }, 1000);
-  }, [words, maxWords, timeLimit, onStart, onComplete]);
+  }, [words, maxWords, timeLimit, onStart]); // Removed onComplete - using ref
 
   const handleAnswer = useCallback(async () => {
     if (!input.trim() || !currentWord || isValidating) return;
@@ -146,12 +160,12 @@ export const QuickFire: React.FC<QuickFireProps> = ({
       explanation,
     };
     answersRef.current = [...answersRef.current, answerResult];
-    onAnswer(answerResult);
+    onAnswerRef.current(answerResult); // Use ref to avoid stale closure
 
-    // Update score
+    // Update score (use ref to avoid stale state with rapid answers)
     const newScore = {
-      correct: score.correct + (accepted ? 1 : 0),
-      incorrect: score.incorrect + (accepted ? 0 : 1),
+      correct: scoreRef.current.correct + (accepted ? 1 : 0),
+      incorrect: scoreRef.current.incorrect + (accepted ? 0 : 1),
     };
     setScore(newScore);
     scoreRef.current = newScore;
@@ -167,7 +181,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
       // All words done
       if (timerRef.current) clearInterval(timerRef.current);
       setPhase('finished');
-      onComplete({
+      onCompleteRef.current({
         answers: answersRef.current,
         score: newScore,
         timeRemaining: timeLeft,
@@ -181,12 +195,9 @@ export const QuickFire: React.FC<QuickFireProps> = ({
     isValidating,
     validateAnswer,
     simpleValidate,
-    score,
     isLastWord,
     timeLeft,
-    onAnswer,
-    onComplete,
-  ]);
+  ]); // Removed score, onAnswer, onComplete - using refs
 
   // Ready screen
   if (phase === 'ready') {
