@@ -1,18 +1,42 @@
 # Love Languages - Development Roadmap
 
-**Last Updated:** January 2026  
+**Last Updated:** January 27, 2026
 **Project:** Love Languages Multilang
+
+---
+
+## ✅ Recently Completed (Jan 27, 2026)
+
+### Security & Analytics Release
+Merged `release/security-analytics` → `main`
+
+**Features:**
+- ✅ Free tier (25 chats + limited voice)
+- ✅ Promo codes system for creators
+- ✅ Password reset & account settings
+- ✅ Blog translations (12 languages)
+
+**Analytics:**
+- ✅ Full funnel: signup_started → onboarding_step → onboarding_completed → paywall_view → plan_selected → checkout_started → subscription_completed/failed
+- ✅ Blog + app unified in same GA4 (G-LWVWLRMW3R)
+- ✅ CTA click tracking from blog
+
+**Fixes:**
+- ✅ Verb conjugations in Love Log
+- ✅ Onboarding words saved to dictionary
+- ✅ Analytics for returning users (was queued forever)
+- ✅ Learn Hub: added Dutch, Romanian, Ukrainian
 
 ---
 
 ## 📊 Analytics Implementation
 
 ### ✅ Phase 1: Core Funnel (DONE)
-**Branch:** `feat/analytics-implementation`
 
-Tracking the essential conversion funnel:
+Tracking the full conversion funnel:
 ```
-signup_started → signup_completed → paywall_view → checkout_started → subscription_completed
+signup_started → signup_completed → onboarding_step → onboarding_completed →
+paywall_view → plan_selected → checkout_started → subscription_completed/failed
 ```
 
 This answers: **"Where do users drop off?"**
@@ -110,17 +134,15 @@ Add to agent workflow:
 
 Reduce manual support burden before it becomes a ceiling.
 
-### Password Reset in UI
-Supabase supports it, but no UI button exists. Users can't reset password themselves.
+### ✅ Password Reset in UI (DONE Jan 27)
+~~Supabase supports it, but no UI button exists.~~
 
-**Fix:** Add "Forgot password?" link to login, "Change password" in profile settings.
+**Fixed:** Added "Forgot password?" link + dedicated /reset-password page + "Change password" in Account Settings.
 
-**Effort:** Quick (1 hour)
+### ✅ Email Change Self-Service (DONE Jan 27)
+~~Let users change their own email in profile settings.~~
 
-### Email Change Self-Service
-Let users change their own email in profile settings.
-
-**Effort:** Quick (Supabase has `updateUser()`)
+**Fixed:** Added email change in Account Settings.
 
 ### FAQ Enhancement
 FAQ exists but could be smarter:
@@ -138,14 +160,16 @@ The tutor already knows the product. Could add a "Help" mode that answers accoun
 
 Real feedback from early users — high priority.
 
-### Paywall Hits Too Early
-Users hit the paywall before experiencing value. Current state: `free: 0` on almost all endpoints. Free users can't chat, validate words, or do anything meaningful.
+### ✅ Paywall Hits Too Early (FIXED Jan 27)
+~~Users hit the paywall before experiencing value.~~
 
-**Options:**
-1. **Free allowance** — 10 chats, 20 word validations, 1 level test, etc. Let them taste it.
-2. **Time-based trial** — 7 days full access, no card required. Convert after they're hooked.
+**Fixed:** Implemented free tier with:
+- 25 chats/month
+- 1 voice chat/month (2 min max)
+- 1 level test/month
+- 5 word requests, 10 flashcard games
 
-**Files:** `utils/api-middleware.ts` → `RATE_LIMITS`
+See `docs/FREE_TIER_SPEC.md` for full details.
 
 ---
 
@@ -360,16 +384,10 @@ Multiple places play `sounds.play('correct')` regardless of whether the answer i
 
 ---
 
-### 4. Learn Hub Missing 3 Languages
-Dutch (nl), Romanian (ro), and Ukrainian (uk) have blog content but aren't in Learn Hub's `getStaticPaths`. Users can't select these as native languages.
+### ✅ 4. Learn Hub Missing 3 Languages (FIXED Jan 27)
+~~Dutch (nl), Romanian (ro), and Ukrainian (uk) have blog content but aren't in Learn Hub's `getStaticPaths`.~~
 
-**Files:**
-- `/blog/src/pages/learn/[nativeLang]/index.astro`
-- `/blog/src/pages/learn/[nativeLang]/[targetLang]/index.astro`
-
-**Fix:** Add `nl`, `ro`, `uk` to `supportedNativeLangs` array.
-
-**Effort:** Quick (5 min)
+**Fixed:** Added full UI_TEXT translations for nl, ro, uk. All 12 languages now supported.
 
 ---
 
@@ -659,16 +677,16 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 
 ## Quick Wins (< 1 hour each)
 
-| Item | Time |
-|------|------|
-| Add `nl`, `ro`, `uk` to Learn Hub selector | 5 min |
-| Play `xp-gain` sound when XP awarded | 15 min |
-| Add exit confirmation for games | 30 min |
-| Add keyboard shortcuts (1-4) for MC | 30 min |
-| Add streak indicator in game UI | 30 min |
-| Add volume slider | 45 min |
-| Remove console.log statements | 30 min |
-| Add reduced-motion support | 30 min |
+| Item | Time | Status |
+|------|------|--------|
+| ~~Add `nl`, `ro`, `uk` to Learn Hub~~ | 5 min | ✅ Done |
+| Play `xp-gain` sound when XP awarded | 15 min | |
+| Add exit confirmation for games | 30 min | |
+| Add keyboard shortcuts (1-4) for MC | 30 min | |
+| Add streak indicator in game UI | 30 min | |
+| Add volume slider | 45 min | |
+| Remove console.log statements | 30 min | |
+| Add reduced-motion support | 30 min | |
 
 ---
 
