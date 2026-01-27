@@ -1931,7 +1931,10 @@
         },
         "q5": {
           "question": "How much does it cost?",
-          "intro": "Two plans, flexible billing:",
+          "intro": "Start free, upgrade when ready:",
+          "free": "Free Trial",
+          "freePrice": "$0",
+          "freeDesc": "25 chats, 50 flashcards, 1 voice session — no card required",
           "standard": "Standard",
           "standardPrice": "$7/week · $19/month · $69/year",
           "standardDesc": "2,000 words, 60 min voice, partner invite",
