@@ -492,7 +492,7 @@ export async function getSubscriptionPlan(
 ): Promise<SubscriptionPlan> {
   const { data: profile, error } = await supabase
     .from('profiles')
-    .select('subscription_plan, subscription_status, promo_expires_at, subscription_granted_by')
+    .select('subscription_plan, subscription_status, promo_expires_at, subscription_granted_by, free_tier_chosen_at')
     .eq('id', userId)
     .single();
 
@@ -501,7 +501,7 @@ export async function getSubscriptionPlan(
     return 'free';
   }
 
-  // Check for active paid subscription
+  // 1. Active paid subscription
   const isActive = profile.subscription_status === 'active';
   if (isActive) {
     const plan = profile.subscription_plan || 'standard';
@@ -510,12 +510,12 @@ export async function getSubscriptionPlan(
     }
   }
 
-  // Check for partner-inherited access (treat as standard for rate limits)
+  // 2. Partner-inherited access (treat as standard for rate limits)
   if (profile.subscription_granted_by) {
     return 'standard';
   }
 
-  // Check for active promo (treat as standard for rate limits)
+  // 3. Active promo (treat as standard for rate limits)
   if (profile.promo_expires_at) {
     const promoExpiry = new Date(profile.promo_expires_at);
     if (promoExpiry > new Date()) {
@@ -523,7 +523,7 @@ export async function getSubscriptionPlan(
     }
   }
 
-  // Free tier or no subscription
+  // 4. Free tier (explicitly chosen or default)
   return 'free';
 }
 
@@ -563,7 +563,7 @@ export async function requireSubscription(
   }
 
   // Check all access types:
-  
+
   // 1. Active paid subscription
   const hasActiveSubscription = profile.subscription_status === 'active';
   if (hasActiveSubscription) {
