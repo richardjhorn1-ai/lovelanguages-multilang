@@ -11,7 +11,7 @@ import {
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
-import { buildVocabularySchema } from '../utils/schema-builders.js';
+import { buildVocabularySchema, buildConjugationSchema } from '../utils/schema-builders.js';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers
@@ -210,7 +210,7 @@ ${historyText}`;
     }
 
     const now = new Date().toISOString();
-    const sanitizedWords = (parsed.newWords || []).map((w: any) => {
+    let sanitizedWords = (parsed.newWords || []).map((w: any) => {
       const sanitized = {
         ...w,
         word: (w.word || '').toLowerCase().trim(),
@@ -229,6 +229,68 @@ ${historyText}`;
 
       return sanitized;
     });
+
+    // Validate: if language has conjugation, verbs must have conjugations
+    if (hasConjugation) {
+      const verbsWithoutConjugations = sanitizedWords.filter(
+        (w: any) => w.type === 'verb' && (!w.conjugations || !w.conjugations.present)
+      );
+
+      // If any verbs are missing conjugations, make a follow-up request to fill them
+      if (verbsWithoutConjugations.length > 0) {
+        console.log(`[analyze-history] ${verbsWithoutConjugations.length} verbs missing conjugations, fetching...`);
+
+        const conjugationPrompt = `Generate ${targetName} verb conjugations for these verbs. Return ONLY the conjugations object for each.
+
+VERBS NEEDING CONJUGATIONS:
+${verbsWithoutConjugations.map((v: any) => `- ${v.word} (${v.translation})`).join('\n')}
+
+For EACH verb, provide present tense with ALL ${conjugationPersons.length} persons using normalized keys:
+{ present: { first_singular: "...", second_singular: "...", third_singular: "...", first_plural: "...", second_plural: "...", third_plural: "..." } }
+
+Return as JSON array matching the order above.`;
+
+        try {
+          const conjResponse = await ai.models.generateContent({
+            model: "gemini-2.0-flash",
+            contents: conjugationPrompt,
+            config: {
+              responseMimeType: "application/json",
+              responseSchema: {
+                type: Type.OBJECT,
+                properties: {
+                  conjugations: {
+                    type: Type.ARRAY,
+                    items: buildConjugationSchema(targetLanguage) || { type: Type.OBJECT }
+                  }
+                },
+                required: ['conjugations']
+              }
+            }
+          });
+
+          const conjText = conjResponse.text || '';
+          if (conjText.trim().startsWith('{')) {
+            const conjParsed = JSON.parse(conjText);
+            const conjugationsArray = conjParsed.conjugations || [];
+
+            // Merge conjugations back into the verbs
+            verbsWithoutConjugations.forEach((verb: any, index: number) => {
+              if (conjugationsArray[index]) {
+                const wordIndex = sanitizedWords.findIndex((w: any) => w.word === verb.word);
+                if (wordIndex !== -1) {
+                  sanitizedWords[wordIndex].conjugations = conjugationsArray[index];
+                }
+              }
+            });
+            console.log(`[analyze-history] Successfully backfilled ${conjugationsArray.length} verb conjugations`);
+          }
+        } catch (conjError) {
+          console.error('[analyze-history] Failed to backfill conjugations:', conjError);
+          // Continue without conjugations rather than failing entirely
+        }
+      }
+    }
 
     // Track usage after successful AI call
     incrementUsage(supabase, auth.userId, RATE_LIMITS.analyzeHistory.type);
