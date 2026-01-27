@@ -725,23 +725,35 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       localStorage.removeItem(STORAGE_KEY);
 
       // Handle plan selection
+      console.log('[Onboarding] Selected plan:', data.selectedPlan, 'Price ID:', data.selectedPriceId);
+      
       if (data.selectedPlan === 'free') {
         // User chose free tier - call API to set free_tier_chosen_at
+        console.log('[Onboarding] Activating free tier...');
         try {
           const session = await supabase.auth.getSession();
           const token = session.data.session?.access_token;
 
           if (token) {
-            await fetch('/api/choose-free-tier', {
+            const response = await fetch('/api/choose-free-tier', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
               }
             });
+            
+            const result = await response.json();
+            console.log('[Onboarding] Free tier API response:', response.status, result);
+            
+            if (!response.ok) {
+              console.error('[Onboarding] Free tier activation failed:', result);
+            }
+          } else {
+            console.error('[Onboarding] No auth token available for free tier activation');
           }
         } catch (freeErr) {
-          console.error('Error activating free tier:', freeErr);
+          console.error('[Onboarding] Error activating free tier:', freeErr);
         }
         onComplete();
       } else if (data.selectedPriceId) {
