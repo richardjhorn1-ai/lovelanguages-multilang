@@ -245,7 +245,9 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             subscription_ends_at: profile.subscription_ends_at || null,
             subscription_granted_by: profile.subscription_granted_by || null,
             linked_user_id: profile.linked_user_id || null,
-            stripe_customer_id: profile.stripe_customer_id || null
+            stripe_customer_id: profile.stripe_customer_id || null,
+            free_tier_chosen_at: profile.free_tier_chosen_at || null,
+            promo_expires_at: profile.promo_expires_at || null
           }}
           partnerName={partner?.full_name}
         />
