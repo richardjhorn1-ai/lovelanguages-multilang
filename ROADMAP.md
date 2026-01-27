@@ -251,6 +251,43 @@ Giant components are unmaintainable and slow to iterate on.
 
 ---
 
+### E. Master Vocabulary Bank (Cost Optimization)
+Currently every word extraction requires AI to generate translations, conjugations, gender, etc. This is expensive and slow. Pre-computed vocabulary would be instant and free for common words.
+
+**Current flow:**
+```
+Chat → AI extracts words → AI generates all word data → Save to user dictionary
+```
+
+**Optimized flow:**
+```
+Chat → AI extracts word stems → Lookup in master_vocabulary →
+  ├─ Found? → Copy to user dictionary (instant, free)
+  └─ Not found? → AI generates → Save + add to master vocab for future users
+```
+
+**Implementation:**
+1. New `master_vocabulary` table:
+   - `word` + `language_code` (source language)
+   - `translations` JSONB ({"en": "...", "es": "...", "de": "..."})
+   - `conjugations`, `gender`, `plural`, `adjective_forms`
+   - `verified` boolean, `usage_count` integer
+2. Seed with top 3,000-5,000 words per supported language
+3. Modify extraction APIs to lookup first, AI fallback
+4. Auto-add AI-generated words to master vocab (crowdsourced growth)
+
+**Benefits:**
+- 80-90% reduction in vocab-related AI costs
+- Faster response times (no AI latency for common words)
+- Consistent quality (vetted translations)
+- Scales with users (each new word benefits everyone)
+
+**Trigger:** When AI costs become significant or user base grows
+
+**Related items:** analyze-history.ts, chat.ts, vocabulary extraction
+
+---
+
 ## 🔥 Critical (Blocking/Broken)
 
 ### 1. XP System Doesn't Award XP for Local Games

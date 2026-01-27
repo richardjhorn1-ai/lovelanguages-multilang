@@ -1,16 +1,23 @@
-
 ## Pending Issues (2026-01-27)
 
-### 1. Onboarding Words → Love Log Inconsistency
-**Problem:** Onboarding gives 10 XP but doesn't add learned words to Love Log
-**Proposed fix:**
-- Add onboarding vocabulary to Love Log (language-agnostic)
-- Award 1 XP per word instead of flat 10 XP
-- Words encountered in onboarding flow should persist to dictionary table
-**Consideration:** Need to track which words are shown during onboarding per language pair
+### ✅ FIXED: Onboarding Words → Love Log
+**Fixed in:** commit 9112c1d
+- Onboarding now saves 2 starter words (hello, I love you) to dictionary
+- Awards 1 XP per word (2 XP total instead of flat 10 XP)
+- Words appear in Love Log with source="onboarding"
 
-### 2. Verb Conjugations Empty in Love Log
-**Problem:** Verb conjugations display as empty in Love Log
-**Likely cause:** `conjugation` field not being saved or retrieved correctly from dictionary table
-**To investigate:** Check how verbs are being stored vs displayed in LoveLog.tsx
+### ✅ FIXED: Verb Conjugations Empty in Love Log
+**Fixed in:** commits 9112c1d, 3589439, 9f4815e
+**Root cause:** UI used Polish-specific keys (ja, ty, onOna) but API returns normalized keys (first_singular, second_singular, etc.)
+**Fixes applied:**
+1. Updated LoveLog.tsx to use normalized keys
+2. Added backward compatibility helper for legacy Polish keys
+3. Added auto-backfill: if AI returns verbs without conjugations, makes follow-up request to fill them
 
+---
+
+## Backlog
+
+### Master Vocabulary Bank
+See ROADMAP.md section "E. Master Vocabulary Bank (Cost Optimization)"
+Pre-computed vocabulary to reduce AI costs and improve response times.
