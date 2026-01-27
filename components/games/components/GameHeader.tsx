@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 
 interface GameHeaderProps {
@@ -7,7 +8,7 @@ interface GameHeaderProps {
     correct: number;
     incorrect: number;
   };
-  /** Current progress (1-indexed) */
+  /** Current item index (0-indexed internally, displayed as 1-indexed) */
   currentIndex: number;
   /** Total items in session */
   totalItems: number;
@@ -28,7 +29,10 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
   accentColor = 'var(--accent-color)',
   onExit,
 }) => {
-  const progress = totalItems > 0 ? (currentIndex / totalItems) * 100 : 0;
+  const { t } = useTranslation();
+  // Progress based on 1-indexed display (currentIndex 0 = showing item 1)
+  const displayIndex = currentIndex + 1;
+  const progress = totalItems > 0 ? (displayIndex / totalItems) * 100 : 0;
 
   return (
     <div className="w-full">
@@ -37,6 +41,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
         {/* Back Button */}
         <button
           onClick={onExit}
+          aria-label={t('play.back', 'Go back')}
           className="p-2 hover:bg-[var(--bg-card)] rounded-xl transition-colors"
         >
           <ICONS.ChevronLeft className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -58,9 +63,9 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
           </div>
         </div>
 
-        {/* Progress Counter */}
+        {/* Progress Counter (1-indexed for display) */}
         <span className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest">
-          {currentIndex} / {totalItems}
+          {displayIndex} / {totalItems}
         </span>
       </div>
 
