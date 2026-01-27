@@ -309,6 +309,13 @@ const App: React.FC = () => {
         }
       } else {
         setProfile(data);
+        // Initialize analytics for returning users (enables event tracking)
+        analytics.identify(userId, {
+          signup_date: data.created_at,
+          native_language: data.native_language,
+          target_language: data.active_language,
+          subscription_plan: data.subscription_plan || 'free',
+        });
         // Sync localStorage with profile settings (self-healing if localStorage is stale)
         if (data?.active_language) {
           localStorage.setItem('preferredTargetLanguage', data.active_language);
