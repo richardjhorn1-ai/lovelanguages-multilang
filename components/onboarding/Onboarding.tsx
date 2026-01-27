@@ -719,14 +719,19 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       setLanguageOverride(null);
 
       if (role === 'student') {
-        supabase.rpc('increment_xp', { user_id: userId, amount: 10 }).then(() => {});
+        // Award initial XP via API (don't await - fire and forget)
+        fetch('/api/increment-xp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
+          body: JSON.stringify({ amount: 10 })
+        }).catch(() => {}); // Ignore errors for initial XP
       }
 
       localStorage.removeItem(STORAGE_KEY);
 
       // Handle plan selection
       console.log('[Onboarding] Selected plan:', data.selectedPlan, 'Price ID:', data.selectedPriceId);
-      
+
       if (data.selectedPlan === 'free') {
         // User chose free tier - call API to set free_tier_chosen_at
         console.log('[Onboarding] Activating free tier...');
@@ -742,10 +747,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                 'Authorization': `Bearer ${token}`
               }
             });
-            
+
             const result = await response.json();
             console.log('[Onboarding] Free tier API response:', response.status, result);
-            
+
             if (!response.ok) {
               console.error('[Onboarding] Free tier activation failed:', result);
             }
