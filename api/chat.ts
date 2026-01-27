@@ -7,13 +7,14 @@ import {
   requireSubscription,
   checkRateLimit,
   incrementUsage,
-  RATE_LIMITS
+  RATE_LIMITS,
+  SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages, type LanguageParams } from '../utils/language-helpers.js';
 import { getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
 import { getExtractionInstructions } from '../utils/schema-builders.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
-import { buildVocabularySchema } from '../utils/schema-builders.js';
+import { buildVocabularySchema, buildConjugationSchema } from '../utils/schema-builders.js';
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {
@@ -282,7 +283,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Check rate limit for chat endpoint (sub.plan is guaranteed to be 'standard' or 'unlimited' after requireSubscription)
-    const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as 'standard' | 'unlimited', { failClosed: true });
+    const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as SubscriptionPlan, { failClosed: true });
     if (!limit.allowed) {
       return res.status(429).json({
         error: limit.error,
@@ -294,7 +295,7 @@ export default async function handler(req: any, res: any) {
 
     // Priority 1: GEMINI_API_KEY
     const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
-    
+
     if (!apiKey) {
       console.error("API Configuration Error: GEMINI_API_KEY not found.");
       return res.status(500).json({ error: "Server Configuration Error: GEMINI_API_KEY missing." });
@@ -671,6 +672,71 @@ ${modePrompt}`;
       if (!parsed.newWords) {
         parsed.newWords = [];
       }
+
+      // Validate: if language has conjugation, verbs must have conjugations
+      const hasConjugation = targetConfig?.grammar.hasConjugation || false;
+      if (hasConjugation && parsed.newWords.length > 0) {
+        const verbsWithoutConjugations = parsed.newWords.filter(
+          (w: any) => w.type === 'verb' && (!w.conjugations || !w.conjugations.present)
+        );
+
+        // If any verbs are missing conjugations, make a follow-up request to fill them
+        if (verbsWithoutConjugations.length > 0) {
+          console.log(`[chat] ${verbsWithoutConjugations.length} verbs missing conjugations, fetching...`);
+          const conjugationPersons = getConjugationPersons(targetLanguage);
+
+          const conjugationPrompt = `Generate ${targetName} verb conjugations for these verbs. Return ONLY the conjugations object for each.
+
+VERBS NEEDING CONJUGATIONS:
+${verbsWithoutConjugations.map((v: any) => `- ${v.word} (${v.translation})`).join('\n')}
+
+For EACH verb, provide present tense with ALL ${conjugationPersons.length} persons using normalized keys:
+{ present: { first_singular: "...", second_singular: "...", third_singular: "...", first_plural: "...", second_plural: "...", third_plural: "..." } }
+
+Return as JSON array matching the order above.`;
+
+          try {
+            const conjResponse = await ai.models.generateContent({
+              model: "gemini-2.0-flash",
+              contents: conjugationPrompt,
+              config: {
+                responseMimeType: "application/json",
+                responseSchema: {
+                  type: Type.OBJECT,
+                  properties: {
+                    conjugations: {
+                      type: Type.ARRAY,
+                      items: buildConjugationSchema(targetLanguage) || { type: Type.OBJECT }
+                    }
+                  },
+                  required: ['conjugations']
+                }
+              }
+            });
+
+            const conjText = conjResponse.text || '';
+            if (conjText.trim().startsWith('{')) {
+              const conjParsed = JSON.parse(conjText);
+              const conjugationsArray = conjParsed.conjugations || [];
+
+              // Merge conjugations back into the verbs
+              verbsWithoutConjugations.forEach((verb: any, index: number) => {
+                if (conjugationsArray[index]) {
+                  const wordIndex = parsed.newWords.findIndex((w: any) => w.word === verb.word);
+                  if (wordIndex !== -1) {
+                    parsed.newWords[wordIndex].conjugations = conjugationsArray[index];
+                  }
+                }
+              });
+              console.log(`[chat] Successfully backfilled ${conjugationsArray.length} verb conjugations`);
+            }
+          } catch (conjError) {
+            console.error('[chat] Failed to backfill conjugations:', conjError);
+            // Continue without conjugations rather than failing entirely
+          }
+        }
+      }
+
       // Increment usage after successful response (non-blocking)
       incrementUsage(supabase, auth.userId, RATE_LIMITS.chat.type);
       return res.status(200).json(parsed);

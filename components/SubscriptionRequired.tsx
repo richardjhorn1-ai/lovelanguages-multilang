@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
+import { analytics } from '../services/analytics';
 import { Profile } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
@@ -11,14 +12,37 @@ interface SubscriptionRequiredProps {
 }
 
 const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, onSubscribed }) => {
-  const [selectedPlan, setSelectedPlan] = useState<'standard' | 'unlimited'>('unlimited');
-  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('yearly');
+  const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited'>('unlimited');
+  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showCanceledMessage, setShowCanceledMessage] = useState(false);
 
   const { t } = useTranslation();
   const { targetName } = useLanguage();
+
+  // Handle plan selection with analytics
+  const handlePlanSelect = (planId: 'free' | 'standard' | 'unlimited') => {
+    setSelectedPlan(planId);
+    if (planId !== 'free') {
+      analytics.trackPlanSelected({
+        plan: planId,
+        billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod,
+      });
+    }
+  };
+
+  // Track paywall view on mount
+  const paywallViewedRef = useRef(false);
+  useEffect(() => {
+    if (!paywallViewedRef.current) {
+      paywallViewedRef.current = true;
+      analytics.trackPaywallView({
+        trigger_reason: 'subscription_required',
+        page_context: 'onboarding',
+      });
+    }
+  }, []);
 
   // Detect subscription=canceled URL param from Stripe checkout
   useEffect(() => {
@@ -32,6 +56,22 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   const plans = [
     {
+      id: 'free' as const,
+      name: t('subscription.choice.free.title'),
+      weeklyPrice: 0,
+      monthlyPrice: 0,
+      yearlyPrice: 0,
+      tagline: t('subscription.choice.free.subtext'),
+      features: [
+        { text: t('subscription.choice.free.features.conversations'), included: true },
+        { text: t('subscription.choice.free.features.validations'), included: true },
+        { text: t('subscription.choice.free.features.games'), included: true },
+        { text: t('subscription.choice.free.features.voiceLimited'), included: false },
+        { text: t('subscription.choice.free.features.listenLimited'), included: false },
+        { text: t('subscription.choice.free.features.challengesLimited'), included: false },
+      ],
+    },
+    {
       id: 'standard' as const,
       name: t('subscription.plans.standard'),
       weeklyPrice: 7,
@@ -39,11 +79,11 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       yearlyPrice: 69,
       tagline: t('subscription.required.taglineStandard'),
       features: [
-        t('subscription.features.wordsLimit', { limit: '2,000' }),
-        t('subscription.features.voiceMinutes', { minutes: 60 }),
-        t('subscription.features.listenMinutes', { minutes: 30 }),
-        t('subscription.features.allScenarios'),
-        t('subscription.features.partnerInvite'),
+        { text: t('subscription.features.wordsLimit', { limit: '2,000' }), included: true },
+        { text: t('subscription.features.voiceMinutes', { minutes: 60 }), included: true },
+        { text: t('subscription.features.listenMinutes', { minutes: 30 }), included: true },
+        { text: t('subscription.features.allScenarios'), included: true },
+        { text: t('subscription.features.partnerInvite'), included: true },
       ],
     },
     {
@@ -55,18 +95,94 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       tagline: t('subscription.required.taglineUnlimited'),
       popular: true,
       features: [
-        t('subscription.features.unlimitedEverything'),
-        t('subscription.features.unlimitedVoice'),
-        t('subscription.features.unlimitedListen'),
-        t('subscription.features.allScenarios'),
-        t('subscription.features.giftPass'),
+        { text: t('subscription.features.unlimitedEverything'), included: true },
+        { text: t('subscription.features.unlimitedVoice'), included: true },
+        { text: t('subscription.features.unlimitedListen'), included: true },
+        { text: t('subscription.features.allScenarios'), included: true },
+        { text: t('subscription.features.giftPass'), included: true },
       ],
     },
   ];
 
-  const handleSubscribe = async () => {
+  // Calculate monthly equivalent for display
+  const getMonthlyEquivalent = (plan: typeof plans[0]) => {
+    if (billingPeriod === 'weekly') return plan.weeklyPrice * 4; // ~4 weeks per month
+    if (billingPeriod === 'monthly') return plan.monthlyPrice;
+    return Math.round((plan.yearlyPrice / 12) * 100) / 100; // yearly divided by 12
+  };
+
+  // Get billing period label for display
+  const getBillingLabel = (plan: typeof plans[0]) => {
+    if (plan.id === 'free') return t('subscription.choice.free.perMonth');
+    if (billingPeriod === 'weekly') return t('subscription.common.billedWeekly', { price: plan.weeklyPrice });
+    if (billingPeriod === 'monthly') return '';
+    return t('subscription.common.billedAnnually', { price: plan.yearlyPrice });
+  };
+
+  const handleChooseFreeTier = async () => {
     setLoading(true);
     setError(null);
+
+    try {
+      const session = await supabase.auth.getSession();
+      const token = session.data.session?.access_token;
+
+      if (!token) {
+        setError(t('subscription.errors.loginAgain'));
+        setLoading(false);
+        return;
+      }
+
+      const response = await fetch('/api/choose-free-tier', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to activate free tier');
+      }
+
+      // Track free tier selection
+      analytics.track('trial_started', {
+        plan: 'free',
+        trigger_reason: 'subscription_required',
+      });
+
+      // Refresh profile to get updated free_tier_chosen_at
+      onSubscribed();
+    } catch (err: any) {
+      setError(err.message || t('subscription.errors.somethingWrong'));
+      setLoading(false);
+    }
+  };
+
+  const handleSubscribe = async () => {
+    if (selectedPlan === 'free') {
+      return handleChooseFreeTier();
+    }
+
+    setLoading(true);
+    setError(null);
+
+    // Get price for analytics
+    const selectedPlanData = plans.find(p => p.id === selectedPlan);
+    const price = billingPeriod === 'weekly'
+      ? selectedPlanData?.weeklyPrice
+      : billingPeriod === 'monthly'
+        ? selectedPlanData?.monthlyPrice
+        : selectedPlanData?.yearlyPrice;
+
+    // Track checkout started
+    analytics.trackCheckoutStarted({
+      plan: selectedPlan,
+      billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod,
+      price: price || 0,
+      currency: 'EUR',
+    });
 
     try {
       const session = await supabase.auth.getSession();
@@ -133,32 +249,45 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       if (checkoutData.url) {
         window.location.href = checkoutData.url;
       } else {
-        setError(checkoutData.error || t('subscription.errors.failedCheckout'));
+        const errorMsg = checkoutData.error || t('subscription.errors.failedCheckout');
+        analytics.track('subscription_failed', {
+          plan: selectedPlan,
+          billing_period: billingPeriod,
+          error_type: 'checkout_creation_failed',
+          error_message: errorMsg,
+        });
+        setError(errorMsg);
         setLoading(false);
       }
     } catch (err: any) {
-      setError(err.message || t('subscription.errors.somethingWrong'));
+      const errorMsg = err.message || t('subscription.errors.somethingWrong');
+      analytics.track('subscription_failed', {
+        plan: selectedPlan,
+        billing_period: billingPeriod,
+        error_type: 'checkout_exception',
+        error_message: errorMsg,
+      });
+      setError(errorMsg);
       setLoading(false);
     }
   };
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    // Force reload to ensure clean state
     window.location.reload();
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
-      <div className="max-w-lg w-full">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center p-4 sm:p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+      <div className="max-w-4xl w-full">
         {/* Header */}
-        <div className="text-center mb-8">
-          <div className="text-6xl mb-4">💕</div>
-          <h1 className="text-3xl font-black text-gray-800 mb-2 font-header">
-            {t('subscription.required.title', { name: profile.full_name || t('subscription.common.friend') })}
+        <div className="text-center mb-6">
+          <div className="text-5xl mb-3">💕</div>
+          <h1 className="text-2xl sm:text-3xl font-black text-gray-800 mb-2 font-header">
+            {t('subscription.choice.title')}
           </h1>
-          <p className="text-gray-600">
-            {t('subscription.required.subtitle', { language: targetName })}
+          <p className="text-gray-600 text-sm sm:text-base">
+            {t('subscription.choice.subtitle')}
           </p>
         </div>
 
@@ -179,122 +308,97 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
           </div>
         )}
 
-        {/* Billing Toggle */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-2 mb-6">
-          {/* Weekly */}
-          <button
-            onClick={() => setBillingPeriod('weekly')}
-            className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
-              billingPeriod === 'weekly'
-                ? 'bg-rose-50 border-rose-400 text-rose-600 shadow-sm'
-                : 'bg-white/80 border-gray-200 text-gray-500 hover:border-gray-300'
-            }`}
-          >
-            <span className="text-xs opacity-70 mb-0.5">{t('subscription.common.weeklyLabel')}</span>
-            <span>{t('subscription.common.weekly')}</span>
-          </button>
-
-          {/* Monthly - Featured with glow */}
-          <button
-            onClick={() => setBillingPeriod('monthly')}
-            className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
-              billingPeriod === 'monthly'
-                ? 'bg-rose-500 border-rose-500 text-white shadow-lg'
-                : 'bg-white/80 border-rose-400 text-rose-500'
-            }`}
-            style={{
-              boxShadow: '0 0 20px rgba(244, 63, 94, 0.4), 0 0 40px rgba(244, 63, 94, 0.2)',
-            }}
-          >
-            <span className={`text-xs mb-0.5 ${billingPeriod === 'monthly' ? 'opacity-90' : 'opacity-70'}`}>
-              {t('subscription.common.monthlyLabel')}
-            </span>
-            <span>{t('subscription.common.monthly')}</span>
-          </button>
-
-          {/* Yearly */}
-          <button
-            onClick={() => setBillingPeriod('yearly')}
-            className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
-              billingPeriod === 'yearly'
-                ? 'bg-rose-50 border-rose-400 text-rose-600 shadow-sm'
-                : 'bg-white/80 border-gray-200 text-gray-500 hover:border-gray-300'
-            }`}
-          >
-            <span className="text-xs opacity-70 mb-0.5">{t('subscription.common.yearlyLabel')}</span>
-            <span className="flex items-center gap-1">
-              {t('subscription.common.yearly')}
-              <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-500 text-white">
-                {t('subscription.common.discount')}
-              </span>
-            </span>
-          </button>
+        {/* Billing Period Toggle - Pill Style */}
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex bg-white/80 rounded-full p-1 shadow-sm border border-gray-200">
+            {(['weekly', 'monthly', 'yearly'] as const).map((period) => (
+              <button
+                key={period}
+                onClick={() => setBillingPeriod(period)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  billingPeriod === period
+                    ? 'bg-rose-500 text-white shadow-md'
+                    : 'text-gray-600 hover:text-gray-800'
+                }`}
+              >
+                {period === 'weekly' && t('subscription.common.weekly')}
+                {period === 'monthly' && t('subscription.common.monthly')}
+                {period === 'yearly' && (
+                  <span className="flex items-center gap-1">
+                    {t('subscription.common.yearly')}
+                    <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-500 text-white">
+                      {t('subscription.common.discount')}
+                    </span>
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* Plan Cards */}
-        <div className="space-y-4 mb-6">
+        {/* Plan Cards - 3 columns on desktop, stack on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           {plans.map((plan) => {
-            const price = billingPeriod === 'weekly'
-              ? plan.weeklyPrice
-              : billingPeriod === 'monthly'
-                ? plan.monthlyPrice
-                : plan.yearlyPrice;
-            const periodLabel = billingPeriod === 'weekly'
-              ? t('subscription.common.wk')
-              : billingPeriod === 'monthly'
-                ? t('subscription.common.mo')
-                : t('subscription.common.yr');
             const isSelected = selectedPlan === plan.id;
+            const monthlyEquiv = getMonthlyEquivalent(plan);
+            const billingLabel = getBillingLabel(plan);
 
             return (
               <button
                 key={plan.id}
-                onClick={() => setSelectedPlan(plan.id)}
-                className={`relative w-full text-left p-4 rounded-2xl border-2 transition-all ${
+                onClick={() => handlePlanSelect(plan.id)}
+                className={`relative text-left p-5 rounded-2xl border-2 transition-all ${
                   isSelected
-                    ? 'border-rose-400 bg-rose-50'
+                    ? 'border-rose-400 bg-rose-50 shadow-lg'
                     : 'border-gray-200 bg-white hover:border-gray-300'
-                }`}
+                } ${plan.popular ? 'md:-mt-2 md:mb-2' : ''}`}
               >
                 {plan.popular && (
-                  <span className="absolute -top-2 right-4 px-3 py-0.5 rounded-full text-xs font-bold text-white bg-rose-500">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-white bg-rose-500 whitespace-nowrap">
                     {t('subscription.common.popular')}
                   </span>
                 )}
 
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
-                      {isSelected && (
-                        <div className="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center">
-                          <ICONS.Check className="w-3 h-3 text-white" />
-                        </div>
-                      )}
-                    </div>
-                    <p className="text-sm text-gray-500 mb-2">{plan.tagline}</p>
-                    <ul className="space-y-1">
-                      {plan.features.slice(0, 3).map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                          <ICONS.Check className="w-4 h-4 text-rose-500" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
+                    <p className="text-xs text-gray-500">{plan.tagline}</p>
                   </div>
-
-                  <div className="text-right flex-shrink-0">
-                    <div className="text-2xl font-bold text-gray-900">${price}</div>
-                    <div className="text-xs text-gray-500">
-                      /{periodLabel}
+                  {isSelected && (
+                    <div className="w-6 h-6 rounded-full bg-rose-500 flex items-center justify-center flex-shrink-0">
+                      <ICONS.Check className="w-4 h-4 text-white" />
                     </div>
-                    {billingPeriod === 'yearly' && (
-                      <div className="text-xs text-green-600 mt-1">
-                        ${(price / 12).toFixed(0)}/{t('subscription.common.mo')}
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
+
+                {/* Price Display - Monthly Equiv Big, Total Small */}
+                <div className="mb-4">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-bold text-gray-900">
+                      ${plan.id === 'free' ? '0' : monthlyEquiv.toFixed(monthlyEquiv % 1 === 0 ? 0 : 2)}
+                    </span>
+                    <span className="text-gray-500 text-sm">/{t('subscription.common.mo')}</span>
+                  </div>
+                  {billingLabel && (
+                    <p className="text-xs text-gray-400 mt-1">{billingLabel}</p>
+                  )}
+                </div>
+
+                {/* Features */}
+                <ul className="space-y-2">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm">
+                      {feature.included !== false ? (
+                        <ICONS.Check className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
+                      ) : (
+                        <span className="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5">✗</span>
+                      )}
+                      <span className={feature.included !== false ? 'text-gray-600' : 'text-gray-400'}>
+                        {feature.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </button>
             );
           })}
@@ -307,25 +411,38 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
           </div>
         )}
 
-        {/* Subscribe Button */}
+        {/* Subscribe/Start Free Button */}
         <button
           onClick={handleSubscribe}
           disabled={loading}
-          className="w-full py-4 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          className={`w-full py-4 rounded-2xl font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all ${
+            selectedPlan === 'free'
+              ? 'bg-gray-800 hover:bg-gray-900 text-white'
+              : 'bg-rose-500 hover:bg-rose-600 text-white'
+          }`}
         >
           {loading ? (
             <span className="flex items-center justify-center gap-2">
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               {t('subscription.common.loading')}
             </span>
+          ) : selectedPlan === 'free' ? (
+            t('subscription.choice.free.cta')
           ) : (
-            t('subscription.required.subscribeTo', { plan: selectedPlan === 'standard' ? t('subscription.plans.standard') : t('subscription.plans.unlimited') })
+            t('subscription.required.subscribeTo', {
+              plan: selectedPlan === 'standard'
+                ? t('subscription.plans.standard')
+                : t('subscription.plans.unlimited')
+            })
           )}
         </button>
 
         {/* Trust signals */}
         <p className="text-center text-xs text-gray-400 mt-4">
-          {t('subscription.common.securePayment')}
+          {selectedPlan === 'free'
+            ? t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' })
+            : t('subscription.common.securePayment')
+          }
         </p>
 
         {/* Logout option */}

@@ -7,6 +7,7 @@ import { shuffleArray } from '../utils/array';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
+import LimitReachedModal from './LimitReachedModal';
 
 interface PlayQuizChallengeProps {
   challenge: TutorChallenge;
@@ -41,6 +42,10 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   const [finished, setFinished] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [submitting, setSubmitting] = useState(false);
+
+  // Rate limit / free tier state
+  const [showLimitModal, setShowLimitModal] = useState(false);
+  const [useBasicValidation, setUseBasicValidation] = useState(false);
 
   const { t } = useTranslation();
   const { targetName } = useLanguage();
@@ -108,11 +113,15 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
       // Flashcard self-assessment
       correct = isCorrect;
       explanation = correct ? 'Self-assessed correct' : 'Self-assessed incorrect';
-    } else if (smartValidation && question.type === 'type_it') {
+    } else if (smartValidation && !useBasicValidation && question.type === 'type_it') {
       // Smart validation for type_it questions
       const result = await validateAnswerSmart(answer, question.translation, { targetWord: question.word });
       correct = result.accepted;
       explanation = result.explanation;
+      // Check if rate limit was hit
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
     } else {
       // Local matching for multiple choice or when smart validation is off
       // Use diacritics-normalized comparison for consistency
@@ -434,6 +443,14 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
           )}
         </div>
       </div>
+
+      {/* Rate Limit Modal */}
+      <LimitReachedModal
+        isOpen={showLimitModal}
+        onClose={() => setShowLimitModal(false)}
+        limitType="validation"
+        onContinueBasic={() => setUseBasicValidation(true)}
+      />
     </div>
   );
 };

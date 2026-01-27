@@ -21,6 +21,7 @@ import GameResults from './games/GameResults';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
+import LimitReachedModal from './LimitReachedModal';
 
 interface FlashcardGameProps { profile: Profile; }
 
@@ -86,13 +87,13 @@ const STREAK_TO_LEARN = 5; // Number of consecutive correct answers to mark as l
 // Streak Indicator Component
 const StreakIndicator: React.FC<{ streak: number; maxStreak?: number }> = ({ streak, maxStreak = STREAK_TO_LEARN }) => {
   if (streak === 0) return null;
-  
+
   const isComplete = streak >= maxStreak;
-  
+
   return (
     <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
-      isComplete 
-        ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400' 
+      isComplete
+        ? 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400'
         : 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400'
     }`}>
       <span>{streak}/{maxStreak}</span>
@@ -104,7 +105,7 @@ const StreakIndicator: React.FC<{ streak: number; maxStreak?: number }> = ({ str
 // Streak Celebration Modal Component
 const StreakCelebrationModal: React.FC<{ show: boolean; word?: string }> = ({ show, word }) => {
   if (!show) return null;
-  
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
       <div className="bg-gradient-to-br from-green-400 to-emerald-500 rounded-3xl p-8 shadow-2xl animate-bounce text-center max-w-sm mx-4">
@@ -153,7 +154,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Game session tracking
   const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
   const [sessionStartTime] = useState<number>(Date.now());
-  
+
   // Streak tracking for current word
   const [currentWordStreak, setCurrentWordStreak] = useState(0);
   const [showStreakCelebration, setShowStreakCelebration] = useState(false);
@@ -213,6 +214,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [verbMasteryCorrect, setVerbMasteryCorrect] = useState(false);
   const [verbMasteryStarted, setVerbMasteryStarted] = useState(false);
   const [verbMasteryExplanation, setVerbMasteryExplanation] = useState<string | null>(null);
+
+  // Rate limit / free tier state
+  const [showLimitModal, setShowLimitModal] = useState(false);
+  const [useBasicValidation, setUseBasicValidation] = useState(false);
 
   // Level styling
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
@@ -458,7 +463,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     // Update UI streak tracking
     setCurrentWordStreak(newStreak);
-    
+
     // Trigger celebration when word is mastered (5 correct in a row)
     if (justLearned) {
       setShowStreakCelebration(true);
@@ -674,7 +679,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(correct ? 'correct' : 'incorrect');
-    
+
     // Visual feedback for incorrect
     if (!correct) {
       triggerIncorrectFeedback();
@@ -709,10 +714,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
     const q = challengeQuestions[challengeIndex];
 
-    // Use smart validation if enabled, otherwise use local matching
+    // Use smart validation if enabled and not rate-limited, otherwise use local matching
     let correct: boolean;
     let explanation = '';
-    if (profile.smart_validation) {
+    if (profile.smart_validation && !useBasicValidation) {
       const result = await validateAnswerSmart(challengeTypeAnswer, q.translation, {
         targetWord: q.word,
         direction: 'target_to_native',
@@ -720,6 +725,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       });
       correct = result.accepted;
       explanation = result.explanation;
+      // Check if rate limit was hit
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
     } else {
       correct = isCorrectAnswer(challengeTypeAnswer, q.translation);
       explanation = correct ? 'Exact match' : 'No match';
@@ -728,7 +737,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(correct ? 'correct' : 'incorrect');
-    
+
     // Visual feedback for incorrect
     if (!correct) {
       triggerIncorrectFeedback();
@@ -912,10 +921,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     const word = quickFireWords[quickFireIndex];
 
-    // Use smart validation if enabled, otherwise local matching
+    // Use smart validation if enabled and not rate-limited, otherwise local matching
     let isCorrect: boolean;
     let explanation = '';
-    if (profile.smart_validation) {
+    if (profile.smart_validation && !useBasicValidation) {
       const result = await validateAnswerSmart(quickFireInput, word.translation, {
         targetWord: word.word,
         wordType: word.word_type,
@@ -924,6 +933,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       });
       isCorrect = result.accepted;
       explanation = result.explanation;
+      // Check if rate limit was hit
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
     } else {
       // Use diacritics-normalized comparison for consistency
       isCorrect = isCorrectAnswer(quickFireInput, word.translation);
@@ -1065,10 +1078,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     const question = verbMasteryQuestions[verbMasteryIndex];
 
-    // Use smart validation if enabled, otherwise use local matching
+    // Use smart validation if enabled and not rate-limited, otherwise use local matching
     let isCorrect: boolean;
     let explanation: string | null = null;
-    if (profile.smart_validation) {
+    if (profile.smart_validation && !useBasicValidation) {
       const result = await validateAnswerSmart(verbMasteryInput, question.correctAnswer, {
         targetWord: question.infinitive,
         wordType: 'verb',
@@ -1080,6 +1093,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       if (result.explanation && result.explanation !== 'Exact match') {
         explanation = result.explanation;
       }
+      // Check if rate limit was hit
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
     } else {
       isCorrect = isCorrectAnswer(verbMasteryInput, question.correctAnswer);
     }
@@ -1087,7 +1104,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(isCorrect ? 'correct' : 'incorrect');
-    
+
     // Visual feedback for incorrect
     if (!isCorrect) {
       triggerIncorrectFeedback();
@@ -1232,7 +1249,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(isCorrect ? 'correct' : 'incorrect');
-    
+
     // Visual feedback for incorrect
     if (!isCorrect) {
       triggerIncorrectFeedback();
@@ -1320,7 +1337,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(isCorrect ? 'correct' : 'incorrect');
-    
+
     // Visual feedback for incorrect
     if (!isCorrect) {
       triggerIncorrectFeedback();
@@ -1453,11 +1470,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   return (
     <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-primary)]">
       {/* Streak Celebration Modal */}
-      <StreakCelebrationModal 
-        show={showStreakCelebration} 
+      <StreakCelebrationModal
+        show={showStreakCelebration}
         word={deck[currentIndex]?.word}
       />
-      
+
       {/* Offline Indicator */}
       {!isOnline && (
         <div className="shrink-0 px-4 pt-4">
@@ -2514,6 +2531,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           </div>
         </div>
       )}
+
+      {/* Rate Limit Modal */}
+      <LimitReachedModal
+        isOpen={showLimitModal}
+        onClose={() => setShowLimitModal(false)}
+        limitType="validation"
+        onContinueBasic={() => setUseBasicValidation(true)}
+      />
 
       <style>{`
         .perspective-1000 { perspective: 1000px; }

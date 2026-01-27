@@ -1225,7 +1225,8 @@
       "cancelAnytime": "İstediğin zaman iptal et. Stripe ile güvenli ödeme.",
       "questionsEmail": "Soruların mı var? Bize e-posta gönder:",
       "friend": "Arkadaş",
-      "copy": "Kopyala"
+      "copy": "Kopyala",
+      "billedWeekly": "({{price}}₺ haftalık faturalandırma)"
     },
     "plans": {
       "standard": "Standart",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} senin sayende ücretsiz erişime sahip",
       "cancelWarning": "Aboneliğini iptal edersen, {{name}} de erişimini kaybeder.",
       "manageSubscription": "Aboneliği Yönet",
-      "continueToManage": "Yönetmeye Devam Et"
+      "continueToManage": "Yönetmeye Devam Et",
+      "freePlan": "Ücretsiz Deneme",
+      "freeDescription": "25 sohbet • Sınırlı özellikler",
+      "upgradeButton": "Her şeyin kilidini açmak için yükseltin",
+      "promoExpires": "Tam erişim {{days}} gün içinde sona eriyor",
+      "subscribeToKeep": "Erişimi korumak için abone olun"
     },
     "required": {
       "title": "Bir adım daha, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Ödeme başlatılamadı",
       "failedPortal": "Abonelik yönetimi açılamadı",
       "somethingWrong": "Bir şeyler yanlış gitti"
+    },
+    "choice": {
+      "title": "Planınızı seçin",
+      "subtitle": "Her aşk hikayesi doğru kelimeleri hak eder",
+      "free": {
+        "title": "Ücretsiz Deneme",
+        "price": "0₺",
+        "perMonth": "/ay",
+        "features": {
+          "conversations": "25 AI sohbeti/ay",
+          "validations": "50 kelime doğrulama/ay",
+          "games": "Temel kelime oyunları",
+          "voiceLimited": "Sesli sohbet (1 deneme)",
+          "listenLimited": "Dinleme modu (1 deneme)",
+          "challengesLimited": "5 partner meydan okuması"
+        },
+        "cta": "Ücretsiz Başla",
+        "subtext": "Love Languages'i denemek için mükemmel",
+        "noCardRequired": "Kredi kartı gerekli değil"
+      }
     }
   },
   "pendingChallenges": {
@@ -1968,5 +1994,34 @@
         "copyright": "Love Languages · Dünyanın her yerindeki aşıklar için sevgiyle yapıldı"
       }
     }
+  },
+  "limits": {
+    "outOfValidations": "Akıllı doğrulamalarınız tükendi",
+    "outOfVoice": "Sesli oturum limitine ulaştınız",
+    "outOfChat": "Sohbet limitine ulaştınız",
+    "continueBasic": "Akıllı doğrulama olmadan devam et",
+    "upgrade": "Yükselt",
+    "remaining": "{{count}} kaldı",
+    "warningLow": "Sadece {{count}} kaldı",
+    "usageOf": "{{used}} / {{total}} kullanıldı",
+    "upgradeDesc": "Sınırsız akıllı doğrulama için yükseltin veya temel kontrolle devam edin.",
+    "upgradeDescGeneric": "Bu özelliği sınırsız kullanmak için yükseltin."
+  },
+  "signup": {
+    "freeStartLearning": "Ücretsiz öğrenmeye başla",
+    "freeStartTeaching": "Ücretsiz öğretmeye başla"
+  },
+  "promo": {
+    "title": "İçerik Üretici Erişimi",
+    "enterCode": "İçerik üretici kodunuz var mı?",
+    "placeholder": "Kodu girin",
+    "apply": "Uygula",
+    "success": "İçerik üretici erişimi etkinleştirildi! {{days}} gün sınırsız erişimin tadını çıkarın.",
+    "activeUntil": "İçerik üretici erişimi {{days}} gün içinde sona erecek",
+    "expired": "İçerik üretici erişiminiz sona erdi. Daha fazla zamana mı ihtiyacınız var? creators@lovelanguages.io adresine yazın",
+    "errorInvalid": "Geçersiz veya süresi dolmuş kod",
+    "errorSubscribed": "Zaten aktif bir aboneliğiniz var",
+    "errorActive": "Zaten aktif içerik üretici erişiminiz var",
+    "errorMaxUses": "Bu kod limitine ulaştı"
   }
 }

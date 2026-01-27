@@ -476,7 +476,6 @@
     "search": "Search...",
     "searchWords": "Search words...",
     "wordsCount": "{{count}} words",
-
     "sync": {
       "scanChats": "Scan Chats",
       "scanTooltip": "Scan chat history for new vocabulary",
@@ -487,7 +486,6 @@
       "newWords_other": "+{{count}} new words!",
       "syncError": "Sync error"
     },
-
     "filters": {
       "all": "All",
       "noun": "Noun",
@@ -498,7 +496,6 @@
       "gifts": "Gifts",
       "clear": "Clear"
     },
-
     "card": {
       "gift": "Gift",
       "giftFrom": "Gift from {{name}}",
@@ -511,7 +508,6 @@
       "conjugations": "Conjugations",
       "forms": "Forms"
     },
-
     "modal": {
       "present": "Present",
       "past": "Past",
@@ -520,7 +516,6 @@
       "unlockTense": "Unlock {{tense}} Tense",
       "unlocked": "Unlocked {{date}}"
     },
-
     "unlock": {
       "title": "Unlock {{tense}} Tense?",
       "descriptionBefore": "Ready to learn how to say",
@@ -530,7 +525,6 @@
       "unlockNow": "Unlock Now",
       "unlocking": "Unlocking..."
     },
-
     "pronouns": {
       "singular1": "(I)",
       "singular2": "(you)",
@@ -539,19 +533,16 @@
       "plural2": "(you pl.)",
       "plural3": "(they)"
     },
-
     "tableHeaders": {
       "person": "Person",
       "masculine": "Masc.",
       "feminine": "Fem."
     },
-
     "nounForms": {
       "gender": "Gender",
       "singular": "Singular",
       "plural": "Plural"
     },
-
     "adjectiveForms": {
       "title": "Gender Forms",
       "masculine": "Masculine",
@@ -560,7 +551,6 @@
       "plural": "Plural"
     }
   },
-
   "onboarding": {
     "step": {
       "back": "Back",
@@ -569,13 +559,11 @@
       "continue": "Continue",
       "skipForNow": "Skip for now"
     },
-
     "name": {
       "title": "What should Cupid call you?",
       "subtitle": "Your name helps make this journey personal.",
       "placeholder": "Your name"
     },
-
     "partnerName": {
       "studentTitle": "Who are you learning {{language}} for, {{name}}?",
       "tutorTitle": "Who are you helping learn {{language}}, {{name}}?",
@@ -583,7 +571,6 @@
       "tutorSubtitle": "This is who you'll be guiding through {{language}}.",
       "placeholder": "Their name"
     },
-
     "languageConfirm": {
       "title": "Confirm your languages, {{name}}",
       "subtitle": "Make sure we've got your language journey right.",
@@ -594,7 +581,6 @@
       "summary": "Learning {{target}} as a {{native}} speaker",
       "tutorSummary": "Teaching {{target}} to a {{native}} speaker"
     },
-
     "validation": {
       "title": "How should we check your answers?",
       "subtitle": "Choose how forgiving the app should be when grading.",
@@ -618,7 +604,6 @@
         "detail4": "Traditional flashcard experience"
       }
     },
-
     "plan": {
       "title": "Choose your plan, {{name}}",
       "subtitle": "Start your {{language}} learning journey today",
@@ -658,7 +643,6 @@
         "retry": "Retry"
       }
     },
-
     "student": {
       "start": {
         "title": "Ready to begin, {{name}}?",
@@ -670,7 +654,6 @@
         "feature4": "Progress tracking and level tests",
         "button": "Let's go! 🚀"
       },
-
       "vibe": {
         "title": "One word for your relationship with {{name}}",
         "subtitle": "Pick the vibe that feels most true.",
@@ -681,7 +664,6 @@
         "longDistance": "Long-distance",
         "newLove": "New love"
       },
-
       "time": {
         "title": "How much time can you dedicate daily?",
         "subtitle": "Even small moments add up to big progress.",
@@ -692,7 +674,6 @@
         "walk": "A long walk",
         "walkDesc": "20+ minutes"
       },
-
       "when": {
         "title": "When do you prefer to practice?",
         "subtitle": "We'll remind you at the perfect moment.",
@@ -701,19 +682,16 @@
         "evening": "Evening",
         "whenever": "Whenever"
       },
-
       "photo": {
         "title": "Add your photo",
         "subtitleWithPhoto": "Looking good! This will appear on your profile.",
         "subtitleNoPhoto": "A photo helps make your profile feel more personal."
       },
-
       "why": {
         "title": "Why do you want to learn {{language}} for {{name}}?",
         "subtitle": "This becomes your personal reminder on your journey.",
         "placeholder": "I want to surprise them when we visit their family... I want to whisper sweet nothings... I want to understand their world..."
       },
-
       "fear": {
         "title": "What's your biggest fear about learning {{language}}?",
         "subtitle": "Everyone has one. Let's tackle yours together.",
@@ -726,14 +704,12 @@
         "forgetting": "Forgetting everything",
         "forgettingDesc": "Learning but not retaining"
       },
-
       "prior": {
         "title": "Have you tried learning {{language}} before?",
         "subtitle": "This helps us start at the right place.",
         "yes": "Yes, a bit",
         "beginner": "Complete beginner"
       },
-
       "goal": {
         "title": "What's your first milestone?",
         "subtitle": "A goal to work toward with {{name}}",
@@ -743,7 +719,6 @@
         "custom": "Set my own goal",
         "customPlaceholder": "e.g., \"Order in {{language}} at their favorite restaurant\""
       },
-
       "learnHello": {
         "title": "Let's learn your first word!",
         "subtitle": "Say hello to {{name}} in {{language}}",
@@ -752,7 +727,6 @@
         "gotIt": "Got it!",
         "listenFirst": "Listen first"
       },
-
       "learnLove": {
         "title": "Now, the most important phrase...",
         "subtitle": "The one {{name}} will never forget",
@@ -762,7 +736,6 @@
         "ready": "I'm ready!",
         "listenFirst": "Listen first"
       },
-
       "tryIt": {
         "title": "Try saying it!",
         "subtitle": "Don't worry, only you can hear yourself.",
@@ -770,7 +743,6 @@
         "success": "Amazing! You said it! 🎉",
         "practiceLater": "I'll practice later"
       },
-
       "celebration": {
         "title": "You did it!",
         "subtitle": "You just learned your first {{language}}!",
@@ -781,7 +753,6 @@
         "keepGoing": "Keep going!"
       }
     },
-
     "tutor": {
       "start": {
         "title": "Ready to be {{learnerName}}'s guide, {{userName}}?",
@@ -793,7 +764,6 @@
         "feature4": "Link accounts to see their journey",
         "button": "Start helping {{learnerName}}! 🎯"
       },
-
       "relation": {
         "title": "What's your relationship with {{name}}?",
         "subtitle": "This helps us personalize your teaching experience",
@@ -802,7 +772,6 @@
         "friend": "Friend",
         "family": "Family"
       },
-
       "connection": {
         "title": "What's your connection to {{language}}?",
         "subtitle": "Help us understand your language background",
@@ -815,7 +784,6 @@
         "bilingual": "Bilingual",
         "bilingualDesc": "Grew up speaking {{language}} and another language"
       },
-
       "origin": {
         "title": "How did you learn {{language}}?",
         "subtitle": "Your journey helps us suggest teaching approaches",
@@ -824,14 +792,12 @@
         "school": "Studied formally",
         "self": "Self-taught"
       },
-
       "dreamPhrase": {
         "title": "Dream moment 💭",
         "subtitle": "What's the first thing you want to hear {{name}} say in {{language}}?",
         "placeholder": "e.g., \"I love you\" or \"Good morning\"",
         "note": "This becomes your first teaching goal together"
       },
-
       "style": {
         "title": "Your teaching style?",
         "subtitle": "How do you naturally help someone learn?",
@@ -844,7 +810,6 @@
         "immersive": "Immersive",
         "immersiveDesc": "Dive in and learn by doing"
       },
-
       "preview": {
         "title": "Your teaching toolkit",
         "subtitle": "Here's what you can do for {{name}}",
@@ -858,7 +823,6 @@
       }
     }
   },
-
   "levelTest": {
     "preparing": "Preparing Your Test",
     "generatingQuestions": "Generating questions based on your level...",
@@ -891,7 +855,6 @@
     "submitTest": "Submit Test",
     "next": "Next"
   },
-
   "tutorGames": {
     "playTogether": "Play Together",
     "sendChallenge": "Send Challenge",
@@ -899,7 +862,6 @@
     "sendDescription": "Send challenges for {{name}} to complete later",
     "playDescription": "Practice together right now",
     "startNow": "Start Now",
-
     "local": {
       "quiz": "Quiz {{name}}",
       "quizDesc": "Flashcard quiz together",
@@ -911,7 +873,6 @@
       "typeItDesc": "Type the translation",
       "needWords": "{{name}} needs at least 4 words in their vocabulary to play"
     },
-
     "send": {
       "doYouRemember": "Do You Remember?",
       "quizPartner": "Quiz {{name}} on their vocabulary",
@@ -923,14 +884,12 @@
       "sendWords": "Send words for {{name}} to learn",
       "sendGift": "Send Gift"
     },
-
     "pending": {
       "waitingFor": "Waiting for {{name}}",
       "words": "{{count}} words",
       "sent": "Sent {{date}}",
       "pending": "Pending"
     },
-
     "gifts": {
       "title": "Word Gifts Sent",
       "word": "{{count}} word",
@@ -939,17 +898,14 @@
       "custom": "Custom words",
       "xpMultiplier": "{{multiplier}}x XP"
     },
-
     "results": {
       "title": "Recent Results",
       "completed": "Completed {{date}}"
     },
-
     "empty": {
       "noChallenges": "No challenges yet",
       "createFirst": "Create your first challenge for {{name}}!"
     },
-
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
@@ -957,11 +913,9 @@
       "hard": "Hard",
       "gotIt": "Got it!"
     },
-
     "direction": {
       "label": "{{target}} → {{native}}"
     },
-
     "quickFireGame": {
       "title": "Quick Fire!",
       "description": "Translate as many words as you can in 60 seconds!",
@@ -969,7 +923,6 @@
       "start": "Start!",
       "typeTranslation": "Type the translation..."
     },
-
     "typeItGame": {
       "correct": "Correct!",
       "notQuite": "Not quite",
@@ -978,7 +931,6 @@
       "next": "Next",
       "check": "Check"
     },
-
     "gameOver": {
       "greatJob": "Great Job!",
       "keepPracticing": "Keep Practicing!",
@@ -992,7 +944,6 @@
       "done": "Done",
       "playAgain": "Play Again"
     },
-
     "saveDialog": {
       "title": "Save to {{name}}'s Progress?",
       "howItWorks": "How this works:",
@@ -1005,7 +956,6 @@
       "save": "Save"
     }
   },
-
   "gameResults": {
     "greatJob": "Great Job!",
     "sessionResults": "Session results:",
@@ -1016,7 +966,6 @@
     "done": "Done",
     "playAgain": "Play Again"
   },
-
   "conversationPractice": {
     "states": {
       "listening": "Listening...",
@@ -1032,7 +981,6 @@
     "aiSpeaking": "AI is speaking...",
     "conversationEnded": "Conversation ended"
   },
-
   "scenarioSelector": {
     "title": "Conversation Practice",
     "subtitle": "Choose a scenario",
@@ -1043,14 +991,38 @@
       "advanced": "advanced"
     },
     "scenarios": {
-      "cafe": { "name": "At the Cafe", "description": "Order coffee and a snack" },
-      "restaurant": { "name": "Restaurant Dinner", "description": "Order a meal and ask for recommendations" },
-      "market": { "name": "At the Market", "description": "Buy fruits and vegetables" },
-      "taxi": { "name": "Taxi Ride", "description": "Give directions and chat with the driver" },
-      "pharmacy": { "name": "At the Pharmacy", "description": "Ask for medicine and describe symptoms" },
-      "hotel": { "name": "Hotel Check-in", "description": "Check in and ask about amenities" },
-      "family_dinner": { "name": "Family Dinner", "description": "Meet your partner's parents" },
-      "train_station": { "name": "Train Station", "description": "Buy tickets and ask about schedules" }
+      "cafe": {
+        "name": "At the Cafe",
+        "description": "Order coffee and a snack"
+      },
+      "restaurant": {
+        "name": "Restaurant Dinner",
+        "description": "Order a meal and ask for recommendations"
+      },
+      "market": {
+        "name": "At the Market",
+        "description": "Buy fruits and vegetables"
+      },
+      "taxi": {
+        "name": "Taxi Ride",
+        "description": "Give directions and chat with the driver"
+      },
+      "pharmacy": {
+        "name": "At the Pharmacy",
+        "description": "Ask for medicine and describe symptoms"
+      },
+      "hotel": {
+        "name": "Hotel Check-in",
+        "description": "Check in and ask about amenities"
+      },
+      "family_dinner": {
+        "name": "Family Dinner",
+        "description": "Meet your partner's parents"
+      },
+      "train_station": {
+        "name": "Train Station",
+        "description": "Buy tickets and ask about schedules"
+      }
     },
     "createOwn": "Create Your Own",
     "createOwnDesc": "Describe any scenario you want to practice",
@@ -1063,7 +1035,6 @@
     "footerInfo": "The AI will speak {{targetLanguage}} by default. If you struggle, it will help in {{nativeLanguage}}.",
     "customPersona": "You are a friendly {{language}} person helping someone practice {{language}}. You are patient, encouraging, and adjust your language to their level."
   },
-
   "challengeCreator": {
     "common": {
       "addNewWords": "Add New Words",
@@ -1083,7 +1054,6 @@
       "failedCreateChallenge": "Failed to create challenge",
       "needMinWords": "Need at least 5 words for the challenge!"
     },
-
     "quiz": {
       "title": "Create Quiz",
       "subtitle": "Select words for {{name}} to practice",
@@ -1101,7 +1071,6 @@
       "noWordsYet": "{{name}} hasn't learned any words yet!",
       "addWordsToStart": "Add new words above to get started."
     },
-
     "quickFire": {
       "title": "Quick Fire",
       "subtitle": "Timed challenge for {{name}}",
@@ -1133,7 +1102,6 @@
       "averageTime": "Average: {{time}}s per word",
       "needMoreWords": "Need at least 5 words total to create a challenge!"
     },
-
     "lovePackage": {
       "title": "Love Package",
       "subtitle": "Send words to {{name}}",
@@ -1147,7 +1115,6 @@
       "alreadyInLoveLog": "\"{{word}}\" is already in {{name}}'s Love Log!"
     }
   },
-
   "challengePlayer": {
     "common": {
       "later": "Later",
@@ -1156,7 +1123,6 @@
       "showDetails": "Show details ({{count}})",
       "xpEarned": "+{{xp}} XP earned!"
     },
-
     "results": {
       "perfect": "Perfect!",
       "perfectScore": "Perfect Score!",
@@ -1164,7 +1130,6 @@
       "greatJob": "Great Job!",
       "keepPracticing": "Keep Practicing!"
     },
-
     "quiz": {
       "startDescription": "{{name}} wants to quiz you on {{count}} words!",
       "startInstructions": "Answer questions about {{language}} words you've learned. Get them right to build your streak!",
@@ -1187,7 +1152,6 @@
         "submit": "Submit"
       }
     },
-
     "quickFire": {
       "title": "Quick Fire!",
       "startDescription": "{{name}} challenges you to translate {{count}} words in {{time}} seconds!",
@@ -1205,7 +1169,6 @@
       "typePlaceholder": "Type translation..."
     }
   },
-
   "roleSelection": {
     "loading": "Getting things ready...",
     "confirmSettings": "Confirm Your Settings",
@@ -1236,7 +1199,6 @@
     "chooseRole": "Choose your role to continue",
     "logout": "Log out"
   },
-
   "subscription": {
     "common": {
       "weekly": "Weekly",
@@ -1263,15 +1225,14 @@
       "cancelAnytime": "Cancel anytime. Secure payment via Stripe.",
       "questionsEmail": "Questions? Email us at",
       "friend": "Friend",
-      "copy": "Copy"
+      "copy": "Copy",
+      "billedWeekly": "(${{price}} billed weekly)"
     },
-
     "plans": {
       "standard": "Standard",
       "unlimited": "Unlimited",
       "none": "None"
     },
-
     "features": {
       "wordsLimit": "{{limit}} words in Love Log",
       "unlimitedWords": "Unlimited words",
@@ -1286,7 +1247,6 @@
       "giftPass": "Gift pass for another couple (yearly)",
       "unlimitedEverything": "Unlimited everything"
     },
-
     "manager": {
       "couplePass": "Couple Pass",
       "freeAccess": "Free access from {{name}}",
@@ -1304,9 +1264,13 @@
       "partnerFreeAccess": "{{name}} has free access through you",
       "cancelWarning": "If you cancel your subscription, {{name}} will also lose access.",
       "manageSubscription": "Manage Subscription",
-      "continueToManage": "Continue to Manage"
+      "continueToManage": "Continue to Manage",
+      "freePlan": "Free Trial",
+      "freeDescription": "25 conversations • Limited features",
+      "upgradeButton": "Upgrade to unlock everything",
+      "promoExpires": "Full access expires in {{days}} days",
+      "subscribeToKeep": "Subscribe to keep access"
     },
-
     "required": {
       "title": "One more step, {{name}}!",
       "subtitle": "Complete your subscription to start learning {{language}} together",
@@ -1316,12 +1280,10 @@
       "logoutOption": "Sign out and use a different account",
       "signOutOption": "Sign out and use a different account"
     },
-
     "canceled": {
       "title": "No problem!",
       "message": "Your checkout was canceled. You can subscribe anytime to unlock all features, or continue exploring."
     },
-
     "pricing": {
       "title": "Learn {{language}} for Love",
       "subtitle": "Choose the plan that fits your learning journey",
@@ -1351,7 +1313,6 @@
       "questionsEmail": "Questions? Email us at",
       "copy": "Copy"
     },
-
     "errors": {
       "loginRequired": "Please log in to subscribe",
       "loginAgain": "Please log in again",
@@ -1360,9 +1321,28 @@
       "failedCheckout": "Failed to start checkout",
       "failedPortal": "Failed to open subscription management",
       "somethingWrong": "Something went wrong"
+    },
+    "choice": {
+      "title": "Choose your plan",
+      "subtitle": "Every love story deserves the right words",
+      "free": {
+        "title": "Free Trial",
+        "price": "$0",
+        "perMonth": "/month",
+        "features": {
+          "conversations": "25 AI conversations/month",
+          "validations": "50 word validations/month",
+          "games": "Basic vocabulary games",
+          "voiceLimited": "Voice chat (1 try)",
+          "listenLimited": "Listen mode (1 try)",
+          "challengesLimited": "5 partner challenges"
+        },
+        "cta": "Start Free",
+        "subtext": "Perfect for trying Love Languages",
+        "noCardRequired": "No credit card required"
+      }
     }
   },
-
   "pendingChallenges": {
     "yourPartner": "Your Partner",
     "sentYouSomething": "{{name}} sent you something!",
@@ -1379,7 +1359,6 @@
     "learn": "Learn",
     "xpBonus": "{{multiplier}}x XP bonus"
   },
-
   "invite": {
     "title": "Invite Your Partner",
     "subtitle": "Your subscription includes free access for your partner!",
@@ -1396,7 +1375,6 @@
     "generateButton": "Generate Invite Link",
     "generating": "Generating..."
   },
-
   "helpGuide": {
     "title": "Your Guide",
     "subtitle": "Love Languages",
@@ -1482,7 +1460,6 @@
       "forgetAnswer": "Play games - they automatically resurface words you're struggling with. The spaced repetition helps lock them in."
     }
   },
-
   "bugReport": {
     "title": "Report a Bug",
     "subtitle": "Help us improve Love Languages",
@@ -1516,7 +1493,6 @@
       "close": "Close"
     }
   },
-
   "wordGift": {
     "intro": {
       "title": "Gift from {{name}}!",
@@ -1556,7 +1532,6 @@
       "network": "Network error. Please check your connection and try again."
     }
   },
-
   "chatSuggestions": {
     "student": {
       "askTitle": "Ask Cupid anything",
@@ -1590,13 +1565,11 @@
       }
     }
   },
-
   "newWords": {
     "added": "{{count}} new word added",
     "added_other": "{{count}} new words added",
     "viewAll": "View all in Love Log"
   },
-
   "avatar": {
     "clickToUpload": "Click to upload",
     "clickToChange": "Click to change",
@@ -1613,7 +1586,6 @@
       "uploadFailed": "Failed to upload image"
     }
   },
-
   "joinInvite": {
     "validating": "Validating invite...",
     "invalidInvite": "Invalid Invite",
@@ -1640,7 +1612,6 @@
     "checkEmail": "Check your email for confirmation, then sign in!",
     "yourPartner": "Your partner"
   },
-
   "gameHistory": {
     "loading": "Loading...",
     "noHistory": "No game history yet",
@@ -1662,7 +1633,6 @@
     "practiceWords": "Practice These {{count}} Words",
     "perfectScore": "Perfect score! No missed words."
   },
-
   "usage": {
     "title": "Monthly Usage",
     "unlimitedPlan": "Unlimited Plan",
@@ -1676,7 +1646,6 @@
     "upgradePrompt": "Running low? Upgrade to Unlimited for no limits!",
     "resetsMonthly": "Usage resets on the 1st of each month"
   },
-
   "inviteLink": {
     "title": "Magic Invite Link",
     "subtitle": "Share with your partner to connect instantly",
@@ -1691,7 +1660,6 @@
     "newLink": "New Link",
     "description": "When your partner clicks this link, they'll be invited to join as your language coach!"
   },
-
   "breakup": {
     "warning": {
       "title": "End your learning journey together?",
@@ -1718,7 +1686,6 @@
       "messageGrantee": "Take care. You'll need your own subscription to continue learning."
     }
   },
-
   "gameShowcase": {
     "studentHeadline": {
       "part1": "Oh, and if you want to learn ",
@@ -1744,13 +1711,11 @@
       "quick": "Quick"
     }
   },
-
   "demoFlashcard": {
     "tapToReveal": "Tap to reveal",
     "hard": "Hard",
     "gotIt": "Got it!"
   },
-
   "demoTypeIt": {
     "correct": "Correct!",
     "notQuite": "Not quite",
@@ -1759,7 +1724,6 @@
     "next": "Next",
     "check": "Check"
   },
-
   "demoQuickFire": {
     "title": "Quick Fire!",
     "instructions": "Type translations as fast as you can!",
@@ -1771,7 +1735,6 @@
     "keepPracticing": "Keep practicing!",
     "timesUp": "Time's up!"
   },
-
   "hero": {
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
@@ -1820,7 +1783,13 @@
       "alreadyHaveAccount": "Already have an account? Sign in",
       "newHere": "New here? Create an account",
       "checkEmail": "Check your email for confirmation!",
-      "continueWithGoogle": "Continue with Google"
+      "continueWithGoogle": "Continue with Google",
+      "forgotPassword": "Forgot password?",
+      "backToLogin": "Back to login",
+      "sendResetLink": "Send reset link",
+      "sending": "Sending...",
+      "resetEmailSent": "Check your email for a password reset link!",
+      "enterEmailFirst": "Please enter your email address first"
     },
     "legal": {
       "terms": "Terms",
@@ -1868,10 +1837,26 @@
         "highlight1": "pull you through",
         "copy": "Your partner picks the words. You learn them. Somewhere between the quizzes and the flirting, you stop being a guest in their world."
       },
-      "context1": { "header": "The real stuff", "cta": "Start learning", "subtext": "Not textbook phrases." },
-      "context2": { "header": "No more fake laughing", "cta": "Start learning", "subtext": "Finally get the joke." },
-      "context3": { "header": "Be in the room", "cta": "Begin", "subtext": "For real this time." },
-      "context4": { "header": "Learn together", "cta": "Start now", "subtext": "They're waiting for you." }
+      "context1": {
+        "header": "The real stuff",
+        "cta": "Start learning",
+        "subtext": "Not textbook phrases."
+      },
+      "context2": {
+        "header": "No more fake laughing",
+        "cta": "Start learning",
+        "subtext": "Finally get the joke."
+      },
+      "context3": {
+        "header": "Be in the room",
+        "cta": "Begin",
+        "subtext": "For real this time."
+      },
+      "context4": {
+        "header": "Learn together",
+        "cta": "Start now",
+        "subtext": "They're waiting for you."
+      }
     },
     "tutor": {
       "section1": {
@@ -1894,10 +1879,26 @@
         "highlight1": "the key",
         "copy": "Every word is a piece of you they get to keep. Your memories. Your people. Your home."
       },
-      "context1": { "header": "Let them in", "cta": "Start guiding", "subtext": "To the real you." },
-      "context2": { "header": "Stop translating", "cta": "Start guiding", "subtext": "Start sharing." },
-      "context3": { "header": "Watch them belong", "cta": "Begin", "subtext": "With your people." },
-      "context4": { "header": "Hand them the key", "cta": "Start now", "subtext": "They're ready." }
+      "context1": {
+        "header": "Let them in",
+        "cta": "Start guiding",
+        "subtext": "To the real you."
+      },
+      "context2": {
+        "header": "Stop translating",
+        "cta": "Start guiding",
+        "subtext": "Start sharing."
+      },
+      "context3": {
+        "header": "Watch them belong",
+        "cta": "Begin",
+        "subtext": "With your people."
+      },
+      "context4": {
+        "header": "Hand them the key",
+        "cta": "Start now",
+        "subtext": "They're ready."
+      }
     },
     "bottomSections": {
       "faq": {
@@ -1930,7 +1931,10 @@
         },
         "q5": {
           "question": "How much does it cost?",
-          "intro": "Two plans, flexible billing:",
+          "intro": "Start free, upgrade when ready:",
+          "free": "Free Trial",
+          "freePrice": "$0",
+          "freeDesc": "25 chats, 50 flashcards, 1 voice session — no card required",
           "standard": "Standard",
           "standardPrice": "$7/week · $19/month · $69/year",
           "standardDesc": "2,000 words, 60 min voice, partner invite",
@@ -2003,5 +2007,66 @@
         "copyright": "Love Languages · Made with ♥ for lovers everywhere"
       }
     }
+  },
+  "accountSettings": {
+    "title": "Account Settings",
+    "subtitle": "Email and password",
+    "email": "Email Address",
+    "password": "Password",
+    "change": "Change",
+    "cancel": "Cancel",
+    "newEmailPlaceholder": "Enter new email",
+    "updateEmail": "Update Email",
+    "updating": "Updating...",
+    "sending": "Sending...",
+    "changePassword": "Reset Password",
+    "emailUpdateSent": "Check your new email to confirm the change!",
+    "passwordResetSent": "Check your email for a password reset link!",
+    "enterNewEmail": "Please enter a new email address",
+    "invalidEmail": "Please enter a valid email address",
+    "emailConfirmNote": "You'll need to confirm both your old and new email addresses"
+  },
+  "resetPassword": {
+    "title": "Reset Your Password",
+    "subtitle": "Enter your new password below",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "updatePassword": "Update Password",
+    "updating": "Updating...",
+    "verifying": "Verifying link...",
+    "success": "Password updated successfully!",
+    "redirecting": "Redirecting to login...",
+    "invalidLink": "This password reset link is invalid or has expired. Please request a new one.",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "passwordsMustMatch": "Passwords must match"
+  },
+  "limits": {
+    "outOfValidations": "You've run out of smart validations",
+    "outOfVoice": "You've reached your voice session limit",
+    "outOfChat": "You've reached your conversation limit",
+    "continueBasic": "Continue without smart validation",
+    "upgrade": "Upgrade",
+    "remaining": "{{count}} remaining",
+    "warningLow": "Only {{count}} left",
+    "usageOf": "{{used}} of {{total}} used",
+    "upgradeDesc": "Upgrade for unlimited smart validations, or continue with basic exact-match checking.",
+    "upgradeDescGeneric": "Upgrade to continue using this feature without limits."
+  },
+  "signup": {
+    "freeStartLearning": "Start learning for $0.00",
+    "freeStartTeaching": "Start teaching for $0.00"
+  },
+  "promo": {
+    "title": "Creator Access",
+    "enterCode": "Have a creator code?",
+    "placeholder": "Enter code",
+    "apply": "Apply",
+    "success": "Creator access activated! Enjoy {{days}} days of unlimited access.",
+    "activeUntil": "Creator access expires in {{days}} days",
+    "expired": "Your creator access has ended. Need more time? Email creators@lovelanguages.io",
+    "errorInvalid": "Invalid or expired code",
+    "errorSubscribed": "You already have an active subscription",
+    "errorActive": "You already have active creator access",
+    "errorMaxUses": "This code has reached its limit"
   }
 }

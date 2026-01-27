@@ -425,23 +425,23 @@ export type SubscriptionPlan = 'free' | 'standard' | 'unlimited';
  * To modify limits, edit this object - changes apply to all endpoints.
  */
 export const RATE_LIMITS = {
-  // AI-powered endpoints (high cost) - no free tier
-  chat: { type: 'text_messages', monthly: { free: 0, standard: 5000, unlimited: null } },
-  validateWord: { type: 'word_validations', monthly: { free: 0, standard: 2000, unlimited: null } },
-  validateAnswer: { type: 'answer_validations', monthly: { free: 0, standard: 3000, unlimited: null } },
-  analyzeHistory: { type: 'history_analysis', monthly: { free: 0, standard: 500, unlimited: null } },
+  // AI-powered endpoints - free tier has limited access
+  chat: { type: 'text_messages', monthly: { free: 25, standard: 5000, unlimited: null } },
+  validateWord: { type: 'word_validations', monthly: { free: 50, standard: 2000, unlimited: null } },
+  validateAnswer: { type: 'answer_validations', monthly: { free: 75, standard: 3000, unlimited: null } },
+  analyzeHistory: { type: 'history_analysis', monthly: { free: 1, standard: 500, unlimited: null } },
   processTranscript: { type: 'transcript_process', monthly: { free: 0, standard: 200, unlimited: null } },
-  generateLevelTest: { type: 'level_tests', monthly: { free: 0, standard: 50, unlimited: null } },
-  submitLevelTest: { type: 'level_test_submissions', monthly: { free: 0, standard: 100, unlimited: null } },
-  createChallenge: { type: 'challenge_creations', monthly: { free: 0, standard: 200, unlimited: null } },
-  submitChallenge: { type: 'challenge_submissions', monthly: { free: 0, standard: 500, unlimited: null } },
+  generateLevelTest: { type: 'level_tests', monthly: { free: 2, standard: 50, unlimited: null } },
+  submitLevelTest: { type: 'level_test_submissions', monthly: { free: 4, standard: 100, unlimited: null } },
+  createChallenge: { type: 'challenge_creations', monthly: { free: 5, standard: 200, unlimited: null } },
+  submitChallenge: { type: 'challenge_submissions', monthly: { free: 10, standard: 500, unlimited: null } },
 
-  // TTS - available to free users with lower limit
+  // TTS - available to free users
   tts: { type: 'tts_requests', monthly: { free: 100, standard: 1000, unlimited: null } },
 
-  // Voice endpoints (very high cost) - no free tier
-  liveToken: { type: 'voice_sessions', monthly: { free: 0, standard: 20, unlimited: null } },
-  gladiaToken: { type: 'listen_sessions', monthly: { free: 0, standard: 40, unlimited: null } },
+  // Voice endpoints - free tier gets 1 session (2 min max enforced client-side)
+  liveToken: { type: 'voice_sessions', monthly: { free: 1, standard: 20, unlimited: null } },
+  gladiaToken: { type: 'listen_sessions', monthly: { free: 1, standard: 40, unlimited: null } },
 
   // Abuse prevention (same limits for all tiers)
   deleteAccount: { type: 'account_deletions', monthly: { free: 1, standard: 1, unlimited: 1 } },
@@ -492,7 +492,7 @@ export async function getSubscriptionPlan(
 ): Promise<SubscriptionPlan> {
   const { data: profile, error } = await supabase
     .from('profiles')
-    .select('subscription_plan, subscription_status')
+    .select('subscription_plan, subscription_status, promo_expires_at, subscription_granted_by, free_tier_chosen_at')
     .eq('id', userId)
     .single();
 
@@ -501,20 +501,39 @@ export async function getSubscriptionPlan(
     return 'free';
   }
 
+  // 1. Active paid subscription
   const isActive = profile.subscription_status === 'active';
-  const plan = isActive ? (profile.subscription_plan || 'free') : 'free';
-
-  // Validate plan is a known tier
-  if (plan === 'standard' || plan === 'unlimited') {
-    return plan;
+  if (isActive) {
+    const plan = profile.subscription_plan || 'standard';
+    if (plan === 'standard' || plan === 'unlimited') {
+      return plan;
+    }
   }
 
+  // 2. Partner-inherited access (treat as standard for rate limits)
+  if (profile.subscription_granted_by) {
+    return 'standard';
+  }
+
+  // 3. Active promo (treat as standard for rate limits)
+  if (profile.promo_expires_at) {
+    const promoExpiry = new Date(profile.promo_expires_at);
+    if (promoExpiry > new Date()) {
+      return 'standard';
+    }
+  }
+
+  // 4. Free tier (explicitly chosen or default)
   return 'free';
 }
 
 /**
- * Checks if user has an active paid subscription.
- * Blocks free users (plan === 'none' or inactive subscription).
+ * Checks if user has access to app features.
+ * Access is granted via:
+ * - Active paid subscription (subscription_status === 'active')
+ * - Free tier (free_tier_chosen_at is set)
+ * - Creator promo (promo_expires_at > now)
+ * - Partner-inherited access (subscription_granted_by is set)
  *
  * @param supabase - Supabase client with service key
  * @param userId - User ID to check
@@ -534,7 +553,7 @@ export async function requireSubscription(
 ): Promise<SubscriptionResult> {
   const { data: profile, error } = await supabase
     .from('profiles')
-    .select('subscription_plan, subscription_status')
+    .select('subscription_plan, subscription_status, free_tier_chosen_at, promo_expires_at, subscription_granted_by')
     .eq('id', userId)
     .single();
 
@@ -543,23 +562,48 @@ export async function requireSubscription(
     return { allowed: false, plan: 'none', error: 'Failed to verify subscription' };
   }
 
-  const isActive = profile.subscription_status === 'active';
-  const plan = isActive ? (profile.subscription_plan || 'none') : 'none';
+  // Check all access types:
 
-  if (plan === 'none') {
-    return {
-      allowed: false,
-      plan: 'none',
-      error: 'Subscription required. Please subscribe to access this feature.'
-    };
+  // 1. Active paid subscription
+  const hasActiveSubscription = profile.subscription_status === 'active';
+  if (hasActiveSubscription) {
+    const plan = (profile.subscription_plan || 'standard') as SubscriptionPlan;
+    return { allowed: true, plan };
   }
 
-  return { allowed: true, plan: plan as SubscriptionPlan };
+  // 2. Partner-inherited access (they get partner's plan)
+  if (profile.subscription_granted_by) {
+    // User has inherited access - treat as standard for rate limits
+    return { allowed: true, plan: 'standard' };
+  }
+
+  // 3. Active creator promo
+  if (profile.promo_expires_at) {
+    const promoExpiry = new Date(profile.promo_expires_at);
+    if (promoExpiry > new Date()) {
+      return { allowed: true, plan: 'standard' };
+    }
+  }
+
+  // 4. Free tier (explicitly chosen during onboarding)
+  if (profile.free_tier_chosen_at) {
+    return { allowed: true, plan: 'free' };
+  }
+
+  // No access
+  return {
+    allowed: false,
+    plan: 'none',
+    error: 'Subscription required. Please subscribe to access this feature.'
+  };
 }
 
 /**
  * Checks if user has exceeded their rate limit for a specific endpoint.
  * Uses monthly limits stored in RATE_LIMITS configuration.
+ *
+ * Also checks for active promotional access (promo_expires_at > now),
+ * which grants standard tier limits to free users.
  *
  * @param supabase - Supabase client with service key
  * @param userId - User ID to check
@@ -584,29 +628,67 @@ export async function checkRateLimit(
   options?: { failClosed?: boolean }
 ): Promise<RateLimitResult> {
   const config = RATE_LIMITS[limitKey];
-  const monthlyLimit = config.monthly[plan];
+  const now = new Date();
+
+  // Get user's profile for promo check and rolling 30-day window calculation
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select('created_at, promo_expires_at')
+    .eq('id', userId)
+    .single();
+
+  // Check for active promotional access
+  // If promo_expires_at > now, treat user as 'standard' tier regardless of subscription
+  let effectivePlan = plan;
+  if (profile?.promo_expires_at) {
+    const promoExpiry = new Date(profile.promo_expires_at);
+    if (promoExpiry > now) {
+      effectivePlan = 'standard';
+    }
+  }
+
+  const monthlyLimit = config.monthly[effectivePlan];
 
   // null = unlimited
   if (monthlyLimit === null) {
     return { allowed: true };
   }
 
-  // Calculate current month boundaries
-  const now = new Date();
-  const currentMonth = now.toISOString().slice(0, 7); // "2026-01"
-  const [year, month] = currentMonth.split('-').map(Number);
-  const nextMonth = month === 12
-    ? `${year + 1}-01`
-    : `${year}-${String(month + 1).padStart(2, '0')}`;
+  if (profileError || !profile?.created_at) {
+    console.error('[api-middleware] Failed to fetch user profile:', profileError?.message);
+    if (options?.failClosed) {
+      return {
+        allowed: false,
+        error: 'Unable to verify usage limits. Please try again.'
+      };
+    }
+    return { allowed: true };
+  }
 
-  // Get usage for current month
-  const { data: monthlyUsage, error } = await supabase
+  // Calculate rolling 30-day window based on signup date
+  // The window resets every 30 days from signup, not calendar month
+  const signupDate = new Date(profile.created_at);
+  const daysSinceSignup = Math.floor((now.getTime() - signupDate.getTime()) / (1000 * 60 * 60 * 24));
+  const currentPeriod = Math.floor(daysSinceSignup / 30);
+
+  // Calculate the start of the current 30-day period
+  const periodStartDate = new Date(signupDate);
+  periodStartDate.setDate(periodStartDate.getDate() + (currentPeriod * 30));
+  const periodStart = periodStartDate.toISOString().split('T')[0];
+
+  // Calculate the end of the current 30-day period (start of next period)
+  const periodEndDate = new Date(periodStartDate);
+  periodEndDate.setDate(periodEndDate.getDate() + 30);
+  const periodEnd = periodEndDate.toISOString().split('T')[0];
+
+  // Get usage for current rolling 30-day period
+  const { data: periodUsage, error } = await supabase
     .from('usage_tracking')
     .select('count')
     .eq('user_id', userId)
     .eq('usage_type', config.type)
-    .gte('usage_date', `${currentMonth}-01`)
-    .lt('usage_date', `${nextMonth}-01`);
+    .gte('usage_date', periodStart)
+    .lt('usage_date', periodEnd);
 
   if (error) {
     console.error('[api-middleware] Failed to check usage:', error.message);
@@ -620,12 +702,11 @@ export async function checkRateLimit(
     return { allowed: true };
   }
 
-  const currentCount = (monthlyUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
+  const currentCount = (periodUsage || []).reduce((sum, row) => sum + (row.count || 0), 0);
   const remaining = Math.max(0, monthlyLimit - currentCount);
 
-  // Calculate reset time (first of next month)
-  const resetDate = new Date(year, month, 1); // month is 0-indexed, so this is next month
-  const resetAt = resetDate.toISOString();
+  // Reset time is the start of the next 30-day period
+  const resetAt = periodEndDate.toISOString();
 
   if (currentCount >= monthlyLimit) {
     return {
@@ -633,7 +714,7 @@ export async function checkRateLimit(
       remaining: 0,
       limit: monthlyLimit,
       resetAt,
-      error: `Monthly limit reached (${monthlyLimit}). Resets ${resetDate.toLocaleDateString()}.`
+      error: `Monthly limit reached (${monthlyLimit}). Resets ${periodEndDate.toLocaleDateString()}.`
     };
   }
 

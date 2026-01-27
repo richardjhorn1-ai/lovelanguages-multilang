@@ -5,40 +5,45 @@
 
 ---
 
-## 📊 Analytics Implementation (Do First — Data Foundation)
+## 📊 Analytics Implementation
 
-**Before optimizing, we need to see what's happening.**
+### ✅ Phase 1: Core Funnel (DONE)
+**Branch:** `feat/analytics-implementation`
 
-Comprehensive event tracking to understand the full user journey. See `docs/ANALYTICS_IMPLEMENTATION.md` for full spec.
+Tracking the essential conversion funnel:
+```
+signup_started → signup_completed → paywall_view → checkout_started → subscription_completed
+```
 
-### Event Categories
-- **Acquisition:** Blog views, CTA clicks, source attribution
-- **Activation:** Signup, onboarding steps, first word, first chat
-- **Monetization:** Paywall views, plan selection, checkout, conversion
-- **Engagement:** Chat, games, vocabulary, challenges, voice
-- **Retention:** Streaks, partner invites, return visits
-- **Churn signals:** Errors, rage clicks, abandoned features
+This answers: **"Where do users drop off?"**
 
-### Agent Assignments
-| Agent | Responsibility |
-|-------|----------------|
-| Felix 🎨 | `services/analytics.ts`, frontend event triggers |
-| Bruno 🔧 | Supabase events table, server-side validation |
-| Diana 🚀 | GA4 configuration, BigQuery export |
-| Sofia ✍️ | Blog-specific events, content performance |
+### ⏸️ Phase 2: Engagement Tracking (CONDITIONAL)
 
-### Phases
-1. **Foundation** — Core funnel events (signup → paywall → convert)
-2. **Engagement** — Feature usage events
-3. **Analysis** — GA4 funnels, dashboards
-4. **Optimization** — A/B tests, automated reports
+**Trigger criteria — implement when ANY of these are true:**
+- [ ] 100+ signups (need retention data at scale)
+- [ ] Conversion rate known and we're optimizing for retention
+- [ ] Specific question like "do game users convert better?"
 
-### Success = Answering These Questions
-- Where do users come from?
-- Where do they drop off?
-- What features drive retention?
-- What content converts best?
-- Why do people churn?
+**Events to add when triggered:**
+- Chat: `chat_message_sent`, `chat_response_received`
+- Games: `game_started`, `game_completed`, `word_practiced`
+- Learning: `word_added`, `level_test_completed`
+- Retention: `streak_maintained`, `partner_invited`
+- Churn: `error_encountered`, `feature_abandoned`
+
+Full spec: `docs/ANALYTICS_IMPLEMENTATION.md`
+
+### ⏸️ Phase 3: Advanced Analytics (CONDITIONAL)
+
+**Trigger criteria:**
+- [ ] 1000+ users (need volume for cohort analysis)
+- [ ] Revenue > €1000/mo (worth investing in optimization)
+
+**What to add:**
+- Supabase events table for raw data
+- BigQuery export for complex queries
+- Cohort retention dashboards
+- A/B testing infrastructure
 
 ---
 
@@ -243,6 +248,74 @@ Giant components are unmaintainable and slow to iterate on.
 - Enables faster iteration on other improvements
 
 **Related items:** #11
+
+---
+
+### E. Master Vocabulary Bank (Cost Optimization)
+Currently every word extraction requires AI to generate translations, conjugations, gender, etc. This is expensive and slow. Pre-computed vocabulary would be instant and free for common words.
+
+**Current flow:**
+```
+Chat → AI extracts words → AI generates all word data → Save to user dictionary
+```
+
+**Optimized flow:**
+```
+Chat → AI extracts word stems → Lookup in master_vocabulary →
+  ├─ Found? → Copy to user dictionary (instant, free)
+  └─ Not found? → AI generates → Save + add to master vocab for future users
+```
+
+**Implementation:**
+1. New `master_vocabulary` table:
+   - `word` + `language_code` (source language)
+   - `translations` JSONB ({"en": "...", "es": "...", "de": "..."})
+   - `conjugations`, `gender`, `plural`, `adjective_forms`
+   - `verified` boolean, `usage_count` integer
+2. Seed with top 3,000-5,000 words per supported language
+3. Modify extraction APIs to lookup first, AI fallback
+4. Auto-add AI-generated words to master vocab (crowdsourced growth)
+
+**Benefits:**
+- 80-90% reduction in vocab-related AI costs
+- Faster response times (no AI latency for common words)
+- Consistent quality (vetted translations)
+- Scales with users (each new word benefits everyone)
+
+**Trigger:** When AI costs become significant or user base grows
+
+**Related items:** analyze-history.ts, chat.ts, vocabulary extraction
+
+---
+
+### F. Creator/Affiliate Program
+Allow creators to earn commission by referring new subscribers.
+
+**How it works:**
+1. Creators get a unique referral code/link (e.g., `lovelanguages.io/?ref=CREATOR123`)
+2. When someone subscribes via that link, creator earns 10% commission
+3. Creators can track referrals and earnings in-app
+
+**Implementation:**
+1. **Database:**
+   - `creator_codes` table: code, user_id, commission_rate, created_at
+   - `referrals` table: referrer_id, referred_user_id, subscription_id, commission_amount, paid_at
+2. **Stripe Integration:**
+   - Track referral source on checkout
+   - Calculate commission on subscription payments
+   - Stripe Connect for payouts OR manual tracking
+3. **UI:**
+   - Creator dashboard in profile (referral count, earnings, payout history)
+   - Generate referral link button
+   - "Enter Creator Code" input (already visible to all users)
+4. **Logic:**
+   - Validate creator codes on entry
+   - Apply referral tracking cookie/param
+   - Commission calculation on webhook
+
+**Trigger:** When ready to scale through influencers/affiliates
+
+**Related items:** AccountSettings.tsx (Creator Code input already added)
 
 ---
 

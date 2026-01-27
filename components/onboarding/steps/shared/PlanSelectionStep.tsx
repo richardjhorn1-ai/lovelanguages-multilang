@@ -35,8 +35,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   const { t } = useTranslation();
   const { targetLanguage } = useLanguage();
   const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'your language';
-  const [selectedPlan, setSelectedPlan] = useState<'standard' | 'unlimited' | null>(null);
-  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('yearly');
+  const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited' | null>(null);
+  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
   const [prices, setPrices] = useState<Prices | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -108,6 +108,21 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 
   const plans = [
     {
+      id: 'free' as const,
+      name: t('subscription.choice.free.name', { defaultValue: 'Free Trial' }),
+      weeklyPrice: 0,
+      monthlyPrice: 0,
+      yearlyPrice: 0,
+      tagline: t('subscription.choice.free.tagline', { defaultValue: 'Try before you commit' }),
+      features: [
+        { text: t('subscription.choice.free.feature1', { defaultValue: '25 chat messages' }), included: true },
+        { text: t('subscription.choice.free.feature2', { defaultValue: '50 flashcard validations' }), included: true },
+        { text: t('subscription.choice.free.feature3', { defaultValue: '1 voice chat (2 min)' }), included: true },
+        { text: t('subscription.choice.free.feature4', { defaultValue: '1 listen mode (2 min)' }), included: true },
+        { text: t('subscription.choice.free.feature5', { defaultValue: 'Unlimited words in Love Log' }), included: false },
+      ],
+    },
+    {
       id: 'standard' as const,
       name: t('onboarding.plan.standard.name'),
       weeklyPrice: 7,
@@ -115,11 +130,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       yearlyPrice: 69,
       tagline: t('onboarding.plan.standard.tagline'),
       features: [
-        t('onboarding.plan.standard.feature1'),
-        t('onboarding.plan.standard.feature2'),
-        t('onboarding.plan.standard.feature3'),
-        t('onboarding.plan.standard.feature4'),
-        t('onboarding.plan.standard.feature5'),
+        { text: t('onboarding.plan.standard.feature1'), included: true },
+        { text: t('onboarding.plan.standard.feature2'), included: true },
+        { text: t('onboarding.plan.standard.feature3'), included: true },
+        { text: t('onboarding.plan.standard.feature4'), included: true },
+        { text: t('onboarding.plan.standard.feature5'), included: true },
       ],
     },
     {
@@ -131,11 +146,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       tagline: t('onboarding.plan.unlimited.tagline'),
       popular: true,
       features: [
-        t('onboarding.plan.unlimited.feature1'),
-        t('onboarding.plan.unlimited.feature2'),
-        t('onboarding.plan.unlimited.feature3'),
-        t('onboarding.plan.unlimited.feature4'),
-        t('onboarding.plan.unlimited.feature5'),
+        { text: t('onboarding.plan.unlimited.feature1'), included: true },
+        { text: t('onboarding.plan.unlimited.feature2'), included: true },
+        { text: t('onboarding.plan.unlimited.feature3'), included: true },
+        { text: t('onboarding.plan.unlimited.feature4'), included: true },
+        { text: t('onboarding.plan.unlimited.feature5'), included: true },
       ],
     },
   ];
@@ -306,15 +321,23 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                   <p className="text-sm text-gray-500 mb-3">{plan.tagline}</p>
 
                   <ul className="space-y-1">
-                    {plan.features.slice(0, 3).map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                        <ICONS.Check className="w-4 h-4" style={{ color: accentColor }} />
-                        {feature}
-                      </li>
-                    ))}
-                    {plan.features.length > 3 && (
+                    {plan.features.slice(0, 4).map((feature, i) => {
+                      const featureText = typeof feature === 'string' ? feature : feature.text;
+                      const included = typeof feature === 'string' ? true : feature.included !== false;
+                      return (
+                        <li key={i} className={`flex items-center gap-2 text-sm ${included ? 'text-gray-600' : 'text-gray-400'}`}>
+                          {included ? (
+                            <ICONS.Check className="w-4 h-4" style={{ color: accentColor }} />
+                          ) : (
+                            <span className="w-4 h-4 text-gray-300 text-center">✗</span>
+                          )}
+                          {featureText}
+                        </li>
+                      );
+                    })}
+                    {plan.features.length > 4 && (
                       <li className="text-xs text-gray-400 pl-6">
-                        {t('onboarding.plan.moreFeatures', { count: plan.features.length - 3 })}
+                        {t('onboarding.plan.moreFeatures', { count: plan.features.length - 4 })}
                       </li>
                     )}
                   </ul>
@@ -339,16 +362,22 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 
       {/* Continue Button */}
       <NextButton
-        onClick={() => onNext(selectedPlan || 'standard', getPriceId())}
-        disabled={!selectedPlan || !prices}
-        accentColor={accentColor}
+        onClick={() => onNext(selectedPlan || 'standard', selectedPlan === 'free' ? null : getPriceId())}
+        disabled={!selectedPlan || (selectedPlan !== 'free' && !prices)}
+        accentColor={selectedPlan === 'free' ? '#374151' : accentColor}
       >
-        {t('onboarding.plan.continueWith', { plan: selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : t('onboarding.plan.aPlan') })}
+        {selectedPlan === 'free' 
+          ? t('subscription.choice.free.cta', { defaultValue: 'Start Free Trial' })
+          : t('onboarding.plan.continueWith', { plan: selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : t('onboarding.plan.aPlan') })
+        }
       </NextButton>
 
       {/* Trust signals */}
       <p className="text-center text-xs text-gray-400 mt-4">
-        {t('onboarding.plan.trustSignal')}
+        {selectedPlan === 'free'
+          ? t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' })
+          : t('onboarding.plan.trustSignal')
+        }
       </p>
     </OnboardingStep>
   );

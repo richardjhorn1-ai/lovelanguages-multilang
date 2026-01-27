@@ -11,11 +11,14 @@ interface SubscriptionManagerProps {
     subscription_granted_by: string | null;
     linked_user_id: string | null;
     stripe_customer_id: string | null;
+    promo_expires_at?: string | null;
+    free_tier_chosen_at?: string | null;
   };
   partnerName?: string;
+  onUpgrade?: () => void;
 }
 
-const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, partnerName }) => {
+const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, partnerName, onUpgrade }) => {
   const [loading, setLoading] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -25,6 +28,17 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
   const isInherited = !!profile.subscription_granted_by;
   const hasPartner = !!profile.linked_user_id;
   const isPayer = profile.stripe_customer_id && !isInherited;
+  const hasActivePromo = profile.promo_expires_at && new Date(profile.promo_expires_at) > new Date();
+  const isFreeTier = !!profile.free_tier_chosen_at && !profile.subscription_status && !hasActivePromo && !isInherited;
+
+  // Calculate days until promo expires
+  const getPromoDaysRemaining = () => {
+    if (!profile.promo_expires_at) return 0;
+    const now = new Date();
+    const expires = new Date(profile.promo_expires_at);
+    const diff = expires.getTime() - now.getTime();
+    return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+  };
 
   const formatDate = (dateStr: string | null) => {
     if (!dateStr) return 'N/A';
@@ -89,6 +103,64 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
     setLoading(false);
   };
 
+  const handleUpgrade = () => {
+    if (onUpgrade) {
+      onUpgrade();
+    } else {
+      // Navigate to pricing page
+      window.location.hash = '/pricing';
+    }
+  };
+
+  // Free tier user (chose free, no subscription)
+  if (isFreeTier) {
+    return (
+      <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-3xl">📊</span>
+          <div>
+            <h3 className="font-bold text-[var(--text-primary)]">{t('subscription.manager.freePlan')}</h3>
+            <p className="text-sm text-[var(--text-secondary)]">
+              {t('subscription.manager.freeDescription')}
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={handleUpgrade}
+          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-colors"
+        >
+          {t('subscription.manager.upgradeButton')}
+        </button>
+      </div>
+    );
+  }
+
+  // Promo user (creator access)
+  if (hasActivePromo) {
+    const daysRemaining = getPromoDaysRemaining();
+    return (
+      <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-3xl">✨</span>
+          <div>
+            <h3 className="font-bold text-[var(--text-primary)]">{t('promo.title')}</h3>
+            <p className="text-sm text-[var(--text-secondary)]">
+              {t('subscription.manager.promoExpires', { days: daysRemaining })}
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={handleUpgrade}
+          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-colors"
+        >
+          {t('subscription.manager.subscribeToKeep')}
+        </button>
+      </div>
+    );
+  }
+
   // Partner with inherited subscription - can't manage
   if (isInherited) {
     return (
@@ -128,7 +200,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
     );
   }
 
-  // No subscription
+  // No subscription at all (shouldn't happen normally if paywall works)
   if (!profile.subscription_plan || profile.subscription_plan === 'none') {
     return (
       <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
@@ -141,6 +213,13 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
             </p>
           </div>
         </div>
+
+        <button
+          onClick={handleUpgrade}
+          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-colors"
+        >
+          {t('subscription.manager.upgradeButton')}
+        </button>
       </div>
     );
   }

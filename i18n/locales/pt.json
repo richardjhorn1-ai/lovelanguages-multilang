@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Cancele quando quiser. Pagamento seguro via Stripe.",
       "questionsEmail": "Dúvidas? Envie email para",
       "friend": "Amigessa pessoa",
-      "copy": "Copiar"
+      "copy": "Copiar",
+      "billedWeekly": "({{price}}€ cobrado semanalmente)"
     },
     "plans": {
       "standard": "Padrão",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} tem acesso gratuito através de você",
       "cancelWarning": "Se você cancelar sua assinatura, {{name}} também perderá o acesso.",
       "manageSubscription": "Gerenciar Assinatura",
-      "continueToManage": "Continuar para Gerenciar"
+      "continueToManage": "Continuar para Gerenciar",
+      "freePlan": "Teste Grátis",
+      "freeDescription": "25 conversas • Recursos limitados",
+      "upgradeButton": "Atualizar para desbloquear tudo",
+      "promoExpires": "Acesso completo expira em {{days}} dias",
+      "subscribeToKeep": "Assine para manter o acesso"
     },
     "required": {
       "title": "Mais um passo, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Falha ao iniciar checkout",
       "failedPortal": "Falha ao abrir gerenciamento de assinatura",
       "somethingWrong": "Algo deu errado"
+    },
+    "choice": {
+      "title": "Escolha seu plano",
+      "subtitle": "Cada história de amor merece as palavras certas",
+      "free": {
+        "title": "Teste Grátis",
+        "price": "0€",
+        "perMonth": "/mês",
+        "features": {
+          "conversations": "25 conversas IA/mês",
+          "validations": "50 validações de palavras/mês",
+          "games": "Jogos de vocabulário básicos",
+          "voiceLimited": "Chat de voz (1 teste)",
+          "listenLimited": "Modo escuta (1 teste)",
+          "challengesLimited": "5 desafios de parceiro"
+        },
+        "cta": "Começar Grátis",
+        "subtext": "Perfeito para experimentar Love Languages",
+        "noCardRequired": "Não é necessário cartão de crédito"
+      }
     }
   },
   "pendingChallenges": {
@@ -1968,5 +1994,34 @@
         "copyright": "Love Languages · Feito com ♥ para amantes em todo lugar"
       }
     }
+  },
+  "limits": {
+    "outOfValidations": "Você esgotou as validações inteligentes",
+    "outOfVoice": "Você atingiu o limite de sessões de voz",
+    "outOfChat": "Você atingiu o limite de conversas",
+    "continueBasic": "Continuar sem validação inteligente",
+    "upgrade": "Fazer upgrade",
+    "remaining": "{{count}} restantes",
+    "warningLow": "Apenas {{count}} restantes",
+    "usageOf": "{{used}} de {{total}} usados",
+    "upgradeDesc": "Faça upgrade para validações inteligentes ilimitadas, ou continue com verificação básica.",
+    "upgradeDescGeneric": "Faça upgrade para continuar usando este recurso sem limites."
+  },
+  "signup": {
+    "freeStartLearning": "Comece a aprender de graça",
+    "freeStartTeaching": "Comece a ensinar de graça"
+  },
+  "promo": {
+    "title": "Acesso de Criador",
+    "enterCode": "Tem um código de criador?",
+    "placeholder": "Digite o código",
+    "apply": "Aplicar",
+    "success": "Acesso de criador ativado! Aproveite {{days}} dias de acesso ilimitado.",
+    "activeUntil": "O acesso de criador expira em {{days}} dias",
+    "expired": "Seu acesso de criador terminou. Precisa de mais tempo? Escreva para creators@lovelanguages.io",
+    "errorInvalid": "Código inválido ou expirado",
+    "errorSubscribed": "Você já tem uma assinatura ativa",
+    "errorActive": "Você já tem acesso de criador ativo",
+    "errorMaxUses": "Este código atingiu seu limite"
   }
 }

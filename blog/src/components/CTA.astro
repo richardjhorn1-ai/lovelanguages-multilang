@@ -3,27 +3,52 @@ interface Props {
   text?: string;
   buttonText?: string;
   showSocialProof?: boolean;
+  language?: string; // Target language name (e.g., "Polish", "Spanish")
 }
 
+// Translations for CTA copy - emotional, relationship-focused
+const CTA_TRANSLATIONS: Record<string, { subtitle: string; socialProof: string }> = {
+  en: { subtitle: "Speak their language, touch their heart. Fun games, voice practice & goals made for two.", socialProof: "✨ Try free — no credit card needed" },
+  es: { subtitle: "Habla su idioma, toca su corazón. Juegos, práctica de voz y metas para dos.", socialProof: "✨ Prueba gratis — sin tarjeta" },
+  fr: { subtitle: "Parlez leur langue, touchez leur cœur. Jeux, pratique vocale et objectifs pour deux.", socialProof: "✨ Essai gratuit — sans carte" },
+  de: { subtitle: "Sprich ihre Sprache, berühre ihr Herz. Spiele, Sprachübungen & Ziele für zwei.", socialProof: "✨ Kostenlos testen — keine Karte" },
+  it: { subtitle: "Parla la loro lingua, tocca il loro cuore. Giochi, pratica vocale e obiettivi per due.", socialProof: "✨ Prova gratis — senza carta" },
+  pt: { subtitle: "Fale a língua deles, toque o coração deles. Jogos, prática de voz e metas para dois.", socialProof: "✨ Experimente grátis — sem cartão" },
+  pl: { subtitle: "Mów ich językiem, dotknij ich serca. Gry, ćwiczenia głosowe i cele dla dwojga.", socialProof: "✨ Wypróbuj za darmo — bez karty" },
+  ru: { subtitle: "Говорите на их языке, коснитесь их сердца. Игры, голосовая практика и цели для двоих.", socialProof: "✨ Попробуйте бесплатно — без карты" },
+  nl: { subtitle: "Spreek hun taal, raak hun hart. Spelletjes, spraakpraktijk & doelen voor twee.", socialProof: "✨ Probeer gratis — geen kaart nodig" },
+  ro: { subtitle: "Vorbește limba lor, atinge-le inima. Jocuri, practică vocală și obiective pentru doi.", socialProof: "✨ Încearcă gratuit — fără card" },
+  uk: { subtitle: "Говоріть їхньою мовою, торкніться їхнього серця. Ігри, голосова практика та цілі для двох.", socialProof: "✨ Спробуйте безкоштовно — без картки" },
+  tr: { subtitle: "Onların dilini konuşun, kalplerini dokunun. Oyunlar, ses pratiği ve ikisi için hedefler.", socialProof: "✨ Ücretsiz deneyin — kart gerekmez" },
+};
+
 const {
-  text = "Ready to learn Polish together?",
-  buttonText = "Start Your Journey",
-  showSocialProof = true
+  text = "Ready to learn together?",
+  buttonText = "Start Learning for $0",
+  showSocialProof = true,
+  language
 } = Astro.props;
+
+// Get native language from URL path (e.g., /learn/es/pl/ -> es)
+const pathname = Astro.url.pathname;
+const pathParts = pathname.split('/').filter(Boolean);
+const nativeLang = pathParts[1] && pathParts[1].length === 2 ? pathParts[1] : 'en';
+const translations = CTA_TRANSLATIONS[nativeLang] || CTA_TRANSLATIONS.en;
 ---
 
 <div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
   <h3 class="text-2xl font-bold font-header mb-3">{text}</h3>
-  <p class="text-white/90 mb-5 text-lg">AI coaching, voice practice, and games designed for couples.</p>
+  <p class="text-white/90 mb-5 text-lg">{translations.subtitle}</p>
   <a
     href="/"
-    class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
+    class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg cta-button"
+    onclick="if(typeof gtag !== 'undefined') gtag('event', 'cta_click', { cta_location: 'blog_article', cta_text: this.textContent.trim(), destination: 'signup' });"
   >
     {buttonText} →
   </a>
   {showSocialProof && (
     <p class="mt-4 text-white/80 text-sm">
-      Join couples learning Polish across 30+ countries
+      {translations.socialProof}
     </p>
   )}
 </div>

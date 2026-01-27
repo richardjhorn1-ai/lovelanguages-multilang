@@ -1225,7 +1225,8 @@
       "cancelAnytime": "Zrušit můžeš kdykoliv. Bezpečná platba přes Stripe.",
       "questionsEmail": "Otázky? Napiš nám na",
       "friend": "Přítel",
-      "copy": "Kopírovat"
+      "copy": "Kopírovat",
+      "billedWeekly": "({{price}} Kč týdně)"
     },
     "plans": {
       "standard": "Standard",
@@ -1263,7 +1264,12 @@
       "partnerFreeAccess": "{{name}} má přes tebe bezplatný přístup",
       "cancelWarning": "Pokud zrušíš předplatné, {{name}} také ztratí přístup.",
       "manageSubscription": "Spravovat předplatné",
-      "continueToManage": "Pokračovat ve správě"
+      "continueToManage": "Pokračovat ve správě",
+      "freePlan": "Zkušební Verze",
+      "freeDescription": "25 konverzací • Omezené funkce",
+      "upgradeButton": "Upgradovat pro odemčení všeho",
+      "promoExpires": "Plný přístup vyprší za {{days}} dní",
+      "subscribeToKeep": "Předplaťte si pro zachování přístupu"
     },
     "required": {
       "title": "Ještě jeden krok, {{name}}!",
@@ -1311,6 +1317,26 @@
       "failedCheckout": "Nepodařilo se spustit pokladnu",
       "failedPortal": "Nepodařilo se otevřít správu předplatného",
       "somethingWrong": "Něco se pokazilo"
+    },
+    "choice": {
+      "title": "Vyberte si svůj plán",
+      "subtitle": "Každý milostný příběh si zaslouží správná slova",
+      "free": {
+        "title": "Zkušební Verze",
+        "price": "0 Kč",
+        "perMonth": "/měsíc",
+        "features": {
+          "conversations": "25 AI konverzací/měsíc",
+          "validations": "50 ověření slov/měsíc",
+          "games": "Základní slovníkové hry",
+          "voiceLimited": "Hlasový chat (1 pokus)",
+          "listenLimited": "Režim poslechu (1 pokus)",
+          "challengesLimited": "5 výzev pro partnera"
+        },
+        "cta": "Začít Zdarma",
+        "subtext": "Ideální na vyzkoušení Love Languages",
+        "noCardRequired": "Není vyžadována kreditní karta"
+      }
     }
   },
   "pendingChallenges": {
@@ -1968,5 +1994,34 @@
         "copyright": "Love Languages · Vytvořeno s ♥ pro milující všude na světě"
       }
     }
+  },
+  "limits": {
+    "outOfValidations": "Vyčerpali jste chytré validace",
+    "outOfVoice": "Dosáhli jste limitu hlasových relací",
+    "outOfChat": "Dosáhli jste limitu konverzací",
+    "continueBasic": "Pokračovat bez chytré validace",
+    "upgrade": "Upgradovat",
+    "remaining": "Zbývá {{count}}",
+    "warningLow": "Zbývá pouze {{count}}",
+    "usageOf": "{{used}} z {{total}} využito",
+    "upgradeDesc": "Upgradujte pro neomezené chytré validace, nebo pokračujte se základní kontrolou.",
+    "upgradeDescGeneric": "Upgradujte, abyste mohli tuto funkci používat bez limitů."
+  },
+  "signup": {
+    "freeStartLearning": "Začněte se učit zdarma",
+    "freeStartTeaching": "Začněte vyučovat zdarma"
+  },
+  "promo": {
+    "title": "Přístup pro tvůrce",
+    "enterCode": "Máte kód tvůrce?",
+    "placeholder": "Zadejte kód",
+    "apply": "Použít",
+    "success": "Přístup pro tvůrce aktivován! Užijte si {{days}} dní neomezeného přístupu.",
+    "activeUntil": "Přístup pro tvůrce vyprší za {{days}} dní",
+    "expired": "Váš přístup pro tvůrce skončil. Potřebujete více času? Napište na creators@lovelanguages.io",
+    "errorInvalid": "Neplatný nebo vypršelý kód",
+    "errorSubscribed": "Již máte aktivní předplatné",
+    "errorActive": "Již máte aktivní přístup pro tvůrce",
+    "errorMaxUses": "Tento kód dosáhl svého limitu"
   }
 }
