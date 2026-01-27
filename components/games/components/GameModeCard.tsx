@@ -1,5 +1,18 @@
 import React from 'react';
 
+// Static color map - Tailwind needs complete class names at build time
+const colorClasses: Record<string, { bg: string; borderHover: string }> = {
+  'accent': { bg: 'bg-[var(--accent-light)]', borderHover: 'hover:border-[var(--accent-border)]' },
+  'purple-500': { bg: 'bg-purple-500/20', borderHover: 'hover:border-purple-500/30' },
+  'blue-500': { bg: 'bg-blue-500/20', borderHover: 'hover:border-blue-500/30' },
+  'green-500': { bg: 'bg-green-500/20', borderHover: 'hover:border-green-500/30' },
+  'amber-500': { bg: 'bg-amber-500/20', borderHover: 'hover:border-amber-500/30' },
+  'orange-500': { bg: 'bg-orange-500/20', borderHover: 'hover:border-orange-500/30' },
+  'red-500': { bg: 'bg-red-500/20', borderHover: 'hover:border-red-500/30' },
+  'pink-500': { bg: 'bg-pink-500/20', borderHover: 'hover:border-pink-500/30' },
+  'gray-500': { bg: 'bg-gray-500/20', borderHover: 'hover:border-gray-500/30' },
+};
+
 interface GameModeCardProps {
   /** Emoji icon for the game mode */
   icon: string;
@@ -7,7 +20,7 @@ interface GameModeCardProps {
   title: string;
   /** Short description (shown on desktop) */
   description?: string;
-  /** Accent color for hover border (e.g., 'purple-500', 'blue-500') */
+  /** Accent color key (e.g., 'purple-500', 'blue-500', 'accent') */
   accentColor?: string;
   /** Whether the mode is disabled */
   disabled?: boolean;
@@ -30,9 +43,10 @@ export const GameModeCard: React.FC<GameModeCardProps> = ({
   badge,
   onClick,
 }) => {
-  // Convert color name to CSS classes
-  const bgColorClass = `bg-${accentColor}/20`;
-  const borderHoverClass = `hover:border-${accentColor}/30`;
+  // Get complete class names from map (dynamic interpolation doesn't work with Tailwind)
+  const colors = colorClasses[accentColor] ?? colorClasses['gray-500'];
+  const bgColorClass = colors.bg;
+  const borderHoverClass = colors.borderHover;
 
   return (
     <button
