@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { supabase } from '../../../services/supabase';
 import { useLanguage } from '../../../context/LanguageContext';
 
@@ -17,21 +17,21 @@ interface SessionScore {
   incorrect: number;
 }
 
+interface SessionEndData {
+  score: SessionScore;
+  answers: GameSessionAnswer[];
+  durationSeconds: number;
+}
+
 interface UseGameSessionOptions {
-  onSessionEnd?: (results: {
-    score: SessionScore;
-    answers: GameSessionAnswer[];
-    durationSeconds: number;
-  }) => void;
+  onSessionEnd?: (results: SessionEndData) => void;
 }
 
 interface UseGameSessionReturn {
   // Session state
   sessionScore: SessionScore;
   sessionAnswers: GameSessionAnswer[];
-  sessionStartTime: number;
   finished: boolean;
-  durationSeconds: number;
 
   // Actions
   recordAnswer: (answer: GameSessionAnswer) => void;
@@ -39,7 +39,8 @@ interface UseGameSessionReturn {
   resetSession: () => void;
   saveSession: (gameMode: string) => Promise<void>;
 
-  // Computed
+  // Computed (snapshot at time of call)
+  getDurationSeconds: () => number;
   totalAnswered: number;
   accuracy: number;
 }
@@ -56,6 +57,24 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
 
   const { languageParams } = useLanguage();
 
+  // Use refs to avoid stale closures in callbacks
+  const sessionScoreRef = useRef(sessionScore);
+  const sessionAnswersRef = useRef(sessionAnswers);
+  const onSessionEndRef = useRef(options?.onSessionEnd);
+
+  // Keep refs in sync with state
+  useEffect(() => {
+    sessionScoreRef.current = sessionScore;
+  }, [sessionScore]);
+
+  useEffect(() => {
+    sessionAnswersRef.current = sessionAnswers;
+  }, [sessionAnswers]);
+
+  useEffect(() => {
+    onSessionEndRef.current = options?.onSessionEnd;
+  }, [options?.onSessionEnd]);
+
   /**
    * Record an answer in the current session.
    */
@@ -68,20 +87,21 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
   }, []);
 
   /**
-   * Mark the session as finished.
+   * Mark the session as finished and trigger callback.
    */
   const endSession = useCallback(() => {
     setFinished(true);
     const durationSeconds = Math.floor((Date.now() - sessionStartTimeRef.current) / 1000);
 
-    if (options?.onSessionEnd) {
-      options.onSessionEnd({
-        score: sessionScore,
-        answers: sessionAnswers,
+    // Use refs for current values to avoid stale closure
+    if (onSessionEndRef.current) {
+      onSessionEndRef.current({
+        score: sessionScoreRef.current,
+        answers: sessionAnswersRef.current,
         durationSeconds,
       });
     }
-  }, [sessionScore, sessionAnswers, options]);
+  }, []); // Now stable - uses refs
 
   /**
    * Reset the session for a new game.
@@ -109,6 +129,10 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
           (Date.now() - sessionStartTimeRef.current) / 1000
         );
 
+        // Use refs for current values
+        const currentScore = sessionScoreRef.current;
+        const currentAnswers = sessionAnswersRef.current;
+
         const response = await fetch('/api/submit-game-session', {
           method: 'POST',
           headers: {
@@ -117,10 +141,10 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
           },
           body: JSON.stringify({
             gameMode,
-            correctCount: sessionScore.correct,
-            incorrectCount: sessionScore.incorrect,
+            correctCount: currentScore.correct,
+            incorrectCount: currentScore.incorrect,
             totalTimeSeconds,
-            answers: sessionAnswers,
+            answers: currentAnswers,
             ...languageParams,
           }),
         });
@@ -132,23 +156,28 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
         console.error('Error saving game session:', error);
       }
     },
-    [sessionScore, sessionAnswers, languageParams]
+    [languageParams]
   );
 
-  const durationSeconds = Math.floor((Date.now() - sessionStartTimeRef.current) / 1000);
+  /**
+   * Get current duration in seconds (call when needed, not on every render).
+   */
+  const getDurationSeconds = useCallback(() => {
+    return Math.floor((Date.now() - sessionStartTimeRef.current) / 1000);
+  }, []);
+
   const totalAnswered = sessionScore.correct + sessionScore.incorrect;
   const accuracy = totalAnswered > 0 ? Math.round((sessionScore.correct / totalAnswered) * 100) : 0;
 
   return {
     sessionScore,
     sessionAnswers,
-    sessionStartTime: sessionStartTimeRef.current,
     finished,
-    durationSeconds,
     recordAnswer,
     endSession,
     resetSession,
     saveSession,
+    getDurationSeconds,
     totalAnswered,
     accuracy,
   };

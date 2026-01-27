@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { supabase } from '../../../services/supabase';
 import { Profile, DictionaryEntry, WordScore } from '../../../types';
 import { useLanguage } from '../../../context/LanguageContext';
@@ -19,7 +19,6 @@ interface ScoreUpdateResult {
 }
 
 interface UseScoreTrackingReturn {
-  scores: WordScore[];
   scoresMap: Map<string, WordScore>;
   loading: boolean;
   updateWordScore: (wordId: string, isCorrect: boolean) => Promise<ScoreUpdateResult>;
@@ -42,11 +41,31 @@ export function useScoreTracking({
   profile,
   deck,
 }: UseScoreTrackingOptions): UseScoreTrackingReturn {
-  const [scores, setScores] = useState<WordScore[]>([]);
   const [scoresMap, setScoresMap] = useState<Map<string, WordScore>>(new Map());
   const [loading, setLoading] = useState(true);
   const [showStreakCelebration, setShowStreakCelebration] = useState(false);
   const [celebrationWord, setCelebrationWord] = useState<string | null>(null);
+
+  // Track mounted state to prevent setState after unmount
+  const mountedRef = useRef(true);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
+
+  // Use ref for scoresMap to keep updateWordScore callback more stable
+  const scoresMapRef = useRef(scoresMap);
+  useEffect(() => {
+    scoresMapRef.current = scoresMap;
+  }, [scoresMap]);
+
+  // Create deck map for O(1) word lookup
+  const deckMap = useMemo(
+    () => new Map(deck.map((w) => [w.id, w])),
+    [deck]
+  );
 
   const { targetLanguage } = useLanguage();
 
@@ -68,8 +87,7 @@ export function useScoreTracking({
 
       if (error) {
         console.error('Error fetching scores:', error);
-      } else if (scoreData) {
-        setScores(scoreData as WordScore[]);
+      } else if (scoreData && mountedRef.current) {
         // Create a map for quick lookup
         const map = new Map<string, WordScore>();
         scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
@@ -79,7 +97,9 @@ export function useScoreTracking({
       console.error('Error fetching scores:', error);
     }
 
-    setLoading(false);
+    if (mountedRef.current) {
+      setLoading(false);
+    }
   }, [targetUserId, targetLanguage]);
 
   // Fetch scores on mount and when dependencies change
@@ -102,7 +122,8 @@ export function useScoreTracking({
    */
   const updateWordScore = useCallback(
     async (wordId: string, isCorrect: boolean): Promise<ScoreUpdateResult> => {
-      const existingScore = scoresMap.get(wordId);
+      // Use ref for lookup to avoid stale closure issues
+      const existingScore = scoresMapRef.current.get(wordId);
 
       // Calculate new values
       const newSuccessCount =
@@ -139,45 +160,50 @@ export function useScoreTracking({
         onConflict: 'user_id,word_id',
       });
 
-      // Update local state
-      setScoresMap((prev) => {
-        const newMap = new Map(prev);
-        newMap.set(wordId, scoreUpdate as WordScore);
-        return newMap;
-      });
+      // Update local state (only if still mounted)
+      if (mountedRef.current) {
+        setScoresMap((prev) => {
+          const newMap = new Map(prev);
+          newMap.set(wordId, scoreUpdate as WordScore);
+          return newMap;
+        });
+      }
 
       // Trigger celebration when word is mastered (5 correct in a row)
-      if (justLearned) {
-        const word = deck.find((w) => w.id === wordId);
+      if (justLearned && mountedRef.current) {
+        const word = deckMap.get(wordId); // O(1) lookup instead of O(n)
         setCelebrationWord(word?.word || null);
         setShowStreakCelebration(true);
         sounds.play('perfect');
         haptics.trigger('tier-up');
         setTimeout(() => {
-          setShowStreakCelebration(false);
-          setCelebrationWord(null);
+          // Check mounted before setState to prevent memory leak
+          if (mountedRef.current) {
+            setShowStreakCelebration(false);
+            setCelebrationWord(null);
+          }
         }, 3000);
       }
 
       return { justLearned, newStreak };
     },
-    [scoresMap, profile.id, targetLanguage, deck]
+    [profile.id, targetLanguage, deckMap] // Removed scoresMap - using ref instead
   );
 
   const getWordStreak = useCallback(
     (wordId: string): number => {
-      const score = scoresMap.get(wordId);
+      const score = scoresMapRef.current.get(wordId);
       return score?.correct_streak || 0;
     },
-    [scoresMap]
+    [] // Stable - uses ref
   );
 
   const isWordLearned = useCallback(
     (wordId: string): boolean => {
-      const score = scoresMap.get(wordId);
+      const score = scoresMapRef.current.get(wordId);
       return score?.learned_at != null;
     },
-    [scoresMap]
+    [] // Stable - uses ref
   );
 
   // Computed word lists
@@ -201,7 +227,6 @@ export function useScoreTracking({
   );
 
   return {
-    scores,
     scoresMap,
     loading,
     updateWordScore,
