@@ -288,6 +288,37 @@ Chat → AI extracts word stems → Lookup in master_vocabulary →
 
 ---
 
+### F. Creator/Affiliate Program
+Allow creators to earn commission by referring new subscribers.
+
+**How it works:**
+1. Creators get a unique referral code/link (e.g., `lovelanguages.io/?ref=CREATOR123`)
+2. When someone subscribes via that link, creator earns 10% commission
+3. Creators can track referrals and earnings in-app
+
+**Implementation:**
+1. **Database:**
+   - `creator_codes` table: code, user_id, commission_rate, created_at
+   - `referrals` table: referrer_id, referred_user_id, subscription_id, commission_amount, paid_at
+2. **Stripe Integration:**
+   - Track referral source on checkout
+   - Calculate commission on subscription payments
+   - Stripe Connect for payouts OR manual tracking
+3. **UI:**
+   - Creator dashboard in profile (referral count, earnings, payout history)
+   - Generate referral link button
+   - "Enter Creator Code" input (already visible to all users)
+4. **Logic:**
+   - Validate creator codes on entry
+   - Apply referral tracking cookie/param
+   - Commission calculation on webhook
+
+**Trigger:** When ready to scale through influencers/affiliates
+
+**Related items:** AccountSettings.tsx (Creator Code input already added)
+
+---
+
 ## 🔥 Critical (Blocking/Broken)
 
 ### 1. XP System Doesn't Award XP for Local Games
