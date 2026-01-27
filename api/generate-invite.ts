@@ -6,7 +6,8 @@ import {
   requireSubscription,
   checkRateLimit,
   incrementUsage,
-  RATE_LIMITS
+  RATE_LIMITS,
+  SubscriptionPlan,
 } from '../utils/api-middleware.js';
 
 // Generate a secure random token
@@ -96,7 +97,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Check rate limit (abuse prevention)
-    const limit = await checkRateLimit(supabase, auth.userId, 'generateInvite', sub.plan as 'standard' | 'unlimited');
+    const limit = await checkRateLimit(supabase, auth.userId, 'generateInvite', sub.plan as SubscriptionPlan);
     if (!limit.allowed) {
       return res.status(429).json({
         error: limit.error,

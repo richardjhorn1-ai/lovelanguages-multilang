@@ -6,7 +6,8 @@ import {
   requireSubscription,
   checkRateLimit,
   incrementUsage,
-  RATE_LIMITS
+  RATE_LIMITS,
+  SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
 import { getLanguageName } from '../constants/language-config.js';
@@ -59,7 +60,7 @@ export default async function handler(req: any, res: any) {
   }
 
   // Check rate limit
-  const limit = await checkRateLimit(supabase, auth.userId, 'processTranscript', sub.plan as 'standard' | 'unlimited');
+  const limit = await checkRateLimit(supabase, auth.userId, 'processTranscript', sub.plan as SubscriptionPlan);
   if (!limit.allowed) {
     return res.status(429).json({
       error: limit.error,
