@@ -37,6 +37,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
       wordId: currentWord.id,
       wordText: currentWord.word,
       correctAnswer: currentWord.translation,
+      questionType: 'flashcard',
       isCorrect,
     });
 

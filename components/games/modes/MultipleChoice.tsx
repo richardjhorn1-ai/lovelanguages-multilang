@@ -36,7 +36,9 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   const { t } = useTranslation();
   const [selected, setSelected] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [localShake, setLocalShake] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const shakeTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   const currentWord = words[currentIndex];
   const isLastWord = currentIndex >= words.length - 1;
@@ -60,10 +62,11 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
     setShowFeedback(false);
   }, [currentIndex]);
 
-  // Cleanup timeout on unmount
+  // Cleanup timeouts on unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (shakeTimeoutRef.current) clearTimeout(shakeTimeoutRef.current);
     };
   }, []);
 
@@ -76,12 +79,19 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
 
       const isCorrect = option === currentWord.translation;
 
+      // Trigger shake animation for incorrect answers
+      if (!isCorrect) {
+        setLocalShake(true);
+        shakeTimeoutRef.current = setTimeout(() => setLocalShake(false), 500);
+      }
+
       // Report answer to parent
       onAnswer({
         wordId: currentWord.id,
         wordText: currentWord.word,
         correctAnswer: currentWord.translation,
         userAnswer: option,
+        questionType: 'multiple_choice',
         isCorrect,
       });
 
@@ -112,7 +122,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   return (
     <div
       className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${
-        showIncorrectShake ? 'animate-shake' : ''
+        localShake || showIncorrectShake ? 'animate-shake' : ''
       }`}
     >
       {/* Direction indicator */}
