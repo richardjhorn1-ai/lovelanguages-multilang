@@ -102,12 +102,14 @@ export function useGameDeck({ profile }: UseGameDeckOptions): UseGameDeckReturn 
   }, []);
 
   const nextCard = useCallback(() => {
+    if (deck.length === 0) return; // Guard against empty deck
     setCurrentIndex((prev) => Math.min(prev + 1, deck.length - 1));
   }, [deck.length]);
 
   const prevCard = useCallback(() => {
+    if (deck.length === 0) return; // Guard against empty deck
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
-  }, []);
+  }, [deck.length]);
 
   const resetDeck = useCallback(() => {
     shuffleDeck();
