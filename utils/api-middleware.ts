@@ -492,7 +492,7 @@ export async function getSubscriptionPlan(
 ): Promise<SubscriptionPlan> {
   const { data: profile, error } = await supabase
     .from('profiles')
-    .select('subscription_plan, subscription_status')
+    .select('subscription_plan, subscription_status, promo_expires_at, subscription_granted_by')
     .eq('id', userId)
     .single();
 
@@ -501,20 +501,39 @@ export async function getSubscriptionPlan(
     return 'free';
   }
 
+  // Check for active paid subscription
   const isActive = profile.subscription_status === 'active';
-  const plan = isActive ? (profile.subscription_plan || 'free') : 'free';
-
-  // Validate plan is a known tier
-  if (plan === 'standard' || plan === 'unlimited') {
-    return plan;
+  if (isActive) {
+    const plan = profile.subscription_plan || 'standard';
+    if (plan === 'standard' || plan === 'unlimited') {
+      return plan;
+    }
   }
 
+  // Check for partner-inherited access (treat as standard for rate limits)
+  if (profile.subscription_granted_by) {
+    return 'standard';
+  }
+
+  // Check for active promo (treat as standard for rate limits)
+  if (profile.promo_expires_at) {
+    const promoExpiry = new Date(profile.promo_expires_at);
+    if (promoExpiry > new Date()) {
+      return 'standard';
+    }
+  }
+
+  // Free tier or no subscription
   return 'free';
 }
 
 /**
- * Checks if user has an active paid subscription.
- * Blocks free users (plan === 'none' or inactive subscription).
+ * Checks if user has access to app features.
+ * Access is granted via:
+ * - Active paid subscription (subscription_status === 'active')
+ * - Free tier (free_tier_chosen_at is set)
+ * - Creator promo (promo_expires_at > now)
+ * - Partner-inherited access (subscription_granted_by is set)
  *
  * @param supabase - Supabase client with service key
  * @param userId - User ID to check
@@ -534,7 +553,7 @@ export async function requireSubscription(
 ): Promise<SubscriptionResult> {
   const { data: profile, error } = await supabase
     .from('profiles')
-    .select('subscription_plan, subscription_status')
+    .select('subscription_plan, subscription_status, free_tier_chosen_at, promo_expires_at, subscription_granted_by')
     .eq('id', userId)
     .single();
 
@@ -543,18 +562,40 @@ export async function requireSubscription(
     return { allowed: false, plan: 'none', error: 'Failed to verify subscription' };
   }
 
-  const isActive = profile.subscription_status === 'active';
-  const plan = isActive ? (profile.subscription_plan || 'none') : 'none';
-
-  if (plan === 'none') {
-    return {
-      allowed: false,
-      plan: 'none',
-      error: 'Subscription required. Please subscribe to access this feature.'
-    };
+  // Check all access types:
+  
+  // 1. Active paid subscription
+  const hasActiveSubscription = profile.subscription_status === 'active';
+  if (hasActiveSubscription) {
+    const plan = (profile.subscription_plan || 'standard') as SubscriptionPlan;
+    return { allowed: true, plan };
   }
 
-  return { allowed: true, plan: plan as SubscriptionPlan };
+  // 2. Partner-inherited access (they get partner's plan)
+  if (profile.subscription_granted_by) {
+    // User has inherited access - treat as standard for rate limits
+    return { allowed: true, plan: 'standard' };
+  }
+
+  // 3. Active creator promo
+  if (profile.promo_expires_at) {
+    const promoExpiry = new Date(profile.promo_expires_at);
+    if (promoExpiry > new Date()) {
+      return { allowed: true, plan: 'standard' };
+    }
+  }
+
+  // 4. Free tier (explicitly chosen during onboarding)
+  if (profile.free_tier_chosen_at) {
+    return { allowed: true, plan: 'free' };
+  }
+
+  // No access
+  return {
+    allowed: false,
+    plan: 'none',
+    error: 'Subscription required. Please subscribe to access this feature.'
+  };
 }
 
 /**
