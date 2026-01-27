@@ -4,6 +4,7 @@ import { supabase } from '../../services/supabase';
 import type { OnboardingData } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../constants/language-config';
+import { analytics } from '../../services/analytics';
 
 // Context for sharing onQuit across all step components
 export const OnboardingContext = createContext<{
@@ -671,6 +672,30 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   const goNext = () => setCurrentStep(s => Math.min(s + 1, totalSteps));
   const goBack = () => setCurrentStep(s => Math.max(s - 1, 1));
 
+  // Track onboarding step changes for analytics
+  const stepStartTime = useRef(Date.now());
+  useEffect(() => {
+    // Get step name based on role and step number
+    const getStepName = (step: number): string => {
+      if (role === 'student') {
+        const studentSteps = ['name', 'partner_name', 'photo', 'why', 'time', 'when', 'fear', 'prior', 'vibe', 'learn_hello', 'learn_love', 'try_it', 'celebration', 'goal', 'validation', 'plan', 'start'];
+        return studentSteps[step - 1] || `step_${step}`;
+      } else {
+        const tutorSteps = ['name', 'partner_name', 'relation', 'language_connection', 'origin', 'dream_phrase', 'teaching_style', 'preview', 'validation', 'plan', 'start'];
+        return tutorSteps[step - 1] || `step_${step}`;
+      }
+    };
+
+    analytics.track('onboarding_step', {
+      step_number: currentStep,
+      step_name: getStepName(currentStep),
+      role: role,
+      total_steps: totalSteps,
+      time_on_previous_step_ms: Date.now() - stepStartTime.current,
+    });
+    stepStartTime.current = Date.now();
+  }, [currentStep, role, totalSteps]);
+
   // Handle quitting onboarding - clear progress and call onQuit
   const handleQuit = () => {
     localStorage.removeItem(STORAGE_KEY);
@@ -766,6 +791,16 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       }
 
       localStorage.removeItem(STORAGE_KEY);
+
+      // Track onboarding completion
+      analytics.track('onboarding_completed', {
+        role: role,
+        total_steps: totalSteps,
+        target_language: data.targetLanguage,
+        native_language: data.nativeLanguage,
+        selected_plan: data.selectedPlan || 'none',
+        has_inherited_subscription: hasInheritedSubscription,
+      });
 
       // Handle plan selection
       console.log('[Onboarding] Selected plan:', data.selectedPlan, 'Price ID:', data.selectedPriceId);

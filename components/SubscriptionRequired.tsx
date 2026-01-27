@@ -249,11 +249,25 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       if (checkoutData.url) {
         window.location.href = checkoutData.url;
       } else {
-        setError(checkoutData.error || t('subscription.errors.failedCheckout'));
+        const errorMsg = checkoutData.error || t('subscription.errors.failedCheckout');
+        analytics.track('subscription_failed', {
+          plan: selectedPlan,
+          billing_period: billingPeriod,
+          error_type: 'checkout_creation_failed',
+          error_message: errorMsg,
+        });
+        setError(errorMsg);
         setLoading(false);
       }
     } catch (err: any) {
-      setError(err.message || t('subscription.errors.somethingWrong'));
+      const errorMsg = err.message || t('subscription.errors.somethingWrong');
+      analytics.track('subscription_failed', {
+        plan: selectedPlan,
+        billing_period: billingPeriod,
+        error_type: 'checkout_exception',
+        error_message: errorMsg,
+      });
+      setError(errorMsg);
       setLoading(false);
     }
   };

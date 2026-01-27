@@ -610,6 +610,11 @@ const Hero: React.FC = () => {
       return;
     }
 
+    // Track signup attempt for email signups
+    if (isSignUp) {
+      analytics.trackSignupStarted('email');
+    }
+
     const { error } = isSignUp
       ? await supabase.auth.signUp({
           email,
