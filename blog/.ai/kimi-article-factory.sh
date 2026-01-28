@@ -121,6 +121,22 @@ generate_article() {
         available_articles=$(ls "$article_dir"/*.mdx 2>/dev/null | xargs -I{} basename {} .mdx | head -20 | sed "s|^|/learn/$native_lang/$target_lang/|" | sed 's|$|/|')
     fi
 
+    # Always provide P0 topic links as fallback (these will exist after Phase 2)
+    local p0_links="/learn/$native_lang/$target_lang/how-to-say-i-love-you-in-$(get_language_name "$target_lang" | tr '[:upper:]' '[:lower:]')/
+/learn/$native_lang/$target_lang/$(get_language_name "$target_lang" | tr '[:upper:]' '[:lower:]')-pet-names-for-your-partner/
+/learn/$native_lang/$target_lang/essential-$(get_language_name "$target_lang" | tr '[:upper:]' '[:lower:]')-phrases-for-couples/
+/learn/$native_lang/$target_lang/$(get_language_name "$target_lang" | tr '[:upper:]' '[:lower:]')-greetings-and-farewells/
+/learn/$native_lang/$target_lang/$(get_language_name "$target_lang" | tr '[:upper:]' '[:lower:]')-date-night-vocabulary/
+/learn/$native_lang/$target_lang/romantic-$(get_language_name "$target_lang" | tr '[:upper:]' '[:lower:]')-phrases-for-every-occasion/"
+
+    # Combine available and P0 links
+    if [ -z "$available_articles" ]; then
+        available_articles="$p0_links"
+    else
+        available_articles="$available_articles
+$p0_links"
+    fi
+
     local today=$(date '+%Y-%m-%d')
 
     local prompt="You are an expert content writer for Love Languages, a language learning app for international couples.
@@ -144,16 +160,20 @@ TARGET LANGUAGE: $target_name ($target_lang) — this is the language being taug
 NATIVE LANGUAGE: $native_name ($native_lang) — write the article IN this language (the reader speaks this)
 DATE: $today
 
-EXISTING ARTICLES YOU CAN LINK TO (pick 2-3 relevant ones):
+INTERNAL LINKS - YOU MUST INCLUDE AT LEAST 2 OF THESE (markdown format):
 $available_articles
 
-CRITICAL REQUIREMENTS:
+Example of how to include internal links in text:
+\"Om du vill lära dig fler kärleksfulla fraser, kolla in [engelska smeknamn för din partner](/learn/sv/en/english-pet-names-for-your-partner/).\"
+\"Läs också vår guide till [romantiska engelska fraser](/learn/sv/en/romantic-english-phrases-for-every-occasion/).\"
+
+CRITICAL REQUIREMENTS (WILL BE VALIDATED - ARTICLE REJECTED IF NOT MET):
 1. Write the article body in $native_name (NOT English, unless native_lang is 'en')
 2. Follow the structure template EXACTLY
 3. Include ALL required MDX components (VocabCard, CultureTip, PhraseOfDay, CTA)
 4. Every $target_name phrase MUST have a pronunciation guide
 5. Make it romantic and couple-focused throughout
-6. Include at least 2-3 internal links from the list above (weave them naturally into the text)
+6. MANDATORY: Include at least 2 internal links from the list above using markdown format [text](/learn/.../) - weave them naturally into the text. THIS IS REQUIRED FOR VALIDATION.
 7. Frontmatter must include: title, description, category, difficulty, readTime, date, image, tags, nativeLanguage, language
 
 COMPONENT PROPS (CRITICAL - use exactly these prop names):
@@ -302,7 +322,7 @@ process_article() {
     return 1
 }
 
-# Batch process from CSV
+# Batch process from CSV (old format)
 batch_process() {
     local csv_file="$1"
     local success=0
@@ -327,6 +347,91 @@ batch_process() {
     log "Batch complete: $success succeeded, $failed failed"
 }
 
+# Process task CSV (new format: task_id,native_lang,target_lang,topic_id,template,slug,title,output_path)
+process_task_csv() {
+    local csv_file="$1"
+    local start_task="${2:-1}"
+    local end_task="${3:-9999}"
+    local success=0
+    local failed=0
+    local skipped=0
+
+    local native_lang=$(basename "$csv_file" | sed 's/tasks-//' | sed 's/.csv//')
+    local log_file="$LOG_DIR/${native_lang}-$(date +%Y%m%d%H%M%S).log"
+
+    log "Processing tasks from: $csv_file"
+    log "Task range: $start_task to $end_task"
+    log "Log file: $log_file"
+
+    echo "=== Generation Log ===" > "$log_file"
+    echo "Started: $(date)" >> "$log_file"
+    echo "CSV: $csv_file" >> "$log_file"
+    echo "" >> "$log_file"
+
+    while IFS=',' read -r task_id n_lang t_lang topic_id template slug title output_path; do
+        # Skip header
+        [[ "$task_id" == "task_id" ]] && continue
+        [[ -z "$task_id" ]] && continue
+
+        # Check task range
+        [[ "$task_id" -lt "$start_task" ]] && continue
+        [[ "$task_id" -gt "$end_task" ]] && break
+
+        # Clean up title (remove quotes)
+        title=$(echo "$title" | sed 's/^"//;s/"$//')
+
+        # Check if file exists
+        local full_output_path="$BLOG_DIR/$output_path"
+        if [ -f "$full_output_path" ]; then
+            info "[$task_id] SKIP: $slug (exists)"
+            echo "[$(date '+%H:%M:%S')] Task $task_id: ⏭️ SKIPPED - $slug (exists)" >> "$log_file"
+            ((skipped++))
+            continue
+        fi
+
+        log "[$task_id] Generating: $title"
+
+        # Map topic_id to actual topic name for the prompt
+        local topic_name
+        case "$topic_id" in
+            1) topic_name="How to Say I Love You" ;;
+            2) topic_name="Pet Names and Terms of Endearment (50+)" ;;
+            3) topic_name="Essential Phrases for Couples" ;;
+            4) topic_name="Meeting Your Partner's Family" ;;
+            5) topic_name="Greetings and Farewells" ;;
+            6) topic_name="Date Night Vocabulary" ;;
+            7) topic_name="Romantic Phrases for Every Occasion" ;;
+            8) topic_name="Pronunciation Guide for Beginners" ;;
+            9) topic_name="Grammar Basics for Beginners" ;;
+            10) topic_name="Is This Language Hard to Learn?" ;;
+            *) topic_name="$title" ;;
+        esac
+
+        if process_article "$topic_name" "$t_lang" "$n_lang" "$template"; then
+            echo "[$(date '+%H:%M:%S')] Task $task_id: ✅ SUCCESS - $slug" >> "$log_file"
+            ((success++))
+        else
+            echo "[$(date '+%H:%M:%S')] Task $task_id: ❌ FAILED - $slug" >> "$log_file"
+            ((failed++))
+        fi
+
+        sleep "$DELAY_BETWEEN_ARTICLES"
+    done < "$csv_file"
+
+    echo "" >> "$log_file"
+    echo "=== Summary ===" >> "$log_file"
+    echo "Completed: $(date)" >> "$log_file"
+    echo "Success: $success" >> "$log_file"
+    echo "Failed: $failed" >> "$log_file"
+    echo "Skipped: $skipped" >> "$log_file"
+
+    log "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    log "✅ Success: $success"
+    log "❌ Failed: $failed"
+    log "⏭️  Skipped: $skipped"
+    log "📝 Log: $log_file"
+}
+
 # Usage
 usage() {
     echo "Love Languages Article Factory — Kimi K2.5 Edition"
@@ -334,6 +439,7 @@ usage() {
     echo "Usage:"
     echo "  $0 single <topic> <target_lang> <native_lang> [template]"
     echo "  $0 batch <csv_file>"
+    echo "  $0 tasks <task_csv> [start_task] [end_task]"
     echo "  $0 test"
     echo ""
     echo "Templates: phrases-list, how-to-say, grammar-guide, cultural-guide, practical-guide, comparison"
@@ -341,6 +447,8 @@ usage() {
     echo "Examples:"
     echo "  $0 single '50 Spanish Pet Names' es en phrases-list"
     echo "  $0 batch articles-to-generate.csv"
+    echo "  $0 tasks tasks/tasks-sv.csv           # Process all Swedish tasks"
+    echo "  $0 tasks tasks/tasks-sv.csv 1 10      # Process tasks 1-10 only"
     echo "  $0 test  # Generate one test article"
 }
 
@@ -352,6 +460,13 @@ test_generation() {
 
 # Main
 case "${1:-}" in
+    tasks)
+        if [ $# -lt 2 ]; then
+            usage
+            exit 1
+        fi
+        process_task_csv "$2" "${3:-1}" "${4:-9999}"
+        ;;
     single)
         if [ $# -lt 4 ]; then
             usage
