@@ -123,10 +123,37 @@ export default async function handler(req: any, res: any) {
       }
     }
 
+    // Award XP: 1 XP per correct answer
+    let xpAwarded = 0;
+    if (correctCount > 0) {
+      xpAwarded = correctCount;
+
+      // Get current XP and update
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('xp')
+        .eq('id', sessionUserId)
+        .single();
+
+      const currentXp = profile?.xp || 0;
+      const newXp = currentXp + xpAwarded;
+
+      const { error: xpError } = await supabase
+        .from('profiles')
+        .update({ xp: newXp })
+        .eq('id', sessionUserId);
+
+      if (xpError) {
+        console.error('Error awarding XP:', xpError);
+        // Don't fail - session is saved, XP is bonus
+      }
+    }
+
     return res.status(200).json({
       success: true,
       sessionId: session.id,
-      session
+      session,
+      xpAwarded
     });
 
   } catch (error: any) {

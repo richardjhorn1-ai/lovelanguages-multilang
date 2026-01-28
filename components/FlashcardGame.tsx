@@ -522,8 +522,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   // Generic callbacks for extracted game mode components (memoized for performance)
   const handleGameAnswer = useCallback(async (result: { wordId?: string; wordText: string; correctAnswer: string; userAnswer?: string; questionType: 'flashcard' | 'multiple_choice' | 'type_it'; isCorrect: boolean }) => {
-    // Play feedback
-    sounds.play('correct');
+    // Play feedback - correct sound for correct, incorrect for wrong
+    sounds.play(result.isCorrect ? 'correct' : 'incorrect');
     haptics.trigger(result.isCorrect ? 'correct' : 'incorrect');
 
     // Visual shake for incorrect
