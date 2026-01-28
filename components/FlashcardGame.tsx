@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase, TutorChallenge, WordRequest } from '../types';
@@ -798,13 +798,6 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setVerbMasteryStarted(false);
   };
 
-  // Note: QuickFire timer cleanup now managed by extracted component
-  useEffect(() => {
-    return () => {
-      // Component handles its own cleanup
-    };
-  }, []);
-
   // Exit confirmation when game is in progress
   useEffect(() => {
     const isGameInProgress = localGameType !== null && !finished && (
@@ -830,8 +823,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     };
   }, [localGameType, finished, challengeStarted, quickFireStarted, verbMasteryStarted, currentIndex, sessionScore]);
 
-  // Generic callbacks for extracted game mode components
-  const handleGameAnswer = async (result: { wordId?: string; wordText: string; correctAnswer: string; userAnswer?: string; questionType: 'flashcard' | 'multiple_choice' | 'type_it'; isCorrect: boolean }) => {
+  // Generic callbacks for extracted game mode components (memoized for performance)
+  const handleGameAnswer = useCallback(async (result: { wordId?: string; wordText: string; correctAnswer: string; userAnswer?: string; questionType: 'flashcard' | 'multiple_choice' | 'type_it'; isCorrect: boolean }) => {
     // Play feedback
     sounds.play('correct');
     haptics.trigger(result.isCorrect ? 'correct' : 'incorrect');
@@ -860,24 +853,33 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     if (result.wordId) {
       await updateWordScore(result.wordId, result.isCorrect);
     }
-  };
+  }, [triggerIncorrectFeedback, updateWordScore]);
 
-  const handleGameNext = () => {
+  const handleGameNext = useCallback(() => {
     setCurrentIndex(c => c + 1);
-  };
+  }, []);
 
-  const createGameCompleteHandler = (gameType: 'flashcards' | 'multiple_choice' | 'type_it' | 'quick_fire' | 'verb_mastery') => () => {
-    // Play perfect sound if all correct
-    if (sessionScore.incorrect === 0) {
-      sounds.play('perfect');
-      haptics.trigger('perfect');
-    }
-    setFinished(true);
-    saveGameSession(gameType, sessionAnswers, sessionScore.correct, sessionScore.incorrect);
-  };
+  // Pre-computed game complete handlers (memoized to avoid new refs each render)
+  const gameCompleteHandlers = useMemo(() => ({
+    flashcards: () => {
+      if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
+      setFinished(true);
+      saveGameSession('flashcards', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
+    },
+    multiple_choice: () => {
+      if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
+      setFinished(true);
+      saveGameSession('multiple_choice', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
+    },
+    type_it: () => {
+      if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
+      setFinished(true);
+      saveGameSession('type_it', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
+    },
+  }), [sessionScore, sessionAnswers, saveGameSession]);
 
-  // TypeIt validation wrapper using smart validation when enabled
-  const handleTypeItValidation = async (
+  // TypeIt validation wrapper (memoized)
+  const handleTypeItValidation = useCallback(async (
     userAnswer: string,
     correctAnswer: string,
     context: { word: DictionaryEntry; direction: 'target_to_native' | 'native_to_target' }
@@ -894,25 +896,23 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       }
       return { accepted: result.accepted, explanation: result.explanation };
     }
-    // Fallback to simple validation
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-  };
+  }, [profile.smart_validation, useBasicValidation, languageParams]);
 
-  // QuickFire handlers
-  const handleQuickFireStart = () => {
+  // QuickFire handlers (memoized)
+  const handleQuickFireStart = useCallback(() => {
     setQuickFireStarted(true);
     setFinished(false);
     setSessionScore({ correct: 0, incorrect: 0 });
     setSessionAnswers([]);
-  };
+  }, []);
 
-  const handleQuickFireComplete = (results: {
+  const handleQuickFireComplete = useCallback((results: {
     answers: (GameSessionAnswer & { explanation?: string })[];
     score: { correct: number; incorrect: number };
     timeRemaining: number;
   }) => {
-    // Play perfect sound if all correct
     if (results.score.incorrect === 0 && results.score.correct > 0) {
       sounds.play('perfect');
       haptics.trigger('perfect');
@@ -921,9 +921,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setSessionAnswers(results.answers);
     setFinished(true);
     saveGameSession('quick_fire', results.answers, results.score.correct, results.score.incorrect);
-  };
+  }, [saveGameSession]);
 
-  const handleQuickFireValidation = async (
+  const handleQuickFireValidation = useCallback(async (
     userAnswer: string,
     correctAnswer: string,
     word: DictionaryEntry
@@ -942,10 +942,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-  };
+  }, [profile.smart_validation, useBasicValidation, languageParams]);
 
-  // VerbMastery handlers
-  const handleVerbMasteryComplete = (results: {
+  // VerbMastery handlers (memoized)
+  const handleVerbMasteryComplete = useCallback((results: {
     answers: (GameSessionAnswer & { explanation?: string })[];
     score: { correct: number; incorrect: number };
   }) => {
@@ -957,9 +957,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setSessionAnswers(results.answers);
     setFinished(true);
     saveGameSession('verb_mastery', results.answers, results.score.correct, results.score.incorrect);
-  };
+  }, [saveGameSession]);
 
-  const handleVerbMasteryValidation = async (
+  const handleVerbMasteryValidation = useCallback(async (
     userAnswer: string,
     correctAnswer: string,
     context: { verb: DictionaryEntry; tense: 'present' | 'past' | 'future'; person: string }
@@ -978,7 +978,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-  };
+  }, [profile.smart_validation, useBasicValidation, languageParams]);
 
   const restartSession = () => {
     setDeck(shuffleArray([...deck]));
@@ -1318,7 +1318,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               currentWordStreak={currentWordStreak}
               onAnswer={handleGameAnswer}
               onNext={handleGameNext}
-              onComplete={createGameCompleteHandler('flashcards')}
+              onComplete={gameCompleteHandlers.flashcards}
             />
           )}
 
@@ -1335,7 +1335,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               showIncorrectShake={showIncorrectShake}
               onAnswer={handleGameAnswer}
               onNext={handleGameNext}
-              onComplete={createGameCompleteHandler('multiple_choice')}
+              onComplete={gameCompleteHandlers.multiple_choice}
             />
           )}
 
@@ -1353,7 +1353,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               showIncorrectShake={showIncorrectShake}
               onAnswer={handleGameAnswer}
               onNext={handleGameNext}
-              onComplete={createGameCompleteHandler('type_it')}
+              onComplete={gameCompleteHandlers.type_it}
               validateAnswer={handleTypeItValidation}
             />
           )}
