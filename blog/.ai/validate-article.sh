@@ -63,6 +63,15 @@ if echo "$READTIME" | grep -q "[a-zA-Z]"; then
     ERRORS=$((ERRORS + 1))
 fi
 
+# Date must be quoted (YAML parses unquoted dates as Date objects, Astro wants string)
+DATE_LINE=$(grep "^date:" "$FILE" | head -1)
+if echo "$DATE_LINE" | grep -qE '^date: [0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+    echo "  ❌ date must be QUOTED: '$DATE_LINE' → use date: \"YYYY-MM-DD\""
+    ERRORS=$((ERRORS + 1))
+else
+    echo "  ✅ date is properly quoted"
+fi
+
 # Language code validation
 LANG=$(echo "$FRONTMATTER" | grep "^language:" | cut -d: -f2 | tr -d ' ')
 NATIVE=$(echo "$FRONTMATTER" | grep "^nativeLanguage:" | cut -d: -f2 | tr -d ' ')
