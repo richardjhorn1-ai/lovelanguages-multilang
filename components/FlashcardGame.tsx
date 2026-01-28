@@ -19,7 +19,7 @@ import ErrorBoundary from './ErrorBoundary';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
 import { StreakIndicator, StreakCelebrationModal } from './games/components';
-import { Flashcards, MultipleChoice, TypeIt } from './games/modes';
+import { Flashcards, MultipleChoice, TypeIt, QuickFire } from './games/modes';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
@@ -1223,6 +1223,51 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
   };
 
+  // QuickFire handlers
+  const handleQuickFireStart = () => {
+    setQuickFireStarted(true);
+    setFinished(false);
+    setSessionScore({ correct: 0, incorrect: 0 });
+    setSessionAnswers([]);
+  };
+
+  const handleQuickFireComplete = (results: {
+    answers: (GameSessionAnswer & { explanation?: string })[];
+    score: { correct: number; incorrect: number };
+    timeRemaining: number;
+  }) => {
+    // Play perfect sound if all correct
+    if (results.score.incorrect === 0 && results.score.correct > 0) {
+      sounds.play('perfect');
+      haptics.trigger('perfect');
+    }
+    setSessionScore(results.score);
+    setSessionAnswers(results.answers);
+    setFinished(true);
+    saveGameSession('quick_fire', results.answers, results.score.correct, results.score.incorrect);
+  };
+
+  const handleQuickFireValidation = async (
+    userAnswer: string,
+    correctAnswer: string,
+    word: DictionaryEntry
+  ): Promise<{ accepted: boolean; explanation: string }> => {
+    if (profile.smart_validation && !useBasicValidation) {
+      const result = await validateAnswerSmart(userAnswer, correctAnswer, {
+        targetWord: word.word,
+        wordType: word.word_type,
+        direction: 'target_to_native',
+        languageParams
+      });
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
+      return { accepted: result.accepted, explanation: result.explanation };
+    }
+    const accepted = isCorrectAnswer(userAnswer, correctAnswer);
+    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
+  };
+
   const restartSession = () => {
     setDeck(shuffleArray([...deck]));
     setCurrentIndex(0);
@@ -1302,8 +1347,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     if (localGameType === 'verb_mastery' && verbMasteryStarted && verbMasteryQuestions.length > 0) {
       return { index: verbMasteryIndex, length: verbMasteryQuestions.length };
     }
-    if (localGameType === 'quick_fire' && quickFireStarted && quickFireWords.length > 0) {
-      return { index: quickFireIndex, length: quickFireWords.length };
+    // quick_fire now uses extracted component with internal state
+    // Progress tracked via sessionScore/sessionAnswers when game is active
+    if (localGameType === 'quick_fire' && quickFireStarted) {
+      return { index: sessionAnswers.length, length: Math.min(deck.length, 20) };
     }
     // type_it now uses deck directly via extracted component
     if (mode === 'type_it') {
@@ -1680,90 +1727,18 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           )}
 
           {/* Quick Fire Mode */}
-          {localGameType === 'quick_fire' && !quickFireStarted && (
-            <div className="w-full text-center">
-              <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)] max-w-md mx-auto">
-                <div className="text-6xl mb-4">⚡</div>
-                <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">{t('play.quickFire.title')}</h2>
-                <p className="text-[var(--text-secondary)] mb-6">
-                  {t('play.quickFire.description')}
-                </p>
-                <div className="bg-amber-50 dark:bg-amber-900/30 p-4 rounded-2xl mb-6">
-                  <p className="text-scale-heading font-bold text-amber-600 dark:text-amber-400">
-                    🔥 {t('play.quickFire.wordsAvailable', { count: deck.length })}
-                  </p>
-                  <p className="text-scale-label text-[var(--text-secondary)] mt-1">
-                    {t('play.quickFire.upTo20')}
-                  </p>
-                </div>
-                <button
-                  onClick={startQuickFire}
-                  disabled={deck.length < 5}
-                  className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                >
-                  {t('play.quickFire.start')}
-                </button>
-                {deck.length < 5 && (
-                  <p className="text-scale-label text-red-500 mt-3">{t('play.quickFire.needAtLeast5')}</p>
-                )}
-              </div>
-            </div>
-          )}
-
-          {localGameType === 'quick_fire' && quickFireStarted && !finished && (
-            <div className={`w-full max-w-md mx-auto transition-colors duration-200 ${
-              quickFireShowFeedback === 'correct' ? 'bg-green-500/20 rounded-3xl' :
-              quickFireShowFeedback === 'wrong' ? 'bg-red-500/20 rounded-3xl' : ''
-            }`}>
-              {/* Timer Bar */}
-              <div className="h-3 bg-[var(--border-color)] rounded-full mb-4 overflow-hidden">
-                <div
-                  className={`h-full transition-all duration-1000 ${
-                    quickFireTimeLeft > 30 ? 'bg-amber-500' :
-                    quickFireTimeLeft > 15 ? 'bg-orange-500' : 'bg-red-500'
-                  }`}
-                  style={{ width: `${(quickFireTimeLeft / 60) * 100}%` }}
-                />
-              </div>
-
-              {/* Header */}
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-scale-label font-bold text-[var(--text-secondary)]">
-                  {quickFireIndex + 1} / {quickFireWords.length}
-                </span>
-                <span className={`text-3xl font-black ${
-                  quickFireTimeLeft > 10 ? 'text-amber-500' : 'text-red-500 animate-pulse'
-                }`}>
-                  {quickFireTimeLeft}s
-                </span>
-              </div>
-
-              {/* Word */}
-              <div className="bg-amber-50 dark:bg-amber-900/30 p-8 rounded-2xl mb-6 text-center">
-                <p className="text-4xl font-black text-amber-600 dark:text-amber-400">
-                  {quickFireWords[quickFireIndex]?.word}
-                </p>
-              </div>
-
-              {/* Input */}
-              <input
-                type="text"
-                value={quickFireInput}
-                onChange={e => setQuickFireInput(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && handleQuickFireAnswer()}
-                placeholder={t('play.quickFire.typeTranslation')}
-                autoFocus
-                className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-              />
-
-              {/* Progress */}
-              <div className="mt-4 h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-amber-500 transition-all duration-300"
-                  style={{ width: `${((quickFireIndex + 1) / quickFireWords.length) * 100}%` }}
-                />
-              </div>
-            </div>
+          {/* Quick Fire Mode - Using extracted component */}
+          {localGameType === 'quick_fire' && !finished && (
+            <QuickFire
+              words={deck}
+              accentColor="#f59e0b"
+              timeLimit={60}
+              maxWords={20}
+              onAnswer={handleGameAnswer}
+              onComplete={handleQuickFireComplete}
+              onStart={handleQuickFireStart}
+              validateAnswer={handleQuickFireValidation}
+            />
           )}
 
           {/* Verb Mastery - Tense Selection */}
