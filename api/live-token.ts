@@ -45,17 +45,17 @@ async function getLearningJourneyContext(
     .limit(1)
     .single();
 
-  // Fetch struggled words (high fail count)
+  // Fetch struggled words (words with incorrect attempts)
   const { data: scores } = await supabase
     .from('word_scores')
-    .select('fail_count, dictionary:word_id(word, translation, language_code)')
+    .select('total_attempts, correct_attempts, dictionary:word_id(word, translation, language_code)')
     .eq('user_id', userId)
-    .gt('fail_count', 0)
-    .order('fail_count', { ascending: false })
-    .limit(10);
+    .gt('total_attempts', 0)
+    .limit(50);
 
   const struggledWords = (scores || [])
-    .filter((s: any) => s.dictionary?.language_code === targetLanguage)
+    .filter((s: any) => s.dictionary?.language_code === targetLanguage && (s.total_attempts || 0) > (s.correct_attempts || 0))
+    .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
     .slice(0, 5)
     .map((s: any) => ({
       word: s.dictionary?.word || '',

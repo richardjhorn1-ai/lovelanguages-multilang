@@ -125,12 +125,13 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     const unlearnedWords = words.filter(w => !scoresMap.get(w.id)?.learned_at);
     const learnedWords = words.filter(w => scoresMap.get(w.id)?.learned_at != null);
 
-    // Sort for weakest (most failed)
+    // Sort for weakest (most incorrect attempts)
     const weakest = [...unlearnedWords].sort((a, b) => {
       const scoreA = scoresMap.get(a.id);
       const scoreB = scoresMap.get(b.id);
-      return ((scoreB?.fail_count || 0) - (scoreB?.success_count || 0)) -
-             ((scoreA?.fail_count || 0) - (scoreA?.success_count || 0));
+      const incorrectA = (scoreA?.total_attempts || 0) - (scoreA?.correct_attempts || 0);
+      const incorrectB = (scoreB?.total_attempts || 0) - (scoreB?.correct_attempts || 0);
+      return incorrectB - incorrectA;
     });
 
     // Sort for least practiced

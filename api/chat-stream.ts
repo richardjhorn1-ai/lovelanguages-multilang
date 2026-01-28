@@ -67,14 +67,14 @@ async function getJourneyContext(
 
   const { data: scores } = await supabase
     .from('word_scores')
-    .select('fail_count, dictionary:word_id(word, translation, language_code)')
+    .select('total_attempts, correct_attempts, dictionary:word_id(word, translation, language_code)')
     .eq('user_id', userId)
-    .gt('fail_count', 0)
-    .order('fail_count', { ascending: false })
-    .limit(10);
+    .gt('total_attempts', 0)
+    .limit(50);
 
   const struggledWords = (scores || [])
-    .filter((s: any) => s.dictionary?.language_code === targetLanguage)
+    .filter((s: any) => s.dictionary?.language_code === targetLanguage && (s.total_attempts || 0) > (s.correct_attempts || 0))
+    .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
     .slice(0, 5)
     .map((s: any) => ({ word: s.dictionary?.word || '', translation: s.dictionary?.translation || '' }));
 
@@ -115,10 +115,10 @@ async function getPartnerContext(
 
   const { data: scores } = await supabase
     .from('word_scores')
-    .select('fail_count, success_count, dictionary:word_id(word, translation)')
+    .select('total_attempts, correct_attempts, dictionary:word_id(word, translation)')
     .eq('user_id', linkedUserId)
-    .order('fail_count', { ascending: false })
-    .limit(10);
+    .gt('total_attempts', 0)
+    .limit(50);
 
   const { count: totalWords } = await supabase
     .from('dictionary')
@@ -138,12 +138,13 @@ async function getPartnerContext(
     learnerName: partner.full_name || 'Your partner',
     vocabulary: (vocab || []).map((v: any) => `${v.word} (${v.translation})`),
     weakSpots: (scores || [])
-      .filter((s: any) => s.fail_count > s.success_count)
+      .filter((s: any) => (s.total_attempts || 0) > (s.correct_attempts || 0))
+      .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
       .slice(0, 5)
       .map((s: any) => ({
         word: s.dictionary?.word || '',
         translation: s.dictionary?.translation || '',
-        failCount: s.fail_count
+        failCount: (s.total_attempts || 0) - (s.correct_attempts || 0)
       })),
     recentWords: (vocab || []).slice(0, 5).map((v: any) => ({ word: v.word, translation: v.translation })),
     stats: {
