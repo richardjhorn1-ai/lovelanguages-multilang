@@ -399,8 +399,8 @@ export const VerbMastery: React.FC<VerbMasteryProps> = ({
             <div
               className={`p-4 rounded-xl ${
                 isCorrect
-                  ? 'bg-green-100 dark:bg-green-900/30'
-                  : 'bg-red-100 dark:bg-red-900/30'
+                  ? 'bg-green-500/10'
+                  : 'bg-red-500/10'
               }`}
             >
               {isCorrect ? (

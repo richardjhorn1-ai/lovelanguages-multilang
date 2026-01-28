@@ -208,10 +208,10 @@ export const TypeIt: React.FC<TypeItProps> = ({
       {/* Feedback */}
       {submitted && (
         <div
-          className={`text-center mb-4 p-3 rounded-xl ${
+          className={`text-center mb-4 p-3 rounded-xl border ${
             isCorrect
-              ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-              : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+              ? 'bg-green-500/10 border-green-500/30 text-green-500'
+              : 'bg-red-500/10 border-red-500/30 text-red-500'
           }`}
         >
           {isCorrect ? (

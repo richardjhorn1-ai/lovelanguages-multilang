@@ -181,8 +181,8 @@ export const TutorGameResults: React.FC<TutorGameResultsProps> = ({
 
         {/* Success message */}
         {savedSuccess && (
-          <div className="mb-4 p-3 bg-green-50 dark:bg-green-900/30 rounded-xl border border-green-200 dark:border-green-800">
-            <p className="text-scale-label text-green-700 dark:text-green-400 font-bold flex items-center justify-center gap-2">
+          <div className="mb-4 p-3 bg-green-500/10 rounded-xl border border-green-500/30">
+            <p className="text-scale-label text-green-500 font-bold flex items-center justify-center gap-2">
               <ICONS.Check className="w-4 h-4" />
               {t('tutorGames.gameOver.savedSuccess', { name: partnerName })}
             </p>
