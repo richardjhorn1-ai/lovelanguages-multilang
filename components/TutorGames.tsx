@@ -66,7 +66,6 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   // Session tracking for save to student progress
   const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
   const [sessionStartTime, setSessionStartTime] = useState<number>(Date.now());
-  const [showSaveDialog, setShowSaveDialog] = useState(false);
   const [savingProgress, setSavingProgress] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
 
@@ -217,8 +216,6 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                        localGameActive || 'flashcards';
       await saveGameSessionToStudent(gameMode, sessionAnswers, localGameScore.correct, localGameScore.incorrect);
     }
-
-    setShowSaveDialog(false);
   };
 
   const startLocalQuiz = () => {
