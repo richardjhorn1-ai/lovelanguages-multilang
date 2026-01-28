@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, TutorChallenge, WordRequest, DictionaryEntry, WordScore } from '../types';
@@ -11,92 +11,14 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
 import LimitReachedModal from './LimitReachedModal';
-
-// Save Progress Dialog Component
-interface SaveProgressDialogProps {
-  partnerName: string;
-  isFirstTime: boolean;
-  onSave: (remember: boolean) => void;
-  onCancel: () => void;
-  saving: boolean;
-}
-
-const SaveProgressDialog: React.FC<SaveProgressDialogProps> = ({
-  partnerName,
-  isFirstTime,
-  onSave,
-  onCancel,
-  saving
-}) => {
-  const { t } = useTranslation();
-  const [rememberChoice, setRememberChoice] = useState(false);
-
-  return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onCancel}>
-      <div
-        className="bg-[var(--bg-card)] rounded-2xl p-6 max-w-sm w-full shadow-2xl"
-        onClick={e => e.stopPropagation()}
-      >
-        <div className="text-center">
-          <div className="w-16 h-16 bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-4">
-            <ICONS.Heart className="w-8 h-8 text-[var(--accent-color)]" />
-          </div>
-
-          <h3 className="text-scale-heading font-bold text-[var(--text-primary)] mb-2">
-            {t('tutorGames.saveDialog.title', { name: partnerName })}
-          </h3>
-
-          {isFirstTime ? (
-            <div className="text-left bg-[var(--bg-primary)] rounded-xl p-4 mb-4 text-scale-label text-[var(--text-secondary)]">
-              <p className="mb-2">
-                <strong className="text-[var(--text-primary)]">{t('tutorGames.saveDialog.howItWorks')}</strong>
-              </p>
-              <ul className="space-y-1 text-scale-caption">
-                <li>• {t('tutorGames.saveDialog.detail1', { name: partnerName })}</li>
-                <li>• {t('tutorGames.saveDialog.detail2')}</li>
-                <li>• {t('tutorGames.saveDialog.detail3')}</li>
-              </ul>
-            </div>
-          ) : (
-            <p className="text-[var(--text-secondary)] text-scale-label mb-4">
-              {t('tutorGames.saveDialog.willUpdate', { name: partnerName })}
-            </p>
-          )}
-
-          {/* Remember checkbox */}
-          <label className="flex items-center justify-center gap-2 mb-4 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={rememberChoice}
-              onChange={e => setRememberChoice(e.target.checked)}
-              className="w-4 h-4 rounded border-[var(--border-color)] accent-[var(--accent-color)]"
-            />
-            <span className="text-scale-caption text-[var(--text-secondary)]">
-              {t('tutorGames.saveDialog.remember', { name: partnerName })}
-            </span>
-          </label>
-
-          <div className="flex gap-3">
-            <button
-              onClick={onCancel}
-              disabled={saving}
-              className="flex-1 py-3 px-4 border-2 border-[var(--border-color)] text-[var(--text-secondary)] rounded-xl font-bold hover:bg-[var(--bg-primary)] transition-all disabled:opacity-50"
-            >
-              {t('tutorGames.saveDialog.notNow')}
-            </button>
-            <button
-              onClick={() => onSave(rememberChoice)}
-              disabled={saving}
-              className="flex-1 py-3 px-4 bg-[var(--accent-color)] text-white rounded-xl font-bold hover:bg-[var(--accent-hover)] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              {saving ? t('tutorGames.gameOver.saving') : t('tutorGames.saveDialog.save')}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+import {
+  TutorFlashcards,
+  TutorMultipleChoice,
+  TutorTypeIt,
+  TutorQuickFire,
+  TutorGameResults,
+  type TutorAnswerResult,
+} from './games/tutor-modes';
 
 interface TutorGamesProps {
   profile: Profile;
@@ -134,26 +56,12 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const [showQuickFireModal, setShowQuickFireModal] = useState(false);
   const [showWordRequestModal, setShowWordRequestModal] = useState(false);
 
-  // Local game states
+  // Local game states (components manage most state internally)
   const [localGameActive, setLocalGameActive] = useState<'quiz' | 'quickfire' | 'multiple_choice' | 'type_it' | null>(null);
   const [localGameWords, setLocalGameWords] = useState<DictionaryEntry[]>([]);
   const [localGameIndex, setLocalGameIndex] = useState(0);
   const [localGameScore, setLocalGameScore] = useState({ correct: 0, incorrect: 0 });
-  const [localGameFlipped, setLocalGameFlipped] = useState(false);
   const [localQuickFireTimeLeft, setLocalQuickFireTimeLeft] = useState(60);
-  const [localQuickFireInput, setLocalQuickFireInput] = useState('');
-  const [localQuickFireStarted, setLocalQuickFireStarted] = useState(false);
-
-  // Multiple Choice state
-  const [mcOptions, setMcOptions] = useState<string[]>([]);
-  const [mcSelected, setMcSelected] = useState<string | null>(null);
-  const [mcShowFeedback, setMcShowFeedback] = useState(false);
-
-  // Type It state
-  const [typeItAnswer, setTypeItAnswer] = useState('');
-  const [typeItSubmitted, setTypeItSubmitted] = useState(false);
-  const [typeItCorrect, setTypeItCorrect] = useState(false);
-  const [typeItExplanation, setTypeItExplanation] = useState('');
 
   // Session tracking for save to student progress
   const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
@@ -324,7 +232,6 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setLocalGameWords(shuffleArray(selectedWords).slice(0, 10));
     setLocalGameIndex(0);
     setLocalGameScore({ correct: 0, incorrect: 0 });
-    setLocalGameFlipped(false);
     setSessionAnswers([]);
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
@@ -337,8 +244,6 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setLocalGameIndex(0);
     setLocalGameScore({ correct: 0, incorrect: 0 });
     setLocalQuickFireTimeLeft(60);
-    setLocalQuickFireInput('');
-    setLocalQuickFireStarted(false);
     setSessionAnswers([]);
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
@@ -350,7 +255,6 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setLocalGameWords(shuffled);
     setLocalGameIndex(0);
     setLocalGameScore({ correct: 0, incorrect: 0 });
-    generateMcOptionsFor(shuffled, 0);
     setSessionAnswers([]);
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
@@ -362,189 +266,23 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setLocalGameWords(shuffled);
     setLocalGameIndex(0);
     setLocalGameScore({ correct: 0, incorrect: 0 });
-    setTypeItAnswer('');
-    setTypeItSubmitted(false);
-    setTypeItCorrect(false);
-    setTypeItExplanation('');
     setSessionAnswers([]);
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
     setLocalGameActive('type_it');
   };
 
-  const generateMcOptionsFor = (words: DictionaryEntry[], index: number) => {
-    const currentWord = words[index];
-    const wrongOptions = partnerVocab
-      .filter(w => w.id !== currentWord.id)
-      .map(w => w.translation);
-    const shuffledWrong = shuffleArray(wrongOptions).slice(0, 3);
-    const allOptions = shuffleArray([currentWord.translation, ...shuffledWrong]);
-    setMcOptions(allOptions);
-    setMcSelected(null);
-    setMcShowFeedback(false);
-  };
+  // Old handlers removed - now using extracted components
 
-  const handleMcSelect = (option: string) => {
-    if (mcShowFeedback) return;
-    setMcSelected(option);
-    setMcShowFeedback(true);
-    const currentWord = localGameWords[localGameIndex];
-    const isCorrect = option === currentWord.translation;
-    setLocalGameScore(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
-    }));
-    // Track answer
-    setSessionAnswers(prev => [...prev, {
-      wordId: currentWord.id,
-      wordText: currentWord.word,
-      correctAnswer: currentWord.translation,
-      userAnswer: option,
-      questionType: 'multiple_choice',
-      isCorrect
-    }]);
-    setTimeout(() => {
-      if (localGameIndex < localGameWords.length - 1) {
-        const nextIndex = localGameIndex + 1;
-        setLocalGameIndex(nextIndex);
-        generateMcOptionsFor(localGameWords, nextIndex);
-      }
-    }, isCorrect ? 800 : 1500);
-  };
-
-  const handleTypeItSubmit = async () => {
-    if (typeItSubmitted) {
-      // Move to next question
-      if (localGameIndex < localGameWords.length - 1) {
-        setLocalGameIndex(prev => prev + 1);
-        setTypeItAnswer('');
-        setTypeItSubmitted(false);
-        setTypeItCorrect(false);
-        setTypeItExplanation('');
-      } else {
-        // Last question - clear submitted state to trigger re-render
-        // isGameOver will be true and game over screen will show
-        setTypeItSubmitted(false);
-      }
-      return;
-    }
-    const currentWord = localGameWords[localGameIndex];
-
-    // Use smart validation if enabled and not rate-limited, otherwise local matching
-    let isCorrect: boolean;
-    let explanation = '';
-    if (profile.smart_validation && !useBasicValidation) {
-      const result = await validateAnswerSmart(typeItAnswer, currentWord.translation, { targetWord: currentWord.word, languageParams: { targetLanguage, nativeLanguage } });
-      isCorrect = result.accepted;
-      explanation = result.explanation;
-      // Check if rate limit was hit
-      if (result.rateLimitHit) {
-        setShowLimitModal(true);
-      }
-    } else {
-      // Use diacritics-normalized comparison for consistency
-      isCorrect = normalizeAnswer(typeItAnswer) === normalizeAnswer(currentWord.translation);
-      explanation = isCorrect ? 'Exact match' : 'No match';
-    }
-
-    setTypeItSubmitted(true);
-    setTypeItCorrect(isCorrect);
-    setTypeItExplanation(explanation);
-    setLocalGameScore(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
-    }));
-    // Track answer
-    setSessionAnswers(prev => [...prev, {
-      wordId: currentWord.id,
-      wordText: currentWord.word,
-      correctAnswer: currentWord.translation,
-      userAnswer: typeItAnswer,
-      questionType: 'type_it',
-      isCorrect,
-      explanation
-    }]);
-  };
-
-  const handleLocalQuizResponse = (correct: boolean) => {
-    const currentWord = localGameWords[localGameIndex];
-    setLocalGameScore(prev => ({
-      correct: prev.correct + (correct ? 1 : 0),
-      incorrect: prev.incorrect + (correct ? 0 : 1)
-    }));
-    // Track answer
-    setSessionAnswers(prev => [...prev, {
-      wordId: currentWord.id,
-      wordText: currentWord.word,
-      correctAnswer: currentWord.translation,
-      questionType: 'flashcard',
-      isCorrect: correct
-    }]);
-    setLocalGameFlipped(false);
-    if (localGameIndex < localGameWords.length - 1) {
-      setTimeout(() => setLocalGameIndex(prev => prev + 1), 300);
-    } else {
-      // Game over - keep showing results
-    }
-  };
-
-  const handleLocalQuickFireAnswer = async () => {
-    if (!localQuickFireInput.trim()) return;
-    const currentWord = localGameWords[localGameIndex];
-
-    // Use smart validation if enabled and not rate-limited, otherwise local matching
-    let isCorrect: boolean;
-    let explanation = '';
-    if (profile.smart_validation && !useBasicValidation) {
-      const result = await validateAnswerSmart(localQuickFireInput, currentWord.translation, { targetWord: currentWord.word, languageParams: { targetLanguage, nativeLanguage } });
-      isCorrect = result.accepted;
-      explanation = result.explanation;
-      // Check if rate limit was hit
-      if (result.rateLimitHit) {
-        setShowLimitModal(true);
-      }
-    } else {
-      // Use diacritics-normalized comparison for consistency
-      isCorrect = normalizeAnswer(localQuickFireInput) === normalizeAnswer(currentWord.translation);
-      explanation = isCorrect ? 'Exact match' : 'No match';
-    }
-
-    setLocalGameScore(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
-    }));
-    // Track answer
-    setSessionAnswers(prev => [...prev, {
-      wordId: currentWord.id,
-      wordText: currentWord.word,
-      correctAnswer: currentWord.translation,
-      userAnswer: localQuickFireInput,
-      questionType: 'type_it',
-      isCorrect,
-      explanation
-    }]);
-    setLocalQuickFireInput('');
-
-    if (localGameIndex < localGameWords.length - 1) {
-      setLocalGameIndex(prev => prev + 1);
-    }
-  };
-
-  const resetLocalGame = () => {
+  const resetLocalGame = useCallback(() => {
     setLocalGameActive(null);
     setLocalGameWords([]);
     setLocalGameIndex(0);
     setLocalGameScore({ correct: 0, incorrect: 0 });
-    setLocalGameFlipped(false);
-    setLocalQuickFireStarted(false);
-    setMcOptions([]);
-    setMcSelected(null);
-    setMcShowFeedback(false);
-    setTypeItAnswer('');
-    setTypeItSubmitted(false);
-    setTypeItCorrect(false);
-    setTypeItExplanation('');
-  };
+    setLocalQuickFireTimeLeft(60);
+    setSessionAnswers([]);
+    setSavedSuccess(false);
+  }, []);
 
   const restartCurrentGame = () => {
     if (localGameActive === 'quiz') startLocalQuiz();
@@ -553,13 +291,62 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     else if (localGameActive === 'type_it') startLocalTypeIt();
   };
 
-  // QuickFire timer effect
-  React.useEffect(() => {
-    if (localGameActive === 'quickfire' && localQuickFireStarted && localQuickFireTimeLeft > 0) {
-      const timer = setTimeout(() => setLocalQuickFireTimeLeft(prev => prev - 1), 1000);
-      return () => clearTimeout(timer);
+  // Unified handler for extracted components
+  const handleTutorGameAnswer = useCallback((result: TutorAnswerResult, isCorrect: boolean) => {
+    setLocalGameScore(prev => ({
+      correct: prev.correct + (isCorrect ? 1 : 0),
+      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
+    }));
+    setSessionAnswers(prev => [...prev, {
+      wordId: result.wordId,
+      wordText: result.wordText,
+      correctAnswer: result.correctAnswer,
+      userAnswer: result.userAnswer,
+      questionType: result.questionType as 'flashcard' | 'multiple_choice' | 'type_it',
+      isCorrect: result.isCorrect,
+      explanation: result.explanation
+    }]);
+  }, []);
+
+  const handleFlashcardAnswer = useCallback((result: TutorAnswerResult, isCorrect: boolean) => {
+    handleTutorGameAnswer(result, isCorrect);
+    if (localGameIndex < localGameWords.length - 1) {
+      setTimeout(() => setLocalGameIndex(prev => prev + 1), 300);
     }
-  }, [localGameActive, localQuickFireStarted, localQuickFireTimeLeft]);
+  }, [handleTutorGameAnswer, localGameIndex, localGameWords.length]);
+
+  const handleMcAnswer = useCallback((result: TutorAnswerResult, isCorrect: boolean) => {
+    handleTutorGameAnswer(result, isCorrect);
+    setTimeout(() => {
+      if (localGameIndex < localGameWords.length - 1) {
+        setLocalGameIndex(prev => prev + 1);
+      }
+    }, isCorrect ? 800 : 1500);
+  }, [handleTutorGameAnswer, localGameIndex, localGameWords.length]);
+
+  const handleTypeItNext = useCallback(() => {
+    if (localGameIndex < localGameWords.length - 1) {
+      setLocalGameIndex(prev => prev + 1);
+    }
+  }, [localGameIndex, localGameWords.length]);
+
+  const handleQuickFireComplete = useCallback((results: {
+    answers: TutorAnswerResult[];
+    score: { correct: number; incorrect: number };
+    timeRemaining: number;
+  }) => {
+    setLocalGameScore(results.score);
+    setSessionAnswers(results.answers.map(r => ({
+      wordId: r.wordId,
+      wordText: r.wordText,
+      correctAnswer: r.correctAnswer,
+      userAnswer: r.userAnswer,
+      questionType: r.questionType as 'flashcard' | 'multiple_choice' | 'type_it',
+      isCorrect: r.isCorrect,
+      explanation: r.explanation
+    })));
+    setLocalQuickFireTimeLeft(results.timeRemaining);
+  }, []);
 
   // Auto-save effect when preference is 'always'
   React.useEffect(() => {
@@ -568,7 +355,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       && localGameIndex >= localGameWords.length - 1
       && totalAnswered === localGameWords.length
       && localGameWords.length > 0;
-    const quickFireTimeUp = localGameActive === 'quickfire' && localQuickFireTimeLeft <= 0 && localQuickFireStarted;
+    const quickFireTimeUp = localGameActive === 'quickfire' && localQuickFireTimeLeft <= 0;
     const quickFireComplete = localGameActive === 'quickfire' && localGameIndex >= localGameWords.length - 1 && totalAnswered === localGameWords.length && localGameWords.length > 0;
 
     if ((isGameOver || quickFireTimeUp || quickFireComplete) && getSavePreference() === 'always' && !savedSuccess && !savingProgress && sessionAnswers.length > 0) {
@@ -577,7 +364,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                        localGameActive || 'flashcards';
       saveGameSessionToStudent(gameMode, sessionAnswers, localGameScore.correct, localGameScore.incorrect);
     }
-  }, [localGameActive, localGameIndex, localGameScore, localQuickFireTimeLeft, localQuickFireStarted, localGameWords.length, sessionAnswers.length]);
+  }, [localGameActive, localGameIndex, localGameScore, localQuickFireTimeLeft, localGameWords.length, sessionAnswers.length, savedSuccess, savingProgress]);
 
   const pendingChallenges = challenges.filter(c => c.status === 'pending');
   const completedChallenges = challenges.filter(c => c.status === 'completed');
@@ -595,443 +382,107 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     );
   }
 
-  // Local game is active - render game UI
+  // Local game is active - render game UI using extracted components
   if (localGameActive) {
-    const currentWord = localGameWords[localGameIndex];
     const totalAnswered = localGameScore.correct + localGameScore.incorrect;
     const isGameOver = (localGameActive === 'quiz' || localGameActive === 'multiple_choice' || localGameActive === 'type_it')
       && localGameIndex >= localGameWords.length - 1
       && totalAnswered === localGameWords.length;
     const quickFireTimeUp = localGameActive === 'quickfire' && localQuickFireTimeLeft <= 0;
-    const quickFireComplete = localGameActive === 'quickfire' && localGameIndex >= localGameWords.length - 1 && totalAnswered === localGameWords.length;
+    const quickFireComplete = localGameActive === 'quickfire'
+      && localGameIndex >= localGameWords.length - 1
+      && totalAnswered === localGameWords.length;
 
-    // Game Over Screen
+    // Game Over Screen - Using TutorGameResults component
     if (isGameOver || quickFireTimeUp || quickFireComplete) {
-      const total = localGameScore.correct + localGameScore.incorrect;
-      const percentage = total > 0 ? Math.round((localGameScore.correct / total) * 100) : 0;
-      const pref = getSavePreference();
-      const isFirstTime = isFirstTimeSave();
-
       return (
-        <div className="h-full flex items-center justify-center p-4 bg-[var(--bg-primary)]">
-          <div className="bg-[var(--bg-card)] p-8 rounded-[2rem] shadow-xl text-center max-w-sm w-full">
-            <div className="text-6xl mb-4">{percentage >= 70 ? '🎉' : '💪'}</div>
-            <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">
-              {percentage >= 70 ? t('tutorGames.gameOver.greatJob') : t('tutorGames.gameOver.keepPracticing')}
-            </h2>
-            <div className="text-5xl font-black text-[var(--accent-color)] mb-4">{percentage}%</div>
-            <p className="text-[var(--text-secondary)] mb-4">
-              {t('tutorGames.gameOver.correct', { correct: localGameScore.correct, total })}
-            </p>
-
-            {/* Save to Student Progress Section */}
-            {profile.linked_user_id && !savedSuccess && pref !== 'always' && (
-              <div className="mb-4 p-4 bg-[var(--bg-primary)] rounded-xl border border-[var(--border-color)]">
-                <p className="text-scale-caption text-[var(--text-secondary)] mb-3">
-                  {isFirstTime ? (
-                    <>
-                      <span className="font-bold text-[var(--text-primary)]">{t('tutorGames.gameOver.practicedTogether')}</span>
-                      <br />
-                      {t('tutorGames.gameOver.saveDescription', { name: partnerName })}
-                    </>
-                  ) : (
-                    <>{t('tutorGames.gameOver.saveToProgress', { name: partnerName })}?</>
-                  )}
-                </p>
-                <button
-                  onClick={() => setShowSaveDialog(true)}
-                  disabled={savingProgress}
-                  className="w-full py-2 px-4 bg-[var(--accent-color)] text-white rounded-lg font-bold text-scale-label hover:bg-[var(--accent-hover)] transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-                >
-                  {savingProgress ? (
-                    <>{t('tutorGames.gameOver.saving')}</>
-                  ) : (
-                    <>
-                      <ICONS.Heart className="w-4 h-4" />
-                      {t('tutorGames.gameOver.saveToProgress', { name: partnerName })}
-                    </>
-                  )}
-                </button>
-              </div>
-            )}
-
-            {/* Success message */}
-            {savedSuccess && (
-              <div className="mb-4 p-3 bg-green-50 dark:bg-green-900/30 rounded-xl border border-green-200 dark:border-green-800">
-                <p className="text-scale-label text-green-700 dark:text-green-400 font-bold flex items-center justify-center gap-2">
-                  <ICONS.Check className="w-4 h-4" />
-                  {t('tutorGames.gameOver.savedSuccess', { name: partnerName })}
-                </p>
-              </div>
-            )}
-
-            {/* Auto-saved message for 'always' preference */}
-            {pref === 'always' && !savedSuccess && !savingProgress && (
-              <div className="mb-4 p-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
-                <p className="text-scale-caption text-[var(--accent-color)]">
-                  {t('tutorGames.gameOver.autoSaving', { name: partnerName })}
-                </p>
-              </div>
-            )}
-
-            <div className="flex gap-3">
-              <button
-                onClick={resetLocalGame}
-                className="flex-1 py-3 px-4 border-2 border-[var(--border-color)] rounded-xl font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]"
-              >
-                {t('tutorGames.gameOver.done')}
-              </button>
-              <button
-                onClick={restartCurrentGame}
-                className="flex-1 py-3 px-4 bg-[var(--accent-color)] text-white rounded-xl font-bold hover:bg-[var(--accent-hover)]"
-              >
-                {t('tutorGames.gameOver.playAgain')}
-              </button>
-            </div>
-          </div>
-
-          {/* Save Preference Dialog */}
-          {showSaveDialog && (
-            <SaveProgressDialog
-              partnerName={partnerName}
-              isFirstTime={isFirstTime}
-              onSave={(remember) => handleSavePreference(true, remember)}
-              onCancel={() => setShowSaveDialog(false)}
-              saving={savingProgress}
-            />
-          )}
-        </div>
+        <TutorGameResults
+          score={localGameScore}
+          partnerName={partnerName}
+          hasLinkedPartner={!!profile.linked_user_id}
+          savePreference={getSavePreference()}
+          isFirstTime={isFirstTimeSave()}
+          savingProgress={savingProgress}
+          savedSuccess={savedSuccess}
+          onSave={(remember) => handleSavePreference(true, remember)}
+          onDone={resetLocalGame}
+          onPlayAgain={restartCurrentGame}
+        />
       );
     }
 
-    // Local Quiz Game
+    // Quiz/Flashcards - Using TutorFlashcards component
     if (localGameActive === 'quiz') {
       return (
-        <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
-          <div className="max-w-md mx-auto w-full">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-4">
-              <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
-                <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
-              </button>
-              <span className="text-scale-label font-bold text-[var(--text-secondary)]">
-                {localGameIndex + 1} / {localGameWords.length}
-              </span>
-              <div className="flex gap-2">
-                <span className="text-green-500 font-bold">{localGameScore.correct}</span>
-                <span className="text-[var(--text-secondary)]">/</span>
-                <span className="text-red-400 font-bold">{localGameScore.incorrect}</span>
-              </div>
-            </div>
-
-            {/* Progress */}
-            <div className="h-2 bg-[var(--bg-primary)] rounded-full mb-6 overflow-hidden">
-              <div
-                className="h-full bg-[var(--accent-color)] transition-all"
-                style={{ width: `${((localGameIndex + 1) / localGameWords.length) * 100}%` }}
-              />
-            </div>
-
-            {/* Flashcard */}
-            <div
-              onClick={() => setLocalGameFlipped(!localGameFlipped)}
-              className="relative aspect-[4/5] cursor-pointer perspective-1000"
-            >
-              <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${localGameFlipped ? 'rotate-y-180' : ''}`}>
-                {/* Front */}
-                <div className="absolute inset-0 bg-[var(--bg-card)] rounded-[2rem] p-8 flex flex-col items-center justify-center shadow-lg backface-hidden border border-[var(--border-color)]">
-                  <span className="text-scale-micro uppercase tracking-widest text-[var(--text-secondary)] font-bold mb-4">{targetName}</span>
-                  <h2 className="text-4xl font-black text-[var(--accent-color)] text-center">{currentWord?.word}</h2>
-                  <p className="text-[var(--text-secondary)] text-scale-label mt-8">{t('tutorGames.flashcard.tapToReveal')}</p>
-                </div>
-                {/* Back */}
-                <div className="absolute inset-0 bg-[var(--accent-color)] text-white rounded-[2rem] p-8 flex flex-col items-center justify-center shadow-lg backface-hidden rotate-y-180">
-                  <span className="text-scale-micro uppercase tracking-widest text-white/60 font-bold mb-4">{nativeName}</span>
-                  <h2 className="text-4xl font-black text-center">{currentWord?.translation}</h2>
-                  <div className="mt-8 grid grid-cols-2 gap-3 w-full">
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleLocalQuizResponse(false); }}
-                      className="py-3 bg-[var(--bg-card)]/20 rounded-xl font-bold text-scale-label hover:bg-[var(--bg-card)]/30"
-                    >
-                      ❌ {t('tutorGames.flashcard.hard')}
-                    </button>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleLocalQuizResponse(true); }}
-                      className="py-3 bg-[var(--bg-card)] rounded-xl font-bold text-scale-label text-[var(--accent-color)]"
-                    >
-                      ✓ {t('tutorGames.flashcard.gotIt')}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <style>{`
-            .perspective-1000 { perspective: 1000px; }
-            .transform-style-3d { transform-style: preserve-3d; }
-            .backface-hidden { backface-visibility: hidden; }
-            .rotate-y-180 { transform: rotateY(180deg); }
-          `}</style>
-        </div>
+        <TutorFlashcards
+          words={localGameWords}
+          currentIndex={localGameIndex}
+          score={localGameScore}
+          targetLanguageName={targetName}
+          nativeLanguageName={nativeName}
+          onAnswer={handleFlashcardAnswer}
+          onExit={resetLocalGame}
+        />
       );
     }
 
-    // Local Quick Fire Game
+    // Quick Fire - Using TutorQuickFire component
     if (localGameActive === 'quickfire') {
-      if (!localQuickFireStarted) {
-        return (
-          <div className="h-full flex items-center justify-center p-4 bg-[var(--bg-primary)]">
-            <div className="bg-[var(--bg-card)] p-8 rounded-[2rem] shadow-xl text-center max-w-sm w-full">
-              <div className="text-6xl mb-4">⚡</div>
-              <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">{t('tutorGames.quickFireGame.title')}</h2>
-              <p className="text-[var(--text-secondary)] text-scale-body mb-6">
-                {t('tutorGames.quickFireGame.description')}
-              </p>
-              <div className="flex gap-3">
-                <button
-                  onClick={resetLocalGame}
-                  className="flex-1 py-3 px-4 border-2 border-[var(--border-color)] rounded-xl font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]"
-                >
-                  {t('tutorGames.quickFireGame.cancel')}
-                </button>
-                <button
-                  onClick={() => setLocalQuickFireStarted(true)}
-                  className="flex-1 py-3 px-4 bg-amber-500 text-white rounded-xl font-bold hover:bg-amber-600"
-                >
-                  {t('tutorGames.quickFireGame.start')}
-                </button>
-              </div>
-            </div>
-          </div>
-        );
-      }
-
       return (
-        <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
-          <div className="max-w-md mx-auto w-full">
-            {/* Timer Bar */}
-            <div className="h-3 bg-[var(--bg-primary)] rounded-full mb-4 overflow-hidden">
-              <div
-                className={`h-full transition-all duration-1000 ${
-                  localQuickFireTimeLeft > 20 ? 'bg-amber-500' :
-                  localQuickFireTimeLeft > 10 ? 'bg-orange-500' : 'bg-red-500'
-                }`}
-                style={{ width: `${(localQuickFireTimeLeft / 60) * 100}%` }}
-              />
-            </div>
-
-            {/* Header */}
-            <div className="flex items-center justify-between mb-6">
-              <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
-                <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
-              </button>
-              <span className="text-scale-label font-bold text-[var(--text-secondary)]">
-                {localGameIndex + 1} / {localGameWords.length}
-              </span>
-              <span className={`text-3xl font-black ${localQuickFireTimeLeft <= 10 ? 'text-red-500 animate-pulse' : 'text-amber-500'}`}>
-                {localQuickFireTimeLeft}s
-              </span>
-            </div>
-
-            {/* Word */}
-            <div className="bg-amber-50 p-8 rounded-2xl mb-6 text-center">
-              <p className="text-4xl font-black text-amber-600">{currentWord?.word}</p>
-            </div>
-
-            {/* Input */}
-            <input
-              type="text"
-              value={localQuickFireInput}
-              onChange={e => setLocalQuickFireInput(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && handleLocalQuickFireAnswer()}
-              placeholder={t('tutorGames.quickFireGame.typeTranslation')}
-              autoFocus
-              className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-            />
-
-            {/* Score */}
-            <div className="mt-4 flex justify-center gap-6">
-              <span className="text-green-500 font-bold">✓ {localGameScore.correct}</span>
-              <span className="text-red-400 font-bold">✗ {localGameScore.incorrect}</span>
-            </div>
-          </div>
-        </div>
+        <TutorQuickFire
+          words={localGameWords}
+          timeLimit={60}
+          onAnswer={(result) => handleTutorGameAnswer(result, result.isCorrect)}
+          onComplete={handleQuickFireComplete}
+          onExit={resetLocalGame}
+          validateAnswer={profile.smart_validation && !useBasicValidation ? async (userAnswer, correctAnswer, word) => {
+            const result = await validateAnswerSmart(userAnswer, correctAnswer, {
+              targetWord: word.word,
+              languageParams: { targetLanguage, nativeLanguage }
+            });
+            if (result.rateLimitHit) setShowLimitModal(true);
+            return { accepted: result.accepted, explanation: result.explanation };
+          } : undefined}
+        />
       );
     }
 
-    // Local Multiple Choice Game
+    // Multiple Choice - Using TutorMultipleChoice component
     if (localGameActive === 'multiple_choice') {
       return (
-        <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
-          <div className="max-w-md mx-auto w-full">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-4">
-              <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
-                <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
-              </button>
-              <span className="text-scale-label font-bold text-[var(--text-secondary)]">
-                {localGameIndex + 1} / {localGameWords.length}
-              </span>
-              <div className="flex gap-2">
-                <span className="text-green-500 font-bold">{localGameScore.correct}</span>
-                <span className="text-[var(--text-secondary)]">/</span>
-                <span className="text-red-400 font-bold">{localGameScore.incorrect}</span>
-              </div>
-            </div>
-
-            {/* Progress */}
-            <div className="h-2 bg-[var(--bg-primary)] rounded-full mb-6 overflow-hidden">
-              <div
-                className="h-full bg-[var(--accent-color)] transition-all"
-                style={{ width: `${((localGameIndex + 1) / localGameWords.length) * 100}%` }}
-              />
-            </div>
-
-            {/* Question Card */}
-            <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)]">
-              <span className="text-scale-micro font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
-                {t('tutorGames.direction.label', { target: targetName, native: nativeName })}
-              </span>
-
-              <h3 className="text-3xl font-black text-[var(--text-primary)] mb-8 text-center">
-                {currentWord?.word}
-              </h3>
-
-              <div className="space-y-3">
-                {mcOptions.map((option, idx) => {
-                  const isCorrect = option === currentWord?.translation;
-                  const isSelected = mcSelected === option;
-
-                  let buttonStyle = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
-                  if (mcShowFeedback) {
-                    if (isCorrect) {
-                      buttonStyle = 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400';
-                    } else if (isSelected && !isCorrect) {
-                      buttonStyle = 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400';
-                    } else {
-                      buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)]';
-                    }
-                  }
-
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => handleMcSelect(option)}
-                      disabled={mcShowFeedback}
-                      className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${buttonStyle}`}
-                    >
-                      <span className="text-scale-caption font-bold text-[var(--text-secondary)] mr-3">
-                        {String.fromCharCode(65 + idx)}
-                      </span>
-                      {option}
-                      {mcShowFeedback && isCorrect && (
-                        <ICONS.Check className="w-5 h-5 float-right text-green-500" />
-                      )}
-                      {mcShowFeedback && isSelected && !isCorrect && (
-                        <ICONS.X className="w-5 h-5 float-right text-red-500" />
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
+        <TutorMultipleChoice
+          words={localGameWords}
+          currentIndex={localGameIndex}
+          score={localGameScore}
+          targetLanguageName={targetName}
+          nativeLanguageName={nativeName}
+          onAnswer={handleMcAnswer}
+          onExit={resetLocalGame}
+        />
       );
     }
 
-    // Local Type It Game
+    // Type It - Using TutorTypeIt component
     if (localGameActive === 'type_it') {
       return (
-        <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
-          <div className="max-w-md mx-auto w-full">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-4">
-              <button onClick={resetLocalGame} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl">
-                <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
-              </button>
-              <span className="text-scale-label font-bold text-[var(--text-secondary)]">
-                {localGameIndex + 1} / {localGameWords.length}
-              </span>
-              <div className="flex gap-2">
-                <span className="text-green-500 font-bold">{localGameScore.correct}</span>
-                <span className="text-[var(--text-secondary)]">/</span>
-                <span className="text-red-400 font-bold">{localGameScore.incorrect}</span>
-              </div>
-            </div>
-
-            {/* Progress */}
-            <div className="h-2 bg-[var(--bg-primary)] rounded-full mb-6 overflow-hidden">
-              <div
-                className="h-full bg-[var(--accent-color)] transition-all"
-                style={{ width: `${((localGameIndex + 1) / localGameWords.length) * 100}%` }}
-              />
-            </div>
-
-            {/* Question Card */}
-            <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)]">
-              <span className="text-scale-micro font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
-                {t('tutorGames.direction.label', { target: targetName, native: nativeName })}
-              </span>
-
-              <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">
-                {currentWord?.word}
-              </h3>
-
-              {typeItSubmitted && (
-                <div className={`text-center mb-4 p-3 rounded-xl ${
-                  typeItCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
-                }`}>
-                  {typeItCorrect ? (
-                    <div>
-                      <div className="flex items-center justify-center gap-2">
-                        <ICONS.Check className="w-5 h-5" />
-                        <span className="font-bold">{t('tutorGames.typeItGame.correct')}</span>
-                      </div>
-                      {typeItExplanation && typeItExplanation !== 'Exact match' && (
-                        <p className="text-scale-label mt-1 opacity-80">{typeItExplanation}</p>
-                      )}
-                    </div>
-                  ) : (
-                    <div>
-                      <div className="flex items-center justify-center gap-2 mb-1">
-                        <ICONS.X className="w-5 h-5" />
-                        <span className="font-bold">{t('tutorGames.typeItGame.notQuite')}</span>
-                      </div>
-                      <p className="text-scale-label">
-                        {t('tutorGames.typeItGame.correctAnswer', { answer: currentWord?.translation })}
-                      </p>
-                      {typeItExplanation && typeItExplanation !== 'No match' && (
-                        <p className="text-scale-label mt-1 opacity-80">{typeItExplanation}</p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              <div className="mt-6">
-                <input
-                  type="text"
-                  value={typeItAnswer}
-                  onChange={(e) => setTypeItAnswer(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleTypeItSubmit()}
-                  placeholder={t('tutorGames.typeItGame.typeIn', { language: nativeName })}
-                  disabled={typeItSubmitted}
-                  className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-scale-heading font-medium text-center bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-                  autoFocus
-                />
-              </div>
-
-              <button
-                onClick={handleTypeItSubmit}
-                disabled={!typeItAnswer.trim() && !typeItSubmitted}
-                className="w-full mt-6 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50 transition-all bg-[var(--accent-color)] hover:bg-[var(--accent-hover)]"
-              >
-                {typeItSubmitted ? t('tutorGames.typeItGame.next') : t('tutorGames.typeItGame.check')}
-              </button>
-            </div>
-          </div>
-        </div>
+        <TutorTypeIt
+          words={localGameWords}
+          currentIndex={localGameIndex}
+          score={localGameScore}
+          targetLanguageName={targetName}
+          nativeLanguageName={nativeName}
+          onAnswer={handleTutorGameAnswer}
+          onNext={handleTypeItNext}
+          onExit={resetLocalGame}
+          validateAnswer={profile.smart_validation && !useBasicValidation ? async (userAnswer, correctAnswer, word) => {
+            const result = await validateAnswerSmart(userAnswer, correctAnswer, {
+              targetWord: word.word,
+              languageParams: { targetLanguage, nativeLanguage }
+            });
+            if (result.rateLimitHit) setShowLimitModal(true);
+            return { accepted: result.accepted, explanation: result.explanation };
+          } : undefined}
+        />
       );
     }
   }
