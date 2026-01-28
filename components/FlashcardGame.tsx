@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
-import { Profile, DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase, TutorChallenge, WordRequest } from '../types';
+import { Profile, DictionaryEntry, WordScore, AIChallengeMode, TutorChallenge, WordRequest } from '../types';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { shuffleArray } from '../utils/array';
 import { isCorrectAnswer, validateAnswerSmart } from '../utils/answer-helpers';
-import { getRomanticPhrases, markPhrasesUsed, getAvailablePhraseCount } from '../services/romantic-phrases';
+// Romantic phrases handled by AIChallenge component
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
@@ -59,9 +59,6 @@ interface TypeItQuestion {
   direction: TypeItDirection;
 }
 
-type SessionLength = 10 | 20 | 'all';
-type ChallengeQuestionType = 'flashcard' | 'multiple_choice' | 'type_it';
-
 interface GameSessionAnswer {
   wordId?: string;
   wordText: string;
@@ -71,18 +68,6 @@ interface GameSessionAnswer {
   isCorrect: boolean;
   explanation?: string;
 }
-
-interface ChallengeQuestion {
-  id: string;
-  type: ChallengeQuestionType;
-  word: string;
-  translation: string;
-  wordId?: string;
-  phraseId?: string;
-  options?: string[];
-}
-
-// CHALLENGE_MODES moved inside component to use translations - see challengeModes useMemo
 
 const STREAK_TO_LEARN = 5; // Number of consecutive correct answers to mark as learned
 
@@ -123,20 +108,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   // Note: Flashcard, Multiple Choice, Type It state now managed by extracted components
 
-  // AI Challenge state (not yet extracted)
-  const [selectedChallengeMode, setSelectedChallengeMode] = useState<AIChallengeMode | null>(null);
-  const [sessionLength, setSessionLength] = useState<SessionLength | null>(null);
-  const [challengeQuestions, setChallengeQuestions] = useState<ChallengeQuestion[]>([]);
-  const [challengeStarted, setChallengeStarted] = useState(false);
-  const [challengeIndex, setChallengeIndex] = useState(0);
-  const [challengeFlipped, setChallengeFlipped] = useState(false);
-  const [challengeMcSelected, setChallengeMcSelected] = useState<string | null>(null);
-  const [challengeMcFeedback, setChallengeMcFeedback] = useState(false);
-  const [challengeTypeAnswer, setChallengeTypeAnswer] = useState('');
-  const [challengeTypeSubmitted, setChallengeTypeSubmitted] = useState(false);
-  const [challengeTypeCorrect, setChallengeTypeCorrect] = useState(false);
-  const [challengeTypeExplanation, setChallengeTypeExplanation] = useState('');
-  const [loadingPhrases, setLoadingPhrases] = useState(false);
+  // AI Challenge state (component manages most state internally)
+  const [challengeStarted, setChallengeStarted] = useState(false); // Used for exit confirmation
 
   // Quick Fire state (most managed by extracted component)
   const [quickFireStarted, setQuickFireStarted] = useState(false); // Used for exit confirmation
@@ -443,270 +416,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
   };
 
-  // Calculate available word counts for AI Challenge modes
-  const modeCounts = useMemo(() => {
-    const unlearnedWords = deck.filter(w => !scoresMap.get(w.id)?.learned_at);
-    const learnedWords = deck.filter(w => scoresMap.get(w.id)?.learned_at != null);
-    const weakestWords = unlearnedWords.filter(w => {
-      const score = scoresMap.get(w.id);
-      return score && (score.fail_count > 0 || (score.correct_streak || 0) < 3);
-    });
-    return {
-      weakest: weakestWords.length,
-      gauntlet: unlearnedWords.length,
-      romantic: getAvailablePhraseCount(targetLanguage, nativeLanguage),
-      least_practiced: unlearnedWords.length,
-      review_mastered: learnedWords.length
-    };
-  }, [deck, scoresMap, targetLanguage, nativeLanguage]);
-
-  // Generate AI Challenge questions
-  const generateChallengeQuestions = async (challengeMode: AIChallengeMode, length: SessionLength) => {
-    let wordPool: DictionaryEntry[] = [];
-    let phrasePool: RomanticPhrase[] = [];
-    const unlearnedWords = deck.filter(w => !scoresMap.get(w.id)?.learned_at);
-    const learnedWords = deck.filter(w => scoresMap.get(w.id)?.learned_at != null);
-
-    switch (challengeMode) {
-      case 'weakest':
-        wordPool = [...unlearnedWords].sort((a, b) => {
-          const scoreA = scoresMap.get(a.id);
-          const scoreB = scoresMap.get(b.id);
-          return ((scoreB?.fail_count || 0) - (scoreB?.success_count || 0)) - ((scoreA?.fail_count || 0) - (scoreA?.success_count || 0));
-        });
-        break;
-      case 'gauntlet':
-        wordPool = shuffleArray(unlearnedWords);
-        break;
-      case 'romantic':
-        setLoadingPhrases(true);
-        try {
-          const difficulty = levelInfo.tier === 'Beginner' ? 'beginner' : levelInfo.tier === 'Elementary' || levelInfo.tier === 'Conversational' ? 'intermediate' : 'advanced';
-          const count = length === 'all' ? 20 : length as number;
-          phrasePool = await getRomanticPhrases(targetLanguage, nativeLanguage, count, difficulty);
-        } catch (error) {
-          console.error('Failed to load romantic phrases:', error);
-          setLoadingPhrases(false);
-          return;
-        }
-        setLoadingPhrases(false);
-        break;
-      case 'least_practiced':
-        wordPool = [...unlearnedWords].sort((a, b) => {
-          const scoreA = scoresMap.get(a.id);
-          const scoreB = scoresMap.get(b.id);
-          if (!scoreA?.last_practiced) return -1;
-          if (!scoreB?.last_practiced) return 1;
-          return new Date(scoreA.last_practiced).getTime() - new Date(scoreB.last_practiced).getTime();
-        });
-        break;
-      case 'review_mastered':
-        wordPool = shuffleArray(learnedWords);
-        break;
-    }
-
-    const maxCount = challengeMode === 'romantic' ? phrasePool.length : wordPool.length;
-    const count = length === 'all' ? maxCount : Math.min(length as number, maxCount);
-    const generated: ChallengeQuestion[] = [];
-
-    if (challengeMode === 'romantic') {
-      phrasePool.slice(0, count).forEach((phrase, idx) => {
-        generated.push({ id: `q-${idx}`, type: 'type_it', word: phrase.word, translation: phrase.translation, phraseId: phrase.id });
-      });
-    } else {
-      wordPool.slice(0, count).forEach((word, idx) => {
-        let qType: ChallengeQuestionType = challengeMode === 'gauntlet'
-          ? (['flashcard', 'multiple_choice', 'type_it'] as ChallengeQuestionType[])[Math.floor(Math.random() * 3)]
-          : Math.random() > 0.6 ? 'type_it' : 'multiple_choice';
-        const q: ChallengeQuestion = { id: `q-${idx}`, type: qType, word: word.word, translation: word.translation, wordId: word.id };
-        if (qType === 'multiple_choice' && deck.length >= 4) {
-          q.options = shuffleArray([word.translation, ...shuffleArray(deck.filter(w => w.id !== word.id).map(w => w.translation)).slice(0, 3)]);
-        } else if (qType === 'multiple_choice') {
-          q.type = 'type_it';
-        }
-        generated.push(q);
-      });
-    }
-    setChallengeQuestions(shuffleArray(generated));
-  };
-
-  const startChallenge = async () => {
-    if (!selectedChallengeMode || !sessionLength) return;
-    await generateChallengeQuestions(selectedChallengeMode, sessionLength);
-    setChallengeStarted(true);
-    setChallengeIndex(0);
-    setSessionScore({ correct: 0, incorrect: 0 });
-    setSessionAnswers([]); // Reset answers for new session
-    setFinished(false);
-  };
-
-  const resetChallenge = () => {
-    setSelectedChallengeMode(null);
-    setSessionLength(null);
-    setChallengeQuestions([]);
+  // Reset functions for extracted components
+  const resetChallenge = useCallback(() => {
     setChallengeStarted(false);
-    setChallengeIndex(0);
-    resetChallengeQuestionState();
-  };
-
-  const resetChallengeQuestionState = () => {
-    setChallengeFlipped(false);
-    setChallengeMcSelected(null);
-    setChallengeMcFeedback(false);
-    setChallengeTypeAnswer('');
-    setChallengeTypeSubmitted(false);
-    setChallengeTypeCorrect(false);
-    setChallengeTypeExplanation('');
-  };
-
-  const handleChallengeFlashcardResponse = async (isCorrect: boolean) => {
-    const q = challengeQuestions[challengeIndex];
-
-    // Play feedback
-    sounds.play('correct');
-    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
-
-    // Record answer
-    const answer: GameSessionAnswer = {
-      wordId: q.wordId,
-      wordText: q.word,
-      correctAnswer: q.translation,
-      questionType: 'flashcard',
-      isCorrect
-    };
-    const newAnswers = [...sessionAnswers, answer];
-    setSessionAnswers(newAnswers);
-
-    const newScore = {
-      correct: sessionScore.correct + (isCorrect ? 1 : 0),
-      incorrect: sessionScore.incorrect + (isCorrect ? 0 : 1)
-    };
-    setSessionScore(newScore);
-
-    if (q.wordId) await updateWordScore(q.wordId, isCorrect);
-    advanceChallengeQuestion(newAnswers, newScore);
-  };
-
-  const handleChallengeMcSelect = async (option: string) => {
-    if (challengeMcFeedback) return;
-    setChallengeMcSelected(option);
-    setChallengeMcFeedback(true);
-    const q = challengeQuestions[challengeIndex];
-    const correct = option === q.translation;
-
-    // Play feedback
-    sounds.play('correct');
-    haptics.trigger(correct ? 'correct' : 'incorrect');
-
-    // Visual feedback for incorrect
-    if (!correct) {
-      triggerIncorrectFeedback();
-    }
-
-    // Record answer
-    const answer: GameSessionAnswer = {
-      wordId: q.wordId,
-      wordText: q.word,
-      correctAnswer: q.translation,
-      userAnswer: option,
-      questionType: 'multiple_choice',
-      isCorrect: correct
-    };
-    const newAnswers = [...sessionAnswers, answer];
-    setSessionAnswers(newAnswers);
-
-    const newScore = {
-      correct: sessionScore.correct + (correct ? 1 : 0),
-      incorrect: sessionScore.incorrect + (correct ? 0 : 1)
-    };
-    setSessionScore(newScore);
-
-    if (q.wordId) await updateWordScore(q.wordId, correct);
-    setTimeout(() => advanceChallengeQuestion(newAnswers, newScore), correct ? 800 : 1500);
-  };
-
-  const handleChallengeTypeSubmit = async () => {
-    if (challengeTypeSubmitted) {
-      advanceChallengeQuestion(sessionAnswers, sessionScore);
-      return;
-    }
-    const q = challengeQuestions[challengeIndex];
-
-    // Use smart validation if enabled and not rate-limited, otherwise use local matching
-    let correct: boolean;
-    let explanation = '';
-    if (profile.smart_validation && !useBasicValidation) {
-      const result = await validateAnswerSmart(challengeTypeAnswer, q.translation, {
-        targetWord: q.word,
-        direction: 'target_to_native',
-        languageParams
-      });
-      correct = result.accepted;
-      explanation = result.explanation;
-      // Check if rate limit was hit
-      if (result.rateLimitHit) {
-        setShowLimitModal(true);
-      }
-    } else {
-      correct = isCorrectAnswer(challengeTypeAnswer, q.translation);
-      explanation = correct ? 'Exact match' : 'No match';
-    }
-
-    // Play feedback
-    sounds.play('correct');
-    haptics.trigger(correct ? 'correct' : 'incorrect');
-
-    // Visual feedback for incorrect
-    if (!correct) {
-      triggerIncorrectFeedback();
-    }
-
-    // Record answer
-    const answer: GameSessionAnswer = {
-      wordId: q.wordId,
-      wordText: q.word,
-      correctAnswer: q.translation,
-      userAnswer: challengeTypeAnswer,
-      questionType: 'type_it',
-      isCorrect: correct,
-      explanation
-    };
-    setSessionAnswers(prev => [...prev, answer]);
-
-    setChallengeTypeSubmitted(true);
-    setChallengeTypeCorrect(correct);
-    setChallengeTypeExplanation(explanation);
-    setSessionScore(prev => ({ correct: prev.correct + (correct ? 1 : 0), incorrect: prev.incorrect + (correct ? 0 : 1) }));
-    if (q.wordId) await updateWordScore(q.wordId, correct);
-  };
-
-  const advanceChallengeQuestion = (answers: GameSessionAnswer[], score: { correct: number; incorrect: number }) => {
-    if (challengeIndex < challengeQuestions.length - 1) {
-      resetChallengeQuestionState();
-      setChallengeIndex(c => c + 1);
-    } else {
-      // Play perfect sound if all correct
-      if (score.incorrect === 0) {
-        sounds.play('perfect');
-        haptics.trigger('perfect');
-      }
-      setFinished(true);
-      // Save game session
-      saveGameSession('ai_challenge', answers, score.correct, score.incorrect);
-      // Mark romantic phrases as used after completing challenge
-      if (selectedChallengeMode === 'romantic') {
-        const usedIds = challengeQuestions
-          .map(q => q.phraseId)
-          .filter((id): id is string => !!id);
-        if (usedIds.length > 0) {
-          markPhrasesUsed(targetLanguage, nativeLanguage, usedIds);
-        }
-      }
-    }
-  };
-
-  // Note: generateMcOptions, generateTypeItQuestions, resetTypeItState removed
-  // Extracted components manage their own state
+  }, []);
 
   const handleModeChange = (newMode: PracticeMode) => {
     setMode(newMode);
@@ -1086,8 +799,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   // Current items based on mode/game type
   const getCurrentStats = (): { index: number; length: number } => {
-    if (localGameType === 'ai_challenge' && challengeStarted && challengeQuestions.length > 0) {
-      return { index: challengeIndex, length: challengeQuestions.length };
+    // ai_challenge now uses extracted component with internal state
+    if (localGameType === 'ai_challenge' && challengeStarted) {
+      return { index: sessionAnswers.length, length: 20 }; // AIChallenge tracks via sessionAnswers
     }
     // verb_mastery now uses extracted component with internal state
     if (localGameType === 'verb_mastery') {
