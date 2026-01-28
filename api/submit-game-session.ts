@@ -123,29 +123,42 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    // Award XP: 1 XP per correct answer
+    // Award XP: 1 XP per 5 correct answers IN A ROW
     let xpAwarded = 0;
-    if (correctCount > 0) {
-      xpAwarded = correctCount;
+    if (answers && answers.length > 0) {
+      let currentStreak = 0;
 
-      // Get current XP and update
-      const { data: profile } = await supabase
-        .from('profiles')
-        .select('xp')
-        .eq('id', sessionUserId)
-        .single();
+      for (const answer of answers) {
+        if (answer.isCorrect) {
+          currentStreak++;
+          if (currentStreak === 5) {
+            xpAwarded++;
+            currentStreak = 0; // Reset after awarding
+          }
+        } else {
+          currentStreak = 0; // Reset on incorrect
+        }
+      }
 
-      const currentXp = profile?.xp || 0;
-      const newXp = currentXp + xpAwarded;
+      // Update user's XP if any was earned
+      if (xpAwarded > 0) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('xp')
+          .eq('id', sessionUserId)
+          .single();
 
-      const { error: xpError } = await supabase
-        .from('profiles')
-        .update({ xp: newXp })
-        .eq('id', sessionUserId);
+        const currentXp = profile?.xp || 0;
+        const newXp = currentXp + xpAwarded;
 
-      if (xpError) {
-        console.error('Error awarding XP:', xpError);
-        // Don't fail - session is saved, XP is bonus
+        const { error: xpError } = await supabase
+          .from('profiles')
+          .update({ xp: newXp })
+          .eq('id', sessionUserId);
+
+        if (xpError) {
+          console.error('Error awarding XP:', xpError);
+        }
       }
     }
 
