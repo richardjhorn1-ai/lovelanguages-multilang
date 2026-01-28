@@ -19,7 +19,7 @@ import ErrorBoundary from './ErrorBoundary';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
 import { StreakIndicator, StreakCelebrationModal } from './games/components';
-import { Flashcards, MultipleChoice } from './games/modes';
+import { Flashcards, MultipleChoice, TypeIt } from './games/modes';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
@@ -1200,87 +1200,27 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     saveGameSession(gameType, sessionAnswers, sessionScore.correct, sessionScore.incorrect);
   };
 
-  const handleTypeItSubmit = async () => {
-    if (typeItSubmitted) {
-      // Move to next question
-      if (currentIndex < typeItQuestions.length - 1) {
-        setCurrentIndex(c => c + 1);
-        resetTypeItState();
-      } else {
-        // Play perfect sound if all correct
-        if (sessionScore.incorrect === 0) {
-          sounds.play('perfect');
-          haptics.trigger('perfect');
-        }
-        setFinished(true);
-        // Save game session
-        saveGameSession('type_it', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
-      }
-      return;
-    }
-
-    const question = typeItQuestions[currentIndex];
-    const correctAnswer = question.direction === 'target_to_native'
-      ? question.word.translation
-      : question.word.word;
-
-    // Use smart validation if enabled, otherwise use local matching
-    let isCorrect: boolean;
-    let explanation = '';
-    if (profile.smart_validation) {
-      const result = await validateAnswerSmart(typeItAnswer, correctAnswer, {
-        targetWord: question.word.word,
-        wordType: question.word.word_type,
-        direction: question.direction,
+  // TypeIt validation wrapper using smart validation when enabled
+  const handleTypeItValidation = async (
+    userAnswer: string,
+    correctAnswer: string,
+    context: { word: DictionaryEntry; direction: 'target_to_native' | 'native_to_target' }
+  ): Promise<{ accepted: boolean; explanation: string }> => {
+    if (profile.smart_validation && !useBasicValidation) {
+      const result = await validateAnswerSmart(userAnswer, correctAnswer, {
+        targetWord: context.word.word,
+        wordType: context.word.word_type,
+        direction: context.direction,
         languageParams
       });
-      isCorrect = result.accepted;
-      explanation = result.explanation;
-    } else {
-      isCorrect = isCorrectAnswer(typeItAnswer, correctAnswer);
-      explanation = isCorrect ? 'Exact match' : 'No match';
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
+      return { accepted: result.accepted, explanation: result.explanation };
     }
-
-    // Play feedback
-    sounds.play('correct');
-    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
-
-    // Visual feedback for incorrect
-    if (!isCorrect) {
-      triggerIncorrectFeedback();
-    }
-
-    // Record answer
-    const answer: GameSessionAnswer = {
-      wordId: question.word.id,
-      wordText: question.word.word,
-      correctAnswer,
-      userAnswer: typeItAnswer,
-      questionType: 'type_it',
-      isCorrect,
-      explanation
-    };
-    setSessionAnswers(prev => [...prev, answer]);
-
-    setTypeItSubmitted(true);
-    setTypeItCorrect(isCorrect);
-    setTypeItExplanation(explanation);
-
-    setSessionScore(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (isCorrect ? 0 : 1)
-    }));
-
-    // Update score with proper streak tracking
-    await updateWordScore(question.word.id, isCorrect);
-  };
-
-  const getHint = () => {
-    const question = typeItQuestions[currentIndex];
-    const answer = question.direction === 'target_to_native'
-      ? question.word.translation
-      : question.word.word;
-    return answer.charAt(0) + '...';
+    // Fallback to simple validation
+    const accepted = isCorrectAnswer(userAnswer, correctAnswer);
+    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
   };
 
   const restartSession = () => {
@@ -1365,8 +1305,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     if (localGameType === 'quick_fire' && quickFireStarted && quickFireWords.length > 0) {
       return { index: quickFireIndex, length: quickFireWords.length };
     }
-    if (mode === 'type_it' && typeItQuestions.length > 0) {
-      return { index: currentIndex, length: typeItQuestions.length };
+    // type_it now uses deck directly via extracted component
+    if (mode === 'type_it') {
+      return { index: currentIndex, length: deck.length };
     }
     return { index: currentIndex, length: deck.length || 1 };
   };
@@ -1642,111 +1583,22 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           )}
 
           {/* Type It Mode */}
-          {localGameType === 'type_it' && typeItQuestions.length > 0 && (
-            <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
-              {(() => {
-                const question = typeItQuestions[currentIndex];
-                const isTargetToNative = question.direction === 'target_to_native';
-                const prompt = isTargetToNative ? question.word.word : question.word.translation;
-                const correctAnswer = isTargetToNative ? question.word.translation : question.word.word;
-
-                return (
-                  <>
-                    <span
-                      className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
-                      style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
-                    >
-                      {isTargetToNative
-                        ? t('play.directions.targetToNative', { target: targetName, native: nativeName })
-                        : t('play.directions.nativeToTarget', { native: nativeName, target: targetName })}
-                    </span>
-
-                    <div className="text-center mb-2">
-                      <h3 className="text-3xl font-black text-[var(--text-primary)]">
-                        {prompt}
-                      </h3>
-                      {currentWordStreak > 0 && (
-                        <div className="mt-2">
-                          <StreakIndicator streak={currentWordStreak} />
-                        </div>
-                      )}
-                    </div>
-
-                    {showHint && !typeItSubmitted && (
-                      <p className="text-center text-[var(--text-secondary)] text-scale-label mb-4">
-                        {t('play.typeIt.hint')} {getHint()}
-                      </p>
-                    )}
-
-                    {typeItSubmitted && (
-                      <div className={`text-center mb-4 p-3 rounded-xl ${
-                        typeItCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
-                      }`}>
-                        {typeItCorrect ? (
-                          <div>
-                            <div className="flex items-center justify-center gap-2">
-                              <ICONS.Check className="w-5 h-5" />
-                              <span className="font-bold">{t('play.typeIt.correct')}</span>
-                            </div>
-                            {typeItExplanation && typeItExplanation !== 'Exact match' && (
-                              <p className="text-scale-label mt-1 opacity-80">{typeItExplanation}</p>
-                            )}
-                          </div>
-                        ) : (
-                          <div>
-                            <div className="flex items-center justify-center gap-2 mb-1">
-                              <ICONS.X className="w-5 h-5" />
-                              <span className="font-bold">{t('play.typeIt.notQuite')}</span>
-                            </div>
-                            <p className="text-scale-label">
-                              {t('play.typeIt.correctAnswer')} <span className="font-black">{correctAnswer}</span>
-                            </p>
-                            {typeItExplanation && typeItExplanation !== 'No match' && (
-                              <p className="text-scale-label mt-1 opacity-80">{typeItExplanation}</p>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    <div className="mt-6">
-                      <input
-                        type="text"
-                        value={typeItAnswer}
-                        onChange={(e) => setTypeItAnswer(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && handleTypeItSubmit()}
-                        placeholder={isTargetToNative
-                          ? t('play.typeIt.typeIn', { language: nativeName })
-                          : t('play.typeIt.typeIn', { language: targetName })}
-                        disabled={typeItSubmitted}
-                        className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-scale-heading font-medium text-center bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
-                        autoFocus
-                      />
-                    </div>
-
-                    <div className="flex gap-3 mt-6">
-                      {!typeItSubmitted && (
-                        <button
-                          onClick={() => setShowHint(true)}
-                          className="px-4 py-3 rounded-xl font-bold text-[var(--text-secondary)] bg-[var(--bg-primary)] text-scale-label"
-                          disabled={showHint}
-                        >
-                          {showHint ? t('play.typeIt.hintShown') : t('play.typeIt.showHint')}
-                        </button>
-                      )}
-                      <button
-                        onClick={handleTypeItSubmit}
-                        disabled={!typeItAnswer.trim() && !typeItSubmitted}
-                        className="flex-1 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50 transition-all"
-                        style={{ backgroundColor: tierColor }}
-                      >
-                        {typeItSubmitted ? t('play.typeIt.next') : t('play.typeIt.check')}
-                      </button>
-                    </div>
-                  </>
-                );
-              })()}
-            </div>
+          {/* Type It Mode - Using extracted component */}
+          {localGameType === 'type_it' && deck.length > 0 && (
+            <TypeIt
+              words={deck}
+              scoresMap={scoresMap}
+              currentIndex={currentIndex}
+              accentColor={tierColor}
+              targetLanguageName={targetName}
+              nativeLanguageName={nativeName}
+              currentWordStreak={currentWordStreak}
+              showIncorrectShake={showIncorrectShake}
+              onAnswer={handleGameAnswer}
+              onNext={handleGameNext}
+              onComplete={createGameCompleteHandler('type_it')}
+              validateAnswer={handleTypeItValidation}
+            />
           )}
 
           {/* AI Challenge Mode */}
