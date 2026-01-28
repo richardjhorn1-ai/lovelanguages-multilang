@@ -79,8 +79,8 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
       </div>
 
       {/* Main content area with animation - scrollable on mobile */}
-      <div className="flex-1 overflow-y-auto">
-        <div className="min-h-full flex flex-col items-center justify-center px-6 pb-12 animate-fadeIn">
+      <div className="flex-1 overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <div className="flex flex-col items-center px-6 py-8 animate-fadeIn" style={{ paddingBottom: 'max(2rem, env(safe-area-inset-bottom, 0px))' }}>
           <div className="w-full max-w-md">
             {children}
           </div>
