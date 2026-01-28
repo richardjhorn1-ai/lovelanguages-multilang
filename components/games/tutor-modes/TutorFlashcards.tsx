@@ -4,14 +4,7 @@ import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
-
-interface AnswerResult {
-  wordId: string;
-  wordText: string;
-  correctAnswer: string;
-  questionType: 'flashcard';
-  isCorrect: boolean;
-}
+import type { TutorAnswerResult } from './types';
 
 interface TutorFlashcardsProps {
   /** Words to practice */
@@ -25,7 +18,7 @@ interface TutorFlashcardsProps {
   /** Native language name */
   nativeLanguageName: string;
   /** Called when user answers */
-  onAnswer: (result: AnswerResult, isCorrect: boolean) => void;
+  onAnswer: (result: TutorAnswerResult, isCorrect: boolean) => void;
   /** Called to exit game */
   onExit: () => void;
 }
