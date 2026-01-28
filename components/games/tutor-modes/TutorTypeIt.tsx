@@ -145,8 +145,8 @@ export const TutorTypeIt: React.FC<TutorTypeItProps> = ({
           {submitted && (
             <div className={`text-center mb-4 p-3 rounded-xl ${
               isCorrect
-                ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-                : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+                ? 'bg-green-500/10 border border-green-500/30 text-green-500'
+                : 'bg-red-500/10 border border-red-500/30 text-red-500'
             }`}>
               {isCorrect ? (
                 <div>

@@ -134,9 +134,9 @@ export const TutorMultipleChoice: React.FC<TutorMultipleChoiceProps> = ({
               let buttonStyle = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
               if (showFeedback) {
                 if (isCorrect) {
-                  buttonStyle = 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400';
+                  buttonStyle = 'border-green-400 bg-green-500/10 border-green-500/30 text-green-500';
                 } else if (isSelected && !isCorrect) {
-                  buttonStyle = 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400';
+                  buttonStyle = 'border-red-400 bg-red-500/10 border-red-500/30 text-red-500';
                 } else {
                   buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)]';
                 }

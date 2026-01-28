@@ -76,8 +76,8 @@ const GameResults: React.FC<GameResultsProps> = ({
                     key={idx}
                     className={`p-2 rounded-lg text-scale-caption ${
                       answer.isCorrect
-                        ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-                        : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+                        ? 'bg-green-500/10 text-green-500'
+                        : 'bg-red-500/10 text-red-500'
                     }`}
                   >
                     <div className="flex items-center gap-1 font-bold">
