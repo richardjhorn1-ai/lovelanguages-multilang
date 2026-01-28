@@ -1074,7 +1074,6 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             />
           )}
 
-          {/* Type It Mode */}
           {/* Type It Mode - Using extracted component */}
           {localGameType === 'type_it' && deck.length > 0 && (
             <TypeIt
@@ -1114,7 +1113,6 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             />
           )}
 
-          {/* Quick Fire Mode */}
           {/* Quick Fire Mode - Using extracted component */}
           {localGameType === 'quick_fire' && !finished && (
             <QuickFire
