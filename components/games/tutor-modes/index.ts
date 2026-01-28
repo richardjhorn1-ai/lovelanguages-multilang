@@ -5,3 +5,4 @@ export type { TutorGameModeProps, TutorAnswerResult } from './types';
 export { TutorFlashcards } from './TutorFlashcards';
 export { TutorMultipleChoice } from './TutorMultipleChoice';
 export { TutorTypeIt } from './TutorTypeIt';
+export { TutorQuickFire } from './TutorQuickFire';
