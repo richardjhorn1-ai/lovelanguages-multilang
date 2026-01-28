@@ -6,7 +6,7 @@
 ---
 title: "[Situation] in [Language]: [Benefit for Couples]"
 description: "Essential [Language] phrases for [situation]. Practical vocabulary and tips for couples navigating [context] together."
-category: practical
+category: situations
 difficulty: beginner|intermediate
 readTime: [8-12]
 date: '[YYYY-MM-DD]'

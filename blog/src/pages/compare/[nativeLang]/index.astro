@@ -3,8 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getComparisonContent } from '../../../data/comparison-features';
 
 export function getStaticPaths() {
-  // Supported native languages (only those with article content)
-  const supportedLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'uk', 'tr', 'ro'];
+  // Supported native languages (all 18)
+  const supportedLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'uk', 'tr', 'ro', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
   return supportedLangs.map(nativeLang => ({
     params: { nativeLang }
   }));
@@ -287,6 +287,132 @@ const UI_TEXT: Record<string, {
     babbelDescription: "Vergelijk gestructureerde solo-cursussen met AI-aangedreven conversatieleren voor koppels. 18 talen vs 14.",
     babbelVerdict: "Beste voor gestructureerde leerders",
     compare: "Vergelijk"
+  },
+  sv: {
+    pageTitle: "Jämför Språkappar - Love Languages vs Duolingo, Babbel & Mer",
+    pageDescription: "Jämför Love Languages med Duolingo, Babbel och andra språkappar. Hitta den bästa appen för par som lär sig 18 språk tillsammans.",
+    heroTitle: "Jämför Språkappar",
+    heroSubtitle: "Ärliga jämförelser för att hjälpa dig välja rätt app för att lära dig språk med din partner",
+    whyChooseTitle: "Varför Par Väljer Love Languages",
+    builtForCouples: { title: "Byggt för Par", description: "Den enda språkappen designad för att lära tillsammans med parutmaningar, ordgåvor och delad framgång." },
+    listenMode: { title: "Lyssningsläge", description: "Lär dig passivt medan du lagar mat, pendlar eller slappnar av. Ingen annan app låter dig absorbera språk så naturligt." },
+    languages18: { title: "18 Språk", description: "Spanska, franska, tyska, italienska, portugisiska, polska och mer. Från vilket modersmål som helst till vilket målspråk som helst." },
+    aiConversations: { title: "AI-Samtal", description: "Riktiga samtal med AI som anpassar sig till din nivå. Öva prata när du vill." },
+    gameModes: { title: "5 Spellägen", description: "Flashcard-strider, lyssningsutmaningar och mer. Spel designade för par att tävla och lära tillsammans." },
+    wordGifts: { title: "Ordgåvor", description: "Skicka romantiskt ordförråd till din partner. Ett sött sätt att dela framsteg och uppmuntra varandra." },
+    ctaTitle: "Upptäck Varför Par Älskar Oss",
+    ctaSubtitle: "AI-coachning, lyssningsläge, parutmaningar och spel designade för att lära 18 språk tillsammans.",
+    ctaButton: "Börja Lära Tillsammans",
+    duolingoDescription: "Jämför det spelifierade gratisalternativet med vår parfokuserade flerspråkiga app. Se hur lyssningsläge och parfunktioner står sig.",
+    duolingoVerdict: "Bästa gratisalternativet",
+    babbelDescription: "Jämför strukturerade solokurser med AI-drivet konversationslärande för par. 18 språk vs 14.",
+    babbelVerdict: "Bäst för strukturerade elever",
+    compare: "Jämför"
+  },
+  no: {
+    pageTitle: "Sammenlign Språkapper - Love Languages vs Duolingo, Babbel & Mer",
+    pageDescription: "Sammenlign Love Languages med Duolingo, Babbel og andre språkapper. Finn den beste appen for par som lærer 18 språk sammen.",
+    heroTitle: "Sammenlign Språkapper",
+    heroSubtitle: "Ærlige sammenligninger for å hjelpe deg velge riktig app for å lære språk med partneren din",
+    whyChooseTitle: "Hvorfor Par Velger Love Languages",
+    builtForCouples: { title: "Bygget for Par", description: "Den eneste språkappen designet for å lære sammen med parutfordringer, ordgaver og delt fremgang." },
+    listenMode: { title: "Lyttemodus", description: "Lær passivt mens du lager mat, pendler eller slapper av. Ingen annen app lar deg absorbere språk så naturlig." },
+    languages18: { title: "18 Språk", description: "Spansk, fransk, tysk, italiensk, portugisisk, polsk og mer. Fra hvilket som helst morsmål til hvilket som helst målspråk." },
+    aiConversations: { title: "AI-Samtaler", description: "Ekte samtaler med AI som tilpasser seg nivået ditt. Øv på å snakke når du vil." },
+    gameModes: { title: "5 Spillmoduser", description: "Flashcard-kamper, lytteutfordringer og mer. Spill designet for par å konkurrere og lære sammen." },
+    wordGifts: { title: "Ordgaver", description: "Send romantisk ordforråd til partneren din. En søt måte å dele fremgang og oppmuntre hverandre." },
+    ctaTitle: "Oppdag Hvorfor Par Elsker Oss",
+    ctaSubtitle: "AI-coaching, lyttemodus, parutfordringer og spill designet for å lære 18 språk sammen.",
+    ctaButton: "Begynn å Lære Sammen",
+    duolingoDescription: "Sammenlign det spillifiserte gratisalternativet med vår parfokuserte flerspråklige app. Se hvordan lyttemodus og parfunksjoner står seg.",
+    duolingoVerdict: "Beste gratisalternativ",
+    babbelDescription: "Sammenlign strukturerte solokurs med AI-drevet samtalelæring for par. 18 språk vs 14.",
+    babbelVerdict: "Best for strukturerte elever",
+    compare: "Sammenlign"
+  },
+  da: {
+    pageTitle: "Sammenlign Sprogapps - Love Languages vs Duolingo, Babbel & Mere",
+    pageDescription: "Sammenlign Love Languages med Duolingo, Babbel og andre sprogapps. Find den bedste app til par, der lærer 18 sprog sammen.",
+    heroTitle: "Sammenlign Sprogapps",
+    heroSubtitle: "Ærlige sammenligninger for at hjælpe dig med at vælge den rigtige app til at lære sprog med din partner",
+    whyChooseTitle: "Hvorfor Par Vælger Love Languages",
+    builtForCouples: { title: "Bygget til Par", description: "Den eneste sprogapp designet til at lære sammen med parudfordringer, ordgaver og delt fremskridt." },
+    listenMode: { title: "Lyttetilstand", description: "Lær passivt mens du laver mad, pendler eller slapper af. Ingen anden app lader dig absorbere sprog så naturligt." },
+    languages18: { title: "18 Sprog", description: "Spansk, fransk, tysk, italiensk, portugisisk, polsk og mere. Fra ethvert modersmål til ethvert målsprog." },
+    aiConversations: { title: "AI-Samtaler", description: "Rigtige samtaler med AI, der tilpasser sig dit niveau. Øv dig i at tale, når du vil." },
+    gameModes: { title: "5 Spiltilstande", description: "Flashcard-kampe, lytteudfordringer og mere. Spil designet til par at konkurrere og lære sammen." },
+    wordGifts: { title: "Ordgaver", description: "Send romantisk ordforråd til din partner. En sød måde at dele fremskridt og opmuntre hinanden." },
+    ctaTitle: "Opdag Hvorfor Par Elsker Os",
+    ctaSubtitle: "AI-coaching, lyttetilstand, parudfordringer og spil designet til at lære 18 sprog sammen.",
+    ctaButton: "Begynd at Lære Sammen",
+    duolingoDescription: "Sammenlign det gamificerede gratis alternativ med vores parfokuserede flersprogede app. Se hvordan lyttetilstand og parfunktioner klarer sig.",
+    duolingoVerdict: "Bedste gratis alternativ",
+    babbelDescription: "Sammenlign strukturerede solokurser med AI-drevet samtalelæring for par. 18 sprog vs 14.",
+    babbelVerdict: "Bedst til strukturerede elever",
+    compare: "Sammenlign"
+  },
+  cs: {
+    pageTitle: "Porovnání Jazykových Aplikací - Love Languages vs Duolingo, Babbel a Další",
+    pageDescription: "Porovnejte Love Languages s Duolingo, Babbel a dalšími aplikacemi. Najděte nejlepší aplikaci pro páry učící se 18 jazyků společně.",
+    heroTitle: "Porovnání Jazykových Aplikací",
+    heroSubtitle: "Upřímná srovnání, která vám pomohou vybrat správnou aplikaci pro učení jazyků s partnerem",
+    whyChooseTitle: "Proč Páry Volí Love Languages",
+    builtForCouples: { title: "Vytvořeno pro Páry", description: "Jediná jazyková aplikace navržená pro společné učení s výzvami pro páry, slovními dárky a sdíleným pokrokem." },
+    listenMode: { title: "Režim Poslechu", description: "Učte se pasivně při vaření, dojíždění nebo relaxaci. Žádná jiná aplikace vám nedovolí vstřebávat jazyky tak přirozeně." },
+    languages18: { title: "18 Jazyků", description: "Španělština, francouzština, němčina, italština, portugalština, polština a další. Z jakéhokoli mateřského jazyka do jakéhokoli cílového." },
+    aiConversations: { title: "AI Konverzace", description: "Skutečné rozhovory s AI, která se přizpůsobuje vaší úrovni. Cvičte mluvení, kdy chcete." },
+    gameModes: { title: "5 Herních Režimů", description: "Flashcard bitvy, poslechové výzvy a další. Hry navržené pro páry, aby soutěžily a učily se společně." },
+    wordGifts: { title: "Slovní Dárky", description: "Posílejte romantickou slovní zásobu partnerovi. Sladký způsob, jak sdílet pokrok a povzbuzovat se navzájem." },
+    ctaTitle: "Zjistěte, Proč Nás Páry Milují",
+    ctaSubtitle: "AI koučink, režim poslechu, výzvy pro páry a hry navržené pro učení 18 jazyků společně.",
+    ctaButton: "Začněte se Učit Společně",
+    duolingoDescription: "Porovnejte gamifikovanou bezplatnou možnost s naší aplikací pro páry. Podívejte se, jak si stojí režim poslechu a funkce pro páry.",
+    duolingoVerdict: "Nejlepší bezplatná alternativa",
+    babbelDescription: "Porovnejte strukturované sólové kurzy s AI konverzačním učením pro páry. 18 jazyků vs 14.",
+    babbelVerdict: "Nejlepší pro strukturované studenty",
+    compare: "Porovnat"
+  },
+  el: {
+    pageTitle: "Σύγκριση Εφαρμογών Γλωσσών - Love Languages vs Duolingo, Babbel & Άλλα",
+    pageDescription: "Συγκρίνετε το Love Languages με Duolingo, Babbel και άλλες εφαρμογές. Βρείτε την καλύτερη εφαρμογή για ζευγάρια που μαθαίνουν 18 γλώσσες μαζί.",
+    heroTitle: "Σύγκριση Εφαρμογών Γλωσσών",
+    heroSubtitle: "Ειλικρινείς συγκρίσεις για να σας βοηθήσουν να επιλέξετε τη σωστή εφαρμογή για εκμάθηση γλωσσών με τον σύντροφό σας",
+    whyChooseTitle: "Γιατί τα Ζευγάρια Επιλέγουν Love Languages",
+    builtForCouples: { title: "Φτιαγμένο για Ζευγάρια", description: "Η μόνη εφαρμογή γλωσσών σχεδιασμένη για κοινή μάθηση με προκλήσεις ζευγαριών, δώρα λέξεων και κοινή πρόοδο." },
+    listenMode: { title: "Λειτουργία Ακρόασης", description: "Μάθετε παθητικά ενώ μαγειρεύετε, μετακινείστε ή χαλαρώνετε. Καμία άλλη εφαρμογή δεν σας επιτρέπει να απορροφάτε γλώσσες τόσο φυσικά." },
+    languages18: { title: "18 Γλώσσες", description: "Ισπανικά, γαλλικά, γερμανικά, ιταλικά, πορτογαλικά, πολωνικά και άλλα. Από οποιαδήποτε μητρική γλώσσα σε οποιαδήποτε γλώσσα-στόχο." },
+    aiConversations: { title: "Συνομιλίες AI", description: "Πραγματικές συνομιλίες με AI που προσαρμόζεται στο επίπεδό σας. Εξασκηθείτε στην ομιλία όποτε θέλετε." },
+    gameModes: { title: "5 Λειτουργίες Παιχνιδιού", description: "Μάχες flashcard, προκλήσεις ακρόασης και άλλα. Παιχνίδια σχεδιασμένα για ζευγάρια να ανταγωνίζονται και να μαθαίνουν μαζί." },
+    wordGifts: { title: "Δώρα Λέξεων", description: "Στείλτε ρομαντικό λεξιλόγιο στον σύντροφό σας. Ένας γλυκός τρόπος να μοιραστείτε την πρόοδο και να ενθαρρύνετε ο ένας τον άλλον." },
+    ctaTitle: "Ανακαλύψτε Γιατί τα Ζευγάρια μας Αγαπούν",
+    ctaSubtitle: "AI coaching, λειτουργία ακρόασης, προκλήσεις ζευγαριών και παιχνίδια για μάθηση 18 γλωσσών μαζί.",
+    ctaButton: "Ξεκινήστε να Μαθαίνετε Μαζί",
+    duolingoDescription: "Συγκρίνετε τη δωρεάν επιλογή με gamification με την εφαρμογή μας για ζευγάρια. Δείτε πώς συγκρίνονται η λειτουργία ακρόασης και οι λειτουργίες ζευγαριών.",
+    duolingoVerdict: "Καλύτερη δωρεάν εναλλακτική",
+    babbelDescription: "Συγκρίνετε δομημένα μαθήματα solo με AI συνομιλητική μάθηση για ζευγάρια. 18 γλώσσες vs 14.",
+    babbelVerdict: "Καλύτερο για δομημένους μαθητές",
+    compare: "Σύγκριση"
+  },
+  hu: {
+    pageTitle: "Nyelvtanuló Alkalmazások Összehasonlítása - Love Languages vs Duolingo, Babbel & Más",
+    pageDescription: "Hasonlítsa össze a Love Languages-t a Duolingo, Babbel és más alkalmazásokkal. Találja meg a legjobb alkalmazást pároknak, akik 18 nyelvet tanulnak együtt.",
+    heroTitle: "Nyelvtanuló Alkalmazások Összehasonlítása",
+    heroSubtitle: "Őszinte összehasonlítások, hogy segítsenek a megfelelő alkalmazást választani a nyelvtanuláshoz partnerével",
+    whyChooseTitle: "Miért Választják a Párok a Love Languages-t",
+    builtForCouples: { title: "Pároknak Készült", description: "Az egyetlen nyelvi alkalmazás, amely közös tanulásra készült pár kihívásokkal, szóajándékokkal és megosztott haladással." },
+    listenMode: { title: "Hallgatási Mód", description: "Tanuljon passzívan főzés, ingázás vagy pihenés közben. Egyetlen más alkalmazás sem engedi, hogy ilyen természetesen szívja magába a nyelveket." },
+    languages18: { title: "18 Nyelv", description: "Spanyol, francia, német, olasz, portugál, lengyel és több. Bármely anyanyelvről bármely célnyelvre." },
+    aiConversations: { title: "AI Beszélgetések", description: "Valódi beszélgetések AI-val, amely alkalmazkodik a szintjéhez. Gyakorolja a beszédet, amikor csak akarja." },
+    gameModes: { title: "5 Játékmód", description: "Flashcard csaták, hallgatási kihívások és több. Játékok, amelyeket pároknak terveztek a versenyhez és közös tanuláshoz." },
+    wordGifts: { title: "Szóajándékok", description: "Küldjön romantikus szókincset partnerének. Édes módja a haladás megosztásának és egymás bátorításának." },
+    ctaTitle: "Fedezze Fel, Miért Szeretnek Minket a Párok",
+    ctaSubtitle: "AI coaching, hallgatási mód, pár kihívások és játékok 18 nyelv közös tanulásához.",
+    ctaButton: "Kezdjen Együtt Tanulni",
+    duolingoDescription: "Hasonlítsa össze a gamifikált ingyenes opciót a pár-fókuszú többnyelvű alkalmazásunkkal. Nézze meg, hogyan viszonyul a hallgatási mód és a pár funkciók.",
+    duolingoVerdict: "Legjobb ingyenes alternatíva",
+    babbelDescription: "Hasonlítsa össze a strukturált szóló kurzusokat az AI-vezérelt társalgási tanulással pároknak. 18 nyelv vs 14.",
+    babbelVerdict: "Legjobb strukturált tanulóknak",
+    compare: "Összehasonlítás"
   }
 };
 

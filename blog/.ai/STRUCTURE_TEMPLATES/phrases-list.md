@@ -37,12 +37,14 @@ import CTA from '@components/CTA.astro';
 ### 2. PhraseOfDay Component
 ```mdx
 <PhraseOfDay
-  [language]="[phrase]"
-  english="[translation]"
-  pronunciation="[phonetic]"
+  word="[phrase in target language]"
+  translation="[English translation]"
+  pronunciation="[phonetic guide]"
   context="[when to use with partner]"
 />
 ```
+
+**IMPORTANT:** Always use `word=` and `translation=` props, NOT language-specific names like `swedish=` or `polish=`.
 
 ### 3. Section 1: Essential/Basics (items 1-10)
 - Intro paragraph explaining this category
@@ -75,6 +77,29 @@ import CTA from '@components/CTA.astro';
 <CTA />
 ```
 
+## Component Props Reference
+
+### VocabCard (use for highlighted vocabulary)
+```mdx
+<VocabCard
+  word="[word in target language]"
+  translation="[English translation]"
+  pronunciation="[phonetic guide]"
+  example="[example sentence]"
+/>
+```
+
+### CultureTip
+```mdx
+<CultureTip flag="[flag emoji for target language]" title="[Short Title]">
+[Cultural insight or tip - 1-3 sentences]
+</CultureTip>
+```
+
+**Flag emojis:** en=🇬🇧 es=🇪🇸 fr=🇫🇷 de=🇩🇪 it=🇮🇹 pt=🇵🇹 pl=🇵🇱 nl=🇳🇱 ru=🇷🇺 uk=🇺🇦 tr=🇹🇷 ro=🇷🇴 cs=🇨🇿 el=🇬🇷 hu=🇭🇺 sv=🇸🇪 no=🇳🇴 da=🇩🇰
+
+**CRITICAL:** Always use `word=` and `translation=` props for VocabCard and PhraseOfDay. Do NOT use language-specific props like `swedish=`, `polish=`, `spanish=`, etc.
+
 ## Quality Checklist
 - [ ] Every phrase has pronunciation guide
 - [ ] At least 3 internal links to other articles
@@ -84,3 +109,4 @@ import CTA from '@components/CTA.astro';
 - [ ] Tables are properly formatted
 - [ ] Emotional hook in opening
 - [ ] CTA at end
+- [ ] **All VocabCard/PhraseOfDay use `word=` and `translation=` props**

@@ -36,8 +36,8 @@ import CTA from '@components/CTA.astro';
 ### 2. PhraseOfDay Component
 ```mdx
 <PhraseOfDay
-  [language]="[most romantic version]"
-  english="[translation]"
+  word="[most romantic version]"
+  translation="[translation]"
   pronunciation="[phonetic]"
   context="[when to use with partner]"
 />

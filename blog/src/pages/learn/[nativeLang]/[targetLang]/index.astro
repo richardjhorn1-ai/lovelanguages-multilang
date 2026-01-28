@@ -33,8 +33,8 @@ const SUPPORTED_LANGUAGES = Object.keys(LANGUAGE_INFO);
 export async function getStaticPaths() {
   const paths: { params: { nativeLang: string; targetLang: string } }[] = [];
 
-  // Native languages that have translated content
-  const nativeLanguages = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr', 'nl', 'ro', 'uk']; // All 12 native languages with content
+  // Native languages that have translated content (all 18 supported)
+  const nativeLanguages = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr', 'nl', 'ro', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
   const targetLanguages = ['en', 'es', 'fr', 'it', 'pt', 'ro', 'de', 'nl', 'sv', 'no', 'da', 'pl', 'cs', 'ru', 'uk', 'el', 'hu', 'tr'];
 
   for (const nativeLang of nativeLanguages) {
@@ -83,7 +83,7 @@ const categories = [
 // Hreflang: Find equivalent hub pages for different native languages learning the same target
 // E.g., /learn/en/pl/ links to /learn/es/pl/, /learn/fr/pl/, etc.
 // Must include ALL native languages that have content
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk'];
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode && lang !== targetLanguageCode)
   .map(lang => ({
