@@ -19,7 +19,7 @@ import ErrorBoundary from './ErrorBoundary';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
 import { StreakIndicator, StreakCelebrationModal } from './games/components';
-import { Flashcards, MultipleChoice, TypeIt, QuickFire } from './games/modes';
+import { Flashcards, MultipleChoice, TypeIt, QuickFire, VerbMastery } from './games/modes';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
@@ -1268,6 +1268,42 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
   };
 
+  // VerbMastery handlers
+  const handleVerbMasteryComplete = (results: {
+    answers: (GameSessionAnswer & { explanation?: string })[];
+    score: { correct: number; incorrect: number };
+  }) => {
+    if (results.score.incorrect === 0 && results.score.correct > 0) {
+      sounds.play('perfect');
+      haptics.trigger('perfect');
+    }
+    setSessionScore(results.score);
+    setSessionAnswers(results.answers);
+    setFinished(true);
+    saveGameSession('verb_mastery', results.answers, results.score.correct, results.score.incorrect);
+  };
+
+  const handleVerbMasteryValidation = async (
+    userAnswer: string,
+    correctAnswer: string,
+    context: { verb: DictionaryEntry; tense: 'present' | 'past' | 'future'; person: string }
+  ): Promise<{ accepted: boolean; explanation: string }> => {
+    if (profile.smart_validation && !useBasicValidation) {
+      const result = await validateAnswerSmart(userAnswer, correctAnswer, {
+        targetWord: context.verb.word,
+        wordType: 'verb',
+        direction: 'native_to_target',
+        languageParams
+      });
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
+      return { accepted: result.accepted, explanation: result.explanation };
+    }
+    const accepted = isCorrectAnswer(userAnswer, correctAnswer);
+    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
+  };
+
   const restartSession = () => {
     setDeck(shuffleArray([...deck]));
     setCurrentIndex(0);
@@ -1741,176 +1777,18 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             />
           )}
 
-          {/* Verb Mastery - Tense Selection */}
-          {localGameType === 'verb_mastery' && !verbMasteryStarted && (
-            <div className="w-full max-w-md mx-auto">
-              <div className="text-center mb-8">
-                <div className="w-20 h-20 mx-auto bg-orange-500/20 rounded-2xl flex items-center justify-center text-4xl mb-4">
-                  🔄
-                </div>
-                <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">{t('play.verbMastery.title')}</h2>
-                <p className="text-[var(--text-secondary)]">
-                  {t('play.verbMastery.practiceCount', { count: verbsWithConjugations.length })}
-                </p>
-              </div>
-
-              <div className="space-y-3 mb-8">
-                <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
-                  {t('play.verbMastery.selectTense')}
-                </p>
-                {(['present', 'past', 'future'] as VerbTense[]).map(tense => {
-                  const verbsWithTense = verbsWithConjugations.filter(v => v.conjugations?.[tense]);
-                  const isDisabled = verbsWithTense.length === 0;
-                  return (
-                    <button
-                      key={tense}
-                      onClick={() => !isDisabled && startVerbMastery(tense)}
-                      disabled={isDisabled}
-                      className={`w-full p-4 rounded-2xl border-2 text-left transition-all ${
-                        isDisabled
-                          ? 'border-[var(--border-color)] bg-[var(--bg-primary)] opacity-50 cursor-not-allowed'
-                          : 'border-orange-300 dark:border-orange-700 bg-orange-50 dark:bg-orange-900/20 hover:border-orange-500'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="font-black text-[var(--text-primary)] capitalize">{t(`play.verbMastery.${tense}Tense`)}</h3>
-                          <p className="text-scale-label text-[var(--text-secondary)]">
-                            {isDisabled
-                              ? t('play.verbMastery.noVerbsWithTense')
-                              : t('play.verbMastery.verbsAvailable', { count: verbsWithTense.length })}
-                          </p>
-                        </div>
-                        {!isDisabled && (
-                          <div className="w-10 h-10 bg-orange-500/20 rounded-xl flex items-center justify-center">
-                            <ICONS.Play className="w-5 h-5 text-orange-500" />
-                          </div>
-                        )}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-
-              <button
-                onClick={exitLocalGame}
-                className="w-full p-3 text-[var(--text-secondary)] font-bold text-scale-label hover:text-[var(--text-primary)] transition-colors"
-              >
-                {t('play.verbMastery.backToGames')}
-              </button>
-            </div>
-          )}
-
-          {/* Verb Mastery - Active Game */}
-          {localGameType === 'verb_mastery' && verbMasteryStarted && !finished && verbMasteryQuestions.length > 0 && (
-            <div className={`w-full max-w-md mx-auto ${showIncorrectShake ? 'animate-shake' : ''}`}>
-              {/* Progress Header */}
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-scale-label font-bold text-[var(--text-secondary)]">
-                  {verbMasteryIndex + 1} / {verbMasteryQuestions.length}
-                </span>
-                <span className="px-3 py-1 bg-orange-500/20 text-orange-600 dark:text-orange-400 rounded-full text-scale-caption font-black uppercase">
-                  {verbMasteryTense} tense
-                </span>
-              </div>
-
-              {/* Question Card */}
-              <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-2xl border border-orange-200 dark:border-orange-800 mb-6">
-                <p className="text-scale-caption font-bold text-orange-500 uppercase tracking-wider mb-2">
-                  {t('play.verbMastery.conjugateVerb')}
-                </p>
-                <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2">
-                  {verbMasteryQuestions[verbMasteryIndex]?.infinitive}
-                </h3>
-                <p className="text-scale-label text-[var(--text-secondary)] italic mb-4">
-                  "{verbMasteryQuestions[verbMasteryIndex]?.translation}"
-                </p>
-
-                <div className="bg-[var(--bg-card)] p-4 rounded-xl">
-                  <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-1">
-                    {t('play.verbMastery.forPronoun')}
-                  </p>
-                  <p className="text-2xl font-black text-orange-500">
-                    {VERB_PERSONS.find(p => p.key === verbMasteryQuestions[verbMasteryIndex]?.person)?.label}
-                  </p>
-                  <p className="text-scale-caption text-[var(--text-secondary)]">
-                    ({VERB_PERSONS.find(p => p.key === verbMasteryQuestions[verbMasteryIndex]?.person)?.nativeLabel})
-                  </p>
-                </div>
-              </div>
-
-              {/* Input */}
-              <div className="space-y-4">
-                <input
-                  type="text"
-                  value={verbMasteryInput}
-                  onChange={e => setVerbMasteryInput(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter') {
-                      if (verbMasterySubmitted) {
-                        handleVerbMasteryNext();
-                      } else {
-                        handleVerbMasterySubmit();
-                      }
-                    }
-                  }}
-                  placeholder={t('play.verbMastery.typeConjugation')}
-                  autoFocus
-                  disabled={verbMasterySubmitted}
-                  className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-orange-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] disabled:opacity-50"
-                />
-
-                {/* Feedback */}
-                {verbMasterySubmitted && (
-                  <div className={`p-4 rounded-xl ${verbMasteryCorrect ? 'bg-green-100 dark:bg-green-900/30' : 'bg-red-100 dark:bg-red-900/30'}`}>
-                    {verbMasteryCorrect ? (
-                      <div className="text-center">
-                        <p className="text-green-600 dark:text-green-400 font-bold">
-                          ✓ {t('play.typeIt.correct')}
-                        </p>
-                        {verbMasteryExplanation && (
-                          <p className="text-scale-label text-green-600/80 dark:text-green-400/80 mt-1">
-                            {verbMasteryExplanation}
-                          </p>
-                        )}
-                      </div>
-                    ) : (
-                      <div className="text-center">
-                        <p className="text-red-600 dark:text-red-400 font-bold mb-1">✗ {t('play.typeIt.notQuite')}</p>
-                        <p className="text-[var(--text-primary)]">
-                          {t('play.typeIt.correctAnswer')} <span className="font-black">{verbMasteryQuestions[verbMasteryIndex]?.correctAnswer}</span>
-                        </p>
-                        {verbMasteryExplanation && (
-                          <p className="text-scale-label text-red-600/80 dark:text-red-400/80 mt-1">
-                            {verbMasteryExplanation}
-                          </p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Action Button */}
-                <button
-                  onClick={verbMasterySubmitted ? handleVerbMasteryNext : handleVerbMasterySubmit}
-                  disabled={!verbMasteryInput.trim() && !verbMasterySubmitted}
-                  className="w-full p-4 rounded-xl font-black text-white transition-all disabled:opacity-50"
-                  style={{ backgroundColor: verbMasterySubmitted ? (verbMasteryIndex < verbMasteryQuestions.length - 1 ? '#f97316' : '#22c55e') : '#f97316' }}
-                >
-                  {verbMasterySubmitted
-                    ? (verbMasteryIndex < verbMasteryQuestions.length - 1 ? t('play.verbMastery.nextQuestion') : t('play.verbMastery.seeResults'))
-                    : t('play.verbMastery.checkAnswer')}
-                </button>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="mt-6 h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-orange-500 transition-all duration-300"
-                  style={{ width: `${((verbMasteryIndex + 1) / verbMasteryQuestions.length) * 100}%` }}
-                />
-              </div>
-            </div>
+          {/* Verb Mastery Mode - Using extracted component */}
+          {localGameType === 'verb_mastery' && !finished && (
+            <VerbMastery
+              verbs={verbsWithConjugations}
+              verbPersons={VERB_PERSONS}
+              accentColor="#f97316"
+              maxQuestions={20}
+              onAnswer={handleGameAnswer}
+              onComplete={handleVerbMasteryComplete}
+              onExit={exitLocalGame}
+              validateAnswer={handleVerbMasteryValidation}
+            />
           )}
 
           {/* Love Notes Tab - Partner Challenges & Word Gifts */}
