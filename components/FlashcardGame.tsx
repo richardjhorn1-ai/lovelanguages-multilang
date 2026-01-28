@@ -19,7 +19,7 @@ import ErrorBoundary from './ErrorBoundary';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
 import { StreakIndicator, StreakCelebrationModal } from './games/components';
-import { Flashcards, MultipleChoice, TypeIt, QuickFire, VerbMastery } from './games/modes';
+import { Flashcards, MultipleChoice, TypeIt, QuickFire, VerbMastery, AIChallenge } from './games/modes';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
@@ -980,6 +980,42 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
   }, [profile.smart_validation, useBasicValidation, languageParams]);
 
+  // AIChallenge handlers (memoized)
+  const handleAIChallengeComplete = useCallback((results: {
+    answers: (GameSessionAnswer & { explanation?: string })[];
+    score: { correct: number; incorrect: number };
+  }) => {
+    if (results.score.incorrect === 0 && results.score.correct > 0) {
+      sounds.play('perfect');
+      haptics.trigger('perfect');
+    }
+    setSessionScore(results.score);
+    setSessionAnswers(results.answers);
+    setFinished(true);
+    saveGameSession('ai_challenge', results.answers, results.score.correct, results.score.incorrect);
+  }, [saveGameSession]);
+
+  const handleAIChallengeValidation = useCallback(async (
+    userAnswer: string,
+    correctAnswer: string,
+    context: { word: string; translation: string }
+  ): Promise<{ accepted: boolean; explanation: string }> => {
+    if (profile.smart_validation && !useBasicValidation) {
+      const result = await validateAnswerSmart(userAnswer, correctAnswer, {
+        targetWord: context.word,
+        wordType: 'phrase',
+        direction: 'target_to_native',
+        languageParams
+      });
+      if (result.rateLimitHit) {
+        setShowLimitModal(true);
+      }
+      return { accepted: result.accepted, explanation: result.explanation };
+    }
+    const accepted = isCorrectAnswer(userAnswer, correctAnswer);
+    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
+  }, [profile.smart_validation, useBasicValidation, languageParams]);
+
   const restartSession = () => {
     setDeck(shuffleArray([...deck]));
     setCurrentIndex(0);
@@ -1358,82 +1394,25 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             />
           )}
 
-          {/* AI Challenge Mode */}
-          {localGameType === 'ai_challenge' && !challengeStarted && (
-            <div className="w-full">
-              <h2 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">{t('play.aiChallenge.chooseMode')}</h2>
-
-              {/* Side-by-side layout: Modes on left, Session Length on right */}
-              <div className="flex gap-4">
-                {/* Mode Selection */}
-                <div className="flex-1 space-y-2">
-                  {challengeModes.map(cm => {
-                    const count = modeCounts[cm.id];
-                    const isDisabled = count === 0;
-                    const isSelected = selectedChallengeMode === cm.id;
-                    const IconComp = ICONS[cm.icon];
-                    return (
-                      <button
-                        key={cm.id}
-                        onClick={() => !isDisabled && setSelectedChallengeMode(cm.id)}
-                        disabled={isDisabled}
-                        className={`w-full p-3 rounded-2xl text-left transition-all border-2 flex items-center gap-3 ${
-                          isSelected ? 'border-[var(--accent-color)] bg-[var(--accent-light)] dark:bg-[var(--accent-light)]' : isDisabled ? 'border-[var(--border-color)] bg-[var(--bg-primary)] opacity-50 cursor-not-allowed' : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-secondary)]'
-                        }`}
-                      >
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isSelected ? 'bg-[var(--accent-light)] dark:bg-[var(--accent-light)]' : 'bg-[var(--bg-primary)]'}`}>
-                          <IconComp className={`w-5 h-5 ${isSelected ? 'text-[var(--accent-color)]' : 'text-[var(--text-secondary)]'}`} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className={`font-bold text-scale-label truncate ${isSelected ? 'text-[var(--accent-color)] dark:text-[var(--accent-color)]' : 'text-[var(--text-primary)]'}`}>{cm.name}</span>
-                            <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${isSelected ? 'bg-[var(--accent-light)] dark:bg-[var(--accent-light)] text-[var(--accent-text)] dark:text-[var(--accent-color)] opacity-60' : 'bg-[var(--bg-primary)] text-[var(--text-secondary)]'}`}>{count}</span>
-                          </div>
-                          <p className="text-scale-caption text-[var(--text-secondary)] truncate">{cm.description}</p>
-                        </div>
-                        {isSelected && <ICONS.Check className="w-4 h-4 text-[var(--accent-color)] shrink-0" />}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Session Length - appears to the right when mode selected */}
-                {selectedChallengeMode && (
-                  <div className="w-32 shrink-0 flex flex-col">
-                    <h3 className="text-[9px] font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-2">{t('play.aiChallenge.length')}</h3>
-                    <div className="flex-1 flex flex-col gap-2">
-                      {([10, 20, 'all'] as SessionLength[]).map(len => {
-                        const maxAvailable = modeCounts[selectedChallengeMode];
-                        const actualCount = len === 'all' ? maxAvailable : Math.min(len as number, maxAvailable);
-                        return (
-                          <button
-                            key={len}
-                            onClick={() => setSessionLength(len)}
-                            className={`flex-1 p-2 rounded-xl text-center transition-all border-2 ${sessionLength === len ? 'border-[var(--accent-color)] bg-[var(--accent-light)] dark:bg-[var(--accent-light)]' : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-secondary)]'}`}
-                          >
-                            <div className={`text-scale-heading font-black ${sessionLength === len ? 'text-[var(--accent-color)] dark:text-[var(--accent-color)]' : 'text-[var(--text-primary)]'}`}>{actualCount}</div>
-                            <div className="text-[8px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">{len === 'all' ? t('play.aiChallenge.all') : t('play.aiChallenge.qs')}</div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {selectedChallengeMode && sessionLength && (
-                loadingPhrases ? (
-                  <div className="text-center py-4 mt-4">
-                    <div className="animate-spin w-6 h-6 border-2 border-pink-500 border-t-transparent rounded-full mx-auto mb-2" />
-                    <p className="text-scale-label text-[var(--text-secondary)]">{t('play.aiChallenge.generatingPhrases')}</p>
-                  </div>
-                ) : (
-                  <button onClick={startChallenge} className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label mt-4" style={{ backgroundColor: tierColor }}>
-                    {t('play.aiChallenge.startChallenge')}
-                  </button>
-                )
-              )}
-            </div>
+          {/* AI Challenge Mode - Using extracted component */}
+          {localGameType === 'ai_challenge' && !finished && (
+            <AIChallenge
+              words={deck}
+              scoresMap={scoresMap}
+              challengeModes={challengeModes}
+              accentColor={tierColor}
+              targetLanguage={targetLanguage}
+              nativeLanguage={nativeLanguage}
+              targetLanguageName={targetName}
+              nativeLanguageName={nativeName}
+              userTier={levelInfo.tier}
+              onAnswer={handleGameAnswer}
+              onComplete={handleAIChallengeComplete}
+              onExit={exitLocalGame}
+              onStart={() => setChallengeStarted(true)}
+              validateAnswer={handleAIChallengeValidation}
+              onUpdateWordScore={updateWordScore}
+            />
           )}
 
           {/* Quick Fire Mode */}
@@ -1575,96 +1554,6 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 </div>
               )}
             </div>
-          )}
-
-          {/* AI Challenge - Active */}
-          {localGameType === 'ai_challenge' && challengeStarted && challengeQuestions.length > 0 && (
-            <>
-              {(() => {
-                const q = challengeQuestions[challengeIndex];
-                return (
-                  <div className="w-full">
-                    {/* Flashcard question */}
-                    {q.type === 'flashcard' && (
-                      <div onClick={() => setChallengeFlipped(!challengeFlipped)} className="relative w-full aspect-[4/5] cursor-pointer perspective-1000">
-                        <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${challengeFlipped ? 'rotate-y-180' : ''}`}>
-                          <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
-                            <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">POLISH</span>
-                            <h3 className="text-4xl font-black text-[var(--text-primary)]">{q.word}</h3>
-                            <p className="mt-12 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">Tap to reveal</p>
-                          </div>
-                          <div className="absolute inset-0 text-white rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180" style={{ backgroundColor: tierColor }}>
-                            <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">ENGLISH</span>
-                            <h3 className="text-4xl font-black">{q.translation}</h3>
-                            <div className="mt-12 grid grid-cols-2 gap-3 w-full">
-                              <button onClick={(e) => { e.stopPropagation(); handleChallengeFlashcardResponse(false); }} className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-scale-caption font-black uppercase tracking-widest"><ICONS.X className="w-4 h-4" /> Hard</button>
-                              <button onClick={(e) => { e.stopPropagation(); handleChallengeFlashcardResponse(true); }} className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption" style={{ color: tierColor }}><ICONS.Check className="w-4 h-4" /> Got it!</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Multiple Choice question */}
-                    {q.type === 'multiple_choice' && q.options && (
-                      <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
-                        <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6" style={{ backgroundColor: `${tierColor}15`, color: tierColor }}>{targetName} → {nativeName}</span>
-                        <h3 className="text-3xl font-black text-[var(--text-primary)] mb-8 text-center">{q.word}</h3>
-                        <div className="space-y-3">
-                          {q.options.map((opt, idx) => {
-                            const isCorrect = opt === q.translation;
-                            const isSelected = challengeMcSelected === opt;
-                            let style = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
-                            if (challengeMcFeedback) {
-                              if (isCorrect) style = 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400';
-                              else if (isSelected) style = 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400';
-                              else style = 'border-[var(--border-color)] text-[var(--text-secondary)]';
-                            }
-                            return (
-                              <button key={idx} onClick={() => handleChallengeMcSelect(opt)} disabled={challengeMcFeedback} className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${style}`}>
-                                <span className="text-scale-caption font-bold text-[var(--text-secondary)] mr-3">{String.fromCharCode(65 + idx)}</span>{opt}
-                                {challengeMcFeedback && isCorrect && <ICONS.Check className="w-5 h-5 float-right text-green-500" />}
-                                {challengeMcFeedback && isSelected && !isCorrect && <ICONS.X className="w-5 h-5 float-right text-red-500" />}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Type It question */}
-                    {q.type === 'type_it' && (
-                      <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
-                        <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6" style={{ backgroundColor: `${tierColor}15`, color: tierColor }}>{targetName} → {nativeName}</span>
-                        <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">{q.word}</h3>
-                        {challengeTypeSubmitted && (
-                          <div className={`text-center mb-4 p-3 rounded-xl ${challengeTypeCorrect ? 'bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400'}`}>
-                            {challengeTypeCorrect ? (
-                              <div>
-                                <div className="flex items-center justify-center gap-2"><ICONS.Check className="w-5 h-5" /><span className="font-bold">{t('play.typeIt.correct')}</span></div>
-                                {challengeTypeExplanation && challengeTypeExplanation !== 'Exact match' && (
-                                  <p className="text-scale-label mt-1 opacity-80">{challengeTypeExplanation}</p>
-                                )}
-                              </div>
-                            ) : (
-                              <div>
-                                <div className="flex items-center justify-center gap-2 mb-1"><ICONS.X className="w-5 h-5" /><span className="font-bold">{t('play.typeIt.notQuite')}</span></div>
-                                <p className="text-scale-label">{t('play.typeIt.correctAnswer')} <span className="font-black">{q.translation}</span></p>
-                                {challengeTypeExplanation && challengeTypeExplanation !== 'No match' && (
-                                  <p className="text-scale-label mt-1 opacity-80">{challengeTypeExplanation}</p>
-                                )}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                        <input type="text" value={challengeTypeAnswer} onChange={(e) => setChallengeTypeAnswer(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleChallengeTypeSubmit()} placeholder={t('play.typeIt.typeIn', { language: nativeName })} disabled={challengeTypeSubmitted} className="w-full p-4 rounded-2xl border-2 border-[var(--border-color)] focus:border-[var(--text-secondary)] focus:outline-none text-scale-heading font-medium text-center mt-4 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" autoFocus />
-                        <button onClick={handleChallengeTypeSubmit} disabled={!challengeTypeAnswer.trim() && !challengeTypeSubmitted} className="w-full mt-4 py-4 rounded-2xl font-black text-white text-scale-label uppercase tracking-widest disabled:opacity-50" style={{ backgroundColor: tierColor }}>{challengeTypeSubmitted ? t('play.typeIt.next') : t('play.typeIt.check')}</button>
-                      </div>
-                    )}
-                  </div>
-                );
-              })()}
-            </>
           )}
 
           </div>

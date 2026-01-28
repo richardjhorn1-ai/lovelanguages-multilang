@@ -1,7 +1,10 @@
+'use client';
+
 import React, { useState, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
-import { DictionaryEntry, WordScore, AIChallengeMode } from '../../../types';
+import { DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase } from '../../../types';
+import { getRomanticPhrases } from '../../../services/romantic-phrases';
 import type { AnswerResult } from './types';
 
 type SessionLength = 10 | 20 | 'all';
@@ -25,58 +28,74 @@ interface ChallengeMode {
 }
 
 interface AIChallengeProps {
+  /** All available words */
+  words: DictionaryEntry[];
+  /** Word scores map for sorting */
+  scoresMap: Map<string, WordScore>;
   /** Available challenge modes with names/descriptions */
   challengeModes: ChallengeMode[];
-  /** Word counts per mode */
-  modeCounts: Record<AIChallengeMode, number>;
   /** Accent color */
   accentColor: string;
-  /** Target language name */
+  /** Target language code */
+  targetLanguage: string;
+  /** Native language code */
+  nativeLanguage: string;
+  /** Target language display name */
   targetLanguageName: string;
-  /** Native language name */
+  /** Native language display name */
   nativeLanguageName: string;
-  /** Whether currently loading phrases */
-  loadingPhrases?: boolean;
-  /** Called when challenge is ready to start */
-  onStartChallenge: (mode: AIChallengeMode, sessionLength: SessionLength) => Promise<ChallengeQuestion[]>;
+  /** User's current tier for difficulty */
+  userTier: string;
   /** Called when user answers */
-  onAnswer: (result: AnswerResult & { explanation?: string }) => void;
+  onAnswer: (result: AnswerResult) => void;
   /** Called when challenge completes */
-  onComplete: () => void;
+  onComplete: (results: { answers: AnswerResult[]; score: { correct: number; incorrect: number } }) => void;
   /** Called to exit back to game selection */
   onExit: () => void;
+  /** Called when game starts */
+  onStart?: () => void;
   /** Validate typed answer */
   validateAnswer?: (
     userAnswer: string,
     correctAnswer: string,
-    question: ChallengeQuestion
+    context: { word: string; translation: string }
   ) => Promise<{ accepted: boolean; explanation: string }>;
-  /** Show incorrect shake animation */
-  showIncorrectShake?: boolean;
-  /** Trigger incorrect feedback (shake) */
-  onIncorrectFeedback?: () => void;
+  /** Update word score after answer */
+  onUpdateWordScore?: (wordId: string, isCorrect: boolean) => Promise<unknown>;
 }
 
 type GamePhase = 'select' | 'playing' | 'finished';
 
+// Shuffle helper
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 /**
  * AI Challenge game mode - mixed question types with various challenge modes.
- * Supports weakest words, gauntlet, romantic phrases, least practiced, review mastered.
+ * Self-contained: handles word sorting, phrase fetching, and question generation.
  */
 export const AIChallenge: React.FC<AIChallengeProps> = ({
+  words,
+  scoresMap,
   challengeModes,
-  modeCounts,
   accentColor,
+  targetLanguage,
+  nativeLanguage,
   targetLanguageName,
   nativeLanguageName,
-  loadingPhrases = false,
-  onStartChallenge,
+  userTier,
   onAnswer,
   onComplete,
   onExit,
+  onStart,
   validateAnswer,
-  showIncorrectShake = false,
-  onIncorrectFeedback,
+  onUpdateWordScore,
 }) => {
   const { t } = useTranslation();
   const [phase, setPhase] = useState<GamePhase>('select');
@@ -84,6 +103,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   const [sessionLength, setSessionLength] = useState<SessionLength | null>(null);
   const [questions, setQuestions] = useState<ChallengeQuestion[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loadingPhrases, setLoadingPhrases] = useState(false);
 
   // Question state
   const [flipped, setFlipped] = useState(false);
@@ -94,6 +114,51 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   const [typeCorrect, setTypeCorrect] = useState(false);
   const [typeExplanation, setTypeExplanation] = useState('');
   const [isValidating, setIsValidating] = useState(false);
+  const [showShake, setShowShake] = useState(false);
+
+  // Session tracking
+  const [sessionAnswers, setSessionAnswers] = useState<AnswerResult[]>([]);
+  const [sessionScore, setSessionScore] = useState({ correct: 0, incorrect: 0 });
+
+  // Compute word pools and counts
+  const { modeCounts, wordPools } = useMemo(() => {
+    const unlearnedWords = words.filter(w => !scoresMap.get(w.id)?.learned_at);
+    const learnedWords = words.filter(w => scoresMap.get(w.id)?.learned_at != null);
+
+    // Sort for weakest (most failed)
+    const weakest = [...unlearnedWords].sort((a, b) => {
+      const scoreA = scoresMap.get(a.id);
+      const scoreB = scoresMap.get(b.id);
+      return ((scoreB?.fail_count || 0) - (scoreB?.success_count || 0)) -
+             ((scoreA?.fail_count || 0) - (scoreA?.success_count || 0));
+    });
+
+    // Sort for least practiced
+    const leastPracticed = [...unlearnedWords].sort((a, b) => {
+      const scoreA = scoresMap.get(a.id);
+      const scoreB = scoresMap.get(b.id);
+      if (!scoreA?.last_practiced) return -1;
+      if (!scoreB?.last_practiced) return 1;
+      return new Date(scoreA.last_practiced).getTime() - new Date(scoreB.last_practiced).getTime();
+    });
+
+    return {
+      modeCounts: {
+        weakest: weakest.length,
+        gauntlet: unlearnedWords.length,
+        romantic: 20, // Always show 20 available for romantic
+        least_practiced: leastPracticed.length,
+        review_mastered: learnedWords.length,
+      } as Record<AIChallengeMode, number>,
+      wordPools: {
+        weakest,
+        gauntlet: shuffleArray(unlearnedWords),
+        romantic: [] as DictionaryEntry[],
+        least_practiced: leastPracticed,
+        review_mastered: shuffleArray(learnedWords),
+      } as Record<AIChallengeMode, DictionaryEntry[]>,
+    };
+  }, [words, scoresMap]);
 
   const currentQuestion = questions[currentIndex];
   const isLastQuestion = currentIndex >= questions.length - 1;
@@ -106,38 +171,141 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     setTypeSubmitted(false);
     setTypeCorrect(false);
     setTypeExplanation('');
+    setShowShake(false);
   }, []);
+
+  const triggerShake = useCallback(() => {
+    setShowShake(true);
+    setTimeout(() => setShowShake(false), 500);
+  }, []);
+
+  // Generate questions for selected mode
+  const generateQuestions = useCallback(async (
+    mode: AIChallengeMode,
+    length: SessionLength
+  ): Promise<ChallengeQuestion[]> => {
+    let wordPool = wordPools[mode];
+    let phrasePool: RomanticPhrase[] = [];
+
+    // Handle romantic phrases
+    if (mode === 'romantic') {
+      setLoadingPhrases(true);
+      try {
+        const difficulty = userTier === 'Beginner' ? 'beginner' :
+                          (userTier === 'Elementary' || userTier === 'Conversational') ? 'intermediate' : 'advanced';
+        const count = length === 'all' ? 20 : length as number;
+        phrasePool = await getRomanticPhrases(targetLanguage, nativeLanguage, count, difficulty);
+      } catch (error) {
+        console.error('Failed to load romantic phrases:', error);
+        setLoadingPhrases(false);
+        return [];
+      }
+      setLoadingPhrases(false);
+    }
+
+    const maxCount = mode === 'romantic' ? phrasePool.length : wordPool.length;
+    const count = length === 'all' ? maxCount : Math.min(length as number, maxCount);
+    const generated: ChallengeQuestion[] = [];
+
+    if (mode === 'romantic') {
+      phrasePool.slice(0, count).forEach((phrase, idx) => {
+        generated.push({
+          id: `q-${idx}`,
+          type: 'type_it',
+          word: phrase.word,
+          translation: phrase.translation,
+          phraseId: phrase.id,
+        });
+      });
+    } else {
+      wordPool.slice(0, count).forEach((word, idx) => {
+        // Gauntlet uses random types, others favor type_it/multiple_choice
+        let qType: ChallengeQuestionType = mode === 'gauntlet'
+          ? (['flashcard', 'multiple_choice', 'type_it'] as const)[Math.floor(Math.random() * 3)]
+          : Math.random() > 0.6 ? 'type_it' : 'multiple_choice';
+
+        const q: ChallengeQuestion = {
+          id: `q-${idx}`,
+          type: qType,
+          word: word.word,
+          translation: word.translation,
+          wordId: word.id,
+        };
+
+        // Generate options for multiple choice
+        if (qType === 'multiple_choice' && words.length >= 4) {
+          const otherTranslations = words
+            .filter(w => w.id !== word.id)
+            .map(w => w.translation);
+          q.options = shuffleArray([
+            word.translation,
+            ...shuffleArray(otherTranslations).slice(0, 3)
+          ]);
+        } else if (qType === 'multiple_choice') {
+          // Not enough words for MC, fall back to type_it
+          q.type = 'type_it';
+        }
+
+        generated.push(q);
+      });
+    }
+
+    return shuffleArray(generated);
+  }, [wordPools, words, targetLanguage, nativeLanguage, userTier]);
 
   const handleStart = useCallback(async () => {
     if (!selectedMode || !sessionLength) return;
 
-    const generatedQuestions = await onStartChallenge(selectedMode, sessionLength);
+    const generatedQuestions = await generateQuestions(selectedMode, sessionLength);
     if (generatedQuestions.length === 0) {
-      alert(t('play.aiChallenge.noQuestions'));
+      alert(t('play.aiChallenge.noQuestions', 'No questions available for this mode.'));
       return;
     }
 
     setQuestions(generatedQuestions);
     setCurrentIndex(0);
+    setSessionAnswers([]);
+    setSessionScore({ correct: 0, incorrect: 0 });
     resetQuestionState();
     setPhase('playing');
-  }, [selectedMode, sessionLength, onStartChallenge, resetQuestionState, t]);
+    onStart?.();
+  }, [selectedMode, sessionLength, generateQuestions, resetQuestionState, onStart, t]);
+
+  const recordAnswer = useCallback((result: AnswerResult) => {
+    setSessionAnswers(prev => [...prev, result]);
+    setSessionScore(prev => ({
+      correct: prev.correct + (result.isCorrect ? 1 : 0),
+      incorrect: prev.incorrect + (result.isCorrect ? 0 : 1),
+    }));
+    onAnswer(result);
+
+    // Update word score if available
+    if (result.wordId && onUpdateWordScore) {
+      onUpdateWordScore(result.wordId, result.isCorrect);
+    }
+  }, [onAnswer, onUpdateWordScore]);
 
   const advanceOrFinish = useCallback(() => {
     if (isLastQuestion) {
       setPhase('finished');
-      onComplete();
+      // Use timeout to ensure state updates are captured
+      setTimeout(() => {
+        onComplete({
+          answers: sessionAnswers,
+          score: sessionScore,
+        });
+      }, 100);
     } else {
       setCurrentIndex(i => i + 1);
       resetQuestionState();
     }
-  }, [isLastQuestion, onComplete, resetQuestionState]);
+  }, [isLastQuestion, onComplete, sessionAnswers, sessionScore, resetQuestionState]);
 
   // Flashcard handlers
   const handleFlashcardResponse = useCallback((isCorrect: boolean) => {
     if (!currentQuestion) return;
 
-    onAnswer({
+    recordAnswer({
       wordId: currentQuestion.wordId || currentQuestion.id,
       wordText: currentQuestion.word,
       correctAnswer: currentQuestion.translation,
@@ -147,10 +315,10 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
     setFlipped(false);
     setTimeout(() => advanceOrFinish(), 300);
-  }, [currentQuestion, onAnswer, advanceOrFinish]);
+  }, [currentQuestion, recordAnswer, advanceOrFinish]);
 
   // Multiple choice handlers
-  const handleMcSelect = useCallback(async (option: string) => {
+  const handleMcSelect = useCallback((option: string) => {
     if (!currentQuestion || mcFeedback) return;
 
     setMcSelected(option);
@@ -159,10 +327,10 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     const isCorrect = option === currentQuestion.translation;
 
     if (!isCorrect) {
-      onIncorrectFeedback?.();
+      triggerShake();
     }
 
-    onAnswer({
+    recordAnswer({
       wordId: currentQuestion.wordId || currentQuestion.id,
       wordText: currentQuestion.word,
       correctAnswer: currentQuestion.translation,
@@ -172,7 +340,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     });
 
     setTimeout(() => advanceOrFinish(), isCorrect ? 800 : 1500);
-  }, [currentQuestion, mcFeedback, onAnswer, advanceOrFinish, onIncorrectFeedback]);
+  }, [currentQuestion, mcFeedback, recordAnswer, advanceOrFinish, triggerShake]);
 
   // Type It handlers
   const handleTypeSubmit = useCallback(async () => {
@@ -192,7 +360,11 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     let explanation = '';
 
     if (validateAnswer) {
-      const result = await validateAnswer(typeAnswer, currentQuestion.translation, currentQuestion);
+      const result = await validateAnswer(
+        typeAnswer,
+        currentQuestion.translation,
+        { word: currentQuestion.word, translation: currentQuestion.translation }
+      );
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
@@ -203,14 +375,14 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     setIsValidating(false);
 
     if (!isCorrect) {
-      onIncorrectFeedback?.();
+      triggerShake();
     }
 
     setTypeSubmitted(true);
     setTypeCorrect(isCorrect);
     setTypeExplanation(explanation);
 
-    onAnswer({
+    recordAnswer({
       wordId: currentQuestion.wordId || currentQuestion.id,
       wordText: currentQuestion.word,
       correctAnswer: currentQuestion.translation,
@@ -219,7 +391,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
       isCorrect,
       explanation,
     });
-  }, [currentQuestion, typeSubmitted, typeAnswer, isValidating, validateAnswer, onAnswer, advanceOrFinish, onIncorrectFeedback]);
+  }, [currentQuestion, typeSubmitted, typeAnswer, isValidating, validateAnswer, recordAnswer, advanceOrFinish, triggerShake]);
 
   // Mode selection screen
   if (phase === 'select') {
@@ -353,7 +525,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                 </span>
                 <h3 className="text-4xl font-black text-[var(--text-primary)]">{currentQuestion.word}</h3>
                 <p className="mt-12 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">
-                  Tap to reveal
+                  {t('play.flashcards.tapToReveal', 'Tap to reveal')}
                 </p>
               </div>
               <div
@@ -369,14 +541,14 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                     onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(false); }}
                     className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-scale-caption font-black uppercase tracking-widest"
                   >
-                    <ICONS.X className="w-4 h-4" /> Hard
+                    <ICONS.X className="w-4 h-4" /> {t('play.flashcards.hard', 'Hard')}
                   </button>
                   <button
                     onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(true); }}
                     className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption"
                     style={{ color: accentColor }}
                   >
-                    <ICONS.Check className="w-4 h-4" /> Got it!
+                    <ICONS.Check className="w-4 h-4" /> {t('play.flashcards.gotIt', 'Got it!')}
                   </button>
                 </div>
               </div>
@@ -386,7 +558,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
         {/* Multiple Choice question */}
         {currentQuestion.type === 'multiple_choice' && currentQuestion.options && (
-          <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
+          <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showShake ? 'animate-shake' : ''}`}>
             <span
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
@@ -434,7 +606,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
         {/* Type It question */}
         {currentQuestion.type === 'type_it' && (
-          <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
+          <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showShake ? 'animate-shake' : ''}`}>
             <span
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
