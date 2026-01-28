@@ -42,6 +42,8 @@ interface VerbMasteryProps {
   }) => void;
   /** Called to go back to game selection */
   onExit: () => void;
+  /** Called when game starts (tense selected) */
+  onStart?: () => void;
   /** Validate answer - returns { accepted, explanation } */
   validateAnswer?: (
     userAnswer: string,
@@ -66,6 +68,7 @@ export const VerbMastery: React.FC<VerbMasteryProps> = ({
   onAnswer,
   onComplete,
   onExit,
+  onStart,
   validateAnswer,
   simpleValidate,
 }) => {
@@ -175,8 +178,11 @@ export const VerbMastery: React.FC<VerbMasteryProps> = ({
       scoreRef.current = { correct: 0, incorrect: 0 };
       answersRef.current = [];
       setPhase('playing');
+
+      // Notify parent that game started (for exit confirmation)
+      onStart?.();
     },
-    [generateQuestions, t]
+    [generateQuestions, t, onStart]
   );
 
   const handleSubmit = useCallback(async () => {

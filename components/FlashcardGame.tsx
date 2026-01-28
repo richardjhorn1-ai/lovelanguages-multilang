@@ -1461,6 +1461,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               onAnswer={handleGameAnswer}
               onComplete={handleVerbMasteryComplete}
               onExit={exitLocalGame}
+              onStart={() => setVerbMasteryStarted(true)}
               validateAnswer={handleVerbMasteryValidation}
             />
           )}
