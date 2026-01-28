@@ -350,7 +350,9 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       explanation: r.explanation
     })));
     setLocalQuickFireTimeLeft(results.timeRemaining);
-  }, []);
+    // Set index to end so game-over detection works for auto-save
+    setLocalGameIndex(localGameWords.length - 1);
+  }, [localGameWords.length]);
 
   // Auto-save effect when preference is 'always'
   React.useEffect(() => {
