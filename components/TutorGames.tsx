@@ -29,7 +29,7 @@ interface GameSessionAnswer {
   wordText: string;
   correctAnswer: string;
   userAnswer?: string;
-  questionType: 'flashcard' | 'multiple_choice' | 'type_it';
+  questionType: 'flashcard' | 'multiple_choice' | 'type_it' | 'quick_fire';
   isCorrect: boolean;
   explanation?: string;
 }
@@ -302,7 +302,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       wordText: result.wordText,
       correctAnswer: result.correctAnswer,
       userAnswer: result.userAnswer,
-      questionType: result.questionType as 'flashcard' | 'multiple_choice' | 'type_it',
+      questionType: result.questionType,
       isCorrect: result.isCorrect,
       explanation: result.explanation
     }]);
@@ -345,7 +345,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       wordText: r.wordText,
       correctAnswer: r.correctAnswer,
       userAnswer: r.userAnswer,
-      questionType: r.questionType as 'flashcard' | 'multiple_choice' | 'type_it',
+      questionType: r.questionType,
       isCorrect: r.isCorrect,
       explanation: r.explanation
     })));
