@@ -1,0 +1,171 @@
+task_id,native_lang,target_lang,topic_id,template,slug,title,output_path
+1,fr,en,1,how-to-say,how-to-say-i-love-you-in-english,"How to Say I Love You in English",src/content/articles/fr/en/how-to-say-i-love-you-in-english.mdx
+2,fr,en,2,phrases-list,english-pet-names-for-your-partner,"English Pet Names for Your Partner",src/content/articles/fr/en/english-pet-names-for-your-partner.mdx
+3,fr,en,3,phrases-list,essential-english-phrases-for-couples,"Essential English Phrases for Couples",src/content/articles/fr/en/essential-english-phrases-for-couples.mdx
+4,fr,en,4,practical-guide,meeting-your-partners-english-family,"Meeting Your Partner's English Family",src/content/articles/fr/en/meeting-your-partners-english-family.mdx
+5,fr,en,5,phrases-list,english-greetings-and-farewells,"English Greetings and Farewells",src/content/articles/fr/en/english-greetings-and-farewells.mdx
+6,fr,en,6,phrases-list,english-date-night-vocabulary,"English Date Night Vocabulary",src/content/articles/fr/en/english-date-night-vocabulary.mdx
+7,fr,en,7,phrases-list,romantic-english-phrases-for-every-occasion,"Romantic English Phrases for Every Occasion",src/content/articles/fr/en/romantic-english-phrases-for-every-occasion.mdx
+8,fr,en,8,grammar-guide,english-pronunciation-guide-for-beginners,"English Pronunciation Guide for Beginners",src/content/articles/fr/en/english-pronunciation-guide-for-beginners.mdx
+9,fr,en,9,grammar-guide,english-grammar-basics-for-beginners,"English Grammar Basics for Beginners",src/content/articles/fr/en/english-grammar-basics-for-beginners.mdx
+10,fr,en,10,comparison,is-english-hard-to-learn,"Is English Hard to Learn?",src/content/articles/fr/en/is-english-hard-to-learn.mdx
+11,fr,es,1,how-to-say,how-to-say-i-love-you-in-spanish,"How to Say I Love You in Spanish",src/content/articles/fr/es/how-to-say-i-love-you-in-spanish.mdx
+12,fr,es,2,phrases-list,spanish-pet-names-for-your-partner,"Spanish Pet Names for Your Partner",src/content/articles/fr/es/spanish-pet-names-for-your-partner.mdx
+13,fr,es,3,phrases-list,essential-spanish-phrases-for-couples,"Essential Spanish Phrases for Couples",src/content/articles/fr/es/essential-spanish-phrases-for-couples.mdx
+14,fr,es,4,practical-guide,meeting-your-partners-spanish-family,"Meeting Your Partner's Spanish Family",src/content/articles/fr/es/meeting-your-partners-spanish-family.mdx
+15,fr,es,5,phrases-list,spanish-greetings-and-farewells,"Spanish Greetings and Farewells",src/content/articles/fr/es/spanish-greetings-and-farewells.mdx
+16,fr,es,6,phrases-list,spanish-date-night-vocabulary,"Spanish Date Night Vocabulary",src/content/articles/fr/es/spanish-date-night-vocabulary.mdx
+17,fr,es,7,phrases-list,romantic-spanish-phrases-for-every-occasion,"Romantic Spanish Phrases for Every Occasion",src/content/articles/fr/es/romantic-spanish-phrases-for-every-occasion.mdx
+18,fr,es,8,grammar-guide,spanish-pronunciation-guide-for-beginners,"Spanish Pronunciation Guide for Beginners",src/content/articles/fr/es/spanish-pronunciation-guide-for-beginners.mdx
+19,fr,es,9,grammar-guide,spanish-grammar-basics-for-beginners,"Spanish Grammar Basics for Beginners",src/content/articles/fr/es/spanish-grammar-basics-for-beginners.mdx
+20,fr,es,10,comparison,is-spanish-hard-to-learn,"Is Spanish Hard to Learn?",src/content/articles/fr/es/is-spanish-hard-to-learn.mdx
+21,fr,de,1,how-to-say,how-to-say-i-love-you-in-german,"How to Say I Love You in German",src/content/articles/fr/de/how-to-say-i-love-you-in-german.mdx
+22,fr,de,2,phrases-list,german-pet-names-for-your-partner,"German Pet Names for Your Partner",src/content/articles/fr/de/german-pet-names-for-your-partner.mdx
+23,fr,de,3,phrases-list,essential-german-phrases-for-couples,"Essential German Phrases for Couples",src/content/articles/fr/de/essential-german-phrases-for-couples.mdx
+24,fr,de,4,practical-guide,meeting-your-partners-german-family,"Meeting Your Partner's German Family",src/content/articles/fr/de/meeting-your-partners-german-family.mdx
+25,fr,de,5,phrases-list,german-greetings-and-farewells,"German Greetings and Farewells",src/content/articles/fr/de/german-greetings-and-farewells.mdx
+26,fr,de,6,phrases-list,german-date-night-vocabulary,"German Date Night Vocabulary",src/content/articles/fr/de/german-date-night-vocabulary.mdx
+27,fr,de,7,phrases-list,romantic-german-phrases-for-every-occasion,"Romantic German Phrases for Every Occasion",src/content/articles/fr/de/romantic-german-phrases-for-every-occasion.mdx
+28,fr,de,8,grammar-guide,german-pronunciation-guide-for-beginners,"German Pronunciation Guide for Beginners",src/content/articles/fr/de/german-pronunciation-guide-for-beginners.mdx
+29,fr,de,9,grammar-guide,german-grammar-basics-for-beginners,"German Grammar Basics for Beginners",src/content/articles/fr/de/german-grammar-basics-for-beginners.mdx
+30,fr,de,10,comparison,is-german-hard-to-learn,"Is German Hard to Learn?",src/content/articles/fr/de/is-german-hard-to-learn.mdx
+31,fr,it,1,how-to-say,how-to-say-i-love-you-in-italian,"How to Say I Love You in Italian",src/content/articles/fr/it/how-to-say-i-love-you-in-italian.mdx
+32,fr,it,2,phrases-list,italian-pet-names-for-your-partner,"Italian Pet Names for Your Partner",src/content/articles/fr/it/italian-pet-names-for-your-partner.mdx
+33,fr,it,3,phrases-list,essential-italian-phrases-for-couples,"Essential Italian Phrases for Couples",src/content/articles/fr/it/essential-italian-phrases-for-couples.mdx
+34,fr,it,4,practical-guide,meeting-your-partners-italian-family,"Meeting Your Partner's Italian Family",src/content/articles/fr/it/meeting-your-partners-italian-family.mdx
+35,fr,it,5,phrases-list,italian-greetings-and-farewells,"Italian Greetings and Farewells",src/content/articles/fr/it/italian-greetings-and-farewells.mdx
+36,fr,it,6,phrases-list,italian-date-night-vocabulary,"Italian Date Night Vocabulary",src/content/articles/fr/it/italian-date-night-vocabulary.mdx
+37,fr,it,7,phrases-list,romantic-italian-phrases-for-every-occasion,"Romantic Italian Phrases for Every Occasion",src/content/articles/fr/it/romantic-italian-phrases-for-every-occasion.mdx
+38,fr,it,8,grammar-guide,italian-pronunciation-guide-for-beginners,"Italian Pronunciation Guide for Beginners",src/content/articles/fr/it/italian-pronunciation-guide-for-beginners.mdx
+39,fr,it,9,grammar-guide,italian-grammar-basics-for-beginners,"Italian Grammar Basics for Beginners",src/content/articles/fr/it/italian-grammar-basics-for-beginners.mdx
+40,fr,it,10,comparison,is-italian-hard-to-learn,"Is Italian Hard to Learn?",src/content/articles/fr/it/is-italian-hard-to-learn.mdx
+41,fr,pt,1,how-to-say,how-to-say-i-love-you-in-portuguese,"How to Say I Love You in Portuguese",src/content/articles/fr/pt/how-to-say-i-love-you-in-portuguese.mdx
+42,fr,pt,2,phrases-list,portuguese-pet-names-for-your-partner,"Portuguese Pet Names for Your Partner",src/content/articles/fr/pt/portuguese-pet-names-for-your-partner.mdx
+43,fr,pt,3,phrases-list,essential-portuguese-phrases-for-couples,"Essential Portuguese Phrases for Couples",src/content/articles/fr/pt/essential-portuguese-phrases-for-couples.mdx
+44,fr,pt,4,practical-guide,meeting-your-partners-portuguese-family,"Meeting Your Partner's Portuguese Family",src/content/articles/fr/pt/meeting-your-partners-portuguese-family.mdx
+45,fr,pt,5,phrases-list,portuguese-greetings-and-farewells,"Portuguese Greetings and Farewells",src/content/articles/fr/pt/portuguese-greetings-and-farewells.mdx
+46,fr,pt,6,phrases-list,portuguese-date-night-vocabulary,"Portuguese Date Night Vocabulary",src/content/articles/fr/pt/portuguese-date-night-vocabulary.mdx
+47,fr,pt,7,phrases-list,romantic-portuguese-phrases-for-every-occasion,"Romantic Portuguese Phrases for Every Occasion",src/content/articles/fr/pt/romantic-portuguese-phrases-for-every-occasion.mdx
+48,fr,pt,8,grammar-guide,portuguese-pronunciation-guide-for-beginners,"Portuguese Pronunciation Guide for Beginners",src/content/articles/fr/pt/portuguese-pronunciation-guide-for-beginners.mdx
+49,fr,pt,9,grammar-guide,portuguese-grammar-basics-for-beginners,"Portuguese Grammar Basics for Beginners",src/content/articles/fr/pt/portuguese-grammar-basics-for-beginners.mdx
+50,fr,pt,10,comparison,is-portuguese-hard-to-learn,"Is Portuguese Hard to Learn?",src/content/articles/fr/pt/is-portuguese-hard-to-learn.mdx
+51,fr,nl,1,how-to-say,how-to-say-i-love-you-in-dutch,"How to Say I Love You in Dutch",src/content/articles/fr/nl/how-to-say-i-love-you-in-dutch.mdx
+52,fr,nl,2,phrases-list,dutch-pet-names-for-your-partner,"Dutch Pet Names for Your Partner",src/content/articles/fr/nl/dutch-pet-names-for-your-partner.mdx
+53,fr,nl,3,phrases-list,essential-dutch-phrases-for-couples,"Essential Dutch Phrases for Couples",src/content/articles/fr/nl/essential-dutch-phrases-for-couples.mdx
+54,fr,nl,4,practical-guide,meeting-your-partners-dutch-family,"Meeting Your Partner's Dutch Family",src/content/articles/fr/nl/meeting-your-partners-dutch-family.mdx
+55,fr,nl,5,phrases-list,dutch-greetings-and-farewells,"Dutch Greetings and Farewells",src/content/articles/fr/nl/dutch-greetings-and-farewells.mdx
+56,fr,nl,6,phrases-list,dutch-date-night-vocabulary,"Dutch Date Night Vocabulary",src/content/articles/fr/nl/dutch-date-night-vocabulary.mdx
+57,fr,nl,7,phrases-list,romantic-dutch-phrases-for-every-occasion,"Romantic Dutch Phrases for Every Occasion",src/content/articles/fr/nl/romantic-dutch-phrases-for-every-occasion.mdx
+58,fr,nl,8,grammar-guide,dutch-pronunciation-guide-for-beginners,"Dutch Pronunciation Guide for Beginners",src/content/articles/fr/nl/dutch-pronunciation-guide-for-beginners.mdx
+59,fr,nl,9,grammar-guide,dutch-grammar-basics-for-beginners,"Dutch Grammar Basics for Beginners",src/content/articles/fr/nl/dutch-grammar-basics-for-beginners.mdx
+60,fr,nl,10,comparison,is-dutch-hard-to-learn,"Is Dutch Hard to Learn?",src/content/articles/fr/nl/is-dutch-hard-to-learn.mdx
+61,fr,pl,1,how-to-say,how-to-say-i-love-you-in-polish,"How to Say I Love You in Polish",src/content/articles/fr/pl/how-to-say-i-love-you-in-polish.mdx
+62,fr,pl,2,phrases-list,polish-pet-names-for-your-partner,"Polish Pet Names for Your Partner",src/content/articles/fr/pl/polish-pet-names-for-your-partner.mdx
+63,fr,pl,3,phrases-list,essential-polish-phrases-for-couples,"Essential Polish Phrases for Couples",src/content/articles/fr/pl/essential-polish-phrases-for-couples.mdx
+64,fr,pl,4,practical-guide,meeting-your-partners-polish-family,"Meeting Your Partner's Polish Family",src/content/articles/fr/pl/meeting-your-partners-polish-family.mdx
+65,fr,pl,5,phrases-list,polish-greetings-and-farewells,"Polish Greetings and Farewells",src/content/articles/fr/pl/polish-greetings-and-farewells.mdx
+66,fr,pl,6,phrases-list,polish-date-night-vocabulary,"Polish Date Night Vocabulary",src/content/articles/fr/pl/polish-date-night-vocabulary.mdx
+67,fr,pl,7,phrases-list,romantic-polish-phrases-for-every-occasion,"Romantic Polish Phrases for Every Occasion",src/content/articles/fr/pl/romantic-polish-phrases-for-every-occasion.mdx
+68,fr,pl,8,grammar-guide,polish-pronunciation-guide-for-beginners,"Polish Pronunciation Guide for Beginners",src/content/articles/fr/pl/polish-pronunciation-guide-for-beginners.mdx
+69,fr,pl,9,grammar-guide,polish-grammar-basics-for-beginners,"Polish Grammar Basics for Beginners",src/content/articles/fr/pl/polish-grammar-basics-for-beginners.mdx
+70,fr,pl,10,comparison,is-polish-hard-to-learn,"Is Polish Hard to Learn?",src/content/articles/fr/pl/is-polish-hard-to-learn.mdx
+71,fr,ru,1,how-to-say,how-to-say-i-love-you-in-russian,"How to Say I Love You in Russian",src/content/articles/fr/ru/how-to-say-i-love-you-in-russian.mdx
+72,fr,ru,2,phrases-list,russian-pet-names-for-your-partner,"Russian Pet Names for Your Partner",src/content/articles/fr/ru/russian-pet-names-for-your-partner.mdx
+73,fr,ru,3,phrases-list,essential-russian-phrases-for-couples,"Essential Russian Phrases for Couples",src/content/articles/fr/ru/essential-russian-phrases-for-couples.mdx
+74,fr,ru,4,practical-guide,meeting-your-partners-russian-family,"Meeting Your Partner's Russian Family",src/content/articles/fr/ru/meeting-your-partners-russian-family.mdx
+75,fr,ru,5,phrases-list,russian-greetings-and-farewells,"Russian Greetings and Farewells",src/content/articles/fr/ru/russian-greetings-and-farewells.mdx
+76,fr,ru,6,phrases-list,russian-date-night-vocabulary,"Russian Date Night Vocabulary",src/content/articles/fr/ru/russian-date-night-vocabulary.mdx
+77,fr,ru,7,phrases-list,romantic-russian-phrases-for-every-occasion,"Romantic Russian Phrases for Every Occasion",src/content/articles/fr/ru/romantic-russian-phrases-for-every-occasion.mdx
+78,fr,ru,8,grammar-guide,russian-pronunciation-guide-for-beginners,"Russian Pronunciation Guide for Beginners",src/content/articles/fr/ru/russian-pronunciation-guide-for-beginners.mdx
+79,fr,ru,9,grammar-guide,russian-grammar-basics-for-beginners,"Russian Grammar Basics for Beginners",src/content/articles/fr/ru/russian-grammar-basics-for-beginners.mdx
+80,fr,ru,10,comparison,is-russian-hard-to-learn,"Is Russian Hard to Learn?",src/content/articles/fr/ru/is-russian-hard-to-learn.mdx
+81,fr,uk,1,how-to-say,how-to-say-i-love-you-in-ukrainian,"How to Say I Love You in Ukrainian",src/content/articles/fr/uk/how-to-say-i-love-you-in-ukrainian.mdx
+82,fr,uk,2,phrases-list,ukrainian-pet-names-for-your-partner,"Ukrainian Pet Names for Your Partner",src/content/articles/fr/uk/ukrainian-pet-names-for-your-partner.mdx
+83,fr,uk,3,phrases-list,essential-ukrainian-phrases-for-couples,"Essential Ukrainian Phrases for Couples",src/content/articles/fr/uk/essential-ukrainian-phrases-for-couples.mdx
+84,fr,uk,4,practical-guide,meeting-your-partners-ukrainian-family,"Meeting Your Partner's Ukrainian Family",src/content/articles/fr/uk/meeting-your-partners-ukrainian-family.mdx
+85,fr,uk,5,phrases-list,ukrainian-greetings-and-farewells,"Ukrainian Greetings and Farewells",src/content/articles/fr/uk/ukrainian-greetings-and-farewells.mdx
+86,fr,uk,6,phrases-list,ukrainian-date-night-vocabulary,"Ukrainian Date Night Vocabulary",src/content/articles/fr/uk/ukrainian-date-night-vocabulary.mdx
+87,fr,uk,7,phrases-list,romantic-ukrainian-phrases-for-every-occasion,"Romantic Ukrainian Phrases for Every Occasion",src/content/articles/fr/uk/romantic-ukrainian-phrases-for-every-occasion.mdx
+88,fr,uk,8,grammar-guide,ukrainian-pronunciation-guide-for-beginners,"Ukrainian Pronunciation Guide for Beginners",src/content/articles/fr/uk/ukrainian-pronunciation-guide-for-beginners.mdx
+89,fr,uk,9,grammar-guide,ukrainian-grammar-basics-for-beginners,"Ukrainian Grammar Basics for Beginners",src/content/articles/fr/uk/ukrainian-grammar-basics-for-beginners.mdx
+90,fr,uk,10,comparison,is-ukrainian-hard-to-learn,"Is Ukrainian Hard to Learn?",src/content/articles/fr/uk/is-ukrainian-hard-to-learn.mdx
+91,fr,tr,1,how-to-say,how-to-say-i-love-you-in-turkish,"How to Say I Love You in Turkish",src/content/articles/fr/tr/how-to-say-i-love-you-in-turkish.mdx
+92,fr,tr,2,phrases-list,turkish-pet-names-for-your-partner,"Turkish Pet Names for Your Partner",src/content/articles/fr/tr/turkish-pet-names-for-your-partner.mdx
+93,fr,tr,3,phrases-list,essential-turkish-phrases-for-couples,"Essential Turkish Phrases for Couples",src/content/articles/fr/tr/essential-turkish-phrases-for-couples.mdx
+94,fr,tr,4,practical-guide,meeting-your-partners-turkish-family,"Meeting Your Partner's Turkish Family",src/content/articles/fr/tr/meeting-your-partners-turkish-family.mdx
+95,fr,tr,5,phrases-list,turkish-greetings-and-farewells,"Turkish Greetings and Farewells",src/content/articles/fr/tr/turkish-greetings-and-farewells.mdx
+96,fr,tr,6,phrases-list,turkish-date-night-vocabulary,"Turkish Date Night Vocabulary",src/content/articles/fr/tr/turkish-date-night-vocabulary.mdx
+97,fr,tr,7,phrases-list,romantic-turkish-phrases-for-every-occasion,"Romantic Turkish Phrases for Every Occasion",src/content/articles/fr/tr/romantic-turkish-phrases-for-every-occasion.mdx
+98,fr,tr,8,grammar-guide,turkish-pronunciation-guide-for-beginners,"Turkish Pronunciation Guide for Beginners",src/content/articles/fr/tr/turkish-pronunciation-guide-for-beginners.mdx
+99,fr,tr,9,grammar-guide,turkish-grammar-basics-for-beginners,"Turkish Grammar Basics for Beginners",src/content/articles/fr/tr/turkish-grammar-basics-for-beginners.mdx
+100,fr,tr,10,comparison,is-turkish-hard-to-learn,"Is Turkish Hard to Learn?",src/content/articles/fr/tr/is-turkish-hard-to-learn.mdx
+101,fr,ro,1,how-to-say,how-to-say-i-love-you-in-romanian,"How to Say I Love You in Romanian",src/content/articles/fr/ro/how-to-say-i-love-you-in-romanian.mdx
+102,fr,ro,2,phrases-list,romanian-pet-names-for-your-partner,"Romanian Pet Names for Your Partner",src/content/articles/fr/ro/romanian-pet-names-for-your-partner.mdx
+103,fr,ro,3,phrases-list,essential-romanian-phrases-for-couples,"Essential Romanian Phrases for Couples",src/content/articles/fr/ro/essential-romanian-phrases-for-couples.mdx
+104,fr,ro,4,practical-guide,meeting-your-partners-romanian-family,"Meeting Your Partner's Romanian Family",src/content/articles/fr/ro/meeting-your-partners-romanian-family.mdx
+105,fr,ro,5,phrases-list,romanian-greetings-and-farewells,"Romanian Greetings and Farewells",src/content/articles/fr/ro/romanian-greetings-and-farewells.mdx
+106,fr,ro,6,phrases-list,romanian-date-night-vocabulary,"Romanian Date Night Vocabulary",src/content/articles/fr/ro/romanian-date-night-vocabulary.mdx
+107,fr,ro,7,phrases-list,romantic-romanian-phrases-for-every-occasion,"Romantic Romanian Phrases for Every Occasion",src/content/articles/fr/ro/romantic-romanian-phrases-for-every-occasion.mdx
+108,fr,ro,8,grammar-guide,romanian-pronunciation-guide-for-beginners,"Romanian Pronunciation Guide for Beginners",src/content/articles/fr/ro/romanian-pronunciation-guide-for-beginners.mdx
+109,fr,ro,9,grammar-guide,romanian-grammar-basics-for-beginners,"Romanian Grammar Basics for Beginners",src/content/articles/fr/ro/romanian-grammar-basics-for-beginners.mdx
+110,fr,ro,10,comparison,is-romanian-hard-to-learn,"Is Romanian Hard to Learn?",src/content/articles/fr/ro/is-romanian-hard-to-learn.mdx
+111,fr,sv,1,how-to-say,how-to-say-i-love-you-in-swedish,"How to Say I Love You in Swedish",src/content/articles/fr/sv/how-to-say-i-love-you-in-swedish.mdx
+112,fr,sv,2,phrases-list,swedish-pet-names-for-your-partner,"Swedish Pet Names for Your Partner",src/content/articles/fr/sv/swedish-pet-names-for-your-partner.mdx
+113,fr,sv,3,phrases-list,essential-swedish-phrases-for-couples,"Essential Swedish Phrases for Couples",src/content/articles/fr/sv/essential-swedish-phrases-for-couples.mdx
+114,fr,sv,4,practical-guide,meeting-your-partners-swedish-family,"Meeting Your Partner's Swedish Family",src/content/articles/fr/sv/meeting-your-partners-swedish-family.mdx
+115,fr,sv,5,phrases-list,swedish-greetings-and-farewells,"Swedish Greetings and Farewells",src/content/articles/fr/sv/swedish-greetings-and-farewells.mdx
+116,fr,sv,6,phrases-list,swedish-date-night-vocabulary,"Swedish Date Night Vocabulary",src/content/articles/fr/sv/swedish-date-night-vocabulary.mdx
+117,fr,sv,7,phrases-list,romantic-swedish-phrases-for-every-occasion,"Romantic Swedish Phrases for Every Occasion",src/content/articles/fr/sv/romantic-swedish-phrases-for-every-occasion.mdx
+118,fr,sv,8,grammar-guide,swedish-pronunciation-guide-for-beginners,"Swedish Pronunciation Guide for Beginners",src/content/articles/fr/sv/swedish-pronunciation-guide-for-beginners.mdx
+119,fr,sv,9,grammar-guide,swedish-grammar-basics-for-beginners,"Swedish Grammar Basics for Beginners",src/content/articles/fr/sv/swedish-grammar-basics-for-beginners.mdx
+120,fr,sv,10,comparison,is-swedish-hard-to-learn,"Is Swedish Hard to Learn?",src/content/articles/fr/sv/is-swedish-hard-to-learn.mdx
+121,fr,no,1,how-to-say,how-to-say-i-love-you-in-norwegian,"How to Say I Love You in Norwegian",src/content/articles/fr/no/how-to-say-i-love-you-in-norwegian.mdx
+122,fr,no,2,phrases-list,norwegian-pet-names-for-your-partner,"Norwegian Pet Names for Your Partner",src/content/articles/fr/no/norwegian-pet-names-for-your-partner.mdx
+123,fr,no,3,phrases-list,essential-norwegian-phrases-for-couples,"Essential Norwegian Phrases for Couples",src/content/articles/fr/no/essential-norwegian-phrases-for-couples.mdx
+124,fr,no,4,practical-guide,meeting-your-partners-norwegian-family,"Meeting Your Partner's Norwegian Family",src/content/articles/fr/no/meeting-your-partners-norwegian-family.mdx
+125,fr,no,5,phrases-list,norwegian-greetings-and-farewells,"Norwegian Greetings and Farewells",src/content/articles/fr/no/norwegian-greetings-and-farewells.mdx
+126,fr,no,6,phrases-list,norwegian-date-night-vocabulary,"Norwegian Date Night Vocabulary",src/content/articles/fr/no/norwegian-date-night-vocabulary.mdx
+127,fr,no,7,phrases-list,romantic-norwegian-phrases-for-every-occasion,"Romantic Norwegian Phrases for Every Occasion",src/content/articles/fr/no/romantic-norwegian-phrases-for-every-occasion.mdx
+128,fr,no,8,grammar-guide,norwegian-pronunciation-guide-for-beginners,"Norwegian Pronunciation Guide for Beginners",src/content/articles/fr/no/norwegian-pronunciation-guide-for-beginners.mdx
+129,fr,no,9,grammar-guide,norwegian-grammar-basics-for-beginners,"Norwegian Grammar Basics for Beginners",src/content/articles/fr/no/norwegian-grammar-basics-for-beginners.mdx
+130,fr,no,10,comparison,is-norwegian-hard-to-learn,"Is Norwegian Hard to Learn?",src/content/articles/fr/no/is-norwegian-hard-to-learn.mdx
+131,fr,da,1,how-to-say,how-to-say-i-love-you-in-danish,"How to Say I Love You in Danish",src/content/articles/fr/da/how-to-say-i-love-you-in-danish.mdx
+132,fr,da,2,phrases-list,danish-pet-names-for-your-partner,"Danish Pet Names for Your Partner",src/content/articles/fr/da/danish-pet-names-for-your-partner.mdx
+133,fr,da,3,phrases-list,essential-danish-phrases-for-couples,"Essential Danish Phrases for Couples",src/content/articles/fr/da/essential-danish-phrases-for-couples.mdx
+134,fr,da,4,practical-guide,meeting-your-partners-danish-family,"Meeting Your Partner's Danish Family",src/content/articles/fr/da/meeting-your-partners-danish-family.mdx
+135,fr,da,5,phrases-list,danish-greetings-and-farewells,"Danish Greetings and Farewells",src/content/articles/fr/da/danish-greetings-and-farewells.mdx
+136,fr,da,6,phrases-list,danish-date-night-vocabulary,"Danish Date Night Vocabulary",src/content/articles/fr/da/danish-date-night-vocabulary.mdx
+137,fr,da,7,phrases-list,romantic-danish-phrases-for-every-occasion,"Romantic Danish Phrases for Every Occasion",src/content/articles/fr/da/romantic-danish-phrases-for-every-occasion.mdx
+138,fr,da,8,grammar-guide,danish-pronunciation-guide-for-beginners,"Danish Pronunciation Guide for Beginners",src/content/articles/fr/da/danish-pronunciation-guide-for-beginners.mdx
+139,fr,da,9,grammar-guide,danish-grammar-basics-for-beginners,"Danish Grammar Basics for Beginners",src/content/articles/fr/da/danish-grammar-basics-for-beginners.mdx
+140,fr,da,10,comparison,is-danish-hard-to-learn,"Is Danish Hard to Learn?",src/content/articles/fr/da/is-danish-hard-to-learn.mdx
+141,fr,cs,1,how-to-say,how-to-say-i-love-you-in-czech,"How to Say I Love You in Czech",src/content/articles/fr/cs/how-to-say-i-love-you-in-czech.mdx
+142,fr,cs,2,phrases-list,czech-pet-names-for-your-partner,"Czech Pet Names for Your Partner",src/content/articles/fr/cs/czech-pet-names-for-your-partner.mdx
+143,fr,cs,3,phrases-list,essential-czech-phrases-for-couples,"Essential Czech Phrases for Couples",src/content/articles/fr/cs/essential-czech-phrases-for-couples.mdx
+144,fr,cs,4,practical-guide,meeting-your-partners-czech-family,"Meeting Your Partner's Czech Family",src/content/articles/fr/cs/meeting-your-partners-czech-family.mdx
+145,fr,cs,5,phrases-list,czech-greetings-and-farewells,"Czech Greetings and Farewells",src/content/articles/fr/cs/czech-greetings-and-farewells.mdx
+146,fr,cs,6,phrases-list,czech-date-night-vocabulary,"Czech Date Night Vocabulary",src/content/articles/fr/cs/czech-date-night-vocabulary.mdx
+147,fr,cs,7,phrases-list,romantic-czech-phrases-for-every-occasion,"Romantic Czech Phrases for Every Occasion",src/content/articles/fr/cs/romantic-czech-phrases-for-every-occasion.mdx
+148,fr,cs,8,grammar-guide,czech-pronunciation-guide-for-beginners,"Czech Pronunciation Guide for Beginners",src/content/articles/fr/cs/czech-pronunciation-guide-for-beginners.mdx
+149,fr,cs,9,grammar-guide,czech-grammar-basics-for-beginners,"Czech Grammar Basics for Beginners",src/content/articles/fr/cs/czech-grammar-basics-for-beginners.mdx
+150,fr,cs,10,comparison,is-czech-hard-to-learn,"Is Czech Hard to Learn?",src/content/articles/fr/cs/is-czech-hard-to-learn.mdx
+151,fr,el,1,how-to-say,how-to-say-i-love-you-in-greek,"How to Say I Love You in Greek",src/content/articles/fr/el/how-to-say-i-love-you-in-greek.mdx
+152,fr,el,2,phrases-list,greek-pet-names-for-your-partner,"Greek Pet Names for Your Partner",src/content/articles/fr/el/greek-pet-names-for-your-partner.mdx
+153,fr,el,3,phrases-list,essential-greek-phrases-for-couples,"Essential Greek Phrases for Couples",src/content/articles/fr/el/essential-greek-phrases-for-couples.mdx
+154,fr,el,4,practical-guide,meeting-your-partners-greek-family,"Meeting Your Partner's Greek Family",src/content/articles/fr/el/meeting-your-partners-greek-family.mdx
+155,fr,el,5,phrases-list,greek-greetings-and-farewells,"Greek Greetings and Farewells",src/content/articles/fr/el/greek-greetings-and-farewells.mdx
+156,fr,el,6,phrases-list,greek-date-night-vocabulary,"Greek Date Night Vocabulary",src/content/articles/fr/el/greek-date-night-vocabulary.mdx
+157,fr,el,7,phrases-list,romantic-greek-phrases-for-every-occasion,"Romantic Greek Phrases for Every Occasion",src/content/articles/fr/el/romantic-greek-phrases-for-every-occasion.mdx
+158,fr,el,8,grammar-guide,greek-pronunciation-guide-for-beginners,"Greek Pronunciation Guide for Beginners",src/content/articles/fr/el/greek-pronunciation-guide-for-beginners.mdx
+159,fr,el,9,grammar-guide,greek-grammar-basics-for-beginners,"Greek Grammar Basics for Beginners",src/content/articles/fr/el/greek-grammar-basics-for-beginners.mdx
+160,fr,el,10,comparison,is-greek-hard-to-learn,"Is Greek Hard to Learn?",src/content/articles/fr/el/is-greek-hard-to-learn.mdx
+161,fr,hu,1,how-to-say,how-to-say-i-love-you-in-hungarian,"How to Say I Love You in Hungarian",src/content/articles/fr/hu/how-to-say-i-love-you-in-hungarian.mdx
+162,fr,hu,2,phrases-list,hungarian-pet-names-for-your-partner,"Hungarian Pet Names for Your Partner",src/content/articles/fr/hu/hungarian-pet-names-for-your-partner.mdx
+163,fr,hu,3,phrases-list,essential-hungarian-phrases-for-couples,"Essential Hungarian Phrases for Couples",src/content/articles/fr/hu/essential-hungarian-phrases-for-couples.mdx
+164,fr,hu,4,practical-guide,meeting-your-partners-hungarian-family,"Meeting Your Partner's Hungarian Family",src/content/articles/fr/hu/meeting-your-partners-hungarian-family.mdx
+165,fr,hu,5,phrases-list,hungarian-greetings-and-farewells,"Hungarian Greetings and Farewells",src/content/articles/fr/hu/hungarian-greetings-and-farewells.mdx
+166,fr,hu,6,phrases-list,hungarian-date-night-vocabulary,"Hungarian Date Night Vocabulary",src/content/articles/fr/hu/hungarian-date-night-vocabulary.mdx
+167,fr,hu,7,phrases-list,romantic-hungarian-phrases-for-every-occasion,"Romantic Hungarian Phrases for Every Occasion",src/content/articles/fr/hu/romantic-hungarian-phrases-for-every-occasion.mdx
+168,fr,hu,8,grammar-guide,hungarian-pronunciation-guide-for-beginners,"Hungarian Pronunciation Guide for Beginners",src/content/articles/fr/hu/hungarian-pronunciation-guide-for-beginners.mdx
+169,fr,hu,9,grammar-guide,hungarian-grammar-basics-for-beginners,"Hungarian Grammar Basics for Beginners",src/content/articles/fr/hu/hungarian-grammar-basics-for-beginners.mdx
+170,fr,hu,10,comparison,is-hungarian-hard-to-learn,"Is Hungarian Hard to Learn?",src/content/articles/fr/hu/is-hungarian-hard-to-learn.mdx
