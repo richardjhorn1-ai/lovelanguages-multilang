@@ -32,6 +32,8 @@ export interface AnswerResult {
   userAnswer?: string;
   questionType: 'flashcard' | 'multiple_choice' | 'type_it';
   isCorrect: boolean;
+  /** Optional explanation for validated answers */
+  explanation?: string;
 }
 
 /**
