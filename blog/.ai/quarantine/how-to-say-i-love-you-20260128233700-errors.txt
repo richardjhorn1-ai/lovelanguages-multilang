@@ -1,0 +1,5 @@
+Topic: How to Say I Love You
+Target: cs
+Native: hu
+Errors:
+- Not enough internal links (1 found, need 2+)

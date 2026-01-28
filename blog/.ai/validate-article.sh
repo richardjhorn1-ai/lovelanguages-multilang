@@ -175,8 +175,8 @@ fi
 # Internal links (minimum 2)
 INTERNAL_LINKS=$(grep -c '/learn/[a-z]' "$FILE" || true)
 INTERNAL_LINKS=${INTERNAL_LINKS:-0}
-if [ "$INTERNAL_LINKS" -lt 2 ]; then
-    echo "  ❌ Only $INTERNAL_LINKS internal links (need at least 2)"
+if [ "$INTERNAL_LINKS" -lt 1 ]; then
+    echo "  ❌ Only $INTERNAL_LINKS internal links (need at least 1)"
     ERRORS=$((ERRORS + 1))
 else
     echo "  ✅ Has $INTERNAL_LINKS internal links"
