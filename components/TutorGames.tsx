@@ -389,10 +389,12 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   if (localGameActive) {
     const totalAnswered = localGameScore.correct + localGameScore.incorrect;
     const isGameOver = (localGameActive === 'quiz' || localGameActive === 'multiple_choice' || localGameActive === 'type_it')
+      && localGameWords.length > 0
       && localGameIndex >= localGameWords.length - 1
       && totalAnswered === localGameWords.length;
     const quickFireTimeUp = localGameActive === 'quickfire' && localQuickFireTimeLeft <= 0;
     const quickFireComplete = localGameActive === 'quickfire'
+      && localGameWords.length > 0
       && localGameIndex >= localGameWords.length - 1
       && totalAnswered === localGameWords.length;
 
