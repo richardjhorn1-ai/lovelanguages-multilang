@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
 import { Profile, Notification } from '../types';
 import { supabase } from '../services/supabase';
-import { getLevelFromXP, getLevelProgress, getTierColor, translateLevel } from '../services/level-utils';
+import { getLevelFromXP, translateLevel } from '../services/level-utils';
 import { useTheme } from '../context/ThemeContext';
 import { HelpGuide } from './HelpGuide';
 import { BugReportModal } from './BugReportModal';
@@ -33,8 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
   // Calculate level info from XP
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
-  const levelProgress = useMemo(() => getLevelProgress(profile.xp || 0), [profile.xp]);
-  const tierColor = useMemo(() => getTierColor(levelInfo.tier), [levelInfo.tier]);
+  // Removed: XP progress bar and tier-colored text now use accent color
 
   useEffect(() => {
     const fetchRequestCount = async () => {
@@ -160,18 +159,6 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   return (
     <>
     <div className="safe-area-top bg-[var(--bg-card)]">
-      {/* XP PROGRESS BAR - shows progress within current level */}
-      <div className="w-full h-1 bg-[var(--bg-primary)] flex">
-        <div
-          className="h-full transition-all duration-1000"
-          style={{
-            width: `${levelProgress}%`,
-            backgroundColor: tierColor,
-            boxShadow: `0 0 8px ${tierColor}50`
-          }}
-        />
-      </div>
-
       <nav className="bg-[var(--bg-card)] border-b border-[var(--border-color)] px-4 md:px-6 py-2 md:py-3 flex items-center justify-between z-50 sticky top-1">
         {/* Left: Logo - fixed width on mobile for centering */}
         <div className="flex items-center gap-1.5 w-10 md:w-auto">
@@ -336,7 +323,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           >
             <div className="hidden sm:flex flex-col items-end">
               <span className="text-scale-caption font-black truncate max-w-[120px] text-[var(--text-primary)]">{profile.full_name}</span>
-              <span className="text-scale-micro uppercase tracking-[0.2em] font-black" style={{ color: tierColor }}>{translateLevel(levelInfo.displayName, t)} {profile.role}</span>
+              <span className="text-scale-micro uppercase tracking-[0.2em] font-black" style={{ color: accentHex }}>{translateLevel(levelInfo.displayName, t)} {profile.role}</span>
             </div>
             <div className="relative">
               <div
