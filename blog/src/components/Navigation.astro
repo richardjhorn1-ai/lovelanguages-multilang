@@ -7,7 +7,7 @@ interface Props {
 const { nativeLang = 'en', targetLang } = Astro.props;
 
 // Supported native languages for content (only languages with article content)
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'uk', 'tr', 'ro'];
+const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'uk', 'tr', 'ro', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
 
 const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   en: { flag: '🇬🇧', nativeName: 'English' },
