@@ -121,23 +121,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Exit confirmation modal
   const [showExitConfirm, setShowExitConfirm] = useState(false);
 
-  // Flashcard state
-  const [isFlipped, setIsFlipped] = useState(false);
+  // Note: Flashcard, Multiple Choice, Type It state now managed by extracted components
 
-  // Multiple choice state
-  const [mcOptions, setMcOptions] = useState<string[]>([]);
-  const [mcSelected, setMcSelected] = useState<string | null>(null);
-  const [mcShowFeedback, setMcShowFeedback] = useState(false);
-
-  // Type It state
-  const [typeItQuestions, setTypeItQuestions] = useState<TypeItQuestion[]>([]);
-  const [typeItAnswer, setTypeItAnswer] = useState('');
-  const [typeItSubmitted, setTypeItSubmitted] = useState(false);
-  const [typeItCorrect, setTypeItCorrect] = useState(false);
-  const [typeItExplanation, setTypeItExplanation] = useState('');
-  const [showHint, setShowHint] = useState(false);
-
-  // AI Challenge state
+  // AI Challenge state (not yet extracted)
   const [selectedChallengeMode, setSelectedChallengeMode] = useState<AIChallengeMode | null>(null);
   const [sessionLength, setSessionLength] = useState<SessionLength | null>(null);
   const [challengeQuestions, setChallengeQuestions] = useState<ChallengeQuestion[]>([]);
@@ -152,27 +138,12 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [challengeTypeExplanation, setChallengeTypeExplanation] = useState('');
   const [loadingPhrases, setLoadingPhrases] = useState(false);
 
-  // Quick Fire state
-  const [quickFireWords, setQuickFireWords] = useState<DictionaryEntry[]>([]);
-  const [quickFireIndex, setQuickFireIndex] = useState(0);
-  const [quickFireInput, setQuickFireInput] = useState('');
-  const [quickFireTimeLeft, setQuickFireTimeLeft] = useState(60);
-  const [quickFireStarted, setQuickFireStarted] = useState(false);
-  const [quickFireShowFeedback, setQuickFireShowFeedback] = useState<'correct' | 'wrong' | null>(null);
+  // Quick Fire state (most managed by extracted component)
+  const [quickFireStarted, setQuickFireStarted] = useState(false); // Used for exit confirmation
   const [showIncorrectShake, setShowIncorrectShake] = useState(false);
-  const quickFireTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const quickFireAnswersRef = useRef<GameSessionAnswer[]>([]);
-  const quickFireScoreRef = useRef({ correct: 0, incorrect: 0 });
 
-  // Verb Mastery state
-  const [verbMasteryTense, setVerbMasteryTense] = useState<VerbTense>('present');
-  const [verbMasteryQuestions, setVerbMasteryQuestions] = useState<VerbMasteryQuestion[]>([]);
-  const [verbMasteryIndex, setVerbMasteryIndex] = useState(0);
-  const [verbMasteryInput, setVerbMasteryInput] = useState('');
-  const [verbMasterySubmitted, setVerbMasterySubmitted] = useState(false);
-  const [verbMasteryCorrect, setVerbMasteryCorrect] = useState(false);
-  const [verbMasteryStarted, setVerbMasteryStarted] = useState(false);
-  const [verbMasteryExplanation, setVerbMasteryExplanation] = useState<string | null>(null);
+  // Verb Mastery state (most managed by extracted component)
+  const [verbMasteryStarted, setVerbMasteryStarted] = useState(false); // Used for exit confirmation
 
   // Rate limit / free tier state
   const [showLimitModal, setShowLimitModal] = useState(false);
@@ -762,18 +733,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       setCurrentIndex(0);
       setFinished(false);
       setSessionScore({ correct: 0, incorrect: 0 });
-      setSessionAnswers([]); // Reset answers for new session
+      setSessionAnswers([]);
       setDeck(shuffleArray([...deck]));
-
-      // Start Quick Fire immediately if selected
-      if (gameType === 'quick_fire') {
-        const shuffled = shuffleArray(deck).slice(0, 20);
-        setQuickFireWords(shuffled);
-        setQuickFireIndex(0);
-        setQuickFireInput('');
-        setQuickFireTimeLeft(60);
-        setQuickFireStarted(false); // Will start when user clicks Start
-      }
+      // Note: QuickFire and VerbMastery components manage their own internal state
     }
   };
 
@@ -803,15 +765,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     resetVerbMastery();
   };
 
-  // Quick Fire functions
+  // Quick Fire reset (component manages its own internal state)
   const resetQuickFire = () => {
-    if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
-    setQuickFireWords([]);
-    setQuickFireIndex(0);
-    setQuickFireInput('');
-    setQuickFireTimeLeft(60);
     setQuickFireStarted(false);
-    setQuickFireShowFeedback(null);
   };
 
   // Helper to get context data from entry columns (new schema)
@@ -837,19 +793,15 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }));
   }, [deck]);
 
+  // Verb Mastery reset (component manages its own internal state)
   const resetVerbMastery = () => {
-    setVerbMasteryQuestions([]);
-    setVerbMasteryIndex(0);
-    setVerbMasteryInput('');
-    setVerbMasterySubmitted(false);
-    setVerbMasteryCorrect(false);
     setVerbMasteryStarted(false);
   };
 
-  // Cleanup Quick Fire timer on unmount
+  // Note: QuickFire timer cleanup now managed by extracted component
   useEffect(() => {
     return () => {
-      if (quickFireTimerRef.current) clearInterval(quickFireTimerRef.current);
+      // Component handles its own cleanup
     };
   }, []);
 
@@ -1101,8 +1053,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     if (localGameType === 'ai_challenge' && challengeStarted && challengeQuestions.length > 0) {
       return { index: challengeIndex, length: challengeQuestions.length };
     }
-    if (localGameType === 'verb_mastery' && verbMasteryStarted && verbMasteryQuestions.length > 0) {
-      return { index: verbMasteryIndex, length: verbMasteryQuestions.length };
+    // verb_mastery now uses extracted component with internal state
+    if (localGameType === 'verb_mastery') {
+      return { index: sessionAnswers.length, length: 20 }; // Max 20 questions
     }
     // quick_fire now uses extracted component with internal state
     // Progress tracked via sessionScore/sessionAnswers when game is active
