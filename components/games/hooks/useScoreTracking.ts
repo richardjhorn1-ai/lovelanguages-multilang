@@ -125,11 +125,10 @@ export function useScoreTracking({
       // Use ref for lookup to avoid stale closure issues
       const existingScore = scoresMapRef.current.get(wordId);
 
-      // Calculate new values
-      const newSuccessCount =
-        (existingScore?.success_count || 0) + (isCorrect ? 1 : 0);
-      const newFailCount =
-        (existingScore?.fail_count || 0) + (isCorrect ? 0 : 1);
+      // Calculate new values - using correct DB column names
+      const newTotalAttempts = (existingScore?.total_attempts || 0) + 1;
+      const newCorrectAttempts =
+        (existingScore?.correct_attempts || 0) + (isCorrect ? 1 : 0);
 
       // Streak logic: increment if correct, reset to 0 if incorrect
       const currentStreak = existingScore?.correct_streak || 0;
@@ -148,11 +147,10 @@ export function useScoreTracking({
         user_id: profile.id,
         word_id: wordId,
         language_code: targetLanguage,
-        success_count: newSuccessCount,
-        fail_count: newFailCount,
+        total_attempts: newTotalAttempts,
+        correct_attempts: newCorrectAttempts,
         correct_streak: newStreak,
         learned_at: learnedAt,
-        last_practiced: new Date().toISOString(),
       };
 
       // Update in database
@@ -221,7 +219,8 @@ export function useScoreTracking({
     () =>
       unlearnedWords.filter((w) => {
         const score = scoresMap.get(w.id);
-        return score && (score.fail_count > 0 || (score.correct_streak || 0) < 3);
+        const incorrectAttempts = score ? (score.total_attempts || 0) - (score.correct_attempts || 0) : 0;
+        return score && (incorrectAttempts > 0 || (score.correct_streak || 0) < 3);
       }),
     [unlearnedWords, scoresMap]
   );

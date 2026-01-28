@@ -294,11 +294,12 @@ export interface WordScore {
   id?: string;
   user_id: string;
   word_id: string;
-  success_count: number;
-  fail_count: number;
+  total_attempts: number;        // Total times word was practiced
+  correct_attempts: number;      // Number of correct answers
   correct_streak: number;        // Current consecutive correct answers
   learned_at: string | null;     // Timestamp when word reached 5-streak, null if not learned
-  last_practiced: string;
+  last_practiced?: string;       // Note: not in DB schema, computed or added later
+  language_code?: string;
   // Joined dictionary data (optional)
   dictionary?: {
     word: string;

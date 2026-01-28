@@ -219,10 +219,11 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   };
 
   const startLocalQuiz = () => {
-    // Pick 10 random words, prioritizing weak ones
+    // Pick 10 random words, prioritizing weak ones (incorrect attempts or low streak)
     const weakWords = partnerVocab.filter(w => {
       const score = partnerScores.get(w.id);
-      return score && (score.fail_count > 0 || (score.correct_streak || 0) < 3);
+      const incorrectAttempts = score ? (score.total_attempts || 0) - (score.correct_attempts || 0) : 0;
+      return score && (incorrectAttempts > 0 || (score.correct_streak || 0) < 3);
     });
     const otherWords = partnerVocab.filter(w => !weakWords.includes(w));
     const selectedWords = [...shuffleArray(weakWords).slice(0, 5), ...shuffleArray(otherWords).slice(0, 5)];

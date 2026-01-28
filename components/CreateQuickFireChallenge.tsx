@@ -60,9 +60,11 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
       const scoreA = partnerScores.get(a.id);
       const scoreB = partnerScores.get(b.id);
 
-      // Priority: weak words first (high fail count, low streak)
-      const priorityA = (scoreA?.fail_count || 0) * 2 - (scoreA?.correct_streak || 0);
-      const priorityB = (scoreB?.fail_count || 0) * 2 - (scoreB?.correct_streak || 0);
+      // Priority: weak words first (high incorrect count, low streak)
+      const incorrectA = (scoreA?.total_attempts || 0) - (scoreA?.correct_attempts || 0);
+      const incorrectB = (scoreB?.total_attempts || 0) - (scoreB?.correct_attempts || 0);
+      const priorityA = incorrectA * 2 - (scoreA?.correct_streak || 0);
+      const priorityB = incorrectB * 2 - (scoreB?.correct_streak || 0);
 
       return priorityB - priorityA; // Higher priority first
     });
@@ -424,7 +426,8 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
               <div className="grid grid-cols-2 gap-2 max-h-48 overflow-y-auto">
                 {filteredVocab.slice(0, 40).map(word => {
                   const score = partnerScores.get(word.id);
-                  const isWeak = score && (score.fail_count > 0 || (score.correct_streak || 0) < 3);
+                  const incorrectAttempts = score ? (score.total_attempts || 0) - (score.correct_attempts || 0) : 0;
+                  const isWeak = score && (incorrectAttempts > 0 || (score.correct_streak || 0) < 3);
                   return (
                     <button
                       key={word.id}

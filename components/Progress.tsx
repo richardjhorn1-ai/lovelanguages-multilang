@@ -187,7 +187,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   const encouragementPrompts = useMemo(() => {
     const prompts: Array<{ icon: string; message: string; color: string }> = [];
     const masteredCount = masteredWords.length;
-    const weakCount = scores.filter(s => s.fail_count > 0).length;
+    const weakCount = scores.filter(s => (s.total_attempts || 0) > (s.correct_attempts || 0)).length;
 
     if (masteredCount >= 10) {
       prompts.push({ icon: '🏆', message: t('progress.encouragement.wordsMastered', { count: masteredCount }), color: 'text-amber-600' });
@@ -455,7 +455,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             </div>
             <div className="bg-[var(--bg-card)] p-2.5 md:p-4 rounded-xl md:rounded-2xl border border-[var(--border-color)] text-center">
               <div className="text-scale-heading font-black text-[var(--text-primary)]">
-                {scores.filter(s => s.fail_count > 0).length}
+                {scores.filter(s => (s.total_attempts || 0) > (s.correct_attempts || 0)).length}
               </div>
               <div className="text-scale-micro uppercase font-bold text-[var(--text-secondary)] tracking-wider">{t('progress.stats.review')}</div>
             </div>
@@ -521,17 +521,17 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               {t('progress.tutor.wordsToPractice')}
             </h3>
             <div className="space-y-1.5 md:space-y-2">
-              {scores.filter(s => s.fail_count > 0).length === 0 ? (
+              {scores.filter(s => (s.total_attempts || 0) > (s.correct_attempts || 0)).length === 0 ? (
                 <p className="text-[var(--text-secondary)] text-center py-4 md:py-6 italic text-scale-label">{t('progress.tutor.noWeakSpots')}</p>
               ) : (
-                scores.filter(s => s.fail_count > 0).sort((a,b) => b.fail_count - a.fail_count).slice(0, 5).map(s => (
+                scores.filter(s => (s.total_attempts || 0) > (s.correct_attempts || 0)).sort((a,b) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0))).slice(0, 5).map(s => (
                   <div key={s.id} className="flex items-center justify-between p-2 md:p-3 bg-[var(--bg-primary)] rounded-lg md:rounded-xl border border-[var(--border-color)]">
                     <div>
                       <p className="font-bold text-scale-label text-[var(--text-primary)]">{s.dictionary?.word}</p>
                       <p className="text-scale-micro md:text-scale-caption text-[var(--text-secondary)] italic">{s.dictionary?.translation}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-red-500 font-bold text-scale-label">{t('progress.tutor.misses', { count: s.fail_count })}</div>
+                      <div className="text-red-500 font-bold text-scale-label">{t('progress.tutor.misses', { count: (s.total_attempts || 0) - (s.correct_attempts || 0) })}</div>
                       <button
                         onClick={() => navigate('/play')}
                         className="text-scale-micro uppercase font-bold text-[var(--accent-color)] hover:text-[var(--accent-color)] transition-colors"

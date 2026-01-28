@@ -125,18 +125,18 @@ async function getPartnerContext(userId: string, targetLanguage: string): Promis
   // Get learner's scores for weak spots (filter by language via dictionary join)
   const { data: scores } = await supabase
     .from('word_scores')
-    .select('word_id, success_count, fail_count, learned_at, dictionary:word_id(word, translation, language_code)')
+    .select('word_id, total_attempts, correct_attempts, learned_at, dictionary:word_id(word, translation, language_code)')
     .eq('user_id', learnerId);
 
-  // Calculate weak spots (words with failures, filtered by language)
+  // Calculate weak spots (words with incorrect attempts, filtered by language)
   const weakSpots = (scores || [])
-    .filter((s: any) => s.fail_count > 0 && s.dictionary?.language_code === targetLanguage)
-    .sort((a: any, b: any) => b.fail_count - a.fail_count)
+    .filter((s: any) => (s.total_attempts || 0) > (s.correct_attempts || 0) && s.dictionary?.language_code === targetLanguage)
+    .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
     .slice(0, 10)
     .map((s: any) => ({
       word: s.dictionary?.word || 'unknown',
       translation: s.dictionary?.translation || '',
-      failCount: s.fail_count
+      failCount: (s.total_attempts || 0) - (s.correct_attempts || 0)
     }));
 
   // Calculate mastered count
@@ -222,22 +222,22 @@ async function getLearningJourneyContext(
     .limit(1)
     .single();
 
-  // Fetch struggled words (high fail count)
+  // Fetch struggled words (words with incorrect attempts)
   const { data: scores } = await supabase
     .from('word_scores')
-    .select('fail_count, dictionary:word_id(word, translation, language_code)')
+    .select('total_attempts, correct_attempts, dictionary:word_id(word, translation, language_code)')
     .eq('user_id', userId)
-    .gt('fail_count', 0)
-    .order('fail_count', { ascending: false })
-    .limit(10);
+    .gt('total_attempts', 0)
+    .limit(50);
 
   const struggledWords = (scores || [])
-    .filter((s: any) => s.dictionary?.language_code === targetLanguage)
+    .filter((s: any) => s.dictionary?.language_code === targetLanguage && (s.total_attempts || 0) > (s.correct_attempts || 0))
+    .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
     .slice(0, 5)
     .map((s: any) => ({
       word: s.dictionary?.word || '',
       translation: s.dictionary?.translation || '',
-      failCount: s.fail_count
+      failCount: (s.total_attempts || 0) - (s.correct_attempts || 0)
     }));
 
   if (!summary && struggledWords.length === 0) return null;

@@ -148,7 +148,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const encouragementPrompts = useMemo(() => {
     const prompts: Array<{ icon: string; message: string; color: string }> = [];
     const masteredCount = masteredWords.length;
-    const weakCount = scores.filter(s => s.fail_count > 0).length;
+    const weakCount = scores.filter(s => (s.total_attempts || 0) > (s.correct_attempts || 0)).length;
 
     if (masteredCount >= 10) {
       prompts.push({ icon: '🏆', message: `${masteredCount} words mastered! Time for a celebration date!`, color: 'text-amber-600' });
@@ -300,9 +300,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const updateWordScore = async (wordId: string, isCorrect: boolean) => {
     const existingScore = scoresMap.get(wordId);
 
-    // Calculate new values
-    const newSuccessCount = (existingScore?.success_count || 0) + (isCorrect ? 1 : 0);
-    const newFailCount = (existingScore?.fail_count || 0) + (isCorrect ? 0 : 1);
+    // Calculate new values - using correct DB column names
+    const newTotalAttempts = (existingScore?.total_attempts || 0) + 1;
+    const newCorrectAttempts = (existingScore?.correct_attempts || 0) + (isCorrect ? 1 : 0);
 
     // Streak logic: increment if correct, reset to 0 if incorrect
     const currentStreak = existingScore?.correct_streak || 0;
@@ -318,11 +318,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     const scoreUpdate = {
       user_id: profile.id,
       word_id: wordId,
-      success_count: newSuccessCount,
-      fail_count: newFailCount,
+      total_attempts: newTotalAttempts,
+      correct_attempts: newCorrectAttempts,
       correct_streak: newStreak,
-      learned_at: learnedAt,
-      last_practiced: new Date().toISOString()
+      learned_at: learnedAt
     };
 
     // Update in database
