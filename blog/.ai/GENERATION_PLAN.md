@@ -287,5 +287,20 @@ Add image paths to all articles
 
 ---
 
+# Phase Status
+
+## ✅ Phase 1: COMPLETE (2026-01-28)
+- Commit: `01523d7`
+- Branch: `phase1-scaffolding-18-languages`
+- Reviewed by: Bruno (Backend), Sofia (SEO/Content)
+
+**Completed:**
+- [x] 1.1 Compare pages (routing + UI translations)
+- [x] 1.2 Hub pages (routing + UI translations)
+- [x] 1.3 Article directories (6 new natives × 17 targets)
+- [x] 1.4 Couples section (already worked)
+
+---
+
 # Next Action
-**Claude (me):** Start Phase 1.1 — Update compare pages to support all 18 languages
+**Claude (me):** Begin Phase 2.0 — Prepare for base content generation
