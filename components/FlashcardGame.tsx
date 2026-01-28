@@ -30,21 +30,11 @@ interface FlashcardGameProps { profile: Profile; }
 type PracticeMode = 'love_notes' | 'flashcards' | 'multiple_choice' | 'type_it' | 'ai_challenge' | 'quick_fire';
 type MainTab = 'local_games' | 'love_notes';
 type LocalGameType = 'flashcards' | 'multiple_choice' | 'type_it' | 'quick_fire' | 'ai_challenge' | 'verb_mastery' | null;
-type TypeItDirection = 'target_to_native' | 'native_to_target';
 type VerbTense = 'present' | 'past' | 'future';
-type VerbPerson = 'ja' | 'ty' | 'onOna' | 'my' | 'wy' | 'oni';
-
-interface VerbMasteryQuestion {
-  verb: DictionaryEntry;
-  tense: VerbTense;
-  person: VerbPerson;
-  correctAnswer: string;
-  infinitive: string;
-  translation: string;
-}
 
 // TODO: ML-12 - Refactor Verb Mastery to be language-aware using getConjugationPersons()
 // Currently Polish-specific; labels should come from LANGUAGE_CONFIGS[targetLanguage].grammar.conjugationPersons
+type VerbPerson = 'ja' | 'ty' | 'onOna' | 'my' | 'wy' | 'oni';
 const VERB_PERSONS: { key: VerbPerson; label: string; nativeLabel: string }[] = [
   { key: 'ja', label: 'ja', nativeLabel: 'I' },
   { key: 'ty', label: 'ty', nativeLabel: 'you (singular)' },
@@ -53,11 +43,6 @@ const VERB_PERSONS: { key: VerbPerson; label: string; nativeLabel: string }[] = 
   { key: 'wy', label: 'wy', nativeLabel: 'you (plural)' },
   { key: 'oni', label: 'oni', nativeLabel: 'they' }
 ];
-
-interface TypeItQuestion {
-  word: DictionaryEntry;
-  direction: TypeItDirection;
-}
 
 interface GameSessionAnswer {
   wordId?: string;
