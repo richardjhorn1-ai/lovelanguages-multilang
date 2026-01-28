@@ -6,3 +6,4 @@ export { TutorFlashcards } from './TutorFlashcards';
 export { TutorMultipleChoice } from './TutorMultipleChoice';
 export { TutorTypeIt } from './TutorTypeIt';
 export { TutorQuickFire } from './TutorQuickFire';
+export { TutorGameResults } from './TutorGameResults';
