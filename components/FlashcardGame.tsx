@@ -19,6 +19,7 @@ import ErrorBoundary from './ErrorBoundary';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
 import { StreakIndicator, StreakCelebrationModal } from './games/components';
+import { Flashcards, MultipleChoice } from './games/modes';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
@@ -1153,102 +1154,50 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     };
   }, [localGameType, finished, challengeStarted, quickFireStarted, verbMasteryStarted, currentIndex, sessionScore]);
 
-  const handleFlashcardResponse = async (isCorrect: boolean) => {
-    const word = deck[currentIndex];
-
+  // Generic callbacks for extracted game mode components
+  const handleGameAnswer = async (result: { wordId?: string; wordText: string; correctAnswer: string; userAnswer?: string; questionType: 'flashcard' | 'multiple_choice' | 'type_it'; isCorrect: boolean }) => {
     // Play feedback
     sounds.play('correct');
-    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+    haptics.trigger(result.isCorrect ? 'correct' : 'incorrect');
 
-    // Record answer
-    const answer: GameSessionAnswer = {
-      wordId: word.id,
-      wordText: word.word,
-      correctAnswer: word.translation,
-      questionType: 'flashcard',
-      isCorrect
-    };
-    const newAnswers = [...sessionAnswers, answer];
-    setSessionAnswers(newAnswers);
-
-    const newScore = {
-      correct: sessionScore.correct + (isCorrect ? 1 : 0),
-      incorrect: sessionScore.incorrect + (isCorrect ? 0 : 1)
-    };
-    setSessionScore(newScore);
-
-    // Update score with proper streak tracking
-    await updateWordScore(word.id, isCorrect);
-
-    if (currentIndex < deck.length - 1) {
-      setIsFlipped(false);
-      setTimeout(() => setCurrentIndex(c => c + 1), 300);
-    } else {
-      // Play perfect sound if all correct
-      if (newScore.incorrect === 0) {
-        sounds.play('perfect');
-        haptics.trigger('perfect');
-      }
-      setFinished(true);
-      // Save game session
-      saveGameSession('flashcards', newAnswers, newScore.correct, newScore.incorrect);
-    }
-  };
-
-  const handleMcSelect = async (option: string) => {
-    if (mcShowFeedback) return;
-
-    setMcSelected(option);
-    setMcShowFeedback(true);
-
-    const currentWord = deck[currentIndex];
-    const isCorrect = option === currentWord.translation;
-
-    // Play feedback
-    sounds.play('correct');
-    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
-
-    // Visual feedback for incorrect
-    if (!isCorrect) {
+    // Visual shake for incorrect
+    if (!result.isCorrect) {
       triggerIncorrectFeedback();
     }
 
     // Record answer
     const answer: GameSessionAnswer = {
-      wordId: currentWord.id,
-      wordText: currentWord.word,
-      correctAnswer: currentWord.translation,
-      userAnswer: option,
-      questionType: 'multiple_choice',
-      isCorrect
+      wordId: result.wordId,
+      wordText: result.wordText,
+      correctAnswer: result.correctAnswer,
+      userAnswer: result.userAnswer,
+      questionType: result.questionType,
+      isCorrect: result.isCorrect
     };
-    const newAnswers = [...sessionAnswers, answer];
-    setSessionAnswers(newAnswers);
+    setSessionAnswers(prev => [...prev, answer]);
+    setSessionScore(prev => ({
+      correct: prev.correct + (result.isCorrect ? 1 : 0),
+      incorrect: prev.incorrect + (result.isCorrect ? 0 : 1)
+    }));
 
-    const newScore = {
-      correct: sessionScore.correct + (isCorrect ? 1 : 0),
-      incorrect: sessionScore.incorrect + (isCorrect ? 0 : 1)
-    };
-    setSessionScore(newScore);
+    // Update word score with streak tracking
+    if (result.wordId) {
+      await updateWordScore(result.wordId, result.isCorrect);
+    }
+  };
 
-    // Update score with proper streak tracking
-    await updateWordScore(currentWord.id, isCorrect);
+  const handleGameNext = () => {
+    setCurrentIndex(c => c + 1);
+  };
 
-    // Auto-advance after delay
-    setTimeout(() => {
-      if (currentIndex < deck.length - 1) {
-        setCurrentIndex(c => c + 1);
-      } else {
-        // Play perfect sound if all correct
-        if (newScore.incorrect === 0) {
-          sounds.play('perfect');
-          haptics.trigger('perfect');
-        }
-        setFinished(true);
-        // Save game session
-        saveGameSession('multiple_choice', newAnswers, newScore.correct, newScore.incorrect);
-      }
-    }, isCorrect ? 800 : 1500);
+  const createGameCompleteHandler = (gameType: 'flashcards' | 'multiple_choice' | 'type_it' | 'quick_fire' | 'verb_mastery') => () => {
+    // Play perfect sound if all correct
+    if (sessionScore.incorrect === 0) {
+      sounds.play('perfect');
+      haptics.trigger('perfect');
+    }
+    setFinished(true);
+    saveGameSession(gameType, sessionAnswers, sessionScore.correct, sessionScore.incorrect);
   };
 
   const handleTypeItSubmit = async () => {
@@ -1659,113 +1608,37 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             </div>
           )}
 
-          {/* Flashcards Mode */}
-          {localGameType === 'flashcards' && (
-            <div
-              onClick={() => setIsFlipped(!isFlipped)}
-              className="relative w-full aspect-[4/5] cursor-pointer perspective-1000 group"
-            >
-              <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-                {/* Front */}
-                <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
-                  <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">{t('play.flashcard.word', { language: targetName.toUpperCase() })}</span>
-                  <h3 className="text-4xl font-black text-[var(--text-primary)]">{deck[currentIndex].word}</h3>
-                  {currentWordStreak > 0 && (
-                    <div className="mt-4">
-                      <StreakIndicator streak={currentWordStreak} />
-                    </div>
-                  )}
-                  <p className="mt-8 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">{t('play.flashcard.tapToReveal')}</p>
-                </div>
-
-                {/* Back */}
-                <div
-                  className="absolute inset-0 text-white rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
-                  style={{ backgroundColor: tierColor }}
-                >
-                  <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">{t('play.flashcard.translation')}</span>
-                  <h3 className="text-4xl font-black">{deck[currentIndex].translation}</h3>
-                  <div className="mt-12 grid grid-cols-2 gap-3 w-full">
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(false); }}
-                      className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-scale-caption font-black uppercase tracking-widest transition-colors"
-                    >
-                      <ICONS.X className="w-4 h-4" /> {t('play.flashcard.hard')}
-                    </button>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(true); }}
-                      className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption shadow-lg transition-all active:scale-95"
-                      style={{ color: tierColor }}
-                    >
-                      <ICONS.Check className="w-4 h-4" /> {t('play.flashcard.gotIt')}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Flashcards Mode - Using extracted component */}
+          {localGameType === 'flashcards' && deck[currentIndex] && (
+            <Flashcards
+              words={deck}
+              scoresMap={scoresMap}
+              currentIndex={currentIndex}
+              accentColor={tierColor}
+              targetLanguageName={targetName}
+              nativeLanguageName={nativeName}
+              currentWordStreak={currentWordStreak}
+              onAnswer={handleGameAnswer}
+              onNext={handleGameNext}
+              onComplete={createGameCompleteHandler('flashcards')}
+            />
           )}
 
-          {/* Multiple Choice Mode */}
-          {localGameType === 'multiple_choice' && (
-            <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showIncorrectShake ? 'animate-shake' : ''}`}>
-              <span
-                className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
-                style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
-              >
-                {t('play.directions.targetToNative', { target: targetName, native: nativeName })}
-              </span>
-
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-black text-[var(--text-primary)]">
-                  {deck[currentIndex].word}
-                </h3>
-                {currentWordStreak > 0 && (
-                  <div className="mt-2">
-                    <StreakIndicator streak={currentWordStreak} />
-                  </div>
-                )}
-              </div>
-
-              <div className="space-y-3">
-                {mcOptions.map((option, idx) => {
-                  const isCorrect = option === deck[currentIndex].translation;
-                  const isSelected = mcSelected === option;
-
-                  let buttonStyle = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
-                  if (mcShowFeedback) {
-                    if (isCorrect) {
-                      buttonStyle = 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400';
-                    } else if (isSelected && !isCorrect) {
-                      buttonStyle = 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400';
-                    } else {
-                      buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)]';
-                    }
-                  } else if (isSelected) {
-                    buttonStyle = 'border-[var(--text-secondary)] bg-[var(--bg-primary)] text-[var(--text-primary)]';
-                  }
-
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => handleMcSelect(option)}
-                      disabled={mcShowFeedback}
-                      className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${buttonStyle}`}
-                    >
-                      <span className="text-scale-caption font-bold text-[var(--text-secondary)] mr-3">
-                        {String.fromCharCode(65 + idx)}
-                      </span>
-                      {option}
-                      {mcShowFeedback && isCorrect && (
-                        <ICONS.Check className="w-5 h-5 float-right text-green-500" />
-                      )}
-                      {mcShowFeedback && isSelected && !isCorrect && (
-                        <ICONS.X className="w-5 h-5 float-right text-red-500" />
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+          {/* Multiple Choice Mode - Using extracted component */}
+          {localGameType === 'multiple_choice' && deck[currentIndex] && (
+            <MultipleChoice
+              words={deck}
+              scoresMap={scoresMap}
+              currentIndex={currentIndex}
+              accentColor={tierColor}
+              targetLanguageName={targetName}
+              nativeLanguageName={nativeName}
+              currentWordStreak={currentWordStreak}
+              showIncorrectShake={showIncorrectShake}
+              onAnswer={handleGameAnswer}
+              onNext={handleGameNext}
+              onComplete={createGameCompleteHandler('multiple_choice')}
+            />
           )}
 
           {/* Type It Mode */}
