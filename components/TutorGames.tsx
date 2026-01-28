@@ -327,6 +327,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const handleTypeItNext = useCallback(() => {
     if (localGameIndex < localGameWords.length - 1) {
       setLocalGameIndex(prev => prev + 1);
+    } else {
+      // Last question - force re-render to trigger game over detection
+      // by touching a state variable (score is already correct, this just re-renders)
+      setLocalGameScore(prev => ({ ...prev }));
     }
   }, [localGameIndex, localGameWords.length]);
 
