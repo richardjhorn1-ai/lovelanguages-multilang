@@ -6,7 +6,7 @@
 ---
 title: "[Question/Comparison]: [Honest Answer for Couples]"
 description: "[Answer the question directly]. Realistic expectations for couples learning [Language] together. Timeline, challenges, and tips."
-category: learning
+category: vocabulary
 difficulty: beginner
 readTime: [8-12]
 date: '[YYYY-MM-DD]'

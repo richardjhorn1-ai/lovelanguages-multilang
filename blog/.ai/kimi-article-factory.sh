@@ -114,6 +114,13 @@ generate_article() {
         example_article=$(head -200 "$example_file")
     fi
 
+    # Get available articles for internal linking
+    local available_articles=""
+    local article_dir="$ARTICLES_DIR/$native_lang/$target_lang"
+    if [ -d "$article_dir" ]; then
+        available_articles=$(ls "$article_dir"/*.mdx 2>/dev/null | xargs -I{} basename {} .mdx | head -20 | sed "s|^|/learn/$native_lang/$target_lang/|" | sed 's|$|/|')
+    fi
+
     local today=$(date '+%Y-%m-%d')
 
     local prompt="You are an expert content writer for Love Languages, a language learning app for international couples.
@@ -137,14 +144,28 @@ TARGET LANGUAGE: $target_name ($target_lang) — this is the language being taug
 NATIVE LANGUAGE: $native_name ($native_lang) — write the article IN this language (the reader speaks this)
 DATE: $today
 
+EXISTING ARTICLES YOU CAN LINK TO (pick 2-3 relevant ones):
+$available_articles
+
 CRITICAL REQUIREMENTS:
 1. Write the article body in $native_name (NOT English, unless native_lang is 'en')
 2. Follow the structure template EXACTLY
 3. Include ALL required MDX components (VocabCard, CultureTip, PhraseOfDay, CTA)
 4. Every $target_name phrase MUST have a pronunciation guide
 5. Make it romantic and couple-focused throughout
-6. Include at least 2-3 internal links to related articles (use format: /learn/[native]/[target]/[slug]/)
+6. Include at least 2-3 internal links from the list above (weave them naturally into the text)
 7. Frontmatter must include: title, description, category, difficulty, readTime, date, image, tags, nativeLanguage, language
+
+COMPONENT PROPS (CRITICAL - use exactly these prop names):
+- VocabCard: word="TARGET_WORD" translation="TRANSLATION" pronunciation="PHONETIC" example="EXAMPLE_SENTENCE"
+- PhraseOfDay: word="TARGET_PHRASE" translation="TRANSLATION" pronunciation="PHONETIC" context="USAGE_CONTEXT"
+- CultureTip: flag="FLAG_EMOJI" title="SHORT_TITLE" then content between opening and closing tags
+- CTA: just <CTA /> with no props
+
+FLAG EMOJIS BY LANGUAGE:
+en=🇬🇧, es=🇪🇸, fr=🇫🇷, de=🇩🇪, it=🇮🇹, pt=🇵🇹, pl=🇵🇱, nl=🇳🇱, ru=🇷🇺, uk=🇺🇦, tr=🇹🇷, ro=🇷🇴, cs=🇨🇿, el=🇬🇷, hu=🇭🇺, sv=🇸🇪, no=🇳🇴, da=🇩🇰
+
+DO NOT use language-specific prop names like swedish=, polish=, spanish=, french=, etc. ALWAYS use word= and translation=.
 
 OUTPUT FORMAT:
 - Start with --- (frontmatter)
@@ -191,6 +212,22 @@ validate_article() {
     local word_count=$(echo "$content" | wc -w)
     if [ "$word_count" -lt 500 ]; then
         errors="$errors\n- Article too short ($word_count words, need 500+)"
+    fi
+
+    # Check internal links (minimum 2)
+    local link_count=$(echo "$content" | grep -c '/learn/[a-z]' || true)
+    if [ "$link_count" -lt 2 ]; then
+        errors="$errors\n- Not enough internal links ($link_count found, need 2+)"
+    fi
+
+    # Check for forbidden props (language-specific)
+    if echo "$content" | grep -q 'polish=\|swedish=\|spanish=\|french='; then
+        errors="$errors\n- Found language-specific props (use word=/translation= instead)"
+    fi
+
+    # Check for <3 (breaks MDX)
+    if echo "$content" | grep -q '<3'; then
+        errors="$errors\n- Found '<3' which breaks MDX (use ❤️ emoji instead)"
     fi
 
     if [ -n "$errors" ]; then

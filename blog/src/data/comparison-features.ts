@@ -2078,10 +2078,14 @@ const CONTENT_MAP: Record<string, ComparisonContent> = {
   ru: RU_CONTENT,
   uk: UK_CONTENT,
   tr: TR_CONTENT,
-  ro: RO_CONTENT
+  ro: RO_CONTENT,
+  sv: SV_CONTENT,
+  no: NO_CONTENT,
+  da: DA_CONTENT,
+  cs: CS_CONTENT,
+  el: EL_CONTENT,
+  hu: HU_CONTENT
 };
-
-// Unused translations kept for future expansion: SV_CONTENT, NO_CONTENT, DA_CONTENT, CS_CONTENT, EL_CONTENT, HU_CONTENT
 
 // Get content for a specific language
 export function getComparisonContent(lang: string = 'en'): ComparisonContent {
