@@ -2,6 +2,14 @@
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { getArticle, getArticlesByLangPair, getAllSlugs } from '../../lib/blog-api';
 
+// Static generation - fetch all paths at build time
+export async function getStaticPaths() {
+  const allSlugs = await getAllSlugs();
+  return allSlugs.map(({ native_lang, target_lang, slug }) => ({
+    params: { slug: `${native_lang}/${target_lang}/${slug}` }
+  }));
+}
+
 // Language config for flags and names
 const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
   en: { flag: '🇬🇧', name: 'English', nativeName: 'English' },
