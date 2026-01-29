@@ -29,7 +29,7 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
 
 // Generate static paths for all language pair combinations
 export async function getStaticPaths() {
-  const langs = Object.keys(LANGUAGE_INFO);
+  const langs = ['en', 'es', 'fr', 'it', 'pt', 'ro', 'de', 'nl', 'sv', 'no', 'da', 'pl', 'cs', 'ru', 'uk', 'el', 'hu', 'tr'];
   const paths = [];
   for (const native of langs) {
     for (const target of langs) {
