@@ -434,7 +434,8 @@ const Hero: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 200));
 
     setNativeLanguage(code);
-    i18n.changeLanguage(code);
+    // Await language change to ensure translations load before UI updates
+    await i18n.changeLanguage(code);
     // Only set localStorage if user is NOT logged in (prevents overwriting profile settings)
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
