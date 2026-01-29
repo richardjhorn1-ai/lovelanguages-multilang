@@ -401,15 +401,18 @@ Local games write to `success_count`/`fail_count` columns, but partner challenge
 
 ---
 
-### 3. Sound Plays "Correct" for Wrong Answers
-Multiple places play `sounds.play('correct')` regardless of whether the answer is correct or incorrect.
+### ✅ 3. Sound Feedback for Answers (FIXED Jan 29)
+~~Multiple places play `sounds.play('correct')` regardless of answer.~~
 
-**Files:**
-- `components/FlashcardGame.tsx` (lines ~460, ~480) — `handleChallengeFlashcardResponse()` and `handleChallengeMcSelect()`
+**Decision:** No negative sounds for wrong answers — just no positive sound.
 
-**Fix:** Add conditional: `sounds.play(isCorrect ? 'correct' : 'incorrect')` — but first need to add an `incorrect.mp3` sound file.
-
-**Effort:** Quick (add sound file + 3 line changes)
+**Fixed:** Only play sound/haptic for correct answers:
+```typescript
+if (result.isCorrect) {
+  sounds.play('correct');
+  haptics.trigger('correct');
+}
+```
 
 ---
 
