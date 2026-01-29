@@ -287,19 +287,19 @@ No structured learning path. Users wander aimlessly.
 
 ---
 
-### D. Component Architecture Refactor
-Giant components are unmaintainable and slow to iterate on.
+### D. Component Architecture Refactor — MOSTLY DONE ✅
+~~Giant components are unmaintainable and slow to iterate on.~~
 
-**Problems:**
-- `FlashcardGame.tsx` — 2,321 lines
+**Completed (Jan 28):**
+| Component | Before | After | Reduction |
+|-----------|--------|-------|-----------|
+| FlashcardGame.tsx | 2,558 | 1,357 | **46%** ✅ |
+| TutorGames.tsx | 1,376 | 827 | **40%** ✅ |
+| Hero.tsx | 3,038 | 1,442 | **52%** ✅ |
+
+**Still TODO:**
 - `ChatArea.tsx` — 1,877 lines
-- `TutorGames.tsx` — 1,355 lines
 - `Progress.tsx` — 1,287 lines
-
-**Needs:**
-- Split into focused, testable components
-- Shared hooks for common logic
-- Enables faster iteration on other improvements
 
 **Related items:** #11
 
@@ -375,17 +375,16 @@ Allow creators to earn commission by referring new subscribers.
 
 ## 🔥 Critical (Blocking/Broken)
 
-### 1. XP System Doesn't Award XP for Local Games
-Local practice games (flashcards, multiple choice, type-it, quick fire, verb mastery) don't award XP. Users can practice all day and see 0 XP gained. XP is essentially just a proxy for "number of words in dictionary."
+### ✅ 1. XP System for Games (FIXED)
+~~Local practice games don't award XP.~~
 
-**Files:**
-- `components/FlashcardGame.tsx` — no `incrementXP` call anywhere in 2,300 lines
-- `api/increment-xp.ts` — exists but unused by games
-- `services/gemini.ts` — `incrementXP()` wrapper
-
-**Fix:** After `saveGameSession()`, call `incrementXP(correctCount)` or similar formula.
-
-**Effort:** Quick (30 min)
+**Fixed:** `api/submit-game-session.ts` now awards 1 XP for every 5 consecutive correct answers:
+```js
+if (currentStreak === 5) {
+  xpAwarded++;
+  currentStreak = 0;
+}
+```
 
 ---
 
@@ -503,27 +502,21 @@ Users can accidentally lose progress by clicking back button mid-game. Especiall
 
 ## ✨ Improvements (Polish)
 
-### 11. Split Giant Components
-Hard to maintain, slow to test.
+### ✅ 11. Split Giant Components — MOSTLY DONE (Jan 28)
 
-**Files:**
-- `components/FlashcardGame.tsx` — **2,321 lines** 😱
-- `components/ChatArea.tsx` — **1,877 lines**
-- `components/TutorGames.tsx` — **1,355 lines**
-- `components/Progress.tsx` — **1,287 lines**
+**Completed:**
+- ✅ `FlashcardGame.tsx` — 2,558 → 1,357 lines (46% reduction)
+- ✅ `TutorGames.tsx` — 1,376 → 827 lines (40% reduction)
+- ✅ `Hero.tsx` — 3,038 → 1,442 lines (52% reduction)
 
-**Suggested Structure:**
-```
-FlashcardGame/
-  ├── index.tsx (orchestration)
-  ├── VerbMastery.tsx
-  ├── AIChallenge.tsx
-  ├── TypeIt.tsx
-  ├── MultipleChoice.tsx
-  └── hooks/useScores.ts
-```
+**Extracted to:**
+- `components/games/modes/` — TypeIt, QuickFire, VerbMastery, AIChallenge, Flashcards, MultipleChoice
+- `components/games/tutor-modes/` — TutorFlashcards, TutorMultipleChoice, TutorTypeIt, TutorQuickFire, TutorGameResults
+- `components/hero/` — InteractiveHearts, LanguageGrid, LoginForm, etc.
 
-**Effort:** Large (full refactor, ~1-2 days per component)
+**Still TODO:**
+- `ChatArea.tsx` — 1,877 lines
+- `Progress.tsx` — 1,287 lines
 
 ---
 
@@ -576,30 +569,17 @@ Different loading indicators across components (text vs bouncing dots vs mixed).
 
 ---
 
-### 16. Word Streak Not Visible in Game UI
-`correct_streak` is tracked but not displayed. Users don't know how close they are to "learning" a word.
+### ✅ 16. Word Streak Visible in Game UI (FIXED)
+~~`correct_streak` is tracked but not displayed.~~
 
-**Files:**
-- `components/FlashcardGame.tsx` — has streak logic, no UI
-
-**Fix:** Add streak indicator (e.g., "3/5 🔥") near word display.
-
-**Effort:** Quick (30 min)
+**Fixed:** `StreakIndicator` component shows "3/5 🔥" in Flashcards, MultipleChoice, TypeIt modes.
 
 ---
 
-### 17. Console.log Cleanup
-Debug statements in production code.
+### ✅ 17. Console.log Cleanup (FIXED)
+~~Debug statements in production code.~~
 
-**Files:**
-- `components/ChatArea.tsx`
-- `components/FlashcardGame.tsx`
-- `components/BugReportModal.tsx`
-- `api/*.ts` (multiple files)
-
-**Fix:** Remove or replace with proper logging service.
-
-**Effort:** Quick (1 hour)
+**Fixed:** All console.log statements removed from components (0 remaining).
 
 ---
 
@@ -698,28 +678,28 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 | Item | Time | Status |
 |------|------|--------|
 | ~~Add `nl`, `ro`, `uk` to Learn Hub~~ | 5 min | ✅ Done |
-| Play `xp-gain` sound when XP awarded | 15 min | |
-| Add exit confirmation for games | 30 min | |
-| Add keyboard shortcuts (1-4) for MC | 30 min | |
-| Add streak indicator in game UI | 30 min | |
-| Add volume slider | 45 min | |
-| Remove console.log statements | 30 min | |
-| Add reduced-motion support | 30 min | |
+| Play `xp-gain` sound when XP awarded | 15 min | ⚠️ Open |
+| Add exit confirmation for games | 30 min | ⚠️ Open |
+| Add keyboard shortcuts (1-4) for MC | 30 min | ⚠️ Open |
+| ~~Add streak indicator in game UI~~ | 30 min | ✅ Done |
+| Add volume slider | 45 min | ⚠️ Open |
+| ~~Remove console.log statements~~ | 30 min | ✅ Done |
+| Add reduced-motion support | 30 min | ⚠️ Open |
 
 ---
 
 ## Priority Matrix
 
-| Issue | Urgency | Impact | Effort |
-|-------|---------|--------|--------|
-| XP not awarded for games | 🔴 High | 🔴 High | Quick |
-| Score column mismatch | 🔴 High | 🔴 High | Medium |
-| Learn Hub missing langs | 🔴 High | 🟡 Medium | Quick |
-| Verb Mastery Polish-only | 🟡 Medium | 🔴 High | Medium |
-| TTS missing in games | 🟡 Medium | 🔴 High | Medium |
-| Component splitting | 🟢 Low | 🔴 High | Large |
-| SRS implementation | 🟢 Low | 🔴 High | Large |
-| Mobile app deployment | 🟢 Low | 🔴 High | Large |
+| Issue | Urgency | Impact | Effort | Status |
+|-------|---------|--------|--------|--------|
+| ~~XP not awarded for games~~ | 🔴 High | 🔴 High | Quick | ✅ Done |
+| Score column mismatch | 🔴 High | 🔴 High | Medium | ⚠️ Open |
+| ~~Learn Hub missing langs~~ | 🔴 High | 🟡 Medium | Quick | ✅ Done |
+| Verb Mastery Polish-only | 🟡 Medium | 🔴 High | Medium | ⚠️ Open |
+| TTS missing in games | 🟡 Medium | 🔴 High | Medium | ⚠️ Open |
+| ~~Component splitting~~ | 🟢 Low | 🔴 High | Large | ✅ Mostly Done |
+| SRS implementation | 🟢 Low | 🔴 High | Large | ⚠️ Open |
+| Mobile app deployment | 🟢 Low | 🔴 High | Large | ⚠️ Open |
 
 ---
 
