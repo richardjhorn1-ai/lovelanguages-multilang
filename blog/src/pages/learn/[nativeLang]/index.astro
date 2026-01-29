@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getArticlesByNativeLang, getArticleCount, getTargetLanguages } from '../../../lib/blog-api';
+import { getArticlesByNativeLang, getArticleCountsByTargetLang, getTargetLanguages } from '../../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../../data/language-hub-data';
 
 // Language config for flags and names
@@ -37,13 +37,8 @@ if (!SUPPORTED_NATIVE_LANGS.includes(nativeLanguageCode)) {
 
 const nativeInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
 
-// Count articles per target language for this native language
-const languageCounts: Record<string, number> = {};
-for (const code of Object.keys(LANGUAGE_INFO)) {
-  if (code !== nativeLanguageCode) {
-    languageCounts[code] = await getArticleCount(nativeLanguageCode, code);
-  }
-}
+// Count articles per target language for this native language (single query)
+const languageCounts = await getArticleCountsByTargetLang(nativeLanguageCode);
 
 // Sort: languages with articles first, then alphabetically
 const sortedLanguages = Object.entries(LANGUAGE_INFO)

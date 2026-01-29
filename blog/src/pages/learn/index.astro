@@ -1,17 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getArticlesByNativeLang, getArticleCount } from '../../lib/blog-api';
+import { getArticlesByNativeLang, getArticleCountsByTargetLang } from '../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
 
-// Count articles per language (English speakers)
-const languageCounts: Record<string, number> = {};
-for (const code of Object.keys(LANGUAGE_HUB_DATA)) {
-  languageCounts[code] = await getArticleCount('en', code);
-}
+// Get all counts in a single query instead of 12+ sequential queries
+const [languageCounts, latestArticles] = await Promise.all([
+  getArticleCountsByTargetLang('en'),
+  getArticlesByNativeLang('en', { limit: 4 })
+]);
 
-// Latest articles for English speakers
-const latestArticles = await getArticlesByNativeLang('en', { limit: 4 });
-const totalArticles = await getArticleCount('en');
+const totalArticles = Object.values(languageCounts).reduce((sum, count) => sum + count, 0);
 
 // Featured languages (most content)
 const allLanguages = Object.entries(LANGUAGE_HUB_DATA)

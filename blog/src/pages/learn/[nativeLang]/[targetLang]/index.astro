@@ -3,7 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../../components/ArticleCard.astro';
 import LanguageSelector from '../../../../components/LanguageSelector.astro';
 import Testimonials from '../../../../components/Testimonials.astro';
-import { getArticlesByLangPair, getArticleCount } from '../../../../lib/blog-api';
+import { getArticlesByLangPair, getArticleCountsByTargetLang } from '../../../../lib/blog-api';
 
 // Language config for flags and names
 const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
@@ -48,13 +48,8 @@ const targetInfo = LANGUAGE_INFO[targetLanguageCode];
 // Get articles for this language pair from Supabase
 const articles = await getArticlesByLangPair(nativeLanguageCode, targetLanguageCode, { limit: 100 });
 
-// Get article counts per target language (for the current native language)
-const languageCounts: Record<string, number> = {};
-for (const code of SUPPORTED_LANGUAGES) {
-  if (code !== nativeLanguageCode) {
-    languageCounts[code] = await getArticleCount(nativeLanguageCode, code);
-  }
-}
+// Get article counts per target language (single query)
+const languageCounts = await getArticleCountsByTargetLang(nativeLanguageCode);
 
 // Category filters
 const categories = [
