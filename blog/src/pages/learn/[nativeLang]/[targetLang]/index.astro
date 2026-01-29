@@ -3,7 +3,7 @@ import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../../components/ArticleCard.astro';
 import LanguageSelector from '../../../../components/LanguageSelector.astro';
 import Testimonials from '../../../../components/Testimonials.astro';
-import { getCollection } from 'astro:content';
+import { getArticlesByLangPair, getArticleCount } from '../../../../lib/blog-api';
 
 // Language config for flags and names
 const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
@@ -29,44 +29,30 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
 
 const SUPPORTED_LANGUAGES = Object.keys(LANGUAGE_INFO);
 
-// Generate static paths for all native/target language combinations
-export async function getStaticPaths() {
-  const paths: { params: { nativeLang: string; targetLang: string } }[] = [];
-
-  // Native languages that have translated content (all 18 supported)
-  const nativeLanguages = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr', 'nl', 'ro', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
-  const targetLanguages = ['en', 'es', 'fr', 'it', 'pt', 'ro', 'de', 'nl', 'sv', 'no', 'da', 'pl', 'cs', 'ru', 'uk', 'el', 'hu', 'tr'];
-
-  for (const nativeLang of nativeLanguages) {
-    for (const targetLang of targetLanguages) {
-      // Don't create path for learning your own language
-      if (nativeLang !== targetLang) {
-        paths.push({ params: { nativeLang, targetLang } });
-      }
-    }
-  }
-
-  return paths;
-}
-
 const { nativeLang, targetLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
 const targetLanguageCode = targetLang || 'pl';
 
-const nativeInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
-const targetInfo = LANGUAGE_INFO[targetLanguageCode] || LANGUAGE_INFO.pl;
+// Validate languages
+if (!LANGUAGE_INFO[nativeLanguageCode] || !LANGUAGE_INFO[targetLanguageCode]) {
+  return Astro.redirect('/learn/');
+}
 
-// Get all articles for this native/target language pair
-const allArticles = await getCollection('articles');
-const articles = allArticles
-  .filter(a => a.slug.startsWith(`${nativeLanguageCode}/${targetLanguageCode}/`))
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+if (nativeLanguageCode === targetLanguageCode) {
+  return Astro.redirect('/learn/');
+}
+
+const nativeInfo = LANGUAGE_INFO[nativeLanguageCode];
+const targetInfo = LANGUAGE_INFO[targetLanguageCode];
+
+// Get articles for this language pair from Supabase
+const articles = await getArticlesByLangPair(nativeLanguageCode, targetLanguageCode, { limit: 100 });
 
 // Get article counts per target language (for the current native language)
 const languageCounts: Record<string, number> = {};
 for (const code of SUPPORTED_LANGUAGES) {
   if (code !== nativeLanguageCode) {
-    languageCounts[code] = allArticles.filter(a => a.slug.startsWith(`${nativeLanguageCode}/${code}/`)).length;
+    languageCounts[code] = await getArticleCount(nativeLanguageCode, code);
   }
 }
 
@@ -80,9 +66,7 @@ const categories = [
   { id: 'situations', label: 'Situations', icon: '🎭' },
 ];
 
-// Hreflang: Find equivalent hub pages for different native languages learning the same target
-// E.g., /learn/en/pl/ links to /learn/es/pl/, /learn/fr/pl/, etc.
-// Must include ALL native languages that have content
+// Hreflang alternates
 const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode && lang !== targetLanguageCode)
@@ -94,26 +78,19 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
 const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`;
 const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : `https://www.lovelanguages.io/learn/en/${targetLanguageCode}/`;
 
-// JSON-LD for the blog listing page
+// JSON-LD
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
   "name": `Love Languages - Learn ${targetInfo.name} Blog`,
   "description": `Free ${targetInfo.name} lessons, vocabulary guides, and cultural tips for couples learning together.`,
-  "url": `https://www.lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`,
+  "url": canonicalUrl,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
     "url": "https://www.lovelanguages.io"
-  },
-  "blogPost": articles.map(article => ({
-    "@type": "BlogPosting",
-    "headline": article.data.title,
-    "description": article.data.description,
-    "url": `https://www.lovelanguages.io/learn/${article.slug}/`,
-    "datePublished": article.data.date
-  }))
+  }
 };
 ---
 
@@ -124,9 +101,6 @@ const jsonLd = {
   targetLang={targetLanguageCode}
 >
   <Fragment slot="head">
-    {/* Hreflang tags for international SEO
-        Links to equivalent pages for speakers of other languages learning the same target
-    */}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
@@ -185,16 +159,16 @@ const jsonLd = {
     {articles.length > 0 ? (
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="article-grid">
         {articles.map((article) => (
-          <div class="article-item" data-category={article.data.category}>
+          <div class="article-item" data-category={article.category}>
             <ArticleCard
-              slug={article.slug}
-              title={article.data.title}
-              description={article.data.description}
-              category={article.data.category}
-              difficulty={article.data.difficulty}
-              readTime={article.data.readTime}
-              image={article.data.image}
-              date={article.data.date}
+              slug={`${article.native_lang}/${article.target_lang}/${article.slug}`}
+              title={article.title}
+              description={article.description || ''}
+              category={article.category || 'general'}
+              difficulty={article.difficulty || 'beginner'}
+              readTime={article.read_time || 5}
+              image={article.image || ''}
+              date={article.date || new Date().toISOString()}
             />
           </div>
         ))}
@@ -231,9 +205,6 @@ const jsonLd = {
       >
         Start Your Journey
       </a>
-      <p class="mt-4 text-white/80 text-sm">
-        Join couples learning languages across 30+ countries
-      </p>
     </div>
   </section>
 
@@ -248,8 +219,6 @@ const jsonLd = {
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
         <a href="/learn/" class="hover:text-accent">Blog</a>
         <a href="/tools" class="hover:text-accent">Tools</a>
-        <a href="/terms" class="hover:text-accent">Terms</a>
-        <a href="/privacy" class="hover:text-accent">Privacy</a>
       </nav>
     </div>
   </footer>
@@ -262,9 +231,6 @@ const jsonLd = {
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
-  }
-  .article-item {
-    transition: opacity 0.2s ease, transform 0.2s ease;
   }
   .article-item.hidden {
     display: none;
@@ -280,7 +246,6 @@ const jsonLd = {
       btn.addEventListener('click', () => {
         const category = btn.getAttribute('data-category');
 
-        // Update active button styles
         filterButtons.forEach(b => {
           b.classList.remove('bg-accent', 'text-white', 'active');
           b.classList.add('bg-gray-100', 'text-gray-600');
@@ -288,7 +253,6 @@ const jsonLd = {
         btn.classList.remove('bg-gray-100', 'text-gray-600');
         btn.classList.add('bg-accent', 'text-white', 'active');
 
-        // Filter articles
         articles.forEach(article => {
           const articleCategory = article.getAttribute('data-category');
           if (category === 'all' || articleCategory === category) {

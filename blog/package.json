@@ -16,6 +16,7 @@
     "@astrojs/tailwind": "^6.0.0",
     "@astrojs/vercel": "^9.0.4",
     "@google/generative-ai": "^0.21.0",
+    "@supabase/supabase-js": "^2.93.2",
     "astro": "^5.0.0",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.0",
@@ -23,6 +24,9 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "dotenv": "^17.2.3",
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.1",
     "ts-node": "^10.9.0",
     "typescript": "^5.0.0"
   }

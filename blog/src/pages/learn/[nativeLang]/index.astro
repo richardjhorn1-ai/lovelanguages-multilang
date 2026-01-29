@@ -1,14 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getArticlesByNativeLang, getArticleCount, getTargetLanguages } from '../../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../../data/language-hub-data';
-
-/**
- * /learn/[nativeLang]/ - Localized Learn Hub (French, Spanish)
- *
- * Design: Matches brand styling from /learn/index.astro
- * Colors: coral (#FF6B6B), teal (#4ECDC4), golden (#FFE66D), off-white (#fdfcfd)
- */
 
 // Language config for flags and names
 const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
@@ -32,37 +25,29 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
   tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
 };
 
-// Generate static paths for each native language
-export async function getStaticPaths() {
-  // Native languages that have translated content (all 18 supported languages)
-  const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr', 'nl', 'ro', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
-  return supportedNativeLangs.map(nativeLang => ({
-    params: { nativeLang }
-  }));
-}
-
-// Native languages that have translated content (also available in template)
-// Must include ALL native languages that have content
 const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
 
 const { nativeLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
-const nativeInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
 
-// Get all articles
-const allArticles = await getCollection('articles');
+// Validate native language
+if (!SUPPORTED_NATIVE_LANGS.includes(nativeLanguageCode)) {
+  return Astro.redirect('/learn/');
+}
+
+const nativeInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
 
 // Count articles per target language for this native language
 const languageCounts: Record<string, number> = {};
 for (const code of Object.keys(LANGUAGE_INFO)) {
   if (code !== nativeLanguageCode) {
-    languageCounts[code] = allArticles.filter(a => a.slug.startsWith(`${nativeLanguageCode}/${code}/`)).length;
+    languageCounts[code] = await getArticleCount(nativeLanguageCode, code);
   }
 }
 
 // Sort: languages with articles first, then alphabetically
 const sortedLanguages = Object.entries(LANGUAGE_INFO)
-  .filter(([code]) => code !== nativeLanguageCode) // Exclude native language
+  .filter(([code]) => code !== nativeLanguageCode)
   .sort(([codeA], [codeB]) => {
     const countA = languageCounts[codeA] || 0;
     const countB = languageCounts[codeB] || 0;
@@ -73,14 +58,12 @@ const sortedLanguages = Object.entries(LANGUAGE_INFO)
 
 // Get total article count for this native language
 const totalArticles = Object.values(languageCounts).reduce((sum, count) => sum + count, 0);
-const languagesWithContent = Object.values(languageCounts).filter(c => c > 0).length;
 
 // Get language data with article counts for featured display
 const allLanguages = sortedLanguages.map(([code, info]) => ({
   code,
   ...info,
   articleCount: languageCounts[code] || 0,
-  // Get hub data if available
   hubData: LANGUAGE_HUB_DATA[code]
 }));
 
@@ -88,13 +71,10 @@ const featuredLanguages = allLanguages.filter(l => l.articleCount > 0).slice(0, 
 const otherLanguages = allLanguages.filter(l => !featuredLanguages.find(f => f.code === l.code));
 
 // Latest articles for this native language
-const latestArticles = allArticles
-  .filter(a => a.slug.startsWith(`${nativeLanguageCode}/`))
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 4);
+const latestArticles = await getArticlesByNativeLang(nativeLanguageCode, { limit: 4 });
 
-const getArticleUrl = (slug: string) => `/learn/${slug}/`;
-const getLangFromSlug = (slug: string) => slug.split('/')[1];
+const getArticleUrl = (article: any) => `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
+const getLangFromArticle = (article: any) => article.target_lang;
 
 // Translations for UI text
 const UI_TEXT: Record<string, {
@@ -105,18 +85,13 @@ const UI_TEXT: Record<string, {
   whyLearnTogether: string;
   chooseLanguage: string;
   chooseLanguageSubtitle: string;
-  popularTitle: string;
   ctaTitle: string;
   ctaSubtitle: string;
   ctaButton: string;
-  ctaFooter: string;
   startLearning: string;
   articles: string;
-  article: string;
   guides: string;
   languages: string;
-  comingSoon: string;
-  learnWith: string;
   toFluency: string;
   freshReads: string;
   latestGuides: string;
@@ -133,18 +108,13 @@ const UI_TEXT: Record<string, {
     whyLearnTogether: 'Why Learn Together?',
     chooseLanguage: 'Choose Your Language',
     chooseLanguageSubtitle: 'Complete guides with lessons, phrases, grammar & culture',
-    popularTitle: 'Most Popular Languages',
     ctaTitle: 'Ready to Start?',
     ctaSubtitle: 'AI coaching, voice practice, and games designed for two.',
     ctaButton: 'Begin Your Journey',
-    ctaFooter: 'Free to start • No credit card',
     startLearning: 'Start Learning',
     articles: 'articles',
-    article: 'article',
     guides: 'guides',
     languages: 'languages',
-    comingSoon: 'Coming soon',
-    learnWith: 'Learn vocabulary, phrases, grammar, and culture with your partner.',
     toFluency: 'to fluency',
     freshReads: 'Fresh Reads',
     latestGuides: 'Latest guides and lessons',
@@ -161,18 +131,13 @@ const UI_TEXT: Record<string, {
     whyLearnTogether: '¿Por Qué Aprender Juntos?',
     chooseLanguage: 'Elige Tu Idioma',
     chooseLanguageSubtitle: 'Guías completas con lecciones, frases, gramática y cultura',
-    popularTitle: 'Idiomas Más Populares',
     ctaTitle: '¿Listo para Empezar?',
     ctaSubtitle: 'Coaching de IA, práctica de voz y juegos diseñados para dos.',
     ctaButton: 'Comienza Tu Viaje',
-    ctaFooter: 'Gratis para empezar • Sin tarjeta',
     startLearning: 'Empezar a Aprender',
     articles: 'artículos',
-    article: 'artículo',
     guides: 'guías',
     languages: 'idiomas',
-    comingSoon: 'Próximamente',
-    learnWith: 'Aprende vocabulario, frases, gramática y cultura con tu pareja.',
     toFluency: 'para fluidez',
     freshReads: 'Lecturas Nuevas',
     latestGuides: 'Últimas guías y lecciones',
@@ -189,18 +154,13 @@ const UI_TEXT: Record<string, {
     whyLearnTogether: 'Pourquoi Apprendre Ensemble?',
     chooseLanguage: 'Choisissez Votre Langue',
     chooseLanguageSubtitle: 'Guides complets avec leçons, phrases, grammaire et culture',
-    popularTitle: 'Langues les Plus Populaires',
     ctaTitle: 'Prêt à Commencer?',
     ctaSubtitle: 'Coaching IA, pratique vocale et jeux conçus pour deux.',
     ctaButton: 'Commencez Votre Voyage',
-    ctaFooter: 'Gratuit pour commencer • Sans carte',
     startLearning: 'Commencer à Apprendre',
     articles: 'articles',
-    article: 'article',
     guides: 'guides',
     languages: 'langues',
-    comingSoon: 'Bientôt disponible',
-    learnWith: 'Apprenez le vocabulaire, les phrases, la grammaire et la culture avec votre partenaire.',
     toFluency: 'pour la fluidité',
     freshReads: 'Lectures Récentes',
     latestGuides: 'Derniers guides et leçons',
@@ -217,18 +177,13 @@ const UI_TEXT: Record<string, {
     whyLearnTogether: 'Warum Zusammen Lernen?',
     chooseLanguage: 'Wähle Deine Sprache',
     chooseLanguageSubtitle: 'Komplette Guides mit Lektionen, Phrasen, Grammatik & Kultur',
-    popularTitle: 'Beliebteste Sprachen',
     ctaTitle: 'Bereit Anzufangen?',
     ctaSubtitle: 'KI-Coaching, Sprachübungen und Spiele für zwei.',
     ctaButton: 'Beginne Deine Reise',
-    ctaFooter: 'Kostenlos starten • Keine Kreditkarte',
     startLearning: 'Jetzt Lernen',
     articles: 'Artikel',
-    article: 'Artikel',
     guides: 'Guides',
     languages: 'Sprachen',
-    comingSoon: 'Bald verfügbar',
-    learnWith: 'Lerne Vokabeln, Phrasen, Grammatik und Kultur mit deinem Partner.',
     toFluency: 'bis zur Flüssigkeit',
     freshReads: 'Neueste Artikel',
     latestGuides: 'Aktuelle Guides und Lektionen',
@@ -237,404 +192,12 @@ const UI_TEXT: Record<string, {
     discoverCouples: 'Entdecke Warum Paare Schneller Lernen',
     freeToStart: 'Kostenlos starten • Keine Kreditkarte',
   },
-  it: {
-    heroTitle: 'Imparate Qualsiasi Lingua Insieme',
-    heroSubtitle: 'Lezioni gratuite, frasi e consigli culturali per coppie che imparano insieme.',
-    heroTagline: 'Per le Coppie',
-    browseLanguages: 'Sfoglia le Lingue',
-    whyLearnTogether: 'Perché Imparare Insieme?',
-    chooseLanguage: 'Scegli la Tua Lingua',
-    chooseLanguageSubtitle: 'Guide complete con lezioni, frasi, grammatica e cultura',
-    popularTitle: 'Lingue Più Popolari',
-    ctaTitle: 'Pronti a Iniziare?',
-    ctaSubtitle: 'Coaching IA, pratica vocale e giochi pensati per due.',
-    ctaButton: 'Inizia il Tuo Viaggio',
-    ctaFooter: 'Gratis per iniziare • Senza carta',
-    startLearning: 'Inizia a Imparare',
-    articles: 'articoli',
-    article: 'articolo',
-    guides: 'guide',
-    languages: 'lingue',
-    comingSoon: 'Prossimamente',
-    learnWith: 'Impara vocabolario, frasi, grammatica e cultura con il tuo partner.',
-    toFluency: 'per la fluenza',
-    freshReads: 'Letture Recenti',
-    latestGuides: 'Ultime guide e lezioni',
-    betterTogether: 'Meglio Insieme',
-    couplesMotivation: 'Le coppie che imparano insieme restano motivate, praticano più spesso e creano ricordi duraturi.',
-    discoverCouples: 'Scopri Perché le Coppie Imparano Più Velocemente',
-    freeToStart: 'Gratis per iniziare • Senza carta',
-  },
-  pt: {
-    heroTitle: 'Aprendam Qualquer Língua Juntos',
-    heroSubtitle: 'Lições gratuitas, frases e dicas culturais para casais que aprendem juntos.',
-    heroTagline: 'Para Casais',
-    browseLanguages: 'Ver Línguas',
-    whyLearnTogether: 'Por Que Aprender Juntos?',
-    chooseLanguage: 'Escolha Sua Língua',
-    chooseLanguageSubtitle: 'Guias completos com lições, frases, gramática e cultura',
-    popularTitle: 'Línguas Mais Populares',
-    ctaTitle: 'Prontos para Começar?',
-    ctaSubtitle: 'Coaching de IA, prática de voz e jogos pensados para dois.',
-    ctaButton: 'Comece Sua Jornada',
-    ctaFooter: 'Grátis para começar • Sem cartão',
-    startLearning: 'Começar a Aprender',
-    articles: 'artigos',
-    article: 'artigo',
-    guides: 'guias',
-    languages: 'línguas',
-    comingSoon: 'Em breve',
-    learnWith: 'Aprenda vocabulário, frases, gramática e cultura com seu parceiro.',
-    toFluency: 'para fluência',
-    freshReads: 'Leituras Recentes',
-    latestGuides: 'Últimos guias e lições',
-    betterTogether: 'Melhor Juntos',
-    couplesMotivation: 'Casais que aprendem juntos ficam motivados, praticam mais e criam memórias duradouras.',
-    discoverCouples: 'Descubra Por Que Casais Aprendem Mais Rápido',
-    freeToStart: 'Grátis para começar • Sem cartão',
-  },
-  ru: {
-    heroTitle: 'Изучайте Любой Язык Вместе',
-    heroSubtitle: 'Бесплатные уроки, фразы и культурные советы для пар, которые учатся вместе.',
-    heroTagline: 'Для Пар',
-    browseLanguages: 'Выбрать Язык',
-    whyLearnTogether: 'Почему Вместе?',
-    chooseLanguage: 'Выберите Язык',
-    chooseLanguageSubtitle: 'Полные курсы с уроками, фразами, грамматикой и культурой',
-    popularTitle: 'Популярные Языки',
-    ctaTitle: 'Готовы Начать?',
-    ctaSubtitle: 'ИИ-коучинг, голосовая практика и игры для двоих.',
-    ctaButton: 'Начать Обучение',
-    ctaFooter: 'Бесплатно • Без карты',
-    startLearning: 'Начать Учить',
-    articles: 'статей',
-    article: 'статья',
-    guides: 'уроков',
-    languages: 'языков',
-    comingSoon: 'Скоро',
-    learnWith: 'Учите лексику, фразы, грамматику и культуру вместе с партнёром.',
-    toFluency: 'до свободного',
-    freshReads: 'Новые Статьи',
-    latestGuides: 'Последние уроки и гайды',
-    betterTogether: 'Лучше Вместе',
-    couplesMotivation: 'Пары, которые учатся вместе, остаются мотивированными, практикуются чаще и создают незабываемые воспоминания.',
-    discoverCouples: 'Узнайте Почему Пары Учатся Быстрее',
-    freeToStart: 'Бесплатно • Без карты',
-  },
-  pl: {
-    heroTitle: 'Uczcie Się Razem Dowolnego Języka',
-    heroSubtitle: 'Darmowe lekcje, zwroty i porady kulturowe dla par uczących się razem.',
-    heroTagline: 'Dla Par',
-    browseLanguages: 'Przeglądaj Języki',
-    whyLearnTogether: 'Dlaczego Razem?',
-    chooseLanguage: 'Wybierz Język',
-    chooseLanguageSubtitle: 'Kompletne kursy z lekcjami, zwrotami, gramatyką i kulturą',
-    popularTitle: 'Najpopularniejsze Języki',
-    ctaTitle: 'Gotowi Zacząć?',
-    ctaSubtitle: 'Coaching AI, ćwiczenia głosowe i gry dla dwojga.',
-    ctaButton: 'Rozpocznij Naukę',
-    ctaFooter: 'Za darmo • Bez karty',
-    startLearning: 'Zacznij Naukę',
-    articles: 'artykułów',
-    article: 'artykuł',
-    guides: 'lekcji',
-    languages: 'języków',
-    comingSoon: 'Wkrótce',
-    learnWith: 'Ucz się słownictwa, zwrotów, gramatyki i kultury ze swoim partnerem.',
-    toFluency: 'do płynności',
-    freshReads: 'Nowe Artykuły',
-    latestGuides: 'Najnowsze lekcje i poradniki',
-    betterTogether: 'Lepiej Razem',
-    couplesMotivation: 'Pary uczące się razem są bardziej zmotywowane, ćwiczą częściej i tworzą niezapomniane wspomnienia.',
-    discoverCouples: 'Odkryj Dlaczego Pary Uczą Się Szybciej',
-    freeToStart: 'Za darmo • Bez karty',
-  },
-  tr: {
-    heroTitle: 'Birlikte Herhangi Bir Dili Öğrenin',
-    heroSubtitle: 'Birlikte öğrenen çiftler için ücretsiz dersler, ifadeler ve kültürel ipuçları.',
-    heroTagline: 'Çiftler İçin',
-    browseLanguages: 'Dillere Göz At',
-    whyLearnTogether: 'Neden Birlikte?',
-    chooseLanguage: 'Dilinizi Seçin',
-    chooseLanguageSubtitle: 'Dersler, ifadeler, dilbilgisi ve kültür içeren eksiksiz kılavuzlar',
-    popularTitle: 'En Popüler Diller',
-    ctaTitle: 'Başlamaya Hazır mısınız?',
-    ctaSubtitle: 'İkili için tasarlanmış AI koçluk, ses pratiği ve oyunlar.',
-    ctaButton: 'Yolculuğunuza Başlayın',
-    ctaFooter: 'Ücretsiz başlayın • Kredi kartı gereksiz',
-    startLearning: 'Öğrenmeye Başla',
-    articles: 'makale',
-    article: 'makale',
-    guides: 'rehber',
-    languages: 'dil',
-    comingSoon: 'Yakında',
-    learnWith: 'Partnerinizle birlikte kelime, ifade, dilbilgisi ve kültür öğrenin.',
-    toFluency: 'akıcılığa',
-    freshReads: 'Yeni Yazılar',
-    latestGuides: 'En son rehberler ve dersler',
-    betterTogether: 'Birlikte Daha İyi',
-    couplesMotivation: 'Birlikte öğrenen çiftler motive kalır, daha sık pratik yapar ve kalıcı anılar oluşturur.',
-    discoverCouples: 'Çiftlerin Neden Daha Hızlı Öğrendiğini Keşfedin',
-    freeToStart: 'Ücretsiz başlayın • Kredi kartı gereksiz',
-  },
-  nl: {
-    heroTitle: 'Leer Samen Elke Taal',
-    heroSubtitle: 'Gratis lessen, zinnen en culturele tips voor stellen die samen leren.',
-    heroTagline: 'Voor Stellen',
-    browseLanguages: 'Bekijk Talen',
-    whyLearnTogether: 'Waarom Samen Leren?',
-    chooseLanguage: 'Kies Je Taal',
-    chooseLanguageSubtitle: 'Complete gidsen met lessen, zinnen, grammatica en cultuur',
-    popularTitle: 'Populairste Talen',
-    ctaTitle: 'Klaar om te Beginnen?',
-    ctaSubtitle: 'AI-coaching, spraakpraktijk en spelletjes voor twee.',
-    ctaButton: 'Begin Je Reis',
-    ctaFooter: 'Gratis starten • Geen creditcard',
-    startLearning: 'Begin met Leren',
-    articles: 'artikelen',
-    article: 'artikel',
-    guides: 'gidsen',
-    languages: 'talen',
-    comingSoon: 'Binnenkort',
-    learnWith: 'Leer woordenschat, zinnen, grammatica en cultuur met je partner.',
-    toFluency: 'naar vloeiendheid',
-    freshReads: 'Nieuwste Artikelen',
-    latestGuides: 'Laatste gidsen en lessen',
-    betterTogether: 'Beter Samen',
-    couplesMotivation: 'Stellen die samen leren blijven gemotiveerd, oefenen vaker en creëren blijvende herinneringen.',
-    discoverCouples: 'Ontdek Waarom Stellen Sneller Leren',
-    freeToStart: 'Gratis starten • Geen creditcard',
-  },
-  ro: {
-    heroTitle: 'Învățați Orice Limbă Împreună',
-    heroSubtitle: 'Lecții gratuite, expresii și sfaturi culturale pentru cupluri care învață împreună.',
-    heroTagline: 'Pentru Cupluri',
-    browseLanguages: 'Explorează Limbile',
-    whyLearnTogether: 'De Ce Să Învățați Împreună?',
-    chooseLanguage: 'Alege-ți Limba',
-    chooseLanguageSubtitle: 'Ghiduri complete cu lecții, expresii, gramatică și cultură',
-    popularTitle: 'Cele Mai Populare Limbi',
-    ctaTitle: 'Gata să Începeți?',
-    ctaSubtitle: 'Coaching AI, practică vocală și jocuri pentru doi.',
-    ctaButton: 'Începe-ți Călătoria',
-    ctaFooter: 'Gratuit • Fără card',
-    startLearning: 'Începe să Înveți',
-    articles: 'articole',
-    article: 'articol',
-    guides: 'ghiduri',
-    languages: 'limbi',
-    comingSoon: 'În curând',
-    learnWith: 'Învață vocabular, expresii, gramatică și cultură cu partenerul tău.',
-    toFluency: 'spre fluență',
-    freshReads: 'Articole Noi',
-    latestGuides: 'Ultimele ghiduri și lecții',
-    betterTogether: 'Mai Bine Împreună',
-    couplesMotivation: 'Cuplurile care învață împreună rămân motivate, exersează mai des și creează amintiri de neuitat.',
-    discoverCouples: 'Descoperă De Ce Cuplurile Învață Mai Repede',
-    freeToStart: 'Gratuit • Fără card',
-  },
-  uk: {
-    heroTitle: 'Вивчайте Будь-яку Мову Разом',
-    heroSubtitle: 'Безкоштовні уроки, фрази та культурні поради для пар, які навчаються разом.',
-    heroTagline: 'Для Пар',
-    browseLanguages: 'Переглянути Мови',
-    whyLearnTogether: 'Чому Вчитися Разом?',
-    chooseLanguage: 'Оберіть Свою Мову',
-    chooseLanguageSubtitle: 'Повні посібники з уроками, фразами, граматикою та культурою',
-    popularTitle: 'Найпопулярніші Мови',
-    ctaTitle: 'Готові Почати?',
-    ctaSubtitle: 'ІІ-коучинг, голосова практика та ігри для двох.',
-    ctaButton: 'Почніть Свою Подорож',
-    ctaFooter: 'Безкоштовно • Без картки',
-    startLearning: 'Почати Вчитися',
-    articles: 'статті',
-    article: 'стаття',
-    guides: 'посібники',
-    languages: 'мови',
-    comingSoon: 'Скоро',
-    learnWith: 'Вивчайте словник, фрази, граматику та культуру з партнером.',
-    toFluency: 'до вільного володіння',
-    freshReads: 'Нові Статті',
-    latestGuides: 'Останні посібники та уроки',
-    betterTogether: 'Краще Разом',
-    couplesMotivation: 'Пари, які вчаться разом, залишаються мотивованими, практикуються частіше і створюють незабутні спогади.',
-    discoverCouples: 'Дізнайтесь Чому Пари Вчаться Швидше',
-    freeToStart: 'Безкоштовно • Без картки',
-  },
-  sv: {
-    heroTitle: 'Lär Dig Vilket Språk Som Helst Tillsammans',
-    heroSubtitle: 'Gratis lektioner, fraser och kulturtips för par som lär sig tillsammans.',
-    heroTagline: 'För Par',
-    browseLanguages: 'Utforska Språk',
-    whyLearnTogether: 'Varför Lära Tillsammans?',
-    chooseLanguage: 'Välj Ditt Språk',
-    chooseLanguageSubtitle: 'Kompletta guider med lektioner, fraser, grammatik och kultur',
-    popularTitle: 'Populäraste Språken',
-    ctaTitle: 'Redo att Börja?',
-    ctaSubtitle: 'AI-coachning, röstövningar och spel för två.',
-    ctaButton: 'Börja Din Resa',
-    ctaFooter: 'Gratis • Inget kort krävs',
-    startLearning: 'Börja Lära',
-    articles: 'artiklar',
-    article: 'artikel',
-    guides: 'guider',
-    languages: 'språk',
-    comingSoon: 'Kommer snart',
-    learnWith: 'Lär dig ordförråd, fraser, grammatik och kultur med din partner.',
-    toFluency: 'till flytande',
-    freshReads: 'Nya Artiklar',
-    latestGuides: 'Senaste guider och lektioner',
-    betterTogether: 'Bättre Tillsammans',
-    couplesMotivation: 'Par som lär sig tillsammans förblir motiverade, övar oftare och skapar oförglömliga minnen.',
-    discoverCouples: 'Upptäck Varför Par Lär Sig Snabbare',
-    freeToStart: 'Gratis • Inget kort krävs',
-  },
-  no: {
-    heroTitle: 'Lær Hvilket Som Helst Språk Sammen',
-    heroSubtitle: 'Gratis leksjoner, fraser og kulturtips for par som lærer sammen.',
-    heroTagline: 'For Par',
-    browseLanguages: 'Utforsk Språk',
-    whyLearnTogether: 'Hvorfor Lære Sammen?',
-    chooseLanguage: 'Velg Ditt Språk',
-    chooseLanguageSubtitle: 'Komplette guider med leksjoner, fraser, grammatikk og kultur',
-    popularTitle: 'Mest Populære Språk',
-    ctaTitle: 'Klar til å Begynne?',
-    ctaSubtitle: 'AI-coaching, stemmeøvelser og spill for to.',
-    ctaButton: 'Start Din Reise',
-    ctaFooter: 'Gratis • Ingen kort nødvendig',
-    startLearning: 'Begynn å Lære',
-    articles: 'artikler',
-    article: 'artikkel',
-    guides: 'guider',
-    languages: 'språk',
-    comingSoon: 'Kommer snart',
-    learnWith: 'Lær ordforråd, fraser, grammatikk og kultur med partneren din.',
-    toFluency: 'til flytende',
-    freshReads: 'Nye Artikler',
-    latestGuides: 'Nyeste guider og leksjoner',
-    betterTogether: 'Bedre Sammen',
-    couplesMotivation: 'Par som lærer sammen forblir motiverte, øver oftere og skaper uforglemmelige minner.',
-    discoverCouples: 'Oppdag Hvorfor Par Lærer Raskere',
-    freeToStart: 'Gratis • Ingen kort nødvendig',
-  },
-  da: {
-    heroTitle: 'Lær Hvilket Som Helst Sprog Sammen',
-    heroSubtitle: 'Gratis lektioner, fraser og kulturtips til par, der lærer sammen.',
-    heroTagline: 'For Par',
-    browseLanguages: 'Udforsk Sprog',
-    whyLearnTogether: 'Hvorfor Lære Sammen?',
-    chooseLanguage: 'Vælg Dit Sprog',
-    chooseLanguageSubtitle: 'Komplette guider med lektioner, fraser, grammatik og kultur',
-    popularTitle: 'Mest Populære Sprog',
-    ctaTitle: 'Klar til at Begynde?',
-    ctaSubtitle: 'AI-coaching, stemmeøvelser og spil for to.',
-    ctaButton: 'Start Din Rejse',
-    ctaFooter: 'Gratis • Intet kort nødvendigt',
-    startLearning: 'Begynd at Lære',
-    articles: 'artikler',
-    article: 'artikel',
-    guides: 'guider',
-    languages: 'sprog',
-    comingSoon: 'Kommer snart',
-    learnWith: 'Lær ordforråd, fraser, grammatik og kultur med din partner.',
-    toFluency: 'til flydende',
-    freshReads: 'Nye Artikler',
-    latestGuides: 'Nyeste guider og lektioner',
-    betterTogether: 'Bedre Sammen',
-    couplesMotivation: 'Par, der lærer sammen, forbliver motiverede, øver oftere og skaber uforglemmelige minder.',
-    discoverCouples: 'Opdag Hvorfor Par Lærer Hurtigere',
-    freeToStart: 'Gratis • Intet kort nødvendigt',
-  },
-  cs: {
-    heroTitle: 'Učte Se Jakýkoli Jazyk Společně',
-    heroSubtitle: 'Bezplatné lekce, fráze a kulturní tipy pro páry, které se učí společně.',
-    heroTagline: 'Pro Páry',
-    browseLanguages: 'Prohlédnout Jazyky',
-    whyLearnTogether: 'Proč Se Učit Společně?',
-    chooseLanguage: 'Vyberte Si Jazyk',
-    chooseLanguageSubtitle: 'Kompletní průvodci s lekcemi, frázemi, gramatikou a kulturou',
-    popularTitle: 'Nejpopulárnější Jazyky',
-    ctaTitle: 'Připraveni Začít?',
-    ctaSubtitle: 'AI koučink, hlasové cvičení a hry pro dva.',
-    ctaButton: 'Začněte Svou Cestu',
-    ctaFooter: 'Zdarma • Bez karty',
-    startLearning: 'Začít Se Učit',
-    articles: 'články',
-    article: 'článek',
-    guides: 'průvodci',
-    languages: 'jazyky',
-    comingSoon: 'Již brzy',
-    learnWith: 'Učte se slovní zásobu, fráze, gramatiku a kulturu s partnerem.',
-    toFluency: 'k plynulosti',
-    freshReads: 'Nové Články',
-    latestGuides: 'Nejnovější průvodci a lekce',
-    betterTogether: 'Lépe Společně',
-    couplesMotivation: 'Páry, které se učí společně, zůstávají motivované, cvičí častěji a vytvářejí nezapomenutelné vzpomínky.',
-    discoverCouples: 'Zjistěte Proč Se Páry Učí Rychleji',
-    freeToStart: 'Zdarma • Bez karty',
-  },
-  el: {
-    heroTitle: 'Μάθετε Οποιαδήποτε Γλώσσα Μαζί',
-    heroSubtitle: 'Δωρεάν μαθήματα, φράσεις και πολιτιστικές συμβουλές για ζευγάρια που μαθαίνουν μαζί.',
-    heroTagline: 'Για Ζευγάρια',
-    browseLanguages: 'Εξερευνήστε Γλώσσες',
-    whyLearnTogether: 'Γιατί να Μαθαίνετε Μαζί;',
-    chooseLanguage: 'Επιλέξτε τη Γλώσσα Σας',
-    chooseLanguageSubtitle: 'Πλήρεις οδηγοί με μαθήματα, φράσεις, γραμματική και πολιτισμό',
-    popularTitle: 'Πιο Δημοφιλείς Γλώσσες',
-    ctaTitle: 'Έτοιμοι να Ξεκινήσετε;',
-    ctaSubtitle: 'AI coaching, φωνητική εξάσκηση και παιχνίδια για δύο.',
-    ctaButton: 'Ξεκινήστε το Ταξίδι Σας',
-    ctaFooter: 'Δωρεάν • Χωρίς κάρτα',
-    startLearning: 'Ξεκινήστε να Μαθαίνετε',
-    articles: 'άρθρα',
-    article: 'άρθρο',
-    guides: 'οδηγοί',
-    languages: 'γλώσσες',
-    comingSoon: 'Σύντομα',
-    learnWith: 'Μάθετε λεξιλόγιο, φράσεις, γραμματική και πολιτισμό με τον σύντροφό σας.',
-    toFluency: 'προς την ευχέρεια',
-    freshReads: 'Νέα Άρθρα',
-    latestGuides: 'Τελευταίοι οδηγοί και μαθήματα',
-    betterTogether: 'Καλύτερα Μαζί',
-    couplesMotivation: 'Τα ζευγάρια που μαθαίνουν μαζί παραμένουν κινητοποιημένα, εξασκούνται πιο συχνά και δημιουργούν αξέχαστες αναμνήσεις.',
-    discoverCouples: 'Ανακαλύψτε Γιατί τα Ζευγάρια Μαθαίνουν Πιο Γρήγορα',
-    freeToStart: 'Δωρεάν • Χωρίς κάρτα',
-  },
-  hu: {
-    heroTitle: 'Tanulj Bármilyen Nyelvet Együtt',
-    heroSubtitle: 'Ingyenes leckék, kifejezések és kulturális tippek pároknak, akik együtt tanulnak.',
-    heroTagline: 'Pároknak',
-    browseLanguages: 'Nyelvek Böngészése',
-    whyLearnTogether: 'Miért Tanuljunk Együtt?',
-    chooseLanguage: 'Válaszd Ki a Nyelved',
-    chooseLanguageSubtitle: 'Teljes útmutatók leckékkel, kifejezésekkel, nyelvtannal és kultúrával',
-    popularTitle: 'Legnépszerűbb Nyelvek',
-    ctaTitle: 'Készen Állsz a Kezdésre?',
-    ctaSubtitle: 'AI coaching, hanggyakorlatok és játékok kettesben.',
-    ctaButton: 'Kezdd El az Utazást',
-    ctaFooter: 'Ingyenes • Kártya nélkül',
-    startLearning: 'Kezdj El Tanulni',
-    articles: 'cikkek',
-    article: 'cikk',
-    guides: 'útmutatók',
-    languages: 'nyelvek',
-    comingSoon: 'Hamarosan',
-    learnWith: 'Tanulj szókincset, kifejezéseket, nyelvtant és kultúrát a partnereddel.',
-    toFluency: 'a folyékonyságig',
-    freshReads: 'Új Cikkek',
-    latestGuides: 'Legújabb útmutatók és leckék',
-    betterTogether: 'Együtt Jobb',
-    couplesMotivation: 'A párok, akik együtt tanulnak, motiváltak maradnak, gyakrabban gyakorolnak és felejthetetlen emlékeket teremtenek.',
-    discoverCouples: 'Fedezd Fel Miért Tanulnak Gyorsabban a Párok',
-    freeToStart: 'Ingyenes • Kártya nélkül',
-  },
 };
 
+// Fallback to English if translation not available
 const text = UI_TEXT[nativeLanguageCode] || UI_TEXT.en;
 
-// Generate hreflang alternates for this hub page
-// E.g., /learn/en/ links to /learn/es/, /learn/fr/, etc.
+// Hreflang alternates
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode)
   .map(lang => ({
@@ -645,13 +208,13 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
 const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/`;
 const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : 'https://www.lovelanguages.io/learn/en/';
 
-// JSON-LD for the language hub
+// JSON-LD
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": `Love Languages - ${text.heroTitle}`,
   "description": text.heroSubtitle,
-  "url": `https://www.lovelanguages.io/learn/${nativeLanguageCode}/`,
+  "url": canonicalUrl,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
@@ -668,7 +231,6 @@ const jsonLd = {
   nativeLang={nativeLanguageCode}
 >
   <Fragment slot="head">
-    {/* Hreflang tags for international SEO */}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
@@ -679,17 +241,14 @@ const jsonLd = {
 
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <!-- Hero - Brand styling with coral gradient -->
+  <!-- Hero -->
   <header class="relative overflow-hidden" style="background: linear-gradient(135deg, #FFF0F3 0%, #fdfcfd 50%, #E7F5FF 100%);">
     <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
           <p class="text-[#FF6B6B] font-medium mb-3 tracking-wide uppercase text-sm">{text.heroTagline}</p>
           <h1 class="text-4xl md:text-6xl font-black font-header text-[#292F36] mb-6 leading-tight">
-            {text.heroTitle.includes('Together') || text.heroTitle.includes('Juntos') || text.heroTitle.includes('Ensemble')
-              ? <>{text.heroTitle.replace(/(Together|Juntos|Ensemble)/, '')}<span class="text-[#FF6B6B]">{text.heroTitle.match(/(Together|Juntos|Ensemble)/)?.[0]}</span></>
-              : text.heroTitle
-            }
+            {text.heroTitle}
           </h1>
           <p class="text-xl text-gray-600 mb-8 leading-relaxed">
             {text.heroSubtitle}
@@ -697,7 +256,6 @@ const jsonLd = {
           <div class="flex flex-wrap gap-4 mb-8">
             <a href="#languages" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white transition-all hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);">
               {text.browseLanguages}
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </a>
             <a href="/learn/couples-language-learning/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold transition-all hover:scale-105" style="color: #4ECDC4; border: 2px solid #4ECDC4;">
               {text.whyLearnTogether}
@@ -709,7 +267,7 @@ const jsonLd = {
           </div>
         </div>
 
-        <!-- Flag cluster - playful arrangement -->
+        <!-- Flag cluster -->
         <div class="hidden md:flex justify-center items-center relative h-64">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="relative">
@@ -739,16 +297,9 @@ const jsonLd = {
         </div>
       </div>
     </div>
-
-    <!-- Decorative wave -->
-    <div class="absolute bottom-0 left-0 right-0 h-16 overflow-hidden">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full">
-        <path d="M0,60 C300,120 600,0 900,60 C1050,90 1150,90 1200,60 L1200,120 L0,120 Z" fill="#fdfcfd"/>
-      </svg>
-    </div>
   </header>
 
-  <!-- Languages Section - Brand colors -->
+  <!-- Languages Section -->
   <section id="languages" class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12">
@@ -756,7 +307,7 @@ const jsonLd = {
         <p class="text-gray-600">{text.chooseLanguageSubtitle}</p>
       </div>
 
-      <!-- Featured languages - Larger cards -->
+      <!-- Featured languages -->
       {featuredLanguages.length > 0 && (
         <div class="grid md:grid-cols-3 gap-6 mb-10">
           {featuredLanguages.map((lang, i) => (
@@ -765,15 +316,10 @@ const jsonLd = {
               class="group relative p-6 rounded-2xl transition-all hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
               style={`background: ${i === 0 ? 'linear-gradient(135deg, #FFF0F3 0%, white 100%)' : i === 1 ? 'linear-gradient(135deg, #E7F5FF 0%, white 100%)' : 'linear-gradient(135deg, #F0FDF4 0%, white 100%)'};`}
             >
-              <div class="absolute top-0 right-0 w-32 h-32 opacity-10 text-8xl flex items-center justify-center">
-                {lang.flag}
-              </div>
-
               <div class="relative">
                 <span class="text-5xl mb-4 block group-hover:scale-110 transition-transform origin-left">{lang.flag}</span>
                 <h3 class="text-2xl font-bold text-[#292F36] mb-1 group-hover:text-[#FF6B6B] transition-colors">{lang.name}</h3>
                 <p class="text-gray-500 text-sm mb-4">{lang.nativeName}</p>
-
                 <div class="flex gap-4 mb-4 text-sm">
                   <div>
                     <span class="font-bold text-[#292F36]">{lang.articleCount}</span>
@@ -785,21 +331,16 @@ const jsonLd = {
                         <span class="font-bold text-[#292F36]">{lang.hubData.fsiHours}h</span>
                         <span class="text-gray-500 ml-1">{text.toFluency}</span>
                       </div>
-                      <div class="text-[#FF6B6B]">{'★'.repeat(lang.hubData.difficultyRating)}{'☆'.repeat(5 - lang.hubData.difficultyRating)}</div>
                     </>
                   )}
                 </div>
-
-                {lang.hubData && (
-                  <p class="text-gray-600 text-sm line-clamp-2">{lang.hubData.whyLearn[0]}</p>
-                )}
               </div>
             </a>
           ))}
         </div>
       )}
 
-      <!-- All Languages - Compact grid -->
+      <!-- All Languages -->
       <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-3">
         {otherLanguages.map(lang => (
           <a
@@ -817,7 +358,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- Latest Articles - Brand styling -->
+  <!-- Latest Articles -->
   {latestArticles.length > 0 && (
     <section class="py-16" style="background: #fdfcfd;">
       <div class="max-w-6xl mx-auto px-4">
@@ -830,19 +371,19 @@ const jsonLd = {
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {latestArticles.map(article => {
-            const langCode = getLangFromSlug(article.slug);
+            const langCode = getLangFromArticle(article);
             const langData = LANGUAGE_HUB_DATA[langCode];
             return (
-              <a href={getArticleUrl(article.slug)} class="group block">
+              <a href={getArticleUrl(article)} class="group block">
                 <div class="p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-lg hover:border-[#4ECDC4] transition-all h-full">
                   <div class="flex items-center gap-2 mb-3">
                     <span class="text-lg">{langData?.flag}</span>
                     <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: #E7F5FF; color: #4ECDC4;">{langData?.name}</span>
                   </div>
                   <h3 class="font-bold text-[#292F36] group-hover:text-[#4ECDC4] transition-colors mb-2 line-clamp-2 text-sm">
-                    {article.data.title}
+                    {article.title}
                   </h3>
-                  <p class="text-xs text-gray-500 line-clamp-2">{article.data.description}</p>
+                  <p class="text-xs text-gray-500 line-clamp-2">{article.description}</p>
                 </div>
               </a>
             );
@@ -852,7 +393,7 @@ const jsonLd = {
     </section>
   )}
 
-  <!-- Couples CTA - Brand gradient -->
+  <!-- Couples CTA -->
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4">
       <div class="relative rounded-3xl p-8 md:p-12 overflow-hidden" style="background: linear-gradient(135deg, #FFF0F3 0%, #E7F5FF 100%);">
@@ -872,14 +413,13 @@ const jsonLd = {
             style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);"
           >
             {text.discoverCouples}
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- App CTA - Brand coral gradient -->
+  <!-- App CTA -->
   <section class="py-20" style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 50%, #FFB4B4 100%);">
     <div class="max-w-2xl mx-auto px-4 text-center text-white">
       <h2 class="text-3xl md:text-4xl font-bold font-header mb-4">
@@ -901,7 +441,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- Footer - Brand styling -->
+  <!-- Footer -->
   <footer class="py-12 border-t" style="background: #fdfcfd; border-color: #f0f0f0;">
     <div class="max-w-6xl mx-auto px-4 text-center">
       <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header mb-4" style="color: #FF6B6B;">
@@ -909,20 +449,9 @@ const jsonLd = {
         Love Languages
       </a>
       <p class="text-gray-600 mb-6">{text.heroSubtitle}</p>
-
-      <div class="flex flex-wrap justify-center gap-4 mb-6">
-        {featuredLanguages.slice(0, 4).map(lang => (
-          <a href={`/learn/${nativeLanguageCode}/${lang.code}/`} class="text-sm text-gray-500 hover:text-[#FF6B6B] transition-colors">
-            {lang.flag} {lang.name}
-          </a>
-        ))}
-      </div>
-
       <nav class="flex justify-center gap-6 text-sm text-gray-400">
         <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-[#FF6B6B]">Blog</a>
         <a href="/tools" class="hover:text-[#FF6B6B]">Tools</a>
-        <a href="/terms" class="hover:text-[#FF6B6B]">Terms</a>
-        <a href="/privacy" class="hover:text-[#FF6B6B]">Privacy</a>
       </nav>
     </div>
   </footer>
