@@ -22,6 +22,12 @@ const LANGUAGE_INFO: Record<string, { flag: string; nativeName: string }> = {
   uk: { flag: '🇺🇦', nativeName: 'Українська' },
   tr: { flag: '🇹🇷', nativeName: 'Türkçe' },
   ro: { flag: '🇷🇴', nativeName: 'Română' },
+  sv: { flag: '🇸🇪', nativeName: 'Svenska' },
+  no: { flag: '🇳🇴', nativeName: 'Norsk' },
+  da: { flag: '🇩🇰', nativeName: 'Dansk' },
+  cs: { flag: '🇨🇿', nativeName: 'Čeština' },
+  el: { flag: '🇬🇷', nativeName: 'Ελληνικά' },
+  hu: { flag: '🇭🇺', nativeName: 'Magyar' },
 };
 
 // Navigation UI translations
@@ -38,6 +44,12 @@ const NAV_TRANSLATIONS: Record<string, { compareApps: string; startLearning: str
   uk: { compareApps: 'Порівняти', startLearning: 'Почати' },
   tr: { compareApps: 'Karşılaştır', startLearning: 'Başla' },
   ro: { compareApps: 'Compară', startLearning: 'Începe' },
+  sv: { compareApps: 'Jämför', startLearning: 'Börja' },
+  no: { compareApps: 'Sammenlign', startLearning: 'Start' },
+  da: { compareApps: 'Sammenlign', startLearning: 'Start' },
+  cs: { compareApps: 'Porovnat', startLearning: 'Začít' },
+  el: { compareApps: 'Σύγκριση', startLearning: 'Ξεκινήστε' },
+  hu: { compareApps: 'Összehasonlítás', startLearning: 'Kezdés' },
 };
 
 const navText = NAV_TRANSLATIONS[nativeLang] || NAV_TRANSLATIONS.en;
