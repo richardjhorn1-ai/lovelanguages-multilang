@@ -329,3 +329,29 @@ export async function getArticleCount(
 
   return count || 0;
 }
+
+/**
+ * Get all article counts by target language for a native language (single query)
+ */
+export async function getArticleCountsByTargetLang(
+  nativeLang: string
+): Promise<Record<string, number>> {
+  const { data, error } = await supabase
+    .from('blog_articles')
+    .select('target_lang')
+    .eq('native_lang', nativeLang)
+    .eq('published', true);
+
+  if (error) {
+    console.error('Error getting article counts:', error);
+    return {};
+  }
+
+  // Count by target language
+  const counts: Record<string, number> = {};
+  for (const row of data || []) {
+    counts[row.target_lang] = (counts[row.target_lang] || 0) + 1;
+  }
+
+  return counts;
+}
