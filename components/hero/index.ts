@@ -8,7 +8,7 @@ export { Highlight, renderWithHighlights } from './heroHighlighting';
 
 export { default as InteractiveHearts } from './InteractiveHearts';
 export { default as WordParticleEffect } from './WordParticleEffect';
-export { default as Section, LOGO_PATH } from './Section';
+export { default as Section, LOGO_PATH, LOGO_DETAIL_PATHS } from './Section';
 export { default as MobileSection } from './MobileSection';
 export { default as LanguageGrid } from './LanguageGrid';
 export { default as LoginForm } from './LoginForm';

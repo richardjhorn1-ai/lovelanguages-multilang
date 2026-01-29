@@ -1,7 +1,7 @@
 import React from 'react';
 import { BRAND } from './heroConstants';
 import { renderWithHighlights } from './heroHighlighting';
-import { LOGO_PATH } from './Section';
+import { LOGO_PATH, LOGO_DETAIL_PATHS } from './Section';
 
 interface MobileSectionProps {
   headline: string;
@@ -49,6 +49,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({
             >
               <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
                 <path d={LOGO_PATH} />
+                {LOGO_DETAIL_PATHS.map((d, i) => <path key={i} d={d} />)}
               </g>
             </svg>
             <h1 className="text-2xl font-black font-header tracking-tight" style={{ color: accentColor }}>
