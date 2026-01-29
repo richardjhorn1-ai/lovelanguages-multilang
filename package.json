@@ -28,6 +28,7 @@
     "@capacitor/network": "^8.0.0",
     "@capacitor/status-bar": "^8.0.0",
     "@google/genai": "*",
+    "@google/generative-ai": "^0.24.1",
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
     "@phosphor-icons/react": "^2.1.10",

@@ -434,13 +434,14 @@ const Hero: React.FC = () => {
     await new Promise(resolve => setTimeout(resolve, 200));
 
     setNativeLanguage(code);
-    // Await language change to ensure translations load before UI updates
-    await i18n.changeLanguage(code);
-    // Only set localStorage if user is NOT logged in (prevents overwriting profile settings)
+    // Update localStorage BEFORE i18n change to prevent useEffect race condition
+    // (useEffect depends on i18n and reads localStorage)
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
       localStorage.setItem('preferredNativeLanguage', code);
     }
+    // Await language change to ensure translations load before UI updates
+    await i18n.changeLanguage(code);
 
     // Always go to target step after selecting native
     // User must confirm/select target language before proceeding
