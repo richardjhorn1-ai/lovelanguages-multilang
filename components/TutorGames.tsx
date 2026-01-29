@@ -72,6 +72,31 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   // Rate limit / free tier state
   const [showLimitModal, setShowLimitModal] = useState(false);
   const [useBasicValidation, setUseBasicValidation] = useState(false);
+  const [showExitConfirm, setShowExitConfirm] = useState(false);
+
+  // Track if a game is in progress (for exit confirmation)
+  const isGameInProgress = localGameActive !== null && (
+    localGameIndex > 0 || localGameScore.correct > 0 || localGameScore.incorrect > 0
+  );
+
+  // Browser back/close protection when game is in progress
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (isGameInProgress) {
+        e.preventDefault();
+        e.returnValue = '';
+        return '';
+      }
+    };
+
+    if (isGameInProgress) {
+      window.addEventListener('beforeunload', handleBeforeUnload);
+    }
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [isGameInProgress]);
 
   useEffect(() => {
     fetchData();
@@ -280,7 +305,17 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setLocalQuickFireTimeLeft(60);
     setSessionAnswers([]);
     setSavedSuccess(false);
+    setShowExitConfirm(false);
   }, []);
+
+  // Exit game with confirmation if in progress
+  const handleExitGame = useCallback(() => {
+    if (isGameInProgress) {
+      setShowExitConfirm(true);
+    } else {
+      resetLocalGame();
+    }
+  }, [isGameInProgress, resetLocalGame]);
 
   const restartCurrentGame = () => {
     if (localGameActive === 'quiz') startLocalQuiz();
@@ -427,7 +462,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           targetLanguageName={targetName}
           nativeLanguageName={nativeName}
           onAnswer={handleFlashcardAnswer}
-          onExit={resetLocalGame}
+          onExit={handleExitGame}
         />
       );
     }
@@ -440,7 +475,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           timeLimit={60}
           onAnswer={(result) => handleTutorGameAnswer(result, result.isCorrect)}
           onComplete={handleQuickFireComplete}
-          onExit={resetLocalGame}
+          onExit={handleExitGame}
           validateAnswer={profile.smart_validation && !useBasicValidation ? async (userAnswer, correctAnswer, word) => {
             const result = await validateAnswerSmart(userAnswer, correctAnswer, {
               targetWord: word.word,
@@ -463,7 +498,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           targetLanguageName={targetName}
           nativeLanguageName={nativeName}
           onAnswer={handleMcAnswer}
-          onExit={resetLocalGame}
+          onExit={handleExitGame}
         />
       );
     }
@@ -479,7 +514,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           nativeLanguageName={nativeName}
           onAnswer={handleTutorGameAnswer}
           onNext={handleTypeItNext}
-          onExit={resetLocalGame}
+          onExit={handleExitGame}
           validateAnswer={profile.smart_validation && !useBasicValidation ? async (userAnswer, correctAnswer, word) => {
             const result = await validateAnswerSmart(userAnswer, correctAnswer, {
               targetWord: word.word,
@@ -826,6 +861,34 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         limitType="validation"
         onContinueBasic={() => setUseBasicValidation(true)}
       />
+
+      {/* Exit Confirmation Modal */}
+      {showExitConfirm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-[var(--bg-card)] rounded-2xl p-6 max-w-sm w-full shadow-xl">
+            <h3 className="text-xl font-black text-[var(--text-primary)] mb-2">
+              {t('play.exitConfirm.title', 'Exit Game?')}
+            </h3>
+            <p className="text-[var(--text-secondary)] mb-6">
+              {t('play.exitConfirm.message', 'Your progress in this session will be lost. Are you sure you want to exit?')}
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowExitConfirm(false)}
+                className="flex-1 py-3 rounded-xl font-bold bg-[var(--bg-secondary)] text-[var(--text-primary)]"
+              >
+                {t('play.exitConfirm.cancel', 'Keep Playing')}
+              </button>
+              <button
+                onClick={resetLocalGame}
+                className="flex-1 py-3 rounded-xl font-bold bg-red-500 text-white"
+              >
+                {t('play.exitConfirm.confirm', 'Exit')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

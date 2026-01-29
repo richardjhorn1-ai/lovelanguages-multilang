@@ -255,9 +255,10 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
           .in('id', messageIds);
       }
 
-      // Play new words sound if words were found
+      // Play sounds if words were found (xp-gain for earning XP, new-words for adding to dictionary)
       if (totalNewWords > 0) {
         sounds.play('new-words');
+        sounds.play('xp-gain');
       }
       setSyncMessage(totalNewWords > 0
         ? t('loveLog.sync.newWords', { count: totalNewWords })

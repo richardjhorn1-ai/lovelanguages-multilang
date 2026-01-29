@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
 import { shuffleArray } from '../../../utils/array';
+import { speak } from '../../../services/audio';
 import type { AnswerResult } from './types';
 
 interface QuickFireProps {
   /** Full word deck to sample from */
   words: DictionaryEntry[];
+  /** Target language code for TTS */
+  targetLanguage: string;
   /** Accent color for styling */
   accentColor?: string;
   /** Time limit in seconds (default: 60) */
@@ -42,6 +46,7 @@ type FeedbackType = 'correct' | 'wrong' | null;
  */
 export const QuickFire: React.FC<QuickFireProps> = ({
   words,
+  targetLanguage,
   accentColor = '#f59e0b', // amber-500
   timeLimit = 60,
   maxWords = 20,
@@ -278,9 +283,18 @@ export const QuickFire: React.FC<QuickFireProps> = ({
 
         {/* Word */}
         <div className="bg-amber-50 dark:bg-amber-900/30 p-8 rounded-2xl mb-6 text-center">
-          <p className="text-4xl font-black text-amber-600 dark:text-amber-400">
-            {currentWord.word}
-          </p>
+          <div className="flex items-center justify-center gap-2">
+            <p className="text-4xl font-black text-amber-600 dark:text-amber-400">
+              {currentWord.word}
+            </p>
+            <button
+              onClick={() => speak(currentWord.word, targetLanguage)}
+              className="p-2 rounded-full hover:bg-amber-100 dark:hover:bg-amber-800/50 transition-colors"
+              title={t('play.flashcard.listen')}
+            >
+              <ICONS.Volume2 className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+            </button>
+          </div>
         </div>
 
         {/* Input */}

@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
+import { speak } from '../../../services/audio';
 import type { InteractiveGameModeProps } from './types';
 
 interface FlashcardsProps extends InteractiveGameModeProps {}
@@ -14,6 +15,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
   words,
   currentIndex,
   accentColor,
+  targetLanguage,
   targetLanguageName,
   currentWordStreak,
   onAnswer,
@@ -69,9 +71,21 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
           <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">
             {t('play.flashcard.word', { language: targetLanguageName.toUpperCase() })}
           </span>
-          <h3 className="text-4xl font-black text-[var(--text-primary)]">
-            {currentWord.word}
-          </h3>
+          <div className="flex items-center gap-3">
+            <h3 className="text-4xl font-black text-[var(--text-primary)]">
+              {currentWord.word}
+            </h3>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                speak(currentWord.word, targetLanguage);
+              }}
+              className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+              title={t('play.flashcard.listen')}
+            >
+              <ICONS.Volume2 className="w-6 h-6 text-[var(--text-secondary)]" />
+            </button>
+          </div>
           {currentWordStreak > 0 && (
             <div className="mt-4">
               <StreakIndicator streak={currentWordStreak} />
