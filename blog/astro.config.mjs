@@ -63,7 +63,7 @@ function getSitemapChangefreq(url) {
 
 export default defineConfig({
   site: 'https://www.lovelanguages.io',
-  output: 'hybrid',
+  output: 'server',
   adapter: vercel(),
   vite: {
     resolve: {
