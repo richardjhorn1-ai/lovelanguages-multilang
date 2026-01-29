@@ -1,5 +1,6 @@
 ---
 // Redirect to English compare page as the default
 // The [nativeLang] route handles all language-specific compare index pages
+export const prerender = true;
 return Astro.redirect('/compare/en/', 301);
 ---
