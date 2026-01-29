@@ -38,7 +38,15 @@
 - ❌ Control characters (U+0000 - U+001F) in content
 - ❌ Unescaped special characters in JSON
 
-### 3. Required Components in Content
+### 3. YAML Frontmatter (CRITICAL)
+- ❌ **Nested double quotes break YAML parsing!**
+  - Bad: `title: "How to Say "I Love You" in Czech"`
+  - Good: `title: "How to Say 'I Love You' in Czech"`
+- ✅ Use single quotes `'` inside double-quoted YAML strings
+- ✅ Or escape with backslash: `title: "How to Say \"I Love You\""`
+- This applies to `title`, `description`, and any quoted frontmatter field
+
+### 4. Required Components in Content
 Articles should include these MDX imports when relevant:
 ```mdx
 import VocabCard from '@components/VocabCard.astro';
@@ -48,18 +56,18 @@ import PhraseOfDay from '@components/PhraseOfDay.astro';
 import CTA from '@components/CTA.astro';
 ```
 
-### 4. Image
+### 5. Image
 - ❌ Missing image field (36 articles have this issue)
 - ✅ Always include an image path
 
-### 5. Category Values
+### 6. Category Values
 Only use these categories:
 - `vocabulary` - word lists, phrases, vocabulary topics
 - `grammar` - grammar explanations
 - `pronunciation` - pronunciation guides
 - `situations` - situational phrases (dating, family, etc.)
 
-### 6. Tags
+### 7. Tags
 - ✅ 3-5 tags per article
 - ✅ Tags should be in **native language** OR English
 - ✅ Include topic-relevant tags (e.g., "romance", "couples", "vocabulary")
