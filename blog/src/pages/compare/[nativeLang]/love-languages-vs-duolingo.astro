@@ -3,6 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { getComparisonContent } from '../../../data/comparison-features';
 
+export const prerender = true;
+
 export function getStaticPaths() {
   // Supported native languages (only those with article content)
   const supportedLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'uk', 'tr', 'ro', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
