@@ -388,16 +388,10 @@ if (currentStreak === 5) {
 
 ---
 
-### 2. Score Tracking Column Mismatch
-Local games write to `success_count`/`fail_count` columns, but partner challenges write to `total_attempts`/`correct_attempts`. Word progress may not sync correctly between features.
+### ✅ 2. Score Tracking Column Mismatch (NOT AN ISSUE)
+~~Local games write to `success_count`/`fail_count` columns, but partner challenges write to `total_attempts`/`correct_attempts`.~~
 
-**Files:**
-- `components/FlashcardGame.tsx` (line ~380) — uses `success_count`/`fail_count`
-- `api/submit-challenge.ts` — uses `total_attempts`/`correct_attempts`
-
-**Fix:** Align column names, add migration if needed.
-
-**Effort:** Medium (2-3 hours, need DB migration)
+**Verified Jan 29:** All components use consistent columns (`total_attempts`/`correct_attempts`). No mismatch exists. Roadmap was outdated.
 
 ---
 
@@ -425,43 +419,57 @@ if (result.isCorrect) {
 
 ## 🛠 High Priority (Should Fix Soon)
 
-### 5. Verb Mastery Only Works for Polish
+### 5. Verb Mastery Only Works for Polish (INFRASTRUCTURE READY)
 `VERB_PERSONS` array has hardcoded Polish pronouns. Other languages can't use Verb Mastery mode.
 
-**Files:**
-- `components/FlashcardGame.tsx` (lines 42-50) — hardcoded array
-- `constants/language-config.ts` — has `getConjugationPersons()` function
+**Status (Jan 29):**
+- ✅ All 18 languages have `conjugationPersons` defined in `language-config.ts`
+- ✅ Helper functions exist: `getConjugationPersons(code)`, `getConjugationLabel(key, code)`
+- ✅ Schema builders use normalized keys that map correctly
+- ❌ `FlashcardGame.tsx` lines 38-46 has hardcoded Polish pronouns
 
-**Fix:** Replace `VERB_PERSONS` with dynamic lookup from `LANGUAGE_CONFIGS[targetLanguage].grammar.conjugationPersons`
+**Fix:** ~20 lines to wire up:
+```typescript
+import { getConjugationPersons } from '../constants/language-config';
+// Replace hardcoded VERB_PERSONS with dynamic builder using targetLanguage
+```
 
-**Effort:** Medium (1-2 hours)
+**Tenses supported:** Present ✅, Past ✅, Future ✅, Conditional ❌, Subjunctive ❌
+
+**Effort:** Quick (30 min — infrastructure is ready, just needs wiring)
 
 ---
 
 ### 6. `xp-gain` Sound Never Used
-The `xp-gain.mp3` sound effect exists but is never played anywhere in the app.
+The `xp-gain` sound is defined but never played anywhere in the app.
 
-**Files:**
-- `public/sounds/xp-gain.mp3` — unused asset
-- `services/sounds.ts` — defines but never triggers
+**Status (Jan 29):**
+- ✅ Sound defined in `services/sounds.ts` (type + file list)
+- ✅ Haptic pattern defined in `services/haptics.ts`
+- ❌ `sounds.play('xp-gain')` called 0 times in codebase
 
-**Fix:** Play when XP is awarded (games, challenges, word additions).
+**Where to add:**
+- `PlayQuizChallenge.tsx` — result screen showing `xp_earned`
+- `PlayQuickFireChallenge.tsx` — result screen showing `xp_earned`
+- `FlashcardGame.tsx` — game completion
+- `WordGiftLearning.tsx` — shows `+{xpEarned} XP`
 
-**Effort:** Quick (add calls in 3-4 places)
+**Effort:** Quick (15 min — add 4 calls)
 
 ---
 
-### 7. No TTS in Games
+### 7. No TTS in Games (SERVICE READY)
 Flashcards, quizzes, and challenges don't have TTS pronunciation buttons. Users can't hear words while practicing.
 
-**Files:**
-- `components/FlashcardGame.tsx` — no TTS integration
-- `components/PlayQuizChallenge.tsx` — no TTS
-- `services/audio.ts` — TTS service exists
+**Status (Jan 29):**
+- ✅ TTS service exists at `services/audio.ts` (Google Cloud + browser fallback)
+- ✅ Works in LoveLog (dictionary) — speaker icons play pronunciation
+- ✅ Works in onboarding (LearnLoveStep, LearnHelloStep)
+- ❌ NOT in games: Flashcards, MC, TypeIt, QuickFire, VerbMastery, AIChallenge
 
-**Fix:** Add speaker icon buttons that call `speak(word, targetLanguage)`.
+**Fix:** Add speaker button + import `speak` from services/audio in each game mode.
 
-**Effort:** Medium (1-2 hours)
+**Effort:** Quick (~15 min per mode — just UI wiring, service exists)
 
 ---
 
@@ -477,16 +485,16 @@ Timer callback captures stale state. Uses refs as workaround but pattern is frag
 
 ---
 
-### 9. No Exit Confirmation for In-Progress Games
-Users can accidentally lose progress by clicking back button mid-game. Especially problematic for Quick Fire with timer running.
+### ⚠️ 9. Exit Confirmation for In-Progress Games (PARTIAL)
+~~Users can accidentally lose progress by clicking back button mid-game.~~
 
-**Files:**
-- `components/FlashcardGame.tsx`
-- `components/TutorGames.tsx`
+**Status (Jan 29):**
+- ✅ `FlashcardGame.tsx` — Implemented! Has `beforeunload` + custom `ExitConfirmModal`
+- ❌ `TutorGames.tsx` — NOT implemented, needs adding
 
-**Fix:** Add `beforeunload` handler and/or confirmation modal.
+**Remaining fix:** Copy exit confirmation pattern to TutorGames.tsx
 
-**Effort:** Quick (30 min)
+**Effort:** Quick (15 min)
 
 ---
 
@@ -523,40 +531,53 @@ Users can accidentally lose progress by clicking back button mid-game. Especiall
 
 ---
 
-### 12. No Volume Control
-Only mute/unmute toggle exists. Volume is fixed at 0.5.
+### 12. No Volume Control (API READY)
+Only mute/unmute toggle exists in UI. Volume is fixed at 0.5.
 
-**Files:**
-- `services/sounds.ts` — hardcoded `volume: 0.5`
-- `components/ProfileView.tsx` — mute toggle only
+**Status (Jan 29):**
+- ✅ `services/sounds.ts` has `setVolume(vol)` and `getVolume()` methods ready
+- ❌ UI only shows mute toggle (ProfileView.tsx lines 470-510)
+- ❌ Volume slider not exposed to users
 
-**Fix:** Add volume slider to ProfileView, persist preference.
+**Fix:** Add volume slider to ProfileView that calls `sounds.setVolume()`, persist preference.
 
-**Effort:** Quick (1 hour)
+**Effort:** Quick (45 min)
 
 ---
 
-### 13. No Keyboard Navigation for Multiple Choice
+### 13. No Keyboard Navigation for Multiple Choice (PARTIAL)
 Can't use 1/2/3/4 or A/B/C/D keys to select options.
 
-**Files:**
-- `components/FlashcardGame.tsx` — multiple choice rendering
+**Status (Jan 29):**
+- ✅ Enter key works for text input submission (TypeIt, QuickFire, VerbMastery, AIChallenge)
+- ❌ No 1/2/3/4 or A/B/C/D keys for multiple choice selection
 
-**Fix:** Add keydown listener mapping numbers/letters to options.
+**Fix:** Add keydown listener in MultipleChoice.tsx mapping numbers to options.
 
 **Effort:** Quick (30 min)
 
 ---
 
 ### 14. No Reduced Motion Support
-3D flip animations may cause motion sickness. No alternative non-animated mode.
+Animations may cause motion sickness. No reduced motion alternative.
 
-**Files:**
-- `components/FlashcardGame.tsx` — flip animation CSS
+**Status (Jan 29):**
+- ❌ Zero `prefers-reduced-motion` media queries in app code
+- ❌ `animate-pulse`, `animate-ping`, `animate-spin`, `slide-in`, `fade-in` all run without checks
+- ⚠️ ARIA attributes partial (dialogs good, incomplete elsewhere)
+- ❌ No `sr-only` screen reader text found
 
-**Fix:** Add `prefers-reduced-motion` media query support.
+**Fix:** Add global CSS:
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
 
-**Effort:** Quick (30 min)
+**Effort:** Quick (15 min for global fix)
 
 ---
 
@@ -600,10 +621,26 @@ Different loading indicators across components (text vs bouncing dots vs mixed).
 
 ## 🌍 Content Expansion
 
-### ✅ 19. 6 Languages Now Have Blog Content (DONE Jan 29)
+### ✅ 19. All 18 Languages Have Blog Content (VERIFIED Jan 29)
 ~~Swedish, Norwegian, Danish, Czech, Greek, Hungarian have app support but no blog articles.~~
 
-**Fixed:** Generated ~1,000 articles for the 6 new languages, migrated to Supabase.
+**Status:** 5,147 total articles across all 18 native languages:
+
+| Language | Articles | | Language | Articles |
+|----------|----------|---|----------|----------|
+| 🇬🇧 en | 493 | | 🇷🇴 ro | 286 |
+| 🇫🇷 fr | 477 | | 🇳🇱 nl | 285 |
+| 🇪🇸 es | 426 | | 🇹🇷 tr | 282 |
+| 🇮🇹 it | 361 | | 🇺🇦 uk | 281 |
+| 🇩🇪 de | 359 | | 🇵🇱 pl | 266 |
+| 🇵🇹 pt | 350 | | 🇷🇺 ru | 262 |
+| 🇸🇪 sv | 170 | | 🇳🇴 no | 170 |
+| 🇭🇺 hu | 170 | | 🇬🇷 el | 170 |
+| 🇩🇰 da | 170 | | 🇨🇿 cs | 169 |
+
+**en→pl specifically:** 86 articles ✅
+
+**Note:** When querying `blog_articles`, use batches or `Prefer: count=exact` header — Supabase has 1000-row default limit.
 
 ---
 
@@ -682,12 +719,14 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 |------|------|--------|
 | ~~Add `nl`, `ro`, `uk` to Learn Hub~~ | 5 min | ✅ Done |
 | Play `xp-gain` sound when XP awarded | 15 min | ⚠️ Open |
-| Add exit confirmation for games | 30 min | ⚠️ Open |
-| Add keyboard shortcuts (1-4) for MC | 30 min | ⚠️ Open |
+| ~~Add exit confirmation for games~~ | 30 min | ✅ FlashcardGame done, TutorGames needs it |
+| Add keyboard shortcuts (1-4) for MC | 30 min | ⚠️ Open (Enter works, numbers don't) |
 | ~~Add streak indicator in game UI~~ | 30 min | ✅ Done |
-| Add volume slider | 45 min | ⚠️ Open |
+| Add volume slider | 45 min | ⚠️ Open (API ready, needs UI) |
 | ~~Remove console.log statements~~ | 30 min | ✅ Done |
-| Add reduced-motion support | 30 min | ⚠️ Open |
+| Add reduced-motion support | 15 min | ⚠️ Open (global CSS fix) |
+| Wire up Verb Mastery multilingual | 30 min | ⚠️ Open (infrastructure ready) |
+| Add TTS to one game mode | 15 min | ⚠️ Open (service ready) |
 
 ---
 
@@ -696,10 +735,10 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 | Issue | Urgency | Impact | Effort | Status |
 |-------|---------|--------|--------|--------|
 | ~~XP not awarded for games~~ | 🔴 High | 🔴 High | Quick | ✅ Done |
-| Score column mismatch | 🔴 High | 🔴 High | Medium | ⚠️ Open |
+| ~~Score column mismatch~~ | 🔴 High | 🔴 High | Medium | ✅ Not an issue |
 | ~~Learn Hub missing langs~~ | 🔴 High | 🟡 Medium | Quick | ✅ Done |
-| Verb Mastery Polish-only | 🟡 Medium | 🔴 High | Medium | ⚠️ Open |
-| TTS missing in games | 🟡 Medium | 🔴 High | Medium | ⚠️ Open |
+| Verb Mastery Polish-only | 🟡 Medium | 🔴 High | Quick | ⚠️ Infrastructure ready |
+| TTS missing in games | 🟡 Medium | 🔴 High | Quick | ⚠️ Service ready |
 | ~~Component splitting~~ | 🟢 Low | 🔴 High | Large | ✅ Mostly Done |
 | SRS implementation | 🟢 Low | 🔴 High | Large | ⚠️ Open |
 | Mobile app deployment | 🟢 Low | 🔴 High | Large | ⚠️ Open |
