@@ -1,32 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getArticlesByNativeLang, getArticleCount } from '../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
-
-/**
- * /learn/ - The Master Hub
- *
- * Design notes:
- * - Uses brand colors: coral (#FF6B6B), teal (#4ECDC4), golden (#FFE66D)
- * - Warm off-white background (#fdfcfd)
- * - Varied visual treatments to avoid cookie-cutter look
- */
-
-const allArticles = await getCollection('articles');
 
 // Count articles per language (English speakers)
 const languageCounts: Record<string, number> = {};
 for (const code of Object.keys(LANGUAGE_HUB_DATA)) {
-  languageCounts[code] = allArticles.filter(a => a.slug.startsWith(`en/${code}/`)).length;
+  languageCounts[code] = await getArticleCount('en', code);
 }
 
-// Latest articles
-const latestArticles = allArticles
-  .filter(a => a.slug.startsWith('en/'))
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-  .slice(0, 4);
-
-const totalArticles = allArticles.filter(a => a.slug.startsWith('en/')).length;
+// Latest articles for English speakers
+const latestArticles = await getArticlesByNativeLang('en', { limit: 4 });
+const totalArticles = await getArticleCount('en');
 
 // Featured languages (most content)
 const allLanguages = Object.entries(LANGUAGE_HUB_DATA)
@@ -36,14 +21,14 @@ const allLanguages = Object.entries(LANGUAGE_HUB_DATA)
 const featuredLanguages = allLanguages.slice(0, 6);
 const otherLanguages = allLanguages.slice(6);
 
-const getArticleUrl = (slug: string) => `/learn/${slug}/`;
-const getLangFromSlug = (slug: string) => slug.split('/')[1];
+const getArticleUrl = (article: any) => `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
+const getLangFromArticle = (article: any) => article.target_lang;
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Learn Any Language Together - Love Languages",
-  "description": "Free language lessons for couples. 471+ articles across 17 languages.",
+  "description": `Free language lessons for couples. ${totalArticles}+ articles across 17 languages.`,
   "url": "https://www.lovelanguages.io/learn/",
   "inLanguage": "en",
   "publisher": {
@@ -56,12 +41,12 @@ const jsonLd = {
 
 <BaseLayout
   title="Learn Any Language Together - Love Languages"
-  description="Free language lessons, vocabulary guides, and cultural tips for couples learning together. 471+ articles across 17 languages."
+  description={`Free language lessons, vocabulary guides, and cultural tips for couples learning together. ${totalArticles}+ articles across 17 languages.`}
   nativeLang="en"
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <!-- Hero - Warm coral gradient, asymmetric layout -->
+  <!-- Hero -->
   <header class="relative overflow-hidden" style="background: linear-gradient(135deg, #FFF0F3 0%, #fdfcfd 50%, #E7F5FF 100%);">
     <div class="max-w-6xl mx-auto px-4 py-16 md:py-24">
       <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -76,7 +61,6 @@ const jsonLd = {
           <div class="flex flex-wrap gap-4 mb-8">
             <a href="#languages" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white transition-all hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);">
               Browse Languages
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </a>
             <a href="/learn/couples-language-learning/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold transition-all hover:scale-105" style="color: #4ECDC4; border: 2px solid #4ECDC4;">
               Why Learn Together?
@@ -88,7 +72,7 @@ const jsonLd = {
           </div>
         </div>
 
-        <!-- Flag cluster - playful arrangement -->
+        <!-- Flag cluster -->
         <div class="hidden md:flex justify-center items-center relative h-64">
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="relative">
@@ -118,16 +102,9 @@ const jsonLd = {
         </div>
       </div>
     </div>
-
-    <!-- Decorative wave -->
-    <div class="absolute bottom-0 left-0 right-0 h-16 overflow-hidden">
-      <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="absolute bottom-0 w-full h-full">
-        <path d="M0,60 C300,120 600,0 900,60 C1050,90 1150,90 1200,60 L1200,120 L0,120 Z" fill="#fdfcfd"/>
-      </svg>
-    </div>
   </header>
 
-  <!-- Discovery Paths - Varied card styles, brand colors -->
+  <!-- Discovery Paths -->
   <section class="py-16" style="background: #fdfcfd;">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12">
@@ -136,50 +113,34 @@ const jsonLd = {
       </div>
 
       <div class="grid md:grid-cols-4 gap-5">
-        <!-- Difficulty Path - Teal accent -->
         <a href="/learn/easiest-languages/" class="group relative p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1" style="background: linear-gradient(145deg, #E7F5FF, #fdfcfd); border-color: #4ECDC4;">
           <div class="text-4xl mb-4">📊</div>
           <h3 class="font-bold text-[#292F36] text-lg mb-2 group-hover:text-[#4ECDC4] transition-colors">By Difficulty</h3>
           <p class="text-sm text-gray-600">Easiest to hardest for English speakers</p>
-          <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style="background: #4ECDC4;">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
         </a>
 
-        <!-- Romance Languages - Coral accent -->
         <a href="/learn/romance-languages/" class="group relative p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1" style="background: linear-gradient(145deg, #FFF0F3, #fdfcfd); border-color: #FF6B6B;">
           <div class="text-4xl mb-4">💕</div>
           <h3 class="font-bold text-[#292F36] text-lg mb-2 group-hover:text-[#FF6B6B] transition-colors">Romance Languages</h3>
           <p class="text-sm text-gray-600">Spanish, French, Italian, Portuguese</p>
-          <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style="background: #FF6B6B;">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
         </a>
 
-        <!-- Slavic Languages - Deep blue accent -->
         <a href="/learn/slavic-languages/" class="group relative p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1" style="background: linear-gradient(145deg, #EEF2FF, #fdfcfd); border-color: #6366F1;">
           <div class="text-4xl mb-4">🔤</div>
           <h3 class="font-bold text-[#292F36] text-lg mb-2 group-hover:text-[#6366F1] transition-colors">Slavic Languages</h3>
           <p class="text-sm text-gray-600">Polish, Russian, Ukrainian, Czech</p>
-          <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style="background: #6366F1;">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
         </a>
 
-        <!-- Romantic Phrases - Golden accent -->
         <a href="/learn/romantic-phrases/" class="group relative p-6 rounded-2xl border-2 transition-all hover:shadow-xl hover:-translate-y-1" style="background: linear-gradient(145deg, #FFFBEB, #fdfcfd); border-color: #F59E0B;">
           <div class="text-4xl mb-4">❤️</div>
           <h3 class="font-bold text-[#292F36] text-lg mb-2 group-hover:text-[#F59E0B] transition-colors">"I Love You"</h3>
           <p class="text-sm text-gray-600">Romantic phrases in 18 languages</p>
-          <div class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" style="background: #F59E0B;">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Languages Section - Clear hierarchy, brand colors -->
+  <!-- Languages Section -->
   <section id="languages" class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12">
@@ -187,18 +148,14 @@ const jsonLd = {
         <p class="text-gray-600">Complete guides with lessons, phrases, grammar & culture</p>
       </div>
 
-      <!-- Featured - Larger cards -->
+      <!-- Featured -->
       <div class="grid md:grid-cols-3 gap-6 mb-10">
         {featuredLanguages.map((lang, i) => (
           <a
-            href={`/learn/language/${lang.name.toLowerCase()}/`}
+            href={`/learn/en/${lang.code}/`}
             class="group relative p-6 rounded-2xl transition-all hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
             style={`background: ${i === 0 ? 'linear-gradient(135deg, #FFF0F3 0%, white 100%)' : i === 1 ? 'linear-gradient(135deg, #E7F5FF 0%, white 100%)' : 'linear-gradient(135deg, #F0FDF4 0%, white 100%)'};`}
           >
-            <div class="absolute top-0 right-0 w-32 h-32 opacity-10 text-8xl flex items-center justify-center">
-              {lang.flag}
-            </div>
-
             <div class="relative">
               <span class="text-5xl mb-4 block group-hover:scale-110 transition-transform origin-left">{lang.flag}</span>
               <h3 class="text-2xl font-bold text-[#292F36] mb-1 group-hover:text-[#FF6B6B] transition-colors">{lang.name}</h3>
@@ -222,11 +179,11 @@ const jsonLd = {
         ))}
       </div>
 
-      <!-- All Languages - Compact grid -->
+      <!-- All Languages -->
       <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-3">
         {otherLanguages.map(lang => (
           <a
-            href={`/learn/language/${lang.name.toLowerCase()}/`}
+            href={`/learn/en/${lang.code}/`}
             class="group flex flex-col items-center p-3 rounded-xl border border-gray-100 hover:border-[#FF6B6B] hover:shadow-md transition-all bg-white"
           >
             <span class="text-2xl mb-1 group-hover:scale-110 transition-transform">{lang.flag}</span>
@@ -237,40 +194,42 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- Latest Articles - Horizontal scroll on mobile, distinctive styling -->
-  <section class="py-16" style="background: #fdfcfd;">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between mb-8">
-        <div>
-          <h2 class="text-2xl font-bold font-header text-[#292F36]">Fresh Reads</h2>
-          <p class="text-gray-600 text-sm">Latest guides and lessons</p>
+  <!-- Latest Articles -->
+  {latestArticles.length > 0 && (
+    <section class="py-16" style="background: #fdfcfd;">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <h2 class="text-2xl font-bold font-header text-[#292F36]">Fresh Reads</h2>
+            <p class="text-gray-600 text-sm">Latest guides and lessons</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {latestArticles.map(article => {
+            const langCode = getLangFromArticle(article);
+            const langData = LANGUAGE_HUB_DATA[langCode];
+            return (
+              <a href={getArticleUrl(article)} class="group block">
+                <div class="p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-lg hover:border-[#4ECDC4] transition-all h-full">
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="text-lg">{langData?.flag}</span>
+                    <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: #E7F5FF; color: #4ECDC4;">{langData?.name}</span>
+                  </div>
+                  <h3 class="font-bold text-[#292F36] group-hover:text-[#4ECDC4] transition-colors mb-2 line-clamp-2 text-sm">
+                    {article.title}
+                  </h3>
+                  <p class="text-xs text-gray-500 line-clamp-2">{article.description}</p>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
+    </section>
+  )}
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {latestArticles.map(article => {
-          const langCode = getLangFromSlug(article.slug);
-          const langData = LANGUAGE_HUB_DATA[langCode];
-          return (
-            <a href={getArticleUrl(article.slug)} class="group block">
-              <div class="p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-lg hover:border-[#4ECDC4] transition-all h-full">
-                <div class="flex items-center gap-2 mb-3">
-                  <span class="text-lg">{langData?.flag}</span>
-                  <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: #E7F5FF; color: #4ECDC4;">{langData?.name}</span>
-                </div>
-                <h3 class="font-bold text-[#292F36] group-hover:text-[#4ECDC4] transition-colors mb-2 line-clamp-2 text-sm">
-                  {article.data.title}
-                </h3>
-                <p class="text-xs text-gray-500 line-clamp-2">{article.data.description}</p>
-              </div>
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
-  <!-- Couples CTA - Warm, inviting -->
+  <!-- Couples CTA -->
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4">
       <div class="relative rounded-3xl p-8 md:p-12 overflow-hidden" style="background: linear-gradient(135deg, #FFF0F3 0%, #E7F5FF 100%);">
@@ -290,14 +249,13 @@ const jsonLd = {
             style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);"
           >
             Discover Why Couples Learn Faster
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- App CTA - Brand gradient -->
+  <!-- App CTA -->
   <section class="py-20" style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 50%, #FFB4B4 100%);">
     <div class="max-w-2xl mx-auto px-4 text-center text-white">
       <h2 class="text-3xl md:text-4xl font-bold font-header mb-4">
@@ -327,21 +285,9 @@ const jsonLd = {
         Love Languages
       </a>
       <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
-
-      <div class="flex flex-wrap justify-center gap-4 mb-6">
-        {featuredLanguages.slice(0, 4).map(lang => (
-          <a href={`/learn/language/${lang.name.toLowerCase()}/`} class="text-sm text-gray-500 hover:text-[#FF6B6B] transition-colors">
-            {lang.flag} {lang.name}
-          </a>
-        ))}
-        <a href="/learn/easiest-languages/" class="text-sm text-gray-500 hover:text-[#FF6B6B] transition-colors">Easiest Languages</a>
-      </div>
-
       <nav class="flex justify-center gap-6 text-sm text-gray-400">
         <a href="/learn/" class="hover:text-[#FF6B6B]">Blog</a>
         <a href="/tools" class="hover:text-[#FF6B6B]">Tools</a>
-        <a href="/terms" class="hover:text-[#FF6B6B]">Terms</a>
-        <a href="/privacy" class="hover:text-[#FF6B6B]">Privacy</a>
       </nav>
     </div>
   </footer>

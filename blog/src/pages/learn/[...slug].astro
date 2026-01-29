@@ -1,8 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getArticle, getArticlesByLangPair, getAllSlugs } from '../../lib/blog-api';
 
-// Language config for flags and names (subset of main app's LANGUAGE_CONFIGS)
+// Language config for flags and names
 const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
   en: { flag: '🇬🇧', name: 'English', nativeName: 'English' },
   es: { flag: '🇪🇸', name: 'Spanish', nativeName: 'Español' },
@@ -24,125 +24,90 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
   tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
 };
 
-export async function getStaticPaths() {
-  const articles = await getCollection('articles');
-  return articles.map((article) => ({
-    params: { slug: article.slug },
-    props: { article, allArticles: articles },
-  }));
+// Parse slug: nativeLang/targetLang/article-slug
+const { slug } = Astro.params;
+const slugParts = (slug || '').split('/');
+
+if (slugParts.length < 3) {
+  return Astro.redirect('/learn/');
 }
 
-const { article, allArticles } = Astro.props;
-const { Content } = await article.render();
+const nativeLanguageCode = slugParts[0];
+const targetLanguageCode = slugParts[1];
+const articleSlug = slugParts.slice(2).join('/');
 
-// Extract languages from slug (e.g., "en/pl/article-name" -> nativeLang: "en", targetLang: "pl")
-const slugParts = article.slug.split('/');
-const nativeLanguageCode = slugParts[0] || 'en';
-const targetLanguageCode = slugParts[1] || article.data.language || 'pl';
-const languageCode = targetLanguageCode; // For backwards compatibility with layout
+// Fetch article from Supabase
+const article = await getArticle(nativeLanguageCode, targetLanguageCode, articleSlug);
+
+if (!article) {
+  return Astro.redirect('/learn/');
+}
 
 const nativeLanguageInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
 const languageInfo = LANGUAGE_INFO[targetLanguageCode] || LANGUAGE_INFO.pl;
+const languageCode = targetLanguageCode;
 
-// Get related articles: same native language, same target language, same category, excluding current, max 3
-const relatedArticles = allArticles
-  .filter((a) => {
-    const aParts = a.slug.split('/');
-    const aNativeLang = aParts[0];
-    const aTargetLang = aParts[1];
-    return a.slug !== article.slug &&
-           aNativeLang === nativeLanguageCode &&
-           aTargetLang === targetLanguageCode &&
-           a.data.category === article.data.category;
-  })
-  .sort(() => Math.random() - 0.5)
+// Get related articles from same language pair
+const allLangPairArticles = await getArticlesByLangPair(nativeLanguageCode, targetLanguageCode, { limit: 50 });
+
+// Related: same category first
+const relatedArticles = allLangPairArticles
+  .filter(a => a.slug !== articleSlug && a.category === article.category)
   .slice(0, 3);
 
-// If not enough in same category, fill with other articles from same native+target language pair
+// Fill with other articles if needed
 if (relatedArticles.length < 3) {
-  const otherArticles = allArticles
-    .filter((a) => {
-      const aParts = a.slug.split('/');
-      const aNativeLang = aParts[0];
-      const aTargetLang = aParts[1];
-      return a.slug !== article.slug &&
-             aNativeLang === nativeLanguageCode &&
-             aTargetLang === targetLanguageCode &&
-             !relatedArticles.includes(a);
-    })
-    .sort(() => Math.random() - 0.5)
+  const others = allLangPairArticles
+    .filter(a => a.slug !== articleSlug && !relatedArticles.find(r => r.slug === a.slug))
     .slice(0, 3 - relatedArticles.length);
-  relatedArticles.push(...otherArticles);
+  relatedArticles.push(...others);
 }
 
-// Find alternate versions of this article in other native languages
-// E.g., if current is en/pl/article-name, find es/pl/article-name, fr/pl/article-name
-const baseArticleSlug = slugParts.slice(2).join('/');
-const alternateVersions = allArticles
-  .filter((a) => {
-    const aParts = a.slug.split('/');
-    const aBaseSlug = aParts.slice(2).join('/');
-    const aTargetLang = aParts[1];
-    return aBaseSlug === baseArticleSlug &&
-           aTargetLang === targetLanguageCode &&
-           a.slug !== article.slug;
-  })
-  .map((altArticle) => {
-    const altParts = altArticle.slug.split('/');
-    return {
-      nativeLang: altParts[0],
-      href: `https://www.lovelanguages.io/learn/${altArticle.slug}/`
-    };
-  });
+// Convert to format expected by layout
+const relatedForLayout = relatedArticles.map(a => ({
+  slug: `${a.native_lang}/${a.target_lang}/${a.slug}`,
+  data: {
+    title: a.title,
+    description: a.description,
+    category: a.category,
+    difficulty: a.difficulty,
+    readTime: a.read_time,
+    image: a.image,
+    tags: a.tags || [],
+    date: a.date
+  }
+}));
 
-// SEO: Find reverse language pair article (e.g., EN→PT article links to PT→EN equivalent)
-const reverseArticle = allArticles.find((a) => {
-  const aParts = a.slug.split('/');
-  const aNativeLang = aParts[0];
-  const aTargetLang = aParts[1];
-  const aBaseSlug = aParts.slice(2).join('/');
-  // Reverse pair with same or similar topic
-  return aNativeLang === targetLanguageCode &&
-         aTargetLang === nativeLanguageCode &&
-         (aBaseSlug === baseArticleSlug || aBaseSlug.includes(baseArticleSlug.split('-').slice(0, 3).join('-')));
-});
+// Find alternate versions (same article in different native languages)
+const allSlugs = await getAllSlugs(undefined, targetLanguageCode);
+const alternateVersions = allSlugs
+  .filter(s => s.slug === articleSlug && s.native_lang !== nativeLanguageCode)
+  .map(s => ({
+    nativeLang: s.native_lang,
+    href: `https://www.lovelanguages.io/learn/${s.native_lang}/${s.target_lang}/${s.slug}/`
+  }));
 
-// SEO: Find topically similar articles across different language pairs
-const topicKeywords = baseArticleSlug.split('-').filter(w =>
-  !['how', 'to', 'in', 'for', 'the', 'a', 'an', 'and', 'your', 'with'].includes(w)
-).slice(0, 3);
-
-const crossPairArticles = allArticles
-  .filter((a) => {
-    const aParts = a.slug.split('/');
-    const aNativeLang = aParts[0];
-    const aTargetLang = aParts[1];
-    const aBaseSlug = aParts.slice(2).join('/');
-    // Different language pair but similar topic
-    const isDifferentPair = !(aNativeLang === nativeLanguageCode && aTargetLang === targetLanguageCode);
-    const hasSimilarTopic = topicKeywords.some(kw => aBaseSlug.includes(kw));
-    return a.slug !== article.slug && isDifferentPair && hasSimilarTopic;
-  })
-  .slice(0, 2);
+// Cross-pair articles (simplified)
+const crossPairArticles: any[] = [];
 ---
 
 <ArticleLayout
-  title={article.data.title}
-  description={article.data.description}
-  category={article.data.category}
-  difficulty={article.data.difficulty}
-  readTime={article.data.readTime}
-  image={article.data.image}
-  date={article.data.date}
-  tags={article.data.tags}
-  relatedArticles={relatedArticles}
+  title={article.title}
+  description={article.description}
+  category={article.category}
+  difficulty={article.difficulty}
+  readTime={article.read_time}
+  image={article.image}
+  date={article.date}
+  tags={article.tags || []}
+  relatedArticles={relatedForLayout}
   languageCode={languageCode}
   languageInfo={languageInfo}
   nativeLanguageCode={nativeLanguageCode}
   nativeLanguageInfo={nativeLanguageInfo}
   alternateVersions={alternateVersions}
-  reverseArticle={reverseArticle}
+  reverseArticle={undefined}
   crossPairArticles={crossPairArticles}
 >
-  <Content />
+  <Fragment set:html={article.content_html || article.content} />
 </ArticleLayout>
