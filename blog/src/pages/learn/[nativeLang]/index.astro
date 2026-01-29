@@ -25,6 +25,12 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
   tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
 };
 
+// Generate static paths for all native languages
+export async function getStaticPaths() {
+  const langs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
+  return langs.map(lang => ({ params: { nativeLang: lang } }));
+}
+
 const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
 
 const { nativeLang } = Astro.params;

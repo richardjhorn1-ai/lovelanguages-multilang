@@ -27,6 +27,20 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
   tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
 };
 
+// Generate static paths for all language pair combinations
+export async function getStaticPaths() {
+  const langs = Object.keys(LANGUAGE_INFO);
+  const paths = [];
+  for (const native of langs) {
+    for (const target of langs) {
+      if (native !== target) {
+        paths.push({ params: { nativeLang: native, targetLang: target } });
+      }
+    }
+  }
+  return paths;
+}
+
 const SUPPORTED_LANGUAGES = Object.keys(LANGUAGE_INFO);
 
 const { nativeLang, targetLang } = Astro.params;
