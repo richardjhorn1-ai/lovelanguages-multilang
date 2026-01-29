@@ -57,6 +57,7 @@
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.23",
+    "dotenv": "^17.2.3",
     "jsdom": "^27.4.0",
     "playwright": "^1.57.0",
     "postcss": "^8.5.6",
