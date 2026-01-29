@@ -7,6 +7,22 @@ import { getArticlesByLangPair, getArticleCountsByTargetLang } from '../../../..
 import { getUITranslations, insertLanguage } from '../../../../data/ui-translations';
 import { LANGUAGES, getLanguageForDisplay, getAllLanguagesForDisplay, SUPPORTED_NATIVE_LANGS } from '../../../../data/language-info';
 
+export const prerender = true;
+
+export function getStaticPaths() {
+  // 18 native languages × 17 target languages = 306 combinations
+  const langs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
+  const paths = [];
+  for (const nativeLang of langs) {
+    for (const targetLang of langs) {
+      if (nativeLang !== targetLang) {
+        paths.push({ params: { nativeLang, targetLang } });
+      }
+    }
+  }
+  return paths;
+}
+
 const { nativeLang, targetLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
 const targetLanguageCode = targetLang || 'pl';
