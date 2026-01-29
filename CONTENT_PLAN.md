@@ -472,3 +472,24 @@ Love Languages. The relationship investment that pays off.
 ---
 
 *Last updated: January 2026*
+
+---
+
+## ⚠️ Querying blog_articles
+
+**Important:** Supabase has a default limit of 1000 rows. When counting articles:
+
+```bash
+# WRONG - only gets first 1000
+curl ".../blog_articles?select=native_lang" | jq ...
+
+# RIGHT - fetch in batches or use count
+for offset in 0 1000 2000 3000 4000 5000; do
+  curl ".../blog_articles?select=native_lang&limit=1000&offset=${offset}" ...
+done
+
+# Or use Prefer: count=exact header for totals
+curl -H "Prefer: count=exact" ".../blog_articles?select=id" -I | grep content-range
+```
+
+**Current stats (Jan 2025):** 5,147 articles across all 18 native languages.
