@@ -2,30 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getArticlesByNativeLang, getArticleCountsByTargetLang, getTargetLanguages } from '../../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../../data/language-hub-data';
-
-// Language config for flags and names
-const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
-  en: { flag: '🇬🇧', name: 'English', nativeName: 'English' },
-  es: { flag: '🇪🇸', name: 'Spanish', nativeName: 'Español' },
-  fr: { flag: '🇫🇷', name: 'French', nativeName: 'Français' },
-  it: { flag: '🇮🇹', name: 'Italian', nativeName: 'Italiano' },
-  pt: { flag: '🇵🇹', name: 'Portuguese', nativeName: 'Português' },
-  ro: { flag: '🇷🇴', name: 'Romanian', nativeName: 'Română' },
-  de: { flag: '🇩🇪', name: 'German', nativeName: 'Deutsch' },
-  nl: { flag: '🇳🇱', name: 'Dutch', nativeName: 'Nederlands' },
-  sv: { flag: '🇸🇪', name: 'Swedish', nativeName: 'Svenska' },
-  no: { flag: '🇳🇴', name: 'Norwegian', nativeName: 'Norsk' },
-  da: { flag: '🇩🇰', name: 'Danish', nativeName: 'Dansk' },
-  pl: { flag: '🇵🇱', name: 'Polish', nativeName: 'Polski' },
-  cs: { flag: '🇨🇿', name: 'Czech', nativeName: 'Čeština' },
-  ru: { flag: '🇷🇺', name: 'Russian', nativeName: 'Русский' },
-  uk: { flag: '🇺🇦', name: 'Ukrainian', nativeName: 'Українська' },
-  el: { flag: '🇬🇷', name: 'Greek', nativeName: 'Ελληνικά' },
-  hu: { flag: '🇭🇺', name: 'Hungarian', nativeName: 'Magyar' },
-  tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
-};
-
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
+import { getUITranslations } from '../../../data/ui-translations';
+import { LANGUAGES, getLanguageForDisplay, SUPPORTED_NATIVE_LANGS } from '../../../data/language-info';
 
 const { nativeLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
@@ -35,29 +13,31 @@ if (!SUPPORTED_NATIVE_LANGS.includes(nativeLanguageCode)) {
   return Astro.redirect('/learn/');
 }
 
-const nativeInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
+const nativeInfo = getLanguageForDisplay(nativeLanguageCode, nativeLanguageCode);
 
 // Count articles per target language for this native language (single query)
 const languageCounts = await getArticleCountsByTargetLang(nativeLanguageCode);
 
-// Sort: languages with articles first, then alphabetically
-const sortedLanguages = Object.entries(LANGUAGE_INFO)
-  .filter(([code]) => code !== nativeLanguageCode)
-  .sort(([codeA], [codeB]) => {
+// Get all languages except native, with translated names
+const sortedLanguageCodes = Object.keys(LANGUAGES)
+  .filter(code => code !== nativeLanguageCode)
+  .sort((codeA, codeB) => {
     const countA = languageCounts[codeA] || 0;
     const countB = languageCounts[codeB] || 0;
     if (countA > 0 && countB === 0) return -1;
     if (countB > 0 && countA === 0) return 1;
-    return LANGUAGE_INFO[codeA].name.localeCompare(LANGUAGE_INFO[codeB].name);
+    // Sort by translated name in user's language
+    const nameA = getLanguageForDisplay(codeA, nativeLanguageCode).name;
+    const nameB = getLanguageForDisplay(codeB, nativeLanguageCode).name;
+    return nameA.localeCompare(nameB);
   });
 
 // Get total article count for this native language
 const totalArticles = Object.values(languageCounts).reduce((sum, count) => sum + count, 0);
 
-// Get language data with article counts for featured display
-const allLanguages = sortedLanguages.map(([code, info]) => ({
-  code,
-  ...info,
+// Get language data with article counts for featured display (using translated names)
+const allLanguages = sortedLanguageCodes.map(code => ({
+  ...getLanguageForDisplay(code, nativeLanguageCode),
   articleCount: languageCounts[code] || 0,
   hubData: LANGUAGE_HUB_DATA[code]
 }));
@@ -71,126 +51,8 @@ const latestArticles = await getArticlesByNativeLang(nativeLanguageCode, { limit
 const getArticleUrl = (article: any) => `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
 const getLangFromArticle = (article: any) => article.target_lang;
 
-// Translations for UI text
-const UI_TEXT: Record<string, {
-  heroTitle: string;
-  heroSubtitle: string;
-  heroTagline: string;
-  browseLanguages: string;
-  whyLearnTogether: string;
-  chooseLanguage: string;
-  chooseLanguageSubtitle: string;
-  ctaTitle: string;
-  ctaSubtitle: string;
-  ctaButton: string;
-  startLearning: string;
-  articles: string;
-  guides: string;
-  languages: string;
-  toFluency: string;
-  freshReads: string;
-  latestGuides: string;
-  betterTogether: string;
-  couplesMotivation: string;
-  discoverCouples: string;
-  freeToStart: string;
-}> = {
-  en: {
-    heroTitle: 'Learn Any Language Together',
-    heroSubtitle: 'Free lessons, phrases, and cultural tips designed for partners learning side by side.',
-    heroTagline: 'For Couples',
-    browseLanguages: 'Browse Languages',
-    whyLearnTogether: 'Why Learn Together?',
-    chooseLanguage: 'Choose Your Language',
-    chooseLanguageSubtitle: 'Complete guides with lessons, phrases, grammar & culture',
-    ctaTitle: 'Ready to Start?',
-    ctaSubtitle: 'AI coaching, voice practice, and games designed for two.',
-    ctaButton: 'Begin Your Journey',
-    startLearning: 'Start Learning',
-    articles: 'articles',
-    guides: 'guides',
-    languages: 'languages',
-    toFluency: 'to fluency',
-    freshReads: 'Fresh Reads',
-    latestGuides: 'Latest guides and lessons',
-    betterTogether: 'Better Together',
-    couplesMotivation: 'Couples who learn together stay motivated, practice more often, and create memories that last forever.',
-    discoverCouples: 'Discover Why Couples Learn Faster',
-    freeToStart: 'Free to start • No credit card',
-  },
-  es: {
-    heroTitle: 'Aprende Cualquier Idioma Juntos',
-    heroSubtitle: 'Lecciones gratuitas, frases y consejos culturales para parejas que aprenden juntas.',
-    heroTagline: 'Para Parejas',
-    browseLanguages: 'Ver Idiomas',
-    whyLearnTogether: '¿Por Qué Aprender Juntos?',
-    chooseLanguage: 'Elige Tu Idioma',
-    chooseLanguageSubtitle: 'Guías completas con lecciones, frases, gramática y cultura',
-    ctaTitle: '¿Listo para Empezar?',
-    ctaSubtitle: 'Coaching de IA, práctica de voz y juegos diseñados para dos.',
-    ctaButton: 'Comienza Tu Viaje',
-    startLearning: 'Empezar a Aprender',
-    articles: 'artículos',
-    guides: 'guías',
-    languages: 'idiomas',
-    toFluency: 'para fluidez',
-    freshReads: 'Lecturas Nuevas',
-    latestGuides: 'Últimas guías y lecciones',
-    betterTogether: 'Mejor Juntos',
-    couplesMotivation: 'Las parejas que aprenden juntas se mantienen motivadas, practican más y crean recuerdos duraderos.',
-    discoverCouples: 'Descubre Por Qué las Parejas Aprenden Más Rápido',
-    freeToStart: 'Gratis para empezar • Sin tarjeta',
-  },
-  fr: {
-    heroTitle: 'Apprenez N\'importe Quelle Langue Ensemble',
-    heroSubtitle: 'Leçons gratuites, phrases et conseils culturels pour les couples qui apprennent ensemble.',
-    heroTagline: 'Pour les Couples',
-    browseLanguages: 'Voir les Langues',
-    whyLearnTogether: 'Pourquoi Apprendre Ensemble?',
-    chooseLanguage: 'Choisissez Votre Langue',
-    chooseLanguageSubtitle: 'Guides complets avec leçons, phrases, grammaire et culture',
-    ctaTitle: 'Prêt à Commencer?',
-    ctaSubtitle: 'Coaching IA, pratique vocale et jeux conçus pour deux.',
-    ctaButton: 'Commencez Votre Voyage',
-    startLearning: 'Commencer à Apprendre',
-    articles: 'articles',
-    guides: 'guides',
-    languages: 'langues',
-    toFluency: 'pour la fluidité',
-    freshReads: 'Lectures Récentes',
-    latestGuides: 'Derniers guides et leçons',
-    betterTogether: 'Mieux Ensemble',
-    couplesMotivation: 'Les couples qui apprennent ensemble restent motivés, pratiquent plus souvent et créent des souvenirs durables.',
-    discoverCouples: 'Découvrez Pourquoi les Couples Apprennent Plus Vite',
-    freeToStart: 'Gratuit pour commencer • Sans carte',
-  },
-  de: {
-    heroTitle: 'Lernt Jede Sprache Zusammen',
-    heroSubtitle: 'Kostenlose Lektionen, Redewendungen und Kulturtipps für Paare, die gemeinsam lernen.',
-    heroTagline: 'Für Paare',
-    browseLanguages: 'Sprachen Entdecken',
-    whyLearnTogether: 'Warum Zusammen Lernen?',
-    chooseLanguage: 'Wähle Deine Sprache',
-    chooseLanguageSubtitle: 'Komplette Guides mit Lektionen, Phrasen, Grammatik & Kultur',
-    ctaTitle: 'Bereit Anzufangen?',
-    ctaSubtitle: 'KI-Coaching, Sprachübungen und Spiele für zwei.',
-    ctaButton: 'Beginne Deine Reise',
-    startLearning: 'Jetzt Lernen',
-    articles: 'Artikel',
-    guides: 'Guides',
-    languages: 'Sprachen',
-    toFluency: 'bis zur Flüssigkeit',
-    freshReads: 'Neueste Artikel',
-    latestGuides: 'Aktuelle Guides und Lektionen',
-    betterTogether: 'Besser Zusammen',
-    couplesMotivation: 'Paare, die zusammen lernen, bleiben motiviert, üben öfter und schaffen unvergessliche Erinnerungen.',
-    discoverCouples: 'Entdecke Warum Paare Schneller Lernen',
-    freeToStart: 'Kostenlos starten • Keine Kreditkarte',
-  },
-};
-
-// Fallback to English if translation not available
-const text = UI_TEXT[nativeLanguageCode] || UI_TEXT.en;
+// Get translations for this native language
+const text = getUITranslations(nativeLanguageCode);
 
 // Hreflang alternates
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
@@ -445,8 +307,8 @@ const jsonLd = {
       </a>
       <p class="text-gray-600 mb-6">{text.heroSubtitle}</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-400">
-        <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-[#FF6B6B]">Blog</a>
-        <a href="/tools" class="hover:text-[#FF6B6B]">Tools</a>
+        <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-[#FF6B6B]">{text.blog}</a>
+        <a href="/tools" class="hover:text-[#FF6B6B]">{text.tools}</a>
       </nav>
     </div>
   </footer>

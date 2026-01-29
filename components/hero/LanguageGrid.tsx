@@ -74,7 +74,7 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
             }}
           >
             <span className="text-2xl">{lang.flag}</span>
-            <span className="text-scale-micro font-bold text-gray-700">{lang.nativeName}</span>
+            <span className="text-scale-micro font-bold text-gray-700">{t(`languageNames.${lang.code}`)}</span>
           </button>
         ))}
       </div>
@@ -116,7 +116,7 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
         {/* Divider with label */}
         <div className="flex items-center gap-3 mb-4">
           <div className="flex-1 h-px bg-gray-200" />
-          <span className="text-scale-caption font-bold text-gray-400 uppercase tracking-wider">More languages</span>
+          <span className="text-scale-caption font-bold text-gray-400 uppercase tracking-wider">{t('hero.languageSelector.moreLanguages')}</span>
           <div className="flex-1 h-px bg-gray-200" />
         </div>
 
@@ -134,7 +134,7 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
               }}
             >
               <span className="text-xl">{lang.flag}</span>
-              <span className="text-scale-micro font-bold text-gray-600 truncate w-full text-center">{lang.nativeName}</span>
+              <span className="text-scale-micro font-bold text-gray-600 truncate w-full text-center">{t(`languageNames.${lang.code}`)}</span>
             </button>
           ))}
         </div>

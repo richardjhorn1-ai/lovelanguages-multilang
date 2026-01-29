@@ -4,37 +4,15 @@ import ArticleCard from '../../../../components/ArticleCard.astro';
 import LanguageSelector from '../../../../components/LanguageSelector.astro';
 import Testimonials from '../../../../components/Testimonials.astro';
 import { getArticlesByLangPair, getArticleCountsByTargetLang } from '../../../../lib/blog-api';
-
-// Language config for flags and names
-const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
-  en: { flag: '🇬🇧', name: 'English', nativeName: 'English' },
-  es: { flag: '🇪🇸', name: 'Spanish', nativeName: 'Español' },
-  fr: { flag: '🇫🇷', name: 'French', nativeName: 'Français' },
-  it: { flag: '🇮🇹', name: 'Italian', nativeName: 'Italiano' },
-  pt: { flag: '🇵🇹', name: 'Portuguese', nativeName: 'Português' },
-  ro: { flag: '🇷🇴', name: 'Romanian', nativeName: 'Română' },
-  de: { flag: '🇩🇪', name: 'German', nativeName: 'Deutsch' },
-  nl: { flag: '🇳🇱', name: 'Dutch', nativeName: 'Nederlands' },
-  sv: { flag: '🇸🇪', name: 'Swedish', nativeName: 'Svenska' },
-  no: { flag: '🇳🇴', name: 'Norwegian', nativeName: 'Norsk' },
-  da: { flag: '🇩🇰', name: 'Danish', nativeName: 'Dansk' },
-  pl: { flag: '🇵🇱', name: 'Polish', nativeName: 'Polski' },
-  cs: { flag: '🇨🇿', name: 'Czech', nativeName: 'Čeština' },
-  ru: { flag: '🇷🇺', name: 'Russian', nativeName: 'Русский' },
-  uk: { flag: '🇺🇦', name: 'Ukrainian', nativeName: 'Українська' },
-  el: { flag: '🇬🇷', name: 'Greek', nativeName: 'Ελληνικά' },
-  hu: { flag: '🇭🇺', name: 'Hungarian', nativeName: 'Magyar' },
-  tr: { flag: '🇹🇷', name: 'Turkish', nativeName: 'Türkçe' },
-};
-
-const SUPPORTED_LANGUAGES = Object.keys(LANGUAGE_INFO);
+import { getUITranslations, insertLanguage } from '../../../../data/ui-translations';
+import { LANGUAGES, getLanguageForDisplay, getAllLanguagesForDisplay, SUPPORTED_NATIVE_LANGS } from '../../../../data/language-info';
 
 const { nativeLang, targetLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
 const targetLanguageCode = targetLang || 'pl';
 
 // Validate languages
-if (!LANGUAGE_INFO[nativeLanguageCode] || !LANGUAGE_INFO[targetLanguageCode]) {
+if (!LANGUAGES[nativeLanguageCode] || !LANGUAGES[targetLanguageCode]) {
   return Astro.redirect('/learn/');
 }
 
@@ -42,8 +20,20 @@ if (nativeLanguageCode === targetLanguageCode) {
   return Astro.redirect('/learn/');
 }
 
-const nativeInfo = LANGUAGE_INFO[nativeLanguageCode];
-const targetInfo = LANGUAGE_INFO[targetLanguageCode];
+// Get language info with names translated to user's native language
+const nativeInfo = getLanguageForDisplay(nativeLanguageCode, nativeLanguageCode);
+const targetInfo = getLanguageForDisplay(targetLanguageCode, nativeLanguageCode);
+
+// Build LANGUAGE_INFO for LanguageSelector component (with translated names)
+const LANGUAGE_INFO = Object.fromEntries(
+  Object.keys(LANGUAGES).map(code => [
+    code,
+    getLanguageForDisplay(code, nativeLanguageCode)
+  ])
+);
+
+// Get translations for native language
+const text = getUITranslations(nativeLanguageCode);
 
 // Get articles for this language pair from Supabase
 const articles = await getArticlesByLangPair(nativeLanguageCode, targetLanguageCode, { limit: 100 });
@@ -51,18 +41,17 @@ const articles = await getArticlesByLangPair(nativeLanguageCode, targetLanguageC
 // Get article counts per target language (single query)
 const languageCounts = await getArticleCountsByTargetLang(nativeLanguageCode);
 
-// Category filters
+// Category filters with translated labels
 const categories = [
-  { id: 'all', label: 'All', icon: '📖' },
-  { id: 'phrases', label: 'Phrases', icon: '💬' },
-  { id: 'vocabulary', label: 'Vocabulary', icon: '📚' },
-  { id: 'grammar', label: 'Grammar', icon: '📝' },
-  { id: 'culture', label: 'Culture', icon: targetInfo.flag },
-  { id: 'situations', label: 'Situations', icon: '🎭' },
+  { id: 'all', label: text.categoryAll, icon: '📖' },
+  { id: 'phrases', label: text.categoryPhrases, icon: '💬' },
+  { id: 'vocabulary', label: text.categoryVocabulary, icon: '📚' },
+  { id: 'grammar', label: text.categoryGrammar, icon: '📝' },
+  { id: 'culture', label: text.categoryCulture, icon: targetInfo.flag },
+  { id: 'situations', label: text.categorySituations, icon: '🎭' },
 ];
 
-// Hreflang alternates
-const SUPPORTED_NATIVE_LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
+// Hreflang alternates (SUPPORTED_NATIVE_LANGS imported from language-info.ts)
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode && lang !== targetLanguageCode)
   .map(lang => ({
@@ -73,12 +62,16 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
 const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`;
 const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : `https://www.lovelanguages.io/learn/en/${targetLanguageCode}/`;
 
+// Page title and description using translations
+const pageTitle = `${insertLanguage(text.learnTogether, targetInfo.name)} - Love Languages`;
+const pageDescription = insertLanguage(text.lessonsDescription, targetInfo.name);
+
 // JSON-LD
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": `Love Languages - Learn ${targetInfo.name} Blog`,
-  "description": `Free ${targetInfo.name} lessons, vocabulary guides, and cultural tips for couples learning together.`,
+  "name": `Love Languages - ${insertLanguage(text.learnTogether, targetInfo.name)}`,
+  "description": pageDescription,
   "url": canonicalUrl,
   "inLanguage": nativeLanguageCode,
   "publisher": {
@@ -90,8 +83,8 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title={`Learn ${targetInfo.name} - Free Lessons for Couples`}
-  description={`Free ${targetInfo.name} lessons, vocabulary guides, and cultural tips designed for couples learning together. Start your ${targetInfo.name} language journey today.`}
+  title={pageTitle}
+  description={pageDescription}
   nativeLang={nativeLanguageCode}
   targetLang={targetLanguageCode}
 >
@@ -119,10 +112,10 @@ const jsonLd = {
           />
         </div>
         <h1 class="text-3xl md:text-4xl font-black font-header text-gray-900 mb-2">
-          <span class="text-4xl md:text-5xl">{targetInfo.flag}</span> Learn {targetInfo.name} Together
+          <span class="text-4xl md:text-5xl">{targetInfo.flag}</span> {insertLanguage(text.learnTogether, targetInfo.name)}
         </h1>
         <p class="text-lg text-gray-600">
-          Lessons, vocabulary guides, and cultural tips for couples learning {targetInfo.name}.
+          {insertLanguage(text.lessonsDescription, targetInfo.name)}
         </p>
       </div>
     </div>
@@ -171,10 +164,10 @@ const jsonLd = {
     ) : (
       <div class="text-center py-20">
         <div class="text-6xl mb-4">{targetInfo.flag}</div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-2">{targetInfo.name} Articles Coming Soon!</h2>
-        <p class="text-gray-600 mb-6">We're working on {targetInfo.name} content. Check back soon or explore another language.</p>
-        <a href="/learn/" class="inline-block bg-accent text-white font-bold px-6 py-3 rounded-full hover:bg-accent/90 transition-colors">
-          Browse All Languages
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">{insertLanguage(text.comingSoon, targetInfo.name)}</h2>
+        <p class="text-gray-600 mb-6">{insertLanguage(text.comingSoonDescription, targetInfo.name)}</p>
+        <a href={`/learn/${nativeLanguageCode}/`} class="inline-block bg-accent text-white font-bold px-6 py-3 rounded-full hover:bg-accent/90 transition-colors">
+          {text.browseAllLanguages}
         </a>
       </div>
     )}
@@ -189,16 +182,16 @@ const jsonLd = {
   <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
     <div class="max-w-2xl mx-auto px-4 text-center text-white">
       <h2 class="text-3xl font-bold font-header mb-4">
-        Ready to Start Learning {targetInfo.name}?
+        {insertLanguage(text.readyToStart, targetInfo.name)}
       </h2>
       <p class="text-white/90 mb-8">
-        Join couples learning {targetInfo.name} together with AI coaching, voice practice, and games.
+        {insertLanguage(text.joinCouples, targetInfo.name)}
       </p>
       <a
         href="/"
         class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
       >
-        Start Your Journey
+        {text.startJourney}
       </a>
     </div>
   </section>
@@ -210,10 +203,10 @@ const jsonLd = {
         <img src="/favicon.svg" alt="" class="w-8 h-8" />
         Love Languages
       </a>
-      <p class="text-gray-600 mb-6">Learn any language together with your partner</p>
+      <p class="text-gray-600 mb-6">{text.footerTagline}</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
-        <a href="/learn/" class="hover:text-accent">Blog</a>
-        <a href="/tools" class="hover:text-accent">Tools</a>
+        <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-accent">{text.blog}</a>
+        <a href="/tools" class="hover:text-accent">{text.tools}</a>
       </nav>
     </div>
   </footer>
