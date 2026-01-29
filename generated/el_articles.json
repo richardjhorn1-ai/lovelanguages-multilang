@@ -1,0 +1,1702 @@
+[
+  {
+    "slug": "100-most-common-english-words",
+    "native_lang": "el",
+    "target_lang": "en",
+    "title": "100 πιο συνηθισμένες λέξεις στα αγγλικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα αγγλικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/en-vocabulary.jpg",
+    "tags": [
+      "αγγλικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις αγγλικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"I love you\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"άι λαβ γιου\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"love\"\n  translation=\"αγάπη\"\n  pronunciation=\"λαβ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"heart\"\n  translation=\"καρδιά\"\n  pronunciation=\"χαρτ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"beautiful\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"μπιούτιφουλ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"happy\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"χάπι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα αγγλικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| English | Ελληνικά |\n|---------|----------|\n| I | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "english-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "en",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα αγγλικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα αγγλικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/en-vocabulary.jpg",
+    "tags": [
+      "αγγλικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα αγγλικά!\n\n<PhraseOfDay\n  word=\"honey\"\n  translation=\"μέλι μου\"\n  pronunciation=\"χάνι\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα αγγλικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"honey\"\n  translation=\"μέλι μου\"\n  pronunciation=\"χάνι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"sweetheart\"\n  translation=\"γλυκιά μου\"\n  pronunciation=\"σουίτχαρτ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"darling\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"ντάρλινγκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"baby\"\n  translation=\"μωρό μου\"\n  pronunciation=\"μπέιμπι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα αγγλικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-english",
+    "native_lang": "el",
+    "target_lang": "en",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα αγγλικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα αγγλικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/en-vocabulary.jpg",
+    "tags": [
+      "αγγλικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα αγγλικά!\n\n<PhraseOfDay\n  word=\"I love you\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"άι λαβ γιου\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα αγγλικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"I love you\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"άι λαβ γιου\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα αγγλικά, η φράση «I love you» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα αγγλικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "english-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "en",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα αγγλικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα αγγλικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/en-vocabulary.jpg",
+    "tags": [
+      "αγγλικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα αγγλικά!\n\n<PhraseOfDay\n  word=\"Good morning\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκουντ μόρνινγκ\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Hello\"\n  translation=\"Γεια σου\"\n  pronunciation=\"χελόου\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Good morning\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκουντ μόρνινγκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Goodbye\"\n  translation=\"Αντίο\"\n  pronunciation=\"γκουντμπάι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Good night\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"γκουντ νάιτ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα αγγλικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "english-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "en",
+    "title": "Λεξιλόγιο για ραντεβού στα αγγλικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα αγγλικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/en-vocabulary.jpg",
+    "tags": [
+      "αγγλικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα αγγλικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"I love you\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"άι λαβ γιου\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα αγγλικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα αγγλικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-german-words",
+    "native_lang": "el",
+    "target_lang": "de",
+    "title": "100 πιο συνηθισμένες λέξεις στα γερμανικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα γερμανικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/de-vocabulary.jpg",
+    "tags": [
+      "γερμανικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις γερμανικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Ich liebe dich\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ιχ λίμπε ντιχ\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"Liebe\"\n  translation=\"αγάπη\"\n  pronunciation=\"λίμπε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Herz\"\n  translation=\"καρδιά\"\n  pronunciation=\"χερτς\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"schön\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"σεν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"glücklich\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"γκλύκλιχ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα γερμανικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| German | Ελληνικά |\n|---------|----------|\n| Ich | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "german-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "de",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα γερμανικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα γερμανικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/de-vocabulary.jpg",
+    "tags": [
+      "γερμανικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα γερμανικά!\n\n<PhraseOfDay\n  word=\"Schatz\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"σατς\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα γερμανικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"Schatz\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"σατς\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Liebling\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"λίμπλινγκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Maus\"\n  translation=\"ποντικάκι μου\"\n  pronunciation=\"μάους\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Süße/r\"\n  translation=\"γλυκιά/ούλη μου\"\n  pronunciation=\"ζύσε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα γερμανικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-german",
+    "native_lang": "el",
+    "target_lang": "de",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα γερμανικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα γερμανικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/de-vocabulary.jpg",
+    "tags": [
+      "γερμανικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα γερμανικά!\n\n<PhraseOfDay\n  word=\"Ich liebe dich\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ιχ λίμπε ντιχ\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα γερμανικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Ich liebe dich\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ιχ λίμπε ντιχ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα γερμανικά, η φράση «Ich liebe dich» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα γερμανικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "german-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "de",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα γερμανικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα γερμανικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/de-vocabulary.jpg",
+    "tags": [
+      "γερμανικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα γερμανικά!\n\n<PhraseOfDay\n  word=\"Guten Morgen\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκούτεν μόργκεν\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Hallo\"\n  translation=\"Γεια σου\"\n  pronunciation=\"χάλο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Guten Morgen\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκούτεν μόργκεν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Auf Wiedersehen\"\n  translation=\"Αντίο\"\n  pronunciation=\"άουφ βίντερζεεν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Gute Nacht\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"γκούτε ναχτ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα γερμανικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "german-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "de",
+    "title": "Λεξιλόγιο για ραντεβού στα γερμανικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα γερμανικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/de-vocabulary.jpg",
+    "tags": [
+      "γερμανικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα γερμανικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Ich liebe dich\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ιχ λίμπε ντιχ\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα γερμανικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα γερμανικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-french-words",
+    "native_lang": "el",
+    "target_lang": "fr",
+    "title": "100 πιο συνηθισμένες λέξεις στα γαλλικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα γαλλικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/fr-vocabulary.jpg",
+    "tags": [
+      "γαλλικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις γαλλικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Je t'aime\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ζε τεμ\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"amour\"\n  translation=\"αγάπη\"\n  pronunciation=\"αμούρ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"cœur\"\n  translation=\"καρδιά\"\n  pronunciation=\"κερ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"beau/belle\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"μπο/μπελ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"heureux\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"ερέ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα γαλλικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| French | Ελληνικά |\n|---------|----------|\n| Je | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "french-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "fr",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα γαλλικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα γαλλικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/fr-vocabulary.jpg",
+    "tags": [
+      "γαλλικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα γαλλικά!\n\n<PhraseOfDay\n  word=\"mon cœur\"\n  translation=\"καρδιά μου\"\n  pronunciation=\"μον κερ\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα γαλλικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"mon cœur\"\n  translation=\"καρδιά μου\"\n  pronunciation=\"μον κερ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"mon amour\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"μον αμούρ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"chéri/e\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"σερί\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"mon trésor\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"μον τρεζόρ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα γαλλικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-french",
+    "native_lang": "el",
+    "target_lang": "fr",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα γαλλικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα γαλλικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/fr-vocabulary.jpg",
+    "tags": [
+      "γαλλικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα γαλλικά!\n\n<PhraseOfDay\n  word=\"Je t'aime\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ζε τεμ\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα γαλλικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Je t'aime\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ζε τεμ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα γαλλικά, η φράση «Je t'aime» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα γαλλικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "french-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "fr",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα γαλλικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα γαλλικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/fr-vocabulary.jpg",
+    "tags": [
+      "γαλλικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα γαλλικά!\n\n<PhraseOfDay\n  word=\"Salut\"\n  translation=\"Γεια\"\n  pronunciation=\"σαλύ\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Bonjour\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπονζούρ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Salut\"\n  translation=\"Γεια\"\n  pronunciation=\"σαλύ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Au revoir\"\n  translation=\"Αντίο\"\n  pronunciation=\"ο ρεβουάρ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Bonne nuit\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"μπον νυί\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα γαλλικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "french-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "fr",
+    "title": "Λεξιλόγιο για ραντεβού στα γαλλικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα γαλλικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/fr-vocabulary.jpg",
+    "tags": [
+      "γαλλικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα γαλλικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Je t'aime\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ζε τεμ\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα γαλλικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα γαλλικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-spanish-words",
+    "native_lang": "el",
+    "target_lang": "es",
+    "title": "100 πιο συνηθισμένες λέξεις στα ισπανικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα ισπανικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/es-vocabulary.jpg",
+    "tags": [
+      "ισπανικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις ισπανικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Te quiero\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τε κιέρο\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"amor\"\n  translation=\"αγάπη\"\n  pronunciation=\"αμόρ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"corazón\"\n  translation=\"καρδιά\"\n  pronunciation=\"κοραθόν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"hermoso/a\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"ερμόσο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"feliz\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"φελίθ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα ισπανικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Spanish | Ελληνικά |\n|---------|----------|\n| Te | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "spanish-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "es",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα ισπανικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα ισπανικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/es-vocabulary.jpg",
+    "tags": [
+      "ισπανικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα ισπανικά!\n\n<PhraseOfDay\n  word=\"cariño\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"καρίνιο\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα ισπανικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"cariño\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"καρίνιο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"mi amor\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"μι αμόρ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"corazón\"\n  translation=\"καρδιά μου\"\n  pronunciation=\"κοραθόν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"mi vida\"\n  translation=\"ζωή μου\"\n  pronunciation=\"μι βίδα\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ισπανικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-spanish",
+    "native_lang": "el",
+    "target_lang": "es",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα ισπανικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα ισπανικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/es-vocabulary.jpg",
+    "tags": [
+      "ισπανικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα ισπανικά!\n\n<PhraseOfDay\n  word=\"Te quiero\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τε κιέρο\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα ισπανικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Te quiero\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τε κιέρο\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα ισπανικά, η φράση «Te quiero» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα ισπανικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "spanish-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "es",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα ισπανικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα ισπανικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/es-vocabulary.jpg",
+    "tags": [
+      "ισπανικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα ισπανικά!\n\n<PhraseOfDay\n  word=\"Buenos días\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπουένος ντίας\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Hola\"\n  translation=\"Γεια σου\"\n  pronunciation=\"όλα\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Buenos días\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπουένος ντίας\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Adiós\"\n  translation=\"Αντίο\"\n  pronunciation=\"αδιός\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Buenas noches\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"μπουένας νότσες\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ισπανικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "spanish-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "es",
+    "title": "Λεξιλόγιο για ραντεβού στα ισπανικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα ισπανικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/es-vocabulary.jpg",
+    "tags": [
+      "ισπανικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα ισπανικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Te quiero\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τε κιέρο\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα ισπανικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα ισπανικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-italian-words",
+    "native_lang": "el",
+    "target_lang": "it",
+    "title": "100 πιο συνηθισμένες λέξεις στα ιταλικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα ιταλικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/it-vocabulary.jpg",
+    "tags": [
+      "ιταλικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις ιταλικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Ti amo\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τι άμο\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"amore\"\n  translation=\"αγάπη\"\n  pronunciation=\"αμόρε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"cuore\"\n  translation=\"καρδιά\"\n  pronunciation=\"κουόρε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"bello/a\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"μπέλο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"felice\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"φελίτσε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα ιταλικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Italian | Ελληνικά |\n|---------|----------|\n| Ti | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "italian-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "it",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα ιταλικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα ιταλικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/it-vocabulary.jpg",
+    "tags": [
+      "ιταλικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα ιταλικά!\n\n<PhraseOfDay\n  word=\"tesoro\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"τεζόρο\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα ιταλικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"tesoro\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"τεζόρο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"amore\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"αμόρε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"caro/a\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"κάρο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"cucciolo/a\"\n  translation=\"αρκουδάκι μου\"\n  pronunciation=\"κουτσόλο\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ιταλικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-italian",
+    "native_lang": "el",
+    "target_lang": "it",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα ιταλικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα ιταλικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/it-vocabulary.jpg",
+    "tags": [
+      "ιταλικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα ιταλικά!\n\n<PhraseOfDay\n  word=\"Ti amo\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τι άμο\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα ιταλικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Ti amo\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τι άμο\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα ιταλικά, η φράση «Ti amo» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα ιταλικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "italian-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "it",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα ιταλικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα ιταλικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/it-vocabulary.jpg",
+    "tags": [
+      "ιταλικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα ιταλικά!\n\n<PhraseOfDay\n  word=\"Buongiorno\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπουοντζόρνο\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Ciao\"\n  translation=\"Γεια\"\n  pronunciation=\"τσάο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Buongiorno\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπουοντζόρνο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Arrivederci\"\n  translation=\"Αντίο\"\n  pronunciation=\"αριβεντέρτσι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Buonanotte\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"μπουονανότε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ιταλικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "italian-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "it",
+    "title": "Λεξιλόγιο για ραντεβού στα ιταλικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα ιταλικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/it-vocabulary.jpg",
+    "tags": [
+      "ιταλικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα ιταλικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Ti amo\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τι άμο\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα ιταλικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα ιταλικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-portuguese-words",
+    "native_lang": "el",
+    "target_lang": "pt",
+    "title": "100 πιο συνηθισμένες λέξεις στα πορτογαλικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα πορτογαλικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/pt-vocabulary.jpg",
+    "tags": [
+      "πορτογαλικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις πορτογαλικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Eu te amo\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"έου τε άμου\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"amor\"\n  translation=\"αγάπη\"\n  pronunciation=\"αμόρ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"coração\"\n  translation=\"καρδιά\"\n  pronunciation=\"κορασάου\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"bonito/a\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"μπονίτο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"feliz\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"φελίζ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα πορτογαλικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Portuguese | Ελληνικά |\n|---------|----------|\n| Eu | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "portuguese-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "pt",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα πορτογαλικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα πορτογαλικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/pt-vocabulary.jpg",
+    "tags": [
+      "πορτογαλικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα πορτογαλικά!\n\n<PhraseOfDay\n  word=\"amor\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"αμόρ\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα πορτογαλικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"amor\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"αμόρ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"querido/a\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"κερίντο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"meu bem\"\n  translation=\"καλέ μου\"\n  pronunciation=\"μέου μπεμ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"fofo/a\"\n  translation=\"χνουδωτέ μου\"\n  pronunciation=\"φόφο\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα πορτογαλικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-portuguese",
+    "native_lang": "el",
+    "target_lang": "pt",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα πορτογαλικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα πορτογαλικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/pt-vocabulary.jpg",
+    "tags": [
+      "πορτογαλικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα πορτογαλικά!\n\n<PhraseOfDay\n  word=\"Eu te amo\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"έου τε άμου\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα πορτογαλικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Eu te amo\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"έου τε άμου\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα πορτογαλικά, η φράση «Eu te amo» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα πορτογαλικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "portuguese-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "pt",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα πορτογαλικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα πορτογαλικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/pt-vocabulary.jpg",
+    "tags": [
+      "πορτογαλικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα πορτογαλικά!\n\n<PhraseOfDay\n  word=\"Bom dia\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπομ ντία\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Olá\"\n  translation=\"Γεια σου\"\n  pronunciation=\"ολά\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Bom dia\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπομ ντία\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Tchau\"\n  translation=\"Αντίο\"\n  pronunciation=\"τσάου\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Boa noite\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"μπόα νόιτε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα πορτογαλικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "portuguese-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "pt",
+    "title": "Λεξιλόγιο για ραντεβού στα πορτογαλικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα πορτογαλικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/pt-vocabulary.jpg",
+    "tags": [
+      "πορτογαλικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα πορτογαλικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Eu te amo\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"έου τε άμου\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα πορτογαλικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα πορτογαλικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-polish-words",
+    "native_lang": "el",
+    "target_lang": "pl",
+    "title": "100 πιο συνηθισμένες λέξεις στα πολωνικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα πολωνικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/pl-vocabulary.jpg",
+    "tags": [
+      "πολωνικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις πολωνικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Kocham cię\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"κόχαμ τσιε\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"miłość\"\n  translation=\"αγάπη\"\n  pronunciation=\"μίουοστς\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"serce\"\n  translation=\"καρδιά\"\n  pronunciation=\"σέρτσε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"piękny/a\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"πιένκνι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"szczęśliwy\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"στσέσλιβι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα πολωνικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Polish | Ελληνικά |\n|---------|----------|\n| Kocham | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "polish-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "pl",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα πολωνικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα πολωνικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/pl-vocabulary.jpg",
+    "tags": [
+      "πολωνικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα πολωνικά!\n\n<PhraseOfDay\n  word=\"kochanie\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"κοχάνιε\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα πολωνικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"kochanie\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"κοχάνιε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"skarbie\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"σκάρμπιε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"misiu\"\n  translation=\"αρκουδάκι μου\"\n  pronunciation=\"μίσιου\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"słoneczko\"\n  translation=\"ηλιαχτίδα μου\"\n  pronunciation=\"σουονέτσκο\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα πολωνικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-polish",
+    "native_lang": "el",
+    "target_lang": "pl",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα πολωνικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα πολωνικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/pl-vocabulary.jpg",
+    "tags": [
+      "πολωνικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα πολωνικά!\n\n<PhraseOfDay\n  word=\"Kocham cię\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"κόχαμ τσιε\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα πολωνικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Kocham cię\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"κόχαμ τσιε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα πολωνικά, η φράση «Kocham cię» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα πολωνικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "polish-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "pl",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα πολωνικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα πολωνικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/pl-vocabulary.jpg",
+    "tags": [
+      "πολωνικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα πολωνικά!\n\n<PhraseOfDay\n  word=\"Dzień dobry\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"τζιεν ντόμπρι\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Cześć\"\n  translation=\"Γεια\"\n  pronunciation=\"τσεστς\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Dzień dobry\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"τζιεν ντόμπρι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Do widzenia\"\n  translation=\"Αντίο\"\n  pronunciation=\"ντο βιντζένια\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Dobranoc\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"ντομπράνοτς\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα πολωνικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "polish-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "pl",
+    "title": "Λεξιλόγιο για ραντεβού στα πολωνικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα πολωνικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/pl-vocabulary.jpg",
+    "tags": [
+      "πολωνικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα πολωνικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Kocham cię\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"κόχαμ τσιε\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα πολωνικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα πολωνικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-russian-words",
+    "native_lang": "el",
+    "target_lang": "ru",
+    "title": "100 πιο συνηθισμένες λέξεις στα ρωσικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα ρωσικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/ru-vocabulary.jpg",
+    "tags": [
+      "ρωσικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις ρωσικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Я тебя люблю\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"για τεμπιά λιουμπλιού\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"любовь\"\n  translation=\"αγάπη\"\n  pronunciation=\"λιουμπόφ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"сердце\"\n  translation=\"καρδιά\"\n  pronunciation=\"σέρτσε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"красивый\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"κρασίβι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"счастливый\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"στσασλίβι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα ρωσικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Russian | Ελληνικά |\n|---------|----------|\n| Я | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "russian-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "ru",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα ρωσικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα ρωσικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/ru-vocabulary.jpg",
+    "tags": [
+      "ρωσικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα ρωσικά!\n\n<PhraseOfDay\n  word=\"любимый/ая\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"λιουμπίμι\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα ρωσικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"любимый/ая\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"λιουμπίμι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"солнышко\"\n  translation=\"ηλιαχτίδα μου\"\n  pronunciation=\"σόλνισκο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"зайка\"\n  translation=\"λαγουδάκι μου\"\n  pronunciation=\"ζάικα\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"милый/ая\"\n  translation=\"γλυκέ/ιά μου\"\n  pronunciation=\"μίλι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ρωσικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-russian",
+    "native_lang": "el",
+    "target_lang": "ru",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα ρωσικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα ρωσικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/ru-vocabulary.jpg",
+    "tags": [
+      "ρωσικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα ρωσικά!\n\n<PhraseOfDay\n  word=\"Я тебя люблю\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"για τεμπιά λιουμπλιού\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα ρωσικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Я тебя люблю\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"για τεμπιά λιουμπλιού\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα ρωσικά, η φράση «Я тебя люблю» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα ρωσικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "russian-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "ru",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα ρωσικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα ρωσικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/ru-vocabulary.jpg",
+    "tags": [
+      "ρωσικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα ρωσικά!\n\n<PhraseOfDay\n  word=\"Доброе утро\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"ντόμπροε ούτρο\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Привет\"\n  translation=\"Γεια\"\n  pronunciation=\"πριβιέτ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Доброе утро\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"ντόμπροε ούτρο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"До свидания\"\n  translation=\"Αντίο\"\n  pronunciation=\"ντα σβιντάνια\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Спокойной ночи\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"σπακόινοι νότσι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ρωσικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "russian-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "ru",
+    "title": "Λεξιλόγιο για ραντεβού στα ρωσικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα ρωσικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/ru-vocabulary.jpg",
+    "tags": [
+      "ρωσικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα ρωσικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Я тебя люблю\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"για τεμπιά λιουμπλιού\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα ρωσικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα ρωσικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-ukrainian-words",
+    "native_lang": "el",
+    "target_lang": "uk",
+    "title": "100 πιο συνηθισμένες λέξεις στα ουκρανικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα ουκρανικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/uk-vocabulary.jpg",
+    "tags": [
+      "ουκρανικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις ουκρανικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Я тебе кохаю\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"για τέμπε κοχάγιου\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"кохання\"\n  translation=\"αγάπη\"\n  pronunciation=\"κοχάνια\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"серце\"\n  translation=\"καρδιά\"\n  pronunciation=\"σέρτσε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"гарний\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"γκάρνι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"щасливий\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"στσασλίβι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα ουκρανικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Ukrainian | Ελληνικά |\n|---------|----------|\n| Я | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "ukrainian-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "uk",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα ουκρανικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα ουκρανικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/uk-vocabulary.jpg",
+    "tags": [
+      "ουκρανικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα ουκρανικά!\n\n<PhraseOfDay\n  word=\"кохання\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"κοχάνια\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα ουκρανικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"кохання\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"κοχάνια\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"сонечко\"\n  translation=\"ηλιαχτίδα μου\"\n  pronunciation=\"σονέτσκο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"зайчик\"\n  translation=\"λαγουδάκι μου\"\n  pronunciation=\"ζάιτσικ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"любий/а\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"λιούμπι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ουκρανικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-ukrainian",
+    "native_lang": "el",
+    "target_lang": "uk",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα ουκρανικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα ουκρανικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/uk-vocabulary.jpg",
+    "tags": [
+      "ουκρανικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα ουκρανικά!\n\n<PhraseOfDay\n  word=\"Я тебе кохаю\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"για τέμπε κοχάγιου\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα ουκρανικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Я тебе кохаю\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"για τέμπε κοχάγιου\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα ουκρανικά, η φράση «Я тебе кохаю» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα ουκρανικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "ukrainian-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "uk",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα ουκρανικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα ουκρανικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/uk-vocabulary.jpg",
+    "tags": [
+      "ουκρανικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα ουκρανικά!\n\n<PhraseOfDay\n  word=\"Доброго ранку\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"ντόμπροχο ράνκου\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Привіт\"\n  translation=\"Γεια\"\n  pronunciation=\"πριβίτ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Доброго ранку\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"ντόμπροχο ράνκου\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"До побачення\"\n  translation=\"Αντίο\"\n  pronunciation=\"ντο ποπάτσενια\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"На добраніч\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"να ντομπράνιτς\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ουκρανικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "ukrainian-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "uk",
+    "title": "Λεξιλόγιο για ραντεβού στα ουκρανικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα ουκρανικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/uk-vocabulary.jpg",
+    "tags": [
+      "ουκρανικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα ουκρανικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Я тебе кохаю\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"για τέμπε κοχάγιου\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα ουκρανικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα ουκρανικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-dutch-words",
+    "native_lang": "el",
+    "target_lang": "nl",
+    "title": "100 πιο συνηθισμένες λέξεις στα ολλανδικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα ολλανδικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/nl-vocabulary.jpg",
+    "tags": [
+      "ολλανδικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις ολλανδικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Ik hou van je\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ικ χάου φαν γιε\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"liefde\"\n  translation=\"αγάπη\"\n  pronunciation=\"λίφντε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"hart\"\n  translation=\"καρδιά\"\n  pronunciation=\"χαρτ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"mooi\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"μόι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"gelukkig\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"χελέκιχ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα ολλανδικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Dutch | Ελληνικά |\n|---------|----------|\n| Ik | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "dutch-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "nl",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα ολλανδικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα ολλανδικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/nl-vocabulary.jpg",
+    "tags": [
+      "ολλανδικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα ολλανδικά!\n\n<PhraseOfDay\n  word=\"schat\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"σχατ\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα ολλανδικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"schat\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"σχατ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"lieverd\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"λίβερτ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"liefje\"\n  translation=\"αγαπούλα μου\"\n  pronunciation=\"λίφιε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"schatje\"\n  translation=\"θησαυράκι μου\"\n  pronunciation=\"σχάτιε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ολλανδικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-dutch",
+    "native_lang": "el",
+    "target_lang": "nl",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα ολλανδικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα ολλανδικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/nl-vocabulary.jpg",
+    "tags": [
+      "ολλανδικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα ολλανδικά!\n\n<PhraseOfDay\n  word=\"Ik hou van je\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ικ χάου φαν γιε\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα ολλανδικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Ik hou van je\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ικ χάου φαν γιε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα ολλανδικά, η φράση «Ik hou van je» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα ολλανδικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "dutch-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "nl",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα ολλανδικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα ολλανδικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/nl-vocabulary.jpg",
+    "tags": [
+      "ολλανδικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα ολλανδικά!\n\n<PhraseOfDay\n  word=\"Goedemorgen\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"χούντεμόρχεν\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Hallo\"\n  translation=\"Γεια σου\"\n  pronunciation=\"χάλο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Goedemorgen\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"χούντεμόρχεν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Tot ziens\"\n  translation=\"Αντίο\"\n  pronunciation=\"τοτ ζινς\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Welterusten\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"βέλτερούστεν\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ολλανδικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "dutch-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "nl",
+    "title": "Λεξιλόγιο για ραντεβού στα ολλανδικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα ολλανδικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/nl-vocabulary.jpg",
+    "tags": [
+      "ολλανδικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα ολλανδικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Ik hou van je\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"ικ χάου φαν γιε\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα ολλανδικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα ολλανδικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-turkish-words",
+    "native_lang": "el",
+    "target_lang": "tr",
+    "title": "100 πιο συνηθισμένες λέξεις στα τουρκικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα τουρκικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/tr-vocabulary.jpg",
+    "tags": [
+      "τουρκικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις τουρκικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Seni seviyorum\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"σενί σεβιγιορούμ\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"aşk\"\n  translation=\"αγάπη\"\n  pronunciation=\"ασκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"kalp\"\n  translation=\"καρδιά\"\n  pronunciation=\"καλπ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"güzel\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"γκιουζέλ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"mutlu\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"μουτλού\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα τουρκικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Turkish | Ελληνικά |\n|---------|----------|\n| Seni | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "turkish-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "tr",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα τουρκικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα τουρκικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/tr-vocabulary.jpg",
+    "tags": [
+      "τουρκικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα τουρκικά!\n\n<PhraseOfDay\n  word=\"aşkım\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"ασκίμ\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα τουρκικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"aşkım\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"ασκίμ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"canım\"\n  translation=\"ψυχή μου\"\n  pronunciation=\"τζανίμ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"hayatım\"\n  translation=\"ζωή μου\"\n  pronunciation=\"χαγιατίμ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"tatlım\"\n  translation=\"γλυκιά/ούλη μου\"\n  pronunciation=\"τατλίμ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα τουρκικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-turkish",
+    "native_lang": "el",
+    "target_lang": "tr",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα τουρκικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα τουρκικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/tr-vocabulary.jpg",
+    "tags": [
+      "τουρκικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα τουρκικά!\n\n<PhraseOfDay\n  word=\"Seni seviyorum\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"σενί σεβιγιορούμ\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα τουρκικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Seni seviyorum\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"σενί σεβιγιορούμ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα τουρκικά, η φράση «Seni seviyorum» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα τουρκικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "turkish-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "tr",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα τουρκικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα τουρκικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/tr-vocabulary.jpg",
+    "tags": [
+      "τουρκικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα τουρκικά!\n\n<PhraseOfDay\n  word=\"Günaydın\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκιουναϊντίν\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Merhaba\"\n  translation=\"Γεια σου\"\n  pronunciation=\"μερχαμπά\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Günaydın\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκιουναϊντίν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Hoşça kal\"\n  translation=\"Αντίο\"\n  pronunciation=\"χοστσά καλ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"İyi geceler\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"ιγί γκετζελέρ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα τουρκικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "turkish-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "tr",
+    "title": "Λεξιλόγιο για ραντεβού στα τουρκικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα τουρκικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/tr-vocabulary.jpg",
+    "tags": [
+      "τουρκικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα τουρκικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Seni seviyorum\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"σενί σεβιγιορούμ\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα τουρκικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα τουρκικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-romanian-words",
+    "native_lang": "el",
+    "target_lang": "ro",
+    "title": "100 πιο συνηθισμένες λέξεις στα ρουμανικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα ρουμανικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/ro-vocabulary.jpg",
+    "tags": [
+      "ρουμανικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις ρουμανικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Te iubesc\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τε γιουμπέσκ\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"dragoste\"\n  translation=\"αγάπη\"\n  pronunciation=\"ντραγκόστε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"inimă\"\n  translation=\"καρδιά\"\n  pronunciation=\"ινίμα\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"frumos\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"φρουμός\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"fericit\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"φεριτσίτ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα ρουμανικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Romanian | Ελληνικά |\n|---------|----------|\n| Te | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "romanian-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "ro",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα ρουμανικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα ρουμανικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/ro-vocabulary.jpg",
+    "tags": [
+      "ρουμανικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα ρουμανικά!\n\n<PhraseOfDay\n  word=\"iubire\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"γιουμπίρε\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα ρουμανικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"iubire\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"γιουμπίρε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"dragă\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"ντράγκα\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"sufletul meu\"\n  translation=\"ψυχή μου\"\n  pronunciation=\"σουφλέτουλ μέου\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"scumpule\"\n  translation=\"πολύτιμε\"\n  pronunciation=\"σκουμπούλε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ρουμανικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-romanian",
+    "native_lang": "el",
+    "target_lang": "ro",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα ρουμανικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα ρουμανικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/ro-vocabulary.jpg",
+    "tags": [
+      "ρουμανικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα ρουμανικά!\n\n<PhraseOfDay\n  word=\"Te iubesc\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τε γιουμπέσκ\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα ρουμανικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Te iubesc\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τε γιουμπέσκ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα ρουμανικά, η φράση «Te iubesc» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα ρουμανικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "romanian-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "ro",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα ρουμανικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα ρουμανικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/ro-vocabulary.jpg",
+    "tags": [
+      "ρουμανικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα ρουμανικά!\n\n<PhraseOfDay\n  word=\"Bună dimineața\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπούνα ντιμινέατσα\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Bună\"\n  translation=\"Γεια\"\n  pronunciation=\"μπούνα\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Bună dimineața\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"μπούνα ντιμινέατσα\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"La revedere\"\n  translation=\"Αντίο\"\n  pronunciation=\"λα ρεβεντέρε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Noapte bună\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"νοάπτε μπούνα\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ρουμανικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "romanian-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "ro",
+    "title": "Λεξιλόγιο για ραντεβού στα ρουμανικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα ρουμανικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/ro-vocabulary.jpg",
+    "tags": [
+      "ρουμανικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα ρουμανικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Te iubesc\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"τε γιουμπέσκ\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα ρουμανικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα ρουμανικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-swedish-words",
+    "native_lang": "el",
+    "target_lang": "sv",
+    "title": "100 πιο συνηθισμένες λέξεις στα σουηδικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα σουηδικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/sv-vocabulary.jpg",
+    "tags": [
+      "σουηδικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις σουηδικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Jag älskar dig\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιαγκ έλσκαρ ντέι\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"kärlek\"\n  translation=\"αγάπη\"\n  pronunciation=\"σέρλεκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"hjärta\"\n  translation=\"καρδιά\"\n  pronunciation=\"γιέρτα\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"vacker\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"βάκερ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"lycklig\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"λίκλιγκ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα σουηδικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Swedish | Ελληνικά |\n|---------|----------|\n| Jag | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "swedish-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "sv",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα σουηδικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα σουηδικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/sv-vocabulary.jpg",
+    "tags": [
+      "σουηδικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα σουηδικά!\n\n<PhraseOfDay\n  word=\"älskling\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"έλσκλινγκ\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα σουηδικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"älskling\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"έλσκλινγκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"raring\"\n  translation=\"αγαπούλα μου\"\n  pronunciation=\"ράρινγκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"hjärtat\"\n  translation=\"καρδιά μου\"\n  pronunciation=\"γιέρτατ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"gull\"\n  translation=\"χρυσέ μου\"\n  pronunciation=\"γκουλ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα σουηδικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-swedish",
+    "native_lang": "el",
+    "target_lang": "sv",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα σουηδικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα σουηδικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/sv-vocabulary.jpg",
+    "tags": [
+      "σουηδικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα σουηδικά!\n\n<PhraseOfDay\n  word=\"Jag älskar dig\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιαγκ έλσκαρ ντέι\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα σουηδικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Jag älskar dig\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιαγκ έλσκαρ ντέι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα σουηδικά, η φράση «Jag älskar dig» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα σουηδικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "swedish-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "sv",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα σουηδικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα σουηδικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/sv-vocabulary.jpg",
+    "tags": [
+      "σουηδικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα σουηδικά!\n\n<PhraseOfDay\n  word=\"God morgon\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκουντ μόρον\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Hej\"\n  translation=\"Γεια\"\n  pronunciation=\"χέι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"God morgon\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκουντ μόρον\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Hejdå\"\n  translation=\"Αντίο\"\n  pronunciation=\"χέιντο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"God natt\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"γκουντ νατ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα σουηδικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "swedish-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "sv",
+    "title": "Λεξιλόγιο για ραντεβού στα σουηδικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα σουηδικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/sv-vocabulary.jpg",
+    "tags": [
+      "σουηδικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα σουηδικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Jag älskar dig\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιαγκ έλσκαρ ντέι\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα σουηδικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα σουηδικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-norwegian-words",
+    "native_lang": "el",
+    "target_lang": "no",
+    "title": "100 πιο συνηθισμένες λέξεις στα νορβηγικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα νορβηγικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/no-vocabulary.jpg",
+    "tags": [
+      "νορβηγικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις νορβηγικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Jeg elsker deg\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιάι έλσκερ ντάι\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"kjærlighet\"\n  translation=\"αγάπη\"\n  pronunciation=\"σέρλιχετ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"hjerte\"\n  translation=\"καρδιά\"\n  pronunciation=\"γιέρτε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"vakker\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"βάκερ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"lykkelig\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"λίκελιγκ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα νορβηγικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Norwegian | Ελληνικά |\n|---------|----------|\n| Jeg | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "norwegian-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "no",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα νορβηγικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα νορβηγικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/no-vocabulary.jpg",
+    "tags": [
+      "νορβηγικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα νορβηγικά!\n\n<PhraseOfDay\n  word=\"kjæreste\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"σέρεστε\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα νορβηγικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"kjæreste\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"σέρεστε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"elskling\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"έλσκλινγκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"skatt\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"σκατ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"søtnos\"\n  translation=\"γλυκούλη μου\"\n  pronunciation=\"σέτνος\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα νορβηγικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-norwegian",
+    "native_lang": "el",
+    "target_lang": "no",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα νορβηγικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα νορβηγικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/no-vocabulary.jpg",
+    "tags": [
+      "νορβηγικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα νορβηγικά!\n\n<PhraseOfDay\n  word=\"Jeg elsker deg\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιάι έλσκερ ντάι\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα νορβηγικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Jeg elsker deg\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιάι έλσκερ ντάι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα νορβηγικά, η φράση «Jeg elsker deg» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα νορβηγικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "norwegian-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "no",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα νορβηγικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα νορβηγικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/no-vocabulary.jpg",
+    "tags": [
+      "νορβηγικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα νορβηγικά!\n\n<PhraseOfDay\n  word=\"God morgen\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκου μόρεν\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Hei\"\n  translation=\"Γεια\"\n  pronunciation=\"χάι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"God morgen\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκου μόρεν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Ha det\"\n  translation=\"Αντίο\"\n  pronunciation=\"χα ντε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"God natt\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"γκου νατ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα νορβηγικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "norwegian-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "no",
+    "title": "Λεξιλόγιο για ραντεβού στα νορβηγικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα νορβηγικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/no-vocabulary.jpg",
+    "tags": [
+      "νορβηγικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα νορβηγικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Jeg elsker deg\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιάι έλσκερ ντάι\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα νορβηγικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα νορβηγικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-danish-words",
+    "native_lang": "el",
+    "target_lang": "da",
+    "title": "100 πιο συνηθισμένες λέξεις στα δανικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα δανικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/da-vocabulary.jpg",
+    "tags": [
+      "δανικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις δανικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Jeg elsker dig\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιάι έλσκερ ντάι\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"kærlighed\"\n  translation=\"αγάπη\"\n  pronunciation=\"κέρλιχεδ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"hjerte\"\n  translation=\"καρδιά\"\n  pronunciation=\"γιέρτε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"smuk\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"σμουκ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"lykkelig\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"λίκελι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα δανικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Danish | Ελληνικά |\n|---------|----------|\n| Jeg | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "danish-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "da",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα δανικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα δανικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/da-vocabulary.jpg",
+    "tags": [
+      "δανικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα δανικά!\n\n<PhraseOfDay\n  word=\"skat\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"σκατ\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα δανικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"skat\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"σκατ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"elskede\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"έλσκεδε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"søde\"\n  translation=\"γλυκέ μου\"\n  pronunciation=\"σέδε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"hjerte\"\n  translation=\"καρδιά μου\"\n  pronunciation=\"γιέρτε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα δανικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-danish",
+    "native_lang": "el",
+    "target_lang": "da",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα δανικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα δανικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/da-vocabulary.jpg",
+    "tags": [
+      "δανικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα δανικά!\n\n<PhraseOfDay\n  word=\"Jeg elsker dig\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιάι έλσκερ ντάι\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα δανικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Jeg elsker dig\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιάι έλσκερ ντάι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα δανικά, η φράση «Jeg elsker dig» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα δανικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "danish-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "da",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα δανικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα δανικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/da-vocabulary.jpg",
+    "tags": [
+      "δανικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα δανικά!\n\n<PhraseOfDay\n  word=\"Godmorgen\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκομόρεν\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Hej\"\n  translation=\"Γεια\"\n  pronunciation=\"χάι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Godmorgen\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γκομόρεν\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Farvel\"\n  translation=\"Αντίο\"\n  pronunciation=\"φαρβέλ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Godnat\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"γκονάτ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα δανικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "danish-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "da",
+    "title": "Λεξιλόγιο για ραντεβού στα δανικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα δανικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/da-vocabulary.jpg",
+    "tags": [
+      "δανικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα δανικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Jeg elsker dig\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"γιάι έλσκερ ντάι\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα δανικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα δανικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-czech-words",
+    "native_lang": "el",
+    "target_lang": "cs",
+    "title": "100 πιο συνηθισμένες λέξεις στα τσέχικα",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα τσέχικα για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/cs-vocabulary.jpg",
+    "tags": [
+      "τσέχικα",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις τσέχικα με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Miluji tě\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"μίλουγι τιε\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"láska\"\n  translation=\"αγάπη\"\n  pronunciation=\"λάσκα\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"srdce\"\n  translation=\"καρδιά\"\n  pronunciation=\"σρντσε\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"krásný\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"κράσνι\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"šťastný\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"στιάστνι\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα τσέχικα έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Czech | Ελληνικά |\n|---------|----------|\n| Miluji | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "czech-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "cs",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα τσέχικα",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα τσέχικα για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/cs-vocabulary.jpg",
+    "tags": [
+      "τσέχικα",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα τσέχικα!\n\n<PhraseOfDay\n  word=\"lásko\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"λάσκο\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα τσέχικα.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"lásko\"\n  translation=\"αγάπη μου\"\n  pronunciation=\"λάσκο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"miláčku\"\n  translation=\"αγαπημένε/η\"\n  pronunciation=\"μιλάτσκου\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"zlatíčko\"\n  translation=\"χρυσέ μου\"\n  pronunciation=\"ζλατίτσκο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"broučku\"\n  translation=\"ζουζουνάκι μου\"\n  pronunciation=\"μπρούτσκου\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα τσέχικα, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-czech",
+    "native_lang": "el",
+    "target_lang": "cs",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα τσέχικα",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα τσέχικα, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/cs-vocabulary.jpg",
+    "tags": [
+      "τσέχικα",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα τσέχικα!\n\n<PhraseOfDay\n  word=\"Miluji tě\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"μίλουγι τιε\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα τσέχικα.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Miluji tě\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"μίλουγι τιε\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα τσέχικα, η φράση «Miluji tě» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα τσέχικα. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "czech-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "cs",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα τσέχικα",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα τσέχικα, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/cs-vocabulary.jpg",
+    "tags": [
+      "τσέχικα",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα τσέχικα!\n\n<PhraseOfDay\n  word=\"Dobré ráno\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"ντόμπρε ράνο\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Ahoj\"\n  translation=\"Γεια\"\n  pronunciation=\"άχοϊ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Dobré ráno\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"ντόμπρε ράνο\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Na shledanou\"\n  translation=\"Αντίο\"\n  pronunciation=\"να σχλέντανοου\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Dobrou noc\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"ντόμπρου νοτς\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα τσέχικα, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "czech-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "cs",
+    "title": "Λεξιλόγιο για ραντεβού στα τσέχικα",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα τσέχικα για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/cs-vocabulary.jpg",
+    "tags": [
+      "τσέχικα",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα τσέχικα θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Miluji tě\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"μίλουγι τιε\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα τσέχικα για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα τσέχικα.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "100-most-common-hungarian-words",
+    "native_lang": "el",
+    "target_lang": "hu",
+    "title": "100 πιο συνηθισμένες λέξεις στα ουγγρικά",
+    "description": "Μάθε τις 100 πιο χρήσιμες λέξεις στα ουγγρικά για καθημερινή επικοινωνία με τον σύντροφό σου!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/hu-vocabulary.jpg",
+    "tags": [
+      "ουγγρικά",
+      "λεξιλόγιο",
+      "αρχάριοι",
+      "βασικές λέξεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΑν ξεκινάς να μαθαίνεις ουγγρικά με τον σύντροφό σου, αυτές οι 100 λέξεις είναι το τέλειο ξεκίνημα! Καλύπτουν τις πιο συχνές καταστάσεις της καθημερινότητας.\n\n<PhraseOfDay\n  word=\"Szeretlek\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"σέρετλεκ\"\n  context=\"Η πιο σημαντική φράση για κάθε ζευγάρι!\"\n/>\n\n## Βασικές Λέξεις\n\n<VocabCard\n  word=\"szerelem\"\n  translation=\"αγάπη\"\n  pronunciation=\"σέρελεμ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"szív\"\n  translation=\"καρδιά\"\n  pronunciation=\"σιβ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"szép\"\n  translation=\"όμορφος/η\"\n  pronunciation=\"σεπ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"boldog\"\n  translation=\"χαρούμενος/η\"\n  pronunciation=\"μπόλντογκ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΤα ουγγρικά έχουν πλούσιο λεξιλόγιο για την αγάπη και τα συναισθήματα. Μάθε αυτές τις λέξεις και εντυπωσίασε τον σύντροφό σου!\n</CultureTip>\n\n## Χρήσιμα Ρήματα\n\n| Hungarian | Ελληνικά |\n|---------|----------|\n| Szeretlek | αγαπώ |\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "hungarian-pet-names-and-endearments",
+    "native_lang": "el",
+    "target_lang": "hu",
+    "title": "Χαϊδευτικά και τρυφερά ονόματα στα ουγγρικά",
+    "description": "Ανακάλυψε τα πιο γλυκά χαϊδευτικά στα ουγγρικά για τον σύντροφό σου. Ρομαντικά και τρυφερά!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/hu-vocabulary.jpg",
+    "tags": [
+      "ουγγρικά",
+      "χαϊδευτικά",
+      "ρομαντικά",
+      "ζευγάρια"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤα χαϊδευτικά ονόματα είναι ένας τρυφερός τρόπος να δείξεις την αγάπη σου. Εδώ θα βρεις τα πιο δημοφιλή χαϊδευτικά στα ουγγρικά!\n\n<PhraseOfDay\n  word=\"édesem\"\n  translation=\"γλυκέ μου\"\n  pronunciation=\"έντεσεμ\"\n  context=\"Ένα από τα πιο κλασικά χαϊδευτικά στα ουγγρικά.\"\n/>\n\n## Δημοφιλή Χαϊδευτικά\n\n<VocabCard\n  word=\"édesem\"\n  translation=\"γλυκέ μου\"\n  pronunciation=\"έντεσεμ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"kincsem\"\n  translation=\"θησαυρέ μου\"\n  pronunciation=\"κίντσεμ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"szívem\"\n  translation=\"καρδιά μου\"\n  pronunciation=\"σίβεμ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"drágám\"\n  translation=\"πολύτιμε\"\n  pronunciation=\"ντράγκαμ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ουγγρικά, τα χαϊδευτικά χρησιμοποιούνται συχνά και δείχνουν στοργή. Μη διστάσεις να τα χρησιμοποιήσεις με τον σύντροφό σου!\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "how-to-say-i-love-you-in-hungarian",
+    "native_lang": "el",
+    "target_lang": "hu",
+    "title": "Πώς να πεις «Σ'αγαπώ» στα ουγγρικά",
+    "description": "Μάθε όλους τους τρόπους να εκφράσεις την αγάπη σου στα ουγγρικά, από το απλό μέχρι το παθιασμένο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/hu-vocabulary.jpg",
+    "tags": [
+      "ουγγρικά",
+      "σ'αγαπώ",
+      "ρομαντικά",
+      "εκφράσεις αγάπης"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΤο «Σ'αγαπώ» είναι μία από τις πιο σημαντικές φράσεις που μπορείς να μάθεις σε οποιαδήποτε γλώσσα. Ας δούμε πώς να το πεις στα ουγγρικά!\n\n<PhraseOfDay\n  word=\"Szeretlek\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"σέρετλεκ\"\n  context=\"Η κλασική και πιο ισχυρή έκφραση αγάπης στα ουγγρικά.\"\n/>\n\n## Η Βασική Έκφραση\n\n<VocabCard\n  word=\"Szeretlek\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"σέρετλεκ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πότε να το πεις\">\nΣτα ουγγρικά, η φράση «Szeretlek» έχει βαθιά συναισθηματική σημασία. Χρησιμοποίησέ την όταν θέλεις να εκφράσεις αληθινή αγάπη.\n</CultureTip>\n\n## Τρυφερές Παραλλαγές\n\nΥπάρχουν πολλοί τρόποι να εκφράσεις την αγάπη σου στα ουγγρικά. Από πιο ήπιες εκφράσεις μέχρι πιο παθιασμένες δηλώσεις αγάπης.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "hungarian-greetings-and-farewells",
+    "native_lang": "el",
+    "target_lang": "hu",
+    "title": "Χαιρετισμοί και αποχαιρετισμοί στα ουγγρικά",
+    "description": "Μάθε πώς να χαιρετάς και να αποχαιρετάς στα ουγγρικά, από το τυπικό μέχρι το ανεπίσημο!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 5,
+    "image": "/images/blog/hu-vocabulary.jpg",
+    "tags": [
+      "ουγγρικά",
+      "χαιρετισμοί",
+      "αποχαιρετισμοί",
+      "βασικές φράσεις"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΟι χαιρετισμοί είναι θεμελιώδεις για κάθε συνομιλία. Μάθε πώς να χαιρετάς τον σύντροφό σου στα ουγγρικά!\n\n<PhraseOfDay\n  word=\"Jó reggelt\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γιο ρέγκελτ\"\n  context=\"Ο τέλειος τρόπος να ξεκινήσεις τη μέρα με τον σύντροφό σου.\"\n/>\n\n## Βασικοί Χαιρετισμοί και Αποχαιρετισμοί\n\n<VocabCard\n  word=\"Szia\"\n  translation=\"Γεια\"\n  pronunciation=\"σία\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Jó reggelt\"\n  translation=\"Καλημέρα\"\n  pronunciation=\"γιο ρέγκελτ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Viszlát\"\n  translation=\"Αντίο\"\n  pronunciation=\"βίσλατ\"\n  example=\"\"\n/>\n\n<VocabCard\n  word=\"Jó éjszakát\"\n  translation=\"Καληνύχτα\"\n  pronunciation=\"γιο έισακατ\"\n  example=\"\"\n/>\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣτα ουγγρικά, οι χαιρετισμοί συχνά συνοδεύονται από φιλιά στο μάγουλο ή αγκαλιές, ανάλογα με τη σχέση σας.\n</CultureTip>\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  },
+  {
+    "slug": "hungarian-date-night-vocabulary",
+    "native_lang": "el",
+    "target_lang": "hu",
+    "title": "Λεξιλόγιο για ραντεβού στα ουγγρικά",
+    "description": "Ετοιμάσου για το τέλειο ραντεβού με φράσεις στα ουγγρικά για εστιατόρια, κοπλιμέντα και ρομαντικές στιγμές!",
+    "category": "vocabulary",
+    "difficulty": "beginner",
+    "read_time": 6,
+    "image": "/images/blog/hu-vocabulary.jpg",
+    "tags": [
+      "ουγγρικά",
+      "ραντεβού",
+      "εστιατόριο",
+      "ρομαντικά"
+    ],
+    "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΕτοιμάζεσαι για ένα ρομαντικό ραντεβού; Αυτές οι φράσεις στα ουγγρικά θα σε βοηθήσουν να εντυπωσιάσεις!\n\n<PhraseOfDay\n  word=\"Szeretlek\"\n  translation=\"Σ'αγαπώ\"\n  pronunciation=\"σέρετλεκ\"\n  context=\"Η τέλεια φράση για να κλείσεις το ραντεβού σου.\"\n/>\n\n## Στο Εστιατόριο\n\nΜάθε βασικές φράσεις για να παραγγείλεις και να απολαύσεις το δείπνο σας.\n\n<CultureTip title=\"Πολιτιστική Συμβουλή\">\nΣε ρομαντικά ραντεβού, είναι ωραίο να μάθεις μερικά κομπλιμέντα στα ουγγρικά για να εντυπωσιάσεις τον σύντροφό σου.\n</CultureTip>\n\n## Κομπλιμέντα\n\nΠες στον σύντροφό σου πόσο όμορφος/η είναι με αυτές τις φράσεις στα ουγγρικά.\n\n## Ρομαντικές Φράσεις\n\nΤέλειωσε το ραντεβού σας με τρυφερές λέξεις που θα θυμάται για πάντα.\n\n<CTA />\n",
+    "published": true,
+    "date": "2026-01-29"
+  }
+]
