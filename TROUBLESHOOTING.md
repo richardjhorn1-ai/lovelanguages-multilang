@@ -2,8 +2,8 @@
 
 Issues encountered during MVP to production migration and their solutions.
 
-**Last Updated:** January 2026  
-**Total Issues Documented:** 60+
+**Last Updated:** January 29, 2026  
+**Total Issues Documented:** 70+
 
 ---
 
@@ -19,6 +19,205 @@ Issues encountered during MVP to production migration and their solutions.
 - [Blog & SEO](#blog--seo) (Issue 60)
 - [Known Gaps & TODO](#known-gaps--todo)
 - [Appendix: Checklists](#appendix-checklists)
+
+---
+
+## 🔥 Development Anti-Patterns (Jan 2026 Analysis)
+
+Analysis of 225 commits over 2 weeks revealed recurring error patterns. **AVOID THESE.**
+
+### Pattern 1: MDX Syntax Bugs at Scale (25+ fixes)
+
+**The Problem:** AI-generated multilingual content creates invalid MDX syntax that multiplies across languages.
+
+**Examples:**
+- Unescaped `<` characters in comparisons (`<3` breaks JSX)
+- Quote mismatches in translations (YAML apostrophe issues)
+- Wrong component imports (`VocabTable` vs `:::table` markdown)
+- `<br>` instead of `<br />` (self-closing JSX)
+
+**Prevention:**
+```bash
+# Always validate MDX before committing
+npm run build  # in blog folder
+
+# Check for common issues
+grep -r "<3\|<br>" blog/src/content/articles/
+```
+
+**Lesson:** One syntax pattern wrong × 18 languages = 18+ fixes. Validate early.
+
+---
+
+### Pattern 2: SSR vs Static Mode Confusion (10+ fixes)
+
+**The Problem:** Astro hybrid/server mode has different requirements than static mode.
+
+**Symptoms:**
+- Pages 404 that work locally
+- `getStaticPaths` errors
+- Redirects not working
+
+**Key Rules:**
+```typescript
+// Redirect-only pages MUST have prerender in SSR mode
+export const prerender = true;
+return Astro.redirect('/somewhere', 301);
+
+// Dynamic routes fetching from DB should NOT prerender
+// (no prerender = SSR at request time)
+```
+
+**Prevention:**
+- Test on Vercel preview BEFORE merging to main
+- Check both static pages AND dynamic routes
+
+---
+
+### Pattern 3: React Stale Closures in Games (8+ fixes)
+
+**The Problem:** Timer callbacks and event handlers capture stale state.
+
+**Symptoms:**
+- Final scores incorrect when timer expires
+- UI shows stale data after async operations
+- "Last question stuck" bugs
+
+**Bad Pattern:**
+```typescript
+// ❌ BAD - captures stale state
+useEffect(() => {
+  const timer = setInterval(() => {
+    setScore(score + 1);  // 'score' is stale!
+  }, 1000);
+}, []);  // Empty deps = captures initial value
+```
+
+**Good Pattern:**
+```typescript
+// ✅ GOOD - use refs or functional updates
+const scoreRef = useRef(score);
+useEffect(() => { scoreRef.current = score }, [score]);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setScore(s => s + 1);  // Functional update
+    // OR: use scoreRef.current
+  }, 1000);
+}, []);
+```
+
+**Files Fixed:** `FlashcardGame.tsx`, `TutorGames.tsx`, `QuickFire` components
+
+---
+
+### Pattern 4: i18n Race Conditions (6+ fixes)
+
+**The Problem:** Language changes are async but code doesn't await them.
+
+**Symptoms:**
+- UI requires double-click to change language
+- Content shows stale language after selection
+- Hydration mismatches
+
+**Bad Pattern:**
+```typescript
+// ❌ BAD - not awaited
+const handleLanguageChange = (lang) => {
+  i18n.changeLanguage(lang);
+  updateUI();  // Runs before language actually changed!
+};
+```
+
+**Good Pattern:**
+```typescript
+// ✅ GOOD - await the change
+const handleLanguageChange = async (lang) => {
+  await i18n.changeLanguage(lang);
+  updateUI();  // Now safe
+};
+```
+
+**Files Fixed:** `Hero.tsx`, onboarding components
+
+---
+
+### Pattern 5: Database Schema Drift (3 critical fixes)
+
+**The Problem:** Code uses column names that don't match actual DB schema.
+
+**Example (Critical Bug):**
+```typescript
+// ❌ Code was using:
+{ success_count: prev + 1, fail_count: prev }
+
+// ✅ But DB columns are actually:
+{ correct_attempts: prev + 1, total_attempts: total + 1 }
+```
+
+**Impact:** Word practice progress was **silently failing** - no errors, just no data saved.
+
+**Prevention:**
+- Check actual schema: `supabase db dump --schema public`
+- Use TypeScript types generated from DB
+- Test that data actually persists (check Supabase dashboard)
+
+---
+
+### Pattern 6: Pushing Experimental Branches to Production
+
+**The Problem:** Merging large experimental branches to main without testing.
+
+**What Happened (Jan 29, 2026):**
+- 10+ hour debug session branch merged to main
+- Contained: Supabase migration, SSR mode, 18 languages, 50+ other changes
+- Result: Multiple production issues discovered post-deploy
+
+**Prevention Process:**
+1. ✅ Deploy to Vercel preview branch first
+2. ✅ Smoke test: homepage, articles, key flows
+3. ✅ For big changes: explicit sign-off from Richard
+4. ✅ Never merge without "ready for prod" confirmation
+
+---
+
+### Pattern 7: Internal Links to Non-Existent Articles
+
+**The Problem:** AI-generated content includes internal links to article slugs that don't exist.
+
+**Example:**
+```markdown
+<!-- AI wrote this link -->
+[essential phrases](/learn/en/es/essential-phrases-for-couples/)
+
+<!-- But actual slug is -->
+/learn/en/es/spanish-essential-phrases-for-couples/
+```
+
+**Scale:** 4,036 broken internal links across 1,813 articles
+
+**Solution:** `scripts/fix-internal-links.mjs` - fuzzy matches broken links to existing articles
+
+**Prevention:**
+- Validate internal links during content generation
+- Use relative links or link components that verify targets
+
+---
+
+## ✅ Recent Refactoring Completed (Jan 2026)
+
+### Component Splitting - DONE
+
+| Component | Before | After | Reduction |
+|-----------|--------|-------|-----------|
+| FlashcardGame.tsx | 2,558 lines | 1,357 lines | **46%** |
+| TutorGames.tsx | 1,376 lines | 827 lines | **40%** |
+| Hero.tsx | 3,038 lines | 1,442 lines | **52%** |
+
+**Extracted Components:**
+- `components/games/modes/` - TypeIt, QuickFire, VerbMastery, AIChallenge, Flashcards, MultipleChoice
+- `components/games/tutor-modes/` - TutorFlashcards, TutorMultipleChoice, TutorTypeIt, TutorQuickFire, TutorGameResults
+- `components/hero/` - InteractiveHearts, LanguageGrid, LoginForm, Section, MobileSection, etc.
 
 ---
 
@@ -479,24 +678,26 @@ await geminiService.incrementXP(correctCount);
 
 ## Blog & SEO
 
-### Issue 60: Learn Hub Native Language Selector Mismatch ⚠️ OPEN
+### Issue 60: Learn Hub Native Language Selector Mismatch ✅ FIXED (Jan 29)
 
-**Problem:** Dutch (nl), Romanian (ro), and Ukrainian (uk) have blog content but are NOT in the Learn Hub's `getStaticPaths`.
+**Problem:** ~~Dutch (nl), Romanian (ro), and Ukrainian (uk) have blog content but are NOT in the Learn Hub's `getStaticPaths`.~~
 
-**Files:**
-- `blog/src/pages/learn/[nativeLang]/index.astro`
-- `blog/src/pages/learn/[nativeLang]/[targetLang]/index.astro`
-
-**Current:**
+**Fixed:** Blog now supports all 18 native languages:
 ```js
-// Learn Hub has only 9 languages
-const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr'];
+const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'ru', 'uk', 'tr', 'ro', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
 ```
 
-**Fix:** Add `nl`, `ro`, `uk` to match the 12 languages with content:
-```js
-const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'pl', 'tr', 'nl', 'ro', 'uk'];
-```
+### Issue 63: Generic Article Slugs (Supabase Migration) ✅ FIXED (Jan 29)
+
+**Problem:** 1,952 articles had generic slugs like `greetings-and-farewells` instead of `spanish-greetings-and-farewells`.
+
+**Solution:** `blog/scripts/phase2-migrate-content.mjs` renamed all affected slugs.
+
+### Issue 64: Broken Internal Links in Articles ✅ FIXED (Jan 29)
+
+**Problem:** 4,036 internal links pointed to non-existent article slugs.
+
+**Solution:** `scripts/fix-internal-links.mjs` - fuzzy matched 3,886 to correct articles, 150 fell back to language landing pages.
 
 ---
 

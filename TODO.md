@@ -26,21 +26,21 @@ Games have no audio pronunciation - users can't hear words while practicing.
 **Fix:** Add speaker icon buttons that call `speak(word, targetLanguage)`
 **Effort:** 1-2 hours
 
-#### 2. Split Giant Components 📦
-- `FlashcardGame.tsx` — 2,321 lines 😱
-- `ChatArea.tsx` — 1,877 lines
-- `TutorGames.tsx` — 1,355 lines
+#### ✅ 2. Split Giant Components 📦 — DONE (Jan 28)
 
-**Target structure:**
-```
-FlashcardGame/
-  ├── index.tsx (orchestration)
-  ├── VerbMastery.tsx
-  ├── AIChallenge.tsx
-  ├── TypeIt.tsx
-  ├── MultipleChoice.tsx
-  └── hooks/useScores.ts
-```
+| Component | Before | After | Reduction |
+|-----------|--------|-------|-----------|
+| FlashcardGame.tsx | 2,558 | 1,357 | **46%** |
+| TutorGames.tsx | 1,376 | 827 | **40%** |
+| Hero.tsx | 3,038 | 1,442 | **52%** |
+
+**Extracted to:**
+- `components/games/modes/` — TypeIt, QuickFire, VerbMastery, AIChallenge, Flashcards, MultipleChoice
+- `components/games/tutor-modes/` — TutorFlashcards, TutorMultipleChoice, TutorTypeIt, TutorQuickFire, TutorGameResults
+- `components/hero/` — InteractiveHearts, LanguageGrid, LoginForm, etc.
+
+#### 3. ChatArea.tsx Split 📦 — TODO
+Still at 1,877 lines. Not yet refactored.
 
 ---
 
