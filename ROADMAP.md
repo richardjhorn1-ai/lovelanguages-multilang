@@ -1,11 +1,41 @@
 # Love Languages - Development Roadmap
 
-**Last Updated:** January 27, 2026
+**Last Updated:** January 29, 2026
 **Project:** Love Languages Multilang
 
 ---
 
-## ✅ Recently Completed (Jan 27, 2026)
+## ✅ Recently Completed (Jan 29, 2026)
+
+### Blog Infrastructure Overhaul
+Migrated blog from static MDX to Supabase-powered SSR.
+
+**Major Changes:**
+- ✅ **Supabase migration** — All 5,147 articles now in database (was MDX files)
+- ✅ **SSR mode** — Switched from static generation to server-side rendering
+- ✅ **18-language support** — Added 6 new languages (Swedish, Norwegian, Danish, Czech, Greek, Hungarian)
+- ✅ **Full i18n** — UI translations for all 18 native languages
+- ✅ **Slug migration** — Fixed 1,952 articles with generic slugs → language-prefixed slugs
+- ✅ **Internal links fix** — Fixed 4,036 broken internal links across 1,813 articles
+- ✅ **Compare page redirects** — Fixed 3 redirect pages missing `prerender=true`
+- ✅ **Performance** — Added edge cache headers (s-maxage=1d), reduced DB queries from 12+ to 2 per page
+
+**New Languages (Blog + App):**
+- 🇸🇪 Swedish (sv)
+- 🇳🇴 Norwegian (no)
+- 🇩🇰 Danish (da)
+- 🇨🇿 Czech (cs)
+- 🇬🇷 Greek (el)
+- 🇭🇺 Hungarian (hu)
+
+**Scripts Created:**
+- `scripts/fix-internal-links.mjs` — Fuzzy-match broken links to correct articles
+- `scripts/find-404s.mjs` — Check articles against live site
+- `blog/scripts/phase2-migrate-content.mjs` — Rename generic slugs in Supabase
+
+---
+
+## ✅ Previously Completed (Jan 27, 2026)
 
 ### Security & Analytics Release
 Merged `release/security-analytics` → `main`
@@ -587,22 +617,10 @@ Debug statements in production code.
 
 ## 🌍 Content Expansion
 
-### 19. 6 Languages Missing Blog Content
-Swedish, Norwegian, Danish, Czech, Greek, Hungarian have app support but no blog articles.
+### ✅ 19. 6 Languages Now Have Blog Content (DONE Jan 29)
+~~Swedish, Norwegian, Danish, Czech, Greek, Hungarian have app support but no blog articles.~~
 
-**Priority Order (by market size):**
-1. Swedish (sv) — large market, high English proficiency
-2. Czech (cs) — Central European corridor
-3. Greek (el) — tourism market
-4. Hungarian (hu)
-5. Norwegian (no)
-6. Danish (da)
-
-**Files:**
-- `/blog/src/content/articles/{lang}/` — need new directories
-- Article generation scripts in `/blog/`
-
-**Effort:** Large (content generation per language)
+**Fixed:** Generated ~1,000 articles for the 6 new languages, migrated to Supabase.
 
 ---
 

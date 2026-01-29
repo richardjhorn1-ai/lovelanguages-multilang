@@ -1,4 +1,21 @@
-## Current Sprint - Post-Merge Cleanup
+## Current Sprint - Post-Blog Overhaul
+
+**Last Updated:** January 29, 2026
+
+### ✅ Completed (Jan 29)
+
+#### Blog Infrastructure Overhaul
+- [x] Migrate 5,147 articles from MDX to Supabase
+- [x] Switch to SSR mode (Astro server output)
+- [x] Add 6 new languages (sv, no, da, cs, el, hu)
+- [x] Full i18n for UI in all 18 native languages
+- [x] Fix 1,952 generic slugs → language-prefixed slugs
+- [x] Fix 4,036 broken internal links
+- [x] Fix compare page redirects (prerender=true)
+- [x] Add edge cache headers (s-maxage=1d)
+- [x] Reduce DB queries (12+ → 2 per page)
+
+---
 
 ### 🎯 Phase 1: Clean Up (This Week)
 
@@ -59,14 +76,14 @@ FlashcardGame/
 
 ---
 
-## ✅ Recently Completed (Jan 27)
+## ✅ Previously Completed (Jan 27)
 
 ### Security & Analytics Release
 - [x] Free tier (25 chats + limited voice)
 - [x] Promo codes for creators
 - [x] GA4 analytics funnel (signup → onboarding → paywall → checkout)
 - [x] Password reset & account settings
-- [x] Blog translations (12 languages: en, es, fr, de, it, pt, pl, ru, tr, nl, ro, uk)
+- [x] Blog translations (12 languages)
 - [x] Blog + app unified in same GA4 property
 - [x] Verb conjugations fix
 - [x] Onboarding words to Love Log
@@ -85,3 +102,15 @@ Pre-computed vocabulary to reduce AI costs and improve response times.
 ### Creator/Affiliate Program
 See ROADMAP.md section "F. Creator/Affiliate Program"
 10% commission for referrals.
+
+---
+
+## Lessons Learned (Jan 29)
+
+**Don't push experimental branches to main without testing.**
+
+Process going forward:
+1. Preview deployment on Vercel branch — verify it works
+2. Run basic smoke test (homepage, articles, key flows)
+3. If big change (DB migrations, architecture) — ping Richard for sign-off
+4. No merging without explicit "ready for prod" confirmation
