@@ -61,6 +61,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const [savingValidation, setSavingValidation] = useState(false);
   const [showBreakupModal, setShowBreakupModal] = useState(false);
   const [isSoundMuted, setIsSoundMuted] = useState(sounds.isMuted());
+  const [soundVolume, setSoundVolume] = useState(sounds.getVolume() * 100);
   const [isHapticsEnabled, setIsHapticsEnabled] = useState(haptics.isEnabled());
   const isHapticsAvailable = haptics.isAvailable();
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
@@ -506,6 +507,36 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     />
                   </div>
                 </button>
+
+                {/* Volume Slider - only show when sounds are enabled */}
+                {!isSoundMuted && (
+                  <div className="mt-3 p-4 bg-[var(--bg-secondary)] rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <span className="text-lg">🔈</span>
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={soundVolume}
+                        onChange={(e) => {
+                          const vol = parseInt(e.target.value);
+                          setSoundVolume(vol);
+                          sounds.setVolume(vol / 100);
+                        }}
+                        onMouseUp={() => sounds.play('notification')}
+                        onTouchEnd={() => sounds.play('notification')}
+                        className="flex-1 h-2 rounded-full appearance-none cursor-pointer"
+                        style={{
+                          background: `linear-gradient(to right, ${accentHex} 0%, ${accentHex} ${soundVolume}%, var(--border-color) ${soundVolume}%, var(--border-color) 100%)`
+                        }}
+                      />
+                      <span className="text-lg">🔊</span>
+                    </div>
+                    <p className="text-center text-scale-caption text-[var(--text-secondary)] mt-2">
+                      {t('profile.customisation.volumeLevel', 'Volume')}: {Math.round(soundVolume)}%
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Haptic Feedback (only shown on native platforms) */}

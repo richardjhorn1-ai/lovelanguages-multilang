@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
 import { shuffleArray } from '../../../utils/array';
+import { speak } from '../../../services/audio';
 import type { AnswerResult } from './types';
 
 type VerbTense = 'present' | 'past' | 'future';
@@ -27,6 +28,8 @@ interface VerbMasteryQuestion {
 interface VerbMasteryProps {
   /** Verbs with conjugation data */
   verbs: DictionaryEntry[];
+  /** Target language code for TTS */
+  targetLanguage: string;
   /** Person pronouns for the target language */
   verbPersons: VerbPerson[];
   /** Accent color */
@@ -62,6 +65,7 @@ type GamePhase = 'select_tense' | 'playing' | 'finished';
  */
 export const VerbMastery: React.FC<VerbMasteryProps> = ({
   verbs,
+  targetLanguage,
   verbPersons,
   accentColor = '#f97316', // orange-500
   maxQuestions = 20,
@@ -353,9 +357,18 @@ export const VerbMastery: React.FC<VerbMasteryProps> = ({
           <p className="text-scale-caption font-bold text-orange-500 uppercase tracking-wider mb-2">
             {t('play.verbMastery.conjugateVerb')}
           </p>
-          <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2">
-            {currentQuestion.infinitive}
-          </h3>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <h3 className="text-3xl font-black text-[var(--text-primary)]">
+              {currentQuestion.infinitive}
+            </h3>
+            <button
+              onClick={() => speak(currentQuestion.infinitive, targetLanguage)}
+              className="p-2 rounded-full hover:bg-orange-100 dark:hover:bg-orange-800/50 transition-colors"
+              title={t('play.flashcard.listen')}
+            >
+              <ICONS.Volume2 className="w-5 h-5 text-orange-500" />
+            </button>
+          </div>
           <p className="text-scale-label text-[var(--text-secondary)] italic mb-4">
             "{currentQuestion.translation}"
           </p>

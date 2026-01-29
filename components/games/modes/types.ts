@@ -12,6 +12,8 @@ export interface GameModeProps {
   currentIndex: number;
   /** Accent/tier color for styling */
   accentColor: string;
+  /** Target language code (e.g., "pl") for TTS */
+  targetLanguage: string;
   /** Target language name (e.g., "Polish") */
   targetLanguageName: string;
   /** Native language name (e.g., "English") */

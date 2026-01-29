@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase } from '../../../types';
 import { getRomanticPhrases } from '../../../services/romantic-phrases';
+import { speak } from '../../../services/audio';
 import type { AnswerResult } from './types';
 
 type SessionLength = 10 | 20 | 'all';
@@ -524,7 +525,16 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                 <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">
                   {targetLanguageName.toUpperCase()}
                 </span>
-                <h3 className="text-4xl font-black text-[var(--text-primary)]">{currentQuestion.word}</h3>
+                <div className="flex items-center gap-3">
+                  <h3 className="text-4xl font-black text-[var(--text-primary)]">{currentQuestion.word}</h3>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); speak(currentQuestion.word, targetLanguage); }}
+                    className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                    title={t('play.flashcard.listen')}
+                  >
+                    <ICONS.Volume2 className="w-6 h-6 text-[var(--text-secondary)]" />
+                  </button>
+                </div>
                 <p className="mt-12 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">
                   {t('play.flashcards.tapToReveal', 'Tap to reveal')}
                 </p>
@@ -566,9 +576,18 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
             >
               {targetLanguageName} → {nativeLanguageName}
             </span>
-            <h3 className="text-3xl font-black text-[var(--text-primary)] mb-8 text-center">
-              {currentQuestion.word}
-            </h3>
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <h3 className="text-3xl font-black text-[var(--text-primary)] text-center">
+                {currentQuestion.word}
+              </h3>
+              <button
+                onClick={() => speak(currentQuestion.word, targetLanguage)}
+                className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                title={t('play.flashcard.listen')}
+              >
+                <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
+              </button>
+            </div>
             <div className="space-y-3">
               {currentQuestion.options.map((opt, idx) => {
                 const isCorrect = opt === currentQuestion.translation;
@@ -614,9 +633,18 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
             >
               {targetLanguageName} → {nativeLanguageName}
             </span>
-            <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">
-              {currentQuestion.word}
-            </h3>
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <h3 className="text-3xl font-black text-[var(--text-primary)] text-center">
+                {currentQuestion.word}
+              </h3>
+              <button
+                onClick={() => speak(currentQuestion.word, targetLanguage)}
+                className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                title={t('play.flashcard.listen')}
+              >
+                <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
+              </button>
+            </div>
 
             {typeSubmitted && (
               <div className={`text-center mb-4 p-3 rounded-xl ${

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
 import { shuffleArray } from '../../../utils/array';
+import { speak } from '../../../services/audio';
 import type { InteractiveGameModeProps } from './types';
 
 interface MultipleChoiceProps extends InteractiveGameModeProps {
@@ -22,6 +23,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   words,
   currentIndex,
   accentColor,
+  targetLanguage,
   targetLanguageName,
   nativeLanguageName,
   currentWordStreak,
@@ -138,9 +140,18 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
 
       {/* Word to translate */}
       <div className="text-center mb-8">
-        <h3 className="text-3xl font-black text-[var(--text-primary)]">
-          {currentWord.word}
-        </h3>
+        <div className="flex items-center justify-center gap-2">
+          <h3 className="text-3xl font-black text-[var(--text-primary)]">
+            {currentWord.word}
+          </h3>
+          <button
+            onClick={() => speak(currentWord.word, targetLanguage)}
+            className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+            title={t('play.flashcard.listen')}
+          >
+            <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
+          </button>
+        </div>
         {currentWordStreak > 0 && (
           <div className="mt-2">
             <StreakIndicator streak={currentWordStreak} />

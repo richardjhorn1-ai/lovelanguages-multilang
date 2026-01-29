@@ -380,7 +380,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
       const totalTimeSeconds = Math.floor((Date.now() - sessionStartTime) / 1000);
 
-      await fetch('/api/submit-game-session', {
+      const response = await fetch('/api/submit-game-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -395,6 +395,15 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           ...languageParams
         })
       });
+
+      // Play XP sound if XP was awarded
+      if (response.ok) {
+        const data = await response.json();
+        if (data.xpAwarded > 0) {
+          sounds.play('xp-gain');
+          haptics.trigger('xp-gain');
+        }
+      }
     } catch (error) {
       console.error('Error saving game session:', error);
     }
@@ -1049,6 +1058,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               scoresMap={scoresMap}
               currentIndex={currentIndex}
               accentColor={tierColor}
+              targetLanguage={targetLanguage}
               targetLanguageName={targetName}
               nativeLanguageName={nativeName}
               currentWordStreak={currentWordStreak}
@@ -1065,6 +1075,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               scoresMap={scoresMap}
               currentIndex={currentIndex}
               accentColor={tierColor}
+              targetLanguage={targetLanguage}
               targetLanguageName={targetName}
               nativeLanguageName={nativeName}
               currentWordStreak={currentWordStreak}
@@ -1082,6 +1093,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               scoresMap={scoresMap}
               currentIndex={currentIndex}
               accentColor={tierColor}
+              targetLanguage={targetLanguage}
               targetLanguageName={targetName}
               nativeLanguageName={nativeName}
               currentWordStreak={currentWordStreak}
@@ -1118,6 +1130,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           {localGameType === 'quick_fire' && !finished && (
             <QuickFire
               words={deck}
+              targetLanguage={targetLanguage}
               accentColor="#f59e0b"
               timeLimit={60}
               maxWords={20}
@@ -1132,6 +1145,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           {localGameType === 'verb_mastery' && !finished && (
             <VerbMastery
               verbs={verbsWithConjugations}
+              targetLanguage={targetLanguage}
               verbPersons={VERB_PERSONS}
               accentColor="#f97316"
               maxQuestions={20}
