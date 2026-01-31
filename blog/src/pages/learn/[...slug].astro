@@ -1,6 +1,7 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { getArticle, getArticlesByLangPair, getAllSlugs } from '../../lib/blog-api';
+import { sanitizeArticleContent } from '../../lib/sanitize-content';
 
 // Language config for flags and names
 const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
@@ -109,5 +110,5 @@ const crossPairArticles: any[] = [];
   reverseArticle={undefined}
   crossPairArticles={crossPairArticles}
 >
-  <Fragment set:html={article.content_html || article.content} />
+  <Fragment set:html={sanitizeArticleContent(article.content_html || article.content || '')} />
 </ArticleLayout>
