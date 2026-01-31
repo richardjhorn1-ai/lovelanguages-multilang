@@ -45,3 +45,18 @@ blog/.astro/
 # Capacitor native projects (regenerate with `npx cap add ios/android`)
 ios/
 android/
+
+# One-off generator scripts (may contain keys)
+blog/.ai/batch*.mjs
+blog/.ai/batch*.js
+blog/.ai/*.json
+blog/.ai/articles/
+scripts/batch*.mjs
+scripts/batch*.js
+scripts/run-batch*.js
+**/temp-article.json
+**/test-*.mjs
+**/verify-*.mjs
+**/get-sample*.mjs
+**/check-existing*.mjs
+**/count-*.mjs
