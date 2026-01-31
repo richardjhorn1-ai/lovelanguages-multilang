@@ -50,7 +50,7 @@ interface ReverseArticle {
 interface Props {
   title: string;
   description: string;
-  category: 'phrases' | 'vocabulary' | 'grammar' | 'culture' | 'situations' | 'pronunciation';
+  category: 'phrases' | 'vocabulary' | 'grammar' | 'culture' | 'situations' | 'pronunciation' | 'communication';
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   readTime: number;
   image?: string;
@@ -156,6 +156,7 @@ const categoryConfig = {
   culture: { icon: languageInfo.flag, bg: 'bg-amber-100', text: 'text-amber-700', label: 'Culture' },
   situations: { icon: '🎭', bg: 'bg-emerald-100', text: 'text-emerald-700', label: 'Situations' },
   pronunciation: { icon: '🗣️', bg: 'bg-teal-100', text: 'text-teal-700', label: 'Pronunciation' },
+  communication: { icon: '💬', bg: 'bg-cyan-100', text: 'text-cyan-700', label: 'Communication' },
 };
 
 const cat = categoryConfig[category];
