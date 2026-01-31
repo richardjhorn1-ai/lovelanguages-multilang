@@ -36,7 +36,8 @@ const {
 
 const siteUrl = 'https://www.lovelanguages.io';
 const fullUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
-const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const safeImage = image || '/og-image.png';
+const fullImage = safeImage.startsWith('http') ? safeImage : `${siteUrl}${safeImage}`;
 const fullTitle = `${title} | Love Languages`;
 
 // Dynamic fallbacks based on language

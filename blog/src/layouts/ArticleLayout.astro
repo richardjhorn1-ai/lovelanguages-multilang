@@ -51,11 +51,11 @@ interface Props {
   title: string;
   description: string;
   category: 'phrases' | 'vocabulary' | 'grammar' | 'culture' | 'situations' | 'pronunciation' | 'communication';
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
-  readTime: number;
-  image?: string;
-  date: string;
-  tags?: string[];
+  difficulty?: 'beginner' | 'intermediate' | 'advanced' | null;
+  readTime?: number | null;
+  image?: string | null;
+  date?: string | null;
+  tags?: string[] | null;
   relatedArticles?: RelatedArticle[];
   languageCode?: string;
   languageInfo?: LanguageInfo;
@@ -127,7 +127,12 @@ function generateFAQItems(title: string, languageName: string, category: string)
 }
 
 const {
-  title, description, category, difficulty, readTime, image, date, tags,
+  title, description, category,
+  difficulty: rawDifficulty,
+  readTime: rawReadTime,
+  image: rawImage,
+  date: rawDate,
+  tags: rawTags,
   relatedArticles = [],
   languageCode = 'pl',
   languageInfo = { flag: '🇵🇱', name: 'Polish', nativeName: 'Polski' },
@@ -137,6 +142,13 @@ const {
   reverseArticle,
   crossPairArticles = []
 } = Astro.props;
+
+// Safe fallbacks for nullable fields
+const difficulty = rawDifficulty || 'beginner';
+const readTime = rawReadTime || 8;
+const image = rawImage || null;
+const date = rawDate || new Date().toISOString().split('T')[0];
+const tags = rawTags || [];
 
 // Language info lookup for cross-pair display
 const LANG_FLAGS: Record<string, string> = {
