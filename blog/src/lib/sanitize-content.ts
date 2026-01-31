@@ -21,9 +21,15 @@ export function sanitizeArticleContent(content: string): string {
   sanitized = sanitized.replace(/<(PhraseOfDay|VocabCard|CultureTip|CTA|QuickFire)[^>]*>/gi, '');
   sanitized = sanitized.replace(/<\/(PhraseOfDay|VocabCard|CultureTip|CTA|QuickFire)>/gi, '');
 
+  // Remove component tags WITHOUT closing > (broken: <PhraseOfDay followed by newline)
+  sanitized = sanitized.replace(/<(PhraseOfDay|VocabCard|CultureTip|CTA|QuickFire)\s*\n/gi, '');
+
   // Clean up attribute lines that got converted to paragraphs
   // Pattern: <p>word="..." or <p>translation="..." etc.
   sanitized = sanitized.replace(/<p>\s*(word|translation|pronunciation|context|tip|phrase|meaning|note|culture)\s*=\s*"[^"]*"\s*<\/p>/gi, '');
+
+  // Remove orphaned attribute lines (no opening <p>, left after broken component removal)
+  sanitized = sanitized.replace(/^\s*(word|translation|pronunciation|context|tip|phrase|meaning|note|culture)="[^"]*"<\/p>\s*$/gm, '');
 
   // Remove standalone /> that were part of self-closing components
   sanitized = sanitized.replace(/<p>\s*\/>\s*<\/p>/gi, '');
