@@ -7,7 +7,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import './i18n';
 import { useI18nSync } from './hooks/useI18nSync';
-import { trackPageView, analytics } from './services/analytics';
+import { trackPageView, analytics, captureReferralSource, getReferralData } from './services/analytics';
 import Hero from './components/Hero';
 import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
@@ -140,6 +140,11 @@ const App: React.FC = () => {
   const [dbError, setDbError] = useState<string | null>(null);
   const [successToast, setSuccessToast] = useState<string | null>(null);
 
+  // Capture UTM params from blog referrals on first load
+  useEffect(() => {
+    captureReferralSource();
+  }, []);
+
   useEffect(() => {
     supabase.auth.getSession()
       .then(({ data: { session } }) => {
@@ -251,9 +256,17 @@ const App: React.FC = () => {
                 target_language: storedTarget,
                 subscription_plan: 'free',
               });
+              const referralData = getReferralData();
               analytics.trackSignupCompleted({
                 method: provider as 'google' | 'apple' | 'email',
-                referral_source: document.referrer || 'direct',
+                referral_source: referralData?.source || document.referrer || 'direct',
+                ...(referralData && {
+                  utm_medium: referralData.medium,
+                  utm_campaign: referralData.campaign,
+                  article_slug: referralData.content,
+                  ref_native_lang: referralData.refNative,
+                  ref_target_lang: referralData.refTarget,
+                }),
               });
             }
 
