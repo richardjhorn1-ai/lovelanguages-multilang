@@ -1,0 +1,136 @@
+---
+// Enhanced blog analytics component
+// Add to BaseLayout.astro or article pages
+
+interface Props {
+  nativeLang?: string;
+  targetLang?: string;
+  articleSlug?: string;
+  topic?: string;
+}
+
+const pathname = Astro.url.pathname;
+const pathParts = pathname.split('/').filter(Boolean);
+const nativeLang = Astro.props.nativeLang || (pathParts[1]?.length === 2 ? pathParts[1] : 'en');
+const targetLang = Astro.props.targetLang || (pathParts[2]?.length === 2 ? pathParts[2] : '');
+const articleSlug = Astro.props.articleSlug || pathParts[3] || '';
+---
+
+<script define:vars={{ nativeLang, targetLang, articleSlug }}>
+  // Set page-level dimensions for all events
+  if (typeof gtag !== 'undefined') {
+    gtag('set', {
+      'content_group': nativeLang + '-' + targetLang,
+      'custom_map': {
+        'dimension1': 'native_lang',
+        'dimension2': 'target_lang',
+        'dimension3': 'article_slug'
+      }
+    });
+  }
+
+  // Track scroll depth
+  const scrollThresholds = [25, 50, 75, 100];
+  const scrollTracked = new Set();
+
+  function getScrollPercent() {
+    const h = document.documentElement;
+    const b = document.body;
+    const st = 'scrollTop';
+    const sh = 'scrollHeight';
+    return Math.round((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100);
+  }
+
+  function checkScroll() {
+    const percent = getScrollPercent();
+    scrollThresholds.forEach(threshold => {
+      if (percent >= threshold && !scrollTracked.has(threshold)) {
+        scrollTracked.add(threshold);
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'scroll_depth', {
+            percent: threshold,
+            native_lang: nativeLang,
+            target_lang: targetLang,
+            article_slug: articleSlug,
+            event_category: 'engagement'
+          });
+        }
+      }
+    });
+  }
+
+  // Throttled scroll listener
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) return;
+    scrollTimeout = setTimeout(() => {
+      scrollTimeout = null;
+      checkScroll();
+    }, 250);
+  });
+
+  // Track time on page
+  const startTime = Date.now();
+  const timeThresholds = [30, 60, 120, 300]; // seconds
+  const timeTracked = new Set();
+
+  setInterval(() => {
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    timeThresholds.forEach(threshold => {
+      if (elapsed >= threshold && !timeTracked.has(threshold)) {
+        timeTracked.add(threshold);
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'time_on_page', {
+            seconds: threshold,
+            native_lang: nativeLang,
+            target_lang: targetLang,
+            article_slug: articleSlug,
+            event_category: 'engagement'
+          });
+        }
+      }
+    });
+  }, 5000);
+
+  // Track outbound/internal link clicks
+  document.addEventListener('click', (e) => {
+    const link = (e.target as HTMLElement).closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    const isExternal = href.startsWith('http') && !href.includes('lovelanguages.io');
+    const isAppLink = href.startsWith('/') && !href.startsWith('/learn');
+
+    if (typeof gtag !== 'undefined') {
+      if (isExternal) {
+        gtag('event', 'outbound_click', {
+          url: href,
+          native_lang: nativeLang,
+          target_lang: targetLang,
+          event_category: 'engagement'
+        });
+      } else if (isAppLink) {
+        gtag('event', 'app_link_click', {
+          destination: href,
+          native_lang: nativeLang,
+          target_lang: targetLang,
+          article_slug: articleSlug,
+          event_category: 'conversion'
+        });
+      }
+    }
+  });
+
+  // Track article view with full context
+  if (typeof gtag !== 'undefined' && articleSlug) {
+    gtag('event', 'article_view', {
+      native_lang: nativeLang,
+      target_lang: targetLang,
+      article_slug: articleSlug,
+      page_path: window.location.pathname,
+      event_category: 'content'
+    });
+  }
+</script>

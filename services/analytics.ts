@@ -460,3 +460,63 @@ export const trackPageView = (path: string, title?: string): void => {
 };
 
 export default analytics;
+
+/**
+ * Capture UTM parameters and blog referral data from URL
+ * Call this on app load to attribute signups to blog articles
+ */
+export const captureReferralSource = (): {
+  source: string;
+  medium: string;
+  campaign: string;
+  content: string;
+  refNative: string;
+  refTarget: string;
+} | null => {
+  if (!isBrowser) return null;
+
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get('utm_source');
+
+  if (!source) return null;
+
+  const referralData = {
+    source: source,
+    medium: params.get('utm_medium') || '',
+    campaign: params.get('utm_campaign') || '',
+    content: params.get('utm_content') || '',
+    refNative: params.get('ref_native') || '',
+    refTarget: params.get('ref_target') || '',
+  };
+
+  // Store in sessionStorage for attribution across pages
+  sessionStorage.setItem('referral_data', JSON.stringify(referralData));
+
+  // Track the landing event
+  if (hasGtag()) {
+    window.gtag('event', 'blog_referral_landing', {
+      utm_source: referralData.source,
+      utm_medium: referralData.medium,
+      utm_campaign: referralData.campaign,
+      article_slug: referralData.content,
+      native_lang: referralData.refNative,
+      target_lang: referralData.refTarget,
+      event_category: 'acquisition',
+    });
+  }
+
+  // Clean URL (remove UTM params)
+  const cleanUrl = window.location.pathname;
+  window.history.replaceState({}, '', cleanUrl);
+
+  return referralData;
+};
+
+/**
+ * Get stored referral data (for signup attribution)
+ */
+export const getReferralData = (): Record<string, string> | null => {
+  if (!isBrowser) return null;
+  const stored = sessionStorage.getItem('referral_data');
+  return stored ? JSON.parse(stored) : null;
+};
