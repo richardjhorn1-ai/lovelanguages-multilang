@@ -1,11 +1,34 @@
 # Love Languages - Development Roadmap
 
-**Last Updated:** January 29, 2026
+**Last Updated:** February 1, 2026
 **Project:** Love Languages Multilang
 
 ---
 
-## ✅ Recently Completed (Jan 29, 2026)
+## ✅ Recently Completed (Feb 1, 2026)
+
+### 7-Day Free Trial System
+Replaced permanent free tier with time-limited trial to improve conversion.
+
+**Features:**
+- ✅ **7-day trial** — New users get full access for 7 days
+- ✅ **Trial reminders** — Notifications at 5, 3, 1, 0 days remaining
+- ✅ **Trial expired paywall** — Clean subscription prompt when trial ends
+- ✅ **Partner cascade** — When primary subscriber cancels, linked partner loses access
+- ✅ **Back button fix** — Pricing page no longer loops to Stripe on cancel
+
+**Files:**
+- `api/choose-free-tier.ts` — Trial activation (sets `trial_expires_at`)
+- `api/trial-status.ts` — Check trial status endpoint
+- `components/TrialReminderNotification.tsx` — In-app reminder banner
+- `components/SubscriptionRequired.tsx` — Paywall with trial-expired messaging
+- `migrations/035_free_trial.sql` — Database migration
+
+**Docs:** `docs/FREE_TRIAL_IMPLEMENTATION.md`, `docs/FREE_TRIAL_FIXES.md`
+
+---
+
+## ✅ Previously Completed (Jan 29, 2026)
 
 ### Blog Infrastructure Overhaul
 Migrated blog from static MDX to Supabase-powered SSR.
@@ -41,7 +64,7 @@ Migrated blog from static MDX to Supabase-powered SSR.
 Merged `release/security-analytics` → `main`
 
 **Features:**
-- ✅ Free tier (25 chats + limited voice)
+- ✅ ~~Free tier (25 chats + limited voice)~~ → Replaced with 7-day trial (Feb 1)
 - ✅ Promo codes system for creators
 - ✅ Password reset & account settings
 - ✅ Blog translations (12 languages)

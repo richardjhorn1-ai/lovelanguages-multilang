@@ -1,6 +1,20 @@
 ## Current Sprint - Post-Blog Overhaul
 
-**Last Updated:** January 29, 2026
+**Last Updated:** February 1, 2026
+
+### ✅ Completed (Feb 1)
+
+#### 7-Day Free Trial 🎁
+- [x] New users get 7-day trial on signup (replaces permanent free tier)
+- [x] Trial expired paywall with subscription options
+- [x] Trial reminder notifications at 5, 3, 1, 0 days remaining
+- [x] Back button fix on pricing page (no Stripe redirect loop)
+- [x] Partner access cascade when primary subscription canceled
+- [x] Migration: `035_free_trial.sql`
+
+**Docs:** `docs/FREE_TRIAL_IMPLEMENTATION.md`, `docs/FREE_TRIAL_FIXES.md`
+
+---
 
 ### ✅ Completed (Jan 29)
 
@@ -94,10 +108,6 @@ Still at 1,877 lines. Not yet refactored.
 ---
 
 ## Backlog
-
-### Free Trial → 7 Days
-Change free tier to 7-day trial instead of unlimited free tier.
-**Priority:** Soon
 
 ### Homepage First-Screen Improvement
 **Goal:** Show immediate value instead of language selection as first step on desktop.
