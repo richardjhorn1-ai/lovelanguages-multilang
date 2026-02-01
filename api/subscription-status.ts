@@ -52,7 +52,9 @@ export default async function handler(req: any, res: any) {
         subscription_status,
         subscription_period,
         subscription_ends_at,
-        subscription_started_at
+        subscription_started_at,
+        free_tier_chosen_at,
+        trial_expires_at
       `)
       .eq('id', auth.userId)
       .single();
@@ -90,6 +92,16 @@ export default async function handler(req: any, res: any) {
       .is('redeemed_by', null)
       .gt('expires_at', new Date().toISOString());
 
+    // Calculate trial status
+    const now = new Date();
+    const trialExpiresAt = profile?.trial_expires_at ? new Date(profile.trial_expires_at) : null;
+    const trialActive = !!profile?.free_tier_chosen_at && (!trialExpiresAt || trialExpiresAt > now);
+    const trialExpired = trialExpiresAt && trialExpiresAt <= now;
+    const isGrandfathered = !!profile?.free_tier_chosen_at && !profile?.trial_expires_at;
+    const trialDaysRemaining = trialExpiresAt
+      ? Math.max(0, Math.floor((trialExpiresAt.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)))
+      : null;
+
     return res.status(200).json({
       subscription: {
         plan: profile?.subscription_plan || 'none',
@@ -97,6 +109,13 @@ export default async function handler(req: any, res: any) {
         period: profile?.subscription_period || null,
         endsAt: profile?.subscription_ends_at || null,
         startedAt: profile?.subscription_started_at || null,
+      },
+      trial: {
+        active: trialActive,
+        expired: !!trialExpired,
+        expiresAt: profile?.trial_expires_at || null,
+        daysRemaining: trialDaysRemaining,
+        isGrandfathered,
       },
       limits,
       usage: {

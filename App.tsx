@@ -20,6 +20,7 @@ import LevelTest from './components/LevelTest';
 import JoinInvite from './components/JoinInvite';
 import { Onboarding } from './components/onboarding/Onboarding';
 import SubscriptionRequired from './components/SubscriptionRequired';
+import TrialReminderNotification from './components/TrialReminderNotification';
 import RoleSelection from './components/RoleSelection';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -431,15 +432,43 @@ const App: React.FC = () => {
                     hasInheritedSubscription={!!profile.subscription_granted_by}
                   />
                 ) : // Step 3: Check subscription/access status
-                // Allow if: subscription active, inherited access, active promo, free tier chosen, or beta tester
+                // Allow if: subscription active, inherited access, active promo, active trial, or beta tester
                 (() => {
                   const hasActiveSubscription = profile.subscription_status === 'active';
                   const hasInheritedAccess = !!profile.subscription_granted_by;
-                  const hasActivePromo = (profile as any).promo_expires_at && new Date((profile as any).promo_expires_at) > new Date();
-                  const hasChosenFreeTier = !!(profile as any).free_tier_chosen_at;
+                  const hasActivePromo = profile.promo_expires_at && new Date(profile.promo_expires_at) > new Date();
+                  const hasChosenFreeTier = !!profile.free_tier_chosen_at;
                   const betaTester = isBetaTester(profile.email || '');
 
-                  const hasAccess = hasActiveSubscription || hasInheritedAccess || hasActivePromo || hasChosenFreeTier || betaTester;
+                  // Trial expiry check
+                  const trialExpiresAt = profile.trial_expires_at;
+                  const trialExpired = trialExpiresAt && new Date(trialExpiresAt) <= new Date();
+                  // Grandfathered: has free tier but no trial_expires_at (old users)
+                  const isGrandfathered = hasChosenFreeTier && !trialExpiresAt;
+                  // Active trial: has chosen free tier, has expiry, and not expired
+                  const hasActiveTrial = hasChosenFreeTier && trialExpiresAt && !trialExpired;
+
+                  // Calculate days remaining for trial reminder (floor so day 0 = last day)
+                  const daysRemaining = trialExpiresAt
+                    ? Math.max(0, Math.floor((new Date(trialExpiresAt).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
+                    : null;
+                  const hoursRemaining = daysRemaining === 0 && trialExpiresAt
+                    ? Math.max(0, Math.ceil((new Date(trialExpiresAt).getTime() - Date.now()) / (1000 * 60 * 60)))
+                    : null;
+                  const showTrialReminder = daysRemaining !== null && [5, 3, 1, 0].includes(daysRemaining) && !trialExpired;
+
+                  const hasAccess = hasActiveSubscription || hasInheritedAccess || hasActivePromo || isGrandfathered || hasActiveTrial || betaTester;
+
+                  // If trial expired and no other access, show paywall with trial expired message
+                  if (trialExpired && !hasActiveSubscription && !hasInheritedAccess && !hasActivePromo && !betaTester) {
+                    return (
+                      <SubscriptionRequired
+                        profile={profile}
+                        onSubscribed={() => fetchProfile(profile.id)}
+                        trialExpired={true}
+                      />
+                    );
+                  }
 
                   return !hasAccess ? (
                     <SubscriptionRequired
@@ -449,6 +478,13 @@ const App: React.FC = () => {
                   ) : (
                     <div className="flex flex-col h-full">
                       <Navbar profile={profile} />
+                      {/* Trial reminder notification */}
+                      {showTrialReminder && daysRemaining !== null && (
+                        <TrialReminderNotification
+                          daysRemaining={daysRemaining}
+                          hoursRemaining={hoursRemaining}
+                        />
+                      )}
                       <main className="flex-1 h-0 overflow-hidden">
                         <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
                       </main>

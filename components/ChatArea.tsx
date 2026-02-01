@@ -1571,7 +1571,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         setListenEntries([]);
                         if (chats.length > 0) setActiveChat(chats[0]);
                       }}
-                      className="px-5 py-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-secondary)] font-medium hover:opacity-80 transition-opacity"
+                      className="px-5 py-2.5 rounded-xl border-2 border-[var(--border-color)] text-[var(--text-secondary)] font-medium hover:bg-[var(--bg-primary)] transition-colors"
                     >
                       {t('chat.listen.backToChats')}
                     </button>
@@ -1779,7 +1779,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             <div className="p-4 border-t border-[var(--border-color)] flex gap-3">
               <button
                 onClick={() => setShowWordExtractor(false)}
-                className="flex-1 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-primary)] font-bold hover:opacity-80 transition-opacity"
+                className="flex-1 py-3 px-4 rounded-xl border-2 border-[var(--border-color)] text-[var(--text-secondary)] font-bold hover:bg-[var(--bg-primary)] transition-colors"
               >
                 {t('chat.wordExtractor.cancel')}
               </button>
@@ -1848,7 +1848,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                   setListenContextLabel('');
                   setListenError(null);
                 }}
-                className="flex-1 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-[var(--text-primary)] font-bold hover:opacity-80 transition-opacity"
+                className="flex-1 py-3 px-4 rounded-xl border-2 border-[var(--border-color)] text-[var(--text-secondary)] font-bold hover:bg-[var(--bg-primary)] transition-colors"
               >
                 {t('chat.listenPrompt.cancel')}
               </button>

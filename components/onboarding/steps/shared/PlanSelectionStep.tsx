@@ -109,17 +109,18 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   const plans = [
     {
       id: 'free' as const,
-      name: t('subscription.choice.free.name', { defaultValue: 'Free Trial' }),
+      name: t('subscription.choice.free.name', { defaultValue: '7-Day Free Trial' }),
       weeklyPrice: 0,
       monthlyPrice: 0,
       yearlyPrice: 0,
-      tagline: t('subscription.choice.free.tagline', { defaultValue: 'Try before you commit' }),
+      tagline: t('subscription.choice.free.tagline', { defaultValue: 'Full access, then $19/mo' }),
+      isTrial: true, // Special flag for trial display
       features: [
-        { text: t('subscription.choice.free.feature1', { defaultValue: '25 chat messages' }), included: true },
-        { text: t('subscription.choice.free.feature2', { defaultValue: '50 flashcard validations' }), included: true },
-        { text: t('subscription.choice.free.feature3', { defaultValue: '1 voice chat (2 min)' }), included: true },
-        { text: t('subscription.choice.free.feature4', { defaultValue: '1 listen mode (2 min)' }), included: true },
-        { text: t('subscription.choice.free.feature5', { defaultValue: 'Unlimited words in Love Log' }), included: false },
+        { text: t('subscription.choice.free.feature1', { defaultValue: 'Full access for 7 days' }), included: true },
+        { text: t('subscription.choice.free.feature2', { defaultValue: 'AI tutor conversations' }), included: true },
+        { text: t('subscription.choice.free.feature3', { defaultValue: 'Voice practice' }), included: true },
+        { text: t('subscription.choice.free.feature4', { defaultValue: 'All games & exercises' }), included: true },
+        { text: t('subscription.choice.free.feature5', { defaultValue: 'Cancel anytime' }), included: true },
       ],
     },
     {
@@ -344,14 +345,28 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                 </div>
 
                 <div className="text-right flex-shrink-0">
-                  <div className="text-2xl font-bold text-gray-900">${price}</div>
-                  <div className="text-xs text-gray-500">
-                    /{periodLabel}
-                  </div>
-                  {billingPeriod === 'yearly' && (
-                    <div className="text-xs text-green-600 mt-1">
-                      ${(price / 12).toFixed(0)}/{t('subscription.common.mo')}
-                    </div>
+                  {(plan as any).isTrial ? (
+                    <>
+                      <div className="text-2xl font-bold text-gray-900">7</div>
+                      <div className="text-xs text-gray-500">
+                        {t('subscription.common.days', { defaultValue: 'days' })}
+                      </div>
+                      <div className="text-xs text-green-600 mt-1">
+                        {t('subscription.choice.free.fullAccess', { defaultValue: 'Full access' })}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-2xl font-bold text-gray-900">${price}</div>
+                      <div className="text-xs text-gray-500">
+                        /{periodLabel}
+                      </div>
+                      {billingPeriod === 'yearly' && (
+                        <div className="text-xs text-green-600 mt-1">
+                          ${(price / 12).toFixed(0)}/{t('subscription.common.mo')}
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
@@ -366,8 +381,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         disabled={!selectedPlan || (selectedPlan !== 'free' && !prices)}
         accentColor={selectedPlan === 'free' ? '#374151' : accentColor}
       >
-        {selectedPlan === 'free' 
-          ? t('subscription.choice.free.cta', { defaultValue: 'Start Free Trial' })
+        {selectedPlan === 'free'
+          ? t('subscription.choice.free.cta', { defaultValue: 'Start 7-Day Free Trial' })
           : t('onboarding.plan.continueWith', { plan: selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : t('onboarding.plan.aPlan') })
         }
       </NextButton>
