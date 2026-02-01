@@ -39,6 +39,14 @@
 **Fixed during component split:** All 6 game modes now have Volume2 speaker buttons that call `speak(word, targetLanguage)`:
 - Flashcards, MultipleChoice, TypeIt, QuickFire, VerbMastery, AIChallenge
 
+#### ✅ 1b. TTS in Chat 🔊 — DONE (Feb 1)
+~~Users couldn't hear pronunciation of foreign words in chat messages.~~
+
+**Fixed:** Click any highlighted foreign word in chat to hear pronunciation:
+- Added `data-word` attribute to bold words in `parseMarkdown`
+- Click handler on `RichMessageRenderer` using event delegation
+- Hover styles (dotted underline) indicate clickability
+
 #### ✅ 2. Split Giant Components 📦 — DONE (Jan 28)
 
 | Component | Before | After | Reduction |
