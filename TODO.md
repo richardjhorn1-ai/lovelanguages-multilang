@@ -60,24 +60,45 @@
 - `components/games/tutor-modes/` — TutorFlashcards, TutorMultipleChoice, TutorTypeIt, TutorQuickFire, TutorGameResults
 - `components/hero/` — InteractiveHearts, LanguageGrid, LoginForm, etc.
 
-#### 3. ChatArea.tsx Split 📦 — TODO
-Still at 1,877 lines. Not yet refactored.
+---
+
+### 🎯 Phase 2: Priority Features (Next)
+
+#### 1. XP System — Word & Verb Mastery ⭐
+Games already award XP (5 correct in a row). Missing: mastery rewards.
+
+**Specific asks:**
+- [ ] Award XP when a **word/phrase** hits 5x correct streak (per-word tracking exists)
+- [ ] Award XP when a **verb** hits 10x correct streak across all forms
+- [ ] Review what "levels" mean and if they need improvement
+
+#### 2. Verb System Overhaul 🔧
+Current state is limited. Needs full review and rework.
+
+**Tense coverage gaps:**
+- [ ] Only present/future/past supported
+- [ ] Missing: conditional, imperative, subjunctive, reflexive verbs
+
+**Data pipeline:**
+- [ ] Review how conjugations get populated (unlock system + API call?)
+- [ ] Ensure all tenses can be filled for all languages
+
+**Verb Mastery Game:**
+- [ ] Review current implementation (unclear how it works)
+- [ ] Rework/rebuild as needed after understanding current state
+
+**UI (Love Log):**
+- [ ] Review verb display in Love Log
+- [ ] Ensure all tenses are viewable
+
+#### 3. ChatArea.tsx Split 📦
+Still at 1,877 lines. Refactor after above priorities.
 
 ---
 
-### 🎯 Phase 2: Major Features (Next)
+### 🎯 Phase 3: Future Features
 
-#### 3. XP System Overhaul ⭐
-- XP not awarded for games (critical bug)
-- Levels don't mean anything
-- No streak rewards
-
-#### 4. Verb System + Verb Mastery Game 🇵🇱→🌍
-- Currently Polish-only
-- Add full conjugation support for all languages
-- New dedicated Verb Mastery game mode
-
-#### 5. Curriculum/Tutor Guidance 📚
+#### Curriculum/Tutor Guidance 📚
 - No structured learning path
 - Tutor needs curriculum to follow
 - Per-language progression milestones
