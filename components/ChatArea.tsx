@@ -10,6 +10,7 @@ import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
+import { speak } from '../services/audio';
 import NewWordsNotification from './NewWordsNotification';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
 import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
@@ -108,8 +109,8 @@ const parseMarkdown = (text: string) => {
   // Step 3: Apply safe markdown transformations (on escaped text)
   // Pronunciation: subtle italic gray
   clean = clean.replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-scale-label">($1)</span>');
-  // Target language words: accent color semi-bold highlight
-  clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong style="color: var(--accent-color); font-weight: 600;">$1</strong>');
+  // Target language words: accent color semi-bold highlight + clickable for TTS
+  clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="tts-word" data-word="$1" style="color: var(--accent-color); font-weight: 600; cursor: pointer;">$1</strong>');
   // Line breaks
   clean = clean.replace(/\n/g, '<br />');
 
@@ -163,13 +164,22 @@ const GrammarTable: React.FC<{ content: string }> = ({ content }) => {
   );
 };
 
-const RichMessageRenderer: React.FC<{ content: string; t: (key: string) => string }> = ({ content, t }) => {
+const RichMessageRenderer: React.FC<{ content: string; t: (key: string) => string; targetLanguage?: string }> = ({ content, t, targetLanguage }) => {
   const parts = content.split(/(:::\s*[a-z]+.*)/i);
   let currentBlockType = 'text';
   let currentBlockTitle = '';
 
+  // Handle click on foreign words to trigger TTS
+  const handleTTSClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('tts-word') && targetLanguage) {
+      const word = target.dataset.word;
+      if (word) speak(word, targetLanguage);
+    }
+  };
+
   return (
-    <div className="space-y-2 w-full break-words">
+    <div className="space-y-2 w-full break-words" onClick={handleTTSClick}>
       {parts.map((part, index) => {
         const trimmed = part.trim();
         if (!trimmed) return null;
@@ -1314,7 +1324,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
                   <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm ${m.role === 'user' ? 'text-white rounded-tr-sm md:rounded-tr-none font-medium' : 'bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
-                    {m.role === 'user' ? <p className="text-scale-label leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} t={t} />}
+                    {m.role === 'user' ? <p className="text-scale-label leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} t={t} targetLanguage={targetLanguage} />}
                   </div>
                 </div>
               ))}
@@ -1342,7 +1352,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {streamingText && (
                 <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
                   <div className="max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none">
-                    <RichMessageRenderer content={streamingText} t={t} />
+                    <RichMessageRenderer content={streamingText} t={t} targetLanguage={targetLanguage} />
                     <span className="inline-block w-2 h-4 ml-1 animate-pulse rounded-sm" style={{ backgroundColor: accentHex }}></span>
                   </div>
                 </div>
