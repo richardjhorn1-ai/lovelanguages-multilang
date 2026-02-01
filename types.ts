@@ -37,6 +37,10 @@ export interface Profile {
   // Couple subscription - inherited access from partner
   subscription_granted_by?: string;
   subscription_granted_at?: string;
+  // Free tier / trial tracking
+  free_tier_chosen_at?: string;
+  trial_expires_at?: string;
+  promo_expires_at?: string;
 }
 
 // Onboarding data collected during signup flow

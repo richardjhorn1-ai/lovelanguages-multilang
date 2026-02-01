@@ -75,29 +75,39 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // 6. Don't allow if already chosen free tier
-    if (profile.free_tier_chosen_at) {
+    // 6 & 7. Atomic update - only set if free_tier_chosen_at is NULL (prevents race condition)
+    const now = new Date();
+    const trialExpiresAt = new Date(now);
+    trialExpiresAt.setDate(trialExpiresAt.getDate() + 7);
+
+    const { data: updateResult, error: updateError } = await supabase
+      .from('profiles')
+      .update({
+        free_tier_chosen_at: now.toISOString(),
+        trial_expires_at: trialExpiresAt.toISOString()
+      })
+      .eq('id', auth.userId)
+      .is('free_tier_chosen_at', null)  // Only update if not already set (atomic)
+      .select('id');
+
+    if (updateError) {
+      console.error('[choose-free-tier] Failed to update profile:', updateError.message);
+      return res.status(500).json({ error: 'Failed to activate free trial' });
+    }
+
+    // If no rows updated, user already has free tier
+    if (!updateResult || updateResult.length === 0) {
       return res.status(400).json({
         error: 'You have already activated the free tier',
         code: 'ALREADY_FREE_TIER'
       });
     }
 
-    // 7. Set free_tier_chosen_at
-    const { error: updateError } = await supabase
-      .from('profiles')
-      .update({ free_tier_chosen_at: new Date().toISOString() })
-      .eq('id', auth.userId);
-
-    if (updateError) {
-      console.error('[choose-free-tier] Failed to update profile:', updateError.message);
-      return res.status(500).json({ error: 'Failed to activate free tier' });
-    }
-
     // 8. Success!
     return res.status(200).json({
       success: true,
-      message: 'Free tier activated successfully'
+      message: 'Free trial activated successfully',
+      trialExpiresAt: trialExpiresAt.toISOString()
     });
 
   } catch (err: any) {

@@ -336,13 +336,21 @@ export default async function handler(req: any, res: any) {
           return res.status(200).json({ received: true, duplicate: true });
         }
 
-        // Update profile to canceled
+        // Update profile to canceled + give fresh 7-day trial as win-back
+        const now = new Date();
+        const newTrialExpiry = new Date(now);
+        newTrialExpiry.setDate(newTrialExpiry.getDate() + 7);
+
         const { error: updateError } = await supabase
           .from('profiles')
           .update({
             subscription_plan: 'none',
             subscription_status: 'canceled',
-            subscription_ends_at: new Date().toISOString(),
+            subscription_ends_at: now.toISOString(),
+            // Win-back: give churned user a fresh 7-day trial
+            // Must set BOTH fields for trial to work (middleware checks free_tier_chosen_at first)
+            free_tier_chosen_at: now.toISOString(),
+            trial_expires_at: newTrialExpiry.toISOString(),
           })
           .eq('id', profile.id);
 
@@ -350,6 +358,8 @@ export default async function handler(req: any, res: any) {
           console.error('[stripe-webhook] Failed to cancel subscription:', updateError);
           throw updateError;
         }
+
+        console.log(`[stripe-webhook] Granted 7-day win-back trial to churned user ${profile.id}`);
 
         // CASCADE: Revoke ALL inherited subscriptions from this payer
         const { data: revokedPartners } = await supabase

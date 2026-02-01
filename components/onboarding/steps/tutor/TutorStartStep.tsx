@@ -10,6 +10,8 @@ interface TutorStartStepProps {
   learnerName: string;
   onComplete: () => void;
   accentColor?: string;
+  loading?: boolean;
+  error?: string | null;
 }
 
 export const TutorStartStep: React.FC<TutorStartStepProps> = ({
@@ -18,7 +20,9 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
   userName,
   learnerName,
   onComplete,
-  accentColor = '#FF4761'
+  accentColor = '#FF4761',
+  loading = false,
+  error = null
 }) => {
   const { t } = useTranslation();
 
@@ -38,9 +42,19 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
           {t('onboarding.tutor.start.title', { learnerName, userName })}
         </h1>
 
-        <p className="text-scale-heading text-gray-600 mb-8">
+        <p className="text-scale-heading text-gray-600 mb-6">
           {t('onboarding.tutor.start.subtitle')}
         </p>
+
+        {/* Error message */}
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+            <p className="font-bold text-red-800 mb-1">
+              {t('onboarding.errors.title', { defaultValue: 'Something went wrong' })}
+            </p>
+            <p className="text-sm text-red-700">{error}</p>
+          </div>
+        )}
 
         {/* What's unlocked */}
         <div className="bg-gray-50 rounded-2xl p-6 mb-8 text-left">
@@ -78,8 +92,16 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
         <NextButton
           onClick={onComplete}
           accentColor={accentColor}
+          disabled={loading}
         >
-          {t('onboarding.tutor.start.button', { learnerName })}
+          {loading ? (
+            <span className="flex items-center justify-center gap-2">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              {t('onboarding.tutor.start.activating', { defaultValue: 'Starting your trial...' })}
+            </span>
+          ) : (
+            t('onboarding.tutor.start.button', { learnerName })
+          )}
         </NextButton>
       </div>
     </OnboardingStep>

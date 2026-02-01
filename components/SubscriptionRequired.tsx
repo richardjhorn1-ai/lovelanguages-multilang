@@ -9,9 +9,11 @@ import { useLanguage } from '../context/LanguageContext';
 interface SubscriptionRequiredProps {
   profile: Profile;
   onSubscribed: () => void;
+  trialExpired?: boolean;
 }
 
-const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, onSubscribed }) => {
+const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, onSubscribed, trialExpired = false }) => {
+  // Default to unlimited plan (best value)
   const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited'>('unlimited');
   const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
   const [loading, setLoading] = useState(false);
@@ -282,12 +284,18 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       <div className="max-w-4xl w-full">
         {/* Header */}
         <div className="text-center mb-6">
-          <div className="text-5xl mb-3">💕</div>
+          <div className="text-5xl mb-3">{trialExpired ? '💔' : '💕'}</div>
           <h1 className="text-2xl sm:text-3xl font-black text-gray-800 mb-2 font-header">
-            {t('subscription.choice.title')}
+            {trialExpired
+              ? t('trial.expired.title', { defaultValue: 'Your free trial has ended' })
+              : t('subscription.choice.title')
+            }
           </h1>
           <p className="text-gray-600 text-sm sm:text-base">
-            {t('subscription.choice.subtitle')}
+            {trialExpired
+              ? t('trial.expired.subtitle', { defaultValue: 'We hope you enjoyed learning together! Subscribe to continue your language journey with your partner.' })
+              : t('subscription.choice.subtitle')
+            }
           </p>
         </div>
 
@@ -337,8 +345,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         </div>
 
         {/* Plan Cards - 3 columns on desktop, stack on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          {plans.map((plan) => {
+        {/* Hide free tier if trial has expired */}
+        <div className={`grid grid-cols-1 ${trialExpired ? 'md:grid-cols-2 max-w-2xl mx-auto' : 'md:grid-cols-3'} gap-4 mb-6`}>
+          {plans.filter(p => !(trialExpired && p.id === 'free')).map((plan) => {
             const isSelected = selectedPlan === plan.id;
             const monthlyEquiv = getMonthlyEquivalent(plan);
             const billingLabel = getBillingLabel(plan);
