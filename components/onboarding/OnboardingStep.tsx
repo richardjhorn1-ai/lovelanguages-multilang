@@ -10,6 +10,7 @@ interface OnboardingStepProps {
   onBack?: () => void;
   canGoBack?: boolean;
   accentColor?: string;
+  wide?: boolean; // Use wider container (for plan selection cards)
 }
 
 export const OnboardingStep: React.FC<OnboardingStepProps> = ({
@@ -18,7 +19,8 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
   totalSteps,
   onBack,
   canGoBack = true,
-  accentColor = '#FF4761'
+  accentColor = '#FF4761',
+  wide = false
 }) => {
   const { t } = useTranslation();
   // Get onQuit from context - no prop drilling needed
@@ -87,7 +89,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
           paddingBottom: 'max(3rem, env(safe-area-inset-bottom, 0px))'
         }}
       >
-        <div className="w-full max-w-md mx-auto py-8 animate-fadeIn">
+        <div className={`w-full mx-auto py-8 animate-fadeIn ${wide ? 'max-w-4xl' : 'max-w-md'}`}>
           {children}
         </div>
       </div>

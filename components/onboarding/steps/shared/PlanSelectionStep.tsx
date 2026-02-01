@@ -180,6 +180,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       totalSteps={totalSteps}
       onBack={onBack}
       accentColor={accentColor}
+      wide
     >
       <div className="text-center mb-6">
         <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
@@ -267,8 +268,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         </button>
       </div>
 
-      {/* Plan Cards */}
-      <div className="grid gap-4 mb-6">
+      {/* Plan Cards - horizontal on desktop, stacked on mobile */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         {plans.map((plan) => {
           const price = billingPeriod === 'weekly'
             ? plan.weeklyPrice
@@ -299,16 +300,45 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
               {/* Popular Badge */}
               {plan.popular && (
                 <span
-                  className="absolute -top-2 right-4 px-3 py-0.5 rounded-full text-xs font-bold text-white"
+                  className="absolute -top-2 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-4 px-3 py-0.5 rounded-full text-xs font-bold text-white whitespace-nowrap"
                   style={{ background: accentColor }}
                 >
                   {t('onboarding.plan.popular')}
                 </span>
               )}
 
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-1">
+              {/* Desktop: vertical card layout. Mobile: horizontal with price on right */}
+              <div className="flex md:flex-col items-start md:items-center justify-between gap-4 md:gap-2 md:text-center">
+                {/* Price - shown at top on desktop, right side on mobile */}
+                <div className="order-2 md:order-first text-right md:text-center flex-shrink-0 md:mb-2">
+                  {(plan as any).isTrial ? (
+                    <>
+                      <div className="text-2xl md:text-3xl font-bold text-gray-900">7</div>
+                      <div className="text-xs text-gray-500">
+                        {t('subscription.common.days', { defaultValue: 'days' })}
+                      </div>
+                      <div className="text-xs text-green-600 mt-1">
+                        {t('subscription.choice.free.fullAccess', { defaultValue: 'Full access' })}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-2xl md:text-3xl font-bold text-gray-900">${price}</div>
+                      <div className="text-xs text-gray-500">
+                        /{periodLabel}
+                      </div>
+                      {billingPeriod === 'yearly' && (
+                        <div className="text-xs text-green-600 mt-1">
+                          ${(price / 12).toFixed(0)}/{t('subscription.common.mo')}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+
+                {/* Plan name and features */}
+                <div className="flex-1 md:w-full order-1 md:order-last">
+                  <div className="flex items-center gap-3 mb-1 md:justify-center">
                     <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
                     {isSelected && (
                       <div
@@ -321,16 +351,16 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                   </div>
                   <p className="text-sm text-gray-500 mb-3">{plan.tagline}</p>
 
-                  <ul className="space-y-1">
+                  <ul className="space-y-1 md:text-left">
                     {plan.features.slice(0, 4).map((feature, i) => {
                       const featureText = typeof feature === 'string' ? feature : feature.text;
                       const included = typeof feature === 'string' ? true : feature.included !== false;
                       return (
                         <li key={i} className={`flex items-center gap-2 text-sm ${included ? 'text-gray-600' : 'text-gray-400'}`}>
                           {included ? (
-                            <ICONS.Check className="w-4 h-4" style={{ color: accentColor }} />
+                            <ICONS.Check className="w-4 h-4 flex-shrink-0" style={{ color: accentColor }} />
                           ) : (
-                            <span className="w-4 h-4 text-gray-300 text-center">✗</span>
+                            <span className="w-4 h-4 text-gray-300 text-center flex-shrink-0">✗</span>
                           )}
                           {featureText}
                         </li>
@@ -342,32 +372,6 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                       </li>
                     )}
                   </ul>
-                </div>
-
-                <div className="text-right flex-shrink-0">
-                  {(plan as any).isTrial ? (
-                    <>
-                      <div className="text-2xl font-bold text-gray-900">7</div>
-                      <div className="text-xs text-gray-500">
-                        {t('subscription.common.days', { defaultValue: 'days' })}
-                      </div>
-                      <div className="text-xs text-green-600 mt-1">
-                        {t('subscription.choice.free.fullAccess', { defaultValue: 'Full access' })}
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="text-2xl font-bold text-gray-900">${price}</div>
-                      <div className="text-xs text-gray-500">
-                        /{periodLabel}
-                      </div>
-                      {billingPeriod === 'yearly' && (
-                        <div className="text-xs text-green-600 mt-1">
-                          ${(price / 12).toFixed(0)}/{t('subscription.common.mo')}
-                        </div>
-                      )}
-                    </>
-                  )}
                 </div>
               </div>
             </button>
