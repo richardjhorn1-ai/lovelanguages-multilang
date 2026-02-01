@@ -10,7 +10,7 @@ const ALLOWED_TAGS = ['span', 'strong', 'br', 'em', 'p', 'b', 'i'];
  * Whitelist of allowed HTML attributes.
  * Only class and style for Tailwind/inline styling.
  */
-const ALLOWED_ATTR = ['class', 'style'];
+const ALLOWED_ATTR = ['class', 'style', 'data-word'];
 
 /**
  * Sanitizes HTML content to prevent XSS attacks.
