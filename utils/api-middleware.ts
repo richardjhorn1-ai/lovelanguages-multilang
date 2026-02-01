@@ -553,7 +553,7 @@ export async function requireSubscription(
 ): Promise<SubscriptionResult> {
   const { data: profile, error } = await supabase
     .from('profiles')
-    .select('subscription_plan, subscription_status, free_tier_chosen_at, promo_expires_at, subscription_granted_by')
+    .select('subscription_plan, subscription_status, free_tier_chosen_at, trial_expires_at, promo_expires_at, subscription_granted_by')
     .eq('id', userId)
     .single();
 
@@ -587,6 +587,15 @@ export async function requireSubscription(
 
   // 4. Free tier (explicitly chosen during onboarding)
   if (profile.free_tier_chosen_at) {
+    // Check if trial has expired (grandfathered users have no trial_expires_at)
+    const trialExpiresAt = (profile as any).trial_expires_at;
+    if (trialExpiresAt && new Date(trialExpiresAt) <= new Date()) {
+      return {
+        allowed: false,
+        plan: 'none',
+        error: 'Your free trial has expired. Please subscribe to continue.'
+      };
+    }
     return { allowed: true, plan: 'free' };
   }
 

@@ -625,6 +625,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   const [currentStep, setCurrentStep] = useState(1);
   const [data, setData] = useState<Partial<OnboardingData>>({});
   const [saving, setSaving] = useState(false);
+  const [trialActivating, setTrialActivating] = useState(false);
+  const [trialError, setTrialError] = useState<string | null>(null);
 
   // Get setLanguageOverride to update language context during onboarding
   const { setLanguageOverride } = useLanguage();
@@ -783,11 +785,15 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         }).catch(() => {});
 
         // Award 1 XP per word (2 words = 2 XP)
-        fetch('/api/increment-xp', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
-          body: JSON.stringify({ amount: onboardingWords.length })
-        }).catch(() => {}); // Ignore errors
+        supabase.auth.getSession().then(({ data: sessionData }) => {
+          if (sessionData.session?.access_token) {
+            fetch('/api/increment-xp', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${sessionData.session.access_token}` },
+              body: JSON.stringify({ amount: onboardingWords.length })
+            }).catch(() => {}); // Ignore errors
+          }
+        });
       }
 
       localStorage.removeItem(STORAGE_KEY);
@@ -806,13 +812,32 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       console.log('[Onboarding] Selected plan:', data.selectedPlan, 'Price ID:', data.selectedPriceId);
 
       if (data.selectedPlan === 'free') {
-        // User chose free tier - call API to set free_tier_chosen_at
-        console.log('[Onboarding] Activating free tier...');
-        try {
-          const session = await supabase.auth.getSession();
-          const token = session.data.session?.access_token;
+        // User chose free tier - call API with bulletproof retry
+        console.log('[Onboarding] Activating free trial...');
+        setTrialActivating(true);
+        setTrialError(null);
 
-          if (token) {
+        const session = await supabase.auth.getSession();
+        const token = session.data.session?.access_token;
+
+        if (!token) {
+          console.error('[Onboarding] No auth token available');
+          setTrialError('Session expired. Please refresh and try again.');
+          setTrialActivating(false);
+          return; // Block progression
+        }
+
+        // Retry logic: 3 attempts with exponential backoff
+        const maxAttempts = 3;
+        const delays = [0, 1000, 2000]; // 0s, 1s, 2s
+
+        for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+          try {
+            if (attempt > 1) {
+              console.log(`[Onboarding] Retry attempt ${attempt}/${maxAttempts}...`);
+              await new Promise(resolve => setTimeout(resolve, delays[attempt - 1]));
+            }
+
             const response = await fetch('/api/choose-free-tier', {
               method: 'POST',
               headers: {
@@ -822,18 +847,43 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             });
 
             const result = await response.json();
-            console.log('[Onboarding] Free tier API response:', response.status, result);
+            console.log('[Onboarding] Free trial API response:', response.status, result);
 
-            if (!response.ok) {
-              console.error('[Onboarding] Free tier activation failed:', result);
+            if (response.ok) {
+              // Success! Store the trial expiry and proceed
+              if (result.trialExpiresAt) {
+                updateData('trialExpiresAt', result.trialExpiresAt);
+              }
+              setTrialActivating(false);
+              onComplete();
+              return;
             }
-          } else {
-            console.error('[Onboarding] No auth token available for free tier activation');
+
+            // Handle specific error codes
+            if (result.code === 'ALREADY_FREE_TIER') {
+              // User already has trial - just proceed
+              console.log('[Onboarding] User already has trial, proceeding...');
+              setTrialActivating(false);
+              onComplete();
+              return;
+            }
+
+            // Other errors - retry if attempts remaining
+            if (attempt === maxAttempts) {
+              console.error('[Onboarding] Free trial activation failed after retries:', result);
+              setTrialError(result.error || 'Failed to start trial. Please try again.');
+              setTrialActivating(false);
+              return; // Block progression
+            }
+          } catch (networkErr) {
+            console.error(`[Onboarding] Network error (attempt ${attempt}):`, networkErr);
+            if (attempt === maxAttempts) {
+              setTrialError('Network error. Please check your connection and try again.');
+              setTrialActivating(false);
+              return; // Block progression
+            }
           }
-        } catch (freeErr) {
-          console.error('[Onboarding] Error activating free tier:', freeErr);
         }
-        onComplete();
       } else if (data.selectedPriceId) {
         // User chose paid plan - redirect to Stripe
         try {
@@ -1091,6 +1141,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               partnerName={data.partnerName || 'them'}
               onComplete={handleComplete}
               accentColor={accentColor}
+              loading={trialActivating}
+              error={trialError}
             />
           );
         default:
@@ -1239,6 +1291,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             learnerName={data.learnerName || 'them'}
             onComplete={handleComplete}
             accentColor={accentColor}
+            loading={trialActivating}
+            error={trialError}
           />
         );
       default:
