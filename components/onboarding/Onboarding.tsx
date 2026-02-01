@@ -785,11 +785,15 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         }).catch(() => {});
 
         // Award 1 XP per word (2 words = 2 XP)
-        fetch('/api/increment-xp', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
-          body: JSON.stringify({ amount: onboardingWords.length })
-        }).catch(() => {}); // Ignore errors
+        supabase.auth.getSession().then(({ data: sessionData }) => {
+          if (sessionData.session?.access_token) {
+            fetch('/api/increment-xp', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${sessionData.session.access_token}` },
+              body: JSON.stringify({ amount: onboardingWords.length })
+            }).catch(() => {}); // Ignore errors
+          }
+        });
       }
 
       localStorage.removeItem(STORAGE_KEY);
