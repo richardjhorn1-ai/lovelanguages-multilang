@@ -250,38 +250,37 @@ EVERY field must be filled. No nulls or empty strings.`;
       ...conjugationData
     };
 
-    // Fetch current context (word existence already verified above)
+    // Fetch current conjugations
     const { data: entry, error: fetchError } = await supabase
       .from('dictionary')
-      .select('context')
+      .select('conjugations')
       .eq('id', wordId)
       .eq('user_id', auth.userId)
       .single();
 
     if (fetchError || !entry) {
-      return res.status(500).json({ error: 'Failed to fetch word context' });
+      return res.status(500).json({ error: 'Failed to fetch word conjugations' });
     }
 
-    // Parse and update context
-    let context;
+    // Parse existing conjugations (may be null, string, or object)
+    let conjugations: Record<string, any>;
     try {
-      context = typeof entry.context === 'string' ? JSON.parse(entry.context) : entry.context;
+      if (typeof entry.conjugations === 'string') {
+        conjugations = JSON.parse(entry.conjugations);
+      } else {
+        conjugations = entry.conjugations || {};
+      }
     } catch {
-      context = {};
+      conjugations = {};
     }
 
-    // Ensure conjugations object exists
-    if (!context.conjugations) {
-      context.conjugations = {};
-    }
-
-    // Add the new tense
-    context.conjugations[tense] = tenseDataWithTimestamp;
+    // Add the new tense data
+    conjugations[tense] = tenseDataWithTimestamp;
 
     // Save back to database
     const { error: updateError } = await supabase
       .from('dictionary')
-      .update({ context: JSON.stringify(context) })
+      .update({ conjugations })
       .eq('id', wordId)
       .eq('user_id', auth.userId);
 
