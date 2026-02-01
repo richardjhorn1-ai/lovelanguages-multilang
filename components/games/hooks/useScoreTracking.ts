@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { supabase } from '../../../services/supabase';
+import { geminiService } from '../../../services/gemini';
 import { Profile, DictionaryEntry, WordScore } from '../../../types';
 import { useLanguage } from '../../../context/LanguageContext';
 import { sounds } from '../../../services/sounds';
@@ -174,6 +175,8 @@ export function useScoreTracking({
         setShowStreakCelebration(true);
         sounds.play('perfect');
         haptics.trigger('tier-up');
+        // Award XP for mastering a word
+        geminiService.incrementXP(1);
         setTimeout(() => {
           // Check mounted before setState to prevent memory leak
           if (mountedRef.current) {
