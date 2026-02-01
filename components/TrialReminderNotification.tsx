@@ -6,8 +6,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { ICONS } from '../constants';
 
 interface Props {
   daysRemaining: number;
@@ -88,7 +88,7 @@ export const TrialReminderNotification: React.FC<Props> = ({ daysRemaining, hour
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
           aria-label={t('common.dismiss', { defaultValue: 'Dismiss' })}
         >
-          <X size={18} />
+          <ICONS.X className="w-4 h-4" />
         </button>
 
         <div className="flex items-start gap-3 pr-6">
