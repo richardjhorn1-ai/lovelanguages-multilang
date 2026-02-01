@@ -2,6 +2,27 @@
 // Central source of truth for all 18 supported languages
 // Every API endpoint, component, and prompt template imports from this file
 
+/**
+ * Verb tense types supported across languages
+ * - present: Basic present tense (all languages)
+ * - past: Simple past / preterite (structure varies by language)
+ * - future: Future tense (simple or compound)
+ * - conditional: "Would" forms
+ * - imperative: Commands (usually limited persons: 2sg, 1pl, 2pl)
+ * - subjunctive: Mood for wishes/doubts (Romance languages mainly)
+ * - imperfect: Ongoing past actions (Romance languages)
+ */
+export type VerbTense = 'present' | 'past' | 'future' | 'conditional' | 'imperative' | 'subjunctive' | 'imperfect';
+
+/**
+ * Structure type for each tense - affects schema generation and display
+ * - standard: 6 persons (first_singular through third_plural)
+ * - gendered: 6 persons × gender (Slavic past/conditional)
+ * - limited: Fewer persons (imperative: usually 2sg, 1pl, 2pl)
+ * - simple: Single form or minimal conjugation (English-style)
+ */
+export type TenseStructure = 'standard' | 'gendered' | 'limited' | 'simple';
+
 export interface LanguageGrammar {
   hasGender: boolean;
   genderTypes?: ('masculine' | 'feminine' | 'neuter' | 'common')[];
@@ -12,6 +33,15 @@ export interface LanguageGrammar {
   conjugationPersons?: string[];
   hasArticles: boolean;
   articleTypes?: ('definite' | 'indefinite' | 'partitive')[];
+
+  // Verb tense configuration
+  /** Which tenses are available for this language (present is always auto-included) */
+  availableTenses?: VerbTense[];
+  /** Structure type for each tense (defaults to 'standard' if not specified) */
+  tenseStructures?: Partial<Record<VerbTense, TenseStructure>>;
+  /** Imperative persons if different from standard (e.g., ['second_singular', 'first_plural', 'second_plural']) */
+  imperativePersons?: string[];
+
   // Language-specific grammar notes
   notes?: string;
 }
@@ -62,6 +92,14 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['I', 'you', 'he/she/it', 'we', 'you (pl)', 'they'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'future', 'conditional'],
+      tenseStructures: {
+        present: 'simple',      // Only 3rd person differs
+        past: 'simple',         // Regular/irregular -ed
+        future: 'simple',       // will + verb
+        conditional: 'simple'   // would + verb
+      },
+      // No imperative unlock - it's just the base verb
       notes: 'Minimal conjugation - mainly 3rd person singular differs'
     },
     specialChars: [],
@@ -88,6 +126,17 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['yo', 'tú', 'él/ella/usted', 'nosotros', 'vosotros', 'ellos/ustedes'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'imperfect', 'future', 'conditional', 'imperative', 'subjunctive'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',       // Preterite
+        imperfect: 'standard',
+        future: 'standard',
+        conditional: 'standard',
+        imperative: 'limited',
+        subjunctive: 'standard'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Extensive verb conjugation with subjunctive mood'
     },
     specialChars: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ', '¿', '¡'],
@@ -114,6 +163,17 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['je', 'tu', 'il/elle/on', 'nous', 'vous', 'ils/elles'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite', 'partitive'],
+      availableTenses: ['present', 'past', 'imperfect', 'future', 'conditional', 'imperative', 'subjunctive'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',       // Passé composé
+        imperfect: 'standard',
+        future: 'standard',
+        conditional: 'standard',
+        imperative: 'limited',
+        subjunctive: 'standard'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Partitive articles (du, de la) and liaisons'
     },
     specialChars: ['à', 'â', 'ç', 'é', 'è', 'ê', 'ë', 'î', 'ï', 'ô', 'ù', 'û', 'ü', 'ÿ', 'œ', 'æ'],
@@ -140,6 +200,17 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['io', 'tu', 'lui/lei/Lei', 'noi', 'voi', 'loro'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'imperfect', 'future', 'conditional', 'imperative', 'subjunctive'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',       // Passato prossimo
+        imperfect: 'standard',
+        future: 'standard',
+        conditional: 'standard',
+        imperative: 'limited',
+        subjunctive: 'standard'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Article forms vary by following sound (il/lo/la/l\')'
     },
     specialChars: ['à', 'è', 'é', 'ì', 'ò', 'ù'],
@@ -166,6 +237,17 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['eu', 'tu', 'ele/ela/você', 'nós', 'vós', 'eles/vocês'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'imperfect', 'future', 'conditional', 'imperative', 'subjunctive'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',       // Pretérito perfeito
+        imperfect: 'standard',
+        future: 'standard',
+        conditional: 'standard',
+        imperative: 'limited',
+        subjunctive: 'standard'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Personal infinitive is unique to Portuguese'
     },
     specialChars: ['á', 'à', 'â', 'ã', 'ç', 'é', 'ê', 'í', 'ó', 'ô', 'õ', 'ú'],
@@ -194,6 +276,17 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['eu', 'tu', 'el/ea', 'noi', 'voi', 'ei/ele'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'imperfect', 'future', 'conditional', 'imperative', 'subjunctive'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',       // Perfectul compus
+        imperfect: 'standard',
+        future: 'standard',
+        conditional: 'standard',
+        imperative: 'limited',
+        subjunctive: 'standard'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Definite article is suffixed to the noun'
     },
     specialChars: ['ă', 'â', 'î', 'ș', 'ț'],
@@ -226,6 +319,15 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'sie/Sie'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',       // Präteritum / Perfekt
+        future: 'standard',     // werden + infinitive
+        conditional: 'standard', // Konjunktiv II
+        imperative: 'limited'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Compound nouns are common; adjective declension follows case/gender'
     },
     specialChars: ['ä', 'ö', 'ü', 'ß'],
@@ -252,6 +354,15 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['ik', 'jij/je', 'hij/zij/het', 'wij/we', 'jullie', 'zij/ze'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',
+        future: 'standard',     // zullen + infinitive
+        conditional: 'standard', // zou + infinitive
+        imperative: 'limited'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Common gender (de words) vs neuter (het words); V2 word order'
     },
     specialChars: ['ë', 'ï', 'ij'],
@@ -278,6 +389,14 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['jag', 'du', 'han/hon/den/det', 'vi', 'ni', 'de'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'simple',      // Same form for all persons
+        past: 'simple',
+        future: 'simple',       // ska/kommer att + infinitive
+        conditional: 'simple',  // skulle + infinitive
+        imperative: 'simple'    // Base verb form
+      },
       notes: 'Definite article is suffixed; verbs do not conjugate by person'
     },
     specialChars: ['å', 'ä', 'ö'],
@@ -304,6 +423,14 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['jeg', 'du', 'han/hun/den/det', 'vi', 'dere', 'de'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'simple',      // Same form for all persons
+        past: 'simple',
+        future: 'simple',       // skal/vil + infinitive
+        conditional: 'simple',  // ville + infinitive
+        imperative: 'simple'
+      },
       notes: 'Three genders in Bokmål; definite article suffixed; verbs do not conjugate by person'
     },
     specialChars: ['æ', 'ø', 'å'],
@@ -330,6 +457,14 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['jeg', 'du', 'han/hun/den/det', 'vi', 'I', 'de'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'simple',
+        past: 'simple',
+        future: 'simple',       // vil/skal + infinitive
+        conditional: 'simple',  // ville + infinitive
+        imperative: 'simple'
+      },
       notes: 'Definite article suffixed; stød (glottal stop) affects pronunciation'
     },
     specialChars: ['æ', 'ø', 'å'],
@@ -361,6 +496,15 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       hasConjugation: true,
       conjugationPersons: ['ja', 'ty', 'on/ona/ono', 'my', 'wy', 'oni/one'],
       hasArticles: false,
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'gendered',       // Past tense has gender agreement
+        future: 'standard',     // Compound (imperfective) or simple (perfective)
+        conditional: 'gendered', // Also has gender agreement
+        imperative: 'limited'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Complex case and gender system; aspect pairs (imperfective/perfective)'
     },
     specialChars: ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
@@ -388,6 +532,15 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       hasConjugation: true,
       conjugationPersons: ['já', 'ty', 'on/ona/ono', 'my', 'vy', 'oni/ony/ona'],
       hasArticles: false,
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'gendered',
+        future: 'standard',
+        conditional: 'gendered',
+        imperative: 'limited'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Animate vs inanimate masculine distinction; aspect pairs'
     },
     specialChars: ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř', 'š', 'ť', 'ú', 'ů', 'ý', 'ž'],
@@ -415,6 +568,15 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       hasConjugation: true,
       conjugationPersons: ['я', 'ты', 'он/она/оно', 'мы', 'вы', 'они'],
       hasArticles: false,
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'gendered',
+        future: 'standard',
+        conditional: 'gendered',
+        imperative: 'limited'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Cyrillic alphabet; animate accusative = genitive; aspect pairs'
     },
     specialChars: ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'],
@@ -442,6 +604,15 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       hasConjugation: true,
       conjugationPersons: ['я', 'ти', 'він/вона/воно', 'ми', 'ви', 'вони'],
       hasArticles: false,
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'gendered',
+        future: 'standard',
+        conditional: 'gendered',
+        imperative: 'limited'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Cyrillic alphabet (differs from Russian); vocative case actively used; aspect pairs'
     },
     specialChars: ['а', 'б', 'в', 'г', 'ґ', 'д', 'е', 'є', 'ж', 'з', 'и', 'і', 'ї', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ю', 'я'],
@@ -474,6 +645,16 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['εγώ', 'εσύ', 'αυτός/αυτή/αυτό', 'εμείς', 'εσείς', 'αυτοί/αυτές/αυτά'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative', 'subjunctive'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',       // Αόριστος (aorist) / παρατατικός (imperfect)
+        future: 'standard',     // θα + verb
+        conditional: 'standard',
+        imperative: 'limited',
+        subjunctive: 'standard'
+      },
+      imperativePersons: ['second_singular', 'second_plural'],
       notes: 'Greek alphabet; definite article declines for case/gender/number'
     },
     specialChars: ['α', 'β', 'γ', 'δ', 'ε', 'ζ', 'η', 'θ', 'ι', 'κ', 'λ', 'μ', 'ν', 'ξ', 'ο', 'π', 'ρ', 'σ', 'ς', 'τ', 'υ', 'φ', 'χ', 'ψ', 'ω', 'ά', 'έ', 'ή', 'ί', 'ό', 'ύ', 'ώ', 'ϊ', 'ϋ'],
@@ -505,6 +686,15 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       conjugationPersons: ['én', 'te', 'ő', 'mi', 'ti', 'ők'],
       hasArticles: true,
       articleTypes: ['definite', 'indefinite'],
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'standard',
+        past: 'standard',
+        future: 'standard',
+        conditional: 'standard',
+        imperative: 'limited'
+      },
+      imperativePersons: ['second_singular', 'first_plural', 'second_plural'],
       notes: 'Agglutinative language with extensive case system; vowel harmony; definite vs indefinite conjugation'
     },
     specialChars: ['á', 'é', 'í', 'ó', 'ö', 'ő', 'ú', 'ü', 'ű'],
@@ -531,6 +721,15 @@ export const LANGUAGE_CONFIGS: Record<string, LanguageConfig> = {
       hasConjugation: true,
       conjugationPersons: ['ben', 'sen', 'o', 'biz', 'siz', 'onlar'],
       hasArticles: false,
+      availableTenses: ['present', 'past', 'future', 'conditional', 'imperative'],
+      tenseStructures: {
+        present: 'standard',    // -iyor (continuous) or -ir/-ar (aorist)
+        past: 'standard',       // -di (definite past) or -miş (reported past)
+        future: 'standard',     // -ecek/-acak
+        conditional: 'standard', // -se/-sa
+        imperative: 'limited'
+      },
+      imperativePersons: ['second_singular', 'second_plural'],
       notes: 'Agglutinative language; vowel harmony (front/back, rounded/unrounded); SOV word order'
     },
     specialChars: ['ç', 'ğ', 'ı', 'İ', 'ö', 'ş', 'ü'],
@@ -621,6 +820,43 @@ export function getSpecialChars(code: string): string[] {
  */
 export function getConjugationPersons(code: string): string[] {
   return LANGUAGE_CONFIGS[code]?.grammar.conjugationPersons ?? [];
+}
+
+/**
+ * Get available verb tenses for a language
+ * Present is always included as it's auto-generated
+ */
+export function getAvailableTenses(code: string): VerbTense[] {
+  const tenses = LANGUAGE_CONFIGS[code]?.grammar.availableTenses;
+  if (!tenses) return ['present']; // Default to just present
+  // Ensure present is always first
+  if (!tenses.includes('present')) {
+    return ['present', ...tenses];
+  }
+  return tenses;
+}
+
+/**
+ * Get the structure type for a specific tense in a language
+ */
+export function getTenseStructure(code: string, tense: VerbTense): TenseStructure {
+  return LANGUAGE_CONFIGS[code]?.grammar.tenseStructures?.[tense] ?? 'standard';
+}
+
+/**
+ * Get imperative persons for a language (which persons have imperative forms)
+ */
+export function getImperativePersons(code: string): string[] {
+  return LANGUAGE_CONFIGS[code]?.grammar.imperativePersons ??
+    ['second_singular', 'first_plural', 'second_plural']; // Default
+}
+
+/**
+ * Check if a language has a specific tense available
+ */
+export function hasTense(code: string, tense: VerbTense): boolean {
+  const tenses = getAvailableTenses(code);
+  return tenses.includes(tense);
 }
 
 /**
