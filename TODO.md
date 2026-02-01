@@ -33,12 +33,11 @@
 
 ### 🎯 Phase 1: Clean Up (This Week)
 
-#### 1. TTS in Games 🔊
-Games have no audio pronunciation - users can't hear words while practicing.
+#### ✅ 1. TTS in Games 🔊 — DONE (Jan 28)
+~~Games have no audio pronunciation - users can't hear words while practicing.~~
 
-**Files:** `FlashcardGame.tsx`, `PlayQuizChallenge.tsx`
-**Fix:** Add speaker icon buttons that call `speak(word, targetLanguage)`
-**Effort:** 1-2 hours
+**Fixed during component split:** All 6 game modes now have Volume2 speaker buttons that call `speak(word, targetLanguage)`:
+- Flashcards, MultipleChoice, TypeIt, QuickFire, VerbMastery, AIChallenge
 
 #### ✅ 2. Split Giant Components 📦 — DONE (Jan 28)
 

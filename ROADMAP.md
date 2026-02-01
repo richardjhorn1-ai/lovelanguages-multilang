@@ -481,18 +481,16 @@ The `xp-gain` sound is defined but never played anywhere in the app.
 
 ---
 
-### 7. No TTS in Games (SERVICE READY)
-Flashcards, quizzes, and challenges don't have TTS pronunciation buttons. Users can't hear words while practicing.
+### ✅ 7. TTS in Games — DONE (Jan 28)
+~~Flashcards, quizzes, and challenges don't have TTS pronunciation buttons.~~
 
-**Status (Jan 29):**
-- ✅ TTS service exists at `services/audio.ts` (Google Cloud + browser fallback)
-- ✅ Works in LoveLog (dictionary) — speaker icons play pronunciation
-- ✅ Works in onboarding (LearnLoveStep, LearnHelloStep)
-- ❌ NOT in games: Flashcards, MC, TypeIt, QuickFire, VerbMastery, AIChallenge
-
-**Fix:** Add speaker button + import `speak` from services/audio in each game mode.
-
-**Effort:** Quick (~15 min per mode — just UI wiring, service exists)
+**Fixed during component split (Jan 28):** All 6 game modes now have Volume2 speaker buttons:
+- ✅ Flashcards — `speak(currentWord.word, targetLanguage)`
+- ✅ MultipleChoice — `speak(currentWord.word, targetLanguage)`
+- ✅ TypeIt — `speak(prompt, targetLanguage)` (when target→native)
+- ✅ QuickFire — `speak(currentWord.word, targetLanguage)`
+- ✅ VerbMastery — `speak(currentQuestion.infinitive, targetLanguage)`
+- ✅ AIChallenge — Multiple locations for word pronunciation
 
 ---
 
@@ -749,7 +747,7 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 | ~~Remove console.log statements~~ | 30 min | ✅ Done |
 | Add reduced-motion support | 15 min | ⚠️ Open (global CSS fix) |
 | Wire up Verb Mastery multilingual | 30 min | ⚠️ Open (infrastructure ready) |
-| Add TTS to one game mode | 15 min | ⚠️ Open (service ready) |
+| ~~Add TTS to one game mode~~ | ~~15 min~~ | ✅ Done (Jan 28) |
 
 ---
 
