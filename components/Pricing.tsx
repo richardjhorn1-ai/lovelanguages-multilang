@@ -16,7 +16,8 @@ const Pricing: React.FC = () => {
         <button
           onClick={() => {
             // If coming from Stripe (has subscription query param), go home instead of back to Stripe
-            if (window.location.search.includes('subscription=')) {
+            // Note: With HashRouter, query params are in the hash, not in search
+            if (window.location.hash.includes('subscription=')) {
               navigate('/');
             } else {
               navigate(-1);
