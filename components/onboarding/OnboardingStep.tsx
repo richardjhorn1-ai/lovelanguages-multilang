@@ -78,15 +78,17 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         )}
       </div>
 
-      {/* Main content area with animation - scrollable on mobile
-           Uses margin:auto trick for safe centering: centers when short, scrolls when tall */}
-      <div className="flex-1 overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
-        <div className="min-h-full flex flex-col items-center px-6 animate-fadeIn"
-          style={{ paddingBottom: 'max(3rem, env(safe-area-inset-bottom, 0px))' }}
-        >
-          <div className="w-full max-w-md my-auto py-8">
-            {children}
-          </div>
+      {/* Main content area - scrollable on mobile
+           Removed min-h-full which was breaking iOS scroll calculation */}
+      <div
+        className="flex-1 overflow-y-auto overscroll-contain px-6"
+        style={{
+          WebkitOverflowScrolling: 'touch',
+          paddingBottom: 'max(3rem, env(safe-area-inset-bottom, 0px))'
+        }}
+      >
+        <div className="w-full max-w-md mx-auto py-8 animate-fadeIn">
+          {children}
         </div>
       </div>
 
