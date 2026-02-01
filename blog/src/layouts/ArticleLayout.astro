@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import CTA from '../components/CTA.astro';
 
 interface RelatedArticle {
   slug: string;
@@ -442,6 +443,9 @@ const faqJsonLd = {
       <div class="prose max-w-none">
         <slot />
       </div>
+
+      <!-- App Signup CTA -->
+      <CTA />
     </article>
 
     <!-- Explore More CTA -->

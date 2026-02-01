@@ -95,6 +95,17 @@ Still at 1,877 lines. Not yet refactored.
 
 ## Backlog
 
+### Free Trial → 7 Days
+Change free tier to 7-day trial instead of unlimited free tier.
+**Priority:** Soon
+
+### Homepage First-Screen Improvement
+**Goal:** Show immediate value instead of language selection as first step on desktop.
+The current flow (select languages → login/signup) doesn't communicate value fast enough.
+Consider: hero with benefits/screenshots first, THEN language selection.
+**Complexity:** High (touches core onboarding flow)
+**Priority:** After SEO phase
+
 ### Master Vocabulary Bank
 See ROADMAP.md section "E. Master Vocabulary Bank (Cost Optimization)"
 Pre-computed vocabulary to reduce AI costs and improve response times.
