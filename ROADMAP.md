@@ -494,6 +494,17 @@ The `xp-gain` sound is defined but never played anywhere in the app.
 
 ---
 
+### ✅ 7b. TTS in Chat — DONE (Feb 1)
+~~Users can't hear pronunciation of foreign words shown in chat messages.~~
+
+**Fixed:** Click any highlighted (bold) foreign word in chat to hear pronunciation.
+- Added `data-word` attribute to bold words in `parseMarkdown`
+- Click handler on `RichMessageRenderer` using event delegation
+- Hover styles (dotted underline) indicate clickability
+- Also added `data-word` to DOMPurify's allowed attributes
+
+---
+
 ### 8. Quick Fire Timer Memory Leak Risk
 Timer callback captures stale state. Uses refs as workaround but pattern is fragile. Final scores may be incorrect if timer expires during async answer processing.
 
