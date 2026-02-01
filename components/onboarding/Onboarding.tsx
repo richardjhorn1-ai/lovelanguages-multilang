@@ -921,8 +921,11 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       }
     } catch (err) {
       console.error('Error saving onboarding:', err);
-      localStorage.removeItem(STORAGE_KEY);
-      onComplete();
+      // DON'T clear localStorage or call onComplete on error!
+      // Keep the user's progress so they can retry
+      alert('Failed to save your progress. Please try again.');
+      setSaving(false);
+      return;
     } finally {
       setSaving(false);
     }
