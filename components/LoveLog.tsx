@@ -8,7 +8,7 @@ import { Profile, DictionaryEntry, WordType, WordScore, GiftWord } from '../type
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
-import { getConjugationPersons } from '../constants/language-config';
+import { getConjugationPersons, getAvailableTenses, isTenseGendered, isTenseLimited, getImperativePersons, type VerbTense } from '../constants/language-config';
 import { sounds } from '../services/sounds';
 
 interface LoveLogProps {
@@ -29,8 +29,8 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [detailModalId, setDetailModalId] = useState<string | null>(null);
   const [carouselIdx, setCarouselIdx] = useState<{ [key: string]: number }>({});
   const [formsModalId, setFormsModalId] = useState<string | null>(null);
-  const [activeTenseTab, setActiveTenseTab] = useState<'present' | 'past' | 'future'>('present');
-  const [unlockDialogTense, setUnlockDialogTense] = useState<'past' | 'future' | null>(null);
+  const [activeTenseTab, setActiveTenseTab] = useState<VerbTense>('present');
+  const [unlockDialogTense, setUnlockDialogTense] = useState<VerbTense | null>(null);
   const [unlocking, setUnlocking] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncMessage, setSyncMessage] = useState<string | null>(null);
@@ -681,9 +681,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {/* VERB: Tabbed Conjugation Tables */}
                 {entry.word_type === 'verb' && ctx.conjugations && (
                   <div className="space-y-4">
-                    {/* Tense Tabs */}
-                    <div className="flex gap-1 bg-[var(--bg-primary)] rounded-xl p-1">
-                      {(['present', 'past', 'future'] as const).map(tense => {
+                    {/* Tense Tabs - Dynamic based on target language */}
+                    <div className="flex gap-1 bg-[var(--bg-primary)] rounded-xl p-1 overflow-x-auto">
+                      {getAvailableTenses(targetLanguage).map(tense => {
                         const isPresent = tense === 'present';
                         const tenseData = ctx.conjugations?.[tense] as any;
                         const isUnlocked = isPresent || (tenseData && tenseData.unlockedAt);
@@ -696,10 +696,10 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               if (isUnlocked) {
                                 setActiveTenseTab(tense);
                               } else {
-                                setUnlockDialogTense(tense as 'past' | 'future');
+                                setUnlockDialogTense(tense);
                               }
                             }}
-                            className={`flex-1 py-2 px-3 rounded-lg text-scale-caption font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${
+                            className={`flex-1 min-w-fit py-2 px-3 rounded-lg text-scale-caption font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 whitespace-nowrap ${
                               isActive
                                 ? 'bg-[var(--bg-card)] text-[var(--accent-color)] shadow-sm'
                                 : isUnlocked
@@ -708,72 +708,64 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                             }`}
                           >
                             {!isUnlocked && <ICONS.Lock className="w-3 h-3" />}
-                            {t(`loveLog.modal.${tense}`)}
+                            {t(`loveLog.modal.${tense}`, tense)}
                             {isUnlocked && !isPresent && <span className="text-green-500 text-[8px]">✓</span>}
                           </button>
                         );
                       })}
                     </div>
 
-                    {/* Active Tense Content */}
+                    {/* Active Tense Content - Dynamic based on tense structure */}
                     {(() => {
                       const tenseData = ctx.conjugations?.[activeTenseTab] as any;
                       const isPresent = activeTenseTab === 'present';
                       const isUnlocked = isPresent || (tenseData && tenseData.unlockedAt);
+                      const isGendered = isTenseGendered(targetLanguage, activeTenseTab);
+                      const isLimited = isTenseLimited(targetLanguage, activeTenseTab);
 
                       if (!isUnlocked) {
                         return (
                           <div className="text-center py-8">
                             <ICONS.Lock className="w-8 h-8 text-[var(--text-secondary)] mx-auto mb-3" />
                             <p className="text-[var(--text-secondary)] text-scale-label mb-4">
-                              {t('loveLog.modal.tenseLocked', { tense: t(`loveLog.modal.${activeTenseTab}`) })}
+                              {t('loveLog.modal.tenseLocked', { tense: t(`loveLog.modal.${activeTenseTab}`, activeTenseTab) })}
                             </p>
                             <button
-                              onClick={() => setUnlockDialogTense(activeTenseTab as 'past' | 'future')}
+                              onClick={() => setUnlockDialogTense(activeTenseTab)}
                               className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-xl text-scale-label font-bold hover:bg-[var(--accent-hover)] transition-all"
                             >
-                              {t('loveLog.modal.unlockTense', { tense: t(`loveLog.modal.${activeTenseTab}`) })}
+                              {t('loveLog.modal.unlockTense', { tense: t(`loveLog.modal.${activeTenseTab}`, activeTenseTab) })}
                             </button>
                           </div>
                         );
                       }
 
-                      // Present tense - simple format
-                      if (isPresent && tenseData) {
-                        const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
-                        ];
-                        return (
-                          <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
-                            <table className="w-full text-scale-label">
-                              <tbody className="divide-y divide-[var(--border-color)]">
-                                {pronounLabels.map(row => (
-                                  <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
-                                    <td className="px-4 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
-                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{getConjValue(tenseData, row.key) || '—'}</td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        );
-                      }
+                      if (!tenseData) return null;
 
-                      // Past tense - with gender
-                      if (activeTenseTab === 'past' && tenseData) {
-                        const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
-                        ];
+                      // Get person labels based on tense type
+                      const personKeys = isLimited
+                        ? getImperativePersons(targetLanguage)
+                        : ['first_singular', 'second_singular', 'third_singular', 'first_plural', 'second_plural', 'third_plural'];
+
+                      const pronounLabels = personKeys.map((key, idx) => {
+                        const pronounIdx = key === 'first_singular' ? 0 :
+                                          key === 'second_singular' ? 1 :
+                                          key === 'third_singular' ? 2 :
+                                          key === 'first_plural' ? 3 :
+                                          key === 'second_plural' ? 4 :
+                                          key === 'third_plural' ? 5 : idx;
+                        const englishKey = key.includes('singular')
+                          ? `loveLog.pronouns.singular${key.charAt(0) === 'f' ? '1' : key.charAt(0) === 's' ? '2' : '3'}`
+                          : `loveLog.pronouns.plural${key.charAt(0) === 'f' ? '1' : key.charAt(0) === 's' ? '2' : '3'}`;
+                        return {
+                          pronoun: pronouns[pronounIdx] || key,
+                          english: t(englishKey, ''),
+                          key
+                        };
+                      });
+
+                      // Gendered tense (Slavic past/conditional)
+                      if (isGendered) {
                         return (
                           <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
                             <table className="w-full text-scale-label">
@@ -810,38 +802,26 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                         );
                       }
 
-                      // Future tense - simple format
-                      if (activeTenseTab === 'future' && tenseData) {
-                        const pronounLabels = [
-                          { pronoun: pronouns[0], english: t('loveLog.pronouns.singular1'), key: 'first_singular' as const },
-                          { pronoun: pronouns[1], english: t('loveLog.pronouns.singular2'), key: 'second_singular' as const },
-                          { pronoun: pronouns[2], english: t('loveLog.pronouns.singular3'), key: 'third_singular' as const },
-                          { pronoun: pronouns[3], english: t('loveLog.pronouns.plural1'), key: 'first_plural' as const },
-                          { pronoun: pronouns[4], english: t('loveLog.pronouns.plural2'), key: 'second_plural' as const },
-                          { pronoun: pronouns[5], english: t('loveLog.pronouns.plural3'), key: 'third_plural' as const }
-                        ];
-                        return (
-                          <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
-                            <table className="w-full text-scale-label">
-                              <tbody className="divide-y divide-[var(--border-color)]">
-                                {pronounLabels.map(row => (
-                                  <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
-                                    <td className="px-4 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
-                                    <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{getConjValue(tenseData, row.key) || '—'}</td>
-                                  </tr>
-                                ))}
-                              </tbody>
-                            </table>
-                            {tenseData.unlockedAt && (
-                              <p className="text-[9px] text-[var(--text-secondary)] text-center py-2">
-                                {t('loveLog.modal.unlocked', { date: new Date(tenseData.unlockedAt).toLocaleDateString() })}
-                              </p>
-                            )}
-                          </div>
-                        );
-                      }
-
-                      return null;
+                      // Standard or limited tense (simple 2-column)
+                      return (
+                        <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">
+                          <table className="w-full text-scale-label">
+                            <tbody className="divide-y divide-[var(--border-color)]">
+                              {pronounLabels.map(row => (
+                                <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
+                                  <td className="px-4 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
+                                  <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{getConjValue(tenseData, row.key) || '—'}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                          {tenseData.unlockedAt && (
+                            <p className="text-[9px] text-[var(--text-secondary)] text-center py-2">
+                              {t('loveLog.modal.unlocked', { date: new Date(tenseData.unlockedAt).toLocaleDateString() })}
+                            </p>
+                          )}
+                        </div>
+                      );
                     })()}
 
                     {/* Unlock Dialog */}
@@ -859,7 +839,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               {t('loveLog.unlock.descriptionBefore')}{' '}
                               <strong className="text-[var(--accent-color)]">{entry.word}</strong>{' '}
                               {t('loveLog.unlock.descriptionAfter', { tense: unlockDialogTense })}
-                              {unlockDialogTense === 'past' && ` ${t('loveLog.unlock.pastNote')}`}
+                              {isTenseGendered(targetLanguage, unlockDialogTense) && ` ${t('loveLog.unlock.genderedNote', t('loveLog.unlock.pastNote'))}`}
                             </p>
                             <div className="flex gap-3">
                               <button
