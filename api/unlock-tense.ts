@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
-import { getLanguageName, getLanguageConfig, getConjugationPersons, getAvailableTenses, hasTense } from '../constants/language-config.js';
+import { getLanguageName, getLanguageConfig, getConjugationPersons, getAvailableTenses, hasTense, getImperativePersons } from '../constants/language-config.js';
 import type { VerbTense } from '../constants/language-config.js';
 
 export default async function handler(req: any, res: any) {
@@ -82,7 +82,6 @@ export default async function handler(req: any, res: any) {
 
   const persons = getConjugationPersons(languageCode);
   const isSlavic = ['pl', 'cs', 'ru', 'uk'].includes(languageCode);
-  const isRomance = ['es', 'fr', 'it', 'pt', 'ro'].includes(languageCode);
 
   // Check if this language supports this tense
   if (!hasTense(languageCode, tense as VerbTense)) {
@@ -218,20 +217,24 @@ EVERY field must be filled. No nulls or empty strings.`;
       }
 
     } else if (tense === 'imperative') {
-      // Imperative - limited persons (commands)
+      // Imperative - limited persons (commands), varies by language
+      const impPersons = getImperativePersons(languageCode);
+      const personLabels: Record<string, string> = {
+        'second_singular': `${persons[1] || 'you'} - "Do it!" (informal singular)`,
+        'first_plural': `${persons[3] || 'we'} - "Let's do it!"`,
+        'second_plural': `${persons[4] || 'you plural'} - "Do it!" (plural/formal)`
+      };
+
+      const personList = impPersons.map(p => `- ${p} (${personLabels[p] || p})`).join('\n');
+      const jsonStructure = '{\n' + impPersons.map(p => `  "${p}": "..."`).join(',\n') + '\n}';
+
       prompt = `Give me the IMPERATIVE mood forms of the ${languageName} verb "${word}" (infinitive form).
 
 Imperatives are commands. ${languageName} has imperative forms for these persons:
-- second_singular (${persons[1] || 'you'}) - "Do it!" (informal singular)
-- first_plural (${persons[3] || 'we'}) - "Let's do it!"
-- second_plural (${persons[4] || 'you plural'}) - "Do it!" (plural/formal)
+${personList}
 
 Return a JSON object:
-{
-  "second_singular": "...",
-  "first_plural": "...",
-  "second_plural": "..."
-}
+${jsonStructure}
 
 ${isSlavic ? 'For perfective verbs, give the perfective imperative. For imperfective, give imperfective.' : ''}
 EVERY field must be filled. No nulls or empty strings.`;
@@ -245,6 +248,7 @@ ${languageCode === 'es' ? '- "quiero que...", "es importante que...", "ojalá...
 ${languageCode === 'fr' ? '- "je veux que...", "il faut que...", "bien que..."' : ''}
 ${languageCode === 'it' ? '- "voglio che...", "è necessario che...", "affinché..."' : ''}
 ${languageCode === 'pt' ? '- "quero que...", "é importante que...", "embora..."' : ''}
+${languageCode === 'ro' ? '- "vreau să...", "trebuie să...", "deși..."' : ''}
 
 Return a JSON object:
 {
@@ -330,15 +334,14 @@ EVERY field must be filled. No nulls or empty strings.`;
       required: ['masculine', 'feminine', 'neuter']
     };
 
-    // Imperative schema (limited persons)
+    // Imperative schema (limited persons, varies by language)
+    const impPersonsForSchema = getImperativePersons(languageCode);
     const imperativeSchema = {
       type: Type.OBJECT,
-      properties: {
-        second_singular: { type: Type.STRING },
-        first_plural: { type: Type.STRING },
-        second_plural: { type: Type.STRING }
-      },
-      required: ['second_singular', 'first_plural', 'second_plural']
+      properties: Object.fromEntries(
+        impPersonsForSchema.map(p => [p, { type: Type.STRING }])
+      ),
+      required: impPersonsForSchema
     };
 
     // Standard 6-person schema
