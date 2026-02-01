@@ -14,7 +14,14 @@ const Pricing: React.FC = () => {
       <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
         {/* Back Button */}
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => {
+            // If coming from Stripe (has subscription query param), go home instead of back to Stripe
+            if (window.location.search.includes('subscription=')) {
+              navigate('/');
+            } else {
+              navigate(-1);
+            }
+          }}
           className="flex items-center gap-2 mb-8 transition-colors"
           style={{ color: 'var(--text-secondary)' }}
         >
