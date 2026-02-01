@@ -860,6 +860,23 @@ export function hasTense(code: string, tense: VerbTense): boolean {
 }
 
 /**
+ * Check if a specific tense has gendered forms for a language
+ * (Slavic past/conditional have masculine/feminine variants)
+ */
+export function isTenseGendered(code: string, tense: VerbTense): boolean {
+  const structure = getTenseStructure(code, tense);
+  return structure === 'gendered';
+}
+
+/**
+ * Check if a tense has limited persons (e.g., imperative)
+ */
+export function isTenseLimited(code: string, tense: VerbTense): boolean {
+  const structure = getTenseStructure(code, tense);
+  return structure === 'limited';
+}
+
+/**
  * Get case names for a language (in that language)
  */
 export function getCaseNames(code: string): string[] {
