@@ -698,9 +698,9 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     stepStartTime.current = Date.now();
   }, [currentStep, role, totalSteps]);
 
-  // Handle quitting onboarding - clear progress and call onQuit
+  // Handle quitting onboarding - keep progress so user can resume on next login
   const handleQuit = () => {
-    localStorage.removeItem(STORAGE_KEY);
+    // Don't clear localStorage - user can resume where they left off
     onQuit?.();
   };
 
