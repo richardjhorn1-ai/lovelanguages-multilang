@@ -119,8 +119,11 @@ export default async function handler(req: any, res: any) {
 
     const { text } = body || {};
 
-    // Extract language using standard helper (defaults to Polish for backward compatibility)
-    const { targetLanguage } = extractLanguages(body);
+    // Extract language - check languageCode first (legacy), then standard extraction
+    // This ensures backward compatibility with older clients
+    const { targetLanguage } = body.languageCode
+      ? { targetLanguage: body.languageCode }
+      : extractLanguages(body);
 
     if (!text || typeof text !== 'string') {
       return res.status(400).json({ error: 'Text is required' });
