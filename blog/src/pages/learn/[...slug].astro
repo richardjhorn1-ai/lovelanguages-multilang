@@ -1,7 +1,9 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import LoveNote from '../../components/LoveNote.astro';
 import { getArticle, getArticlesByLangPair, getAllSlugs } from '../../lib/blog-api';
 import { sanitizeArticleContent } from '../../lib/sanitize-content';
+import { splitContentAtMidpoint } from '../../lib/split-content';
 
 // Language config for flags and names
 const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
@@ -90,6 +92,10 @@ const alternateVersions = allSlugs
 
 // Cross-pair articles (simplified)
 const crossPairArticles: any[] = [];
+
+// Split content for mid-article LoveNote
+const sanitizedContent = sanitizeArticleContent(article.content_html || article.content || '');
+const { firstHalf, secondHalf } = splitContentAtMidpoint(sanitizedContent);
 ---
 
 <ArticleLayout
@@ -110,5 +116,13 @@ const crossPairArticles: any[] = [];
   reverseArticle={undefined}
   crossPairArticles={crossPairArticles}
 >
-  <Fragment set:html={sanitizeArticleContent(article.content_html || article.content || '')} />
+  <Fragment set:html={firstHalf} />
+  {secondHalf && (
+    <LoveNote
+      nativeLang={nativeLanguageCode}
+      targetLang={targetLanguageCode}
+      articleSlug={articleSlug}
+    />
+  )}
+  <Fragment set:html={secondHalf} />
 </ArticleLayout>

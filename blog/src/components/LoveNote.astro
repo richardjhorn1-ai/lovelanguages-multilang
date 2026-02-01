@@ -1,0 +1,162 @@
+---
+/**
+ * LoveNote - Mid-article CTA component
+ * A personal message from Richard & Misia encouraging readers to try the app
+ */
+
+interface Props {
+  nativeLang?: string;
+  targetLang?: string;
+  articleSlug?: string;
+}
+
+const { nativeLang = 'en', targetLang = '', articleSlug = '' } = Astro.props;
+
+// Translations for all supported languages
+const LOVENOTE_TRANSLATIONS: Record<string, { title: string; body: string; button: string }> = {
+  en: {
+    title: "Learning for your partner?",
+    body: "We're Richard & Misia — a couple who built this app because we wanted to learn each other's languages. If you're here for the same reason, we made something for you.",
+    button: "Start learning together →"
+  },
+  es: {
+    title: "¿Aprendiendo para tu pareja?",
+    body: "Somos Richard y Misia — una pareja que creó esta app porque queríamos aprender los idiomas del otro. Si estás aquí por la misma razón, hicimos algo para ti.",
+    button: "Empezar a aprender juntos →"
+  },
+  fr: {
+    title: "Vous apprenez pour votre partenaire ?",
+    body: "Nous sommes Richard & Misia — un couple qui a créé cette app parce que nous voulions apprendre les langues de l'autre. Si vous êtes ici pour la même raison, nous avons créé quelque chose pour vous.",
+    button: "Commencer à apprendre ensemble →"
+  },
+  de: {
+    title: "Lernst du für deine/n Partner/in?",
+    body: "Wir sind Richard & Misia — ein Paar, das diese App entwickelt hat, weil wir die Sprachen des anderen lernen wollten. Wenn du aus dem gleichen Grund hier bist, haben wir etwas für dich.",
+    button: "Gemeinsam lernen →"
+  },
+  it: {
+    title: "Stai imparando per il tuo partner?",
+    body: "Siamo Richard e Misia — una coppia che ha creato questa app perché volevamo imparare le lingue dell'altro. Se sei qui per lo stesso motivo, abbiamo creato qualcosa per te.",
+    button: "Inizia a imparare insieme →"
+  },
+  pt: {
+    title: "Aprendendo para o seu amor?",
+    body: "Somos Richard e Misia — um casal que criou este app porque queríamos aprender as línguas um do outro. Se você está aqui pelo mesmo motivo, fizemos algo para você.",
+    button: "Começar a aprender juntos →"
+  },
+  pl: {
+    title: "Uczysz się dla swojej drugiej połówki?",
+    body: "Jesteśmy Richard i Misia — para, która stworzyła tę aplikację, bo chcieliśmy nauczyć się języków drugiej osoby. Jeśli jesteś tu z tego samego powodu, stworzyliśmy coś dla ciebie.",
+    button: "Zacznij uczyć się razem →"
+  },
+  ru: {
+    title: "Учите язык для любимого человека?",
+    body: "Мы — Ричард и Мися, пара, которая создала это приложение, потому что хотели выучить языки друг друга. Если вы здесь по той же причине, мы создали кое-что для вас.",
+    button: "Начать учиться вместе →"
+  },
+  nl: {
+    title: "Leer je voor je partner?",
+    body: "Wij zijn Richard & Misia — een stel dat deze app heeft gemaakt omdat we elkaars talen wilden leren. Als je hier bent om dezelfde reden, hebben we iets voor je gemaakt.",
+    button: "Begin samen te leren →"
+  },
+  uk: {
+    title: "Вивчаєте мову для коханої людини?",
+    body: "Ми — Річард і Міся, пара, яка створила цей додаток, бо хотіли вивчити мови одне одного. Якщо ви тут з тієї ж причини, ми створили щось для вас.",
+    button: "Почати вчитися разом →"
+  },
+  sv: {
+    title: "Lär du dig för din partner?",
+    body: "Vi är Richard & Misia — ett par som skapade denna app för att vi ville lära oss varandras språk. Om du är här av samma anledning har vi skapat något för dig.",
+    button: "Börja lära er tillsammans →"
+  },
+  no: {
+    title: "Lærer du for partneren din?",
+    body: "Vi er Richard & Misia — et par som laget denne appen fordi vi ville lære hverandres språk. Hvis du er her av samme grunn, har vi laget noe for deg.",
+    button: "Begynn å lære sammen →"
+  },
+  da: {
+    title: "Lærer du for din partner?",
+    body: "Vi er Richard & Misia — et par der lavede denne app, fordi vi ville lære hinandens sprog. Hvis du er her af samme grund, har vi lavet noget til dig.",
+    button: "Begynd at lære sammen →"
+  },
+  cs: {
+    title: "Učíte se pro svého partnera?",
+    body: "Jsme Richard a Misia — pár, který vytvořil tuto aplikaci, protože jsme se chtěli naučit jazyky toho druhého. Pokud jste tu ze stejného důvodu, vytvořili jsme něco pro vás.",
+    button: "Začněte se učit společně →"
+  },
+  el: {
+    title: "Μαθαίνεις για τον/την σύντροφό σου;",
+    body: "Είμαστε ο Richard και η Misia — ένα ζευγάρι που δημιούργησε αυτή την εφαρμογή επειδή θέλαμε να μάθουμε τις γλώσσες του άλλου. Αν είσαι εδώ για τον ίδιο λόγο, φτιάξαμε κάτι για σένα.",
+    button: "Ξεκινήστε να μαθαίνετε μαζί →"
+  },
+  hu: {
+    title: "A parod kedvéért tanulsz?",
+    body: "Mi Richard és Misia vagyunk — egy pár, aki azért hozta létre ezt az alkalmazást, mert meg akartuk tanulni egymás nyelvét. Ha te is ezért vagy itt, készítettünk valamit neked.",
+    button: "Kezdj el együtt tanulni →"
+  },
+  tr: {
+    title: "Partneriniz için mi öğreniyorsunuz?",
+    body: "Biz Richard ve Misia'yız — birbirimizin dillerini öğrenmek istediğimiz için bu uygulamayı oluşturan bir çiftiz. Aynı nedenle buradaysanız, sizin için bir şey yaptık.",
+    button: "Birlikte öğrenmeye başla →"
+  },
+  ro: {
+    title: "Înveți pentru partenerul tău?",
+    body: "Suntem Richard și Misia — un cuplu care a creat această aplicație pentru că am vrut să învățăm limbile celuilalt. Dacă ești aici din același motiv, am creat ceva pentru tine.",
+    button: "Începe să înveți împreună →"
+  },
+};
+
+const t = LOVENOTE_TRANSLATIONS[nativeLang] || LOVENOTE_TRANSLATIONS.en;
+
+// Build UTM-tagged URL for attribution
+const utmParams = new URLSearchParams({
+  utm_source: 'blog',
+  utm_medium: 'lovenote',
+  utm_campaign: `${nativeLang}-${targetLang}`,
+  utm_content: articleSlug,
+});
+const ctaUrl = `/?${utmParams.toString()}`;
+---
+
+<aside class="love-note my-10 p-6 bg-gradient-to-r from-pink-50 to-rose-50 rounded-2xl border border-pink-100 relative overflow-hidden">
+  <!-- Decorative heart -->
+  <div class="absolute -top-2 -right-2 text-4xl opacity-20 rotate-12">💘</div>
+
+  <div class="relative z-10">
+    <p class="text-rose-500 font-bold text-sm mb-2 flex items-center gap-2">
+      <span>💘</span> {t.title}
+    </p>
+
+    <p class="text-gray-700 mb-4 leading-relaxed">
+      {t.body}
+    </p>
+
+    <a
+      href={ctaUrl}
+      class="inline-flex items-center gap-2 px-5 py-2.5 bg-rose-500 font-bold rounded-full hover:bg-rose-600 hover:shadow-lg hover:scale-105 transition-all text-sm love-note-cta" style="color: white !important;"
+      data-native={nativeLang}
+      data-target={targetLang}
+      data-article={articleSlug}
+    >
+      {t.button}
+    </a>
+  </div>
+</aside>
+
+<script>
+  // Track Love Note CTA clicks
+  document.querySelectorAll('.love-note-cta').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLElement;
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'love_note_click', {
+          native_lang: target.dataset.native,
+          target_lang: target.dataset.target,
+          article_slug: target.dataset.article,
+          page_path: window.location.pathname,
+          event_category: 'conversion',
+        });
+      }
+    });
+  });
+</script>

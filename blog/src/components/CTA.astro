@@ -10,30 +10,28 @@ interface Props {
   topic?: string;
 }
 
-const CTA_TRANSLATIONS: Record<string, { subtitle: string; socialProof: string }> = {
-  en: { subtitle: "Speak their language, touch their heart. Fun games, voice practice & goals made for two.", socialProof: "✨ Try free — no credit card needed" },
-  es: { subtitle: "Habla su idioma, toca su corazón. Juegos, práctica de voz y metas para dos.", socialProof: "✨ Prueba gratis — sin tarjeta" },
-  fr: { subtitle: "Parlez leur langue, touchez leur cœur. Jeux, pratique vocale et objectifs pour deux.", socialProof: "✨ Essai gratuit — sans carte" },
-  de: { subtitle: "Sprich ihre Sprache, berühre ihr Herz. Spiele, Sprachübungen & Ziele für zwei.", socialProof: "✨ Kostenlos testen — keine Karte" },
-  it: { subtitle: "Parla la loro lingua, tocca il loro cuore. Giochi, pratica vocale e obiettivi per due.", socialProof: "✨ Prova gratis — senza carta" },
-  pt: { subtitle: "Fale a língua deles, toque o coração deles. Jogos, prática de voz e metas para dois.", socialProof: "✨ Experimente grátis — sem cartão" },
-  pl: { subtitle: "Mów ich językiem, dotknij ich serca. Gry, ćwiczenia głosowe i cele dla dwojga.", socialProof: "✨ Wypróbuj za darmo — bez karty" },
-  ru: { subtitle: "Говорите на их языке, коснитесь их сердца. Игры, голосовая практика и цели для двоих.", socialProof: "✨ Попробуйте бесплатно — без карты" },
-  nl: { subtitle: "Spreek hun taal, raak hun hart. Spelletjes, spraakpraktijk & doelen voor twee.", socialProof: "✨ Probeer gratis — geen kaart nodig" },
-  ro: { subtitle: "Vorbește limba lor, atinge-le inima. Jocuri, practică vocală și obiective pentru doi.", socialProof: "✨ Încearcă gratuit — fără card" },
-  uk: { subtitle: "Говоріть їхньою мовою, торкніться їхнього серця. Ігри, голосова практика та цілі для двох.", socialProof: "✨ Спробуйте безкоштовно — без картки" },
-  tr: { subtitle: "Onların dilini konuşun, kalplerini dokunun. Oyunlar, ses pratiği ve ikisi için hedefler.", socialProof: "✨ Ücretsiz deneyin — kart gerekmez" },
-  sv: { subtitle: "Tala deras språk, rör deras hjärta. Spel, röstövningar & mål för två.", socialProof: "✨ Prova gratis — inget kort behövs" },
-  no: { subtitle: "Snakk deres språk, berør deres hjerte. Spill, stemmeøvelser og mål for to.", socialProof: "✨ Prøv gratis — ingen kort nødvendig" },
-  da: { subtitle: "Tal deres sprog, rør deres hjerte. Spil, stemmeøvelser og mål for to.", socialProof: "✨ Prøv gratis — intet kort påkrævet" },
-  cs: { subtitle: "Mluvte jejich jazykem, dotkněte se jejich srdce. Hry, hlasová praxe a cíle pro dva.", socialProof: "✨ Vyzkoušejte zdarma — bez karty" },
-  el: { subtitle: "Μιλήστε τη γλώσσα τους, αγγίξτε την καρδιά τους. Παιχνίδια, φωνητική εξάσκηση και στόχοι για δύο.", socialProof: "✨ Δοκιμάστε δωρεάν — χωρίς κάρτα" },
-  hu: { subtitle: "Beszéld a nyelvüket, érintsd meg a szívüket. Játékok, hanggyakorlás és célok kettesben.", socialProof: "✨ Próbáld ki ingyen — kártya nélkül" },
+const CTA_TRANSLATIONS: Record<string, { title: string; subtitle: string; button: string; socialProof: string }> = {
+  en: { title: "Ready to learn together?", subtitle: "Speak their language, touch their heart. Fun games, voice practice & goals made for two.", button: "Start Learning for $0.00", socialProof: "✨ Try free — no credit card needed" },
+  es: { title: "¿Listos para aprender juntos?", subtitle: "Habla su idioma, toca su corazón. Juegos, práctica de voz y metas para dos.", button: "Empezar por $0.00", socialProof: "✨ Prueba gratis — sin tarjeta" },
+  fr: { title: "Prêts à apprendre ensemble ?", subtitle: "Parlez leur langue, touchez leur cœur. Jeux, pratique vocale et objectifs pour deux.", button: "Commencer pour 0,00 $", socialProof: "✨ Essai gratuit — sans carte" },
+  de: { title: "Bereit, gemeinsam zu lernen?", subtitle: "Sprich ihre Sprache, berühre ihr Herz. Spiele, Sprachübungen & Ziele für zwei.", button: "Starten für 0,00 $", socialProof: "✨ Kostenlos testen — keine Karte" },
+  it: { title: "Pronti a imparare insieme?", subtitle: "Parla la loro lingua, tocca il loro cuore. Giochi, pratica vocale e obiettivi per due.", button: "Inizia per $0.00", socialProof: "✨ Prova gratis — senza carta" },
+  pt: { title: "Prontos para aprender juntos?", subtitle: "Fale a língua deles, toque o coração deles. Jogos, prática de voz e metas para dois.", button: "Começar por $0.00", socialProof: "✨ Experimente grátis — sem cartão" },
+  pl: { title: "Gotowi uczyć się razem?", subtitle: "Mów ich językiem, dotknij ich serca. Gry, ćwiczenia głosowe i cele dla dwojga.", button: "Zacznij za $0.00", socialProof: "✨ Wypróbuj za darmo — bez karty" },
+  ru: { title: "Готовы учиться вместе?", subtitle: "Говорите на их языке, коснитесь их сердца. Игры, голосовая практика и цели для двоих.", button: "Начать за $0.00", socialProof: "✨ Попробуйте бесплатно — без карты" },
+  nl: { title: "Klaar om samen te leren?", subtitle: "Spreek hun taal, raak hun hart. Spelletjes, spraakpraktijk & doelen voor twee.", button: "Start voor $0.00", socialProof: "✨ Probeer gratis — geen kaart nodig" },
+  ro: { title: "Gata să învățați împreună?", subtitle: "Vorbește limba lor, atinge-le inima. Jocuri, practică vocală și obiective pentru doi.", button: "Începe pentru $0.00", socialProof: "✨ Încearcă gratuit — fără card" },
+  uk: { title: "Готові вчитися разом?", subtitle: "Говоріть їхньою мовою, торкніться їхнього серця. Ігри, голосова практика та цілі для двох.", button: "Почати за $0.00", socialProof: "✨ Спробуйте безкоштовно — без картки" },
+  tr: { title: "Birlikte öğrenmeye hazır mısınız?", subtitle: "Onların dilini konuşun, kalplerini dokunun. Oyunlar, ses pratiği ve ikisi için hedefler.", button: "$0.00'a başla", socialProof: "✨ Ücretsiz deneyin — kart gerekmez" },
+  sv: { title: "Redo att lära er tillsammans?", subtitle: "Tala deras språk, rör deras hjärta. Spel, röstövningar & mål för två.", button: "Börja för $0.00", socialProof: "✨ Prova gratis — inget kort behövs" },
+  no: { title: "Klare til å lære sammen?", subtitle: "Snakk deres språk, berør deres hjerte. Spill, stemmeøvelser og mål for to.", button: "Start for $0.00", socialProof: "✨ Prøv gratis — ingen kort nødvendig" },
+  da: { title: "Klar til at lære sammen?", subtitle: "Tal deres sprog, rør deres hjerte. Spil, stemmeøvelser og mål for to.", button: "Start for $0.00", socialProof: "✨ Prøv gratis — intet kort påkrævet" },
+  cs: { title: "Připraveni učit se společně?", subtitle: "Mluvte jejich jazykem, dotkněte se jejich srdce. Hry, hlasová praxe a cíle pro dva.", button: "Začít za $0.00", socialProof: "✨ Vyzkoušejte zdarma — bez karty" },
+  el: { title: "Έτοιμοι να μάθετε μαζί;", subtitle: "Μιλήστε τη γλώσσα τους, αγγίξτε την καρδιά τους. Παιχνίδια, φωνητική εξάσκηση και στόχοι για δύο.", button: "Ξεκινήστε για $0.00", socialProof: "✨ Δοκιμάστε δωρεάν — χωρίς κάρτα" },
+  hu: { title: "Készen álltok együtt tanulni?", subtitle: "Beszéld a nyelvüket, érintsd meg a szívüket. Játékok, hanggyakorlás és célok kettesben.", button: "Kezdés $0.00-ért", socialProof: "✨ Próbáld ki ingyen — kártya nélkül" },
 };
 
 const {
-  text = "Ready to learn together?",
-  buttonText = "Start Learning for $0",
   showSocialProof = true,
 } = Astro.props;
 
@@ -59,17 +57,17 @@ const utmParams = new URLSearchParams({
 const ctaUrl = `/?${utmParams.toString()}`;
 ---
 
-<div class="mt-12 bg-gradient-to-r from-accent to-pink-500 rounded-2xl p-8 text-center text-white">
-  <h3 class="text-2xl font-bold font-header mb-3">{text}</h3>
+<div class="mt-12 bg-gradient-to-r from-rose-500 to-pink-500 rounded-2xl p-8 text-center text-white">
+  <h3 class="text-2xl font-bold font-header mb-3">{translations.title}</h3>
   <p class="text-white/90 mb-5 text-lg">{translations.subtitle}</p>
   <a
     href={ctaUrl}
-    class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg cta-button"
+    class="inline-block bg-white text-rose-500 font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg cta-button"
     data-native={nativeLang}
     data-target={targetLang}
     data-article={articleSlug}
   >
-    {buttonText} →
+    {translations.button} →
   </a>
   {showSocialProof && (
     <p class="mt-4 text-white/80 text-sm">
