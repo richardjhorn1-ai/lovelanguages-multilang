@@ -52,7 +52,7 @@ export default async function handler(req: any, res: any) {
 
       if (templateText) {
         const templates = LOVE_NOTE_TEMPLATES[templateCategory as keyof typeof LOVE_NOTE_TEMPLATES];
-        if (!templates.includes(templateText)) {
+        if (!(templates as readonly string[]).includes(templateText)) {
           return res.status(400).json({ error: 'Invalid template text' });
         }
       }
