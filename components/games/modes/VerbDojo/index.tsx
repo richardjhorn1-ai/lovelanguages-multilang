@@ -36,6 +36,7 @@ interface VerbDojoProps {
   onAnswer?: (correct: boolean, xpEarned: number) => void;
   onComplete: (result: DojoSessionResult) => void;
   onExit: () => void;
+  onStart?: () => void;
   validateAnswer?: (
     userAnswer: string,
     correctAnswer: string,
@@ -68,6 +69,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
   onAnswer,
   onComplete,
   onExit,
+  onStart,
   validateAnswer,
 }) => {
   const { t } = useTranslation();
@@ -215,7 +217,8 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
     setTotalWrong(0);
     setXpEarned(0);
     setPhase('playing');
-  }, [isEmpty, generateQuestion, selectedMode, t]);
+    onStart?.();
+  }, [isEmpty, generateQuestion, selectedMode, t, onStart]);
 
   // Handle answer result
   const handleAnswer = useCallback(
@@ -276,34 +279,36 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
 
   // Mode selection screen
   if (phase === 'select_mode') {
+    const availableModes = (Object.keys(MODE_ICONS) as DojoMode[]).filter((mode) => mode !== 'audio_type');
+
     return (
-      <div className="w-full max-w-md mx-auto">
+      <div className="w-full max-w-2xl mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-8">
           <div
-            className="w-20 h-20 mx-auto rounded-2xl flex items-center justify-center text-4xl mb-4"
+            className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-2xl flex items-center justify-center text-3xl md:text-4xl mb-4"
             style={{ backgroundColor: `${accentColor}20` }}
           >
             🥋
           </div>
-          <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-1">
             {t('play.verbDojo.title', 'Verb Dojo')}
           </h2>
-          <p className="text-[var(--text-secondary)]">
+          <p className="text-scale-label text-[var(--text-secondary)]">
             {t('play.verbDojo.subtitle', 'Master your verb conjugations')}
           </p>
-          <p className="text-scale-caption text-[var(--text-secondary)] mt-2">
+          <p className="text-scale-caption text-[var(--text-secondary)] mt-1">
             {queueLength} {t('play.verbDojo.combinationsAvailable', 'verb+tense combinations available')}
           </p>
         </div>
 
-        {/* Mode selection */}
-        <div className="space-y-3 mb-6">
-          <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
+        {/* Mode selection - Grid on desktop */}
+        <div className="mb-6">
+          <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
             {t('play.verbDojo.selectMode')}
           </p>
-          {(Object.keys(MODE_ICONS) as DojoMode[])
-            .filter((mode) => mode !== 'audio_type') // Hide audio for now
-            .map((mode) => {
+          <div className="grid grid-cols-2 gap-3">
+            {availableModes.map((mode) => {
               const icon = MODE_ICONS[mode];
               const keys = MODE_KEYS[mode];
               const isSelected = selectedMode === mode;
@@ -312,42 +317,42 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
                 <button
                   key={mode}
                   onClick={() => setSelectedMode(mode)}
-                  className={`w-full p-4 rounded-2xl border-2 text-left transition-all ${
+                  className={`relative p-4 rounded-2xl border-2 text-center transition-all aspect-square flex flex-col items-center justify-center gap-2 ${
                     isSelected
                       ? 'border-[var(--accent-color)] bg-[var(--accent-color)]/10'
-                      : 'border-[var(--border-color)] bg-[var(--bg-primary)] hover:border-[var(--accent-color)]/50'
+                      : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-color)]/50'
                   }`}
                   style={{ '--accent-color': accentColor } as React.CSSProperties}
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{icon}</span>
-                    <div>
-                      <h3 className="font-bold text-[var(--text-primary)]">{t(keys.label)}</h3>
-                      <p className="text-scale-caption text-[var(--text-secondary)]">{t(keys.desc)}</p>
-                    </div>
-                    {isSelected && (
-                      <div
-                        className="ml-auto w-6 h-6 rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: accentColor }}
-                      >
-                        <ICONS.Check className="w-4 h-4 text-white" />
-                      </div>
-                    )}
+                  <span className="text-3xl md:text-4xl">{icon}</span>
+                  <div>
+                    <h3 className="font-bold text-[var(--text-primary)] text-sm md:text-base">{t(keys.label)}</h3>
+                    <p className="text-[10px] md:text-scale-caption text-[var(--text-secondary)] line-clamp-2">{t(keys.desc)}</p>
                   </div>
+                  {isSelected && (
+                    <div
+                      className="absolute top-2 right-2 w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: accentColor }}
+                    >
+                      <ICONS.Check className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                    </div>
+                  )}
                 </button>
               );
             })}
+          </div>
         </div>
 
         {/* Focus tense filter */}
-        <div className="mb-8">
+        <div className="mb-6">
           <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
             {t('play.verbDojo.focusOn', 'Focus on (optional)')}
           </p>
           <select
             value={focusTense || ''}
             onChange={(e) => setFocusTense(e.target.value ? (e.target.value as VerbTense) : null)}
-            className="w-full p-3 rounded-xl border-2 border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)]"
+            className="w-full p-3 rounded-xl border-2 border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-color)]"
+            style={{ '--accent-color': accentColor } as React.CSSProperties}
           >
             <option value="">{t('play.verbDojo.allTenses', 'All Tenses')}</option>
             {availableTenses.map((tense) => (
@@ -362,7 +367,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
         <button
           onClick={startGame}
           disabled={isEmpty}
-          className="w-full py-4 rounded-2xl text-white font-bold text-lg transition-all disabled:opacity-50"
+          className="w-full py-4 rounded-2xl text-white font-bold text-lg transition-all disabled:opacity-50 hover:opacity-90"
           style={{ backgroundColor: accentColor }}
         >
           {t('play.verbDojo.startTraining', 'Start Training')}
@@ -370,9 +375,9 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
 
         <button
           onClick={onExit}
-          className="w-full p-3 mt-4 text-[var(--text-secondary)] font-bold text-scale-label hover:text-[var(--text-primary)] transition-colors"
+          className="w-full p-3 mt-3 text-[var(--text-secondary)] font-bold text-scale-label hover:text-[var(--text-primary)] transition-colors"
         >
-          {t('play.verbDojo.backToGames', 'Back to Games')}
+          ← {t('play.verbDojo.backToGames', 'Back to Games')}
         </button>
       </div>
     );

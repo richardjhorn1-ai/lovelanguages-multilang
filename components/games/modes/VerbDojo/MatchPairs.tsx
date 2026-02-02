@@ -95,9 +95,6 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
         setMatchedIndices(newMatched);
         setSelected(null);
 
-        // Play the conjugation audio
-        speak(conjItem.answer, targetLanguage);
-
         // Check if all matched
         if (newMatched.size === pairs.length) {
           setTimeout(() => onComplete(true), 300);
