@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
+import { geminiService } from '../services/gemini';
 import { Profile, DictionaryEntry, WordScore, AIChallengeMode, TutorChallenge, WordRequest } from '../types';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
@@ -334,8 +335,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     if (justLearned) {
       setShowStreakCelebration(true);
       sounds.play('perfect');
+      sounds.play('xp-gain');
       haptics.trigger('tier-up');
       setTimeout(() => setShowStreakCelebration(false), 3000);
+      // Award 1 XP for mastering a word
+      geminiService.incrementXP(1);
     }
 
     return { justLearned, newStreak };
