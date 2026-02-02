@@ -72,24 +72,21 @@ Click any highlighted foreign word in chat to hear pronunciation.
 
 ## 🎯 Up Next
 
-### 1. XP System Overhaul ⭐
-- [ ] Award XP when a **word/phrase** hits 5x correct streak
-- [ ] Award XP when a **verb** hits 10x correct streak across all forms
-- [ ] Review what "levels" mean and if they need improvement
-- [ ] VerbDojo XP integration (streak-based: 1 XP per 5 correct)
+### 1. XP System Polish ⭐
+- [x] VerbDojo XP (streak-based: 1 XP per 5 correct) — DONE
+- [x] Word mastery celebration (5x streak shows animation) — DONE
+- [ ] **Optional:** Award XP when word hits 5x streak (currently just celebration)
+- [ ] **Optional:** Review what "levels" mean and if they need improvement
 
 ### 2. Content & SEO 📈
+- [x] Submit updated sitemap to GSC — DONE
+- [ ] Monitor indexing (requesting 10 hub pages/day per Google limits)
 - [ ] Generate topic images via Glif API (~25-30 images for reuse)
-- [ ] Submit updated sitemap to GSC (13,363 articles)
-- [ ] Monitor indexing (only 884/13,363 = 7.5% indexed)
 - [ ] Fix English title/description on non-English articles
 - [ ] Generate remaining articles for full parity (~17-24k more)
 
-### 3. AIChallenge Integration 🤖
-- [ ] Wire AIChallenge component to game flow (created but not active)
-
-### 4. ChatArea.tsx Split 📦
-Still at 1,877 lines. Refactor after priorities above.
+### 3. ChatArea.tsx Split 📦
+Still at 1,877 lines. Refactor when there's bandwidth.
 
 ---
 
