@@ -157,16 +157,16 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
           <div className="flex items-center gap-2 mb-2">
             {isCorrect ? (
               <>
-                <span className="text-green-600 font-bold">✓ Correct!</span>
+                <span className="text-green-600 dark:text-green-400 font-bold">✓ Correct!</span>
                 <button
                   onClick={() => speak(correctAnswer, targetLanguage)}
                   className="p-1 rounded-full hover:bg-green-500/20 transition-colors"
                 >
-                  <ICONS.Volume2 className="w-4 h-4 text-green-600" />
+                  <ICONS.Volume2 className="w-4 h-4 text-green-600 dark:text-green-400" />
                 </button>
               </>
             ) : (
-              <span className="text-red-600 font-bold">✗ Incorrect</span>
+              <span className="text-red-600 dark:text-red-400 font-bold">✗ Incorrect</span>
             )}
           </div>
           {!isCorrect && (
@@ -178,7 +178,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
                 onClick={() => speak(correctAnswer, targetLanguage)}
                 className="p-1 rounded-full hover:bg-red-500/20 transition-colors"
               >
-                <ICONS.Volume2 className="w-4 h-4 text-red-600" />
+                <ICONS.Volume2 className="w-4 h-4 text-red-600 dark:text-red-400" />
               </button>
             </div>
           )}
