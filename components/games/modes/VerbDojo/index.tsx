@@ -14,8 +14,7 @@ import { shuffleArray } from '../../../../utils/array';
 import { useVerbQueue } from './useVerbQueue';
 import { DojoMode, DojoQuestion, DojoSessionResult, FillTemplateQuestion } from './types';
 import { FillTemplate } from './FillTemplate';
-// import { MatchPairs } from './MatchPairs';
-// import { MultipleChoice } from './MultipleChoice';
+import { MatchPairs } from './MatchPairs';
 
 // Normalized person keys (DB storage format)
 const NORMALIZED_PERSONS = [
@@ -111,7 +110,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
       // Determine actual mode (random if mixed)
       const actualMode =
         mode === 'mixed'
-          ? (['fill_template', 'multiple_choice'] as DojoMode[])[Math.floor(Math.random() * 2)]
+          ? (['fill_template', 'multiple_choice', 'match_pairs'] as DojoMode[])[Math.floor(Math.random() * 3)]
           : mode;
 
       // Get persons for this tense (limited for imperative)
@@ -165,7 +164,32 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
         };
       }
 
-      // TODO: match_pairs, audio_type
+      if (actualMode === 'match_pairs') {
+        // Build all pairs for this verb+tense
+        const pairs = persons
+          .map((pKey, idx) => {
+            const ans = tenseData[pKey];
+            if (!ans) return null;
+            const pIndex = NORMALIZED_PERSONS.indexOf(pKey as typeof NORMALIZED_PERSONS[number]);
+            return {
+              personKey: pKey,
+              personLabel: personLabels[pIndex] || pKey,
+              correctAnswer: typeof ans === 'object' ? ans.masculine || ans.feminine : ans,
+            };
+          })
+          .filter(Boolean) as { personKey: string; personLabel: string; correctAnswer: string }[];
+
+        if (pairs.length < 2) return null; // Need at least 2 pairs
+
+        return {
+          verb,
+          tense,
+          mode: 'match_pairs',
+          pairs,
+        };
+      }
+
+      // TODO: audio_type
       return null;
     },
     [getNext, targetLanguage, personLabels]
@@ -279,7 +303,6 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
           </p>
           {(Object.keys(MODE_ICONS) as DojoMode[])
             .filter((mode) => mode !== 'audio_type') // Hide audio for now
-            .filter((mode) => mode !== 'match_pairs') // Hide match pairs for now
             .map((mode) => {
               const icon = MODE_ICONS[mode];
               const keys = MODE_KEYS[mode];
@@ -412,6 +435,16 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
             onNext={nextQuestion}
           />
         )}
+
+        {currentQuestion.mode === 'match_pairs' && (
+          <MatchPairsWrapper
+            question={currentQuestion}
+            targetLanguage={targetLanguage}
+            accentColor={accentColor}
+            onAnswer={handleAnswer}
+            onNext={nextQuestion}
+          />
+        )}
       </div>
     );
   }
@@ -511,6 +544,50 @@ const MultipleChoiceInline: React.FC<{
         <button
           onClick={handleNext}
           className="w-full py-4 rounded-2xl text-white font-bold text-lg transition-all"
+          style={{ backgroundColor: accentColor }}
+        >
+          {t('play.verbDojo.next', 'Next')}
+        </button>
+      )}
+    </div>
+  );
+};
+
+// Match Pairs wrapper component
+const MatchPairsWrapper: React.FC<{
+  question: any;
+  targetLanguage: string;
+  accentColor: string;
+  onAnswer: (correct: boolean) => void;
+  onNext: () => void;
+}> = ({ question, targetLanguage, accentColor, onAnswer, onNext }) => {
+  const { t } = useTranslation();
+  const [completed, setCompleted] = useState(false);
+
+  const handleComplete = useCallback((allCorrect: boolean) => {
+    setCompleted(true);
+    onAnswer(allCorrect);
+  }, [onAnswer]);
+
+  const handleNext = useCallback(() => {
+    setCompleted(false);
+    onNext();
+  }, [onNext]);
+
+  return (
+    <div>
+      <MatchPairs
+        verb={question.verb}
+        tense={question.tense}
+        pairs={question.pairs}
+        targetLanguage={targetLanguage}
+        accentColor={accentColor}
+        onComplete={handleComplete}
+      />
+      {completed && (
+        <button
+          onClick={handleNext}
+          className="w-full py-4 mt-4 rounded-2xl text-white font-bold text-lg transition-all"
           style={{ backgroundColor: accentColor }}
         >
           {t('play.verbDojo.next', 'Next')}
