@@ -81,9 +81,10 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
       </div>
 
       {/* Main content area - scrollable on mobile
-           Removed min-h-full which was breaking iOS scroll calculation */}
+           Removed min-h-full which was breaking iOS scroll calculation
+           Added min-h-0 to fix flex container scroll on iOS Safari */}
       <div
-        className="flex-1 overflow-y-auto overscroll-contain px-6"
+        className="flex-1 overflow-y-auto overscroll-contain px-6 min-h-0"
         style={{
           WebkitOverflowScrolling: 'touch',
           paddingBottom: 'max(3rem, env(safe-area-inset-bottom, 0px))'
