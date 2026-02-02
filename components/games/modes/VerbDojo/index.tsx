@@ -46,12 +46,20 @@ interface VerbDojoProps {
 
 type GamePhase = 'select_mode' | 'playing' | 'finished';
 
-const MODE_INFO: Record<DojoMode, { icon: string; label: string; description: string }> = {
-  mixed: { icon: '🔀', label: 'Mixed', description: 'Random variety of all modes' },
-  match_pairs: { icon: '🎯', label: 'Match Pairs', description: 'Drag pronouns to conjugations' },
-  fill_template: { icon: '✏️', label: 'Fill Template', description: 'Type the conjugation' },
-  multiple_choice: { icon: '📋', label: 'Multiple Choice', description: 'Pick the correct answer' },
-  audio_type: { icon: '🔊', label: 'Audio Type', description: 'Hear it, type it' },
+const MODE_ICONS: Record<DojoMode, string> = {
+  mixed: '🔀',
+  match_pairs: '🎯',
+  fill_template: '✏️',
+  multiple_choice: '📋',
+  audio_type: '🔊',
+};
+
+const MODE_KEYS: Record<DojoMode, { label: string; desc: string }> = {
+  mixed: { label: 'play.verbDojo.modes.mixed', desc: 'play.verbDojo.modes.mixedDesc' },
+  match_pairs: { label: 'play.verbDojo.modes.matchPairs', desc: 'play.verbDojo.modes.matchPairsDesc' },
+  fill_template: { label: 'play.verbDojo.modes.fillTemplate', desc: 'play.verbDojo.modes.fillTemplateDesc' },
+  multiple_choice: { label: 'play.verbDojo.modes.multipleChoice', desc: 'play.verbDojo.modes.multipleChoiceDesc' },
+  audio_type: { label: 'play.verbDojo.modes.audioType', desc: 'play.verbDojo.modes.audioTypeDesc' },
 };
 
 export const VerbDojo: React.FC<VerbDojoProps> = ({
@@ -267,13 +275,14 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
         {/* Mode selection */}
         <div className="space-y-3 mb-6">
           <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
-            {t('play.verbDojo.selectMode', 'Select Training Mode')}
+            {t('play.verbDojo.selectMode')}
           </p>
-          {(Object.keys(MODE_INFO) as DojoMode[])
+          {(Object.keys(MODE_ICONS) as DojoMode[])
             .filter((mode) => mode !== 'audio_type') // Hide audio for now
             .filter((mode) => mode !== 'match_pairs') // Hide match pairs for now
             .map((mode) => {
-              const info = MODE_INFO[mode];
+              const icon = MODE_ICONS[mode];
+              const keys = MODE_KEYS[mode];
               const isSelected = selectedMode === mode;
 
               return (
@@ -288,10 +297,10 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
                   style={{ '--accent-color': accentColor } as React.CSSProperties}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{info.icon}</span>
+                    <span className="text-2xl">{icon}</span>
                     <div>
-                      <h3 className="font-bold text-[var(--text-primary)]">{info.label}</h3>
-                      <p className="text-scale-caption text-[var(--text-secondary)]">{info.description}</p>
+                      <h3 className="font-bold text-[var(--text-primary)]">{t(keys.label)}</h3>
+                      <p className="text-scale-caption text-[var(--text-secondary)]">{t(keys.desc)}</p>
                     </div>
                     {isSelected && (
                       <div
