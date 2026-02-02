@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Ton partenaire"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Maîtrisez vos conjugaisons",
+      "combinationsAvailable": "combinaisons verbe+temps disponibles",
+      "selectMode": "Choisir le mode d'entraînement",
+      "focusOn": "Se concentrer sur (optionnel)",
+      "allTenses": "Tous les temps",
+      "startTraining": "Commencer l'entraînement",
+      "backToGames": "← Retour aux jeux",
+      "noVerbsAlert": "Aucun verbe avec conjugaisons trouvé. Apprenez d'abord plus de verbes !",
+      "submit": "Valider",
+      "next": "Suivant",
+      "checking": "Vérification...",
+      "typeAnswer": "Tapez la conjugaison...",
+      "correct": "Correct !",
+      "incorrect": "Incorrect",
+      "streakProgress": "Encore {{remaining}} pour +1 XP",
+      "modes": {
+        "mixed": "Mixte",
+        "mixedDesc": "Mélange aléatoire de tous les modes",
+        "matchPairs": "Associer les paires",
+        "matchPairsDesc": "Glissez les pronoms vers les conjugaisons",
+        "fillTemplate": "Compléter",
+        "fillTemplateDesc": "Tapez la conjugaison",
+        "multipleChoice": "Choix multiple",
+        "multipleChoiceDesc": "Choisissez la bonne réponse",
+        "audioType": "Audio",
+        "audioTypeDesc": "Écoutez et tapez"
+      },
+      "session": {
+        "questionsAnswered": "Questions répondues",
+        "longestStreak": "Plus longue série",
+        "xpEarned": "XP gagnés",
+        "playAgain": "Rejouer",
+        "exit": "Quitter"
+      },
+      "matchPairs": {
+        "instruction": "Appuyez pour associer pronoms et conjugaisons",
+        "complete": "Tout associé !"
+      }
     }
   },
   "profile": {
@@ -537,7 +578,8 @@
     "tableHeaders": {
       "person": "Personne",
       "masculine": "Masc.",
-      "feminine": "Fém."
+      "feminine": "Fém.",
+      "neuter": "Neutre"
     },
     "nounForms": {
       "gender": "Genre",

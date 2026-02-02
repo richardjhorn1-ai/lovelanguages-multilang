@@ -47,7 +47,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const pronouns = getConjugationPersons(targetLanguage);
 
   // Helper to get conjugation value with fallback to legacy Polish keys
-  const getConjValue = (tenseData: Record<string, any>, normalizedKey: string): string | undefined => {
+  const getConjValue = (tenseData: Record<string, any>, normalizedKey: string): string | { masculine?: string; feminine?: string; neuter?: string } | undefined => {
     // Try normalized key first
     if (tenseData[normalizedKey]) return tenseData[normalizedKey];
 
@@ -774,11 +774,13 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                   <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">{t('loveLog.tableHeaders.person')}</th>
                                   <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">{t('loveLog.tableHeaders.masculine')}</th>
                                   <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">{t('loveLog.tableHeaders.feminine')}</th>
+                                  <th className="px-3 py-2 text-left text-[10px] font-bold text-[var(--text-secondary)] uppercase">{t('loveLog.tableHeaders.neuter')}</th>
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-[var(--border-color)]">
                                 {pronounLabels.map(row => {
                                   const data = getConjValue(tenseData, row.key);
+                                  const isThirdSingular = row.key === 'third_singular';
                                   return (
                                     <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                                       <td className="px-3 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
@@ -787,6 +789,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                                       </td>
                                       <td className="px-3 py-2 font-bold text-[var(--accent-color)] text-scale-label">
                                         {typeof data === 'object' ? data?.feminine : '—'}
+                                      </td>
+                                      <td className="px-3 py-2 font-bold text-[var(--accent-color)] text-scale-label">
+                                        {isThirdSingular && typeof data === 'object' ? data?.neuter || '—' : '—'}
                                       </td>
                                     </tr>
                                   );
@@ -833,7 +838,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               <ICONS.Lock className="w-8 h-8 text-[var(--accent-color)]" />
                             </div>
                             <h3 className="text-scale-heading font-bold text-[var(--text-primary)] mb-2">
-                              {t('loveLog.unlock.title', { tense: t(`loveLog.modal.${unlockDialogTense}`) })}
+                              {t('loveLog.unlock.title', { tense: t(`loveLog.modal.${unlockDialogTense}`, unlockDialogTense) })}
                             </h3>
                             <p className="text-[var(--text-secondary)] text-scale-label mb-6">
                               {t('loveLog.unlock.descriptionBefore')}{' '}

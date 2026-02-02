@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Partnered"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Sajátítsd el az igeragozást",
+      "combinationsAvailable": "ige+idő kombináció elérhető",
+      "selectMode": "Válassz edzésmódot",
+      "focusOn": "Fókuszálj erre (opcionális)",
+      "allTenses": "Minden idő",
+      "startTraining": "Edzés indítása",
+      "backToGames": "← Vissza a játékokhoz",
+      "noVerbsAlert": "Nem találtunk ragozott igéket. Előbb tanulj több igét!",
+      "submit": "Küldés",
+      "next": "Következő",
+      "checking": "Ellenőrzés...",
+      "typeAnswer": "Írd be a ragozást...",
+      "correct": "Helyes!",
+      "incorrect": "Helytelen",
+      "streakProgress": "Még {{remaining}} kell +1 XP-hez",
+      "modes": {
+        "mixed": "Vegyes",
+        "mixedDesc": "Véletlenszerű mix minden módból",
+        "matchPairs": "Párosítás",
+        "matchPairsDesc": "Húzd a névmásokat a ragozásokhoz",
+        "fillTemplate": "Kitöltés",
+        "fillTemplateDesc": "Írd be a ragozást",
+        "multipleChoice": "Feleletválasztós",
+        "multipleChoiceDesc": "Válaszd ki a helyes választ",
+        "audioType": "Hangos gépelés",
+        "audioTypeDesc": "Hallgasd és írd"
+      },
+      "session": {
+        "questionsAnswered": "Megválaszolt kérdések",
+        "longestStreak": "Leghosszabb sorozat",
+        "xpEarned": "Szerzett XP",
+        "playAgain": "Újra játszás",
+        "exit": "Kilépés"
+      },
+      "matchPairs": {
+        "instruction": "Koppints a névmások és ragozások párosításához",
+        "complete": "Mind párosítva!"
+      }
     }
   },
   "profile": {
@@ -537,7 +578,8 @@
     "tableHeaders": {
       "person": "Személy",
       "masculine": "Hímnem",
-      "feminine": "Nőnem"
+      "feminine": "Nőnem",
+      "neuter": "Semleg."
     },
     "nounForms": {
       "gender": "Nem",

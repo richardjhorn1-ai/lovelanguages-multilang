@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Din partner"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Mestre verbbøyningene dine",
+      "combinationsAvailable": "verb+tid kombinasjoner tilgjengelig",
+      "selectMode": "Velg treningsmodus",
+      "focusOn": "Fokuser på (valgfritt)",
+      "allTenses": "Alle tider",
+      "startTraining": "Start trening",
+      "backToGames": "← Tilbake til spill",
+      "noVerbsAlert": "Ingen verb med bøyninger funnet. Lær flere verb først!",
+      "submit": "Send",
+      "next": "Neste",
+      "checking": "Sjekker...",
+      "typeAnswer": "Skriv bøyningen...",
+      "correct": "Riktig!",
+      "incorrect": "Feil",
+      "streakProgress": "{{remaining}} til for +1 XP",
+      "modes": {
+        "mixed": "Blandet",
+        "mixedDesc": "Tilfeldig blanding av alle moduser",
+        "matchPairs": "Match par",
+        "matchPairsDesc": "Dra pronomen til bøyninger",
+        "fillTemplate": "Fyll ut",
+        "fillTemplateDesc": "Skriv bøyningen",
+        "multipleChoice": "Flervalg",
+        "multipleChoiceDesc": "Velg riktig svar",
+        "audioType": "Lyd",
+        "audioTypeDesc": "Lytt og skriv"
+      },
+      "session": {
+        "questionsAnswered": "Besvarte spørsmål",
+        "longestStreak": "Lengste rekke",
+        "xpEarned": "Opptjente XP",
+        "playAgain": "Spill igjen",
+        "exit": "Avslutt"
+      },
+      "matchPairs": {
+        "instruction": "Trykk for å matche pronomen med bøyninger",
+        "complete": "Alt matchet!"
+      }
     }
   },
   "profile": {
@@ -537,7 +578,8 @@
     "tableHeaders": {
       "person": "Person",
       "masculine": "Mask.",
-      "feminine": "Fem."
+      "feminine": "Fem.",
+      "neuter": "Nøytr."
     },
     "nounForms": {
       "gender": "Kjønn",

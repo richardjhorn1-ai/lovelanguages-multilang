@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Tvůj partner"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Ovládni časování sloves",
+      "combinationsAvailable": "kombinací sloveso+čas k dispozici",
+      "selectMode": "Vyber režim tréninku",
+      "focusOn": "Zaměřit se na (volitelné)",
+      "allTenses": "Všechny časy",
+      "startTraining": "Začít trénink",
+      "backToGames": "← Zpět na hry",
+      "noVerbsAlert": "Nenalezena žádná slovesa s časováním. Nejprve se nauč více sloves!",
+      "submit": "Odeslat",
+      "next": "Další",
+      "checking": "Kontroluji...",
+      "typeAnswer": "Napiš časování...",
+      "correct": "Správně!",
+      "incorrect": "Špatně",
+      "streakProgress": "Ještě {{remaining}} do +1 XP",
+      "modes": {
+        "mixed": "Smíšený",
+        "mixedDesc": "Náhodný mix všech režimů",
+        "matchPairs": "Spoj páry",
+        "matchPairsDesc": "Přetáhni zájmena k časování",
+        "fillTemplate": "Doplň",
+        "fillTemplateDesc": "Napiš časování",
+        "multipleChoice": "Výběr odpovědi",
+        "multipleChoiceDesc": "Vyber správnou odpověď",
+        "audioType": "Audio",
+        "audioTypeDesc": "Poslouchej a piš"
+      },
+      "session": {
+        "questionsAnswered": "Zodpovězených otázek",
+        "longestStreak": "Nejdelší série",
+        "xpEarned": "Získané XP",
+        "playAgain": "Hrát znovu",
+        "exit": "Ukončit"
+      },
+      "matchPairs": {
+        "instruction": "Klepni pro spojení zájmen s časováním",
+        "complete": "Vše spojeno!"
+      }
     }
   },
   "profile": {
@@ -537,7 +578,8 @@
     "tableHeaders": {
       "person": "Osoba",
       "masculine": "Muž.",
-      "feminine": "Žen."
+      "feminine": "Žen.",
+      "neuter": "Střed."
     },
     "nounForms": {
       "gender": "Rod",

@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Partnerin"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Fiil çekimlerini öğren",
+      "combinationsAvailable": "fiil+zaman kombinasyonu mevcut",
+      "selectMode": "Eğitim modu seç",
+      "focusOn": "Odaklan (isteğe bağlı)",
+      "allTenses": "Tüm zamanlar",
+      "startTraining": "Eğitime başla",
+      "backToGames": "← Oyunlara dön",
+      "noVerbsAlert": "Çekimli fiil bulunamadı. Önce daha fazla fiil öğren!",
+      "submit": "Gönder",
+      "next": "Sonraki",
+      "checking": "Kontrol ediliyor...",
+      "typeAnswer": "Çekimi yaz...",
+      "correct": "Doğru!",
+      "incorrect": "Yanlış",
+      "streakProgress": "+1 XP için {{remaining}} daha",
+      "modes": {
+        "mixed": "Karışık",
+        "mixedDesc": "Tüm modların rastgele karışımı",
+        "matchPairs": "Eşleştir",
+        "matchPairsDesc": "Zamirleri çekimlere sürükle",
+        "fillTemplate": "Doldur",
+        "fillTemplateDesc": "Çekimi yaz",
+        "multipleChoice": "Çoktan seçmeli",
+        "multipleChoiceDesc": "Doğru cevabı seç",
+        "audioType": "Sesli yazma",
+        "audioTypeDesc": "Dinle ve yaz"
+      },
+      "session": {
+        "questionsAnswered": "Cevaplanan sorular",
+        "longestStreak": "En uzun seri",
+        "xpEarned": "Kazanılan XP",
+        "playAgain": "Tekrar oyna",
+        "exit": "Çıkış"
+      },
+      "matchPairs": {
+        "instruction": "Zamirleri çekimlerle eşleştirmek için dokun",
+        "complete": "Hepsi eşleşti!"
+      }
     }
   },
   "profile": {
@@ -537,7 +578,8 @@
     "tableHeaders": {
       "person": "Kişi",
       "masculine": "Eril",
-      "feminine": "Dişil"
+      "feminine": "Dişil",
+      "neuter": "Nötr"
     },
     "nounForms": {
       "gender": "Cinsiyet",
