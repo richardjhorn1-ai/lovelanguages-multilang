@@ -204,3 +204,24 @@ Before shipping any feature:
 | Recent | `89490599` | API | Dynamic imperative schema |
 | Recent | `d89b6b99` | Data | Correct storage field |
 | Recent | `b38b692a` | Security | Sanitizer allowlist |
+
+---
+
+## 📱 Flex Container Scroll on iOS
+
+### Step 6 Onboarding Not Scrollable
+**Commit:** `ca8c97e2`
+
+**Bug:** Step 6 (TimeStep) wasn't scrollable on mobile iOS Safari.
+
+**Cause:** Flex containers have `min-height: auto` by default, which prevents them from shrinking below their content size. This breaks overflow scrolling.
+
+**Fix:** Added `min-h-0` (min-height: 0) to the scrollable content container:
+```tsx
+className="flex-1 overflow-y-auto overscroll-contain px-6 min-h-0"
+```
+
+**Lesson Learned:**
+- ⚠️ **Always add `min-h-0` to flex items that need to scroll**
+- `flex-1` alone isn't enough - the default min-height prevents shrinking
+- This is a common flexbox gotcha, especially on iOS Safari
