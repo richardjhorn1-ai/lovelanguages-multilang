@@ -1,6 +1,26 @@
 ## Current Sprint - Post-Blog Overhaul
 
-**Last Updated:** February 1, 2026
+**Last Updated:** February 2, 2026
+
+### ✅ Completed (Feb 2)
+
+#### Verb Tense Expansion + VerbDojo 🥋
+- [x] **VerbDojo game mode** — New conjugation practice game with 3 modes:
+  - Fill Template (type the conjugation)
+  - Match Pairs (drag pronouns to forms)
+  - Multiple Choice
+- [x] **Dynamic tense system** — All 18 languages now have proper tense configs:
+  - Romance: present, past, imperfect, future, conditional, imperative, subjunctive
+  - Slavic: present, past, future, conditional, imperative (with gendered past/conditional)
+  - Germanic: present, past, future, conditional, imperative
+- [x] **Unlock tense API** — Users can unlock past/future/conditional/etc for any verb
+- [x] **Neuter gender column** — Slavic 3rd person singular now shows masculine/feminine/neuter
+- [x] **VerbDojo translations** — All 33 strings translated to 17 languages
+- [x] **Love Log improvements** — Type signature fix, translation fallbacks
+
+**Docs:** `docs/VERB_DOJO_SPEC.md`, `docs/VERB_TENSE_EXPANSION_PLAN.md` (→ archived)
+
+---
 
 ### ✅ Completed (Feb 1)
 
@@ -31,23 +51,16 @@
 
 ---
 
-### 🎯 Phase 1: Clean Up (This Week)
+### ✅ Completed (Jan 28)
 
-#### ✅ 1. TTS in Games 🔊 — DONE (Jan 28)
-~~Games have no audio pronunciation - users can't hear words while practicing.~~
-
-**Fixed during component split:** All 6 game modes now have Volume2 speaker buttons that call `speak(word, targetLanguage)`:
+#### TTS in Games 🔊
+All 6 game modes now have Volume2 speaker buttons that call `speak(word, targetLanguage)`:
 - Flashcards, MultipleChoice, TypeIt, QuickFire, VerbMastery, AIChallenge
 
-#### ✅ 1b. TTS in Chat 🔊 — DONE (Feb 1)
-~~Users couldn't hear pronunciation of foreign words in chat messages.~~
+#### TTS in Chat 🔊 (Feb 1)
+Click any highlighted foreign word in chat to hear pronunciation.
 
-**Fixed:** Click any highlighted foreign word in chat to hear pronunciation:
-- Added `data-word` attribute to bold words in `parseMarkdown`
-- Click handler on `RichMessageRenderer` using event delegation
-- Hover styles (dotted underline) indicate clickability
-
-#### ✅ 2. Split Giant Components 📦 — DONE (Jan 28)
+#### Split Giant Components 📦
 
 | Component | Before | After | Reduction |
 |-----------|--------|-------|-----------|
@@ -55,111 +68,96 @@
 | TutorGames.tsx | 1,376 | 827 | **40%** |
 | Hero.tsx | 3,038 | 1,442 | **52%** |
 
-**Extracted to:**
-- `components/games/modes/` — TypeIt, QuickFire, VerbMastery, AIChallenge, Flashcards, MultipleChoice
-- `components/games/tutor-modes/` — TutorFlashcards, TutorMultipleChoice, TutorTypeIt, TutorQuickFire, TutorGameResults
-- `components/hero/` — InteractiveHearts, LanguageGrid, LoginForm, etc.
-
 ---
 
-### 🎯 Phase 2: Priority Features (Next)
+## 🎯 Up Next
 
-#### 1. XP System — Word & Verb Mastery ⭐
-Games already award XP (5 correct in a row). Missing: mastery rewards.
-
-**Specific asks:**
-- [ ] Award XP when a **word/phrase** hits 5x correct streak (per-word tracking exists)
+### 1. XP System Overhaul ⭐
+- [ ] Award XP when a **word/phrase** hits 5x correct streak
 - [ ] Award XP when a **verb** hits 10x correct streak across all forms
 - [ ] Review what "levels" mean and if they need improvement
+- [ ] VerbDojo XP integration (streak-based: 1 XP per 5 correct)
 
-#### 2. Verb System Overhaul 🔧
-Current state is limited. Needs full review and rework.
+### 2. Content & SEO 📈
+- [ ] Generate topic images via Glif API (~25-30 images for reuse)
+- [ ] Submit updated sitemap to GSC (13,363 articles)
+- [ ] Monitor indexing (only 884/13,363 = 7.5% indexed)
+- [ ] Fix English title/description on non-English articles
+- [ ] Generate remaining articles for full parity (~17-24k more)
 
-**Tense coverage gaps:**
-- [ ] Only present/future/past supported
-- [ ] Missing: conditional, imperative, subjunctive, reflexive verbs
+### 3. AIChallenge Integration 🤖
+- [ ] Wire AIChallenge component to game flow (created but not active)
 
-**Data pipeline:**
-- [ ] Review how conjugations get populated (unlock system + API call?)
-- [ ] Ensure all tenses can be filled for all languages
-
-**Verb Mastery Game:**
-- [ ] Review current implementation (unclear how it works)
-- [ ] Rework/rebuild as needed after understanding current state
-
-**UI (Love Log):**
-- [ ] Review verb display in Love Log
-- [ ] Ensure all tenses are viewable
-
-#### 3. ChatArea.tsx Split 📦
-Still at 1,877 lines. Refactor after above priorities.
+### 4. ChatArea.tsx Split 📦
+Still at 1,877 lines. Refactor after priorities above.
 
 ---
 
-### 🎯 Phase 3: Future Features
+## 🎯 Phase 3: iOS Launch 📱
 
-#### Curriculum/Tutor Guidance 📚
-- No structured learning path
+### Heavy Testing
+- [ ] Full regression testing
+- [ ] Edge cases & error states
+- [ ] Performance testing on device
+
+### TestFlight → App Store
+- [ ] Capacitor build
+- [ ] TestFlight beta
+- [ ] Apple submission
+- [ ] PostedApp creator marketplace (needs TestFlight first)
+
+---
+
+## 🎯 Future Features
+
+### Curriculum/Tutor Guidance 📚
+- No structured learning path currently
 - Tutor needs curriculum to follow
 - Per-language progression milestones
 
----
+### Couple Subscription 💑
+See `docs/COUPLE_SUBSCRIPTION_PLAN.md`
+Two accounts for one payment.
 
-### 🎯 Phase 3: iOS Launch 📱
+### Creator/Affiliate Program
+10% commission for referrals.
+See ROADMAP.md section "F. Creator/Affiliate Program"
 
-#### 6. Heavy Testing
-- Full regression testing
-- Edge cases
-- Performance testing
-
-#### 7. TestFlight → App Store
-- Capacitor build
-- Apple submission
+### Master Vocabulary Bank
+Pre-computed vocabulary to reduce AI costs.
+See ROADMAP.md section "E. Master Vocabulary Bank"
 
 ---
 
 ## ✅ Previously Completed (Jan 27)
 
 ### Security & Analytics Release
-- [x] Free tier (25 chats + limited voice)
+- [x] Free tier (25 chats + limited voice) → superseded by 7-day trial
 - [x] Promo codes for creators
-- [x] GA4 analytics funnel (signup → onboarding → paywall → checkout)
+- [x] GA4 analytics funnel (50+ events)
 - [x] Password reset & account settings
 - [x] Blog translations (12 languages)
-- [x] Blog + app unified in same GA4 property
 - [x] Verb conjugations fix
 - [x] Onboarding words to Love Log
 - [x] Analytics for returning users
-- [x] CTA copy: "Speak their language, touch their heart"
-- [x] Learn Hub: added Dutch, Romanian, Ukrainian
 
 ---
 
 ## Backlog
 
 ### Homepage First-Screen Improvement
-**Goal:** Show immediate value instead of language selection as first step on desktop.
-The current flow (select languages → login/signup) doesn't communicate value fast enough.
-Consider: hero with benefits/screenshots first, THEN language selection.
-**Complexity:** High (touches core onboarding flow)
-**Priority:** After SEO phase
-
-### Master Vocabulary Bank
-See ROADMAP.md section "E. Master Vocabulary Bank (Cost Optimization)"
-Pre-computed vocabulary to reduce AI costs and improve response times.
-
-### Creator/Affiliate Program
-See ROADMAP.md section "F. Creator/Affiliate Program"
-10% commission for referrals.
+Show immediate value instead of language selection as first step.
+**Complexity:** High | **Priority:** After iOS launch
 
 ---
 
-## Lessons Learned (Jan 29)
+## Lessons Learned
 
-**Don't push experimental branches to main without testing.**
+See `docs/TROUBLESHOOTING.md` for bug patterns and shipping checklist.
 
-Process going forward:
-1. Preview deployment on Vercel branch — verify it works
-2. Run basic smoke test (homepage, articles, key flows)
-3. If big change (DB migrations, architecture) — ping Richard for sign-off
-4. No merging without explicit "ready for prod" confirmation
+Key lessons:
+1. Always update ALL 18 locales when adding translation keys
+2. Test on iOS Safari - flex/min-height behaves differently
+3. Never delete user data in error handlers
+4. Check sanitizer allowlists when adding data-* attributes
+5. Don't hardcode grammar assumptions - languages vary
