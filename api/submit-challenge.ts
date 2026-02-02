@@ -379,8 +379,11 @@ export default async function handler(req: any, res: any) {
       }
 
       // Award XP for each action
+      const baseUrl = process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : `http://localhost:${process.env.PORT || 3000}`;
       for (const action of tutorXpActions) {
-        await fetch(`${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : ''}/api/tutor-award-xp`, {
+        await fetch(`${baseUrl}/api/tutor-award-xp`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

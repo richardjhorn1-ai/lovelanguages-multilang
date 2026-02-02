@@ -21,12 +21,12 @@ export interface LevelTheme {
 // ===========================================
 
 export const TUTOR_TIERS: TutorTier[] = [
-  { tier: 1, name: 'Language Whisperer', xpRange: [0, 100] },
-  { tier: 2, name: 'Phrase Poet', xpRange: [100, 300] },
-  { tier: 3, name: 'Vocabulary Virtuoso', xpRange: [300, 600] },
-  { tier: 4, name: 'Grammar Guardian', xpRange: [600, 1000] },
-  { tier: 5, name: 'Fluency Fairy', xpRange: [1000, 1500] },
-  { tier: 6, name: 'Love Linguist', xpRange: [1500, Infinity] }
+  { tier: 1, name: 'Language Whisperer', xpRange: [0, 100], color: '#9333EA' },      // Purple
+  { tier: 2, name: 'Phrase Poet', xpRange: [100, 300], color: '#EC4899' },           // Pink
+  { tier: 3, name: 'Vocabulary Virtuoso', xpRange: [300, 600], color: '#F59E0B' },   // Amber
+  { tier: 4, name: 'Grammar Guardian', xpRange: [600, 1000], color: '#10B981' },     // Emerald
+  { tier: 5, name: 'Fluency Fairy', xpRange: [1000, 1500], color: '#3B82F6' },       // Blue
+  { tier: 6, name: 'Love Linguist', xpRange: [1500, Infinity], color: '#EF4444' }    // Red
 ];
 
 // Get tutor tier from XP
@@ -254,16 +254,6 @@ export const ACHIEVEMENT_DEFINITIONS: AchievementDefinition[] = [
     xp_reward: 40
   }
 ];
-
-// Get achievement by code
-export function getAchievementByCode(code: string): AchievementDefinition | undefined {
-  return ACHIEVEMENT_DEFINITIONS.find(a => a.code === code);
-}
-
-// Get achievements by category
-export function getAchievementsByCategory(category: 'tutor' | 'student' | 'couple'): AchievementDefinition[] {
-  return ACHIEVEMENT_DEFINITIONS.filter(a => a.category === category);
-}
 
 // ===========================================
 // Love Note Templates

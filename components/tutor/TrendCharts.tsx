@@ -82,8 +82,9 @@ const TrendCharts: React.FC<TrendChartsProps> = ({
   // Calculate totals/averages
   const totalXp = xpValues.reduce((a, b) => a + b, 0);
   const totalWords = wordsValues.reduce((a, b) => a + b, 0);
-  const avgAccuracy = accuracyValues.length > 0
-    ? Math.round(accuracyValues.filter(v => v > 0).reduce((a, b) => a + b, 0) / accuracyValues.filter(v => v > 0).length) || 0
+  const nonZeroAccuracy = accuracyValues.filter(v => v > 0);
+  const avgAccuracy = nonZeroAccuracy.length > 0
+    ? Math.round(nonZeroAccuracy.reduce((a, b) => a + b, 0) / nonZeroAccuracy.length)
     : 0;
 
   return (

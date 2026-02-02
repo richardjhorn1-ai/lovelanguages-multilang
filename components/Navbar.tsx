@@ -282,10 +282,12 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                         onClick={() => {
                           if (!notification.read_at) markAsRead(notification.id);
                           // Navigate based on notification type
-                          if (notification.type.includes('challenge')) {
+                          if (notification.type.includes('challenge') || notification.type === 'challenge_request') {
                             navigate('/play');
-                          } else if (notification.type.includes('word_gift')) {
+                          } else if (notification.type.includes('word_gift') || notification.type === 'gift_complete') {
                             navigate('/play');
+                          } else if (notification.type === 'love_note') {
+                            navigate('/progress');
                           }
                           setIsNotificationsOpen(false);
                         }}
