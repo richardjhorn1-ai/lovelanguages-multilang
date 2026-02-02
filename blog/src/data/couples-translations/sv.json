@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Lär er ett språk tillsammans",
+      "subtitle": "Den ultimata guiden för att göra språkinlärning till ett gemensamt äventyr. Stärk ert band samtidigt som ni öppnar dörrar till nya kulturer."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Varför par bör lära sig språk tillsammans",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Gemensamma mål bygger samhörighet",
+          "description": "Att arbeta mot ett gemensamt mål skapar lagkänsla och fördjupar er relation. Att fira språkmilstolpar tillsammans skapar bestående minnen."
+        },
+        {
+          "emoji": "💬",
+          "title": "Inbyggd övningspartner",
+          "description": "Att ha en samtalspartner tillgänglig dygnet runt påskyndar inlärningen. Ni kan öva när som helst – under måltider, promenader eller lata söndagsförmiddagar."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Resor förvandlas",
+          "description": "Att kunna prata även grundläggande fraser förvandlar reseupplevelsen. Navigera tillsammans, beställ mat med självförtroende och få kontakt med lokalbefolkningen på sätt som vanliga turister aldrig gör."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Håller hjärnan skarp",
+          "description": "Språkinlärning är en av de bästa övningarna för hjärnhälsan. Att göra det tillsammans innebär att ni båda investerar i långsiktigt kognitivt välmående."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Bästa språken för par att lära sig",
+      "subtitle": "Dessa språk erbjuder den bästa kombinationen av romantik, praktisk nytta och uppnåelighet för svensktalande par."
+    },
+    "tips": {
+      "sectionTitle": "Tips för att lära er tillsammans",
+      "items": [
+        {
+          "title": "Sätt realistiska mål tillsammans",
+          "description": "Kom överens om hur många timmar i veckan ni ska öva och vilka milstolpar ni vill nå. Gemensamma mål hjälper er att hålla varandra ansvariga."
+        },
+        {
+          "title": "Gör det till en del av vardagen",
+          "description": "Sätt etiketter på saker hemma, hälsa på varandra på målspråket, eller bestäm att vissa måltider är 'språkmåltider' där ni bara pratar det nya språket."
+        },
+        {
+          "title": "Titta på film och serier tillsammans",
+          "description": "Börja med svensk textning, gå vidare till textning på målspråket, och prova sedan utan text. Diskutera vad ni lärde er efter varje avsnitt."
+        },
+        {
+          "title": "Planera en resa som motivation",
+          "description": "Inget motiverar som att veta att ni snart kommer att behöva språket. Planera en resa till ett land där ert målspråk talas och sätt upp lärandemål inför avresan."
+        },
+        {
+          "title": "Fira framsteg",
+          "description": "Första samtalet, 100 inlärda ord, att lyckas beställa mat – fira dessa vinster tillsammans. Små belöningar håller motivationen uppe."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Vilket är det bästa språket för par att lära sig tillsammans?",
+        "answer": "Spanska, franska och italienska är utmärkta val för par tack vare deras romantiska karaktär och relativa lätthet för svensktalande. Spanska erbjuder mest praktisk nytta med över 500 miljoner talare, medan franska och italienska traditionellt förknippas med romantik och kultur."
+      },
+      {
+        "question": "Hur kan vi hålla motivationen uppe när vi lär oss tillsammans?",
+        "answer": "Sätt gemensamma mål, öva konversation dagligen, titta på filmer på målspråket tillsammans, planera resor till länder där språket talas och fira milstolpar tillsammans. Att göra det till en gemensam hobby istället för en plikt håller båda parter engagerade."
+      },
+      {
+        "question": "Behöver vi lära oss i samma takt?",
+        "answer": "Inte nödvändigtvis. Det är naturligt att den ena partnern utvecklas snabbare. Det viktiga är att stötta varandra och använda skillnaden som en möjlighet – den som lär sig snabbare kan hjälpa till att lära ut och befästa begrepp för er båda."
+      },
+      {
+        "question": "Hur mycket tid bör vi lägga på det dagligen?",
+        "answer": "Redan 15-30 minuters daglig övning tillsammans är effektivt. Regelbundenhet är viktigare än längden. Försök att väva in språket i vardagliga aktiviteter: morgonhälsningar, middagssamtal eller godnattritualer."
+      },
+      {
+        "question": "Vad gör vi om en av oss tappar intresset?",
+        "answer": "Fokusera på att göra det roligt istället för akademiskt. Prova att laga recept på målspråket, spela språkinlärningsspel tillsammans eller planera en resa där språket behövs. Ibland kan ett nytt angreppssätt återväcka motivationen."
+      },
+      {
+        "question": "Kan vi lära oss olika språk?",
+        "answer": "Det kan ni, men att lära sig samma språk skapar fler möjligheter till övning och gemensamma upplevelser. Om ni har olika intressen kan ni överväga att först lära er ett språk tillsammans och sedan utforska individuella intressen senare."
+      }
+    ],
+    "exploreAll": {
+      "title": "Utforska alla språk",
+      "subtitle": "Hitta det perfekta språket för er gemensamma resa."
+    },
+    "cta": {
+      "title": "Redo att börja er resa?",
+      "subtitle": "Gå med tusentals par som lär sig språk tillsammans med AI-coachning, röstövningar och spel.",
+      "button": "Börja lära er tillsammans"
+    },
+    "footer": {
+      "tagline": "Lär er vilket språk som helst tillsammans med din partner"
+    }
+  }
+}

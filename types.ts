@@ -561,6 +561,167 @@ export interface Attachment {
 // Session Boot Context Types
 // ===========================================
 
+// ===========================================
+// Tutor Experience Enhancement Types
+// ===========================================
+
+// Tutor tier definitions
+export interface TutorTier {
+  tier: number;
+  name: string;
+  xpRange: [number, number]; // [min, max)
+}
+
+// Tutor statistics
+export interface TutorStats {
+  user_id: string;
+  challenges_created: number;
+  gifts_sent: number;
+  perfect_scores: number;
+  words_mastered: number;
+  teaching_streak: number;
+  last_teaching_at: string | null;
+}
+
+// Achievement category
+export type AchievementCategory = 'tutor' | 'student' | 'couple';
+
+// Achievement definition
+export interface AchievementDefinition {
+  code: string;
+  name: string;
+  description: string;
+  icon: string;
+  category: AchievementCategory;
+  xp_reward: number;
+}
+
+// User achievement
+export interface UserAchievement {
+  id: string;
+  user_id: string;
+  achievement_code: string;
+  unlocked_at: string;
+  achievement?: AchievementDefinition; // Joined data
+}
+
+// Challenge request types
+export type ChallengeRequestType = 'general' | 'topic' | 'specific_words';
+export type ChallengeRequestStatus = 'pending' | 'accepted' | 'fulfilled' | 'declined';
+
+// Challenge request from student to tutor
+export interface ChallengeRequest {
+  id: string;
+  student_id: string;
+  tutor_id: string;
+  request_type: ChallengeRequestType;
+  topic?: string;
+  word_ids?: string[];
+  message?: string;
+  status: ChallengeRequestStatus;
+  fulfilled_challenge_id?: string;
+  created_at: string;
+}
+
+// Activity feed event types
+export type ActivityEventType =
+  | 'word_mastered'
+  | 'level_up'
+  | 'challenge_completed'
+  | 'challenge_sent'
+  | 'gift_sent'
+  | 'gift_received'
+  | 'streak_milestone'
+  | 'achievement_unlocked';
+
+// Activity feed event
+export interface ActivityFeedEvent {
+  id: string;
+  user_id: string;
+  partner_id?: string;
+  event_type: ActivityEventType;
+  title: string;
+  subtitle?: string;
+  data?: Record<string, any>;
+  language_code?: string;
+  created_at: string;
+}
+
+// Love note templates
+export type LoveNoteCategory = 'encouragement' | 'check_in' | 'celebration';
+
+export interface LoveNoteTemplate {
+  id: string;
+  category: LoveNoteCategory;
+  text: string;
+}
+
+// Love note
+export interface LoveNote {
+  id: string;
+  sender_id: string;
+  recipient_id: string;
+  template_id?: string;
+  custom_message?: string;
+  created_at: string;
+}
+
+// Nudge configuration
+export interface NudgeConfig {
+  scenario: 'student_inactive_2d' | 'student_inactive_5d' | 'tutor_inactive_3d';
+  target_role: 'tutor' | 'student';
+  message: string;
+  action_label: string;
+  action_type: 'love_note' | 'challenge';
+}
+
+// Tutor analytics data
+export interface TutorAnalytics {
+  // Teaching impact
+  xp_contributed: number;
+  words_mastered: number;
+  challenge_success_rate: number;
+
+  // Trends (arrays for charting)
+  xp_trend: { date: string; value: number }[];
+  words_trend: { date: string; value: number }[];
+  accuracy_trend: { date: string; value: number }[];
+
+  // Challenge analytics
+  challenges_completed: number;
+  challenges_total: number;
+  average_score: number;
+  recent_results: { id: string; score: number; date: string }[];
+
+  // Weak spots
+  stuck_words: {
+    word_id: string;
+    word: string;
+    translation: string;
+    fail_count: number;
+    last_attempt: string;
+  }[];
+  improving_words: {
+    word_id: string;
+    word: string;
+    translation: string;
+    streak: number;
+  }[];
+
+  // Learning velocity
+  words_per_week: number;
+  mastery_rate_days: number;
+  practice_consistency: number;
+  current_streak: number;
+
+  // Recommendations
+  recommendations: {
+    type: 'stuck_words' | 'inactivity' | 'variety' | 'topic';
+    message: string;
+    action_type?: string;
+  }[];
+}
+
 // Context loaded once per session to avoid repeated DB fetches
 export interface SessionContext {
   // Common fields

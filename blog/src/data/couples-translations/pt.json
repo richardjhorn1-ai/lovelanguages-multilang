@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Aprendam uma Língua Juntos",
+      "subtitle": "O guia definitivo para transformar a aprendizagem de línguas numa aventura a dois. Fortaleçam a vossa relação enquanto descobrem novas culturas."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Porquê Aprender Línguas em Casal",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Objetivos Partilhados Fortalecem a Ligação",
+          "description": "Trabalhar em conjunto para um objetivo comum cria espírito de equipa e aprofunda a vossa relação. Celebrar conquistas linguísticas juntos cria memórias inesquecíveis."
+        },
+        {
+          "emoji": "💬",
+          "title": "Parceiro de Prática Sempre Disponível",
+          "description": "Ter alguém para conversar 24 horas por dia acelera a aprendizagem. Podem praticar a qualquer momento — durante as refeições, nos passeios ou nas preguiçosas manhãs de domingo."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Viagens Transformadoras",
+          "description": "Falar mesmo que apenas frases básicas transforma as experiências de viagem. Naveguem juntos, peçam comida com confiança e conectem-se com os locais de formas que os turistas comuns nunca conseguem."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Mantém a Mente Ativa",
+          "description": "Aprender línguas é um dos melhores exercícios para a saúde cerebral. Fazê-lo em casal significa que ambos estão a investir no vosso bem-estar cognitivo a longo prazo."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Melhores Línguas para Casais Aprenderem",
+      "subtitle": "Estas línguas oferecem a melhor combinação de romance, utilidade prática e acessibilidade para casais que falam inglês."
+    },
+    "tips": {
+      "sectionTitle": "Dicas para Aprenderem Juntos",
+      "items": [
+        {
+          "title": "Definam Objetivos Realistas em Conjunto",
+          "description": "Combinem quantas horas por semana vão praticar e que metas querem atingir. Ter objetivos partilhados mantém-vos responsáveis e motivados."
+        },
+        {
+          "title": "Integrem na Vida Quotidiana",
+          "description": "Etiquetem objetos pela casa, cumprimentem-se na língua que estão a aprender ou designem refeições 'só nessa língua' onde praticam juntos."
+        },
+        {
+          "title": "Vejam Filmes e Séries Juntos",
+          "description": "Comecem com legendas na vossa língua materna, progridam para legendas na língua que estão a aprender e depois tentem sem legendas. Conversem sobre o que aprenderam após cada episódio."
+        },
+        {
+          "title": "Planeiem uma Viagem como Motivação",
+          "description": "Nada motiva mais do que saber que vão precisar da língua em breve. Planeiem uma viagem a um país onde se fale a vossa língua-alvo e definam metas de aprendizagem antes da partida."
+        },
+        {
+          "title": "Celebrem as Conquistas",
+          "description": "A primeira conversa, 100 palavras aprendidas, pedir comida com sucesso — celebrem estas vitórias juntos. Pequenas recompensas mantêm a motivação em alta."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Qual é a melhor língua para casais aprenderem juntos?",
+        "answer": "Espanhol, francês e italiano são escolhas excelentes para casais devido à sua natureza romântica e relativa facilidade para quem fala inglês. O espanhol oferece mais benefícios práticos com mais de 500 milhões de falantes, enquanto o francês e o italiano são tradicionalmente associados ao romance e à cultura."
+      },
+      {
+        "question": "Como podemos manter a motivação a aprender juntos?",
+        "answer": "Definam objetivos partilhados, pratiquem conversas diariamente, vejam filmes na vossa língua-alvo juntos, planeiem viagens a países onde se fale essa língua e celebrem as conquistas em conjunto. Transformar isto num hobby partilhado em vez de uma obrigação mantém ambos os parceiros envolvidos."
+      },
+      {
+        "question": "Devemos aprender ao mesmo ritmo?",
+        "answer": "Não necessariamente. É natural que um parceiro progrida mais rapidamente. O importante é apoiarem-se mutuamente e usar a diferença como uma oportunidade — quem aprende mais depressa pode ajudar a ensinar e reforçar conceitos para ambos."
+      },
+      {
+        "question": "Quanto tempo devemos dedicar diariamente?",
+        "answer": "Mesmo 15 a 30 minutos de prática diária juntos é eficaz. A consistência importa mais do que a duração. Tentem incorporar a língua nas atividades do dia a dia: cumprimentos matinais, conversas às refeições ou frases antes de dormir."
+      },
+      {
+        "question": "E se um dos parceiros perder o interesse?",
+        "answer": "Foquem-se em tornar a aprendizagem divertida em vez de académica. Experimentem cozinhar receitas na língua-alvo, jogar jogos de aprendizagem de línguas juntos ou planear uma viagem que exija essa língua. Por vezes, uma mudança de abordagem reacende a motivação."
+      },
+      {
+        "question": "Podemos aprender línguas diferentes?",
+        "answer": "Podem, mas aprender a mesma língua cria mais oportunidades para praticar e partilhar experiências. Se tiverem interesses diferentes, considerem aprender primeiro uma língua juntos e depois explorar interesses individuais."
+      }
+    ],
+    "exploreAll": {
+      "title": "Explorem Todas as Línguas",
+      "subtitle": "Encontrem a língua perfeita para a vossa jornada a dois."
+    },
+    "cta": {
+      "title": "Prontos para Começar a Vossa Jornada?",
+      "subtitle": "Juntem-se a milhares de casais que aprendem línguas juntos com coaching de IA, prática de conversação e jogos.",
+      "button": "Começar a Aprender Juntos"
+    },
+    "footer": {
+      "tagline": "Aprendam qualquer língua juntos com o vosso parceiro"
+    }
+  }
+}

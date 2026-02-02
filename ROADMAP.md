@@ -396,6 +396,140 @@ Allow creators to earn commission by referring new subscribers.
 
 ---
 
+### G. Tutor Experience Enhancement
+
+The tutor role needs investment before iOS launch. Currently tutors have no progression, limited feedback, and minimal engagement hooks.
+
+**Problems:**
+- Tutors earn zero XP and have no progression
+- Limited visibility into teaching effectiveness
+- No bidirectional engagement (only tutor → student)
+- No personalization of teaching suggestions
+- `love_note` notification type exists but unused
+
+**Current State (Gaps):**
+
+| Feature | Students | Tutors |
+|---------|----------|--------|
+| XP | ✅ Games, challenges, gifts | ❌ Nothing |
+| Levels | ✅ Beginner → Master | ❌ None |
+| Streaks | ✅ Word mastery | ❌ None |
+| Achievements | ❌ None | ❌ None |
+
+**Four Pillars:**
+
+#### 1. Partner Engagement (Priority)
+- **Love Notes** — Quick messages using templates + optional free text
+  - Templates: Encouragement, Check-ins, Celebrations
+  - Context-aware suggestions based on activity
+  - Rate limit: 10/day
+- **Challenge Requests** — Student can ask tutor for help
+  - Request types: General, Topic-based, Specific words
+  - Pre-fills challenge creator with requested content
+- **Activity Feed** — Shared timeline in Progress.tsx
+  - Events: Word mastered, Level up, Challenge completed, Streak milestones
+  - Privacy: NO wrong answers, NO detailed time tracking
+- **Nudge System** — Gentle reminders
+  - Student inactive 2 days → Tutor sees "Send encouragement?"
+  - Student inactive 5 days → "Create a fun challenge?"
+  - Max 1 nudge per 3 days, users can disable
+- **Celebration Moments** — Shared milestones
+  - Level up: Full-screen modal + partner notification
+  - 7-day streak: Badge + notification
+  - Perfect challenge: Animation + partner notification
+
+#### 2. Teaching Analytics Dashboard
+- **Teaching Impact Card** — XP Contributed, Words Mastered, Challenge Success Rate
+- **Partner Progress Trends** — Line charts (Week/Month/All-time)
+- **Challenge Analytics** — Completion rate, average score, by type
+- **Weak Spot Intelligence** — Stuck words (multiple failures, no improvement 7+ days)
+- **Learning Velocity** — Words/week, mastery rate, practice consistency
+- **Recommendations** — Rule-based suggestions (top 3)
+
+#### 3. Tutor Gamification
+- **Tutor XP System** — Earned by enabling partner's success
+  - Create Challenge: 2 XP
+  - Send Word Gift: 2 XP
+  - Partner completes challenge: 3 XP
+  - Partner scores 80%+: +1 bonus
+  - Partner scores 100%: +2 bonus
+  - Partner masters gifted word: 1 XP
+- **6 Tutor Tiers:**
+  - Language Whisperer (0-100 XP)
+  - Phrase Poet (100-300 XP)
+  - Vocabulary Virtuoso (300-600 XP)
+  - Grammar Guardian (600-1000 XP)
+  - Fluency Fairy (1000-1500 XP)
+  - Love Linguist (1500+ XP)
+- **Teaching Streaks** — 48-hour grace period, one auto-freeze/week
+- **20 Achievements** — 8 tutor, 8 student, 4 couple
+
+#### 4. Personalization (Lite)
+- **Adaptive Difficulty** — Suggest challenge settings based on recent performance
+- **Learning Path Suggestions** — "What to teach next" based on vocabulary gaps
+
+**New Tables:**
+- `achievement_definitions` — Achievement metadata
+- `user_achievements` — User's unlocked achievements
+- `tutor_stats` — Teaching statistics
+- `challenge_requests` — Student requests for challenges
+- `activity_feed` — Partner timeline events
+
+**Profile Changes:**
+- `tutor_xp` INT DEFAULT 0
+- `tutor_tier` INT DEFAULT 1
+- `last_practice_at` TIMESTAMPTZ
+- `nudges_enabled` BOOLEAN DEFAULT true
+
+**New API Endpoints:**
+- `POST /api/tutor-award-xp` — Award XP for teaching actions
+- `GET /api/tutor-stats` — Get teaching statistics
+- `GET /api/tutor-analytics` — Full dashboard data
+- `POST /api/check-achievements` — Check and unlock achievements
+- `GET /api/achievements` — Get user's achievements
+- `POST /api/send-love-note` — Send love note
+- `POST /api/create-challenge-request` — Student requests challenge
+- `GET /api/activity-feed` — Get partner timeline
+
+**New Components:**
+- `TutorAnalyticsDashboard.tsx` — Main analytics dashboard
+- `TeachingImpactCard.tsx` — Hero metrics
+- `TrendCharts.tsx` — Progress charts
+- `WeakSpotIntelligence.tsx` — Stuck words
+- `AchievementBadge.tsx` — Badge display
+- `AchievementUnlockModal.tsx` — Unlock celebration
+- `LoveNoteComposer.tsx` — Send love notes
+- `ChallengeRequestForm.tsx` — Student request UI
+- `ActivityFeed.tsx` — Partner timeline
+- `NudgeBanner.tsx` — Reminder display
+
+**Key Files to Modify:**
+- `Progress.tsx` — Replace tutor view with analytics dashboard
+- `TutorGames.tsx` — Add streak indicator, handle challenge requests
+- `Navbar.tsx` — Love note button, new notification types
+- `api/submit-challenge.ts` — Award tutor XP
+- `api/complete-word-request.ts` — Award tutor XP
+- `types.ts` — Add new interfaces
+- `constants/levels.ts` — Add tutor tier definitions
+
+**Tone Guidelines:**
+| Instead of | Use |
+|------------|-----|
+| "Partner failed 12 words" | "12 words need more practice together" |
+| "They haven't practiced in 5 days" | "Great opportunity to play together!" |
+| "Low accuracy: 45%" | "These words are challenging - focused practice time" |
+
+**Post-Launch (v2):**
+- Shared Goals (complex asymmetric tracking)
+- Learning Style Detection (AI-heavy)
+- Mood-Aware Interactions (over-engineered)
+- XP multipliers (weekend bonus, streak multiplier)
+- Tier unlocks/rewards
+
+**Related:** #23 Achievements, #24 Partner Analytics Dashboard
+
+---
+
 ## 🔥 Critical (Blocking/Broken)
 
 ### ✅ 1. XP System for Games (FIXED)

@@ -1,0 +1,391 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { supabase } from '../../services/supabase';
+import { Profile, TutorAnalytics, TutorStats, WordScore, DictionaryEntry } from '../../types';
+import { getTutorTierFromXP, getTutorTierProgress, getXPToNextTutorTier, TUTOR_TIERS } from '../../constants/levels';
+import { useTheme } from '../../context/ThemeContext';
+import { useLanguage } from '../../context/LanguageContext';
+import { ICONS } from '../../constants';
+
+// Sub-components
+import TeachingImpactCard from './TeachingImpactCard';
+import WeakSpotIntelligence from './WeakSpotIntelligence';
+import TrendCharts from './TrendCharts';
+import ActivityFeed from '../engagement/ActivityFeed';
+import LoveNoteComposer from '../engagement/LoveNoteComposer';
+
+interface TutorAnalyticsDashboardProps {
+  profile: Profile;
+}
+
+const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profile }) => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { accentHex } = useTheme();
+  const { targetLanguage, languageParams } = useLanguage();
+
+  const [analytics, setAnalytics] = useState<TutorAnalytics | null>(null);
+  const [stats, setStats] = useState<TutorStats | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [period, setPeriod] = useState<'week' | 'month' | 'all'>('week');
+  const [activeTab, setActiveTab] = useState<'overview' | 'activity'>('overview');
+  const [partnerProfile, setPartnerProfile] = useState<Profile | null>(null);
+  const [showLoveNote, setShowLoveNote] = useState(false);
+
+  // Calculate tier info
+  const tutorXp = profile.tutor_xp || 0;
+  const tier = getTutorTierFromXP(tutorXp);
+  const tierProgress = getTutorTierProgress(tutorXp);
+  const xpToNext = getXPToNextTutorTier(tutorXp);
+
+  // Tier color gradient
+  const tierColors = {
+    1: '#9333EA', // Purple - Language Whisperer
+    2: '#EC4899', // Pink - Phrase Poet
+    3: '#F59E0B', // Amber - Vocabulary Virtuoso
+    4: '#10B981', // Emerald - Grammar Guardian
+    5: '#3B82F6', // Blue - Fluency Fairy
+    6: '#EF4444', // Red - Love Linguist
+  };
+  const tierColor = tierColors[tier.tier as keyof typeof tierColors] || accentHex;
+
+  useEffect(() => {
+    fetchAnalytics();
+    fetchPartnerProfile();
+  }, [profile.id, targetLanguage, period]);
+
+  const fetchAnalytics = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`/api/tutor-analytics?period=${period}`, {
+        headers: {
+          Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setAnalytics(data.analytics);
+      }
+    } catch (error) {
+      console.error('Failed to fetch analytics:', error);
+    }
+
+    // Also fetch tutor stats
+    try {
+      const response = await fetch('/api/tutor-stats', {
+        headers: {
+          Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setStats(data.tutor.stats);
+      }
+    } catch (error) {
+      console.error('Failed to fetch stats:', error);
+    }
+
+    setLoading(false);
+  };
+
+  const fetchPartnerProfile = async () => {
+    if (!profile.linked_user_id) return;
+
+    const { data } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', profile.linked_user_id)
+      .single();
+
+    if (data) {
+      setPartnerProfile(data);
+    }
+  };
+
+  if (loading && !analytics) {
+    return (
+      <div className="h-full flex items-center justify-center">
+        <ICONS.RefreshCw className="w-8 h-8 animate-spin text-[var(--accent-color)]" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-full overflow-y-auto p-3 md:p-8 bg-[var(--bg-primary)]">
+      <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
+
+        {/* Tutor Tier Card */}
+        <div
+          className="p-4 md:p-6 rounded-xl md:rounded-[2rem] shadow-lg text-white relative overflow-hidden"
+          style={{
+            background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`,
+          }}
+        >
+          <div className="absolute top-0 right-0 opacity-10">
+            <ICONS.Star className="w-20 h-20 md:w-28 md:h-28" />
+          </div>
+
+          <div className="flex items-center justify-between relative z-10">
+            <div>
+              <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest mb-1">
+                {t('tutor.tier.yourLevel', 'Your Teaching Level')}
+              </p>
+              <h2 className="text-scale-heading font-black">{tier.name}</h2>
+              <p className="text-white/70 text-scale-caption mt-1">
+                Tier {tier.tier} of {TUTOR_TIERS.length}
+              </p>
+            </div>
+            <div className="text-right">
+              <p className="text-scale-heading font-black">{tutorXp}</p>
+              <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest">
+                {t('tutor.tier.teachingXp', 'Teaching XP')}
+              </p>
+            </div>
+          </div>
+
+          {/* Progress bar */}
+          {xpToNext && (
+            <div className="mt-4 relative z-10">
+              <div className="flex justify-between text-scale-micro font-bold text-white/60 mb-1">
+                <span>
+                  {t('tutor.tier.progressTo', 'Progress to')} {TUTOR_TIERS[tier.tier]?.name || 'Max'}
+                </span>
+                <span>{tierProgress}%</span>
+              </div>
+              <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-white rounded-full transition-all duration-1000"
+                  style={{ width: `${tierProgress}%` }}
+                />
+              </div>
+              <p className="text-scale-micro text-white/50 mt-1">
+                {xpToNext} XP to next tier
+              </p>
+            </div>
+          )}
+
+          {/* Teaching Streak */}
+          {stats && stats.teachingStreak > 0 && (
+            <div className="mt-4 flex items-center gap-2 relative z-10">
+              <div className="flex items-center gap-1.5 bg-white/20 px-3 py-1.5 rounded-full">
+                <span className="text-lg">🔥</span>
+                <span className="font-bold text-scale-label">
+                  {stats.teachingStreak} day streak
+                </span>
+              </div>
+              {stats.longestStreak > stats.teachingStreak && (
+                <span className="text-scale-micro text-white/50">
+                  Best: {stats.longestStreak}
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Tab Switcher */}
+        <div className="flex gap-2 bg-[var(--bg-card)] p-1 rounded-xl border border-[var(--border-color)]">
+          <button
+            onClick={() => setActiveTab('overview')}
+            className={`flex-1 py-2 px-4 rounded-lg text-scale-label font-bold transition-all ${
+              activeTab === 'overview'
+                ? 'bg-[var(--accent-color)] text-white'
+                : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
+            }`}
+          >
+            <ICONS.BarChart className="w-4 h-4 inline-block mr-2" />
+            {t('tutor.tabs.overview', 'Overview')}
+          </button>
+          <button
+            onClick={() => setActiveTab('activity')}
+            className={`flex-1 py-2 px-4 rounded-lg text-scale-label font-bold transition-all ${
+              activeTab === 'activity'
+                ? 'bg-[var(--accent-color)] text-white'
+                : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
+            }`}
+          >
+            <ICONS.Clock className="w-4 h-4 inline-block mr-2" />
+            {t('tutor.tabs.activity', 'Together')}
+          </button>
+        </div>
+
+        {activeTab === 'overview' ? (
+          <>
+            {/* Teaching Impact Card */}
+            {analytics && (
+              <TeachingImpactCard
+                xpContributed={analytics.xp_contributed}
+                wordsMastered={analytics.words_mastered}
+                challengeSuccessRate={analytics.challenge_success_rate}
+                partnerName={partnerProfile?.full_name || t('common.partner', 'Partner')}
+                tierColor={tierColor}
+              />
+            )}
+
+            {/* Period Selector */}
+            <div className="flex gap-2 justify-center">
+              {(['week', 'month', 'all'] as const).map((p) => (
+                <button
+                  key={p}
+                  onClick={() => setPeriod(p)}
+                  className={`px-4 py-1.5 rounded-full text-scale-caption font-bold transition-all ${
+                    period === p
+                      ? 'text-white'
+                      : 'bg-[var(--bg-card)] text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
+                  }`}
+                  style={period === p ? { backgroundColor: tierColor } : {}}
+                >
+                  {p === 'week' ? t('tutor.period.week', 'Week') :
+                   p === 'month' ? t('tutor.period.month', 'Month') :
+                   t('tutor.period.allTime', 'All Time')}
+                </button>
+              ))}
+            </div>
+
+            {/* Trend Charts */}
+            {analytics && (
+              <TrendCharts
+                xpTrend={analytics.xp_trend}
+                wordsTrend={analytics.words_trend}
+                accuracyTrend={analytics.accuracy_trend}
+                tierColor={tierColor}
+              />
+            )}
+
+            {/* Weak Spot Intelligence */}
+            {analytics && analytics.stuck_words.length > 0 && (
+              <WeakSpotIntelligence
+                stuckWords={analytics.stuck_words}
+                improvingWords={analytics.improving_words}
+                onCreateChallenge={() => navigate('/play')}
+                tierColor={tierColor}
+              />
+            )}
+
+            {/* Recommendations */}
+            {analytics && analytics.recommendations.length > 0 && (
+              <div className="bg-[var(--bg-card)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)]">
+                <h3 className="text-scale-micro font-black uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
+                  <ICONS.Lightbulb className="w-4 h-4" style={{ color: tierColor }} />
+                  {t('tutor.recommendations.title', 'Suggestions')}
+                </h3>
+                <div className="space-y-2">
+                  {analytics.recommendations.map((rec, i) => (
+                    <div
+                      key={i}
+                      className="p-3 rounded-xl border flex items-center justify-between gap-3"
+                      style={{ backgroundColor: `${tierColor}08`, borderColor: `${tierColor}20` }}
+                    >
+                      <p className="text-scale-label text-[var(--text-primary)]">{rec.message}</p>
+                      {rec.action_type && (
+                        <button
+                          onClick={() => {
+                            if (rec.action_type === 'challenge') navigate('/play');
+                            // Love note handled elsewhere
+                          }}
+                          className="px-3 py-1.5 rounded-lg text-scale-micro font-bold text-white flex-shrink-0"
+                          style={{ backgroundColor: tierColor }}
+                        >
+                          {rec.action_type === 'challenge'
+                            ? t('tutor.recommendations.createChallenge', 'Create')
+                            : t('tutor.recommendations.sendNote', 'Send Note')}
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Quick Stats Grid */}
+            {stats && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                  <div className="text-scale-heading font-black" style={{ color: tierColor }}>
+                    {stats.challengesCreated}
+                  </div>
+                  <div className="text-scale-micro text-[var(--text-secondary)] uppercase font-bold">
+                    {t('tutor.stats.challenges', 'Challenges')}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                  <div className="text-scale-heading font-black" style={{ color: tierColor }}>
+                    {stats.giftsSent}
+                  </div>
+                  <div className="text-scale-micro text-[var(--text-secondary)] uppercase font-bold">
+                    {t('tutor.stats.gifts', 'Gifts Sent')}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                  <div className="text-scale-heading font-black" style={{ color: tierColor }}>
+                    {stats.perfectScores}
+                  </div>
+                  <div className="text-scale-micro text-[var(--text-secondary)] uppercase font-bold">
+                    {t('tutor.stats.perfects', 'Perfect Scores')}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                  <div className="text-scale-heading font-black" style={{ color: tierColor }}>
+                    {stats.wordsMastered}
+                  </div>
+                  <div className="text-scale-micro text-[var(--text-secondary)] uppercase font-bold">
+                    {t('tutor.stats.mastered', 'Mastered')}
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          /* Activity Feed Tab */
+          <ActivityFeed partnerId={profile.linked_user_id || undefined} />
+        )}
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-3 gap-2 md:gap-3">
+          <button
+            onClick={() => navigate('/play')}
+            className="bg-[var(--bg-card)] p-3 md:p-5 rounded-xl md:rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+          >
+            <ICONS.Target className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5" style={{ color: tierColor }} />
+            <p className="text-scale-label font-bold text-[var(--text-primary)]">
+              {t('tutor.actions.createChallenge', 'Challenge')}
+            </p>
+          </button>
+          <button
+            onClick={() => navigate('/play')}
+            className="bg-[var(--bg-card)] p-3 md:p-5 rounded-xl md:rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+          >
+            <ICONS.Gift className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5" style={{ color: tierColor }} />
+            <p className="text-scale-label font-bold text-[var(--text-primary)]">
+              {t('tutor.actions.sendGift', 'Word Gift')}
+            </p>
+          </button>
+          <button
+            onClick={() => setShowLoveNote(true)}
+            className="bg-[var(--bg-card)] p-3 md:p-5 rounded-xl md:rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all group"
+          >
+            <ICONS.Heart className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5 group-hover:text-red-500 transition-colors" style={{ color: tierColor }} />
+            <p className="text-scale-label font-bold text-[var(--text-primary)]">
+              {t('tutor.actions.loveNote', 'Love Note')}
+            </p>
+          </button>
+        </div>
+      </div>
+
+      {/* Love Note Modal */}
+      {profile.linked_user_id && (
+        <LoveNoteComposer
+          isOpen={showLoveNote}
+          onClose={() => setShowLoveNote(false)}
+          senderId={profile.id}
+          recipientId={profile.linked_user_id}
+          senderName={profile.full_name}
+        />
+      )}
+    </div>
+  );
+};
+
+export default TutorAnalyticsDashboard;

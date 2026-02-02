@@ -145,6 +145,10 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
       case 'challenge_completed': return '🏆';
       case 'word_gift_received': return '🎁';
       case 'word_gift_completed': return '✨';
+      case 'love_note': return '💕';
+      case 'gift_complete': return '🎊';
+      case 'challenge_request': return '🙋';
+      case 'word_request': return '🎁';
       default: return '💌';
     }
   };

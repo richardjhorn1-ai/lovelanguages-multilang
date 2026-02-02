@@ -192,6 +192,34 @@ export default async function handler(req: any, res: any) {
       // Don't fail - word request was created, just warn
     }
 
+    // Award Tutor XP for sending word gift
+    try {
+      await fetch(`${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : ''}/api/tutor-award-xp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': req.headers.authorization || '',
+        },
+        body: JSON.stringify({
+          action: 'send_word_gift',
+        }),
+      });
+    } catch (tutorXpError) {
+      // Don't fail the main request if tutor XP fails
+      console.error('[create-word-request] Failed to award tutor XP:', tutorXpError);
+    }
+
+    // Add to activity feed
+    await supabase.from('activity_feed').insert({
+      user_id: auth.userId,
+      partner_id: profile.linked_user_id,
+      event_type: 'gift_sent',
+      title: 'Sent a word gift',
+      subtitle: requestType === 'ai_topic' ? `Topic: ${inputText}` : `${wordCount} words`,
+      data: { request_id: wordRequest.id, word_count: wordCount },
+      language_code: targetLanguage,
+    });
+
     return res.status(200).json({
       success: true,
       wordRequest,

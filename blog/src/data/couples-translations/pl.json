@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Uczcie się języka razem",
+      "subtitle": "Kompletny przewodnik, jak zamienić naukę języka we wspólną przygodę. Wzmocnijcie swoją więź, otwierając się na nowe kultury."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Dlaczego warto uczyć się języków we dwoje",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Wspólne cele zbliżają",
+          "description": "Dążenie do wspólnego celu buduje zespołową więź i pogłębia wasz związek. Świętowanie językowych sukcesów razem tworzy niezapomniane wspomnienia."
+        },
+        {
+          "emoji": "💬",
+          "title": "Partner do rozmów zawsze pod ręką",
+          "description": "Możliwość ćwiczenia konwersacji 24/7 przyspiesza naukę. Możecie praktykować w każdej chwili — podczas posiłków, spacerów czy leniwych niedzielnych poranków."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Podróże nabierają nowego wymiaru",
+          "description": "Nawet podstawowa znajomość języka całkowicie zmienia doświadczenie podróży. Odkrywajcie razem nowe miejsca, zamawiajcie jedzenie z pewnością siebie i nawiązujcie kontakt z mieszkańcami w sposób niedostępny dla zwykłych turystów."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Umysł pozostaje sprawny",
+          "description": "Nauka języków to jeden z najlepszych treningów dla mózgu. Robiąc to razem, inwestujecie we wspólne zdrowie poznawcze na długie lata."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Najlepsze języki dla par",
+      "subtitle": "Te języki oferują idealną kombinację romantyzmu, praktyczności i osiągalności dla par pragnących wspólnej przygody językowej."
+    },
+    "tips": {
+      "sectionTitle": "Wskazówki do wspólnej nauki",
+      "items": [
+        {
+          "title": "Wyznaczcie realistyczne cele",
+          "description": "Ustalcie wspólnie, ile godzin tygodniowo poświęcicie na praktykę i jakie cele chcecie osiągnąć. Wspólne cele pomagają wam się wzajemnie motywować."
+        },
+        {
+          "title": "Włączcie język do codzienności",
+          "description": "Podpisujcie przedmioty w domu, witajcie się w nowym języku lub wprowadźcie 'posiłki w obcym języku', podczas których ćwiczycie razem."
+        },
+        {
+          "title": "Oglądajcie razem filmy i seriale",
+          "description": "Zacznijcie od napisów w języku polskim, przejdźcie do napisów w języku docelowym, a potem spróbujcie bez napisów. Po każdym odcinku porozmawiajcie o tym, czego się nauczyliście."
+        },
+        {
+          "title": "Zaplanujcie podróż jako motywację",
+          "description": "Nic tak nie motywuje jak świadomość, że niedługo będziecie potrzebować języka. Zaplanujcie wyjazd do kraju, gdzie mówi się w waszym języku docelowym, i wyznaczcie cele do osiągnięcia przed wyjazdem."
+        },
+        {
+          "title": "Świętujcie każdy sukces",
+          "description": "Pierwsza rozmowa, 100 nauczonych słów, udane zamówienie w restauracji — świętujcie te osiągnięcia razem. Małe nagrody utrzymują motywację na wysokim poziomie."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Jaki język jest najlepszy do nauki we dwoje?",
+        "answer": "Hiszpański, francuski i włoski to doskonałe wybory dla par ze względu na ich romantyczny charakter i względną łatwość nauki. Hiszpański oferuje najwięcej praktycznych korzyści z ponad 500 milionami użytkowników, podczas gdy francuski i włoski są tradycyjnie kojarzone z romantyzmem i kulturą."
+      },
+      {
+        "question": "Jak utrzymać motywację ucząc się razem?",
+        "answer": "Wyznaczcie wspólne cele, codziennie ćwiczcie konwersacje, oglądajcie filmy w języku docelowym, planujcie podróże do krajów, gdzie używa się tego języka, i świętujcie razem sukcesy. Traktowanie nauki jako wspólnego hobby, a nie obowiązku, sprawia, że oboje pozostajecie zaangażowani."
+      },
+      {
+        "question": "Czy musimy uczyć się w tym samym tempie?",
+        "answer": "Niekoniecznie. To naturalne, że jedno z was będzie robić szybsze postępy. Kluczem jest wzajemne wsparcie i wykorzystanie tej różnicy jako szansy — osoba ucząca się szybciej może pomagać i utrwalać materiał dla obojga."
+      },
+      {
+        "question": "Ile czasu dziennie powinniśmy poświęcać na naukę?",
+        "answer": "Nawet 15-30 minut wspólnej praktyki dziennie przynosi efekty. Regularność jest ważniejsza niż długość sesji. Spróbujcie włączyć język do codziennych czynności: poranne powitania, rozmowy przy posiłkach czy wieczorne zwroty przed snem."
+      },
+      {
+        "question": "Co jeśli jedno z nas straci zainteresowanie?",
+        "answer": "Postawcie na zabawę zamiast akademickiego podejścia. Spróbujcie gotować według przepisów w języku docelowym, grać razem w gry językowe lub zaplanować podróż wymagającą znajomości języka. Czasem zmiana podejścia na nowo rozpala motywację."
+      },
+      {
+        "question": "Czy możemy uczyć się różnych języków?",
+        "answer": "Możecie, ale nauka tego samego języka daje więcej okazji do praktyki i wspólnych doświadczeń. Jeśli macie różne zainteresowania, rozważcie najpierw naukę jednego języka razem, a później eksplorowanie indywidualnych preferencji."
+      }
+    ],
+    "exploreAll": {
+      "title": "Odkryjcie wszystkie języki",
+      "subtitle": "Znajdźcie idealny język na waszą wspólną podróż."
+    },
+    "cta": {
+      "title": "Gotowi na wspólną przygodę?",
+      "subtitle": "Dołączcie do tysięcy par uczących się języków razem z pomocą AI, ćwiczeń wymowy i gier.",
+      "button": "Zacznijcie uczyć się razem"
+    },
+    "footer": {
+      "tagline": "Uczcie się dowolnego języka razem z partnerem"
+    }
+  }
+}

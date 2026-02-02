@@ -1,0 +1,36 @@
+{
+  "sectionTitle": "Date Night Ideas",
+  "subtitle": "Turn your romance into a language adventure with these creative date nights",
+  "ideas": [
+    {
+      "emoji": "👨‍🍳",
+      "title": "Recipe Roulette",
+      "description": "Pick a traditional recipe written in your target language and cook it together—no translations allowed! Navigate the ingredients and instructions as a team, tasting and guessing your way to a delicious (or hilariously unexpected) meal."
+    },
+    {
+      "emoji": "🎬",
+      "title": "Subtitle Striptease",
+      "description": "Start a foreign film with full subtitles, then gradually reduce them—first to target-language-only, then off completely. Cuddle up and piece together the plot together, rewarding each other for every phrase you catch."
+    },
+    {
+      "emoji": "🍷",
+      "title": "The Immersion Dinner",
+      "description": "Book a restaurant serving cuisine from your target language's culture—and commit to ordering, discussing the menu, and toasting only in that language. Bonus points for flirting across the table without switching back."
+    },
+    {
+      "emoji": "🎤",
+      "title": "Karaoke for Two",
+      "description": "Create a playlist of songs in your target language and take turns serenading each other at home. Look up the lyrics together, learn what you're singing about, and judge each other's pronunciation with kisses instead of points."
+    },
+    {
+      "emoji": "🗺️",
+      "title": "Tourist in Your City",
+      "description": "Pretend you're tourists from a country that speaks your target language. Explore your own city while only speaking the language—ask for directions, comment on sights, take selfies. See your familiar surroundings through fresh, foreign eyes."
+    },
+    {
+      "emoji": "🎲",
+      "title": "Game Night Gone Global",
+      "description": "Play your favorite board game or card game, but all table talk must be in your target language. Negotiate trades in Catan, call Uno, or bluff in poker—competition gets spicy when you're both fumbling for words."
+    }
+  ]
+}

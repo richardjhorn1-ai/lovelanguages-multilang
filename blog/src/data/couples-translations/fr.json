@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Apprenez une Langue Ensemble",
+      "subtitle": "Le guide ultime pour transformer l'apprentissage des langues en une aventure partagée. Renforcez votre complicité tout en ouvrant les portes de nouvelles cultures."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Pourquoi les Couples Devraient Apprendre Ensemble",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Des Objectifs Communs Renforcent la Complicité",
+          "description": "Travailler ensemble vers un but commun crée une vraie dynamique d'équipe et approfondit votre relation. Célébrer vos progrès linguistiques ensemble crée des souvenirs inoubliables."
+        },
+        {
+          "emoji": "💬",
+          "title": "Un Partenaire de Conversation au Quotidien",
+          "description": "Avoir quelqu'un avec qui pratiquer à tout moment accélère l'apprentissage. Vous pouvez vous exercer pendant les repas, les balades, ou les grasses matinées du dimanche."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Voyagez Autrement",
+          "description": "Parler même quelques phrases transforme l'expérience du voyage. Explorez ensemble, commandez au restaurant avec assurance et créez des liens avec les locaux comme aucun touriste ne le fait."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Gardez l'Esprit Vif",
+          "description": "L'apprentissage des langues est l'un des meilleurs exercices pour la santé cérébrale. Le faire à deux, c'est investir ensemble dans votre bien-être cognitif à long terme."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Les Meilleures Langues à Apprendre en Couple",
+      "subtitle": "Ces langues offrent le meilleur équilibre entre romantisme, utilité pratique et accessibilité pour les couples francophones."
+    },
+    "tips": {
+      "sectionTitle": "Conseils pour Apprendre à Deux",
+      "items": [
+        {
+          "title": "Fixez-vous des Objectifs Réalistes Ensemble",
+          "description": "Convenez du nombre d'heures de pratique par semaine et des étapes que vous souhaitez atteindre. Avoir des objectifs communs vous responsabilise tous les deux."
+        },
+        {
+          "title": "Intégrez la Langue au Quotidien",
+          "description": "Étiquetez les objets de la maison, saluez-vous dans votre langue cible, ou désignez des repas « en immersion » où vous ne parlez que cette langue."
+        },
+        {
+          "title": "Regardez des Films et Séries Ensemble",
+          "description": "Commencez avec les sous-titres en français, passez ensuite aux sous-titres dans la langue cible, puis essayez sans. Discutez de ce que vous avez appris après chaque épisode."
+        },
+        {
+          "title": "Planifiez un Voyage comme Motivation",
+          "description": "Rien ne motive autant que de savoir qu'on aura bientôt besoin de la langue. Planifiez un voyage dans un pays où elle est parlée et fixez des objectifs d'apprentissage avant le départ."
+        },
+        {
+          "title": "Célébrez Chaque Victoire",
+          "description": "Première conversation, 100 mots appris, première commande réussie au restaurant... fêtez ces moments ensemble. Les petites récompenses entretiennent la motivation."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Quelle est la meilleure langue à apprendre en couple ?",
+        "answer": "L'espagnol, l'anglais et l'italien sont d'excellents choix pour les couples grâce à leur caractère romantique et leur accessibilité relative pour les francophones. L'espagnol offre les avantages les plus pratiques avec plus de 500 millions de locuteurs, tandis que l'italien est traditionnellement associé à la romance et à la culture."
+      },
+      {
+        "question": "Comment rester motivés en apprenant ensemble ?",
+        "answer": "Fixez-vous des objectifs communs, pratiquez des conversations chaque jour, regardez des films dans votre langue cible ensemble, planifiez des voyages dans des pays où elle est parlée, et célébrez vos progrès ensemble. En faire un hobby partagé plutôt qu'une corvée maintient l'engagement des deux partenaires."
+      },
+      {
+        "question": "Doit-on progresser au même rythme ?",
+        "answer": "Pas forcément. Il est naturel qu'un partenaire progresse plus vite. L'essentiel est de se soutenir mutuellement et d'utiliser cette différence comme une opportunité : celui qui avance plus vite peut aider à enseigner et renforcer les acquis pour tous les deux."
+      },
+      {
+        "question": "Combien de temps devrait-on y consacrer par jour ?",
+        "answer": "Même 15 à 30 minutes de pratique quotidienne ensemble sont efficaces. La régularité compte plus que la durée. Essayez d'intégrer la langue dans vos activités quotidiennes : salutations du matin, conversations pendant les repas ou petites phrases avant de dormir."
+      },
+      {
+        "question": "Que faire si l'un des partenaires perd sa motivation ?",
+        "answer": "Concentrez-vous sur le plaisir plutôt que sur l'aspect académique. Essayez de cuisiner des recettes dans la langue cible, de jouer à des jeux d'apprentissage linguistique ensemble, ou de planifier un voyage qui nécessite cette langue. Parfois, changer d'approche rallume la flamme."
+      },
+      {
+        "question": "Peut-on apprendre des langues différentes ?",
+        "answer": "C'est possible, mais apprendre la même langue crée plus d'occasions de pratiquer et de partager des expériences. Si vos intérêts diffèrent, envisagez d'abord d'apprendre une langue ensemble, puis d'explorer vos préférences individuelles ensuite."
+      }
+    ],
+    "exploreAll": {
+      "title": "Explorez Toutes les Langues",
+      "subtitle": "Trouvez la langue parfaite pour votre aventure à deux."
+    },
+    "cta": {
+      "title": "Prêts à Commencer Votre Aventure ?",
+      "subtitle": "Rejoignez des milliers de couples qui apprennent les langues ensemble grâce au coaching IA, à la pratique orale et aux jeux.",
+      "button": "Commencer à Apprendre Ensemble"
+    },
+    "footer": {
+      "tagline": "Apprenez n'importe quelle langue ensemble, main dans la main"
+    }
+  }
+}

@@ -1,0 +1,206 @@
+---
+/**
+ * Methodology Article Page
+ * URL: /learn/[nativeLang]/couples-language-learning/methodology/[slug]/
+ *
+ * Displays couples methodology articles (general content, not language-pair specific)
+ */
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import { createClient } from '@supabase/supabase-js';
+import { SUPPORTED_NATIVE_LANGS, getLanguageName } from '../../../../../data/language-info';
+
+const { nativeLang, slug } = Astro.params;
+
+// Validate native language
+if (!SUPPORTED_NATIVE_LANGS.includes(nativeLang || '')) {
+  return Astro.redirect('/learn/en/couples-language-learning/methodology/');
+}
+
+// Fetch article from Supabase
+const supabaseUrl = import.meta.env.SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  return Astro.redirect('/learn/en/couples-language-learning/');
+}
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const { data: article, error } = await supabase
+  .from('blog_articles')
+  .select('*')
+  .eq('native_lang', nativeLang)
+  .eq('target_lang', 'all')
+  .eq('slug', slug)
+  .eq('published', true)
+  .single();
+
+if (error || !article) {
+  return Astro.redirect(`/learn/${nativeLang}/couples-language-learning/methodology/`);
+}
+
+// Get other methodology articles for sidebar
+const { data: relatedArticles } = await supabase
+  .from('blog_articles')
+  .select('slug, title')
+  .eq('native_lang', nativeLang)
+  .eq('target_lang', 'all')
+  .eq('category', 'couples-methodology')
+  .eq('published', true)
+  .neq('slug', slug)
+  .limit(7);
+
+// Hreflang alternates for all languages
+const hreflangAlternates = SUPPORTED_NATIVE_LANGS
+  .filter(lang => lang !== nativeLang)
+  .map(lang => ({
+    lang,
+    href: `https://www.lovelanguages.io/learn/${lang}/couples-language-learning/methodology/${slug}/`
+  }));
+
+const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLang}/couples-language-learning/methodology/${slug}/`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.title,
+  "description": article.description,
+  "url": canonicalUrl,
+  "inLanguage": nativeLang,
+  "datePublished": article.date,
+  "dateModified": article.updated_at,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://www.lovelanguages.io"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Love Languages"
+  }
+};
+
+// Breadcrumb labels per language
+const breadcrumbLabels: Record<string, { home: string; couples: string; methodology: string }> = {
+  en: { home: 'Learn', couples: 'Couples Language Learning', methodology: 'Methodology' },
+  es: { home: 'Aprender', couples: 'Aprendizaje en Pareja', methodology: 'Metodología' },
+  fr: { home: 'Apprendre', couples: 'Apprentissage en Couple', methodology: 'Méthodologie' },
+  de: { home: 'Lernen', couples: 'Paar-Sprachlernen', methodology: 'Methodik' },
+  it: { home: 'Impara', couples: 'Apprendimento di Coppia', methodology: 'Metodologia' },
+  pt: { home: 'Aprender', couples: 'Aprendizado para Casais', methodology: 'Metodologia' },
+  pl: { home: 'Nauka', couples: 'Nauka dla Par', methodology: 'Metodologia' },
+  ru: { home: 'Учить', couples: 'Обучение для Пар', methodology: 'Методология' },
+  uk: { home: 'Вчити', couples: 'Навчання для Пар', methodology: 'Методологія' },
+  nl: { home: 'Leren', couples: 'Taal Leren voor Koppels', methodology: 'Methodologie' },
+  sv: { home: 'Lär dig', couples: 'Pars Språkinlärning', methodology: 'Metodik' },
+  no: { home: 'Lær', couples: 'Parspråklæring', methodology: 'Metodikk' },
+  da: { home: 'Lær', couples: 'Parsprogindlæring', methodology: 'Metode' },
+  cs: { home: 'Učit se', couples: 'Učení pro Páry', methodology: 'Metodika' },
+  ro: { home: 'Învață', couples: 'Învățare pentru Cupluri', methodology: 'Metodologie' },
+  el: { home: 'Μάθε', couples: 'Εκμάθηση για Ζευγάρια', methodology: 'Μεθοδολογία' },
+  hu: { home: 'Tanulj', couples: 'Páros Nyelvtanulás', methodology: 'Módszertan' },
+  tr: { home: 'Öğren', couples: 'Çiftler İçin Dil Öğrenimi', methodology: 'Metodoloji' }
+};
+
+const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
+---
+
+<BaseLayout
+  title={`${article.title} | Love Languages`}
+  description={article.description || article.title}
+  nativeLang={nativeLang}
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={nativeLang} href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={`https://www.lovelanguages.io/learn/en/couples-language-learning/methodology/${slug}/`} />
+    {hreflangAlternates.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+  </Fragment>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="bg-white min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+
+      <!-- Breadcrumbs -->
+      <nav class="text-sm text-gray-500 mb-6">
+        <ol class="flex items-center space-x-2">
+          <li>
+            <a href={`/learn/${nativeLang}/`} class="hover:text-pink-600">{labels.home}</a>
+          </li>
+          <li class="text-gray-400">/</li>
+          <li>
+            <a href={`/learn/${nativeLang}/couples-language-learning/`} class="hover:text-pink-600">{labels.couples}</a>
+          </li>
+          <li class="text-gray-400">/</li>
+          <li>
+            <a href={`/learn/${nativeLang}/couples-language-learning/methodology/`} class="hover:text-pink-600">{labels.methodology}</a>
+          </li>
+          <li class="text-gray-400">/</li>
+          <li class="text-gray-700 font-medium truncate max-w-[200px]">{article.title}</li>
+        </ol>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="mb-8">
+        <h1 class="text-3xl md:text-4xl font-black font-header text-gray-900 mb-4">
+          {article.title}
+        </h1>
+        {article.description && (
+          <p class="text-lg text-gray-600 mb-4">{article.description}</p>
+        )}
+        <div class="flex items-center gap-4 text-sm text-gray-500">
+          {article.read_time && (
+            <span class="flex items-center gap-1">
+              <span>📖</span> {article.read_time} min read
+            </span>
+          )}
+          {article.difficulty && (
+            <span class="px-2 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-medium">
+              {article.difficulty}
+            </span>
+          )}
+        </div>
+      </header>
+
+      <!-- Article Content -->
+      <article class="prose prose-lg prose-pink max-w-none mb-12">
+        <Fragment set:html={article.content_html || article.content} />
+      </article>
+
+      <!-- Related Articles -->
+      {relatedArticles && relatedArticles.length > 0 && (
+        <aside class="border-t pt-8">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">More Methodology Articles</h2>
+          <ul class="grid gap-3">
+            {relatedArticles.map((related) => (
+              <li>
+                <a
+                  href={`/learn/${nativeLang}/couples-language-learning/methodology/${related.slug}/`}
+                  class="block p-4 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors"
+                >
+                  <span class="text-gray-900 font-medium">{related.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+
+      <!-- CTA -->
+      <div class="mt-12 p-6 bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl text-white text-center">
+        <h3 class="text-xl font-bold mb-2">Ready to learn your partner's language?</h3>
+        <p class="mb-4 opacity-90">Start your journey together with Love Languages</p>
+        <a
+          href="https://www.lovelanguages.io/signup"
+          class="inline-block px-6 py-3 bg-white text-pink-600 font-bold rounded-full hover:bg-pink-50 transition-colors"
+        >
+          Get Started Free →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

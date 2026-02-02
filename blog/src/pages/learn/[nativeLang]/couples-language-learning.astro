@@ -4,6 +4,7 @@ import LanguageCard from '../../../components/hub/LanguageCard.astro';
 import FAQSection from '../../../components/hub/FAQSection.astro';
 import { LANGUAGE_HUB_DATA } from '../../../data/language-hub-data';
 import { getUITranslations } from '../../../data/ui-translations';
+import { getCouplesTranslations } from '../../../data/couples-translations';
 import { SUPPORTED_NATIVE_LANGS, getLanguageForDisplay } from '../../../data/language-info';
 
 const { nativeLang } = Astro.params;
@@ -15,34 +16,15 @@ if (!SUPPORTED_NATIVE_LANGS.includes(nativeLanguageCode)) {
 }
 
 // Get translations
-const text = getUITranslations(nativeLanguageCode);
-const nativeInfo = getLanguageForDisplay(nativeLanguageCode, nativeLanguageCode);
+const uiText = getUITranslations(nativeLanguageCode);
+const t = getCouplesTranslations(nativeLanguageCode);
+const s = t.sections;
 
 // Get top languages sorted by difficulty (easiest first for couples)
 const languages = Object.values(LANGUAGE_HUB_DATA)
   .sort((a, b) => a.difficultyRating - b.difficultyRating);
 
 const easiestLanguages = languages.slice(0, 6);
-
-// Translated FAQs
-const faqs = [
-  {
-    question: text.faqCouplesQ1 || "What's the best language for couples to learn together?",
-    answer: text.faqCouplesA1 || "Spanish, French, and Italian are excellent choices for couples due to their romantic nature and relative ease. Spanish offers the most practical benefits with 500+ million speakers."
-  },
-  {
-    question: text.faqCouplesQ2 || "How can we stay motivated learning together?",
-    answer: text.faqCouplesA2 || "Set shared goals, practice conversations daily, watch movies in your target language together, and plan trips to countries where the language is spoken."
-  },
-  {
-    question: text.faqCouplesQ3 || "Should we learn at the same pace?",
-    answer: text.faqCouplesA3 || "Not necessarily. It's natural for one partner to progress faster. The key is supporting each other and using the difference as an opportunity to teach and learn."
-  },
-  {
-    question: text.faqCouplesQ4 || "How much time should we dedicate daily?",
-    answer: text.faqCouplesA4 || "Even 15-30 minutes of daily practice together is effective. Consistency matters more than duration."
-  }
-];
 
 // Hreflang alternates
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
@@ -57,8 +39,8 @@ const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/c
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": text.couplesPageTitle || "Learn a Language Together - Couples Guide",
-  "description": text.couplesPageDesc || "Discover the best languages to learn as a couple.",
+  "name": s.hero.title,
+  "description": s.hero.subtitle,
   "url": canonicalUrl,
   "inLanguage": nativeLanguageCode,
   "publisher": {
@@ -70,8 +52,8 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title={`${text.couplesPageTitle || 'Learn a Language Together'} | Love Languages`}
-  description={text.couplesPageDesc || 'Discover why learning a language together strengthens relationships.'}
+  title={`${s.hero.title} | Love Languages`}
+  description={s.hero.subtitle}
   nativeLang={nativeLanguageCode}
 >
   <Fragment slot="head">
@@ -91,16 +73,16 @@ const jsonLd = {
       <div class="text-center max-w-3xl mx-auto">
         <span class="text-6xl mb-4 block">💑</span>
         <h1 class="text-3xl md:text-5xl font-black font-header text-gray-900 mb-4">
-          {text.couplesHeroTitle || 'Learn a Language Together'}
+          {s.hero.title}
         </h1>
         <p class="text-lg md:text-xl text-gray-600 mb-8">
-          {text.couplesHeroSubtitle || 'The ultimate guide to making language learning a shared adventure.'}
+          {s.hero.subtitle}
         </p>
         <a
           href={`/learn/${nativeLanguageCode}/`}
           class="inline-flex items-center gap-2 text-[#4ECDC4] hover:underline"
         >
-          ← {text.backToHub || 'Back to Language Hub'}
+          ← {uiText.backToHub || 'Back to Language Hub'}
         </a>
       </div>
     </div>
@@ -110,33 +92,17 @@ const jsonLd = {
   <section class="py-12 bg-white">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
-        {text.whyLearnTogetherTitle || 'Why Couples Should Learn Languages Together'}
+        {s.whyLearnTogether.sectionTitle}
       </h2>
 
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
-          <span class="text-3xl mb-3 block">🎯</span>
-          <h3 class="font-bold text-gray-900 mb-2">{text.sharedGoalsTitle || 'Shared Goals Build Connection'}</h3>
-          <p class="text-gray-600">{text.sharedGoalsDesc || 'Working toward a common goal creates teamwork and deepens your relationship.'}</p>
-        </div>
-
-        <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
-          <span class="text-3xl mb-3 block">💬</span>
-          <h3 class="font-bold text-gray-900 mb-2">{text.practicePartnerTitle || 'Built-in Practice Partner'}</h3>
-          <p class="text-gray-600">{text.practicePartnerDesc || 'Having a conversation partner available 24/7 accelerates learning.'}</p>
-        </div>
-
-        <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
-          <span class="text-3xl mb-3 block">✈️</span>
-          <h3 class="font-bold text-gray-900 mb-2">{text.travelTitle || 'Travel Transforms'}</h3>
-          <p class="text-gray-600">{text.travelDesc || 'Speaking even basic phrases transforms travel experiences.'}</p>
-        </div>
-
-        <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
-          <span class="text-3xl mb-3 block">🧠</span>
-          <h3 class="font-bold text-gray-900 mb-2">{text.brainHealthTitle || 'Keeps Minds Sharp'}</h3>
-          <p class="text-gray-600">{text.brainHealthDesc || 'Language learning is one of the best exercises for brain health.'}</p>
-        </div>
+        {s.whyLearnTogether.benefits.map(benefit => (
+          <div class="p-6 bg-gradient-to-br from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
+            <span class="text-3xl mb-3 block">{benefit.emoji}</span>
+            <h3 class="font-bold text-gray-900 mb-2">{benefit.title}</h3>
+            <p class="text-gray-600">{benefit.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -145,10 +111,10 @@ const jsonLd = {
   <section class="py-12 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2">
-        {text.bestLanguagesTitle || 'Best Languages for Couples'}
+        {s.bestLanguages.sectionTitle}
       </h2>
       <p class="text-gray-600 mb-8">
-        {text.bestLanguagesSubtitle || 'These languages offer the best combination of romance, practicality, and achievability.'}
+        {s.bestLanguages.subtitle}
       </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -167,22 +133,70 @@ const jsonLd = {
     </div>
   </section>
 
-  <FAQSection faqs={faqs} />
+  <!-- Tips Section -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8">
+        {s.tips.sectionTitle}
+      </h2>
+
+      <div class="space-y-6">
+        {s.tips.items.map((tip, i) => (
+          <div class="flex gap-4 items-start p-5 bg-gray-50 rounded-xl">
+            <span class="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold flex-shrink-0">{i + 1}</span>
+            <div>
+              <h3 class="font-bold text-gray-900 mb-1">{tip.title}</h3>
+              <p class="text-gray-600">{tip.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore All Languages -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2 text-center">
+        {s.exploreAll.title}
+      </h2>
+      <p class="text-gray-600 mb-8 text-center">
+        {s.exploreAll.subtitle}
+      </p>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {languages.map(lang => (
+          <LanguageCard
+            code={lang.code}
+            name={lang.name}
+            nativeName={lang.nativeName}
+            flag={lang.flag}
+            speakers={lang.speakers}
+            difficultyRating={lang.difficultyRating}
+            href={`/learn/${nativeLanguageCode}/${lang.code}/`}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <FAQSection faqs={s.faqs} />
 
   <!-- CTA -->
   <section class="bg-gradient-to-r from-accent to-pink-500 py-16">
     <div class="max-w-2xl mx-auto px-4 text-center text-white">
       <h2 class="text-3xl font-bold font-header mb-4">
-        {text.ctaTitle || 'Ready to Start?'}
+        {s.cta.title}
       </h2>
       <p class="text-white/90 mb-8">
-        {text.ctaSubtitle || 'AI coaching, voice practice, and games designed for two.'}
+        {s.cta.subtitle}
       </p>
       <a
         href="/"
         class="inline-block bg-white text-accent font-bold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 transition-all text-lg"
       >
-        {text.ctaButton || 'Start Learning Together'}
+        {s.cta.button}
       </a>
     </div>
   </section>
@@ -194,12 +208,12 @@ const jsonLd = {
         <img src="/favicon.svg" alt="" class="w-8 h-8" />
         Love Languages
       </a>
-      <p class="text-gray-600 mb-6">{text.footerTagline || 'Learn any language together with your partner'}</p>
+      <p class="text-gray-600 mb-6">{s.footer.tagline}</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
-        <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-accent">{text.navBlog || 'Blog'}</a>
-        <a href="/tools" class="hover:text-accent">{text.navTools || 'Tools'}</a>
-        <a href="/terms" class="hover:text-accent">{text.navTerms || 'Terms'}</a>
-        <a href="/privacy" class="hover:text-accent">{text.navPrivacy || 'Privacy'}</a>
+        <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-accent">{uiText.blog || 'Blog'}</a>
+        <a href="/tools" class="hover:text-accent">{uiText.tools || 'Tools'}</a>
+        <a href="/terms" class="hover:text-accent">Terms</a>
+        <a href="/privacy" class="hover:text-accent">Privacy</a>
       </nav>
     </div>
   </footer>

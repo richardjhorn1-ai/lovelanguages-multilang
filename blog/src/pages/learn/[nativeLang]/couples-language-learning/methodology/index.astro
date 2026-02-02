@@ -1,0 +1,277 @@
+---
+/**
+ * Methodology Index Page
+ * URL: /learn/[nativeLang]/couples-language-learning/methodology/
+ *
+ * Lists all couples methodology articles for a given native language
+ */
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import { createClient } from '@supabase/supabase-js';
+import { SUPPORTED_NATIVE_LANGS, getLanguageName } from '../../../../../data/language-info';
+
+const { nativeLang } = Astro.params;
+
+// Validate native language
+if (!SUPPORTED_NATIVE_LANGS.includes(nativeLang || '')) {
+  return Astro.redirect('/learn/en/couples-language-learning/methodology/');
+}
+
+// Fetch articles from Supabase
+const supabaseUrl = import.meta.env.SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+let articles: any[] = [];
+
+if (supabaseUrl && supabaseKey) {
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  const { data, error } = await supabase
+    .from('blog_articles')
+    .select('slug, title, description, read_time, difficulty')
+    .eq('native_lang', nativeLang)
+    .eq('target_lang', 'all')
+    .eq('category', 'couples-methodology')
+    .eq('published', true)
+    .order('title');
+
+  if (data) {
+    articles = data;
+  }
+}
+
+// Hreflang alternates
+const hreflangAlternates = SUPPORTED_NATIVE_LANGS
+  .filter(lang => lang !== nativeLang)
+  .map(lang => ({
+    lang,
+    href: `https://www.lovelanguages.io/learn/${lang}/couples-language-learning/methodology/`
+  }));
+
+const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLang}/couples-language-learning/methodology/`;
+
+// Page content per language
+const pageContent: Record<string, { title: string; subtitle: string; description: string }> = {
+  en: {
+    title: 'Couples Language Learning Methodology',
+    subtitle: 'The science-backed approach to learning your partner\'s language together',
+    description: 'Discover our research-based methodology for couples learning languages together. From avoiding common mistakes to AI coaching strategies.'
+  },
+  es: {
+    title: 'Metodología de Aprendizaje de Idiomas para Parejas',
+    subtitle: 'El enfoque respaldado por la ciencia para aprender el idioma de tu pareja juntos',
+    description: 'Descubre nuestra metodología basada en investigación para parejas que aprenden idiomas juntas.'
+  },
+  fr: {
+    title: 'Méthodologie d\'Apprentissage des Langues pour Couples',
+    subtitle: 'L\'approche scientifique pour apprendre la langue de votre partenaire ensemble',
+    description: 'Découvrez notre méthodologie basée sur la recherche pour les couples qui apprennent les langues ensemble.'
+  },
+  de: {
+    title: 'Methodik des Paar-Sprachlernens',
+    subtitle: 'Der wissenschaftlich fundierte Ansatz zum gemeinsamen Erlernen der Sprache Ihres Partners',
+    description: 'Entdecken Sie unsere forschungsbasierte Methodik für Paare, die gemeinsam Sprachen lernen.'
+  },
+  it: {
+    title: 'Metodologia di Apprendimento Linguistico per Coppie',
+    subtitle: 'L\'approccio scientifico per imparare la lingua del partner insieme',
+    description: 'Scopri la nostra metodologia basata sulla ricerca per coppie che imparano le lingue insieme.'
+  },
+  pt: {
+    title: 'Metodologia de Aprendizado de Idiomas para Casais',
+    subtitle: 'A abordagem científica para aprender o idioma do seu parceiro juntos',
+    description: 'Descubra nossa metodologia baseada em pesquisa para casais aprendendo idiomas juntos.'
+  },
+  pl: {
+    title: 'Metodologia Nauki Języków dla Par',
+    subtitle: 'Naukowo uzasadnione podejście do wspólnej nauki języka partnera',
+    description: 'Odkryj naszą metodologię opartą na badaniach dla par uczących się języków razem.'
+  },
+  ru: {
+    title: 'Методология Изучения Языков для Пар',
+    subtitle: 'Научный подход к совместному изучению языка партнёра',
+    description: 'Откройте нашу методологию, основанную на исследованиях, для пар, изучающих языки вместе.'
+  },
+  uk: {
+    title: 'Методологія Вивчення Мов для Пар',
+    subtitle: 'Науковий підхід до спільного вивчення мови партнера',
+    description: 'Відкрийте нашу методологію, засновану на дослідженнях, для пар, які вивчають мови разом.'
+  },
+  nl: {
+    title: 'Methodologie voor Taal Leren voor Koppels',
+    subtitle: 'De wetenschappelijk onderbouwde aanpak om samen de taal van je partner te leren',
+    description: 'Ontdek onze op onderzoek gebaseerde methodologie voor koppels die samen talen leren.'
+  },
+  sv: {
+    title: 'Metodik för Pars Språkinlärning',
+    subtitle: 'Det vetenskapligt grundade tillvägagångssättet för att lära sig partnerns språk tillsammans',
+    description: 'Upptäck vår forskningsbaserade metodik för par som lär sig språk tillsammans.'
+  },
+  no: {
+    title: 'Metodikk for Parspråklæring',
+    subtitle: 'Den vitenskapelig baserte tilnærmingen til å lære partnerens språk sammen',
+    description: 'Oppdag vår forskningsbaserte metodikk for par som lærer språk sammen.'
+  },
+  da: {
+    title: 'Metode til Parsprogindlæring',
+    subtitle: 'Den videnskabeligt baserede tilgang til at lære din partners sprog sammen',
+    description: 'Opdag vores forskningsbaserede metode for par, der lærer sprog sammen.'
+  },
+  cs: {
+    title: 'Metodika Učení Jazyků pro Páry',
+    subtitle: 'Vědecky podložený přístup ke společnému učení se jazyku partnera',
+    description: 'Objevte naši metodiku založenou na výzkumu pro páry, které se učí jazyky společně.'
+  },
+  ro: {
+    title: 'Metodologia Învățării Limbilor pentru Cupluri',
+    subtitle: 'Abordarea bazată pe știință pentru a învăța limba partenerului împreună',
+    description: 'Descoperă metodologia noastră bazată pe cercetare pentru cupluri care învață limbi împreună.'
+  },
+  el: {
+    title: 'Μεθοδολογία Εκμάθησης Γλωσσών για Ζευγάρια',
+    subtitle: 'Η επιστημονικά τεκμηριωμένη προσέγγιση για να μάθετε τη γλώσσα του συντρόφου σας μαζί',
+    description: 'Ανακαλύψτε τη μεθοδολογία μας βασισμένη στην έρευνα για ζευγάρια που μαθαίνουν γλώσσες μαζί.'
+  },
+  hu: {
+    title: 'Páros Nyelvtanulási Módszertan',
+    subtitle: 'A tudományosan megalapozott megközelítés a partner nyelvének közös tanulásához',
+    description: 'Fedezd fel kutatásalapú módszertanunkat pároknak, akik együtt tanulnak nyelveket.'
+  },
+  tr: {
+    title: 'Çiftler İçin Dil Öğrenimi Metodolojisi',
+    subtitle: 'Partnerinizin dilini birlikte öğrenmek için bilime dayalı yaklaşım',
+    description: 'Birlikte dil öğrenen çiftler için araştırmaya dayalı metodolojimizi keşfedin.'
+  }
+};
+
+const content = pageContent[nativeLang || 'en'] || pageContent.en;
+
+// Breadcrumb labels per language
+const breadcrumbLabels: Record<string, { home: string; couples: string; methodology: string }> = {
+  en: { home: 'Learn', couples: 'Couples Language Learning', methodology: 'Methodology' },
+  es: { home: 'Aprender', couples: 'Aprendizaje en Pareja', methodology: 'Metodología' },
+  fr: { home: 'Apprendre', couples: 'Apprentissage en Couple', methodology: 'Méthodologie' },
+  de: { home: 'Lernen', couples: 'Paar-Sprachlernen', methodology: 'Methodik' },
+  it: { home: 'Impara', couples: 'Apprendimento di Coppia', methodology: 'Metodologia' },
+  pt: { home: 'Aprender', couples: 'Aprendizado para Casais', methodology: 'Metodologia' },
+  pl: { home: 'Nauka', couples: 'Nauka dla Par', methodology: 'Metodologia' },
+  ru: { home: 'Учить', couples: 'Обучение для Пар', methodology: 'Методология' },
+  uk: { home: 'Вчити', couples: 'Навчання для Пар', methodology: 'Методологія' },
+  nl: { home: 'Leren', couples: 'Taal Leren voor Koppels', methodology: 'Methodologie' },
+  sv: { home: 'Lär dig', couples: 'Pars Språkinlärning', methodology: 'Metodik' },
+  no: { home: 'Lær', couples: 'Parspråklæring', methodology: 'Metodikk' },
+  da: { home: 'Lær', couples: 'Parsprogindlæring', methodology: 'Metode' },
+  cs: { home: 'Učit se', couples: 'Učení pro Páry', methodology: 'Metodika' },
+  ro: { home: 'Învață', couples: 'Învățare pentru Cupluri', methodology: 'Metodologie' },
+  el: { home: 'Μάθε', couples: 'Εκμάθηση για Ζευγάρια', methodology: 'Μεθοδολογία' },
+  hu: { home: 'Tanulj', couples: 'Páros Nyelvtanulás', methodology: 'Módszertan' },
+  tr: { home: 'Öğren', couples: 'Çiftler İçin Dil Öğrenimi', methodology: 'Metodoloji' }
+};
+
+const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": content.title,
+  "description": content.description,
+  "url": canonicalUrl,
+  "inLanguage": nativeLang,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://www.lovelanguages.io"
+  }
+};
+---
+
+<BaseLayout
+  title={`${content.title} | Love Languages`}
+  description={content.description}
+  nativeLang={nativeLang}
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={nativeLang} href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href="https://www.lovelanguages.io/learn/en/couples-language-learning/methodology/" />
+    {hreflangAlternates.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+  </Fragment>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="bg-white min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+
+      <!-- Breadcrumbs -->
+      <nav class="text-sm text-gray-500 mb-6">
+        <ol class="flex items-center space-x-2">
+          <li>
+            <a href={`/learn/${nativeLang}/`} class="hover:text-pink-600">{labels.home}</a>
+          </li>
+          <li class="text-gray-400">/</li>
+          <li>
+            <a href={`/learn/${nativeLang}/couples-language-learning/`} class="hover:text-pink-600">{labels.couples}</a>
+          </li>
+          <li class="text-gray-400">/</li>
+          <li class="text-gray-700 font-medium">{labels.methodology}</li>
+        </ol>
+      </nav>
+
+      <!-- Hero -->
+      <header class="text-center mb-12">
+        <span class="text-5xl mb-4 block">📚</span>
+        <h1 class="text-3xl md:text-4xl font-black font-header text-gray-900 mb-4">
+          {content.title}
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          {content.subtitle}
+        </p>
+      </header>
+
+      <!-- Article List -->
+      {articles.length > 0 ? (
+        <div class="grid gap-6">
+          {articles.map((article) => (
+            <a
+              href={`/learn/${nativeLang}/couples-language-learning/methodology/${article.slug}/`}
+              class="block p-6 bg-white border border-gray-200 rounded-xl hover:border-pink-300 hover:shadow-lg transition-all"
+            >
+              <h2 class="text-xl font-bold text-gray-900 mb-2">{article.title}</h2>
+              {article.description && (
+                <p class="text-gray-600 mb-3">{article.description}</p>
+              )}
+              <div class="flex items-center gap-4 text-sm text-gray-500">
+                {article.read_time && (
+                  <span>📖 {article.read_time} min</span>
+                )}
+                {article.difficulty && (
+                  <span class="px-2 py-1 bg-pink-100 text-pink-700 rounded-full text-xs">
+                    {article.difficulty}
+                  </span>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12 text-gray-500">
+          <p>No methodology articles available yet.</p>
+        </div>
+      )}
+
+      <!-- CTA -->
+      <div class="mt-12 p-6 bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl text-white text-center">
+        <h3 class="text-xl font-bold mb-2">Ready to start learning together?</h3>
+        <p class="mb-4 opacity-90">Apply these methods with Love Languages</p>
+        <a
+          href="https://www.lovelanguages.io/signup"
+          class="inline-block px-6 py-3 bg-white text-pink-600 font-bold rounded-full hover:bg-pink-50 transition-colors"
+        >
+          Get Started Free →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>
