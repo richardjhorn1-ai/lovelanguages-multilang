@@ -873,8 +873,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             </>
           )}
 
-          {/* Session Stats - Show only when a game is active */}
-          {localGameType && (
+          {/* Session Stats - Show only when a game is active (hide for VerbDojo mode selection) */}
+          {localGameType && !(localGameType === 'verb_mastery' && !verbMasteryStarted) && (
             <>
               <div className="flex items-center justify-between mb-2">
                 <button
@@ -1137,7 +1137,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             <VerbDojo
               verbs={verbsWithConjugations}
               targetLanguage={targetLanguage}
-              accentColor="#f97316"
+              accentColor={accentHex}
+              onStart={() => setVerbMasteryStarted(true)}
               onAnswer={(correct, xpEarned) => {
                 handleGameAnswer({
                   wordId: undefined,
