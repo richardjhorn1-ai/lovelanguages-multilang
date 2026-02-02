@@ -415,6 +415,10 @@
         "xpEarned": "XP Earned",
         "playAgain": "Play Again",
         "exit": "Exit"
+      },
+      "matchPairs": {
+        "instruction": "Tap to match pronouns with conjugations",
+        "complete": "All matched!"
       }
     },
     "session": {
