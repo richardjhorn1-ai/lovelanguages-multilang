@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Tanuljatok Együtt Nyelvet",
+      "subtitle": "A tökéletes útmutató ahhoz, hogy a nyelvtanulás közös kalandra váljon. Erősítsétek kapcsolatotokat, miközben új kultúrák kapuit nyitjátok meg."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Miért Tanuljanak a Párok Együtt Nyelvet",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "A Közös Célok Összekapcsolnak",
+          "description": "A közös cél felé törekvés csapatmunkát teremt és elmélyíti kapcsolatotokat. A nyelvi mérföldkövek közös ünneplése maradandó emlékeket teremt."
+        },
+        {
+          "emoji": "💬",
+          "title": "Állandó Gyakorlópartner",
+          "description": "Ha a beszélgetőpartnered éjjel-nappal elérhető, az felgyorsítja a tanulást. Gyakorolhattok bármikor – étkezés közben, séta alatt vagy egy lusta vasárnap reggelen."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Az Utazás Átalakul",
+          "description": "Már az alapvető kifejezések ismerete is átalakítja az utazási élményeket. Együtt navigálhattok, magabiztosan rendelhettek ételt, és olyan módon kapcsolódhattok a helyiekkel, ahogy a turisták soha."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Élesíti az Elmét",
+          "description": "A nyelvtanulás az egyik legjobb agytorna. Ha együtt csináljátok, mindketten befektettek a hosszú távú szellemi frissességbe."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "A Legjobb Nyelvek Pároknak",
+      "subtitle": "Ezek a nyelvek kínálják a romantika, a gyakorlatiasság és az elsajátíthatóság legjobb kombinációját magyar anyanyelvű pároknak."
+    },
+    "tips": {
+      "sectionTitle": "Tippek a Közös Tanuláshoz",
+      "items": [
+        {
+          "title": "Tűzzetek Ki Reális Célokat Együtt",
+          "description": "Állapodjatok meg, hogy heti hány órát gyakoroltok, és milyen mérföldköveket szeretnétek elérni. A közös célok mindkettőtöket felelősségre vonják."
+        },
+        {
+          "title": "Legyen a Mindennapok Része",
+          "description": "Címkézzétek fel a háztartási tárgyakat, köszöntsétek egymást a tanult nyelven, vagy jelöljetek ki ‚csak az új nyelven' ételkezéseket, amikor együtt gyakoroltok."
+        },
+        {
+          "title": "Nézzetek Filmeket és Sorozatokat Együtt",
+          "description": "Kezdjétek magyar felirattal, haladjatok a célnyelvi felirat felé, majd próbáljátok ki felirat nélkül. Beszéljétek meg minden epizód után, mit tanultatok."
+        },
+        {
+          "title": "Tervezzetek Utazást Motivációként",
+          "description": "Semmi sem motivál jobban, mint tudni, hogy hamarosan szükségetek lesz a nyelvre. Tervezzetek utazást egy olyan országba, ahol a tanult nyelvet beszélik, és tűzzetek ki tanulási mérföldköveket indulás előtt."
+        },
+        {
+          "title": "Ünnepeljétek a Sikereket",
+          "description": "Az első beszélgetés, 100 megtanult szó, sikeres ételrendelés – ünnepeljétek ezeket a győzelmeket együtt. A kis jutalmak fenntartják a motivációt."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Melyik a legjobb nyelv, amit párok együtt tanulhatnak?",
+        "answer": "A spanyol, francia és olasz kiváló választás párok számára romantikus jellegük és viszonylagos könnyűségük miatt. A spanyol a legpraktikusabb, több mint 500 millió beszélővel, míg a franciát és az olaszt hagyományosan a romantikával és kultúrával társítják."
+      },
+      {
+        "question": "Hogyan maradhatunk motiváltak a közös tanulás során?",
+        "answer": "Tűzzetek ki közös célokat, gyakoroljatok napi szinten beszélgetéseket, nézzetek együtt filmeket a tanult nyelven, tervezzetek utazásokat olyan országokba, ahol beszélik a nyelvet, és ünnepeljétek együtt a mérföldköveket. Ha közös hobbiként és nem kötelességként kezelitek, mindketten elkötelezettek maradtok."
+      },
+      {
+        "question": "Ugyanolyan ütemben kell haladnunk?",
+        "answer": "Nem feltétlenül. Természetes, hogy az egyik fél gyorsabban halad. A lényeg az, hogy támogassátok egymást, és használjátok ki a különbséget – aki gyorsabban halad, segíthet tanítani és mindkettőtök számára megerősíteni a fogalmakat."
+      },
+      {
+        "question": "Napi hány percet érdemes rászánni?",
+        "answer": "Már napi 15-30 perc közös gyakorlás is hatékony. A rendszeresség fontosabb, mint az időtartam. Próbáljátok beépíteni a nyelvet a mindennapokba: reggeli köszönés, étkezés közbeni beszélgetések vagy esti kifejezések."
+      },
+      {
+        "question": "Mi van, ha az egyik fél elveszíti az érdeklődését?",
+        "answer": "Összpontosítsatok arra, hogy szórakoztató legyen, ne pedig tananyagszerű. Próbáljatok recepteket főzni a tanult nyelven, játsszatok együtt nyelvtanuló játékokat, vagy tervezzetek olyan utazást, amihez szükség van a nyelvre. Néha egy új megközelítés újra lángra lobbantja a motivációt."
+      },
+      {
+        "question": "Tanulhatunk különböző nyelveket?",
+        "answer": "Tanulhattok, de ha ugyanazt a nyelvet tanuljátok, több lehetőségetek nyílik a gyakorlásra és a közös élményekre. Ha eltérőek az érdeklődéseitek, fontoljátok meg, hogy először együtt egy nyelvet tanultok, majd később egyénileg felfedezitek a saját érdeklődéseiteket."
+      }
+    ],
+    "exploreAll": {
+      "title": "Fedezz Fel Minden Nyelvet",
+      "subtitle": "Találjátok meg a tökéletes nyelvet közös utazásotokhoz."
+    },
+    "cta": {
+      "title": "Készen Álltok az Indulásra?",
+      "subtitle": "Csatlakozzatok több ezer párhoz, akik mesterséges intelligencia segítségével, hanggyakorlással és játékokkal tanulnak együtt nyelveket.",
+      "button": "Kezdjétek Együtt a Tanulást"
+    },
+    "footer": {
+      "tagline": "Tanuljatok bármilyen nyelvet együtt a pároddal"
+    }
+  }
+}

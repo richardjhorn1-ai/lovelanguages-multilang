@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
-import { Profile, TutorChallenge, WordRequest, DictionaryEntry, WordScore } from '../types';
+import { Profile, TutorChallenge, WordRequest, DictionaryEntry, WordScore, TutorStats } from '../types';
 import { ICONS } from '../constants';
 import { shuffleArray } from '../utils/array';
 import CreateQuizChallenge from './CreateQuizChallenge';
@@ -40,9 +40,11 @@ const SAVE_PREF_KEY = 'tutor_save_to_student_progress';
 
 const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const { t } = useTranslation();
+  const { accentHex } = useTheme();
   const { targetLanguage, nativeLanguage, languageParams, targetName, nativeName } = useLanguage();
   const [challenges, setChallenges] = useState<TutorChallenge[]>([]);
   const [wordRequests, setWordRequests] = useState<WordRequest[]>([]);
+  const [tutorStats, setTutorStats] = useState<TutorStats | null>(null);
   const [partnerVocab, setPartnerVocab] = useState<DictionaryEntry[]>([]);
   const [partnerScores, setPartnerScores] = useState<Map<string, WordScore>>(new Map());
   const [partnerName, setPartnerName] = useState<string>('Your Partner');
@@ -160,6 +162,18 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       });
       const requestData = await requestRes.json();
       if (requestData.wordRequests) setWordRequests(requestData.wordRequests);
+
+      // Fetch tutor stats (for streak display)
+      const statsRes = await fetch('/api/tutor-stats', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (statsRes.ok) {
+        const statsData = await statsRes.json();
+        if (statsData.stats) setTutorStats(statsData.stats);
+      }
 
     } catch (error) {
       console.error('Error fetching tutor game data:', error);
@@ -532,8 +546,18 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[var(--bg-primary)]">
       <div className="max-w-4xl mx-auto space-y-6">
 
-        {/* Header with Mode Toggle */}
+        {/* Header with Mode Toggle and Streak */}
         <div className="text-center">
+          {/* Teaching Streak Badge */}
+          {tutorStats && tutorStats.teaching_streak > 0 && (
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: `${accentHex}15` }}>
+              <span className="text-xl">🔥</span>
+              <span className="font-bold" style={{ color: accentHex }}>
+                {t('tutorGames.teachingStreak', { count: tutorStats.teaching_streak, defaultValue: `${tutorStats.teaching_streak} day teaching streak!` })}
+              </span>
+            </div>
+          )}
+
           <h1 className="text-2xl font-black text-[var(--text-primary)] mb-3">{t('tutorGames.playTogether')}</h1>
 
           {/* Mode Tabs */}

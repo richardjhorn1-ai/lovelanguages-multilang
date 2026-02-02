@@ -174,6 +174,34 @@ export default async function handler(req: any, res: any) {
       data: { challenge_id: challenge.id, challenge_type: challengeType }
     });
 
+    // Award Tutor XP for creating challenge
+    try {
+      await fetch(`${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : ''}/api/tutor-award-xp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': req.headers.authorization || '',
+        },
+        body: JSON.stringify({
+          action: 'create_challenge',
+        }),
+      });
+    } catch (tutorXpError) {
+      // Don't fail the main request if tutor XP fails
+      console.error('[create-challenge] Failed to award tutor XP:', tutorXpError);
+    }
+
+    // Add to activity feed
+    await supabase.from('activity_feed').insert({
+      user_id: auth.userId,
+      partner_id: profile.linked_user_id,
+      event_type: 'challenge_sent',
+      title: `Created a ${challengeType} challenge`,
+      subtitle: `${wordsData.length} words`,
+      data: { challenge_id: challenge.id },
+      language_code: targetLanguage,
+    });
+
     // Increment usage counter
     incrementUsage(supabase, auth.userId, RATE_LIMITS.createChallenge.type);
 

@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Lær et sprog sammen",
+      "subtitle": "Den ultimative guide til at gøre sproglæring til et fælles eventyr. Styrk jeres forhold mens I åbner døre til nye kulturer."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Hvorfor par bør lære sprog sammen",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Fælles mål styrker jeres bånd",
+          "description": "At arbejde mod et fælles mål skaber sammenhold og fordyber jeres forhold. At fejre sproglige milepæle sammen skaber minder for livet."
+        },
+        {
+          "emoji": "💬",
+          "title": "Indbygget samtalepartner",
+          "description": "At have en samtalepartner tilgængelig døgnet rundt accelererer læringen. I kan øve jer når som helst—under måltider, på gåture eller dovne søndagsmorgener."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Rejser forvandles",
+          "description": "At kunne bare grundlæggende sætninger forvandler rejseoplevelser. Naviger sammen, bestil mad med selvtillid og kom i kontakt med lokale på måder turister aldrig gør."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Holder hjernen skarp",
+          "description": "Sproglæring er en af de bedste øvelser for hjernens sundhed. At gøre det sammen betyder, at I begge investerer i langsigtet kognitiv velvære."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "De bedste sprog for par at lære",
+      "subtitle": "Disse sprog tilbyder den bedste kombination af romantik, praktisk anvendelighed og opnåelighed for dansktalende par."
+    },
+    "tips": {
+      "sectionTitle": "Tips til at lære sammen",
+      "items": [
+        {
+          "title": "Sæt realistiske mål sammen",
+          "description": "Bliv enige om, hvor mange timer om ugen I vil øve, og hvilke milepæle I vil nå. At have fælles mål holder jer begge ansvarlige."
+        },
+        {
+          "title": "Gør det til en del af hverdagen",
+          "description": "Sæt labels på ting i hjemmet, hils på hinanden på jeres målsprog, eller indfør 'kun-sprog-måltider' hvor I øver jer sammen."
+        },
+        {
+          "title": "Se film og serier sammen",
+          "description": "Start med undertekster på dansk, gå videre til undertekster på målsproget, og prøv derefter uden. Diskutér hvad I lærte efter hver episode."
+        },
+        {
+          "title": "Planlæg en rejse som motivation",
+          "description": "Intet motiverer som at vide, I snart får brug for sproget. Planlæg en rejse til et land, hvor jeres målsprog tales, og sæt læringsmål inden afrejse."
+        },
+        {
+          "title": "Fejr jeres milepæle",
+          "description": "Første samtale, 100 ord lært, succesfuld madbestilling—fejr disse sejre sammen. Små belønninger holder motivationen høj."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Hvad er det bedste sprog for par at lære sammen?",
+        "answer": "Spansk, fransk og italiensk er fremragende valg for par på grund af deres romantiske natur og relative lethed for dansktalende. Spansk tilbyder de mest praktiske fordele med over 500 millioner talere, mens fransk og italiensk traditionelt forbindes med romantik og kultur."
+      },
+      {
+        "question": "Hvordan kan vi holde motivationen oppe, når vi lærer sammen?",
+        "answer": "Sæt fælles mål, øv samtaler dagligt, se film på jeres målsprog sammen, planlæg rejser til lande hvor sproget tales, og fejr milepæle sammen. At gøre det til en fælles hobby i stedet for en pligt holder begge parter engagerede."
+      },
+      {
+        "question": "Skal vi lære i samme tempo?",
+        "answer": "Ikke nødvendigvis. Det er naturligt, at den ene partner udvikler sig hurtigere. Det vigtige er at støtte hinanden og bruge forskellen som en mulighed—den hurtigere lærende kan hjælpe med at undervise og forstærke begreber for jer begge."
+      },
+      {
+        "question": "Hvor meget tid bør vi dedikere dagligt?",
+        "answer": "Selv 15-30 minutters daglig øvelse sammen er effektivt. Konsistens betyder mere end varighed. Prøv at inkorporere sproget i daglige aktiviteter: morgenhilsner, samtaler under måltider eller godnatfraser."
+      },
+      {
+        "question": "Hvad hvis den ene partner mister interessen?",
+        "answer": "Fokusér på at gøre det sjovt frem for akademisk. Prøv at lave opskrifter på målsproget, spil sproglærings-spil sammen, eller planlæg en rejse der kræver sproget. Nogle gange kan en ændring i tilgangen genantænde motivationen."
+      },
+      {
+        "question": "Kan vi lære forskellige sprog?",
+        "answer": "Det kan I godt, men at lære det samme sprog skaber flere muligheder for øvelse og fælles oplevelser. Hvis I har forskellige interesser, så overvej at lære ét sprog sammen først, og derefter udforske individuelle interesser senere."
+      }
+    ],
+    "exploreAll": {
+      "title": "Udforsk alle sprog",
+      "subtitle": "Find det perfekte sprog til jeres fælles rejse."
+    },
+    "cta": {
+      "title": "Klar til at starte jeres rejse?",
+      "subtitle": "Slut jer til tusindvis af par der lærer sprog sammen med AI-coaching, stemmeøvelser og spil.",
+      "button": "Begynd at lære sammen"
+    },
+    "footer": {
+      "tagline": "Lær et hvilket som helst sprog sammen med din partner"
+    }
+  }
+}

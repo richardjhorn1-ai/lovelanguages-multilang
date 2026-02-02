@@ -261,6 +261,18 @@ export default async function handler(req: any, res: any) {
       }
     });
 
+    // Award Tutor XP for sending word gift (already done when creating gift)
+    // Here we add to activity feed
+    await supabase.from('activity_feed').insert({
+      user_id: auth.userId,
+      partner_id: wordRequest.tutor_id,
+      event_type: 'gift_received',
+      title: 'Learned gifted words',
+      subtitle: `${addedWords.length} words from ${tutorProfile?.full_name || 'partner'}`,
+      data: { request_id: requestId, words_count: addedWords.length, xp_earned: totalXpEarned },
+      language_code: targetLanguage,
+    });
+
     return res.status(200).json({
       success: true,
       wordsAdded: addedWords.length,

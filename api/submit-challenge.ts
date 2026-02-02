@@ -366,6 +366,48 @@ export default async function handler(req: any, res: any) {
       }
     });
 
+    // Award Tutor XP for partner completing challenge
+    try {
+      // Award base XP for completion
+      const tutorXpActions: string[] = ['partner_completes_challenge'];
+
+      // Bonus for high scores
+      if (score >= 80 && score < 100) {
+        tutorXpActions.push('partner_scores_80_plus');
+      } else if (score === 100) {
+        tutorXpActions.push('partner_scores_100');
+      }
+
+      // Award XP for each action
+      for (const action of tutorXpActions) {
+        await fetch(`${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : ''}/api/tutor-award-xp`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': req.headers.authorization || '',
+          },
+          body: JSON.stringify({
+            action,
+            targetUserId: challenge.tutor_id,
+          }),
+        });
+      }
+    } catch (tutorXpError) {
+      // Don't fail the main request if tutor XP fails
+      console.error('[submit-challenge] Failed to award tutor XP:', tutorXpError);
+    }
+
+    // Add to activity feed
+    await supabase.from('activity_feed').insert({
+      user_id: auth.userId,
+      partner_id: challenge.tutor_id,
+      event_type: 'challenge_completed',
+      title: `Completed a ${challenge.challenge_type} challenge`,
+      subtitle: `Score: ${score}%`,
+      data: { challenge_id: challengeId, score, xp_earned: xpEarned },
+      language_code: targetLanguage,
+    });
+
     // Increment usage counter
     incrementUsage(supabase, auth.userId, RATE_LIMITS.submitChallenge.type);
 

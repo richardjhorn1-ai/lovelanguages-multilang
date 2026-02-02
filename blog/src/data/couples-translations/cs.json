@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Učte se jazyk společně",
+      "subtitle": "Kompletní průvodce, jak proměnit učení jazyků ve společné dobrodružství. Posilte váš vztah a zároveň otevřete dveře novým kulturám."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Proč by se páry měly učit jazyky společně",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Společné cíle posilují vztah",
+          "description": "Práce na společném cíli vytváří týmového ducha a prohlubuje váš vztah. Společné oslavy jazykových úspěchů vytváří nezapomenutelné vzpomínky."
+        },
+        {
+          "emoji": "💬",
+          "title": "Partner na procvičování vždy po ruce",
+          "description": "Mít partnera na konverzaci 24 hodin denně výrazně urychluje učení. Můžete procvičovat kdykoli – u jídla, na procházkách nebo během líných nedělních rán."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Cestování na jiné úrovni",
+          "description": "I základní fráze promění zážitky z cestování. Společně se zorientujete, s jistotou si objednáte jídlo a navážete kontakt s místními způsobem, jaký běžní turisté nikdy nezažijí."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Udržuje mysl čilou",
+          "description": "Učení jazyků je jedním z nejlepších cvičení pro zdraví mozku. Když to děláte společně, oba investujete do dlouhodobé duševní kondice."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Nejlepší jazyky pro páry",
+      "subtitle": "Tyto jazyky nabízejí nejlepší kombinaci romantiky, praktičnosti a dosažitelnosti pro česky mluvící páry."
+    },
+    "tips": {
+      "sectionTitle": "Tipy pro společné učení",
+      "items": [
+        {
+          "title": "Stanovte si realistické cíle společně",
+          "description": "Dohodněte se, kolik hodin týdně budete procvičovat a jakých milníků chcete dosáhnout. Společné cíle vás oba udrží zodpovědné."
+        },
+        {
+          "title": "Zapojte jazyk do každodenního života",
+          "description": "Popisky na věcech po domě, zdravení v novém jazyce nebo ‚jen v cizím jazyce' obědy či večeře, kdy spolu procvičujete."
+        },
+        {
+          "title": "Sledujte filmy a seriály společně",
+          "description": "Začněte s titulky v češtině, přejděte na titulky v cílovém jazyce a pak zkuste sledovat bez titulků. Po každé epizodě si povídejte o tom, co jste se naučili."
+        },
+        {
+          "title": "Naplánujte si výlet jako motivaci",
+          "description": "Nic nemotivuje víc než vědomí, že jazyk brzy budete potřebovat. Naplánujte výlet do země, kde se vaším cílovým jazykem mluví, a stanovte si milníky učení před odjezdem."
+        },
+        {
+          "title": "Slavte úspěchy",
+          "description": "První konverzace, 100 naučených slovíček, úspěšná objednávka jídla – slavte tyto výhry společně. Malé odměny udržují motivaci vysoko."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Jaký jazyk je pro páry nejlepší na společné učení?",
+        "answer": "Španělština, francouzština a italština jsou pro páry výbornou volbou díky své romantické povaze a relativní snadnosti pro české mluvčí. Španělština nabízí nejvíce praktických výhod s více než 500 miliony mluvčích, zatímco francouzština a italština jsou tradičně spojovány s romantikou a kulturou."
+      },
+      {
+        "question": "Jak zůstat motivovaní při společném učení?",
+        "answer": "Stanovte si společné cíle, denně procvičujte konverzace, sledujte filmy v cílovém jazyce, plánujte výlety do zemí, kde se jazykem mluví, a slavte milníky společně. Když z toho uděláte společný koníček místo povinnosti, oba zůstanete zapálení."
+      },
+      {
+        "question": "Měli bychom se učit stejným tempem?",
+        "answer": "Nemusí to tak být. Je přirozené, že jeden z partnerů postupuje rychleji. Klíčem je vzájemná podpora a využití rozdílu jako příležitosti – rychlejší se učící může pomáhat učit a upevňovat látku pro oba."
+      },
+      {
+        "question": "Kolik času bychom měli denně věnovat učení?",
+        "answer": "I 15–30 minut denního společného procvičování je účinných. Na pravidelnosti záleží více než na délce. Zkuste zapojit jazyk do každodenních činností: ranní pozdravy, konverzace u jídla nebo fráze před spaním."
+      },
+      {
+        "question": "Co když jeden z partnerů ztratí zájem?",
+        "answer": "Zaměřte se na to, aby to byla zábava, ne akademická povinnost. Zkuste vařit podle receptů v cílovém jazyce, hrát jazykové hry společně nebo naplánovat výlet, který jazyk vyžaduje. Někdy změna přístupu znovu zažehne motivaci."
+      },
+      {
+        "question": "Můžeme se učit různé jazyky?",
+        "answer": "Můžete, ale učení stejného jazyka vytváří více příležitostí k procvičování a společným zážitkům. Pokud máte různé zájmy, zvažte nejprve společné učení jednoho jazyka a později prozkoumání individuálních zájmů."
+      }
+    ],
+    "exploreAll": {
+      "title": "Prozkoumejte všechny jazyky",
+      "subtitle": "Najděte ideální jazyk pro vaši společnou cestu."
+    },
+    "cta": {
+      "title": "Připraveni začít společnou cestu?",
+      "subtitle": "Přidejte se k tisícům párů, které se učí jazyky společně s AI koučem, hlasovým procvičováním a hrami.",
+      "button": "Začít se učit společně"
+    },
+    "footer": {
+      "tagline": "Učte se jakýkoli jazyk společně se svým partnerem"
+    }
+  }
+}

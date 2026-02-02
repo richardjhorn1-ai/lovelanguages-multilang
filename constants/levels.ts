@@ -1,6 +1,8 @@
 // Level System Constants
 // Defines tiers, thresholds, and themed content for level-up tests
 
+import { AchievementDefinition, TutorTier } from '../types';
+
 export interface LevelTier {
   tier: string;
   xpRange: [number, number]; // [min, max)
@@ -13,6 +15,280 @@ export interface LevelTheme {
   concepts: string[];
   examples?: string[];  // Optional: Reference examples (Polish legacy, not used by API)
 }
+
+// ===========================================
+// Tutor Tier System
+// ===========================================
+
+export const TUTOR_TIERS: TutorTier[] = [
+  { tier: 1, name: 'Language Whisperer', xpRange: [0, 100] },
+  { tier: 2, name: 'Phrase Poet', xpRange: [100, 300] },
+  { tier: 3, name: 'Vocabulary Virtuoso', xpRange: [300, 600] },
+  { tier: 4, name: 'Grammar Guardian', xpRange: [600, 1000] },
+  { tier: 5, name: 'Fluency Fairy', xpRange: [1000, 1500] },
+  { tier: 6, name: 'Love Linguist', xpRange: [1500, Infinity] }
+];
+
+// Get tutor tier from XP
+export function getTutorTierFromXP(xp: number): TutorTier {
+  for (let i = TUTOR_TIERS.length - 1; i >= 0; i--) {
+    if (xp >= TUTOR_TIERS[i].xpRange[0]) {
+      return TUTOR_TIERS[i];
+    }
+  }
+  return TUTOR_TIERS[0];
+}
+
+// Get progress to next tutor tier (percentage)
+export function getTutorTierProgress(xp: number): number {
+  const currentTier = getTutorTierFromXP(xp);
+  const tierIndex = TUTOR_TIERS.findIndex(t => t.tier === currentTier.tier);
+
+  if (tierIndex === TUTOR_TIERS.length - 1) {
+    // Max tier
+    return 100;
+  }
+
+  const nextTier = TUTOR_TIERS[tierIndex + 1];
+  const xpInTier = xp - currentTier.xpRange[0];
+  const xpForTier = nextTier.xpRange[0] - currentTier.xpRange[0];
+
+  return Math.min(100, Math.round((xpInTier / xpForTier) * 100));
+}
+
+// Get XP needed for next tutor tier
+export function getXPToNextTutorTier(xp: number): number | null {
+  const currentTier = getTutorTierFromXP(xp);
+  const tierIndex = TUTOR_TIERS.findIndex(t => t.tier === currentTier.tier);
+
+  if (tierIndex === TUTOR_TIERS.length - 1) {
+    return null; // Max tier
+  }
+
+  return TUTOR_TIERS[tierIndex + 1].xpRange[0] - xp;
+}
+
+// ===========================================
+// Tutor XP Awards
+// ===========================================
+
+export const TUTOR_XP_AWARDS = {
+  CREATE_CHALLENGE: 2,
+  SEND_WORD_GIFT: 2,
+  PARTNER_COMPLETES_CHALLENGE: 3,
+  PARTNER_SCORES_80_PLUS: 1,
+  PARTNER_SCORES_100: 2,
+  PARTNER_MASTERS_GIFTED_WORD: 1,
+  STREAK_7_DAYS: 5,
+  STREAK_30_DAYS: 15
+} as const;
+
+// ===========================================
+// Achievement Definitions
+// ===========================================
+
+export const ACHIEVEMENT_DEFINITIONS: AchievementDefinition[] = [
+  // Tutor Achievements (8)
+  {
+    code: 'first_challenge',
+    name: 'First Challenge',
+    description: 'Create your first challenge for your partner',
+    icon: '🎯',
+    category: 'tutor',
+    xp_reward: 5
+  },
+  {
+    code: 'first_gift',
+    name: 'First Gift',
+    description: 'Send your first word gift',
+    icon: '🎁',
+    category: 'tutor',
+    xp_reward: 5
+  },
+  {
+    code: 'challenge_champion',
+    name: 'Challenge Champion',
+    description: 'Create 10 challenges',
+    icon: '🏆',
+    category: 'tutor',
+    xp_reward: 15
+  },
+  {
+    code: 'gift_giver',
+    name: 'Gift Giver',
+    description: 'Send 10 word gifts',
+    icon: '💝',
+    category: 'tutor',
+    xp_reward: 15
+  },
+  {
+    code: 'perfect_score',
+    name: 'Perfect Score',
+    description: 'Your partner gets 100% on a challenge',
+    icon: '💯',
+    category: 'tutor',
+    xp_reward: 10
+  },
+  {
+    code: 'teaching_pro',
+    name: 'Teaching Pro',
+    description: 'Your partner gets 5 perfect scores',
+    icon: '⭐',
+    category: 'tutor',
+    xp_reward: 25
+  },
+  {
+    code: 'week_warrior_tutor',
+    name: 'Week Warrior',
+    description: '7-day teaching streak',
+    icon: '🔥',
+    category: 'tutor',
+    xp_reward: 20
+  },
+  {
+    code: 'month_of_love',
+    name: 'Month of Love',
+    description: '30-day teaching streak',
+    icon: '💕',
+    category: 'tutor',
+    xp_reward: 50
+  },
+
+  // Student Achievements (8)
+  {
+    code: 'first_word',
+    name: 'First Word',
+    description: 'Add your first word to the Love Log',
+    icon: '📝',
+    category: 'student',
+    xp_reward: 5
+  },
+  {
+    code: 'word_collector',
+    name: 'Word Collector',
+    description: 'Learn 50 words',
+    icon: '📚',
+    category: 'student',
+    xp_reward: 20
+  },
+  {
+    code: 'first_mastery',
+    name: 'First Mastery',
+    description: 'Master your first word (5-streak)',
+    icon: '✨',
+    category: 'student',
+    xp_reward: 10
+  },
+  {
+    code: 'memory_master',
+    name: 'Memory Master',
+    description: 'Master 10 words',
+    icon: '🧠',
+    category: 'student',
+    xp_reward: 25
+  },
+  {
+    code: 'challenge_accepted',
+    name: 'Challenge Accepted',
+    description: 'Complete your first partner challenge',
+    icon: '💪',
+    category: 'student',
+    xp_reward: 10
+  },
+  {
+    code: 'challenge_crusher',
+    name: 'Challenge Crusher',
+    description: 'Complete 10 partner challenges',
+    icon: '🎖️',
+    category: 'student',
+    xp_reward: 30
+  },
+  {
+    code: 'week_of_practice',
+    name: 'Week of Practice',
+    description: '7-day practice streak',
+    icon: '🔥',
+    category: 'student',
+    xp_reward: 20
+  },
+  {
+    code: 'conversation_ready',
+    name: 'Conversation Ready',
+    description: 'Reach the Conversational tier',
+    icon: '💬',
+    category: 'student',
+    xp_reward: 50
+  },
+
+  // Couple Achievements (4)
+  {
+    code: 'first_dance',
+    name: 'First Dance',
+    description: 'Complete your first challenge together',
+    icon: '💃',
+    category: 'couple',
+    xp_reward: 15
+  },
+  {
+    code: 'perfect_pair',
+    name: 'Perfect Pair',
+    description: 'Exchange 10 challenges',
+    icon: '👫',
+    category: 'couple',
+    xp_reward: 30
+  },
+  {
+    code: 'gift_exchange',
+    name: 'Gift Exchange',
+    description: 'Both send and receive word gifts',
+    icon: '🎀',
+    category: 'couple',
+    xp_reward: 15
+  },
+  {
+    code: 'one_month_strong',
+    name: 'One Month Strong',
+    description: '1 month active together',
+    icon: '🌙',
+    category: 'couple',
+    xp_reward: 40
+  }
+];
+
+// Get achievement by code
+export function getAchievementByCode(code: string): AchievementDefinition | undefined {
+  return ACHIEVEMENT_DEFINITIONS.find(a => a.code === code);
+}
+
+// Get achievements by category
+export function getAchievementsByCategory(category: 'tutor' | 'student' | 'couple'): AchievementDefinition[] {
+  return ACHIEVEMENT_DEFINITIONS.filter(a => a.category === category);
+}
+
+// ===========================================
+// Love Note Templates
+// ===========================================
+
+export const LOVE_NOTE_TEMPLATES = {
+  encouragement: [
+    "You're doing amazing! 💪",
+    "So proud of you! 🌟",
+    "Keep it up, you've got this! 🎉",
+    "Your progress is incredible! ✨"
+  ],
+  check_in: [
+    "Miss practicing with you 💕",
+    "Ready for a challenge? 🎯",
+    "Haven't seen you in a while! 👋",
+    "Thinking of you 💭"
+  ],
+  celebration: [
+    "Congrats on leveling up! 🎊",
+    "You mastered it! 🏆",
+    "Perfect score! Amazing! 💯",
+    "What a streak! 🔥"
+  ]
+} as const;
 
 // Tier definitions with XP ranges
 export const LEVEL_TIERS: LevelTier[] = [

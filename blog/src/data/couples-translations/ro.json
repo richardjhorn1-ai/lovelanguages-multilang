@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Învățați o Limbă Împreună",
+      "subtitle": "Ghidul complet pentru a transforma învățarea limbilor străine într-o aventură de cuplu. Întăriți-vă legătura în timp ce descoperiți noi culturi."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "De Ce Ar Trebui Cuplurile Să Învețe Limbi Împreună",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Obiectivele Comune Vă Apropie",
+          "description": "A lucra împreună către un scop comun creează spirit de echipă și vă adâncește relația. Sărbătorind împreună reușitele în învățarea limbii, creați amintiri de neuitat."
+        },
+        {
+          "emoji": "💬",
+          "title": "Partener de Conversație Mereu Lângă Tine",
+          "description": "Având un partener de conversație disponibil non-stop, învățarea se accelerează. Puteți exersa oricând—la masă, în timpul plimbărilor sau în diminețile leneșe de duminică."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Călătoriile Devin Magice",
+          "description": "Chiar și câteva fraze de bază transformă experiențele de călătorie. Navigați împreună, comandați cu încredere la restaurant și conectați-vă cu localnicii într-un mod în care turiștii obișnuiți nu o pot face."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Minte Ascuțită, Inimă Împlinită",
+          "description": "Învățarea unei limbi este unul dintre cele mai bune exerciții pentru sănătatea creierului. Făcând acest lucru împreună, investiți amândoi în bunăstarea cognitivă pe termen lung."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Cele Mai Bune Limbi Pentru Cupluri",
+      "subtitle": "Aceste limbi oferă cea mai bună combinație de romantism, utilitate practică și accesibilitate pentru cuplurile vorbitoare de engleză."
+    },
+    "tips": {
+      "sectionTitle": "Sfaturi Pentru Învățatul Împreună",
+      "items": [
+        {
+          "title": "Stabiliți Obiective Realiste Împreună",
+          "description": "Conveniți câte ore pe săptămână veți exersa și ce repere doriți să atingeți. Obiectivele comune vă mențin pe amândoi responsabili și motivați."
+        },
+        {
+          "title": "Integrați Limba în Viața de Zi cu Zi",
+          "description": "Etichetați obiectele din casă, salutați-vă în limba pe care o învățați sau desemnați mese ‚doar în limba țintă' pentru a exersa împreună."
+        },
+        {
+          "title": "Urmăriți Filme și Seriale Împreună",
+          "description": "Începeți cu subtitrare în limba maternă, treceți la subtitrare în limba pe care o învățați, apoi încercați fără subtitrări. Discutați ce ați învățat după fiecare episod."
+        },
+        {
+          "title": "Planificați o Călătorie ca Motivație",
+          "description": "Nimic nu motivează mai mult decât să știi că vei avea nevoie de limbă în curând. Planificați o călătorie într-o țară unde se vorbește limba și stabiliți obiective de învățare înainte de plecare."
+        },
+        {
+          "title": "Sărbătoriți Fiecare Reușită",
+          "description": "Prima conversație, 100 de cuvinte învățate, prima comandă reușită la restaurant—sărbătoriți aceste victorii împreună. Micile recompense mențin motivația ridicată."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Care este cea mai bună limbă pentru cupluri de învățat împreună?",
+        "answer": "Spaniola, franceza și italiana sunt alegeri excelente pentru cupluri datorită naturii lor romantice și relativei ușurințe pentru vorbitorii de engleză. Spaniola oferă cele mai multe beneficii practice cu peste 500 de milioane de vorbitori, în timp ce franceza și italiana sunt asociate tradițional cu romantismul și cultura."
+      },
+      {
+        "question": "Cum putem rămâne motivați învățând împreună?",
+        "answer": "Stabiliți obiective comune, exersați conversații zilnic, urmăriți filme în limba pe care o învățați împreună, planificați călătorii în țări unde se vorbește limba și sărbătoriți reușitele împreună. Transformând învățarea într-un hobby comun, nu într-o corvoadă, ambii parteneri rămân implicați."
+      },
+      {
+        "question": "Ar trebui să învățăm în același ritm?",
+        "answer": "Nu neapărat. Este natural ca un partener să progreseze mai repede. Cheia este să vă susțineți reciproc și să folosiți diferența ca o oportunitate—cel care învață mai repede poate ajuta și consolida conceptele pentru amândoi."
+      },
+      {
+        "question": "Cât timp ar trebui să dedicăm zilnic?",
+        "answer": "Chiar și 15-30 de minute de practică zilnică împreună sunt eficiente. Consistența contează mai mult decât durata. Încercați să integrați limba în activitățile zilnice: saluturile de dimineață, conversațiile la masă sau expresiile de noapte bună."
+      },
+      {
+        "question": "Ce facem dacă unul dintre parteneri își pierde interesul?",
+        "answer": "Concentrați-vă pe a face învățarea distractivă, nu academică. Încercați să gătiți rețete în limba pe care o învățați, să jucați jocuri de învățare a limbii împreună sau să planificați o călătorie care necesită limba. Uneori, o schimbare de abordare reaprinde motivația."
+      },
+      {
+        "question": "Putem învăța limbi diferite?",
+        "answer": "Puteți, dar învățând aceeași limbă creați mai multe oportunități de practică și experiențe comune. Dacă aveți interese diferite, luați în considerare să învățați mai întâi o limbă împreună, apoi să explorați interesele individuale mai târziu."
+      }
+    ],
+    "exploreAll": {
+      "title": "Explorează Toate Limbile",
+      "subtitle": "Găsiți limba perfectă pentru călătoria voastră împreună."
+    },
+    "cta": {
+      "title": "Sunteți Gata Să Începeți Aventura?",
+      "subtitle": "Alăturați-vă miilor de cupluri care învață limbi împreună cu ajutorul coaching-ului AI, practicii vocale și jocurilor.",
+      "button": "Începeți Să Învățați Împreună"
+    },
+    "footer": {
+      "tagline": "Învață orice limbă împreună cu partenerul tău"
+    }
+  }
+}

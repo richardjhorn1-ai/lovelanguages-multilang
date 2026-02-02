@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Imparate una Lingua Insieme",
+      "subtitle": "La guida definitiva per trasformare l'apprendimento linguistico in un'avventura di coppia. Rafforzate il vostro legame mentre scoprite nuove culture."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Perché le Coppie Dovrebbero Imparare le Lingue Insieme",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Obiettivi Condivisi Rafforzano il Legame",
+          "description": "Lavorare verso un obiettivo comune crea spirito di squadra e approfondisce la vostra relazione. Festeggiare insieme i traguardi linguistici crea ricordi indimenticabili."
+        },
+        {
+          "emoji": "💬",
+          "title": "Un Partner di Conversazione Sempre con Te",
+          "description": "Avere qualcuno con cui praticare 24 ore su 24 accelera l'apprendimento. Potete esercitarvi in ogni momento—durante i pasti, le passeggiate o le pigre mattine domenicali."
+        },
+        {
+          "emoji": "✈️",
+          "title": "I Viaggi Si Trasformano",
+          "description": "Parlare anche solo frasi basilari trasforma l'esperienza di viaggio. Orientatevi insieme, ordinate al ristorante con sicurezza e create connessioni con la gente del posto come i turisti non riescono mai a fare."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Mantiene la Mente Attiva",
+          "description": "L'apprendimento delle lingue è uno dei migliori esercizi per la salute del cervello. Farlo insieme significa investire entrambi nel benessere cognitivo a lungo termine."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Le Migliori Lingue da Imparare in Coppia",
+      "subtitle": "Queste lingue offrono la migliore combinazione di romanticismo, praticità e accessibilità per le coppie italiane."
+    },
+    "tips": {
+      "sectionTitle": "Consigli per Imparare Insieme",
+      "items": [
+        {
+          "title": "Stabilite Obiettivi Realistici Insieme",
+          "description": "Concordate quante ore alla settimana dedicherete alla pratica e quali traguardi volete raggiungere. Avere obiettivi condivisi vi mantiene entrambi responsabili."
+        },
+        {
+          "title": "Integratelo nella Vita Quotidiana",
+          "description": "Etichettate gli oggetti in casa, salutatevi nella lingua che state imparando, o dedicate pasti 'solo in quella lingua' dove vi esercitate insieme."
+        },
+        {
+          "title": "Guardate Film e Serie Insieme",
+          "description": "Iniziate con i sottotitoli in italiano, passate ai sottotitoli nella lingua che state studiando, poi provate senza. Discutete cosa avete imparato dopo ogni episodio."
+        },
+        {
+          "title": "Pianificate un Viaggio come Motivazione",
+          "description": "Niente motiva quanto sapere che presto avrete bisogno di quella lingua. Programmate un viaggio in un paese dove si parla la lingua che state studiando e fissate obiettivi di apprendimento prima della partenza."
+        },
+        {
+          "title": "Festeggiate i Traguardi",
+          "description": "La prima conversazione, 100 parole imparate, ordinare al ristorante con successo—celebrate insieme queste vittorie. Piccole ricompense mantengono alta la motivazione."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Qual è la lingua migliore da imparare insieme come coppia?",
+        "answer": "Spagnolo, francese e inglese sono scelte eccellenti per le coppie grazie alla loro natura romantica e relativa facilità per gli italiani. Lo spagnolo offre i benefici più pratici con oltre 500 milioni di parlanti, mentre il francese è tradizionalmente associato al romanticismo e alla cultura. L'inglese apre infinite opportunità di viaggio e lavoro."
+      },
+      {
+        "question": "Come possiamo restare motivati imparando insieme?",
+        "answer": "Stabilite obiettivi condivisi, praticate conversazioni ogni giorno, guardate film nella vostra lingua target insieme, pianificate viaggi nei paesi dove si parla quella lingua e festeggiate i traguardi insieme. Trasformarlo in un hobby condiviso invece che in un dovere mantiene entrambi coinvolti."
+      },
+      {
+        "question": "Dobbiamo imparare allo stesso ritmo?",
+        "answer": "Non necessariamente. È naturale che uno dei due progredisca più velocemente. La chiave è supportarsi a vicenda e usare la differenza come opportunità—chi impara più velocemente può aiutare a insegnare e rafforzare i concetti per entrambi."
+      },
+      {
+        "question": "Quanto tempo dovremmo dedicare ogni giorno?",
+        "answer": "Anche solo 15-30 minuti di pratica quotidiana insieme sono efficaci. La costanza conta più della durata. Provate a integrare la lingua nelle attività quotidiane: saluti mattutini, conversazioni durante i pasti o frasi prima di dormire."
+      },
+      {
+        "question": "E se uno dei due perde interesse?",
+        "answer": "Concentratevi sul rendere l'apprendimento divertente piuttosto che accademico. Provate a cucinare ricette nella lingua target, giocate insieme a giochi per l'apprendimento linguistico o pianificate un viaggio che richieda quella lingua. A volte un cambio di approccio riaccende la motivazione."
+      },
+      {
+        "question": "Possiamo imparare lingue diverse?",
+        "answer": "Certo, ma imparare la stessa lingua crea più opportunità di pratica ed esperienze condivise. Se avete interessi diversi, considerate di imparare prima una lingua insieme, poi esplorare gli interessi individuali successivamente."
+      }
+    ],
+    "exploreAll": {
+      "title": "Esplora Tutte le Lingue",
+      "subtitle": "Trovate la lingua perfetta per il vostro viaggio insieme."
+    },
+    "cta": {
+      "title": "Pronti a Iniziare il Vostro Viaggio?",
+      "subtitle": "Unitevi a migliaia di coppie che imparano le lingue insieme con coaching AI, pratica vocale e giochi.",
+      "button": "Inizia a Imparare Insieme"
+    },
+    "footer": {
+      "tagline": "Impara qualsiasi lingua insieme al tuo partner"
+    }
+  }
+}

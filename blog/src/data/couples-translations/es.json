@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Aprendan un Idioma Juntos",
+      "subtitle": "La guía definitiva para convertir el aprendizaje de idiomas en una aventura compartida. Fortalece tu relación mientras abren puertas a nuevas culturas."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Por Qué las Parejas Deberían Aprender Idiomas Juntas",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Las Metas Compartidas Fortalecen la Conexión",
+          "description": "Trabajar hacia un objetivo común crea trabajo en equipo y profundiza tu relación. Celebrar juntos los logros en el idioma crea recuerdos inolvidables."
+        },
+        {
+          "emoji": "💬",
+          "title": "Tu Compañero de Práctica Ideal",
+          "description": "Tener un compañero de conversación disponible las 24 horas acelera el aprendizaje. Pueden practicar en cualquier momento: durante las comidas, los paseos o las tranquilas mañanas de domingo."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Viajes que Transforman",
+          "description": "Hablar aunque sea frases básicas transforma la experiencia de viajar. Naveguen juntos, pidan comida con confianza y conecten con los locales de formas que los turistas nunca logran."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Mentes Activas y Ágiles",
+          "description": "Aprender idiomas es uno de los mejores ejercicios para la salud mental. Hacerlo juntos significa que ambos están invirtiendo en su bienestar cognitivo a largo plazo."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Los Mejores Idiomas para Aprender en Pareja",
+      "subtitle": "Estos idiomas ofrecen la mejor combinación de romance, practicidad y facilidad de aprendizaje para parejas hispanohablantes."
+    },
+    "tips": {
+      "sectionTitle": "Consejos para Aprender Juntos",
+      "items": [
+        {
+          "title": "Establezcan Metas Realistas Juntos",
+          "description": "Acuerden cuántas horas por semana practicarán y qué logros quieren alcanzar. Tener metas compartidas los mantiene comprometidos a ambos."
+        },
+        {
+          "title": "Intégrenlo a la Vida Diaria",
+          "description": "Etiqueten objetos de su casa, salúdense en el idioma que están aprendiendo o designen comidas donde solo hablen en ese idioma."
+        },
+        {
+          "title": "Vean Películas y Series Juntos",
+          "description": "Comiencen con subtítulos en su idioma nativo, pasen a subtítulos en el idioma que aprenden y luego intenten sin subtítulos. Comenten lo que aprendieron después de cada episodio."
+        },
+        {
+          "title": "Planifiquen un Viaje como Motivación",
+          "description": "Nada motiva más que saber que pronto necesitarán el idioma. Planeen un viaje a un país donde se hable y establezcan metas de aprendizaje antes de partir."
+        },
+        {
+          "title": "Celebren Cada Logro",
+          "description": "La primera conversación, 100 palabras aprendidas, pedir comida exitosamente... celebren estas victorias juntos. Las pequeñas recompensas mantienen alta la motivación."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "¿Cuál es el mejor idioma para que una pareja aprenda junta?",
+        "answer": "El inglés, francés e italiano son excelentes opciones para parejas por su naturaleza romántica y utilidad práctica. El inglés ofrece los mayores beneficios prácticos con más de 1,500 millones de hablantes, mientras que el francés y el italiano están tradicionalmente asociados con el romance y la cultura."
+      },
+      {
+        "question": "¿Cómo podemos mantenernos motivados aprendiendo juntos?",
+        "answer": "Establezcan metas compartidas, practiquen conversaciones diariamente, vean películas en el idioma que aprenden, planifiquen viajes a países donde se hable ese idioma y celebren los logros juntos. Convertirlo en un hobby compartido en lugar de una obligación mantiene a ambos comprometidos."
+      },
+      {
+        "question": "¿Debemos aprender al mismo ritmo?",
+        "answer": "No necesariamente. Es natural que uno avance más rápido que el otro. Lo importante es apoyarse mutuamente y usar la diferencia como una oportunidad: quien aprende más rápido puede ayudar a enseñar y reforzar conceptos para ambos."
+      },
+      {
+        "question": "¿Cuánto tiempo debemos dedicar al día?",
+        "answer": "Incluso 15-30 minutos de práctica diaria juntos es efectivo. La constancia importa más que la duración. Intenten incorporar el idioma en actividades diarias: saludos matutinos, conversaciones durante las comidas o frases antes de dormir."
+      },
+      {
+        "question": "¿Qué pasa si uno pierde el interés?",
+        "answer": "Enfóquense en hacerlo divertido en lugar de académico. Prueben cocinar recetas en el idioma que aprenden, jugar juegos de aprendizaje juntos o planear un viaje que requiera ese idioma. A veces, un cambio de enfoque reaviva la motivación."
+      },
+      {
+        "question": "¿Podemos aprender idiomas diferentes?",
+        "answer": "Sí pueden, pero aprender el mismo idioma crea más oportunidades de práctica y experiencias compartidas. Si tienen intereses diferentes, consideren aprender primero un idioma juntos y luego explorar intereses individuales."
+      }
+    ],
+    "exploreAll": {
+      "title": "Explora Todos los Idiomas",
+      "subtitle": "Encuentra el idioma perfecto para su aventura juntos."
+    },
+    "cta": {
+      "title": "¿Listos para Comenzar su Aventura?",
+      "subtitle": "Únanse a miles de parejas que aprenden idiomas juntas con coaching de IA, práctica de pronunciación y juegos.",
+      "button": "Empezar a Aprender Juntos"
+    },
+    "footer": {
+      "tagline": "Aprendan cualquier idioma juntos con su pareja"
+    }
+  }
+}

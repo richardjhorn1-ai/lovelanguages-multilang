@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Gemeinsam eine Sprache lernen",
+      "subtitle": "Der ultimative Leitfaden, um das Sprachenlernen zu einem gemeinsamen Abenteuer zu machen. Stärkt eure Beziehung und öffnet Türen zu neuen Kulturen."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Warum Paare gemeinsam Sprachen lernen sollten",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Gemeinsame Ziele stärken die Bindung",
+          "description": "Auf ein gemeinsames Ziel hinzuarbeiten schafft Teamgeist und vertieft eure Beziehung. Sprachmeilensteine zusammen zu feiern schafft unvergessliche Erinnerungen."
+        },
+        {
+          "emoji": "💬",
+          "title": "Immer ein Übungspartner dabei",
+          "description": "Einen Gesprächspartner rund um die Uhr zu haben beschleunigt das Lernen enorm. Ihr könnt jederzeit üben – beim Essen, beim Spazierengehen oder an gemütlichen Sonntagmorgen."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Reisen wird zum Erlebnis",
+          "description": "Schon einfache Sätze verwandeln Reiseerlebnisse komplett. Navigiert gemeinsam, bestellt selbstbewusst im Restaurant und knüpft Kontakte mit Einheimischen, wie es normale Touristen nie erleben."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Hält den Geist fit",
+          "description": "Sprachenlernen ist eines der besten Trainings für die geistige Gesundheit. Gemeinsam zu lernen bedeutet, dass ihr beide in langfristige kognitive Fitness investiert."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Die besten Sprachen für Paare",
+      "subtitle": "Diese Sprachen bieten die beste Kombination aus Romantik, Praktikabilität und Erlernbarkeit für deutschsprachige Paare."
+    },
+    "tips": {
+      "sectionTitle": "Tipps für das gemeinsame Lernen",
+      "items": [
+        {
+          "title": "Setzt euch realistische Ziele",
+          "description": "Einigt euch darauf, wie viele Stunden pro Woche ihr üben wollt und welche Meilensteine ihr erreichen möchtet. Gemeinsame Ziele halten euch beide am Ball."
+        },
+        {
+          "title": "Integriert es in den Alltag",
+          "description": "Beschriftet Gegenstände in eurer Wohnung, begrüßt euch in der Zielsprache oder legt Mahlzeiten fest, bei denen nur die neue Sprache gesprochen wird."
+        },
+        {
+          "title": "Schaut Filme und Serien zusammen",
+          "description": "Beginnt mit Untertiteln auf Deutsch, wechselt dann zu Untertiteln in der Zielsprache und versucht es schließlich ohne. Besprecht nach jeder Folge, was ihr gelernt habt."
+        },
+        {
+          "title": "Plant eine Reise als Motivation",
+          "description": "Nichts motiviert mehr als zu wissen, dass man die Sprache bald brauchen wird. Plant eine Reise in ein Land, in dem eure Zielsprache gesprochen wird, und setzt Lernziele vor der Abreise."
+        },
+        {
+          "title": "Feiert eure Erfolge",
+          "description": "Das erste Gespräch, 100 gelernte Wörter, erfolgreich Essen bestellen – feiert diese Erfolge zusammen. Kleine Belohnungen halten die Motivation hoch."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Welche Sprache eignet sich am besten für Paare?",
+        "answer": "Spanisch, Französisch und Italienisch sind ausgezeichnete Wahlmöglichkeiten für Paare – wegen ihrer romantischen Ausstrahlung und der relativ leichten Erlernbarkeit. Spanisch bietet die größten praktischen Vorteile mit über 500 Millionen Sprechern, während Französisch und Italienisch traditionell mit Romantik und Kultur verbunden werden."
+      },
+      {
+        "question": "Wie bleiben wir beim gemeinsamen Lernen motiviert?",
+        "answer": "Setzt gemeinsame Ziele, übt täglich Gespräche, schaut Filme in der Zielsprache zusammen, plant Reisen in Länder, in denen die Sprache gesprochen wird, und feiert Meilensteine gemeinsam. Es als gemeinsames Hobby statt als Pflicht zu betrachten, hält beide Partner bei der Stange."
+      },
+      {
+        "question": "Müssen wir im gleichen Tempo lernen?",
+        "answer": "Nicht unbedingt. Es ist ganz natürlich, dass ein Partner schneller Fortschritte macht. Wichtig ist, sich gegenseitig zu unterstützen und den Unterschied als Chance zu nutzen – der schnellere Lerner kann helfen, Konzepte zu erklären und so das Wissen bei beiden zu festigen."
+      },
+      {
+        "question": "Wie viel Zeit sollten wir täglich investieren?",
+        "answer": "Schon 15-30 Minuten tägliches gemeinsames Üben ist sehr effektiv. Regelmäßigkeit ist wichtiger als Dauer. Versucht, die Sprache in den Alltag einzubauen: Morgendliche Begrüßungen, Gespräche beim Essen oder Gute-Nacht-Sätze."
+      },
+      {
+        "question": "Was tun, wenn einer das Interesse verliert?",
+        "answer": "Konzentriert euch darauf, es spaßig statt schulisch zu gestalten. Probiert Rezepte in der Zielsprache zu kochen, spielt Sprachlernspiele zusammen oder plant eine Reise, die die Sprache erfordert. Manchmal entfacht ein neuer Ansatz die Motivation neu."
+      },
+      {
+        "question": "Können wir verschiedene Sprachen lernen?",
+        "answer": "Ihr könnt, aber dieselbe Sprache zu lernen schafft mehr Möglichkeiten zum Üben und gemeinsame Erlebnisse. Wenn ihr unterschiedliche Interessen habt, lernt erst eine Sprache gemeinsam und erkundet dann später individuelle Interessen."
+      }
+    ],
+    "exploreAll": {
+      "title": "Alle Sprachen entdecken",
+      "subtitle": "Findet die perfekte Sprache für eure gemeinsame Reise."
+    },
+    "cta": {
+      "title": "Bereit für euer Abenteuer?",
+      "subtitle": "Schließt euch tausenden Paaren an, die mit KI-Coaching, Sprechübungen und Spielen gemeinsam Sprachen lernen.",
+      "button": "Gemeinsam loslegen"
+    },
+    "footer": {
+      "tagline": "Lernt jede Sprache gemeinsam mit eurem Partner"
+    }
+  }
+}

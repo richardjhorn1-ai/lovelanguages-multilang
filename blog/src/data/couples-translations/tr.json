@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Birlikte Dil Öğrenin",
+      "subtitle": "Dil öğrenimini paylaşılan bir maceraya dönüştürmenin en kapsamlı rehberi. Bağınızı güçlendirirken yeni kültürlerin kapılarını aralayın."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Çiftler Neden Birlikte Dil Öğrenmeli?",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Ortak Hedefler Bağları Güçlendirir",
+          "description": "Ortak bir hedefe doğru çalışmak, takım ruhu oluşturur ve ilişkinizi derinleştirir. Dil öğrenme başarılarınızı birlikte kutlamak unutulmaz anılar yaratır."
+        },
+        {
+          "emoji": "💬",
+          "title": "Her An Yanınızda Bir Pratik Partneri",
+          "description": "7/24 ulaşabileceğiniz bir konuşma partneri, öğrenmenizi hızlandırır. Yemekler sırasında, yürüyüşlerde veya tembel Pazar sabahlarında istediğiniz zaman pratik yapabilirsiniz."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Seyahat Deneyimini Dönüştürür",
+          "description": "Temel cümleleri bile konuşabilmek, seyahat deneyimlerinizi bambaşka bir boyuta taşır. Birlikte yol bulun, özgüvenle yemek siparişi verin ve turistlerin asla yapamayacağı şekilde yerel halkla bağ kurun."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Zihni Dinç Tutar",
+          "description": "Dil öğrenimi, beyin sağlığı için en iyi egzersizlerden biridir. Bunu birlikte yapmak, ikinizin de uzun vadeli zihinsel sağlığınıza yatırım yapması demektir."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "Çiftler İçin En İyi Diller",
+      "subtitle": "Bu diller, Türkçe konuşan çiftler için romantizm, pratiklik ve öğrenilebilirlik açısından en iyi kombinasyonu sunuyor."
+    },
+    "tips": {
+      "sectionTitle": "Birlikte Öğrenmek İçin İpuçları",
+      "items": [
+        {
+          "title": "Birlikte Gerçekçi Hedefler Belirleyin",
+          "description": "Haftada kaç saat pratik yapacağınızı ve hangi hedeflere ulaşmak istediğinizi kararlaştırın. Ortak hedefler, ikinizi de motive ve sorumlu tutar."
+        },
+        {
+          "title": "Günlük Hayatın Bir Parçası Haline Getirin",
+          "description": "Evdeki eşyaları etiketleyin, birbirinizi hedef dilinizde selamlayın veya birlikte pratik yaptığınız 'sadece yabancı dil' yemekleri düzenleyin."
+        },
+        {
+          "title": "Birlikte Film ve Dizi İzleyin",
+          "description": "Önce kendi dilinizde altyazıyla başlayın, sonra hedef dilde altyazıya geçin, ardından altyazısız deneyin. Her bölümden sonra öğrendiklerinizi tartışın."
+        },
+        {
+          "title": "Motivasyon İçin Bir Gezi Planlayın",
+          "description": "Yakında dile ihtiyaç duyacağınızı bilmek kadar motive edici bir şey yoktur. Hedef dilinizin konuşulduğu bir ülkeye gezi planlayın ve yola çıkmadan önce öğrenme hedefleri belirleyin."
+        },
+        {
+          "title": "Başarılarınızı Kutlayın",
+          "description": "İlk konuşmanız, öğrenilen 100 kelime, başarılı yemek siparişi—bu kazanımları birlikte kutlayın. Küçük ödüller motivasyonu yüksek tutar."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Çiftlerin birlikte öğrenmesi için en iyi dil hangisi?",
+        "answer": "İspanyolca, Fransızca ve İtalyanca, romantik yapıları ve Türkçe konuşanlar için görece kolaylıkları nedeniyle çiftler için mükemmel seçeneklerdir. İspanyolca, 500 milyondan fazla konuşanıyla en pratik faydaları sunarken, Fransızca ve İtalyanca geleneksel olarak romantizm ve kültürle özdeşleştirilir."
+      },
+      {
+        "question": "Birlikte öğrenirken motivasyonumuzu nasıl koruyabiliriz?",
+        "answer": "Ortak hedefler belirleyin, günlük konuşma pratiği yapın, hedef dilinizde birlikte film izleyin, dilin konuşulduğu ülkelere geziler planlayın ve başarılarınızı birlikte kutlayın. Bunu bir angarya yerine paylaşılan bir hobi haline getirmek, her iki partneri de ilgili tutar."
+      },
+      {
+        "question": "Aynı hızda mı ilerlememiz gerekiyor?",
+        "answer": "Şart değil. Bir partnerin daha hızlı ilerlemesi doğaldır. Önemli olan birbirinizi desteklemek ve bu farkı bir fırsata dönüştürmektir—daha hızlı öğrenen, kavramları pekiştirmeye yardımcı olabilir ve ikiniz için de öğretmenlik yapabilir."
+      },
+      {
+        "question": "Günde ne kadar zaman ayırmalıyız?",
+        "answer": "Günde 15-30 dakikalık birlikte pratik bile etkilidir. Süreklilik, süreden daha önemlidir. Dili günlük aktivitelerinize dahil etmeyi deneyin: sabah selamlaşmaları, yemek sohbetleri veya yatmadan önceki cümleler."
+      },
+      {
+        "question": "Eşlerden biri ilgisini kaybederse ne yapmalı?",
+        "answer": "Akademik olmak yerine eğlenceli hale getirmeye odaklanın. Hedef dilde tarifler yapın, birlikte dil öğrenme oyunları oynayın veya dili gerektiren bir gezi planlayın. Bazen yaklaşımı değiştirmek motivasyonu yeniden alevlendirir."
+      },
+      {
+        "question": "Farklı diller öğrenebilir miyiz?",
+        "answer": "Öğrenebilirsiniz, ancak aynı dili öğrenmek pratik ve ortak deneyimler için daha fazla fırsat yaratır. Farklı ilgi alanlarınız varsa, önce birlikte bir dil öğrenip ardından bireysel ilgi alanlarınızı keşfetmeyi düşünebilirsiniz."
+      }
+    ],
+    "exploreAll": {
+      "title": "Tüm Dilleri Keşfedin",
+      "subtitle": "Birlikte çıkacağınız yolculuk için mükemmel dili bulun."
+    },
+    "cta": {
+      "title": "Yolculuğunuza Başlamaya Hazır mısınız?",
+      "subtitle": "Yapay zeka koçluğu, sesli pratik ve oyunlarla birlikte dil öğrenen binlerce çifte katılın.",
+      "button": "Birlikte Öğrenmeye Başlayın"
+    },
+    "footer": {
+      "tagline": "Partnerinizle birlikte istediğiniz dili öğrenin"
+    }
+  }
+}

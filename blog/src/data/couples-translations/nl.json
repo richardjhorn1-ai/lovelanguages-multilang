@@ -1,0 +1,101 @@
+{
+  "page": "couples-language-learning",
+  "sections": {
+    "hero": {
+      "title": "Leer Samen een Taal",
+      "subtitle": "Dé complete gids om samen een taal te leren. Versterk jullie band terwijl je de deur opent naar nieuwe culturen."
+    },
+    "whyLearnTogether": {
+      "sectionTitle": "Waarom Samen een Taal Leren?",
+      "benefits": [
+        {
+          "emoji": "🎯",
+          "title": "Gedeelde Doelen Versterken de Band",
+          "description": "Samen naar een doel toewerken creëert teamwork en verdiept jullie relatie. Taalmijlpalen samen vieren zorgt voor blijvende herinneringen."
+        },
+        {
+          "emoji": "💬",
+          "title": "Je Eigen Oefenpartner",
+          "description": "Een gesprekspartner die 24/7 beschikbaar is versnelt het leren enorm. Oefen wanneer je wilt—tijdens het eten, een wandeling, of op luie zondagochtenden."
+        },
+        {
+          "emoji": "✈️",
+          "title": "Reizen Wordt Magisch",
+          "description": "Zelfs basiszinnen spreken transformeert je reiservaring. Navigeer samen, bestel vol vertrouwen eten en maak contact met locals op manieren die toeristen nooit meemaken."
+        },
+        {
+          "emoji": "🧠",
+          "title": "Houdt de Geest Scherp",
+          "description": "Talen leren is een van de beste oefeningen voor je brein. Samen doen betekent dat jullie allebei investeren in langdurige mentale gezondheid."
+        }
+      ]
+    },
+    "bestLanguages": {
+      "sectionTitle": "De Beste Talen voor Stellen",
+      "subtitle": "Deze talen bieden de perfecte combinatie van romantiek, praktisch nut en haalbaarheid voor Nederlandstalige stellen."
+    },
+    "tips": {
+      "sectionTitle": "Tips om Samen te Leren",
+      "items": [
+        {
+          "title": "Stel Realistische Doelen Samen",
+          "description": "Spreek af hoeveel uur per week jullie oefenen en welke mijlpalen jullie willen bereiken. Gedeelde doelen houden jullie beiden gemotiveerd."
+        },
+        {
+          "title": "Maak Het Onderdeel van je Dag",
+          "description": "Label spullen in huis, begroet elkaar in jullie nieuwe taal, of plan 'alleen-die-taal'-maaltijden waar jullie samen oefenen."
+        },
+        {
+          "title": "Kijk Samen Films en Series",
+          "description": "Begin met ondertiteling in het Nederlands, schakel over naar ondertiteling in de doeltaal, en probeer daarna zonder. Bespreek na elke aflevering wat je hebt geleerd."
+        },
+        {
+          "title": "Plan een Reis als Motivatie",
+          "description": "Niets motiveert zo als weten dat je de taal binnenkort nodig hebt. Plan een reis naar een land waar jullie doeltaal wordt gesproken en stel leerdoelen voor vertrek."
+        },
+        {
+          "title": "Vier Elke Mijlpaal",
+          "description": "Eerste gesprek, 100 woorden geleerd, succesvol eten bestellen—vier deze overwinningen samen. Kleine beloningen houden de motivatie hoog."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "Wat is de beste taal om samen te leren?",
+        "answer": "Spaans, Frans en Italiaans zijn uitstekende keuzes voor stellen vanwege hun romantische karakter en relatieve toegankelijkheid. Spaans biedt de meeste praktische voordelen met meer dan 500 miljoen sprekers, terwijl Frans en Italiaans traditioneel worden geassocieerd met romantiek en cultuur."
+      },
+      {
+        "question": "Hoe blijven we gemotiveerd om samen te leren?",
+        "answer": "Stel gezamenlijke doelen, oefen dagelijks gesprekken, kijk samen films in jullie doeltaal, plan reizen naar landen waar de taal wordt gesproken en vier mijlpalen samen. Door er een gedeelde hobby van te maken in plaats van een verplichting, blijven beide partners betrokken."
+      },
+      {
+        "question": "Moeten we in hetzelfde tempo leren?",
+        "answer": "Niet per se. Het is normaal dat de een sneller vooruitgaat dan de ander. De sleutel is elkaar steunen en het verschil als kans gebruiken—degene die sneller leert kan helpen met uitleggen en zo concepten voor beiden versterken."
+      },
+      {
+        "question": "Hoeveel tijd moeten we dagelijks besteden?",
+        "answer": "Zelfs 15-30 minuten dagelijks samen oefenen is effectief. Consistentie is belangrijker dan duur. Probeer de taal in dagelijkse activiteiten te verwerken: ochtenbegroetingen, gesprekken tijdens het eten, of zinnetjes voor het slapen."
+      },
+      {
+        "question": "Wat als een van ons de interesse verliest?",
+        "answer": "Focus op plezier in plaats van studeren. Probeer recepten te koken in de doeltaal, speel samen taalleer-spelletjes, of plan een reis waarvoor de taal nodig is. Soms zorgt een andere aanpak voor nieuwe motivatie."
+      },
+      {
+        "question": "Kunnen we verschillende talen leren?",
+        "answer": "Dat kan, maar dezelfde taal leren biedt meer mogelijkheden om te oefenen en ervaringen te delen. Als jullie verschillende interesses hebben, overweeg dan eerst samen één taal te leren en daarna individuele interesses te verkennen."
+      }
+    ],
+    "exploreAll": {
+      "title": "Ontdek Alle Talen",
+      "subtitle": "Vind de perfecte taal voor jullie gezamenlijke reis."
+    },
+    "cta": {
+      "title": "Klaar om te Beginnen?",
+      "subtitle": "Sluit je aan bij duizenden stellen die samen talen leren met AI-coaching, spraakpraktijk en spelletjes.",
+      "button": "Begin Samen met Leren"
+    },
+    "footer": {
+      "tagline": "Leer samen met je partner elke taal"
+    }
+  }
+}
