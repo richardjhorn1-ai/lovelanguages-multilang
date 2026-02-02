@@ -115,18 +115,24 @@ const jsonLd = {
 
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
+  <!-- Language Selector - Prominent at top -->
+  <div class="bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex justify-center">
+        <LanguageSelector
+          currentLang={targetLanguageCode}
+          nativeLang={nativeLanguageCode}
+          languageInfo={LANGUAGE_INFO}
+          languageCounts={languageCounts}
+        />
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <header class="bg-gradient-to-b from-accent/10 to-white">
     <div class="max-w-6xl mx-auto px-4 py-6 md:py-8">
       <div class="text-center max-w-2xl mx-auto">
-        <div class="mb-4">
-          <LanguageSelector
-            currentLang={targetLanguageCode}
-            nativeLang={nativeLanguageCode}
-            languageInfo={LANGUAGE_INFO}
-            languageCounts={languageCounts}
-          />
-        </div>
         <h1 class="text-3xl md:text-4xl font-black font-header text-gray-900 mb-2">
           <span class="text-4xl md:text-5xl">{targetInfo.flag}</span> {insertLanguage(text.learnTogether, targetInfo.name)}
         </h1>

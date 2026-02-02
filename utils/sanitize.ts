@@ -49,3 +49,21 @@ export function escapeHtml(text: string): string {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+
+/**
+ * Sanitizes plain text user input.
+ * Trims whitespace, removes null bytes, and limits length.
+ * Use this for non-HTML text fields like messages, topics, etc.
+ *
+ * @param input - Raw user input string
+ * @param maxLength - Maximum allowed length (default 1000)
+ * @returns Sanitized string
+ */
+export function sanitizeInput(input: string, maxLength: number = 1000): string {
+  if (!input || typeof input !== 'string') return '';
+
+  return input
+    .trim()
+    .replace(/\0/g, '') // Remove null bytes
+    .slice(0, maxLength);
+}
