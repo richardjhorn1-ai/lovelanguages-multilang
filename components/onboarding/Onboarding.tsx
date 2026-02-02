@@ -1309,7 +1309,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   // ============================================
   return (
     <OnboardingContext.Provider value={{ onQuit: handleQuit }}>
-      <div className="relative min-h-screen overflow-x-hidden bg-[#fdfcfd]">
+      <div className="fixed inset-0 overflow-y-auto bg-[#fdfcfd]">
         <FloatingHeartsBackground
           currentStep={currentStep}
           totalSteps={totalSteps}
