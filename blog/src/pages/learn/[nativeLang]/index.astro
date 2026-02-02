@@ -35,15 +35,12 @@ const sortedLanguageCodes = Object.keys(LANGUAGES)
 // Get total article count for this native language
 const totalArticles = Object.values(languageCounts).reduce((sum, count) => sum + count, 0);
 
-// Get language data with article counts for featured display (using translated names)
+// Get language data with article counts (using translated names)
 const allLanguages = sortedLanguageCodes.map(code => ({
   ...getLanguageForDisplay(code, nativeLanguageCode),
   articleCount: languageCounts[code] || 0,
   hubData: LANGUAGE_HUB_DATA[code]
 }));
-
-const featuredLanguages = allLanguages.filter(l => l.articleCount > 0).slice(0, 6);
-const otherLanguages = allLanguages.filter(l => !featuredLanguages.find(f => f.code === l.code));
 
 // Latest articles for this native language
 const latestArticles = await getArticlesByNativeLang(nativeLanguageCode, { limit: 4 });
@@ -164,50 +161,17 @@ const jsonLd = {
         <p class="text-gray-600">{text.chooseLanguageSubtitle}</p>
       </div>
 
-      <!-- Featured languages -->
-      {featuredLanguages.length > 0 && (
-        <div class="grid md:grid-cols-3 gap-6 mb-10">
-          {featuredLanguages.map((lang, i) => (
-            <a
-              href={`/learn/${nativeLanguageCode}/${lang.code}/`}
-              class="group relative p-6 rounded-2xl transition-all hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
-              style={`background: ${i === 0 ? 'linear-gradient(135deg, #FFF0F3 0%, white 100%)' : i === 1 ? 'linear-gradient(135deg, #E7F5FF 0%, white 100%)' : 'linear-gradient(135deg, #F0FDF4 0%, white 100%)'};`}
-            >
-              <div class="relative">
-                <span class="text-5xl mb-4 block group-hover:scale-110 transition-transform origin-left">{lang.flag}</span>
-                <h3 class="text-2xl font-bold text-[#292F36] mb-1 group-hover:text-[#FF6B6B] transition-colors">{lang.name}</h3>
-                <p class="text-gray-500 text-sm mb-4">{lang.nativeName}</p>
-                <div class="flex gap-4 mb-4 text-sm">
-                  <div>
-                    <span class="font-bold text-[#292F36]">{lang.articleCount}</span>
-                    <span class="text-gray-500 ml-1">{text.guides}</span>
-                  </div>
-                  {lang.hubData && (
-                    <>
-                      <div>
-                        <span class="font-bold text-[#292F36]">{lang.hubData.fsiHours}h</span>
-                        <span class="text-gray-500 ml-1">{text.toFluency}</span>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      )}
-
       <!-- All Languages -->
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-11 gap-3">
-        {otherLanguages.map(lang => (
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {allLanguages.map(lang => (
           <a
             href={`/learn/${nativeLanguageCode}/${lang.code}/`}
-            class="group flex flex-col items-center p-3 rounded-xl border border-gray-100 hover:border-[#FF6B6B] hover:shadow-md transition-all bg-white"
+            class="group flex flex-col items-center p-4 rounded-xl border border-gray-100 hover:border-[#FF6B6B] hover:shadow-lg transition-all bg-white"
           >
-            <span class="text-2xl mb-1 group-hover:scale-110 transition-transform">{lang.flag}</span>
-            <span class="text-xs font-medium text-gray-700 group-hover:text-[#FF6B6B] text-center">{lang.name}</span>
+            <span class="text-3xl mb-2 group-hover:scale-110 transition-transform">{lang.flag}</span>
+            <span class="text-sm font-medium text-gray-700 group-hover:text-[#FF6B6B] text-center">{lang.name}</span>
             {lang.articleCount > 0 && (
-              <span class="text-[10px] text-gray-400">{lang.articleCount}</span>
+              <span class="text-xs text-gray-400 mt-1">{lang.articleCount} {text.guides}</span>
             )}
           </a>
         ))}
