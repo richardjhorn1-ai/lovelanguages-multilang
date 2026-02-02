@@ -224,9 +224,15 @@ const jsonLd = {
         <h1 class="text-3xl md:text-4xl font-black font-header text-gray-900 mb-4">
           {content.title}
         </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
           {content.subtitle}
         </p>
+        <a
+          href={`/learn/${nativeLang}/couples-language-learning/`}
+          class="inline-flex items-center gap-2 text-[#FF6B6B] hover:underline font-medium"
+        >
+          ← {labels.couples}
+        </a>
       </header>
 
       <!-- Article List -->
