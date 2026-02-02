@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Ο/Η σύντροφός σου"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Κατάκτησε τις κλίσεις ρημάτων",
+      "combinationsAvailable": "διαθέσιμοι συνδυασμοί ρήμα+χρόνος",
+      "selectMode": "Επίλεξε λειτουργία εξάσκησης",
+      "focusOn": "Εστίασε σε (προαιρετικό)",
+      "allTenses": "Όλοι οι χρόνοι",
+      "startTraining": "Ξεκίνα εξάσκηση",
+      "backToGames": "← Πίσω στα παιχνίδια",
+      "noVerbsAlert": "Δεν βρέθηκαν ρήματα με κλίσεις. Μάθε πρώτα περισσότερα ρήματα!",
+      "submit": "Υποβολή",
+      "next": "Επόμενο",
+      "checking": "Έλεγχος...",
+      "typeAnswer": "Γράψε την κλίση...",
+      "correct": "Σωστά!",
+      "incorrect": "Λάθος",
+      "streakProgress": "{{remaining}} ακόμα για +1 XP",
+      "modes": {
+        "mixed": "Μικτό",
+        "mixedDesc": "Τυχαία ποικιλία όλων των λειτουργιών",
+        "matchPairs": "Αντιστοίχισε ζεύγη",
+        "matchPairsDesc": "Σύρε αντωνυμίες σε κλίσεις",
+        "fillTemplate": "Συμπλήρωσε",
+        "fillTemplateDesc": "Γράψε την κλίση",
+        "multipleChoice": "Πολλαπλή επιλογή",
+        "multipleChoiceDesc": "Διάλεξε τη σωστή απάντηση",
+        "audioType": "Ήχος",
+        "audioTypeDesc": "Άκουσε και γράψε"
+      },
+      "session": {
+        "questionsAnswered": "Απαντημένες ερωτήσεις",
+        "longestStreak": "Μεγαλύτερο σερί",
+        "xpEarned": "Κερδισμένα XP",
+        "playAgain": "Παίξε ξανά",
+        "exit": "Έξοδος"
+      },
+      "matchPairs": {
+        "instruction": "Πάτησε για να αντιστοιχίσεις αντωνυμίες με κλίσεις",
+        "complete": "Όλα αντιστοιχίστηκαν!"
+      }
     }
   },
   "profile": {
@@ -537,7 +578,8 @@
     "tableHeaders": {
       "person": "Πρόσωπο",
       "masculine": "Αρσενικό",
-      "feminine": "Θηλυκό"
+      "feminine": "Θηλυκό",
+      "neuter": "Ουδ."
     },
     "nounForms": {
       "gender": "Γένος",

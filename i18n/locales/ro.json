@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Partenerul Tau"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Stăpânește conjugările verbelor",
+      "combinationsAvailable": "combinații verb+timp disponibile",
+      "selectMode": "Selectează modul de antrenament",
+      "focusOn": "Concentrează-te pe (opțional)",
+      "allTenses": "Toate timpurile",
+      "startTraining": "Începe antrenamentul",
+      "backToGames": "← Înapoi la jocuri",
+      "noVerbsAlert": "Nu s-au găsit verbe cu conjugări. Învață mai multe verbe întâi!",
+      "submit": "Trimite",
+      "next": "Următorul",
+      "checking": "Se verifică...",
+      "typeAnswer": "Scrie conjugarea...",
+      "correct": "Corect!",
+      "incorrect": "Incorect",
+      "streakProgress": "Încă {{remaining}} pentru +1 XP",
+      "modes": {
+        "mixed": "Mixt",
+        "mixedDesc": "Varietate aleatorie din toate modurile",
+        "matchPairs": "Potrivește perechile",
+        "matchPairsDesc": "Trage pronumele la conjugări",
+        "fillTemplate": "Completează",
+        "fillTemplateDesc": "Scrie conjugarea",
+        "multipleChoice": "Alegere multiplă",
+        "multipleChoiceDesc": "Alege răspunsul corect",
+        "audioType": "Audio",
+        "audioTypeDesc": "Ascultă și scrie"
+      },
+      "session": {
+        "questionsAnswered": "Întrebări răspunse",
+        "longestStreak": "Cea mai lungă serie",
+        "xpEarned": "XP câștigat",
+        "playAgain": "Joacă din nou",
+        "exit": "Ieșire"
+      },
+      "matchPairs": {
+        "instruction": "Atinge pentru a potrivi pronumele cu conjugările",
+        "complete": "Toate potrivite!"
+      }
     }
   },
   "profile": {
@@ -537,7 +578,8 @@
     "tableHeaders": {
       "person": "Persoana",
       "masculine": "Masc.",
-      "feminine": "Fem."
+      "feminine": "Fem.",
+      "neuter": "Neutru"
     },
     "nounForms": {
       "gender": "Gen",

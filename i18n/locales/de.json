@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Dein Partner"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Meistere deine Verbkonjugationen",
+      "combinationsAvailable": "Verb+Zeit Kombinationen verfügbar",
+      "selectMode": "Trainingsmodus wählen",
+      "focusOn": "Fokus auf (optional)",
+      "allTenses": "Alle Zeiten",
+      "startTraining": "Training starten",
+      "backToGames": "← Zurück zu Spielen",
+      "noVerbsAlert": "Keine Verben mit Konjugationen gefunden. Lerne zuerst mehr Verben!",
+      "submit": "Absenden",
+      "next": "Weiter",
+      "checking": "Prüfe...",
+      "typeAnswer": "Konjugation eingeben...",
+      "correct": "Richtig!",
+      "incorrect": "Falsch",
+      "streakProgress": "Noch {{remaining}} für +1 XP",
+      "modes": {
+        "mixed": "Gemischt",
+        "mixedDesc": "Zufällige Auswahl aller Modi",
+        "matchPairs": "Paare zuordnen",
+        "matchPairsDesc": "Pronomen zu Konjugationen ziehen",
+        "fillTemplate": "Ausfüllen",
+        "fillTemplateDesc": "Konjugation eintippen",
+        "multipleChoice": "Multiple Choice",
+        "multipleChoiceDesc": "Richtige Antwort wählen",
+        "audioType": "Audio-Eingabe",
+        "audioTypeDesc": "Hören und tippen"
+      },
+      "session": {
+        "questionsAnswered": "Beantwortete Fragen",
+        "longestStreak": "Längste Serie",
+        "xpEarned": "Verdiente XP",
+        "playAgain": "Nochmal spielen",
+        "exit": "Beenden"
+      },
+      "matchPairs": {
+        "instruction": "Tippe um Pronomen mit Konjugationen zu verbinden",
+        "complete": "Alles zugeordnet!"
+      }
     }
   },
   "profile": {
@@ -537,7 +578,8 @@
     "tableHeaders": {
       "person": "Person",
       "masculine": "Mask.",
-      "feminine": "Fem."
+      "feminine": "Fem.",
+      "neuter": "Neutr."
     },
     "nounForms": {
       "gender": "Geschlecht",
