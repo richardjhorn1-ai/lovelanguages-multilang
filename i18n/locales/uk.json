@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Твій партнер"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Опануй дієвідміни",
+      "combinationsAvailable": "комбінацій дієслово+час доступно",
+      "selectMode": "Обери режим тренування",
+      "focusOn": "Зосередитись на (необов'язково)",
+      "allTenses": "Всі часи",
+      "startTraining": "Почати тренування",
+      "backToGames": "← Назад до ігор",
+      "noVerbsAlert": "Дієслів з дієвідмінами не знайдено. Спочатку вивчи більше дієслів!",
+      "submit": "Надіслати",
+      "next": "Далі",
+      "checking": "Перевірка...",
+      "typeAnswer": "Введи дієвідміну...",
+      "correct": "Правильно!",
+      "incorrect": "Неправильно",
+      "streakProgress": "Ще {{remaining}} до +1 XP",
+      "modes": {
+        "mixed": "Змішаний",
+        "mixedDesc": "Випадковий набір всіх режимів",
+        "matchPairs": "З'єднай пари",
+        "matchPairsDesc": "Перетягни займенники до дієвідмін",
+        "fillTemplate": "Заповни",
+        "fillTemplateDesc": "Введи дієвідміну",
+        "multipleChoice": "Вибір відповіді",
+        "multipleChoiceDesc": "Обери правильну відповідь",
+        "audioType": "Аудіо",
+        "audioTypeDesc": "Слухай і друкуй"
+      },
+      "session": {
+        "questionsAnswered": "Відповідей",
+        "longestStreak": "Найдовша серія",
+        "xpEarned": "Зароблено XP",
+        "playAgain": "Грати знову",
+        "exit": "Вихід"
+      },
+      "matchPairs": {
+        "instruction": "Натисни, щоб з'єднати займенники з дієвідмінами",
+        "complete": "Все з'єднано!"
+      }
     }
   },
   "profile": {
@@ -493,6 +534,7 @@
       "adjective": "Прикметник",
       "adverb": "Прислівник",
       "phrase": "Фраза",
+      "other": "Інше",
       "gifts": "Подарунки",
       "clear": "Очистити"
     },
@@ -536,7 +578,8 @@
     "tableHeaders": {
       "person": "Особа",
       "masculine": "Чол.",
-      "feminine": "Жін."
+      "feminine": "Жін.",
+      "neuter": "Середн."
     },
     "nounForms": {
       "gender": "Рід",

@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Твой партнёр"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Освой спряжения глаголов",
+      "combinationsAvailable": "комбинаций глагол+время доступно",
+      "selectMode": "Выбери режим тренировки",
+      "focusOn": "Сосредоточиться на (необязательно)",
+      "allTenses": "Все времена",
+      "startTraining": "Начать тренировку",
+      "backToGames": "← Назад к играм",
+      "noVerbsAlert": "Глаголы со спряжениями не найдены. Сначала выучи больше глаголов!",
+      "submit": "Отправить",
+      "next": "Далее",
+      "checking": "Проверка...",
+      "typeAnswer": "Введи спряжение...",
+      "correct": "Правильно!",
+      "incorrect": "Неправильно",
+      "streakProgress": "Ещё {{remaining}} до +1 XP",
+      "modes": {
+        "mixed": "Смешанный",
+        "mixedDesc": "Случайный набор всех режимов",
+        "matchPairs": "Соедини пары",
+        "matchPairsDesc": "Перетащи местоимения к спряжениям",
+        "fillTemplate": "Заполни",
+        "fillTemplateDesc": "Введи спряжение",
+        "multipleChoice": "Выбор ответа",
+        "multipleChoiceDesc": "Выбери правильный ответ",
+        "audioType": "Аудио",
+        "audioTypeDesc": "Слушай и печатай"
+      },
+      "session": {
+        "questionsAnswered": "Отвечено вопросов",
+        "longestStreak": "Лучшая серия",
+        "xpEarned": "Заработано XP",
+        "playAgain": "Играть снова",
+        "exit": "Выход"
+      },
+      "matchPairs": {
+        "instruction": "Нажми, чтобы соединить местоимения со спряжениями",
+        "complete": "Всё соединено!"
+      }
     }
   },
   "profile": {
@@ -493,6 +534,7 @@
       "adjective": "Прилагательное",
       "adverb": "Наречие",
       "phrase": "Фраза",
+      "other": "Другое",
       "gifts": "Подарки",
       "clear": "Очистить"
     },
@@ -536,7 +578,8 @@
     "tableHeaders": {
       "person": "Лицо",
       "masculine": "Муж.",
-      "feminine": "Жен."
+      "feminine": "Жен.",
+      "neuter": "Ср."
     },
     "nounForms": {
       "gender": "Род",

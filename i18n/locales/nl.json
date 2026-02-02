@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Je Partner"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Beheers je werkwoordvervoegingen",
+      "combinationsAvailable": "werkwoord+tijd combinaties beschikbaar",
+      "selectMode": "Selecteer trainingsmodus",
+      "focusOn": "Focus op (optioneel)",
+      "allTenses": "Alle tijden",
+      "startTraining": "Start training",
+      "backToGames": "← Terug naar spelletjes",
+      "noVerbsAlert": "Geen werkwoorden met vervoegingen gevonden. Leer eerst meer werkwoorden!",
+      "submit": "Verstuur",
+      "next": "Volgende",
+      "checking": "Controleren...",
+      "typeAnswer": "Typ de vervoeging...",
+      "correct": "Correct!",
+      "incorrect": "Fout",
+      "streakProgress": "Nog {{remaining}} voor +1 XP",
+      "modes": {
+        "mixed": "Gemengd",
+        "mixedDesc": "Willekeurige mix van alle modi",
+        "matchPairs": "Koppel paren",
+        "matchPairsDesc": "Sleep voornaamwoorden naar vervoegingen",
+        "fillTemplate": "Invullen",
+        "fillTemplateDesc": "Typ de vervoeging",
+        "multipleChoice": "Meerkeuze",
+        "multipleChoiceDesc": "Kies het juiste antwoord",
+        "audioType": "Audio typen",
+        "audioTypeDesc": "Luister en typ"
+      },
+      "session": {
+        "questionsAnswered": "Beantwoorde vragen",
+        "longestStreak": "Langste reeks",
+        "xpEarned": "Verdiende XP",
+        "playAgain": "Opnieuw spelen",
+        "exit": "Afsluiten"
+      },
+      "matchPairs": {
+        "instruction": "Tik om voornaamwoorden te koppelen aan vervoegingen",
+        "complete": "Alles gekoppeld!"
+      }
     }
   },
   "profile": {
@@ -493,6 +534,7 @@
       "adjective": "Bijvoeglijk naamwoord",
       "adverb": "Bijwoord",
       "phrase": "Zin",
+      "other": "Anders",
       "gifts": "Cadeaus",
       "clear": "Wissen"
     },
@@ -536,7 +578,8 @@
     "tableHeaders": {
       "person": "Persoon",
       "masculine": "Mann.",
-      "feminine": "Vr."
+      "feminine": "Vr.",
+      "neuter": "Onz."
     },
     "nounForms": {
       "gender": "Geslacht",

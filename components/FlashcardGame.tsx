@@ -19,7 +19,8 @@ import ErrorBoundary from './ErrorBoundary';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import GameResults from './games/GameResults';
 import { StreakIndicator, StreakCelebrationModal } from './games/components';
-import { Flashcards, MultipleChoice, TypeIt, QuickFire, VerbMastery, AIChallenge } from './games/modes';
+import { Flashcards, MultipleChoice, TypeIt, QuickFire, AIChallenge } from './games/modes';
+import { VerbDojo } from './games/modes/VerbDojo';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
@@ -32,17 +33,7 @@ type MainTab = 'local_games' | 'love_notes';
 type LocalGameType = 'flashcards' | 'multiple_choice' | 'type_it' | 'quick_fire' | 'ai_challenge' | 'verb_mastery' | null;
 type VerbTense = 'present' | 'past' | 'future';
 
-// TODO: ML-12 - Refactor Verb Mastery to be language-aware using getConjugationPersons()
-// Currently Polish-specific; labels should come from LANGUAGE_CONFIGS[targetLanguage].grammar.conjugationPersons
-type VerbPerson = 'ja' | 'ty' | 'onOna' | 'my' | 'wy' | 'oni';
-const VERB_PERSONS: { key: VerbPerson; label: string; nativeLabel: string }[] = [
-  { key: 'ja', label: 'ja', nativeLabel: 'I' },
-  { key: 'ty', label: 'ty', nativeLabel: 'you (singular)' },
-  { key: 'onOna', label: 'on/ona', nativeLabel: 'he/she' },
-  { key: 'my', label: 'my', nativeLabel: 'we' },
-  { key: 'wy', label: 'wy', nativeLabel: 'you (plural)' },
-  { key: 'oni', label: 'oni', nativeLabel: 'they' }
-];
+// VerbDojo is now language-aware - handles conjugation persons internally
 
 interface GameSessionAnswer {
   wordId?: string;
@@ -882,8 +873,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             </>
           )}
 
-          {/* Session Stats - Show only when a game is active */}
-          {localGameType && (
+          {/* Session Stats - Show only when a game is active (hide for VerbDojo mode selection) */}
+          {localGameType && !(localGameType === 'verb_mastery' && !verbMasteryStarted) && (
             <>
               <div className="flex items-center justify-between mb-2">
                 <button
@@ -1141,18 +1132,25 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             />
           )}
 
-          {/* Verb Mastery Mode - Using extracted component */}
+          {/* Verb Dojo Mode - Redesigned verb conjugation training */}
           {localGameType === 'verb_mastery' && !finished && (
-            <VerbMastery
+            <VerbDojo
               verbs={verbsWithConjugations}
               targetLanguage={targetLanguage}
-              verbPersons={VERB_PERSONS}
-              accentColor="#f97316"
-              maxQuestions={20}
-              onAnswer={handleGameAnswer}
+              accentColor={accentHex}
+              onStart={() => setVerbMasteryStarted(true)}
+              onAnswer={(correct, xpEarned) => {
+                handleGameAnswer({
+                  wordId: undefined,
+                  wordText: 'verb',
+                  correctAnswer: '',
+                  questionType: 'type_it',
+                  isCorrect: correct,
+                });
+                // XP is tracked internally by VerbDojo streak system
+              }}
               onComplete={handleVerbMasteryComplete}
               onExit={exitLocalGame}
-              onStart={() => setVerbMasteryStarted(true)}
               validateAnswer={handleVerbMasteryValidation}
             />
           )}
