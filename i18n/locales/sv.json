@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Din partner"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Bemästra dina verbböjningar",
+      "combinationsAvailable": "verb+tempus kombinationer tillgängliga",
+      "selectMode": "Välj träningsläge",
+      "focusOn": "Fokusera på (valfritt)",
+      "allTenses": "Alla tempus",
+      "startTraining": "Starta träning",
+      "backToGames": "← Tillbaka till spel",
+      "noVerbsAlert": "Inga verb med böjningar hittades. Lär dig fler verb först!",
+      "submit": "Skicka",
+      "next": "Nästa",
+      "checking": "Kontrollerar...",
+      "typeAnswer": "Skriv böjningen...",
+      "correct": "Rätt!",
+      "incorrect": "Fel",
+      "streakProgress": "{{remaining}} till för +1 XP",
+      "modes": {
+        "mixed": "Blandat",
+        "mixedDesc": "Slumpmässig blandning av alla lägen",
+        "matchPairs": "Para ihop",
+        "matchPairsDesc": "Dra pronomen till böjningar",
+        "fillTemplate": "Fyll i",
+        "fillTemplateDesc": "Skriv böjningen",
+        "multipleChoice": "Flerval",
+        "multipleChoiceDesc": "Välj rätt svar",
+        "audioType": "Ljud",
+        "audioTypeDesc": "Lyssna och skriv"
+      },
+      "session": {
+        "questionsAnswered": "Besvarade frågor",
+        "longestStreak": "Längsta sviten",
+        "xpEarned": "Intjänade XP",
+        "playAgain": "Spela igen",
+        "exit": "Avsluta"
+      },
+      "matchPairs": {
+        "instruction": "Tryck för att para ihop pronomen med böjningar",
+        "complete": "Alla parade!"
+      }
     }
   },
   "profile": {
@@ -493,6 +534,7 @@
       "adjective": "Adjektiv",
       "adverb": "Adverb",
       "phrase": "Fras",
+      "other": "Annat",
       "gifts": "Gåvor",
       "clear": "Rensa"
     },
@@ -536,7 +578,8 @@
     "tableHeaders": {
       "person": "Person",
       "masculine": "Mask.",
-      "feminine": "Fem."
+      "feminine": "Fem.",
+      "neuter": "Neutr."
     },
     "nounForms": {
       "gender": "Genus",

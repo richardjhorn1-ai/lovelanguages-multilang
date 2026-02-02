@@ -1,7 +1,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
-import { getLanguageName, getLanguageConfig, getConjugationPersons } from '../constants/language-config.js';
+import { getLanguageName, getLanguageConfig, getConjugationPersons, getAvailableTenses, hasTense, getImperativePersons } from '../constants/language-config.js';
+import type { VerbTense } from '../constants/language-config.js';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers
@@ -40,8 +41,10 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ error: "Missing required fields: wordId, word, tense" });
   }
 
-  if (!['past', 'future'].includes(tense)) {
-    return res.status(400).json({ error: "Invalid tense. Must be 'past' or 'future'" });
+  // Valid unlockable tenses (present is always auto-generated, not unlockable)
+  const unlockableTenses = ['past', 'future', 'conditional', 'imperative', 'subjunctive', 'imperfect'];
+  if (!unlockableTenses.includes(tense)) {
+    return res.status(400).json({ error: `Invalid tense '${tense}'. Must be one of: ${unlockableTenses.join(', ')}` });
   }
 
   // Get Supabase client early to fetch word's language
@@ -79,6 +82,14 @@ export default async function handler(req: any, res: any) {
 
   const persons = getConjugationPersons(languageCode);
   const isSlavic = ['pl', 'cs', 'ru', 'uk'].includes(languageCode);
+
+  // Check if this language supports this tense
+  if (!hasTense(languageCode, tense as VerbTense)) {
+    const availableTenses = getAvailableTenses(languageCode).filter(t => t !== 'present');
+    return res.status(400).json({
+      error: `${languageName} does not have ${tense} tense. Available tenses: ${availableTenses.join(', ')}`
+    });
+  }
 
   try {
     const ai = new GoogleGenAI({ apiKey });
@@ -133,7 +144,7 @@ The persons in ${languageName} are: ${persons.join(', ')}
 
 EVERY field must be filled. No nulls or empty strings.`;
       }
-    } else {
+    } else if (tense === 'future') {
       // Future tense - similar structure for all languages
       prompt = `Give me the COMPLETE future tense conjugation of the ${languageName} verb "${word}" (infinitive form).
 
@@ -158,6 +169,136 @@ The persons in ${languageName} are: ${persons.join(', ')}
 ${isSlavic ? `For imperfective verbs, use the compound future. For perfective verbs, use the simple future.` : ''}
 
 EVERY field must be filled. No nulls or empty strings.`;
+
+    } else if (tense === 'conditional') {
+      if (isSlavic) {
+        // Slavic conditional has gender agreement (like past tense)
+        prompt = `Give me the COMPLETE conditional mood conjugation of the ${languageName} verb "${word}" (infinitive form).
+
+${languageName} conditional has GENDER variations (formed from past tense + "by" particle). For each person, provide BOTH masculine and feminine forms.
+
+Return a JSON object with this structure:
+{
+  "first_singular": { "masculine": "...", "feminine": "..." },
+  "second_singular": { "masculine": "...", "feminine": "..." },
+  "third_singular": { "masculine": "...", "feminine": "...", "neuter": "..." },
+  "first_plural": { "masculine": "...", "feminine": "..." },
+  "second_plural": { "masculine": "...", "feminine": "..." },
+  "third_plural": { "masculine": "...", "feminine": "..." }
+}
+
+The persons in ${languageName} are: ${persons.join(', ')}
+EVERY field must be filled. No nulls or empty strings.`;
+      } else {
+        // Non-Slavic conditional (Spanish: -ía, French: -ais, etc.)
+        prompt = `Give me the COMPLETE conditional mood conjugation of the ${languageName} verb "${word}" (infinitive form).
+
+The conditional expresses "would do" actions.
+
+Return a JSON object with this structure:
+{
+  "first_singular": "...",
+  "second_singular": "...",
+  "third_singular": "...",
+  "first_plural": "...",
+  "second_plural": "...",
+  "third_plural": "..."
+}
+
+The persons in ${languageName} are: ${persons.join(', ')}
+- first_singular = ${persons[0] || 'I'}
+- second_singular = ${persons[1] || 'you'}
+- third_singular = ${persons[2] || 'he/she/it'}
+- first_plural = ${persons[3] || 'we'}
+- second_plural = ${persons[4] || 'you (plural)'}
+- third_plural = ${persons[5] || 'they'}
+
+EVERY field must be filled. No nulls or empty strings.`;
+      }
+
+    } else if (tense === 'imperative') {
+      // Imperative - limited persons (commands), varies by language
+      const impPersons = getImperativePersons(languageCode);
+      const personLabels: Record<string, string> = {
+        'second_singular': `${persons[1] || 'you'} - "Do it!" (informal singular)`,
+        'first_plural': `${persons[3] || 'we'} - "Let's do it!"`,
+        'second_plural': `${persons[4] || 'you plural'} - "Do it!" (plural/formal)`
+      };
+
+      const personList = impPersons.map(p => `- ${p} (${personLabels[p] || p})`).join('\n');
+      const jsonStructure = '{\n' + impPersons.map(p => `  "${p}": "..."`).join(',\n') + '\n}';
+
+      prompt = `Give me the IMPERATIVE mood forms of the ${languageName} verb "${word}" (infinitive form).
+
+Imperatives are commands. ${languageName} has imperative forms for these persons:
+${personList}
+
+Return a JSON object:
+${jsonStructure}
+
+${isSlavic ? 'For perfective verbs, give the perfective imperative. For imperfective, give imperfective.' : ''}
+EVERY field must be filled. No nulls or empty strings.`;
+
+    } else if (tense === 'subjunctive') {
+      // Subjunctive - Romance languages only
+      prompt = `Give me the PRESENT SUBJUNCTIVE conjugation of the ${languageName} verb "${word}" (infinitive form).
+
+The subjunctive mood expresses wishes, doubts, possibilities, necessity, and is used after certain expressions like:
+${languageCode === 'es' ? '- "quiero que...", "es importante que...", "ojalá..."' : ''}
+${languageCode === 'fr' ? '- "je veux que...", "il faut que...", "bien que..."' : ''}
+${languageCode === 'it' ? '- "voglio che...", "è necessario che...", "affinché..."' : ''}
+${languageCode === 'pt' ? '- "quero que...", "é importante que...", "embora..."' : ''}
+${languageCode === 'ro' ? '- "vreau să...", "trebuie să...", "deși..."' : ''}
+
+Return a JSON object:
+{
+  "first_singular": "...",
+  "second_singular": "...",
+  "third_singular": "...",
+  "first_plural": "...",
+  "second_plural": "...",
+  "third_plural": "..."
+}
+
+The persons in ${languageName} are: ${persons.join(', ')}
+EVERY field must be filled. No nulls or empty strings.`;
+
+    } else if (tense === 'imperfect') {
+      // Imperfect - Romance languages (ongoing/habitual past)
+      const imperfectName = languageCode === 'es' ? 'pretérito imperfecto' :
+                           languageCode === 'fr' ? 'imparfait' :
+                           languageCode === 'it' ? 'imperfetto' :
+                           languageCode === 'pt' ? 'imperfeito' : 'imperfect';
+
+      prompt = `Give me the IMPERFECT TENSE (${imperfectName}) conjugation of the ${languageName} verb "${word}" (infinitive form).
+
+The imperfect tense expresses:
+- Ongoing past actions ("I was eating")
+- Habitual past actions ("I used to eat")
+- Background descriptions ("It was raining")
+
+Return a JSON object:
+{
+  "first_singular": "...",
+  "second_singular": "...",
+  "third_singular": "...",
+  "first_plural": "...",
+  "second_plural": "...",
+  "third_plural": "..."
+}
+
+The persons in ${languageName} are: ${persons.join(', ')}
+- first_singular = ${persons[0] || 'I'}
+- second_singular = ${persons[1] || 'you'}
+- third_singular = ${persons[2] || 'he/she/it'}
+- first_plural = ${persons[3] || 'we'}
+- second_plural = ${persons[4] || 'you (plural)'}
+- third_plural = ${persons[5] || 'they'}
+
+EVERY field must be filled. No nulls or empty strings.`;
+
+    } else {
+      return res.status(400).json({ error: `Unsupported tense: ${tense}` });
     }
 
     // Build response schema based on language and tense
@@ -173,46 +314,65 @@ EVERY field must be filled. No nulls or empty strings.`;
 
     let responseSchema: any;
 
-    if (tense === 'past' && isSlavic) {
-      // Slavic past tense with gender
-      const genderedPersonSchema = {
-        type: Type.OBJECT,
-        properties: {
-          masculine: { type: Type.STRING },
-          feminine: { type: Type.STRING }
-        },
-        required: ['masculine', 'feminine']
-      };
+    // Gendered schema for Slavic past/conditional
+    const genderedPersonSchema = {
+      type: Type.OBJECT,
+      properties: {
+        masculine: { type: Type.STRING },
+        feminine: { type: Type.STRING }
+      },
+      required: ['masculine', 'feminine']
+    };
 
-      const thirdPersonSchema = {
-        type: Type.OBJECT,
-        properties: {
-          masculine: { type: Type.STRING },
-          feminine: { type: Type.STRING },
-          neuter: { type: Type.STRING }
-        },
-        required: ['masculine', 'feminine', 'neuter']
-      };
+    const thirdPersonGenderedSchema = {
+      type: Type.OBJECT,
+      properties: {
+        masculine: { type: Type.STRING },
+        feminine: { type: Type.STRING },
+        neuter: { type: Type.STRING }
+      },
+      required: ['masculine', 'feminine', 'neuter']
+    };
 
-      responseSchema = {
-        type: Type.OBJECT,
-        properties: {
-          first_singular: genderedPersonSchema,
-          second_singular: genderedPersonSchema,
-          third_singular: thirdPersonSchema,
-          first_plural: genderedPersonSchema,
-          second_plural: genderedPersonSchema,
-          third_plural: genderedPersonSchema
-        },
-        required: personKeys
-      };
+    // Imperative schema (limited persons, varies by language)
+    const impPersonsForSchema = getImperativePersons(languageCode);
+    const imperativeSchema = {
+      type: Type.OBJECT,
+      properties: Object.fromEntries(
+        impPersonsForSchema.map(p => [p, { type: Type.STRING }])
+      ),
+      required: impPersonsForSchema
+    };
+
+    // Standard 6-person schema
+    const standardSchema = {
+      type: Type.OBJECT,
+      properties: personSchema,
+      required: personKeys
+    };
+
+    // Gendered 6-person schema (Slavic past/conditional)
+    const genderedSchema = {
+      type: Type.OBJECT,
+      properties: {
+        first_singular: genderedPersonSchema,
+        second_singular: genderedPersonSchema,
+        third_singular: thirdPersonGenderedSchema,
+        first_plural: genderedPersonSchema,
+        second_plural: genderedPersonSchema,
+        third_plural: genderedPersonSchema
+      },
+      required: personKeys
+    };
+
+    // Select schema based on tense and language
+    if ((tense === 'past' || tense === 'conditional') && isSlavic) {
+      responseSchema = genderedSchema;
+    } else if (tense === 'imperative') {
+      responseSchema = imperativeSchema;
     } else {
-      // Simple conjugation (future, or non-Slavic past)
-      responseSchema = {
-        type: Type.OBJECT,
-        properties: personSchema,
-        required: personKeys
-      };
+      // Standard 6-person: future, non-Slavic past/conditional, subjunctive, imperfect
+      responseSchema = standardSchema;
     }
 
     const response = await ai.models.generateContent({

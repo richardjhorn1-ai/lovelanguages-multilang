@@ -380,6 +380,47 @@
       "seeResults": "See Results",
       "backToGames": "← Back to Games"
     },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Master your verb conjugations",
+      "combinationsAvailable": "verb+tense combinations available",
+      "selectMode": "Select Training Mode",
+      "focusOn": "Focus on (optional)",
+      "allTenses": "All Tenses",
+      "startTraining": "Start Training",
+      "backToGames": "← Back to Games",
+      "noVerbsAlert": "No verbs with conjugations found. Learn more verbs first!",
+      "submit": "Submit",
+      "next": "Next",
+      "checking": "Checking...",
+      "typeAnswer": "Type the conjugation...",
+      "correct": "Correct!",
+      "incorrect": "Incorrect",
+      "streakProgress": "{{remaining}} more for +1 XP",
+      "modes": {
+        "mixed": "Mixed",
+        "mixedDesc": "Random variety of all modes",
+        "matchPairs": "Match Pairs",
+        "matchPairsDesc": "Drag pronouns to conjugations",
+        "fillTemplate": "Fill Template",
+        "fillTemplateDesc": "Type the conjugation",
+        "multipleChoice": "Multiple Choice",
+        "multipleChoiceDesc": "Pick the correct answer",
+        "audioType": "Audio Type",
+        "audioTypeDesc": "Hear it, type it"
+      },
+      "session": {
+        "questionsAnswered": "Questions Answered",
+        "longestStreak": "Longest Streak",
+        "xpEarned": "XP Earned",
+        "playAgain": "Play Again",
+        "exit": "Exit"
+      },
+      "matchPairs": {
+        "instruction": "Tap to match pronouns with conjugations",
+        "complete": "All matched!"
+      }
+    },
     "session": {
       "yourPartner": "Your Partner"
     }
@@ -493,6 +534,7 @@
       "adjective": "Adjective",
       "adverb": "Adverb",
       "phrase": "Phrase",
+      "other": "Other",
       "gifts": "Gifts",
       "clear": "Clear"
     },
@@ -536,7 +578,8 @@
     "tableHeaders": {
       "person": "Person",
       "masculine": "Masc.",
-      "feminine": "Fem."
+      "feminine": "Fem.",
+      "neuter": "Neut."
     },
     "nounForms": {
       "gender": "Gender",

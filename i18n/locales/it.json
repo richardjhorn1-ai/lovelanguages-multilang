@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Il Tuo Partner"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Padroneggia le tue coniugazioni verbali",
+      "combinationsAvailable": "combinazioni verbo+tempo disponibili",
+      "selectMode": "Seleziona modalità di allenamento",
+      "focusOn": "Concentrati su (opzionale)",
+      "allTenses": "Tutti i tempi",
+      "startTraining": "Inizia allenamento",
+      "backToGames": "← Torna ai giochi",
+      "noVerbsAlert": "Nessun verbo con coniugazioni trovato. Impara prima più verbi!",
+      "submit": "Invia",
+      "next": "Avanti",
+      "checking": "Verificando...",
+      "typeAnswer": "Scrivi la coniugazione...",
+      "correct": "Corretto!",
+      "incorrect": "Sbagliato",
+      "streakProgress": "Altri {{remaining}} per +1 XP",
+      "modes": {
+        "mixed": "Misto",
+        "mixedDesc": "Varietà casuale di tutte le modalità",
+        "matchPairs": "Abbina le coppie",
+        "matchPairsDesc": "Trascina i pronomi alle coniugazioni",
+        "fillTemplate": "Completa",
+        "fillTemplateDesc": "Digita la coniugazione",
+        "multipleChoice": "Scelta multipla",
+        "multipleChoiceDesc": "Scegli la risposta corretta",
+        "audioType": "Audio",
+        "audioTypeDesc": "Ascolta e digita"
+      },
+      "session": {
+        "questionsAnswered": "Domande risposte",
+        "longestStreak": "Serie più lunga",
+        "xpEarned": "XP guadagnati",
+        "playAgain": "Gioca ancora",
+        "exit": "Esci"
+      },
+      "matchPairs": {
+        "instruction": "Tocca per abbinare pronomi e coniugazioni",
+        "complete": "Tutto abbinato!"
+      }
     }
   },
   "profile": {
@@ -493,6 +534,7 @@
       "adjective": "Aggettivo",
       "adverb": "Avverbio",
       "phrase": "Frase",
+      "other": "Altro",
       "gifts": "Regali",
       "clear": "Cancella"
     },
@@ -536,7 +578,8 @@
     "tableHeaders": {
       "person": "Persona",
       "masculine": "Masch.",
-      "feminine": "Femm."
+      "feminine": "Femm.",
+      "neuter": "Neutro"
     },
     "nounForms": {
       "gender": "Genere",

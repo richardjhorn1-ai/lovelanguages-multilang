@@ -382,6 +382,47 @@
     },
     "session": {
       "yourPartner": "Twój partner"
+    },
+    "verbDojo": {
+      "title": "Verb Dojo",
+      "subtitle": "Opanuj koniugację czasowników",
+      "combinationsAvailable": "dostępnych kombinacji czasownik+czas",
+      "selectMode": "Wybierz tryb treningu",
+      "focusOn": "Skup się na (opcjonalnie)",
+      "allTenses": "Wszystkie czasy",
+      "startTraining": "Rozpocznij trening",
+      "backToGames": "← Powrót do gier",
+      "noVerbsAlert": "Nie znaleziono czasowników z koniugacją. Najpierw naucz się więcej czasowników!",
+      "submit": "Wyślij",
+      "next": "Dalej",
+      "checking": "Sprawdzanie...",
+      "typeAnswer": "Wpisz koniugację...",
+      "correct": "Poprawnie!",
+      "incorrect": "Niepoprawnie",
+      "streakProgress": "Jeszcze {{remaining}} do +1 XP",
+      "modes": {
+        "mixed": "Mieszany",
+        "mixedDesc": "Losowa mieszanka wszystkich trybów",
+        "matchPairs": "Dopasuj pary",
+        "matchPairsDesc": "Przeciągnij zaimki do koniugacji",
+        "fillTemplate": "Uzupełnij",
+        "fillTemplateDesc": "Wpisz koniugację",
+        "multipleChoice": "Wielokrotny wybór",
+        "multipleChoiceDesc": "Wybierz poprawną odpowiedź",
+        "audioType": "Dyktando",
+        "audioTypeDesc": "Posłuchaj i wpisz"
+      },
+      "session": {
+        "questionsAnswered": "Odpowiedzi",
+        "longestStreak": "Najdłuższa seria",
+        "xpEarned": "Zdobyte XP",
+        "playAgain": "Zagraj ponownie",
+        "exit": "Wyjdź"
+      },
+      "matchPairs": {
+        "instruction": "Dotknij, aby dopasować zaimki do koniugacji",
+        "complete": "Wszystko dopasowane!"
+      }
     }
   },
   "profile": {
@@ -493,6 +534,7 @@
       "adjective": "Przymiotnik",
       "adverb": "Przysłówek",
       "phrase": "Wyrażenie",
+      "other": "Inne",
       "gifts": "Prezenty",
       "clear": "Wyczyść"
     },
@@ -536,7 +578,8 @@
     "tableHeaders": {
       "person": "Osoba",
       "masculine": "Męski",
-      "feminine": "Żeński"
+      "feminine": "Żeński",
+      "neuter": "Nijaki"
     },
     "nounForms": {
       "gender": "Rodzaj",
