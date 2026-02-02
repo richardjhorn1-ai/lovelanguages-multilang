@@ -472,9 +472,9 @@ const MultipleChoiceInline: React.FC<{
               className={`w-full p-4 rounded-xl border-2 text-left font-bold transition-all ${
                 showResult
                   ? isCorrect
-                    ? 'border-green-500 bg-green-500/10 text-green-700'
+                    ? 'border-green-500 bg-green-500/10 text-green-700 dark:text-green-400'
                     : isSelected
-                    ? 'border-red-500 bg-red-500/10 text-red-700'
+                    ? 'border-red-500 bg-red-500/10 text-red-700 dark:text-red-400'
                     : 'border-[var(--border-color)] opacity-50'
                   : isSelected
                   ? 'border-[var(--accent-color)] bg-[var(--accent-color)]/10'
