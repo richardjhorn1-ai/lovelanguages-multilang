@@ -52,6 +52,12 @@ export default async function handler(req: any, res: any) {
 
     const partnerId = profile.linked_user_id;
 
+    // TODO: Multi-language support
+    // Currently users can only learn one language at a time, so queries don't filter by language_code.
+    // If we add support for learning multiple languages simultaneously, add .eq('language_code', targetLanguage)
+    // to these queries: word_scores (lines ~102, 181, 233), dictionary (~226), activity_feed (~263).
+    // The targetLanguage would need to be passed as a query param or read from partner's active_language.
+
     // Get partner profile
     const { data: partnerProfile } = await supabase
       .from('profiles')

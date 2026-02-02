@@ -31,6 +31,7 @@ const EVENT_ICONS: Record<ActivityEventType, string> = {
   gift_received: '💝',
   streak_milestone: '🔥',
   achievement_unlocked: '🏅',
+  love_note: '💕',
 };
 
 const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) => {
@@ -71,7 +72,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
         } else {
           setEvents(data.events);
         }
-        setHasMore(data.pagination.hasMore);
+        setHasMore(data?.pagination?.hasMore ?? false);
         setOffset(newOffset + data.events.length);
       }
     } catch (error) {
@@ -107,6 +108,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
       gift_received: '#EC4899', // Pink
       streak_milestone: '#EF4444', // Red
       achievement_unlocked: '#F59E0B', // Amber
+      love_note: '#EC4899', // Pink
     };
     return colors[eventType] || '#6B7280';
   };

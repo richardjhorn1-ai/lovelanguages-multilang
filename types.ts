@@ -41,6 +41,9 @@ export interface Profile {
   free_tier_chosen_at?: string;
   trial_expires_at?: string;
   promo_expires_at?: string;
+  // Tutor-specific XP and tier
+  tutor_xp?: number;
+  tutor_tier?: number;
 }
 
 // Onboarding data collected during signup flow
@@ -570,17 +573,19 @@ export interface TutorTier {
   tier: number;
   name: string;
   xpRange: [number, number]; // [min, max)
+  color: string; // Hex color for tier theming
 }
 
 // Tutor statistics
 export interface TutorStats {
-  user_id: string;
-  challenges_created: number;
-  gifts_sent: number;
-  perfect_scores: number;
-  words_mastered: number;
-  teaching_streak: number;
-  last_teaching_at: string | null;
+  userId?: string;
+  challengesCreated: number;
+  giftsSent: number;
+  perfectScores: number;
+  wordsMastered: number;
+  teachingStreak: number;
+  longestStreak: number;
+  lastTeachingAt: string | null;
 }
 
 // Achievement category
@@ -632,7 +637,8 @@ export type ActivityEventType =
   | 'gift_sent'
   | 'gift_received'
   | 'streak_milestone'
-  | 'achievement_unlocked';
+  | 'achievement_unlocked'
+  | 'love_note';
 
 // Activity feed event
 export interface ActivityFeedEvent {
@@ -661,8 +667,10 @@ export interface LoveNote {
   id: string;
   sender_id: string;
   recipient_id: string;
-  template_id?: string;
+  template_category?: string;
+  template_text?: string;
   custom_message?: string;
+  read_at?: string | null;
   created_at: string;
 }
 

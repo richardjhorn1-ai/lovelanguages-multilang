@@ -59,6 +59,9 @@ import {
   Globe,
   InstagramLogo,
   ArrowSquareOut,
+  ChartBar,
+  Lightbulb,
+  PaperPlaneTilt,
   IconWeight,
 } from '@phosphor-icons/react';
 
@@ -134,4 +137,7 @@ export const ICONS = {
   Globe: createIcon(Globe),
   Instagram: createIcon(InstagramLogo),
   ExternalLink: createIcon(ArrowSquareOut),
+  BarChart: createIcon(ChartBar),
+  Lightbulb: createIcon(Lightbulb),
+  Send: createIcon(PaperPlaneTilt),
 };

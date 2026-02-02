@@ -172,7 +172,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       });
       if (statsRes.ok) {
         const statsData = await statsRes.json();
-        if (statsData.stats) setTutorStats(statsData.stats);
+        if (statsData.tutor?.stats) setTutorStats(statsData.tutor.stats);
       }
 
     } catch (error) {
@@ -549,11 +549,11 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         {/* Header with Mode Toggle and Streak */}
         <div className="text-center">
           {/* Teaching Streak Badge */}
-          {tutorStats && tutorStats.teaching_streak > 0 && (
+          {tutorStats && tutorStats.teachingStreak > 0 && (
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: `${accentHex}15` }}>
               <span className="text-xl">🔥</span>
               <span className="font-bold" style={{ color: accentHex }}>
-                {t('tutorGames.teachingStreak', { count: tutorStats.teaching_streak, defaultValue: `${tutorStats.teaching_streak} day teaching streak!` })}
+                {t('tutorGames.teachingStreak', { count: tutorStats.teachingStreak, defaultValue: `${tutorStats.teachingStreak} day teaching streak!` })}
               </span>
             </div>
           )}

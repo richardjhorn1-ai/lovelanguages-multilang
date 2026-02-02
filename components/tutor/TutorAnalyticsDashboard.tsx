@@ -38,22 +38,19 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   const tier = getTutorTierFromXP(tutorXp);
   const tierProgress = getTutorTierProgress(tutorXp);
   const xpToNext = getXPToNextTutorTier(tutorXp);
-
-  // Tier color gradient
-  const tierColors = {
-    1: '#9333EA', // Purple - Language Whisperer
-    2: '#EC4899', // Pink - Phrase Poet
-    3: '#F59E0B', // Amber - Vocabulary Virtuoso
-    4: '#10B981', // Emerald - Grammar Guardian
-    5: '#3B82F6', // Blue - Fluency Fairy
-    6: '#EF4444', // Red - Love Linguist
-  };
-  const tierColor = tierColors[tier.tier as keyof typeof tierColors] || accentHex;
+  const tierColor = tier.color || accentHex;
 
   useEffect(() => {
     fetchAnalytics();
     fetchPartnerProfile();
   }, [profile.id, targetLanguage, period]);
+
+  // Refresh when language is switched
+  useEffect(() => {
+    const handleLanguageSwitch = () => fetchAnalytics();
+    window.addEventListener('language-switched', handleLanguageSwitch);
+    return () => window.removeEventListener('language-switched', handleLanguageSwitch);
+  }, []);
 
   const fetchAnalytics = async () => {
     setLoading(true);
@@ -94,14 +91,23 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   const fetchPartnerProfile = async () => {
     if (!profile.linked_user_id) return;
 
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', profile.linked_user_id)
-      .single();
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', profile.linked_user_id)
+        .single();
 
-    if (data) {
-      setPartnerProfile(data);
+      if (error) {
+        console.error('Failed to fetch partner profile:', error);
+        return;
+      }
+
+      if (data) {
+        setPartnerProfile(data);
+      }
+    } catch (error) {
+      console.error('Error fetching partner profile:', error);
     }
   };
 
@@ -255,7 +261,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             )}
 
             {/* Weak Spot Intelligence */}
-            {analytics && analytics.stuck_words.length > 0 && (
+            {analytics && analytics.stuck_words?.length > 0 && (
               <WeakSpotIntelligence
                 stuckWords={analytics.stuck_words}
                 improvingWords={analytics.improving_words}
@@ -265,7 +271,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             )}
 
             {/* Recommendations */}
-            {analytics && analytics.recommendations.length > 0 && (
+            {analytics && analytics.recommendations?.length > 0 && (
               <div className="bg-[var(--bg-card)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)]">
                 <h3 className="text-scale-micro font-black uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
                   <ICONS.Lightbulb className="w-4 h-4" style={{ color: tierColor }} />
@@ -375,13 +381,10 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
       </div>
 
       {/* Love Note Modal */}
-      {profile.linked_user_id && (
+      {showLoveNote && profile.linked_user_id && (
         <LoveNoteComposer
-          isOpen={showLoveNote}
+          partnerName={partnerProfile?.full_name || 'Partner'}
           onClose={() => setShowLoveNote(false)}
-          senderId={profile.id}
-          recipientId={profile.linked_user_id}
-          senderName={profile.full_name}
         />
       )}
     </div>
