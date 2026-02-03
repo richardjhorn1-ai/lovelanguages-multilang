@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../../services/supabase';
@@ -27,9 +27,10 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
 
   const [analytics, setAnalytics] = useState<TutorAnalytics | null>(null);
   const [stats, setStats] = useState<TutorStats | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [period, setPeriod] = useState<'week' | 'month' | 'all'>('week');
-  const [activeTab, setActiveTab] = useState<'overview' | 'activity'>('overview');
+  const [activeTab, setActiveTab] = useState<'teaching' | 'partner'>('teaching');
   const [partnerProfile, setPartnerProfile] = useState<Profile | null>(null);
   const [showLoveNote, setShowLoveNote] = useState(false);
 
@@ -53,7 +54,13 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   }, []);
 
   const fetchAnalytics = async () => {
-    setLoading(true);
+    // Only show full-page spinner on initial load, show inline indicator on refresh
+    if (!analytics) {
+      setInitialLoading(true);
+    } else {
+      setRefreshing(true);
+    }
+
     try {
       const response = await fetch(`/api/tutor-analytics?period=${period}`, {
         headers: {
@@ -85,7 +92,8 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
       console.error('Failed to fetch stats:', error);
     }
 
-    setLoading(false);
+    setInitialLoading(false);
+    setRefreshing(false);
   };
 
   const fetchPartnerProfile = async () => {
@@ -111,7 +119,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
     }
   };
 
-  if (loading && !analytics) {
+  if (initialLoading) {
     return (
       <div className="h-full flex items-center justify-center">
         <ICONS.RefreshCw className="w-8 h-8 animate-spin text-[var(--accent-color)]" />
@@ -194,30 +202,30 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
         {/* Tab Switcher */}
         <div className="flex gap-2 bg-[var(--bg-card)] p-1 rounded-xl border border-[var(--border-color)]">
           <button
-            onClick={() => setActiveTab('overview')}
+            onClick={() => setActiveTab('teaching')}
             className={`flex-1 py-2 px-4 rounded-lg text-scale-label font-bold transition-all ${
-              activeTab === 'overview'
+              activeTab === 'teaching'
                 ? 'bg-[var(--accent-color)] text-white'
                 : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
             }`}
           >
             <ICONS.BarChart className="w-4 h-4 inline-block mr-2" />
-            {t('tutor.tabs.overview', 'Overview')}
+            {t('tutor.tabs.teaching', 'My Teaching')}
           </button>
           <button
-            onClick={() => setActiveTab('activity')}
+            onClick={() => setActiveTab('partner')}
             className={`flex-1 py-2 px-4 rounded-lg text-scale-label font-bold transition-all ${
-              activeTab === 'activity'
+              activeTab === 'partner'
                 ? 'bg-[var(--accent-color)] text-white'
                 : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
             }`}
           >
-            <ICONS.Clock className="w-4 h-4 inline-block mr-2" />
-            {t('tutor.tabs.activity', 'Together')}
+            <ICONS.User className="w-4 h-4 inline-block mr-2" />
+            {t('tutor.tabs.partner', "Partner's Progress")}
           </button>
         </div>
 
-        {activeTab === 'overview' ? (
+        {activeTab === 'teaching' ? (
           <>
             {/* Teaching Impact Card */}
             {analytics && (
@@ -231,7 +239,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             )}
 
             {/* Period Selector */}
-            <div className="flex gap-2 justify-center">
+            <div className="flex gap-2 justify-center items-center">
               {(['week', 'month', 'all'] as const).map((p) => (
                 <button
                   key={p}
@@ -248,6 +256,9 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                    t('tutor.period.allTime', 'All Time')}
                 </button>
               ))}
+              {refreshing && (
+                <ICONS.RefreshCw className="w-4 h-4 animate-spin text-[var(--text-secondary)]" />
+              )}
             </div>
 
             {/* Trend Charts */}
@@ -289,7 +300,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                         <button
                           onClick={() => {
                             if (rec.action_type === 'challenge') navigate('/play');
-                            // Love note handled elsewhere
+                            else if (rec.action_type === 'love_note') setShowLoveNote(true);
                           }}
                           className="px-3 py-1.5 rounded-lg text-scale-micro font-bold text-white flex-shrink-0"
                           style={{ backgroundColor: tierColor }}
@@ -344,8 +355,143 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             )}
           </>
         ) : (
-          /* Activity Feed Tab */
-          <ActivityFeed partnerId={profile.linked_user_id || undefined} />
+          /* Partner's Progress Tab */
+          <>
+            {/* Partner XP & Level Card */}
+            {partnerProfile && (
+              <div
+                className="p-4 md:p-6 rounded-xl md:rounded-[2rem] shadow-lg text-white relative overflow-hidden"
+                style={{
+                  background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`,
+                }}
+              >
+                <div className="absolute top-0 right-0 opacity-10">
+                  <ICONS.TrendingUp className="w-20 h-20 md:w-28 md:h-28" />
+                </div>
+
+                <div className="flex items-center justify-between relative z-10">
+                  <div>
+                    <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest mb-1">
+                      {partnerProfile.full_name || t('common.partner', 'Partner')}
+                    </p>
+                    <h2 className="text-scale-heading font-black">
+                      {t('tutor.partner.learningProgress', 'Learning Progress')}
+                    </h2>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-scale-heading font-black">{partnerProfile.xp || 0}</p>
+                    <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest">
+                      {t('common.totalXp', 'Total XP')}
+                    </p>
+                  </div>
+                </div>
+
+                {partnerProfile.last_practice_at && (
+                  <div className="mt-4 flex items-center gap-2 relative z-10">
+                    <div className="flex items-center gap-1.5 bg-white/20 px-3 py-1.5 rounded-full">
+                      <ICONS.Clock className="w-4 h-4" />
+                      <span className="font-bold text-scale-label">
+                        {t('tutor.partner.lastPractice', 'Last practice')}: {new Date(partnerProfile.last_practice_at).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Partner Stats Grid */}
+            {analytics && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                  <div className="text-scale-heading font-black" style={{ color: tierColor }}>
+                    {analytics.words_per_week || 0}
+                  </div>
+                  <div className="text-scale-micro text-[var(--text-secondary)] uppercase font-bold">
+                    {t('tutor.partner.wordsThisWeek', 'Words This Week')}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                  <div className="text-scale-heading font-black" style={{ color: tierColor }}>
+                    {analytics.words_mastered || 0}
+                  </div>
+                  <div className="text-scale-micro text-[var(--text-secondary)] uppercase font-bold">
+                    {t('tutor.partner.wordsMastered', 'Words Mastered')}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                  <div className="text-scale-heading font-black" style={{ color: tierColor }}>
+                    {analytics.practice_consistency || 0}/7
+                  </div>
+                  <div className="text-scale-micro text-[var(--text-secondary)] uppercase font-bold">
+                    {t('tutor.partner.activeDays', 'Active Days')}
+                  </div>
+                </div>
+                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                  <div className="text-scale-heading font-black" style={{ color: tierColor }}>
+                    {analytics.challenge_success_rate || 0}%
+                  </div>
+                  <div className="text-scale-micro text-[var(--text-secondary)] uppercase font-bold">
+                    {t('tutor.partner.avgScore', 'Avg Score')}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Period Selector for Partner Tab */}
+            <div className="flex gap-2 justify-center items-center">
+              {(['week', 'month', 'all'] as const).map((p) => (
+                <button
+                  key={p}
+                  onClick={() => setPeriod(p)}
+                  className={`px-4 py-1.5 rounded-full text-scale-caption font-bold transition-all ${
+                    period === p
+                      ? 'text-white'
+                      : 'bg-[var(--bg-card)] text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
+                  }`}
+                  style={period === p ? { backgroundColor: tierColor } : {}}
+                >
+                  {p === 'week' ? t('tutor.period.week', 'Week') :
+                   p === 'month' ? t('tutor.period.month', 'Month') :
+                   t('tutor.period.allTime', 'All Time')}
+                </button>
+              ))}
+              {refreshing && (
+                <ICONS.RefreshCw className="w-4 h-4 animate-spin text-[var(--text-secondary)]" />
+              )}
+            </div>
+
+            {/* Partner Trend Charts - only show if there's some data */}
+            {analytics && !(analytics.xp_trend?.every(d => d.value === 0) && analytics.words_trend?.every(d => d.value === 0)) && (
+              <TrendCharts
+                xpTrend={analytics.xp_trend}
+                wordsTrend={analytics.words_trend}
+                accuracyTrend={analytics.accuracy_trend}
+                tierColor={tierColor}
+              />
+            )}
+
+            {/* Empty State for New Partnerships - show only when no activity data */}
+            {analytics && analytics.xp_trend?.every(d => d.value === 0) && analytics.words_trend?.every(d => d.value === 0) && (
+              <div className="bg-[var(--bg-card)] p-6 rounded-xl border border-[var(--border-color)] text-center">
+                <span className="text-4xl mb-3 block">📚</span>
+                <p className="text-scale-label font-bold text-[var(--text-primary)] mb-1">
+                  {t('tutor.partner.noActivityYet', "Your partner hasn't started practicing yet!")}
+                </p>
+                <p className="text-scale-caption text-[var(--text-secondary)]">
+                  {t('tutor.partner.sendChallenge', 'Send them a challenge or word gift to get started.')}
+                </p>
+              </div>
+            )}
+
+            {/* Recent Activity */}
+            <div className="bg-[var(--bg-card)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)]">
+              <h3 className="text-scale-micro font-black uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
+                <ICONS.Clock className="w-4 h-4" style={{ color: tierColor }} />
+                {t('tutor.partner.recentActivity', 'Recent Activity')}
+              </h3>
+              <ActivityFeed partnerId={profile.linked_user_id || undefined} />
+            </div>
+          </>
         )}
 
         {/* Quick Actions */}
