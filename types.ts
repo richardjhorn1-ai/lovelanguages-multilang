@@ -458,7 +458,7 @@ export interface ChallengeResult {
 // ===========================================
 
 export type WordRequestType = 'free_text' | 'ai_topic';
-export type WordRequestStatus = 'pending' | 'learning' | 'completed';
+export type WordRequestStatus = 'pending' | 'in_progress' | 'completed';
 
 export interface WordSuggestion {
   word: string;
@@ -506,7 +506,8 @@ export type NotificationType =
   | 'challenge_request'
   | 'word_request'
   | 'gift_complete'
-  | 'love_note';
+  | 'love_note'
+  | 'partner_deleted_account';
 
 export interface Notification {
   id: string;
@@ -657,6 +658,7 @@ export type ActivityEventType =
   | 'level_up'
   | 'challenge_completed'
   | 'challenge_sent'
+  | 'challenge_request'
   | 'gift_sent'
   | 'gift_received'
   | 'streak_milestone'
