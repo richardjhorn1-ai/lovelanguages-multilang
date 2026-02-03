@@ -34,8 +34,11 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   const [partnerProfile, setPartnerProfile] = useState<Profile | null>(null);
   const [showLoveNote, setShowLoveNote] = useState(false);
 
-  // Cache analytics by period for instant switching
+  // Cache analytics by period+language for instant switching
   const analyticsCache = useRef<Record<string, { data: TutorAnalytics; timestamp: number }>>({});
+
+  // Track current request to prevent stale responses from overwriting newer data
+  const currentRequestRef = useRef(0);
 
   // Calculate tier info
   const tutorXp = profile.tutor_xp || 0;
@@ -47,17 +50,27 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   useEffect(() => {
     fetchAnalytics();
     fetchPartnerProfile();
+    // Clear cache when language changes to avoid showing wrong language data
+    if (targetLanguage) {
+      // Invalidate cache entries for other languages
+      const currentLangPrefix = `${period}-${targetLanguage}`;
+      Object.keys(analyticsCache.current).forEach(key => {
+        if (!key.endsWith(`-${targetLanguage}`)) {
+          delete analyticsCache.current[key];
+        }
+      });
+    }
   }, [profile.id, targetLanguage, period]);
 
-  // Refresh when language is switched
-  useEffect(() => {
-    const handleLanguageSwitch = () => fetchAnalytics();
-    window.addEventListener('language-switched', handleLanguageSwitch);
-    return () => window.removeEventListener('language-switched', handleLanguageSwitch);
-  }, []);
+  // Note: Removed redundant language-switched event listener
+  // The main useEffect already has targetLanguage as a dependency
 
   const fetchAnalytics = async () => {
-    const cacheKey = period;
+    // Track this request to prevent stale responses from overwriting newer data
+    const thisRequest = ++currentRequestRef.current;
+
+    // Include targetLanguage in cache key to avoid showing wrong language data
+    const cacheKey = `${period}-${targetLanguage}`;
     const cached = analyticsCache.current[cacheKey];
     const CACHE_TTL = 60 * 1000; // 1 minute cache validity
 
@@ -90,6 +103,11 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
         },
       });
 
+      // Check if this is still the current request before updating state
+      if (thisRequest !== currentRequestRef.current) {
+        return; // Stale request, ignore response
+      }
+
       if (response.ok) {
         const data = await response.json();
         setAnalytics(data.analytics);
@@ -101,6 +119,11 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
       }
     } catch (error) {
       console.error('Failed to fetch analytics:', error);
+    }
+
+    // Check again before updating loading states
+    if (thisRequest !== currentRequestRef.current) {
+      return; // Stale request
     }
 
     // Also fetch tutor stats (only on initial load, not cached per period)

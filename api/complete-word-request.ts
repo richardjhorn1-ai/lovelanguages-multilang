@@ -115,23 +115,39 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Missing requestId' });
     }
 
-    // Get the word request
+    // Get the word request and atomically mark as in-progress to prevent race conditions
     const { data: wordRequest, error: requestError } = await supabase
       .from('word_requests')
-      .select('*')
+      .update({ status: 'in_progress' })
       .eq('id', requestId)
+      .eq('status', 'pending')  // Only update if still pending (prevents double completion)
+      .select('*')
       .single();
 
     if (requestError || !wordRequest) {
-      return res.status(404).json({ error: 'Word request not found' });
+      // Could be not found OR already completed/in-progress
+      const { data: existingRequest } = await supabase
+        .from('word_requests')
+        .select('status, student_id')
+        .eq('id', requestId)
+        .single();
+
+      if (!existingRequest) {
+        return res.status(404).json({ error: 'Word request not found' });
+      }
+      if (existingRequest.student_id !== auth.userId) {
+        return res.status(403).json({ error: 'Not authorized' });
+      }
+      if (existingRequest.status === 'completed' || existingRequest.status === 'in_progress') {
+        return res.status(400).json({ error: 'Already completed or in progress' });
+      }
+      return res.status(500).json({ error: 'Failed to start word request completion' });
     }
 
     if (wordRequest.student_id !== auth.userId) {
+      // Revert the status change since this user shouldn't have access
+      await supabase.from('word_requests').update({ status: 'pending' }).eq('id', requestId);
       return res.status(403).json({ error: 'Not authorized' });
-    }
-
-    if (wordRequest.status === 'completed') {
-      return res.status(400).json({ error: 'Already completed' });
     }
 
     // Get language from word request (set during creation) and student's native language
@@ -231,14 +247,15 @@ export default async function handler(req: any, res: any) {
       .update({ xp: newXp })
       .eq('id', auth.userId);
 
-    // Update word request status
+    // Update word request status to completed (was set to 'in_progress' at start to prevent race condition)
     await supabase
       .from('word_requests')
       .update({
         status: 'completed',
         completed_at: new Date().toISOString()
       })
-      .eq('id', requestId);
+      .eq('id', requestId)
+      .eq('status', 'in_progress');  // Only complete if we're the one processing it
 
     // Mark notification as read
     await supabase
