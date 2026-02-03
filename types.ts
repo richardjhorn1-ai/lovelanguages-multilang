@@ -44,6 +44,11 @@ export interface Profile {
   // Tutor-specific XP and tier
   tutor_xp?: number;
   tutor_tier?: number;
+  // Practice tracking
+  last_practice_at?: string;
+  // Nudge system (future feature)
+  nudges_enabled?: boolean;
+  last_nudge_at?: string;
 }
 
 // Onboarding data collected during signup flow
@@ -422,6 +427,16 @@ export interface TutorChallenge {
   created_at: string;
   started_at: string | null;
   completed_at: string | null;
+  language_code?: string;
+}
+
+export interface GradedAnswer {
+  wordId?: string;
+  word?: string;
+  userAnswer: string;
+  isCorrect: boolean;
+  explanation?: string;
+  correctAnswer: string;
 }
 
 export interface ChallengeResult {
@@ -432,9 +447,10 @@ export interface ChallengeResult {
   total_questions: number;
   correct_answers: number;
   time_spent_seconds: number | null;
-  answers: any[];
+  answers: GradedAnswer[];
   xp_earned: number;
   completed_at: string;
+  language_code?: string;
 }
 
 // ===========================================
@@ -467,6 +483,7 @@ export interface WordRequest {
   created_at: string;
   viewed_at: string | null;
   completed_at: string | null;
+  language_code?: string;
 }
 
 export interface GiftWord {
@@ -483,7 +500,13 @@ export interface GiftWord {
 // Notification System Types
 // ===========================================
 
-export type NotificationType = 'challenge' | 'word_request' | 'love_note' | 'challenge_complete' | 'gift_complete';
+export type NotificationType =
+  | 'challenge'
+  | 'challenge_complete'
+  | 'challenge_request'
+  | 'word_request'
+  | 'gift_complete'
+  | 'love_note';
 
 export interface Notification {
   id: string;

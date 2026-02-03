@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../../services/supabase';
 import { sounds } from '../../services/sounds';
@@ -27,6 +27,23 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [remaining, setRemaining] = useState<number | null>(null);
+
+  // Handle escape key and prevent background scroll
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && !sending) {
+        onClose();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    // Prevent background scrolling while modal is open
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    };
+  }, [onClose, sending]);
 
   const categories: { key: LoveNoteCategory; label: string; icon: string }[] = [
     { key: 'encouragement', label: t('loveNote.categories.encouragement', 'Encourage'), icon: '💪' },
@@ -79,8 +96,14 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+    <div
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="love-note-title"
         className="bg-[var(--bg-card)] rounded-[2rem] max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
@@ -89,7 +112,7 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="text-2xl">💕</span>
-              <h2 className="text-scale-label font-black">
+              <h2 id="love-note-title" className="text-scale-label font-black">
                 {t('loveNote.title', 'Send a Love Note')}
               </h2>
             </div>
