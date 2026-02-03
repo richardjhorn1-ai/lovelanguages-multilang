@@ -301,6 +301,85 @@ export async function getAllSlugs(
 }
 
 /**
+ * Topic definitions for hub pages
+ */
+export const TOPIC_DEFINITIONS: Record<string, { patterns: string[]; icon: string }> = {
+  'pet-names': { patterns: ['pet-names', 'terms-of-endearment'], icon: '💕' },
+  'i-love-you': { patterns: ['how-to-say-i-love-you'], icon: '❤️' },
+  'pronunciation': { patterns: ['pronunciation-guide'], icon: '🗣️' },
+  'grammar-basics': { patterns: ['grammar-basics'], icon: '📝' },
+  'essential-phrases': { patterns: ['essential-phrases'], icon: '💬' },
+  'romantic-phrases': { patterns: ['romantic-phrases'], icon: '💘' },
+};
+
+/**
+ * Get articles matching a topic pattern for a native language
+ */
+export async function getArticlesByTopic(
+  nativeLang: string,
+  topicSlug: string
+): Promise<{ targetLang: string; articles: BlogArticle[] }[]> {
+  const topic = TOPIC_DEFINITIONS[topicSlug];
+  if (!topic) return [];
+
+  // Build OR filter for slug patterns
+  const orFilters = topic.patterns.map(p => `slug.ilike.%${p}%`).join(',');
+
+  const { data, error } = await supabase
+    .from('blog_articles')
+    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .eq('native_lang', nativeLang)
+    .eq('published', true)
+    .or(orFilters)
+    .order('target_lang', { ascending: true });
+
+  if (error) {
+    console.error('Error fetching articles by topic:', error);
+    return [];
+  }
+
+  // Group by target language
+  const grouped: Record<string, BlogArticle[]> = {};
+  for (const article of data || []) {
+    if (!grouped[article.target_lang]) {
+      grouped[article.target_lang] = [];
+    }
+    grouped[article.target_lang].push(article);
+  }
+
+  return Object.entries(grouped).map(([targetLang, articles]) => ({
+    targetLang,
+    articles,
+  }));
+}
+
+/**
+ * Get topic counts for a native language (for topic hub overview)
+ */
+export async function getTopicCounts(
+  nativeLang: string
+): Promise<Record<string, number>> {
+  const counts: Record<string, number> = {};
+
+  for (const [topicSlug, topic] of Object.entries(TOPIC_DEFINITIONS)) {
+    const orFilters = topic.patterns.map(p => `slug.ilike.%${p}%`).join(',');
+
+    const { count, error } = await supabase
+      .from('blog_articles')
+      .select('id', { count: 'exact', head: true })
+      .eq('native_lang', nativeLang)
+      .eq('published', true)
+      .or(orFilters);
+
+    if (!error && count) {
+      counts[topicSlug] = count;
+    }
+  }
+
+  return counts;
+}
+
+/**
  * Get article count
  */
 export async function getArticleCount(
