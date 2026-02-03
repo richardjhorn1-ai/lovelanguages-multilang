@@ -118,7 +118,7 @@ export default async function handler(req: any, res: any) {
         achievements: achievements?.map(a => ({
           code: a.achievement_code,
           unlockedAt: a.unlocked_at,
-          ...a.achievement,
+          ...(a.achievement || {}),  // Guard against null achievement data
         })) || [],
       },
       partner: partnerStats,

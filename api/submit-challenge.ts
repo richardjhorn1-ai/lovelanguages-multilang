@@ -157,6 +157,11 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
+    // Validate answers array
+    if (!Array.isArray(answers) || answers.length === 0 || answers.length > 100) {
+      return res.status(400).json({ error: 'Invalid answers: must be array with 1-100 items' });
+    }
+
     // Get the challenge and atomically mark as in-progress to prevent race conditions
     // First, try to claim the challenge by updating status from 'pending' to 'in_progress'
     const { data: challenge, error: challengeError } = await supabase
@@ -371,7 +376,7 @@ export default async function handler(req: any, res: any) {
       .eq('id', auth.userId);
 
     // Notify tutor of completion
-    await supabase.from('notifications').insert({
+    const { error: notificationError } = await supabase.from('notifications').insert({
       user_id: challenge.tutor_id,
       type: 'challenge_complete',
       title: `${profile?.full_name || 'Your partner'} completed your challenge!`,
@@ -384,6 +389,11 @@ export default async function handler(req: any, res: any) {
         total_questions: totalQuestions
       }
     });
+
+    if (notificationError) {
+      console.error('Error creating notification:', notificationError);
+      // Don't fail the request, notification is non-critical
+    }
 
     // Award Tutor XP for partner completing challenge
     try {

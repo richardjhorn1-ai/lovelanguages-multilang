@@ -1,7 +1,17 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
+import {
+  setCorsHeaders,
+  verifyAuth,
+  createServiceClient,
+  requireSubscription,
+  checkRateLimit,
+  incrementUsage,
+  RATE_LIMITS,
+  SubscriptionPlan,
+} from '../utils/api-middleware.js';
 import { getProfileLanguages } from '../utils/language-helpers.js';
 import { getLanguageName } from '../constants/language-config.js';
+import { sanitizeInput } from '../utils/sanitize.js';
 
 // Get AI suggestions for a topic - lightweight preview data only
 // Full grammatical data (conjugations, examples, etc.) is generated later
@@ -86,6 +96,22 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
+    // Block free users
+    const sub = await requireSubscription(supabase, auth.userId);
+    if (!sub.allowed) {
+      return res.status(403).json({ error: sub.error });
+    }
+
+    // Check rate limit (use sendWordGift limit)
+    const limit = await checkRateLimit(supabase, auth.userId, 'sendWordGift', sub.plan as SubscriptionPlan);
+    if (!limit.allowed) {
+      return res.status(429).json({
+        error: limit.error,
+        remaining: limit.remaining,
+        resetAt: limit.resetAt
+      });
+    }
+
     // Get tutor's profile
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
@@ -114,6 +140,9 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
+    // Sanitize user inputs
+    const sanitizedInputText = sanitizeInput(inputText, 200);
+
     let aiSuggestions = null;
     let finalWords = selectedWords || [];
 
@@ -121,7 +150,7 @@ export default async function handler(req: any, res: any) {
     if (requestType === 'ai_topic') {
       const wordCount = count || 10;
       const wordsToExclude = excludeWords || [];
-      aiSuggestions = await getTopicSuggestions(inputText, wordCount, wordsToExclude, targetLanguage, nativeLanguage);
+      aiSuggestions = await getTopicSuggestions(sanitizedInputText, wordCount, wordsToExclude, targetLanguage, nativeLanguage);
 
       // If dryRun, just return suggestions without creating a word request
       if (dryRun) {
@@ -138,7 +167,7 @@ export default async function handler(req: any, res: any) {
     } else if (requestType === 'free_text' && !selectedWords) {
       // For free text, create a single word entry from the input
       // The tutor typed a specific word/phrase
-      const parts = inputText.split('=').map((s: string) => s.trim());
+      const parts = sanitizedInputText.split('=').map((s: string) => s.trim());
       const word = parts[0];
       const translation = parts[1] || '';
 
@@ -158,7 +187,7 @@ export default async function handler(req: any, res: any) {
         student_id: profile.linked_user_id,
         language_code: targetLanguage,
         request_type: requestType,
-        input_text: inputText,
+        input_text: sanitizedInputText,
         ai_suggestions: aiSuggestions,
         selected_words: finalWords.filter((w: any) => w.selected !== false),
         status: 'pending',
@@ -179,7 +208,7 @@ export default async function handler(req: any, res: any) {
       type: 'word_request',
       title: `${profile.full_name} sent you ${wordCount} word${wordCount > 1 ? 's' : ''} to learn!`,
       message: requestType === 'ai_topic'
-        ? `Topic: ${inputText}`
+        ? `Topic: ${sanitizedInputText}`
         : `A special gift from your partner`,
       data: {
         request_id: wordRequest.id,
@@ -218,10 +247,13 @@ export default async function handler(req: any, res: any) {
       partner_id: profile.linked_user_id,
       event_type: 'gift_sent',
       title: 'Sent a word gift',
-      subtitle: requestType === 'ai_topic' ? `Topic: ${inputText}` : `${wordCount} words`,
+      subtitle: requestType === 'ai_topic' ? `Topic: ${sanitizedInputText}` : `${wordCount} words`,
       data: { request_id: wordRequest.id, word_count: wordCount },
       language_code: targetLanguage,
     });
+
+    // Increment usage counter
+    incrementUsage(supabase, auth.userId, RATE_LIMITS.sendWordGift.type);
 
     return res.status(200).json({
       success: true,
