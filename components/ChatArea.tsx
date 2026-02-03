@@ -517,24 +517,27 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setLoading(false);
 
     // ACT 4: BACKGROUND TASKS (don't block user input)
-    // Extract vocabulary for streaming messages (images already get words from generateReply)
-    if (currentAttachments.length === 0) {
-      geminiService.analyzeHistory(
-        [...messageHistory, { role: 'user', content: userMessage }, { role: 'assistant', content: replyText }],
-        userWords,
-        languageParams
-      ).then(extracted => {
-        if (extracted.length > 0) {
-          saveExtractedWords(extracted).catch(console.error);
-          setNewWordsNotification(extracted);
-          setTimeout(() => setNewWordsNotification([]), 5000);
-        }
-      }).catch(console.error);
-    } else if (newWords.length > 0) {
-      // For image messages, words were already extracted - save them in background
-      saveExtractedWords(newWords).catch(console.error);
-      setNewWordsNotification(newWords);
-      setTimeout(() => setNewWordsNotification([]), 5000);
+    // Extract vocabulary for student modes only (tutors don't add to Love Log)
+    if (mode !== 'coach') {
+      if (currentAttachments.length === 0) {
+        // Streaming path - extract vocabulary from conversation
+        geminiService.analyzeHistory(
+          [...messageHistory, { role: 'user', content: userMessage }, { role: 'assistant', content: replyText }],
+          userWords,
+          languageParams
+        ).then(extracted => {
+          if (extracted.length > 0) {
+            saveExtractedWords(extracted).catch(console.error);
+            setNewWordsNotification(extracted);
+            setTimeout(() => setNewWordsNotification([]), 5000);
+          }
+        }).catch(console.error);
+      } else if (newWords.length > 0) {
+        // Image path - words already extracted in generateReply
+        saveExtractedWords(newWords).catch(console.error);
+        setNewWordsNotification(newWords);
+        setTimeout(() => setNewWordsNotification([]), 5000);
+      }
     }
 
     // Generate title in background if needed
@@ -670,9 +673,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   // Handle coach action confirmation
-  const handleConfirmAction = async (createLinkedChallenge: boolean) => {
-    if (!pendingAction) return;
-
+  const handleConfirmAction = async (modifiedAction: ProposedAction, createLinkedChallenge: boolean) => {
     const { data: { session } } = await supabase.auth.getSession();
     if (!session?.access_token) {
       throw new Error('Please log in to continue');
@@ -685,7 +686,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         'Authorization': `Bearer ${session.access_token}`
       },
       body: JSON.stringify({
-        action: pendingAction,
+        action: modifiedAction,
         createLinkedChallenge
       })
     });
@@ -1891,10 +1892,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           onCancel={() => {
             setShowActionConfirm(false);
             setPendingAction(null);
-          }}
-          onModify={() => {
-            setShowActionConfirm(false);
-            // Keep pendingAction for reference in case they want to modify
           }}
         />
       )}
