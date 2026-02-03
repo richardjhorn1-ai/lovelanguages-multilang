@@ -125,12 +125,13 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex gap-1 bg-[var(--bg-primary)] p-1 rounded-lg">
+        <div className="flex gap-1 bg-[var(--bg-primary)] p-1 rounded-lg" role="group" aria-label="Activity filter">
           {(['all', 'mine', 'partner'] as const).map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`flex-1 py-1.5 px-3 rounded-md text-scale-micro font-bold transition-all ${
+              aria-pressed={filter === f}
+              className={`flex-1 py-1.5 px-3 rounded-md text-scale-micro font-bold transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] ${
                 filter === f
                   ? 'bg-[var(--bg-card)] text-[var(--text-primary)] shadow-sm'
                   : 'text-[var(--text-secondary)]'

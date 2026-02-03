@@ -45,7 +45,10 @@ const TeachingImpactCard: React.FC<TeachingImpactCardProps> = ({
         </p>
 
         <div className="grid grid-cols-3 gap-3">
-          <div className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]">
+          <div
+            className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]"
+            aria-label={`XP Given: ${xpContributed}`}
+          >
             <div className="text-scale-heading font-black" style={{ color: tierColor }}>
               {xpContributed}
             </div>
@@ -53,7 +56,10 @@ const TeachingImpactCard: React.FC<TeachingImpactCardProps> = ({
               {t('tutor.impact.xpContributed', 'XP Given')}
             </div>
           </div>
-          <div className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]">
+          <div
+            className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]"
+            aria-label={`Words Mastered: ${wordsMastered}`}
+          >
             <div className="text-scale-heading font-black" style={{ color: tierColor }}>
               {wordsMastered}
             </div>
@@ -61,7 +67,10 @@ const TeachingImpactCard: React.FC<TeachingImpactCardProps> = ({
               {t('tutor.impact.wordsMastered', 'Mastered')}
             </div>
           </div>
-          <div className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]">
+          <div
+            className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]"
+            aria-label={`Success Rate: ${challengeSuccessRate}%`}
+          >
             <div className="text-scale-heading font-black" style={{ color: tierColor }}>
               {challengeSuccessRate}%
             </div>

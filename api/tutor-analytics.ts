@@ -3,7 +3,6 @@ import {
   verifyAuth,
   createServiceClient,
 } from '../utils/api-middleware.js';
-import { getTutorTierFromXP } from '../constants/levels.js';
 
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
@@ -286,7 +285,8 @@ export default async function handler(req: any, res: any) {
       .from('activity_feed')
       .select('created_at')
       .eq('user_id', partnerId)
-      .gte('created_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+      .gte('created_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString())
+      .limit(500);  // Cap for performance
 
     const activeDays = new Set(
       recentActivity?.map(a => new Date(a.created_at).toDateString()) || []
@@ -296,7 +296,7 @@ export default async function handler(req: any, res: any) {
     // Recommendations
     // ===========================================
 
-    const recommendations: Array<{ type: string; message: string; action_type?: string }> = [];
+    const recommendations: Array<{ type: string; message: string; action_type?: 'challenge' | 'love_note' }> = [];
 
     // Stuck words recommendation
     if (stuckWords.length >= 5) {
