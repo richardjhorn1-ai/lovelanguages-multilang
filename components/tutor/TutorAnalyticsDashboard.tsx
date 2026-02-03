@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../../services/supabase';
@@ -34,6 +34,9 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   const [partnerProfile, setPartnerProfile] = useState<Profile | null>(null);
   const [showLoveNote, setShowLoveNote] = useState(false);
 
+  // Cache analytics by period for instant switching
+  const analyticsCache = useRef<Record<string, { data: TutorAnalytics; timestamp: number }>>({});
+
   // Calculate tier info
   const tutorXp = profile.tutor_xp || 0;
   const tier = getTutorTierFromXP(tutorXp);
@@ -54,10 +57,29 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   }, []);
 
   const fetchAnalytics = async () => {
-    // Only show full-page spinner on initial load, show inline indicator on refresh
-    if (!analytics) {
+    const cacheKey = period;
+    const cached = analyticsCache.current[cacheKey];
+    const CACHE_TTL = 60 * 1000; // 1 minute cache validity
+
+    // Show cached data immediately if available (instant switching)
+    if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+      setAnalytics(cached.data);
+      // Still refresh in background if cache is older than 10 seconds
+      if (Date.now() - cached.timestamp > 10 * 1000) {
+        setRefreshing(true);
+      } else {
+        setInitialLoading(false);
+        return; // Fresh cache, no need to fetch
+      }
+    } else if (cached) {
+      // Stale cache - show it but fetch fresh data
+      setAnalytics(cached.data);
+      setRefreshing(true);
+    } else if (!analytics) {
+      // No cache, first load
       setInitialLoading(true);
     } else {
+      // No cache for this period, show spinner
       setRefreshing(true);
     }
 
@@ -71,25 +93,32 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
       if (response.ok) {
         const data = await response.json();
         setAnalytics(data.analytics);
+        // Store in cache
+        analyticsCache.current[cacheKey] = {
+          data: data.analytics,
+          timestamp: Date.now(),
+        };
       }
     } catch (error) {
       console.error('Failed to fetch analytics:', error);
     }
 
-    // Also fetch tutor stats
-    try {
-      const response = await fetch('/api/tutor-stats', {
-        headers: {
-          Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
-        },
-      });
+    // Also fetch tutor stats (only on initial load, not cached per period)
+    if (!stats) {
+      try {
+        const response = await fetch('/api/tutor-stats', {
+          headers: {
+            Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
+          },
+        });
 
-      if (response.ok) {
-        const data = await response.json();
-        setStats(data.tutor.stats);
+        if (response.ok) {
+          const data = await response.json();
+          setStats(data.tutor.stats);
+        }
+      } catch (error) {
+        console.error('Failed to fetch stats:', error);
       }
-    } catch (error) {
-      console.error('Failed to fetch stats:', error);
     }
 
     setInitialLoading(false);
