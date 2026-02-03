@@ -1,0 +1,85 @@
+# Love Languages - AI Language Learning for Couples
+
+> Love Languages is an AI-powered language learning app designed for couples in cross-cultural relationships. Learn your partner's language together.
+
+## About
+
+- **Website:** https://www.lovelanguages.io
+- **App:** Available at https://www.lovelanguages.io (PWA)
+- **Focus:** Romantic vocabulary, cultural understanding, and practical phrases for relationships
+- **Unique angle:** Built for couples learning each other's languages
+
+## Content Structure
+
+All educational content lives under `/learn/` with this URL pattern:
+```
+/learn/{native_lang}/{target_lang}/{article-slug}
+```
+
+### Languages Supported (18 languages)
+
+| Code | Language |
+|------|----------|
+| en | English |
+| es | Spanish |
+| fr | French |
+| de | German |
+| it | Italian |
+| pt | Portuguese |
+| pl | Polish |
+| nl | Dutch |
+| sv | Swedish |
+| no | Norwegian |
+| da | Danish |
+| cs | Czech |
+| hu | Hungarian |
+| ro | Romanian |
+| el | Greek |
+| tr | Turkish |
+| uk | Ukrainian |
+| ru | Russian |
+
+### Content Categories
+
+- **vocabulary** - Word lists, phrases, essential vocabulary
+- **grammar** - Grammar explanations and rules
+- **pronunciation** - Pronunciation guides and tips
+- **situations** - Situational phrases (dating, family, travel)
+
+### Popular Article Types
+
+1. **Pet Names & Terms of Endearment** - Romantic nicknames in each language
+2. **How to Say "I Love You"** - Expressions of love and affection
+3. **100 Most Common Words** - Essential vocabulary lists
+4. **Date Night Vocabulary** - Romantic situation phrases
+5. **Meeting the Family** - In-law and family dinner phrases
+6. **Grammar Basics** - Foundational grammar for beginners
+7. **Compliments for Your Partner** - Flattering phrases
+8. **Good Morning/Goodnight** - Daily affection phrases
+
+## Navigation
+
+- **Homepage:** https://www.lovelanguages.io
+- **Learning Hub:** https://www.lovelanguages.io/learn
+- **Sitemap:** https://www.lovelanguages.io/sitemap-index.xml
+- **Full LLM Context:** https://www.lovelanguages.io/llms-full.txt
+
+## Example URLs
+
+- English speakers learning Polish: `/learn/en/pl/`
+- How to say I love you in Polish: `/learn/en/pl/how-to-say-i-love-you-in-polish/`
+- German pet names for French speakers: `/learn/fr/de/german-pet-names-terms-of-endearment/`
+- Spanish date vocabulary for Italian speakers: `/learn/it/es/spanish-date-night-vocabulary/`
+
+## API
+
+Currently no public API. Content is rendered server-side via Astro.
+
+## Contact
+
+- **Email:** hello@lovelanguages.io
+- **Founders:** Richard (CEO), Misia (CCO)
+
+---
+
+*Last updated: 2026-02-03*
