@@ -23,7 +23,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { accentHex } = useTheme();
-  const { targetLanguage, languageParams } = useLanguage();
+  const { targetLanguage } = useLanguage();
 
   const [analytics, setAnalytics] = useState<TutorAnalytics | null>(null);
   const [stats, setStats] = useState<TutorStats | null>(null);
@@ -252,10 +252,12 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex gap-2 bg-[var(--bg-card)] p-1 rounded-xl border border-[var(--border-color)]">
+        <div className="flex gap-2 bg-[var(--bg-card)] p-1 rounded-xl border border-[var(--border-color)]" role="tablist">
           <button
+            role="tab"
+            aria-selected={activeTab === 'teaching'}
             onClick={() => setActiveTab('teaching')}
-            className={`flex-1 py-2 px-4 rounded-lg text-scale-label font-bold transition-all ${
+            className={`flex-1 py-2 px-4 rounded-lg text-scale-label font-bold transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] ${
               activeTab === 'teaching'
                 ? 'bg-[var(--accent-color)] text-white'
                 : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
@@ -265,8 +267,10 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             {t('tutor.tabs.teaching', 'My Teaching')}
           </button>
           <button
+            role="tab"
+            aria-selected={activeTab === 'partner'}
             onClick={() => setActiveTab('partner')}
-            className={`flex-1 py-2 px-4 rounded-lg text-scale-label font-bold transition-all ${
+            className={`flex-1 py-2 px-4 rounded-lg text-scale-label font-bold transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] ${
               activeTab === 'partner'
                 ? 'bg-[var(--accent-color)] text-white'
                 : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'

@@ -19,7 +19,8 @@ const Sparkline: React.FC<{
   data: number[];
   color: string;
   height?: number;
-}> = ({ data, color, height = 40 }) => {
+  ariaLabel?: string;
+}> = ({ data, color, height = 40, ariaLabel }) => {
   if (data.length === 0) return null;
 
   const max = Math.max(...data, 1);
@@ -39,6 +40,8 @@ const Sparkline: React.FC<{
       className="w-full"
       preserveAspectRatio="none"
       style={{ height: `${height}px` }}
+      role="img"
+      aria-label={ariaLabel || 'Trend chart'}
     >
       {/* Fill area under the line */}
       <polygon
@@ -106,7 +109,7 @@ const TrendCharts: React.FC<TrendChartsProps> = ({
               {totalXp}
             </span>
           </div>
-          <Sparkline data={xpValues} color={tierColor} height={35} />
+          <Sparkline data={xpValues} color={tierColor} height={35} ariaLabel={`XP trend: ${totalXp} total`} />
         </div>
 
         {/* Words Trend */}
@@ -119,7 +122,7 @@ const TrendCharts: React.FC<TrendChartsProps> = ({
               {totalWords}
             </span>
           </div>
-          <Sparkline data={wordsValues} color={tierColor} height={35} />
+          <Sparkline data={wordsValues} color={tierColor} height={35} ariaLabel={`Words trend: ${totalWords} total`} />
         </div>
 
         {/* Accuracy Trend */}
@@ -132,7 +135,7 @@ const TrendCharts: React.FC<TrendChartsProps> = ({
               {avgAccuracy}%
             </span>
           </div>
-          <Sparkline data={accuracyValues} color={tierColor} height={35} />
+          <Sparkline data={accuracyValues} color={tierColor} height={35} ariaLabel={`Accuracy trend: ${avgAccuracy}% average`} />
         </div>
       </div>
     </div>
