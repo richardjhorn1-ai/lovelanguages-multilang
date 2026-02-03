@@ -1,7 +1,7 @@
 import { supabase } from './supabase';
-import { ExtractedWord, Attachment, SessionContext } from '../types';
+import { ExtractedWord, Attachment, SessionContext, ProposedAction } from '../types';
 
-export type { ExtractedWord, Attachment, SessionContext };
+export type { ExtractedWord, Attachment, SessionContext, ProposedAction };
 
 // Helper to get auth headers
 async function getAuthHeaders(): Promise<HeadersInit> {
@@ -81,7 +81,7 @@ export const geminiService = {
     messageHistory: { role: string; content: string }[] = [],
     sessionContext?: SessionContext | null,
     languageParams?: { targetLanguage: string; nativeLanguage: string }
-  ): Promise<{ replyText: string; newWords: ExtractedWord[] }> {
+  ): Promise<{ replyText: string; newWords: ExtractedWord[]; proposedAction?: ProposedAction }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/chat', {
@@ -111,7 +111,8 @@ export const geminiService = {
 
       return {
         replyText: data.replyText || "I'm having a bit of trouble finding the words.",
-        newWords
+        newWords,
+        proposedAction: data.proposedAction || undefined
       };
     } catch (e) {
       console.error("Gemini Chat Error:", e);
