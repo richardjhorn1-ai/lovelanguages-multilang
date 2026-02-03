@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import { getArticlesByTopic, TOPIC_DEFINITIONS } from '../../../../../lib/blog-api';
+import { getUITranslations, insertLanguage } from '../../../../../data/ui-translations';
+import { LANGUAGES, getLanguageForDisplay, SUPPORTED_NATIVE_LANGS } from '../../../../../data/language-info';
+import { getTopicDisplayName, getTopicIcon, TOPICS, isValidTopic } from '../../../../../data/topic-info';
+import { LANGUAGE_HUB_DATA } from '../../../../../data/language-hub-data';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const nativeLang of SUPPORTED_NATIVE_LANGS) {
+    for (const topic of TOPICS) {
+      paths.push({
+        params: { nativeLang, topic },
+      });
+    }
+  }
+  return paths;
+}
+
+const { nativeLang, topic } = Astro.params;
+const nativeLanguageCode = nativeLang || 'en';
+const topicSlug = topic || 'pet-names';
+
+// Validate
+if (!SUPPORTED_NATIVE_LANGS.includes(nativeLanguageCode)) {
+  return Astro.redirect('/learn/');
+}
+
+if (!isValidTopic(topicSlug)) {
+  return Astro.redirect(`/learn/${nativeLanguageCode}/`);
+}
+
+// Get UI translations
+const text = getUITranslations(nativeLanguageCode);
+
+// Get topic info
+const topicName = getTopicDisplayName(topicSlug, nativeLanguageCode);
+const topicIcon = getTopicIcon(topicSlug);
+
+// Fetch articles for this topic
+const articlesByLang = await getArticlesByTopic(nativeLanguageCode, topicSlug);
+
+// Count total articles and languages
+const totalArticles = articlesByLang.reduce((sum, group) => sum + group.articles.length, 0);
+const languageCount = articlesByLang.length;
+
+// Page title with topic
+const pageTitle = text.topicHubTitle.replace('{topic}', topicName);
+const pageDescription = text.topicHubSubtitle.replace('{topic}', topicName);
+
+const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/topics/${topicSlug}/`;
+
+// Hreflang alternates
+const hreflangAlternates = SUPPORTED_NATIVE_LANGS
+  .filter(lang => lang !== nativeLanguageCode)
+  .map(lang => ({
+    lang,
+    href: `https://www.lovelanguages.io/learn/${lang}/topics/${topicSlug}/`
+  }));
+
+// JSON-LD
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": `${topicIcon} ${pageTitle}`,
+  "description": pageDescription,
+  "url": canonicalUrl,
+  "inLanguage": nativeLanguageCode,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://www.lovelanguages.io"
+  },
+  "numberOfItems": totalArticles
+};
+---
+
+<BaseLayout
+  title={`${topicIcon} ${pageTitle} - Love Languages`}
+  description={pageDescription}
+  nativeLang={nativeLanguageCode}
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={`https://www.lovelanguages.io/learn/en/topics/${topicSlug}/`} />
+    {hreflangAlternates.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+  </Fragment>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Hero -->
+  <header class="relative overflow-hidden" style="background: linear-gradient(135deg, #FFF0F3 0%, #fdfcfd 50%, #E7F5FF 100%);">
+    <div class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+      <nav class="mb-6">
+        <a
+          href={`/learn/${nativeLanguageCode}/`}
+          class="inline-flex items-center gap-2 text-sm font-medium hover:text-[#FF6B6B] transition-colors"
+          style="color: #666;"
+        >
+          <span>←</span> {text.backToLearn}
+        </a>
+      </nav>
+
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-6xl mb-6 block">{topicIcon}</span>
+        <h1 class="text-3xl md:text-5xl font-black font-header text-[#292F36] mb-4 leading-tight">
+          {pageTitle}
+        </h1>
+        <p class="text-lg text-gray-600 mb-6">
+          {pageDescription}
+        </p>
+        {languageCount > 0 && (
+          <div class="flex justify-center gap-6 text-sm">
+            <div>
+              <span class="font-bold text-[#292F36] text-lg">{totalArticles}</span>
+              <span class="text-gray-500 ml-1">{text.guides}</span>
+            </div>
+            <div>
+              <span class="font-bold text-[#292F36] text-lg">{languageCount}</span>
+              <span class="text-gray-500 ml-1">{text.languages}</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </header>
+
+  <!-- Languages Grid -->
+  <section class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      {languageCount > 0 ? (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {articlesByLang.map(({ targetLang, articles }) => {
+            const langInfo = getLanguageForDisplay(targetLang, nativeLanguageCode);
+            const hubData = LANGUAGE_HUB_DATA[targetLang];
+            const firstArticle = articles[0];
+
+            return (
+              <a
+                href={`/learn/${nativeLanguageCode}/${targetLang}/${firstArticle.slug}/`}
+                class="group block p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-xl hover:border-[#FF6B6B] transition-all"
+              >
+                <div class="flex items-start gap-4">
+                  <span class="text-4xl flex-shrink-0">{langInfo.flag}</span>
+                  <div class="flex-1 min-w-0">
+                    <h2 class="font-bold text-lg text-[#292F36] group-hover:text-[#FF6B6B] transition-colors mb-1">
+                      {langInfo.name}
+                    </h2>
+                    <p class="text-sm text-gray-500 mb-3 line-clamp-2">
+                      {firstArticle.title}
+                    </p>
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs font-medium px-2 py-1 rounded-full" style="background: #FFF0F3; color: #FF6B6B;">
+                        {articles.length} {articles.length === 1 ? 'guide' : 'guides'}
+                      </span>
+                      {firstArticle.read_time && (
+                        <span class="text-xs text-gray-400">
+                          {firstArticle.read_time} min
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                  <span class="text-sm font-medium text-[#4ECDC4] group-hover:text-[#FF6B6B] transition-colors inline-flex items-center gap-1">
+                    {text.viewArticle}
+                    <span class="group-hover:translate-x-1 transition-transform">→</span>
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <p class="text-gray-500 text-lg mb-6">{text.noArticlesForTopic}</p>
+          <a
+            href={`/learn/${nativeLanguageCode}/`}
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white transition-all hover:scale-105"
+            style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);"
+          >
+            {text.browseLanguages}
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Other Topics -->
+  <section class="py-12" style="background: #fdfcfd;">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-xl font-bold font-header text-[#292F36] mb-6 text-center">
+        {text.browseByTopic}
+      </h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {TOPICS.filter(t => t !== topicSlug).map(otherTopic => (
+          <a
+            href={`/learn/${nativeLanguageCode}/topics/${otherTopic}/`}
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 hover:border-[#FF6B6B] hover:bg-white transition-all text-sm font-medium text-gray-600 hover:text-[#FF6B6B]"
+          >
+            <span>{getTopicIcon(otherTopic)}</span>
+            {getTopicDisplayName(otherTopic, nativeLanguageCode)}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16" style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 50%, #FFB4B4 100%);">
+    <div class="max-w-2xl mx-auto px-4 text-center text-white">
+      <h2 class="text-2xl md:text-3xl font-bold font-header mb-4">
+        {text.ctaTitle}
+      </h2>
+      <p class="text-white/90 mb-6">
+        {text.ctaSubtitle}
+      </p>
+      <a
+        href="/"
+        class="inline-block bg-white font-bold px-8 py-3 rounded-full hover:shadow-xl hover:scale-105 transition-all"
+        style="color: #FF6B6B;"
+      >
+        {text.ctaButton}
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t" style="background: #fdfcfd; border-color: #f0f0f0;">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-xl font-bold font-header mb-3" style="color: #FF6B6B;">
+        <img src="/favicon.svg" alt="" class="w-6 h-6" />
+        Love Languages
+      </a>
+      <nav class="flex justify-center gap-4 text-sm text-gray-400">
+        <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-[#FF6B6B]">{text.blog}</a>
+        <a href="/tools" class="hover:text-[#FF6B6B]">{text.tools}</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>
