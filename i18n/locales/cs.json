@@ -1164,7 +1164,10 @@
       "done": "Hotovo",
       "calculatingScore": "Počítám tvé skóre...",
       "showDetails": "Zobrazit detaily ({{count}})",
-      "xpEarned": "+{{xp}} XP získáno!"
+      "xpEarned": "+{{xp}} XP získáno!",
+      "submitErrorTitle": "Odeslání selhalo",
+      "cancel": "Zrušit",
+      "tryAgain": "Zkusit znovu"
     },
     "results": {
       "perfect": "Perfektní!",

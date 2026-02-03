@@ -195,7 +195,11 @@ export default async function handler(req: any, res: any) {
 
     if (challenge.student_id !== auth.userId) {
       // Revert the status change since this user shouldn't have access
-      await supabase.from('tutor_challenges').update({ status: 'pending' }).eq('id', challengeId);
+      // Only revert if still in_progress to avoid reverting a legitimately completed challenge
+      await supabase.from('tutor_challenges')
+        .update({ status: 'pending' })
+        .eq('id', challengeId)
+        .eq('status', 'in_progress');
       return res.status(403).json({ error: 'Not authorized' });
     }
 
@@ -297,31 +301,56 @@ export default async function handler(req: any, res: any) {
       const scoreMap = new Map<string, any>();
       (existingScores || []).forEach(s => scoreMap.set(s.word_id, s));
 
-      // Step 3: Compute all updates locally
+      // Step 3: Aggregate scores for duplicate words
+      // If the same word appears multiple times in gradedAnswers, we need to combine their results
+      const wordAggregates = new Map<string, { attempts: number; correct: number; lastWasCorrect: boolean }>();
+      gradedAnswers.forEach(answer => {
+        const word = wordsData.find((w: any) => w.id === answer.wordId || w.word === answer.word);
+        if (!word?.id) return;
+
+        const existing = wordAggregates.get(word.id) || { attempts: 0, correct: 0, lastWasCorrect: false };
+        existing.attempts++;
+        if (answer.isCorrect) existing.correct++;
+        existing.lastWasCorrect = answer.isCorrect;
+        wordAggregates.set(word.id, existing);
+      });
+
+      // Step 4: Compute all updates from aggregates (not from raw gradedAnswers)
       const now = new Date().toISOString();
-      const scoreUpserts = gradedAnswers
-        .map(answer => {
-          const word = wordsData.find((w: any) => w.id === answer.wordId || w.word === answer.word);
-          if (!word?.id) return null;
+      const scoreUpserts: Array<{
+        user_id: string;
+        word_id: string;
+        language_code: string;
+        total_attempts: number;
+        correct_attempts: number;
+        correct_streak: number;
+        learned_at: string | null;
+        updated_at: string;
+      }> = [];
 
-          const existing = scoreMap.get(word.id);
-          const newTotalAttempts = (existing?.total_attempts || 0) + 1;
-          const newCorrectAttempts = (existing?.correct_attempts || 0) + (answer.isCorrect ? 1 : 0);
-          const newStreak = answer.isCorrect ? (existing?.correct_streak || 0) + 1 : 0;
-          const isLearned = newStreak >= 5;
+      wordAggregates.forEach((aggregate, wordId) => {
+        const existingScore = scoreMap.get(wordId);
+        const newTotalAttempts = (existingScore?.total_attempts || 0) + aggregate.attempts;
+        const newCorrectAttempts = (existingScore?.correct_attempts || 0) + aggregate.correct;
+        // Streak: only continues if ALL occurrences in this challenge were correct AND last was correct
+        // If any were wrong, streak resets. If all correct, streak continues from existing.
+        const allCorrectInChallenge = aggregate.correct === aggregate.attempts;
+        const newStreak = allCorrectInChallenge
+          ? (existingScore?.correct_streak || 0) + aggregate.attempts
+          : 0;
+        const isLearned = newStreak >= 5;
 
-          return {
-            user_id: auth.userId,
-            word_id: word.id,
-            language_code: targetLanguage,
-            total_attempts: newTotalAttempts,
-            correct_attempts: newCorrectAttempts,
-            correct_streak: newStreak,
-            learned_at: isLearned && !existing?.learned_at ? now : existing?.learned_at || null,
-            updated_at: now
-          };
-        })
-        .filter((s): s is NonNullable<typeof s> => s !== null);
+        scoreUpserts.push({
+          user_id: auth.userId,
+          word_id: wordId,
+          language_code: targetLanguage,
+          total_attempts: newTotalAttempts,
+          correct_attempts: newCorrectAttempts,
+          correct_streak: newStreak,
+          learned_at: isLearned && !existingScore?.learned_at ? now : existingScore?.learned_at || null,
+          updated_at: now
+        });
+      });
 
       // Step 4: Batch upsert ALL scores in ONE query
       if (scoreUpserts.length > 0) {

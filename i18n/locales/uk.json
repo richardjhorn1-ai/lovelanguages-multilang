@@ -1164,7 +1164,10 @@
       "done": "Готово",
       "calculatingScore": "Підраховую твій результат...",
       "showDetails": "Показати деталі ({{count}})",
-      "xpEarned": "+{{xp}} XP зароблено!"
+      "xpEarned": "+{{xp}} XP зароблено!",
+      "submitErrorTitle": "Помилка надсилання",
+      "cancel": "Скасувати",
+      "tryAgain": "Спробувати знову"
     },
     "results": {
       "perfect": "Ідеально!",

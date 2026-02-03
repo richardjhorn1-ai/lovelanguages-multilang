@@ -42,6 +42,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   const [finished, setFinished] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Rate limit / free tier state
   const [showLimitModal, setShowLimitModal] = useState(false);
@@ -158,6 +159,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
 
   const submitChallenge = async (finalAnswers: any[]) => {
     setSubmitting(true);
+    setSubmitError(null);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       const response = await fetch('/api/submit-challenge', {
@@ -180,9 +182,13 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
         }
         setResult(data.result);
         setFinished(true);
+      } else {
+        // API returned an error response
+        setSubmitError(data.error || t('challengePlayer.common.submitError'));
       }
     } catch (error) {
       console.error('Error submitting challenge:', error);
+      setSubmitError(t('challengePlayer.common.submitError'));
     }
     setSubmitting(false);
   };
@@ -313,6 +319,40 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
           </div>
           <p className="text-[var(--text-secondary)]">{t('challengePlayer.common.calculatingScore')}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (submitError) {
+    return (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md p-6 md:p-8 text-center">
+          <div className="text-5xl md:text-6xl mb-3 md:mb-4">😔</div>
+          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">
+            {t('challengePlayer.common.submitErrorTitle')}
+          </h2>
+          <p className="text-[var(--text-secondary)] text-scale-label mb-4 md:mb-6">
+            {submitError}
+          </p>
+          <div className="flex gap-2 md:gap-3">
+            <button
+              onClick={onClose}
+              className="flex-1 px-4 md:px-6 py-3 md:py-4 text-[var(--text-secondary)] font-bold rounded-xl hover:bg-[var(--bg-primary)] transition-colors text-scale-label"
+            >
+              {t('challengePlayer.common.cancel')}
+            </button>
+            <button
+              onClick={() => {
+                setSubmitError(null);
+                submitChallenge(answers);
+              }}
+              className="flex-1 px-4 md:px-6 py-3 md:py-4 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:opacity-90 transition-colors text-scale-label"
+            >
+              {t('challengePlayer.common.tryAgain')}
+            </button>
+          </div>
         </div>
       </div>
     );

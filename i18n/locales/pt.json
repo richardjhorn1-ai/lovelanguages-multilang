@@ -1164,7 +1164,10 @@
       "done": "Pronto",
       "calculatingScore": "Calculando sua pontuação...",
       "showDetails": "Mostrar detalhes ({{count}})",
-      "xpEarned": "+{{xp}} XP ganhos!"
+      "xpEarned": "+{{xp}} XP ganhos!",
+      "submitErrorTitle": "Falha no envio",
+      "cancel": "Cancelar",
+      "tryAgain": "Tentar novamente"
     },
     "results": {
       "perfect": "Perfeito!",

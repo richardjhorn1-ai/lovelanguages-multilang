@@ -1164,7 +1164,10 @@
       "done": "Kész",
       "calculatingScore": "Pontszám számítása...",
       "showDetails": "Részletek mutatása ({{count}})",
-      "xpEarned": "+{{xp}} XP szerzett!"
+      "xpEarned": "+{{xp}} XP szerzett!",
+      "submitErrorTitle": "Beküldés sikertelen",
+      "cancel": "Mégse",
+      "tryAgain": "Újra próbálom"
     },
     "results": {
       "perfect": "Tökéletes!",

@@ -1164,7 +1164,10 @@
       "done": "Fertig",
       "calculatingScore": "Dein Ergebnis wird berechnet...",
       "showDetails": "Details anzeigen ({{count}})",
-      "xpEarned": "+{{xp}} XP verdient!"
+      "xpEarned": "+{{xp}} XP verdient!",
+      "submitErrorTitle": "Übermittlung fehlgeschlagen",
+      "cancel": "Abbrechen",
+      "tryAgain": "Erneut versuchen"
     },
     "results": {
       "perfect": "Perfekt!",
