@@ -182,17 +182,26 @@ export default async function handler(req: any, res: any) {
     const enrichedContexts = await batchEnrichWordContexts(wordsToEnrich, targetLanguage, nativeLanguage);
 
     // Step 2: Prepare all dictionary entries for batch upsert
+    // Map enriched context to dictionary columns
     const now = new Date().toISOString();
-    const dictionaryEntries = selectedWords.map((word: any, index: number) => ({
-      user_id: auth.userId,
-      language_code: targetLanguage,
-      word: word.word.toLowerCase().trim(),
-      translation: word.translation,
-      word_type: word.word_type || 'phrase',
-      importance: 3,
-      context: JSON.stringify(enrichedContexts[index]),
-      unlocked_at: now
-    }));
+    const dictionaryEntries = selectedWords.map((word: any, index: number) => {
+      const enriched = enrichedContexts[index] || {};
+      return {
+        user_id: auth.userId,
+        language_code: targetLanguage,
+        word: word.word.toLowerCase().trim(),
+        translation: word.translation,
+        word_type: word.word_type || 'phrase',
+        importance: 3,
+        example_sentence: enriched.original || null,
+        pro_tip: enriched.proTip || 'A gift from your partner!',
+        gender: enriched.gender || null,
+        plural: enriched.plural || null,
+        conjugations: enriched.conjugations || null,
+        adjective_forms: enriched.adjectiveForms || null,
+        unlocked_at: now
+      };
+    });
 
     // Step 3: Batch upsert ALL dictionary entries
     const { data: insertedWords, error: dictError } = await supabase
