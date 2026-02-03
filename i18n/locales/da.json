@@ -1164,7 +1164,10 @@
       "done": "Færdig",
       "calculatingScore": "Beregner din score...",
       "showDetails": "Vis detaljer ({{count}})",
-      "xpEarned": "+{{xp}} XP optjent!"
+      "xpEarned": "+{{xp}} XP optjent!",
+      "submitErrorTitle": "Indsendelse mislykkedes",
+      "cancel": "Annuller",
+      "tryAgain": "Prøv igen"
     },
     "results": {
       "perfect": "Perfekt!",

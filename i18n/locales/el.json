@@ -1164,7 +1164,10 @@
       "done": "Τέλος",
       "calculatingScore": "Υπολογισμός βαθμολογίας...",
       "showDetails": "Εμφάνιση λεπτομερειών ({{count}})",
-      "xpEarned": "+{{xp}} XP κερδήθηκαν!"
+      "xpEarned": "+{{xp}} XP κερδήθηκαν!",
+      "submitErrorTitle": "Αποτυχία υποβολής",
+      "cancel": "Ακύρωση",
+      "tryAgain": "Δοκιμάστε ξανά"
     },
     "results": {
       "perfect": "Τέλεια!",

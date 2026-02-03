@@ -1164,7 +1164,10 @@
       "done": "Готово",
       "calculatingScore": "Считаю твой результат...",
       "showDetails": "Показать детали ({{count}})",
-      "xpEarned": "+{{xp}} XP заработано!"
+      "xpEarned": "+{{xp}} XP заработано!",
+      "submitErrorTitle": "Ошибка отправки",
+      "cancel": "Отмена",
+      "tryAgain": "Попробовать снова"
     },
     "results": {
       "perfect": "Идеально!",

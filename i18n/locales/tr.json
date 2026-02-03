@@ -1164,7 +1164,10 @@
       "done": "Tamam",
       "calculatingScore": "Puanın hesaplanıyor...",
       "showDetails": "Detayları göster ({{count}})",
-      "xpEarned": "+{{xp}} XP kazanıldı!"
+      "xpEarned": "+{{xp}} XP kazanıldı!",
+      "submitErrorTitle": "Gönderim başarısız",
+      "cancel": "İptal",
+      "tryAgain": "Tekrar dene"
     },
     "results": {
       "perfect": "Mükemmel!",

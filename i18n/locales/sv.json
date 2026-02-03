@@ -1164,7 +1164,10 @@
       "done": "Klar",
       "calculatingScore": "Beräknar din poäng...",
       "showDetails": "Visa detaljer ({{count}})",
-      "xpEarned": "+{{xp}} XP tjänat!"
+      "xpEarned": "+{{xp}} XP tjänat!",
+      "submitErrorTitle": "Överföringen misslyckades",
+      "cancel": "Avbryt",
+      "tryAgain": "Försök igen"
     },
     "results": {
       "perfect": "Perfekt!",

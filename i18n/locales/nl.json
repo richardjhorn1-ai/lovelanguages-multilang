@@ -1164,7 +1164,10 @@
       "done": "Klaar",
       "calculatingScore": "Je score berekenen...",
       "showDetails": "Toon details ({{count}})",
-      "xpEarned": "+{{xp}} XP verdiend!"
+      "xpEarned": "+{{xp}} XP verdiend!",
+      "submitErrorTitle": "Verzending mislukt",
+      "cancel": "Annuleren",
+      "tryAgain": "Opnieuw proberen"
     },
     "results": {
       "perfect": "Perfect!",

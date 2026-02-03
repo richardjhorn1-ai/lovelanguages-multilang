@@ -1164,7 +1164,10 @@
       "done": "Gata",
       "calculatingScore": "Calculez scorul tau...",
       "showDetails": "Arata detalii ({{count}})",
-      "xpEarned": "+{{xp}} XP castigat!"
+      "xpEarned": "+{{xp}} XP castigat!",
+      "submitErrorTitle": "Trimiterea a eșuat",
+      "cancel": "Anulează",
+      "tryAgain": "Încearcă din nou"
     },
     "results": {
       "perfect": "Perfect!",
