@@ -296,6 +296,36 @@ export default async function handler(req: any, res: any) {
       language_code: targetLanguage,
     });
 
+    // Check for and activate any linked challenges
+    // Linked challenges are created with status 'scheduled' and activate when word gift completes
+    let activatedChallengeId: string | null = null;
+    if (wordRequest.linked_challenge_id) {
+      const { data: linkedChallenge, error: activateError } = await supabase
+        .from('tutor_challenges')
+        .update({ status: 'pending' })
+        .eq('id', wordRequest.linked_challenge_id)
+        .eq('status', 'scheduled')  // Only activate if still scheduled
+        .select('id, title, challenge_type')
+        .single();
+
+      if (!activateError && linkedChallenge) {
+        activatedChallengeId = linkedChallenge.id;
+
+        // Notify student about the activated challenge
+        await supabase.from('notifications').insert({
+          user_id: auth.userId,
+          type: 'challenge',
+          title: `Now test your new words!`,
+          message: `${tutorProfile?.full_name || 'Your partner'} prepared a ${linkedChallenge.challenge_type} challenge`,
+          data: {
+            challenge_id: linkedChallenge.id,
+            challenge_type: linkedChallenge.challenge_type,
+            linked_to_gift: true,
+          },
+        });
+      }
+    }
+
     return res.status(200).json({
       success: true,
       wordsAdded: addedWords.length,
@@ -307,7 +337,8 @@ export default async function handler(req: any, res: any) {
         multiplier: xpMultiplier
       },
       newTotalXp: newXp,
-      giftedBy: tutorProfile?.full_name || 'Your partner'
+      giftedBy: tutorProfile?.full_name || 'Your partner',
+      activatedChallengeId,  // If a linked challenge was activated, include its ID
     });
 
   } catch (error: any) {

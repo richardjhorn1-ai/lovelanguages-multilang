@@ -813,3 +813,119 @@ export interface SessionContext {
     lastActive?: string;
   };
 }
+
+// ===========================================
+// Enhanced Coach Mode Types (Agentic Teaching Assistant)
+// ===========================================
+
+// Rich context for enhanced coach prompts
+export interface EnhancedCoachContext {
+  // Basic (existing) - learner info
+  learnerName: string;
+  stats: {
+    totalWords: number;
+    masteredCount: number;
+    xp: number;
+    level: string;
+  };
+  recentWords: Array<{ word: string; translation: string }>;
+
+  // Teaching Impact - how the tutor has contributed
+  teachingImpact: {
+    xpContributed: number;
+    wordsMastered: number;
+    challengeSuccessRate: number;
+  };
+
+  // Word Intelligence - detailed word status
+  stuckWords: Array<{
+    word: string;
+    translation: string;
+    failCount: number;
+    daysSinceAttempt: number;
+  }>;
+  improvingWords: Array<{
+    word: string;
+    translation: string;
+    streak: number;
+  }>;
+
+  // Learning Velocity - practice patterns
+  velocity: {
+    wordsPerWeek: number;
+    practiceConsistency: number;  // 0-7 active days in last week
+    daysSinceLastPractice: number;
+  };
+
+  // Celebrations - milestones and wins
+  celebrations: {
+    milestone?: string;    // "Just hit 100 words!"
+    streak?: string;       // "5-day practice streak!"
+    recentWin?: string;    // "Mastered 'kocham' yesterday!"
+  };
+
+  // Actionable Missions - prioritized suggestions
+  missions: Array<{
+    type: 'stuck_words' | 'improving' | 'inactivity' | 'variety';
+    priority: 'high' | 'medium' | 'low';
+    message: string;
+    suggestedAction: 'challenge' | 'word_gift' | 'love_note';
+    targetWords?: string[];
+  }>;
+
+  // Cache metadata
+  cachedAt: string;
+  expiresAt: string;
+}
+
+// Action types for agentic coach
+export type CoachActionType = 'word_gift' | 'quiz' | 'quickfire' | 'love_note';
+
+// Proposed action from AI (shown for user confirmation)
+export interface ProposedAction {
+  type: CoachActionType;
+  title: string;
+  description: string;
+  // For word_gift
+  words?: Array<{
+    word: string;
+    translation: string;
+    word_type?: string;
+  }>;
+  topic?: string;
+  // For challenges
+  challengeConfig?: {
+    wordCount?: number;
+    timeLimitSeconds?: number;
+    questionTypes?: string[];
+    wordSource?: 'weak_words' | 'recent_words' | 'specific';
+    specificWordIds?: string[];
+  };
+  // For love_note
+  noteCategory?: 'encouragement' | 'celebration' | 'check_in';
+  noteMessage?: string;
+  // Linked challenge (creates word gift + challenge together)
+  linkedChallenge?: {
+    type: 'quiz' | 'quickfire';
+    config: Record<string, any>;
+  };
+}
+
+// Request to execute a confirmed action
+export interface ExecuteCoachActionRequest {
+  action: ProposedAction;
+  // Set to true to create linked challenge that activates after word gift
+  createLinkedChallenge?: boolean;
+}
+
+// Response from execute action
+export interface ExecuteCoachActionResponse {
+  success: boolean;
+  message: string;
+  createdItems?: {
+    wordRequestId?: string;
+    challengeId?: string;
+    loveNoteId?: string;
+  };
+  error?: string;
+}

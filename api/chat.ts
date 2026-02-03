@@ -501,6 +501,7 @@ ${hasConjugation ? `VERBS: When teaching a verb, show all ${conjugationPersons.l
     };
 
     // Generate coach mode prompt with partner context
+    // Enhanced version with agentic action capabilities
     const generateCoachPrompt = (context: PartnerContext | null): string => {
       if (!context) {
         return `
@@ -516,23 +517,40 @@ Your partner hasn't connected their account yet. Encourage the tutor to:
       const recentWords = context.recentWords.slice(0, 5).map(w => w.word).join(', ') || 'Just starting';
 
       return `
-### COACH MODE
+### COACH MODE - Teaching Assistant
 
 You're here to assist a ${targetName}-speaking tutor who is teaching their ${nativeName}-speaking partner (${context.learnerName}).
 
-${context.learnerName.toUpperCase()}'S LEARNING JOURNEY:
-- Level: ${context.stats.level} | Words learned: ${context.stats.totalWords}
-${context.journey ? `- Topics explored: ${context.journey.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
-- Can now say: ${context.journey.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}
-- Suggested focus: ${context.journey.suggestions.slice(0, 2).join(', ') || 'Keep exploring'}` : ''}
-- Needs practice: ${weakWords}
+=== QUICK SNAPSHOT ===
+- Level: ${context.stats.level} | XP: ${context.stats.xp}
+- Words: ${context.stats.totalWords} learned, ${context.stats.masteredCount} mastered
+${context.journey ? `- Topics: ${context.journey.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
+- Can now say: ${context.journey.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}` : ''}
+
+=== NEEDS ATTENTION ===
+- Struggling with: ${weakWords}
 - Recently learned: ${recentWords}
+
+=== YOU CAN HELP ===
+When the tutor asks you to do something, you can propose actions that will be executed automatically:
+- "Create a Love Package with [topic] words" - Send vocabulary on any topic
+- "Make a quiz on weak words" - Create a quiz targeting struggling words
+- "Send a Quick Fire challenge" - Timed practice challenge
+- "Send encouragement" - Send a love note to motivate practice
+
+When proposing an action, include it in the proposedAction field of your response:
+- For word gifts: type="word_gift", include topic and list of words
+- For quizzes: type="quiz", specify wordSource (weak_words, recent_words, or specific)
+- For quick fire: type="quickfire", specify word count and time limit
+- For love notes: type="love_note", specify category (encouragement, celebration, check_in)
+
+IMPORTANT: Always describe what you'll do FIRST in replyText, then include the action in proposedAction.
+The user will see your message and be asked to confirm before the action executes.
 
 GUIDANCE:
 - Be practical - give suggestions they can use tonight
 - Don't force the partner data into every response
 - Suggest NEW words to grow their vocabulary
-- Encourage optimal challenges: "Try teaching them X, then quiz with Y"
 - Focus on connection over perfection
 `;
     };
@@ -605,12 +623,119 @@ ${modePrompt}`
       : `${COMMON_INSTRUCTIONS}${personalizedContext}
 ${modePrompt}`;
 
-    // Lightweight schema for tutor/coach mode - no vocabulary extraction needed
-    // Tutors don't add words to their Love Log, so we skip the expensive extraction
+    // Enhanced schema for tutor/coach mode with agentic action capabilities
+    // Tutors don't add words to their Love Log, so we skip vocabulary extraction
+    // But they CAN propose actions (word gifts, challenges, love notes)
     const coachModeSchema = {
       type: Type.OBJECT,
       properties: {
-        replyText: { type: Type.STRING }
+        replyText: { type: Type.STRING },
+        proposedAction: {
+          type: Type.OBJECT,
+          nullable: true,
+          description: "Optional action to execute after user confirmation",
+          properties: {
+            type: {
+              type: Type.STRING,
+              enum: ["word_gift", "quiz", "quickfire", "love_note"],
+              description: "Type of action to execute"
+            },
+            title: {
+              type: Type.STRING,
+              description: "Short title for the action (shown in confirmation UI)"
+            },
+            description: {
+              type: Type.STRING,
+              description: "Brief description of what will happen"
+            },
+            topic: {
+              type: Type.STRING,
+              nullable: true,
+              description: "Topic for word gift"
+            },
+            words: {
+              type: Type.ARRAY,
+              nullable: true,
+              description: "Words to include in word gift",
+              items: {
+                type: Type.OBJECT,
+                properties: {
+                  word: { type: Type.STRING },
+                  translation: { type: Type.STRING },
+                  word_type: {
+                    type: Type.STRING,
+                    enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"]
+                  }
+                },
+                required: ["word", "translation"]
+              }
+            },
+            challengeConfig: {
+              type: Type.OBJECT,
+              nullable: true,
+              description: "Configuration for quiz/quickfire challenges",
+              properties: {
+                wordCount: { type: Type.NUMBER },
+                timeLimitSeconds: { type: Type.NUMBER, nullable: true },
+                wordSource: {
+                  type: Type.STRING,
+                  enum: ["weak_words", "recent_words", "specific"],
+                  nullable: true
+                },
+                questionTypes: {
+                  type: Type.ARRAY,
+                  nullable: true,
+                  items: {
+                    type: Type.STRING,
+                    enum: ["multiple_choice", "type_it", "flashcard"]
+                  }
+                }
+              }
+            },
+            noteCategory: {
+              type: Type.STRING,
+              enum: ["encouragement", "celebration", "check_in"],
+              nullable: true,
+              description: "Category for love note"
+            },
+            noteMessage: {
+              type: Type.STRING,
+              nullable: true,
+              description: "Custom message for love note"
+            },
+            linkedChallenge: {
+              type: Type.OBJECT,
+              nullable: true,
+              description: "Create a linked challenge that activates after word gift completion",
+              properties: {
+                type: {
+                  type: Type.STRING,
+                  enum: ["quiz", "quickfire"]
+                },
+                wordCount: { type: Type.NUMBER, nullable: true },
+                timeLimitSeconds: { type: Type.NUMBER, nullable: true },
+                config: {
+                  type: Type.OBJECT,
+                  nullable: true,
+                  description: "Additional challenge configuration",
+                  properties: {
+                    questionTypes: {
+                      type: Type.ARRAY,
+                      nullable: true,
+                      items: { type: Type.STRING }
+                    },
+                    difficulty: {
+                      type: Type.STRING,
+                      enum: ["easy", "medium", "hard"],
+                      nullable: true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          required: ["type", "title", "description"]
+        }
       },
       required: ["replyText"]
     };

@@ -66,10 +66,25 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
+    // CRITICAL: Verify two-way partner link (prevents orphaned challenges if student unlinked)
+    const { data: studentProfile, error: studentProfileError } = await supabase
+      .from('profiles')
+      .select('linked_user_id')
+      .eq('id', profile.linked_user_id)
+      .single();
+
+    if (studentProfileError || !studentProfile) {
+      return res.status(400).json({ error: 'Partner profile not found' });
+    }
+
+    if (studentProfile.linked_user_id !== auth.userId) {
+      return res.status(400).json({ error: 'Partner link is no longer active. Please ask your partner to reconnect.' });
+    }
+
     // Get student's language settings
     const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, profile.linked_user_id);
 
-    const { challengeType, title, config, wordIds, newWords } = req.body;
+    const { challengeType, title, config, wordIds, newWords, linkedWordRequestId } = req.body;
 
     if (!challengeType || !config) {
       return res.status(400).json({ error: 'Missing required fields: challengeType, config' });
@@ -79,6 +94,27 @@ export default async function handler(req: any, res: any) {
     const validChallengeTypes = ['quiz', 'whisper', 'quickfire'];
     if (!validChallengeTypes.includes(challengeType)) {
       return res.status(400).json({ error: `Invalid challengeType. Must be one of: ${validChallengeTypes.join(', ')}` });
+    }
+
+    // Validate linkedWordRequestId if provided
+    if (linkedWordRequestId) {
+      const { data: wordRequest, error: wrError } = await supabase
+        .from('word_requests')
+        .select('id, tutor_id, linked_challenge_id')
+        .eq('id', linkedWordRequestId)
+        .single();
+
+      if (wrError || !wordRequest) {
+        return res.status(400).json({ error: 'Invalid linked word request ID' });
+      }
+
+      if (wordRequest.tutor_id !== auth.userId) {
+        return res.status(403).json({ error: 'Word request does not belong to you' });
+      }
+
+      if (wordRequest.linked_challenge_id) {
+        return res.status(400).json({ error: 'Word request is already linked to a challenge' });
+      }
     }
 
     // Validate config based on challenge type
@@ -201,6 +237,11 @@ export default async function handler(req: any, res: any) {
         }));
     }
 
+    // Determine challenge status:
+    // - 'scheduled' if linked to a word request (activates after gift completion)
+    // - 'pending' for standalone challenges
+    const challengeStatus = linkedWordRequestId ? 'scheduled' : 'pending';
+
     // Create the challenge
     const { data: challenge, error: challengeError } = await supabase
       .from('tutor_challenges')
@@ -213,7 +254,8 @@ export default async function handler(req: any, res: any) {
         config,
         word_ids: wordsData.map(w => w.id),
         words_data: wordsData,
-        status: 'pending'
+        status: challengeStatus,
+        linked_word_request_id: linkedWordRequestId || null,
       })
       .select()
       .single();
@@ -223,18 +265,34 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to create challenge' });
     }
 
-    // Create notification for student
-    const { error: notificationError } = await supabase.from('notifications').insert({
-      user_id: profile.linked_user_id,
-      type: 'challenge',
-      title: `${profile.full_name} sent you a challenge!`,
-      message: `Play "${challenge.title}" and show what you've learned!`,
-      data: { challenge_id: challenge.id, challenge_type: challengeType }
-    });
+    // Update word request with linked challenge ID (bidirectional link)
+    if (linkedWordRequestId) {
+      const { error: linkError } = await supabase
+        .from('word_requests')
+        .update({ linked_challenge_id: challenge.id })
+        .eq('id', linkedWordRequestId);
 
-    if (notificationError) {
-      console.error('Error creating notification:', notificationError);
-      // Don't fail the request, notification is non-critical
+      if (linkError) {
+        console.error('Error linking challenge to word request:', linkError);
+        // Don't fail - the challenge was created, just log the linking error
+      }
+    }
+
+    // Create notification for student (only for immediate challenges, not scheduled ones)
+    // Scheduled challenges notify when they activate (after word gift completion)
+    if (!linkedWordRequestId) {
+      const { error: notificationError } = await supabase.from('notifications').insert({
+        user_id: profile.linked_user_id,
+        type: 'challenge',
+        title: `${profile.full_name} sent you a challenge!`,
+        message: `Play "${challenge.title}" and show what you've learned!`,
+        data: { challenge_id: challenge.id, challenge_type: challengeType }
+      });
+
+      if (notificationError) {
+        console.error('Error creating notification:', notificationError);
+        // Don't fail the request, notification is non-critical
+      }
     }
 
     // Award Tutor XP for creating challenge

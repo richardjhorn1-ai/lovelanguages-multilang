@@ -329,3 +329,117 @@ OUTPUT JSON array:
   "concept": "which concept tested"
 }]`;
 }
+
+// =============================================================================
+// ENHANCED COACH MODE PROMPT BUILDER
+// =============================================================================
+
+import type { EnhancedCoachContext } from '../types.js';
+
+export interface EnhancedCoachPromptOptions {
+  targetLanguage: string;
+  nativeLanguage: string;
+  context: EnhancedCoachContext;
+}
+
+/**
+ * Build an enhanced coach prompt using the rich context from coach-context.ts
+ * This creates a much more informative and actionable prompt for the AI.
+ */
+export function buildEnhancedCoachPrompt(options: EnhancedCoachPromptOptions): string {
+  const { targetLanguage, nativeLanguage, context } = options;
+  const { target, native } = validateLanguagePair(targetLanguage, nativeLanguage);
+
+  // Build celebration section (only if there's something to celebrate)
+  let celebrationSection = '';
+  if (context.celebrations.milestone || context.celebrations.streak || context.celebrations.recentWin) {
+    const celebrations: string[] = [];
+    if (context.celebrations.milestone) celebrations.push(`- ${context.celebrations.milestone}`);
+    if (context.celebrations.streak) celebrations.push(`- ${context.celebrations.streak}`);
+    if (context.celebrations.recentWin) celebrations.push(`- ${context.celebrations.recentWin}`);
+
+    celebrationSection = `
+=== CELEBRATE! ===
+${celebrations.join('\n')}
+`;
+  }
+
+  // Build stuck words section
+  let stuckWordsSection = '';
+  if (context.stuckWords.length > 0) {
+    const stuckList = context.stuckWords
+      .map(w => `- "${w.word}" (${w.translation}) - failed ${w.failCount}x, ${w.daysSinceAttempt === 0 ? 'today' : w.daysSinceAttempt === 1 ? 'yesterday' : `${w.daysSinceAttempt} days ago`}`)
+      .join('\n');
+    stuckWordsSection = `
+=== STUCK WORDS (need attention) ===
+${stuckList}
+`;
+  }
+
+  // Build improving words section
+  let improvingWordsSection = '';
+  if (context.improvingWords.length > 0) {
+    const improvingList = context.improvingWords
+      .map(w => `- "${w.word}" (${w.translation}) - ${w.streak}/5 streak (${5 - w.streak} more to master!)`)
+      .join('\n');
+    improvingWordsSection = `
+=== ALMOST MASTERED ===
+${improvingList}
+`;
+  }
+
+  // Build missions section
+  let missionsSection = '';
+  if (context.missions.length > 0) {
+    const missionsList = context.missions
+      .map(m => {
+        const priority = m.priority === 'high' ? '[HIGH]' : m.priority === 'medium' ? '[MEDIUM]' : '[LOW]';
+        const action = m.suggestedAction === 'challenge' ? 'Create challenge' :
+                      m.suggestedAction === 'word_gift' ? 'Send word gift' : 'Send love note';
+        return `${priority} ${m.message} → ${action}`;
+      })
+      .join('\n');
+    missionsSection = `
+=== TODAY'S MISSIONS ===
+${missionsList}
+`;
+  }
+
+  return `You are a warm, helpful teaching assistant for a ${target.name} speaker helping their partner learn ${target.name}. Your responses should be encouraging, practical, and focused on helping the couple connect through language.
+
+### COACH MODE - Agentic Teaching Assistant
+
+=== QUICK SNAPSHOT ===
+- Learner: ${context.learnerName}
+- Level: ${context.stats.level} | XP: ${context.stats.xp}
+- Words: ${context.stats.totalWords} learned, ${context.stats.masteredCount} mastered
+- This week: ${context.velocity.wordsPerWeek} new words, ${context.velocity.practiceConsistency}/7 active days
+- Your impact: ${context.teachingImpact.xpContributed} XP contributed, ${context.teachingImpact.wordsMastered} words mastered through teaching
+${context.velocity.daysSinceLastPractice > 0 ? `- Last practice: ${context.velocity.daysSinceLastPractice === 1 ? 'yesterday' : `${context.velocity.daysSinceLastPractice} days ago`}` : '- Last practice: today'}
+${celebrationSection}${stuckWordsSection}${improvingWordsSection}${missionsSection}
+=== YOU CAN HELP ===
+When the tutor asks you to do something, propose actions that will be executed automatically:
+- "Create a Love Package with [topic] words" → type="word_gift"
+- "Make a quiz on weak words" → type="quiz"
+- "Send a Quick Fire challenge" → type="quickfire"
+- "Send encouragement" → type="love_note"
+
+When proposing an action, include it in the proposedAction field with:
+- type: "word_gift", "quiz", "quickfire", or "love_note"
+- title: Short description for confirmation UI
+- description: What will happen
+- Additional fields based on type (words, challengeConfig, noteCategory, etc.)
+
+IMPORTANT: Always describe what you'll do FIRST in replyText, then include the action details in proposedAction.
+
+FORMATTING:
+- ${target.name} words go inside **double asterisks**
+- Pronunciation goes in [square brackets]: [pronunciation]
+- Keep responses warm, conversational, and actionable
+
+GUIDANCE:
+- Be practical - give suggestions they can use tonight
+- Celebrate their progress when relevant
+- Prioritize stuck words that need attention
+- Focus on connection over perfection`;
+}

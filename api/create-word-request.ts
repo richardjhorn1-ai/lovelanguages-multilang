@@ -131,6 +131,21 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
+    // CRITICAL: Verify two-way partner link (prevents orphaned word requests if student unlinked)
+    const { data: studentProfile, error: studentProfileError } = await supabase
+      .from('profiles')
+      .select('linked_user_id')
+      .eq('id', profile.linked_user_id)
+      .single();
+
+    if (studentProfileError || !studentProfile) {
+      return res.status(400).json({ error: 'Partner profile not found' });
+    }
+
+    if (studentProfile.linked_user_id !== auth.userId) {
+      return res.status(400).json({ error: 'Partner link is no longer active. Please ask your partner to reconnect.' });
+    }
+
     // Get student's language settings for word generation
     const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, profile.linked_user_id);
 
