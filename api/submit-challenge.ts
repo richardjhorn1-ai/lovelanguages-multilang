@@ -157,23 +157,41 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Get the challenge
+    // Get the challenge and atomically mark as in-progress to prevent race conditions
+    // First, try to claim the challenge by updating status from 'pending' to 'in_progress'
     const { data: challenge, error: challengeError } = await supabase
       .from('tutor_challenges')
-      .select('*')
+      .update({ status: 'in_progress' })
       .eq('id', challengeId)
+      .eq('status', 'pending')  // Only update if still pending (prevents double submission)
+      .select('*')
       .single();
 
     if (challengeError || !challenge) {
-      return res.status(404).json({ error: 'Challenge not found' });
+      // Could be not found OR already completed/in-progress
+      // Check which case it is
+      const { data: existingChallenge } = await supabase
+        .from('tutor_challenges')
+        .select('status, student_id')
+        .eq('id', challengeId)
+        .single();
+
+      if (!existingChallenge) {
+        return res.status(404).json({ error: 'Challenge not found' });
+      }
+      if (existingChallenge.student_id !== auth.userId) {
+        return res.status(403).json({ error: 'Not authorized' });
+      }
+      if (existingChallenge.status === 'completed' || existingChallenge.status === 'in_progress') {
+        return res.status(400).json({ error: 'Challenge already completed or in progress' });
+      }
+      return res.status(500).json({ error: 'Failed to start challenge' });
     }
 
     if (challenge.student_id !== auth.userId) {
+      // Revert the status change since this user shouldn't have access
+      await supabase.from('tutor_challenges').update({ status: 'pending' }).eq('id', challengeId);
       return res.status(403).json({ error: 'Not authorized' });
-    }
-
-    if (challenge.status === 'completed') {
-      return res.status(400).json({ error: 'Challenge already completed' });
     }
 
     // Get language settings: use challenge's target language, student's native language
@@ -329,14 +347,15 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to save result' });
     }
 
-    // Update challenge status
+    // Update challenge status to completed (was set to 'in_progress' at start to prevent race condition)
     await supabase
       .from('tutor_challenges')
       .update({
         status: 'completed',
         completed_at: new Date().toISOString()
       })
-      .eq('id', challengeId);
+      .eq('id', challengeId)
+      .eq('status', 'in_progress');  // Only complete if we're the one processing it
 
     // Award XP
     const { data: profile } = await supabase

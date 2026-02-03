@@ -70,17 +70,33 @@ export default async function handler(req: any, res: any) {
     // ===========================================
 
     // XP Contributed: Sum of XP from completed challenges and word gifts
-    const { data: challengeResults } = await supabase
-      .from('challenge_results')
-      .select('xp_earned')
-      .in('challenge_id', (
-        await supabase
-          .from('tutor_challenges')
-          .select('id')
-          .eq('tutor_id', auth.userId)
-      ).data?.map(c => c.id) || []);
+    // First fetch tutor's challenge IDs (separate query to properly handle errors)
+    const { data: tutorChallengeData, error: tutorChallengeError } = await supabase
+      .from('tutor_challenges')
+      .select('id')
+      .eq('tutor_id', auth.userId);
 
-    const xpFromChallenges = challengeResults?.reduce((sum, r) => sum + (r.xp_earned || 0), 0) || 0;
+    if (tutorChallengeError) {
+      console.error('Error fetching tutor challenges:', tutorChallengeError);
+    }
+
+    const tutorChallengeIdList = tutorChallengeData?.map(c => c.id) || [];
+
+    // Only query challenge_results if there are challenges
+    let challengeResults: Array<{ xp_earned: number | null }> = [];
+    if (tutorChallengeIdList.length > 0) {
+      const { data: results, error: resultsError } = await supabase
+        .from('challenge_results')
+        .select('xp_earned')
+        .in('challenge_id', tutorChallengeIdList);
+
+      if (resultsError) {
+        console.error('Error fetching challenge results:', resultsError);
+      }
+      challengeResults = results || [];
+    }
+
+    const xpFromChallenges = challengeResults.reduce((sum, r) => sum + (r.xp_earned || 0), 0);
 
     const { data: wordGifts } = await supabase
       .from('word_requests')
