@@ -292,18 +292,17 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // Inactivity recommendation
+    // Inactivity recommendation - only show if partner HAS practiced before but stopped
     const lastPractice = partnerProfile?.last_practice_at ? new Date(partnerProfile.last_practice_at) : null;
-    const daysSincePractice = lastPractice
-      ? Math.floor((Date.now() - lastPractice.getTime()) / (1000 * 60 * 60 * 24))
-      : 999;
-
-    if (daysSincePractice >= 3) {
-      recommendations.push({
-        type: 'inactivity',
-        message: `Great opportunity to play together! ${partnerProfile?.full_name || 'Your partner'} hasn't practiced in ${daysSincePractice} days.`,
-        action_type: 'love_note',
-      });
+    if (lastPractice) {
+      const daysSincePractice = Math.floor((Date.now() - lastPractice.getTime()) / (1000 * 60 * 60 * 24));
+      if (daysSincePractice >= 3) {
+        recommendations.push({
+          type: 'inactivity',
+          message: `Great opportunity to play together! ${partnerProfile?.full_name || 'Your partner'} hasn't practiced in ${daysSincePractice} days.`,
+          action_type: 'love_note',
+        });
+      }
     }
 
     // Variety recommendation
