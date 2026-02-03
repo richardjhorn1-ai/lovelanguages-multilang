@@ -14,6 +14,7 @@ import {
   createServiceClient,
 } from '../utils/api-middleware.js';
 import { getProfileLanguages } from '../utils/language-helpers.js';
+import { logger, generateRequestId } from '../utils/logger.js';
 import type { EnhancedCoachContext } from '../types.js';
 
 // In-memory cache (per serverless instance)
@@ -21,18 +22,21 @@ const contextCache = new Map<string, { data: EnhancedCoachContext; expiresAt: nu
 const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
 
 export default async function handler(req: any, res: any) {
+  const requestId = generateRequestId();
+  const endTimer = logger.time(`[${requestId}] coach-context`);
+
   if (setCorsHeaders(req, res)) {
     return res.status(200).end();
   }
 
   if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Method not allowed', requestId });
   }
 
   try {
     const auth = await verifyAuth(req);
     if (!auth) {
-      return res.status(401).json({ error: 'Unauthorized' });
+      return res.status(401).json({ error: 'Unauthorized', requestId });
     }
 
     const supabase = createServiceClient();
@@ -404,14 +408,27 @@ export default async function handler(req: any, res: any) {
       expiresAt: expiresAt.getTime(),
     });
 
+    logger.info('Coach context fetched', {
+      requestId,
+      userId: auth.userId,
+      endpoint: 'coach-context',
+      metadata: { cached: false, missionsCount: missions.length },
+    });
+    endTimer();
+
     return res.status(200).json({
       success: true,
       context,
       cached: false,
+      requestId,
     });
 
   } catch (error: any) {
-    console.error('[coach-context] Error:', error);
-    return res.status(500).json({ error: 'Failed to fetch coach context' });
+    logger.error('Coach context failed', {
+      requestId,
+      endpoint: 'coach-context',
+      error: error.message,
+    });
+    return res.status(500).json({ error: 'Failed to fetch coach context', requestId });
   }
 }

@@ -23,22 +23,26 @@ import {
 } from '../utils/api-middleware.js';
 import { getProfileLanguages } from '../utils/language-helpers.js';
 import { sanitizeInput } from '../utils/sanitize.js';
+import { logger, generateRequestId } from '../utils/logger.js';
 import { LOVE_NOTE_TEMPLATES } from '../constants/levels.js';
 import type { ProposedAction, ExecuteCoachActionResponse } from '../types.js';
 
 export default async function handler(req: any, res: any) {
+  const requestId = generateRequestId();
+  const endTimer = logger.time(`[${requestId}] execute-coach-action`);
+
   if (setCorsHeaders(req, res)) {
     return res.status(200).end();
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Method not allowed', requestId });
   }
 
   try {
     const auth = await verifyAuth(req);
     if (!auth) {
-      return res.status(401).json({ error: 'Unauthorized' });
+      return res.status(401).json({ error: 'Unauthorized', requestId });
     }
 
     const supabase = createServiceClient();
@@ -446,11 +450,26 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    return res.status(200).json(response);
+    logger.info('Coach action executed', {
+      requestId,
+      userId: auth.userId,
+      endpoint: 'execute-coach-action',
+      metadata: {
+        actionType: action.type,
+        createdItems: response.createdItems,
+      },
+    });
+    endTimer();
+
+    return res.status(200).json({ ...response, requestId });
 
   } catch (error: any) {
-    console.error('[execute-coach-action] Error:', error);
-    return res.status(500).json({ error: 'Failed to execute action' });
+    logger.error('Coach action failed', {
+      requestId,
+      endpoint: 'execute-coach-action',
+      error: error.message,
+    });
+    return res.status(500).json({ error: 'Failed to execute action', requestId });
   }
 }
 

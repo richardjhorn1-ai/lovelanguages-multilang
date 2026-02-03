@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
-import { geminiService, Attachment, ExtractedWord, SessionContext } from '../services/gemini';
+import { geminiService, Attachment, ExtractedWord, SessionContext, ProposedAction } from '../services/gemini';
 import { LiveSession, LiveSessionState } from '../services/live-session';
 import { GladiaSession, GladiaState, TranscriptChunk } from '../services/gladia-session';
 import { Profile, Chat, Message, ChatMode, WordType } from '../types';
@@ -14,6 +14,8 @@ import { speak } from '../services/audio';
 import NewWordsNotification from './NewWordsNotification';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
 import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
+import { ThinkingIndicator } from './ThinkingIndicator';
+import { CoachActionConfirmModal } from './CoachActionConfirmModal';
 
 // Listen session types
 interface TranscriptEntry {
@@ -279,6 +281,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const sessionContextRef = useRef<SessionContext | null>(null);
   const contextLoadedRef = useRef(false);
 
+  // Coach mode state
+  const [isThinking, setIsThinking] = useState(false);
+  const [pendingAction, setPendingAction] = useState<ProposedAction | null>(null);
+  const [showActionConfirm, setShowActionConfirm] = useState(false);
+
   // Boot session on mount - fetch context once
   useEffect(() => {
     const bootSession = async () => {
@@ -458,8 +465,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     let newWords: ExtractedWord[] = [];
 
     // ACT 2: FETCH AI REPLY
-    if (currentAttachments.length > 0) {
-      // Use non-streaming for image messages (streaming doesn't support images)
+    // Use non-streaming for: images OR coach mode (coach needs structured output)
+    if (currentAttachments.length > 0 || mode === 'coach') {
+      setIsThinking(true);
+
       const result = await geminiService.generateReply(
         userMessage,
         mode,
@@ -469,10 +478,18 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         sessionContextRef.current,
         languageParams
       );
+
+      setIsThinking(false);
       replyText = result.replyText;
       newWords = result.newWords;
+
+      // Handle proposed action from coach mode
+      if (result.proposedAction) {
+        setPendingAction(result.proposedAction);
+        setShowActionConfirm(true);
+      }
     } else {
-      // Use streaming for text-only messages (shows typing effect)
+      // Use streaming for text-only student messages (shows typing effect)
       replyText = await geminiService.generateReplyStream(
         userMessage,
         mode,
@@ -643,6 +660,40 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     };
     reader.readAsDataURL(file);
     setIsMenuOpen(false);
+  };
+
+  // Handle coach action confirmation
+  const handleConfirmAction = async (createLinkedChallenge: boolean) => {
+    if (!pendingAction) return;
+
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session?.access_token) {
+      throw new Error('Please log in to continue');
+    }
+
+    const response = await fetch('/api/execute-coach-action', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${session.access_token}`
+      },
+      body: JSON.stringify({
+        action: pendingAction,
+        createLinkedChallenge
+      })
+    });
+
+    const result = await response.json();
+
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to execute action');
+    }
+
+    // Add confirmation to chat
+    await saveMessage('model', `✅ ${result.message}`);
+
+    setShowActionConfirm(false);
+    setPendingAction(null);
   };
 
   const createNewChat = async (selectedMode: ChatMode) => {
@@ -1359,11 +1410,18 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               )}
 
               {/* Loading indicator (only show if not streaming) */}
-              {loading && !streamingText && (
+              {loading && !streamingText && !isThinking && (
                 <div className="flex gap-1.5 px-6">
                   <div className="w-1.5 h-1.5 rounded-full animate-bounce" style={{ backgroundColor: `${accentHex}80` }}></div>
                   <div className="w-1.5 h-1.5 rounded-full animate-bounce delay-75" style={{ backgroundColor: `${accentHex}80` }}></div>
                   <div className="w-1.5 h-1.5 rounded-full animate-bounce delay-150" style={{ backgroundColor: `${accentHex}80` }}></div>
+                </div>
+              )}
+
+              {/* Coach mode thinking indicator */}
+              {isThinking && (
+                <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+                  <ThinkingIndicator partnerName={sessionContextRef.current?.partnerName || undefined} />
                 </div>
               )}
 
@@ -1814,6 +1872,24 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Coach Action Confirmation Modal */}
+      {showActionConfirm && pendingAction && (
+        <CoachActionConfirmModal
+          isOpen={showActionConfirm}
+          action={pendingAction}
+          partnerName={sessionContextRef.current?.partnerName || 'your partner'}
+          onConfirm={handleConfirmAction}
+          onCancel={() => {
+            setShowActionConfirm(false);
+            setPendingAction(null);
+          }}
+          onModify={() => {
+            setShowActionConfirm(false);
+            // Keep pendingAction for reference in case they want to modify
+          }}
+        />
       )}
 
       {/* Listen Mode Start Prompt */}
