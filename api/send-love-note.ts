@@ -113,7 +113,7 @@ export default async function handler(req: any, res: any) {
 
     // Create notification for recipient
     const noteText = templateText || sanitizedMessage || 'sent you a love note';
-    await supabase.from('notifications').insert({
+    const { error: notificationError } = await supabase.from('notifications').insert({
       user_id: profile.linked_user_id,
       type: 'love_note',
       title: `💕 ${profile.full_name || 'Your partner'}`,
@@ -123,6 +123,11 @@ export default async function handler(req: any, res: any) {
         sender_name: profile.full_name,
       },
     });
+
+    if (notificationError) {
+      console.error('Error creating notification:', notificationError);
+      // Don't fail the request, notification is non-critical
+    }
 
     // Add to activity feed
     await supabase.from('activity_feed').insert({

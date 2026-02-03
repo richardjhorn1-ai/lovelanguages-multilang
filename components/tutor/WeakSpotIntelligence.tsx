@@ -90,7 +90,7 @@ const WeakSpotIntelligence: React.FC<WeakSpotIntelligenceProps> = ({
             {t('tutor.weakSpots.improving', 'Getting better!')}
           </p>
           <div className="flex flex-wrap gap-2">
-            {improvingWords.map((word) => (
+            {improvingWords.slice(0, 10).map((word) => (
               <div
                 key={word.word_id}
                 className="px-3 py-1.5 rounded-full border flex items-center gap-2"

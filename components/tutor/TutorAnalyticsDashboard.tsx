@@ -296,11 +296,12 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                 <button
                   key={p}
                   onClick={() => setPeriod(p)}
+                  disabled={refreshing}
                   className={`px-4 py-1.5 rounded-full text-scale-caption font-bold transition-all ${
                     period === p
                       ? 'text-white'
                       : 'bg-[var(--bg-card)] text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
-                  }`}
+                  } ${refreshing ? 'opacity-50 cursor-not-allowed' : ''}`}
                   style={period === p ? { backgroundColor: tierColor } : {}}
                 >
                   {p === 'week' ? t('tutor.period.week', 'Week') :
@@ -495,11 +496,12 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                 <button
                   key={p}
                   onClick={() => setPeriod(p)}
+                  disabled={refreshing}
                   className={`px-4 py-1.5 rounded-full text-scale-caption font-bold transition-all ${
                     period === p
                       ? 'text-white'
                       : 'bg-[var(--bg-card)] text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
-                  }`}
+                  } ${refreshing ? 'opacity-50 cursor-not-allowed' : ''}`}
                   style={period === p ? { backgroundColor: tierColor } : {}}
                 >
                   {p === 'week' ? t('tutor.period.week', 'Week') :

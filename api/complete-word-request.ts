@@ -222,6 +222,7 @@ export default async function handler(req: any, res: any) {
         word_request_id: requestId,
         tutor_id: wordRequest.tutor_id,
         student_id: auth.userId,
+        language_code: targetLanguage,
         xp_earned: wordXp
       });
 
@@ -266,7 +267,7 @@ export default async function handler(req: any, res: any) {
       .filter('data->request_id', 'eq', requestId);
 
     // Notify tutor that student completed the gift
-    await supabase.from('notifications').insert({
+    const { error: notificationError } = await supabase.from('notifications').insert({
       user_id: wordRequest.tutor_id,
       type: 'gift_complete',
       title: `${profile?.full_name || 'Your partner'} learned your words!`,
@@ -277,6 +278,11 @@ export default async function handler(req: any, res: any) {
         xp_earned: totalXpEarned
       }
     });
+
+    if (notificationError) {
+      console.error('Error creating notification:', notificationError);
+      // Don't fail the request, notification is non-critical
+    }
 
     // Award Tutor XP for sending word gift (already done when creating gift)
     // Here we add to activity feed

@@ -9,6 +9,7 @@ import {
   SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { getProfileLanguages } from '../utils/language-helpers.js';
+import { sanitizeInput } from '../utils/sanitize.js';
 
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
@@ -74,6 +75,17 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Missing required fields: challengeType, config' });
     }
 
+    // Sanitize user inputs
+    const sanitizedTitle = title ? sanitizeInput(title, 100) : null;
+
+    // Validate array lengths
+    if (wordIds && wordIds.length > 50) {
+      return res.status(400).json({ error: 'Too many words: maximum 50 allowed' });
+    }
+    if (newWords && newWords.length > 20) {
+      return res.status(400).json({ error: 'Too many new words: maximum 20 allowed' });
+    }
+
     // Fetch word data for the selected words
     let wordsData: any[] = [];
     if (wordIds && wordIds.length > 0) {
@@ -91,8 +103,8 @@ export default async function handler(req: any, res: any) {
     if (newWords && Array.isArray(newWords) && newWords.length > 0) {
       // Support both new format {word, translation} and legacy format {polish, english}
       const newWordEntries = newWords.map((w: { word?: string; translation?: string; polish?: string; english?: string }) => {
-        const wordText = (w.word || w.polish || '').toLowerCase().trim();
-        const translationText = (w.translation || w.english || '').trim();
+        const wordText = sanitizeInput((w.word || w.polish || ''), 100).toLowerCase().trim();
+        const translationText = sanitizeInput((w.translation || w.english || ''), 100).trim();
 
         return {
           user_id: profile.linked_user_id,
@@ -151,7 +163,7 @@ export default async function handler(req: any, res: any) {
         student_id: profile.linked_user_id,
         language_code: targetLanguage,
         challenge_type: challengeType,
-        title: title || `${challengeType} Challenge`,
+        title: sanitizedTitle || `${challengeType} Challenge`,
         config,
         word_ids: wordsData.map(w => w.id),
         words_data: wordsData,
@@ -166,13 +178,18 @@ export default async function handler(req: any, res: any) {
     }
 
     // Create notification for student
-    await supabase.from('notifications').insert({
+    const { error: notificationError } = await supabase.from('notifications').insert({
       user_id: profile.linked_user_id,
       type: 'challenge',
       title: `${profile.full_name} sent you a challenge!`,
       message: `Play "${challenge.title}" and show what you've learned!`,
       data: { challenge_id: challenge.id, challenge_type: challengeType }
     });
+
+    if (notificationError) {
+      console.error('Error creating notification:', notificationError);
+      // Don't fail the request, notification is non-critical
+    }
 
     // Award Tutor XP for creating challenge
     try {
