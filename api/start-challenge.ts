@@ -47,9 +47,11 @@ export default async function handler(req: any, res: any) {
       return res.status(403).json({ error: 'Not authorized to start this challenge' });
     }
 
-    // Check if challenge is already completed
-    if (challenge.status === 'completed') {
-      return res.status(400).json({ error: 'Challenge already completed' });
+    // Check if challenge can be started (must be pending)
+    if (challenge.status !== 'pending') {
+      return res.status(400).json({
+        error: `Challenge cannot be started (status: ${challenge.status})`
+      });
     }
 
     // Update challenge status to in_progress

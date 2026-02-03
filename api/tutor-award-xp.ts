@@ -182,6 +182,8 @@ export default async function handler(req: any, res: any) {
 
     // Check for achievements
     const unlockedAchievements: string[] = [];
+    let totalXpAwarded = xpToAdd;
+    let finalXp = newXp;
 
     // Get current stats for achievement checks
     const { data: stats } = await supabase
@@ -210,35 +212,48 @@ export default async function handler(req: any, res: any) {
       { code: 'month_of_love', condition: stats?.teaching_streak >= 30 },
     ];
 
+    // Calculate total achievement XP first
+    let totalAchievementXp = 0;
+    const achievementsToUnlock: Array<{ code: string; xp_reward: number }> = [];
+
     for (const check of achievementsToCheck) {
       if (check.condition && !unlockedCodes.has(check.code)) {
         const achievement = ACHIEVEMENT_DEFINITIONS.find(a => a.code === check.code);
         if (achievement) {
-          await supabase.from('user_achievements').insert({
-            user_id: tutorId,
-            achievement_code: check.code,
-          });
-          unlockedAchievements.push(check.code);
-
-          // Award achievement XP
-          if (achievement.xp_reward > 0) {
-            await supabase
-              .from('profiles')
-              .update({ tutor_xp: newXp + achievement.xp_reward })
-              .eq('id', tutorId);
-          }
+          achievementsToUnlock.push({ code: check.code, xp_reward: achievement.xp_reward });
+          totalAchievementXp += achievement.xp_reward || 0;
         }
       }
     }
 
-    // Check for tier up
-    const tierUp = newTier.tier > oldTier.tier;
+    // Insert achievements and update XP in single batch
+    for (const achievement of achievementsToUnlock) {
+      await supabase.from('user_achievements').insert({
+        user_id: tutorId,
+        achievement_code: achievement.code,
+      });
+      unlockedAchievements.push(achievement.code);
+    }
+
+    // Single XP update for all achievements
+    if (totalAchievementXp > 0) {
+      finalXp = newXp + totalAchievementXp;
+      totalXpAwarded += totalAchievementXp;
+      await supabase
+        .from('profiles')
+        .update({ tutor_xp: finalXp })
+        .eq('id', tutorId);
+    }
+
+    // Check for tier up (use final XP for accurate tier calculation)
+    const finalTier = getTutorTierFromXP(finalXp);
+    const tierUp = finalTier.tier > oldTier.tier;
 
     return res.status(200).json({
       success: true,
-      xpAwarded: xpToAdd,
-      newTotalXp: newXp,
-      newTier: newTier.name,
+      xpAwarded: totalXpAwarded,
+      newTotalXp: finalXp,
+      newTier: finalTier.name,
       tierUp,
       unlockedAchievements,
     });

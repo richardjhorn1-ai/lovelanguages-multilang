@@ -75,6 +75,52 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Missing required fields: challengeType, config' });
     }
 
+    // Validate challengeType
+    const validChallengeTypes = ['quiz', 'whisper', 'quickfire'];
+    if (!validChallengeTypes.includes(challengeType)) {
+      return res.status(400).json({ error: `Invalid challengeType. Must be one of: ${validChallengeTypes.join(', ')}` });
+    }
+
+    // Validate config based on challenge type
+    if (challengeType === 'quiz') {
+      if (!config.questionTypes || !Array.isArray(config.questionTypes) || config.questionTypes.length === 0) {
+        return res.status(400).json({ error: 'Quiz requires questionTypes array' });
+      }
+      const validQuestionTypes = ['multiple_choice', 'type_it', 'flashcard'];
+      for (const qt of config.questionTypes) {
+        if (!validQuestionTypes.includes(qt)) {
+          return res.status(400).json({ error: `Invalid questionType: ${qt}. Must be one of: ${validQuestionTypes.join(', ')}` });
+        }
+      }
+      if (typeof config.wordCount !== 'number' || config.wordCount < 1 || config.wordCount > 50) {
+        return res.status(400).json({ error: 'Quiz wordCount must be 1-50' });
+      }
+    }
+
+    if (challengeType === 'quickfire') {
+      if (typeof config.timeLimitSeconds !== 'number' || config.timeLimitSeconds < 10 || config.timeLimitSeconds > 300) {
+        return res.status(400).json({ error: 'QuickFire timeLimitSeconds must be 10-300' });
+      }
+      if (typeof config.wordCount !== 'number' || config.wordCount < 1 || config.wordCount > 50) {
+        return res.status(400).json({ error: 'QuickFire wordCount must be 1-50' });
+      }
+      const validDifficulties = ['easy', 'medium', 'hard'];
+      if (config.difficulty && !validDifficulties.includes(config.difficulty)) {
+        return res.status(400).json({ error: `Invalid difficulty. Must be one of: ${validDifficulties.join(', ')}` });
+      }
+    }
+
+    if (challengeType === 'whisper') {
+      if (!config.recordings || !Array.isArray(config.recordings) || config.recordings.length === 0) {
+        return res.status(400).json({ error: 'Whisper requires recordings array' });
+      }
+      for (const recording of config.recordings) {
+        if (!recording.audioUrl || !recording.word || !recording.translation) {
+          return res.status(400).json({ error: 'Each whisper recording must have audioUrl, word, and translation' });
+        }
+      }
+    }
+
     // Sanitize user inputs
     const sanitizedTitle = title ? sanitizeInput(title, 100) : null;
 

@@ -148,7 +148,8 @@ export default async function handler(req: any, res: any) {
           type: 'partner_deleted_account',
           title: 'Partner Account Deleted',
           message: 'Your learning partner has deleted their account. Your accounts are no longer linked.',
-          read: false
+          data: { deleted_user_id: userId },
+          read_at: null
         });
     }
 

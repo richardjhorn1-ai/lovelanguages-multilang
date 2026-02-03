@@ -194,50 +194,69 @@ export default async function handler(req: any, res: any) {
       xp_reward: number;
     }> = [];
 
+    // First pass: identify all achievements to unlock and calculate total XP
+    let totalAchievementXp = 0;
+    const achievementsToUnlock: Array<{
+      code: string;
+      name: string;
+      description: string;
+      icon: string;
+      xp_reward: number;
+    }> = [];
+
     for (const check of allChecks) {
       if (check.condition && !unlockedCodes.has(check.code)) {
         const achievement = ACHIEVEMENT_DEFINITIONS.find(a => a.code === check.code);
         if (achievement) {
-          // Insert achievement
-          const { error } = await supabase.from('user_achievements').insert({
-            user_id: auth.userId,
-            achievement_code: check.code,
+          achievementsToUnlock.push({
+            code: achievement.code,
+            name: achievement.name,
+            description: achievement.description,
+            icon: achievement.icon,
+            xp_reward: achievement.xp_reward,
           });
-
-          if (!error) {
-            newlyUnlocked.push({
-              code: achievement.code,
-              name: achievement.name,
-              description: achievement.description,
-              icon: achievement.icon,
-              xp_reward: achievement.xp_reward,
-            });
-
-            // Award XP if applicable
-            if (achievement.xp_reward > 0) {
-              const xpField = profile.role === 'tutor' ? 'tutor_xp' : 'xp';
-              const currentXp = profile.role === 'tutor'
-                ? (await supabase.from('profiles').select('tutor_xp').eq('id', auth.userId).single()).data?.tutor_xp || 0
-                : profile.xp || 0;
-
-              await supabase
-                .from('profiles')
-                .update({ [xpField]: currentXp + achievement.xp_reward })
-                .eq('id', auth.userId);
-            }
-
-            // Add to activity feed
-            await supabase.from('activity_feed').insert({
-              user_id: auth.userId,
-              partner_id: profile.linked_user_id,
-              event_type: 'achievement_unlocked',
-              title: `Unlocked: ${achievement.name}`,
-              subtitle: achievement.description,
-              data: { code: achievement.code, icon: achievement.icon },
-            });
-          }
+          totalAchievementXp += achievement.xp_reward || 0;
         }
       }
+    }
+
+    // Second pass: insert achievements and add to activity feed
+    for (const achievement of achievementsToUnlock) {
+      const { error } = await supabase.from('user_achievements').insert({
+        user_id: auth.userId,
+        achievement_code: achievement.code,
+      });
+
+      if (!error) {
+        newlyUnlocked.push(achievement);
+
+        // Add to activity feed
+        await supabase.from('activity_feed').insert({
+          user_id: auth.userId,
+          partner_id: profile.linked_user_id,
+          event_type: 'achievement_unlocked',
+          title: `Unlocked: ${achievement.name}`,
+          subtitle: achievement.description,
+          data: { code: achievement.code, icon: achievement.icon },
+        });
+      }
+    }
+
+    // Single XP update for all achievements (prevents race condition)
+    if (totalAchievementXp > 0) {
+      const xpField = profile.role === 'tutor' ? 'tutor_xp' : 'xp';
+      const { data: currentProfile } = await supabase
+        .from('profiles')
+        .select(xpField)
+        .eq('id', auth.userId)
+        .single();
+
+      const currentXp = currentProfile?.[xpField] || 0;
+
+      await supabase
+        .from('profiles')
+        .update({ [xpField]: currentXp + totalAchievementXp })
+        .eq('id', auth.userId);
     }
 
     return res.status(200).json({

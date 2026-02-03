@@ -443,6 +443,9 @@ export const RATE_LIMITS = {
   liveToken: { type: 'voice_sessions', monthly: { free: 1, standard: 20, unlimited: null } },
   gladiaToken: { type: 'listen_sessions', monthly: { free: 1, standard: 40, unlimited: null } },
 
+  // Tutor actions
+  sendWordGift: { type: 'send_word_gift', monthly: { free: 10, standard: 100, unlimited: null } },
+
   // Abuse prevention (same limits for all tiers)
   deleteAccount: { type: 'account_deletions', monthly: { free: 1, standard: 1, unlimited: 1 } },
   exportUserData: { type: 'data_exports', monthly: { free: 2, standard: 5, unlimited: 10 } },

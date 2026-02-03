@@ -264,7 +264,7 @@ export default async function handler(req: any, res: any) {
       .update({ read_at: new Date().toISOString() })
       .eq('user_id', auth.userId)
       .eq('type', 'word_request')
-      .filter('data->request_id', 'eq', requestId);
+      .filter('data->>request_id', 'eq', requestId);
 
     // Notify tutor that student completed the gift
     const { error: notificationError } = await supabase.from('notifications').insert({
