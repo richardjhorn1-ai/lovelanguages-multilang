@@ -1,5 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
@@ -16,36 +16,50 @@ export default async function handler(req: any, res: any) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-    if (!supabaseUrl || !supabaseServiceKey) {
+    const supabase = createServiceClient();
+    if (!supabase) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    const { status, role, targetLanguage: requestedLanguage } = req.body || {};
 
-    const { status, role } = req.body || {};
-
-    // Get user's profile to determine role
+    // Get user's profile to determine role and language
     const { data: profile } = await supabase
       .from('profiles')
-      .select('role')
+      .select('role, linked_user_id')
       .eq('id', auth.userId)
       .single();
 
     const userRole = role || profile?.role || 'student';
 
+    // Get target language - use request param, or fetch from profile
+    // For tutors, we use student's language; for students, their own
+    let targetLanguage = requestedLanguage;
+    if (!targetLanguage) {
+      if (userRole === 'tutor' && profile?.linked_user_id) {
+        const langs = await getProfileLanguages(supabase, profile.linked_user_id);
+        targetLanguage = langs.targetLanguage;
+      } else {
+        const langs = await getProfileLanguages(supabase, auth.userId);
+        targetLanguage = langs.targetLanguage;
+      }
+    }
+
     // Build query based on role - select only needed columns
     let query = supabase
       .from('tutor_challenges')
-      .select('id, title, challenge_type, status, created_at, tutor_id, student_id, config, words_data')
+      .select('id, title, challenge_type, status, created_at, tutor_id, student_id, config, words_data, language_code')
       .order('created_at', { ascending: false });
 
     if (userRole === 'tutor') {
       query = query.eq('tutor_id', auth.userId);
     } else {
       query = query.eq('student_id', auth.userId);
+    }
+
+    // Filter by language to prevent cross-language pollution
+    if (targetLanguage) {
+      query = query.eq('language_code', targetLanguage);
     }
 
     if (status) {
