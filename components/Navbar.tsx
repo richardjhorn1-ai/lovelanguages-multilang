@@ -141,14 +141,12 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
-      case 'challenge_received': return '🎮';
-      case 'challenge_completed': return '🏆';
-      case 'word_gift_received': return '🎁';
-      case 'word_gift_completed': return '✨';
-      case 'love_note': return '💕';
-      case 'gift_complete': return '🎊';
-      case 'challenge_request': return '🙋';
-      case 'word_request': return '🎁';
+      case 'challenge': return '🎮';           // Tutor sent a challenge
+      case 'challenge_complete': return '🏆';  // Student completed challenge
+      case 'challenge_request': return '🙋';   // Challenge request
+      case 'word_request': return '🎁';        // Tutor sent word gift
+      case 'gift_complete': return '🎊';       // Student accepted gift
+      case 'love_note': return '💕';           // Love note received
       default: return '💌';
     }
   };
@@ -282,9 +280,12 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                         onClick={() => {
                           if (!notification.read_at) markAsRead(notification.id);
                           // Navigate based on notification type
-                          if (notification.type.includes('challenge') || notification.type === 'challenge_request') {
+                          if (notification.type === 'challenge' ||
+                              notification.type === 'challenge_complete' ||
+                              notification.type === 'challenge_request') {
                             navigate('/play');
-                          } else if (notification.type.includes('word_gift') || notification.type === 'gift_complete') {
+                          } else if (notification.type === 'word_request' ||
+                                     notification.type === 'gift_complete') {
                             navigate('/play');
                           } else if (notification.type === 'love_note') {
                             navigate('/progress');
@@ -542,8 +543,16 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   style={!notification.read_at ? { backgroundColor: `${accentHex}10` } : {}}
                   onClick={() => {
                     if (!notification.read_at) markAsRead(notification.id);
-                    if (notification.type.includes('challenge') || notification.type.includes('word_gift')) {
+                    // Navigate based on notification type (same logic as desktop)
+                    if (notification.type === 'challenge' ||
+                        notification.type === 'challenge_complete' ||
+                        notification.type === 'challenge_request') {
                       navigate('/play');
+                    } else if (notification.type === 'word_request' ||
+                               notification.type === 'gift_complete') {
+                      navigate('/play');
+                    } else if (notification.type === 'love_note') {
+                      navigate('/progress');
                     }
                     setIsNotificationsOpen(false);
                   }}

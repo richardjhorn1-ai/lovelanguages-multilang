@@ -27,7 +27,8 @@ const Sparkline: React.FC<{
   const range = max - min || 1;
 
   const points = data.map((value, index) => {
-    const x = (index / (data.length - 1 || 1)) * 100;
+    // Fix division by zero: when data.length === 1, center the point at x=50
+    const x = data.length > 1 ? (index / (data.length - 1)) * 100 : 50;
     const y = height - ((value - min) / range) * height;
     return `${x},${y}`;
   }).join(' ');

@@ -198,8 +198,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   };
 
   // Get save preference
-  const getSavePreference = (): 'always' | 'never' | 'ask' | null => {
-    return localStorage.getItem(SAVE_PREF_KEY) as 'always' | 'never' | 'ask' | null;
+  const getSavePreference = (): 'always' | 'never' | 'ask' => {
+    const stored = localStorage.getItem(SAVE_PREF_KEY);
+    if (stored === 'always' || stored === 'never') return stored;
+    return 'ask';  // Default to 'ask' instead of null
   };
 
   // Save game session to student's progress
