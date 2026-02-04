@@ -305,35 +305,6 @@ const Hero: React.FC = () => {
   const sheetDragStart = useRef<{ y: number; expanded: boolean } | null>(null);
   const bottomSheetRef = useRef<HTMLDivElement>(null);
 
-  // Touch direction detection for bottom sections (FAQ, RALL, Blog)
-  // Allows horizontal swipes to pass through to parent carousel
-  const bottomSectionTouchStart = useRef<{ x: number; y: number; decided: boolean } | null>(null);
-
-  const handleBottomSectionTouchStart = (e: React.TouchEvent) => {
-    bottomSectionTouchStart.current = {
-      x: e.touches[0].clientX,
-      y: e.touches[0].clientY,
-      decided: false
-    };
-  };
-
-  const handleBottomSectionTouchMove = (e: React.TouchEvent) => {
-    if (!bottomSectionTouchStart.current || bottomSectionTouchStart.current.decided) return;
-
-    const deltaX = Math.abs(e.touches[0].clientX - bottomSectionTouchStart.current.x);
-    const deltaY = Math.abs(e.touches[0].clientY - bottomSectionTouchStart.current.y);
-
-    // Need at least 10px movement to decide direction
-    if (deltaX < 10 && deltaY < 10) return;
-
-    bottomSectionTouchStart.current.decided = true;
-
-    // If horizontal movement is greater, prevent default to allow carousel swipe
-    if (deltaX > deltaY) {
-      e.preventDefault();
-    }
-  };
-
   // Bottom sheet touch handlers
   const handleSheetTouchStart = (e: React.TouchEvent) => {
     sheetDragStart.current = {
@@ -572,7 +543,8 @@ const Hero: React.FC = () => {
     const cardWidth = carousel.clientWidth;
     const newActiveSection = Math.round(scrollLeft / cardWidth);
 
-    if (newActiveSection !== activeSection && newActiveSection >= 0 && newActiveSection < 12) {
+    // Mobile carousel has 9 sections (0-8): marketing sections (0-5) + bottom sections (6-8)
+    if (newActiveSection !== activeSection && newActiveSection >= 0 && newActiveSection < 9) {
       setActiveSection(newActiveSection);
     }
   };
@@ -582,9 +554,11 @@ const Hero: React.FC = () => {
     const carousel = mobileCarouselRef.current;
     if (!carousel) return;
 
+    // Clamp index to valid range (0-8 for mobile)
+    const clampedIndex = Math.max(0, Math.min(8, index));
     const cardWidth = carousel.clientWidth;
     carousel.scrollTo({
-      left: index * cardWidth,
+      left: clampedIndex * cardWidth,
       behavior: 'smooth'
     });
   };
@@ -940,8 +914,6 @@ const Hero: React.FC = () => {
                   <div
                     className="flex-1 overflow-y-auto overflow-x-hidden"
                     style={{ WebkitOverflowScrolling: 'touch' }}
-                    onTouchStart={handleBottomSectionTouchStart}
-                    onTouchMove={handleBottomSectionTouchMove}
                   >
                     <HeroFAQ isStudent={isStudent} sectionIndex={6} isVisible={true} />
                   </div>
@@ -954,8 +926,6 @@ const Hero: React.FC = () => {
                   <div
                     className="flex-1 overflow-y-auto overflow-x-hidden"
                     style={{ WebkitOverflowScrolling: 'touch' }}
-                    onTouchStart={handleBottomSectionTouchStart}
-                    onTouchMove={handleBottomSectionTouchMove}
                   >
                     <HeroRALL isStudent={isStudent} sectionIndex={7} isVisible={true} />
                   </div>
@@ -968,8 +938,6 @@ const Hero: React.FC = () => {
                   <div
                     className="flex-1 overflow-y-auto overflow-x-hidden"
                     style={{ WebkitOverflowScrolling: 'touch' }}
-                    onTouchStart={handleBottomSectionTouchStart}
-                    onTouchMove={handleBottomSectionTouchMove}
                   >
                     <HeroBlog isStudent={isStudent} sectionIndex={8} isVisible={true} />
                     <HeroFooter isStudent={isStudent} sectionIndex={9} isVisible={true} />

@@ -2010,7 +2010,91 @@
         "quoteAttribution": "— Rusbult, Finkel & Kumashiro, «Феномен Микеланджело» (2009)",
         "anxietyTitle": "Снижение Языковой Тревоги:",
         "anxietyDesc": "Страх осуждения от партнёра реален. Наш ИИ опосредует исправления и обратную связь, создавая безопасное пространство для ошибок без вреда для ваших отношений.",
-        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991"
+        "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
+        "tabs": {
+          "method": "How It Works",
+          "story": "Who We Are",
+          "offer": "What You Get"
+        },
+        "scrollHint": "scroll",
+        "story": {
+          "names": "Richard & Misia",
+          "title": "Founders",
+          "paragraph1": "It started because I kept forgetting.",
+          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
+          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
+          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
+          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
+          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+        },
+        "offer": {
+          "studentHeadline": "Built for the moments that matter",
+          "tutorHeadline": "Everything you need to guide them",
+          "student": {
+            "feature1": {
+              "pain": "Finally get the joke at dinner",
+              "feature": "Listen Mode",
+              "desc": "Record real conversations. Capture words you missed. Review them later."
+            },
+            "feature2": {
+              "pain": "Learn words that actually matter",
+              "feature": "Love Log",
+              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+            },
+            "feature3": {
+              "pain": "Practice without the pressure",
+              "feature": "Smart Games",
+              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+            },
+            "feature4": {
+              "pain": "Practice any situation you want",
+              "feature": "Conversation Practice",
+              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+            },
+            "feature5": {
+              "pain": "Stop forgetting everything",
+              "feature": "Weakest Words",
+              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+            },
+            "feature6": {
+              "pain": "Talk to their family, not through them",
+              "feature": "Voice Chat",
+              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+            }
+          },
+          "tutor": {
+            "feature1": {
+              "pain": "Keep their learning fresh and fun",
+              "feature": "Agentic Coach",
+              "desc": "AI suggests what to teach next based on their progress and struggles."
+            },
+            "feature2": {
+              "pain": "Share your world, one word at a time",
+              "feature": "Word Gifts",
+              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+            },
+            "feature3": {
+              "pain": "See what's actually sticking",
+              "feature": "Progress Tracking",
+              "desc": "View their weak spots, mastered words, and learning velocity."
+            },
+            "feature4": {
+              "pain": "Quiz them on their weak spots",
+              "feature": "Partner Challenges",
+              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+            },
+            "feature5": {
+              "pain": "Explain the 'why' you never learned",
+              "feature": "AI-Assisted Teaching",
+              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+            },
+            "feature6": {
+              "pain": "Achieve your goals together",
+              "feature": "Shared Activity Feed",
+              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+            }
+          }
+        }
       },
       "blog": {
         "label": "Бесплатные Ресурсы",
