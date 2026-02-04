@@ -163,7 +163,7 @@ export const HeroFAQ: React.FC<{ isStudent: boolean; isVisible?: boolean; sectio
 // ============================================
 
 // Sub-component: Method Content (How It Works)
-const MethodContent: React.FC<{ accentColor: string; t: any }> = ({ accentColor, t }) => {
+export const MethodContent: React.FC<{ accentColor: string; t: any }> = ({ accentColor, t }) => {
   const pillars = [
     {
       icon: ICONS.MessageCircle,
@@ -243,7 +243,7 @@ const MethodContent: React.FC<{ accentColor: string; t: any }> = ({ accentColor,
 };
 
 // Sub-component: Story Content (Who We Are)
-const StoryContent: React.FC<{ accentColor: string; t: any }> = ({ accentColor, t }) => {
+export const StoryContent: React.FC<{ accentColor: string; t: any }> = ({ accentColor, t }) => {
   const [imgSrc, setImgSrc] = useState('/founders.jpg');
 
   return (
@@ -308,7 +308,7 @@ const StoryContent: React.FC<{ accentColor: string; t: any }> = ({ accentColor, 
 };
 
 // Sub-component: Offer Content (What You Get)
-const OfferContent: React.FC<{ accentColor: string; t: any; isStudent: boolean }> = ({ accentColor, t, isStudent }) => {
+export const OfferContent: React.FC<{ accentColor: string; t: any; isStudent: boolean }> = ({ accentColor, t, isStudent }) => {
   const role = isStudent ? 'student' : 'tutor';
   const headlineKey = isStudent ? 'studentHeadline' : 'tutorHeadline';
 

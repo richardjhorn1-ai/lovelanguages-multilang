@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BRAND } from './heroConstants';
 import { renderWithHighlights } from './heroHighlighting';
+import { MethodContent, StoryContent, OfferContent } from './HeroBottomSections';
+import { ICONS } from '../../constants';
 
 // SVG Logo paths - shared between Section and MobileSection
 // Main body path (kept for backward compatibility)
@@ -39,35 +42,130 @@ const Section: React.FC<SectionProps> = ({
   isStudent,
   isVisible
 }) => {
+  const { t } = useTranslation();
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
 
+  // Tab state for section 0
+  const [activeTab, setActiveTab] = useState<'method' | 'story' | 'offer'>('method');
+  const [showScrollHint, setShowScrollHint] = useState(true);
+
+  // Auto-hide scroll hint after 3 seconds
+  useEffect(() => {
+    if (index !== 0) return;
+    const timer = setTimeout(() => setShowScrollHint(false), 3000);
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  // Hide scroll hint on scroll
+  useEffect(() => {
+    if (index !== 0) return;
+    const handleScroll = () => {
+      if (showScrollHint) setShowScrollHint(false);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [showScrollHint, index]);
+
+  const tabs = [
+    { key: 'method' as const, label: t('hero.bottomSections.rall.tabs.method') },
+    { key: 'story' as const, label: t('hero.bottomSections.rall.tabs.story') },
+    { key: 'offer' as const, label: t('hero.bottomSections.rall.tabs.offer') },
+  ];
+
+  // Section 0 gets the tabbed layout
+  if (index === 0) {
+    return (
+      <section
+        data-section={index}
+        className="min-h-screen snap-start flex flex-col px-8 md:px-16 lg:px-24 py-8 md:py-12 relative z-10"
+      >
+        <div className={`max-w-4xl mx-auto w-full flex flex-col flex-1 section-content ${isVisible ? 'visible' : ''}`}>
+
+          {/* Static Header - TOP */}
+          <div className="mb-6 md:mb-8">
+            {/* Logo */}
+            <div className="flex items-center gap-5 mb-8 md:mb-10">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 600.000000 600.000000"
+                preserveAspectRatio="xMidYMid meet"
+                fill={accentColor}
+                className="w-[70px] h-[70px] md:w-[90px] md:h-[90px] shrink-0"
+              >
+                <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
+                  <path d={LOGO_PATH} />
+                  {LOGO_DETAIL_PATHS.map((d, i) => <path key={i} d={d} />)}
+                </g>
+              </svg>
+              <h1 className="text-2xl md:text-3xl font-black font-header tracking-tight" style={{ color: accentColor }}>
+                Love Languages
+              </h1>
+            </div>
+
+            {/* Headline & Copy */}
+            <h2
+              className="text-2xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-4 tracking-tight"
+              style={{ color: '#1a1a2e' }}
+            >
+              {renderWithHighlights(headline, headlineHighlights, isStudent)}
+            </h2>
+
+            <p className="text-sm md:text-lg leading-relaxed font-medium max-w-2xl" style={{ color: '#4b5563' }}>
+              {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
+            </p>
+          </div>
+
+          {/* Content Area - MIDDLE (flex-1 to fill space) */}
+          <div className="flex-1 flex items-center justify-center py-2 md:py-4 min-h-0 overflow-hidden">
+            <div className="w-full max-h-full overflow-y-auto">
+              {activeTab === 'method' && <MethodContent accentColor={accentColor} t={t} />}
+              {activeTab === 'story' && <StoryContent accentColor={accentColor} t={t} />}
+              {activeTab === 'offer' && <OfferContent accentColor={accentColor} t={t} isStudent={isStudent} />}
+            </div>
+          </div>
+
+          {/* Segmented Control + Scroll Hint - BOTTOM */}
+          <div className="pt-4 md:pt-6 pb-2 flex flex-col items-center">
+            {/* Segmented Control */}
+            <div className="inline-flex rounded-full p-1" style={{ backgroundColor: '#f3f4f6' }}>
+              {tabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className="px-3 md:px-5 py-2 rounded-full text-xs md:text-sm font-bold transition-all"
+                  style={activeTab === tab.key
+                    ? { backgroundColor: accentColor, color: '#fff', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }
+                    : { color: '#6b7280' }
+                  }
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Scroll Hint */}
+            {showScrollHint && (
+              <div className="flex flex-col items-center mt-4 animate-bounce">
+                <span className="text-xs font-medium mb-1" style={{ color: '#9ca3af' }}>
+                  {t('hero.bottomSections.rall.scrollHint')}
+                </span>
+                <ICONS.ChevronDown className="w-4 h-4" style={{ color: '#9ca3af' }} />
+              </div>
+            )}
+          </div>
+
+        </div>
+      </section>
+    );
+  }
+
+  // Other sections use the original layout
   return (
     <section
       data-section={index}
       className="min-h-screen snap-start flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 relative z-10"
     >
       <div className={`max-w-xl section-content ${isVisible ? 'visible' : ''}`}>
-        {/* Show logo only on first section */}
-        {index === 0 && (
-          <div className="flex items-center gap-5 mb-14">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 600.000000 600.000000"
-              preserveAspectRatio="xMidYMid meet"
-              fill={accentColor}
-              className="w-[90px] h-[90px] md:w-[110px] md:h-[110px] shrink-0"
-            >
-              <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
-                <path d={LOGO_PATH} />
-                {LOGO_DETAIL_PATHS.map((d, i) => <path key={i} d={d} />)}
-              </g>
-            </svg>
-            <h1 className="text-3xl md:text-4xl font-black font-header tracking-tight" style={{ color: accentColor }}>
-              Love Languages
-            </h1>
-          </div>
-        )}
-
         <h2
           className="text-3xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-5 tracking-tight"
           style={{ color: '#1a1a2e' }}
