@@ -355,40 +355,41 @@ export const HeroRALL: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
   const bgColor = isStudent ? BRAND.light : BRAND.tealLight;
 
-  const [activeTab, setActiveTab] = useState<'method' | 'story' | 'offer'>('method');
-  const [showScrollHint, setShowScrollHint] = useState(true);
-
-  // Auto-hide scroll hint after 3 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => setShowScrollHint(false), 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Hide scroll hint on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      if (showScrollHint) setShowScrollHint(false);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [showScrollHint]);
-
-  const tabs = [
-    { key: 'method' as const, label: t('hero.bottomSections.rall.tabs.method') },
-    { key: 'story' as const, label: t('hero.bottomSections.rall.tabs.story') },
-    { key: 'offer' as const, label: t('hero.bottomSections.rall.tabs.offer') },
+  const pillars = [
+    {
+      icon: ICONS.MessageCircle,
+      title: t('hero.bottomSections.rall.pillar1.title'),
+      description: t('hero.bottomSections.rall.pillar1.description'),
+      citation: t('hero.bottomSections.rall.pillar1.citation')
+    },
+    {
+      icon: ICONS.Target,
+      title: t('hero.bottomSections.rall.pillar2.title'),
+      description: t('hero.bottomSections.rall.pillar2.description'),
+      citation: t('hero.bottomSections.rall.pillar2.citation')
+    },
+    {
+      icon: ICONS.Heart,
+      title: t('hero.bottomSections.rall.pillar3.title'),
+      description: t('hero.bottomSections.rall.pillar3.description'),
+      citation: t('hero.bottomSections.rall.pillar3.citation')
+    },
+    {
+      icon: ICONS.Users,
+      title: t('hero.bottomSections.rall.pillar4.title'),
+      description: t('hero.bottomSections.rall.pillar4.description'),
+      citation: t('hero.bottomSections.rall.pillar4.citation')
+    },
   ];
 
   return (
-    <section id="rall-section" data-section={sectionIndex} className="md:min-h-screen snap-start flex items-center py-6 md:py-8 px-4 md:px-16 lg:px-24" style={{ background: bgColor }}>
-      <div className={`max-w-4xl mx-auto w-full flex flex-col min-h-[80vh] md:min-h-[85vh] section-content ${isVisible ? 'visible' : ''}`}>
-
-        {/* Static Header - TOP */}
-        <div className="text-center pt-2 md:pt-6">
-          <p className="text-xs md:text-sm font-bold uppercase tracking-wider mb-1" style={{ color: accentColor }}>
+    <section id="rall-section" data-section={sectionIndex} className="md:min-h-screen snap-start flex items-center py-6 md:py-16 px-4 md:px-16 lg:px-24" style={{ background: bgColor }}>
+      <div className={`max-w-4xl mx-auto w-full section-content ${isVisible ? 'visible' : ''}`}>
+        <div className="text-center mb-4 md:mb-12">
+          <p className="text-xs md:text-sm font-bold uppercase tracking-wider mb-1 md:mb-2" style={{ color: accentColor }}>
             {t('hero.bottomSections.rall.label')}
           </p>
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black font-header mb-2" style={{ color: '#1a1a2e' }}>
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black font-header mb-2 md:mb-4" style={{ color: '#1a1a2e' }}>
             {t('hero.bottomSections.rall.title')}
           </h2>
           <p className="text-sm md:text-lg max-w-2xl mx-auto" style={{ color: '#4b5563' }}>
@@ -396,43 +397,51 @@ export const HeroRALL: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
           </p>
         </div>
 
-        {/* Content Area - MIDDLE (flex-1 to fill space) */}
-        <div className="flex-1 flex items-center justify-center py-4 md:py-6">
-          {activeTab === 'method' && <MethodContent accentColor={accentColor} t={t} />}
-          {activeTab === 'story' && <StoryContent accentColor={accentColor} t={t} />}
-          {activeTab === 'offer' && <OfferContent accentColor={accentColor} t={t} isStudent={isStudent} />}
-        </div>
-
-        {/* Segmented Control + Scroll Hint - BOTTOM */}
-        <div className="pb-4 md:pb-8 flex flex-col items-center">
-          {/* Segmented Control */}
-          <div className="inline-flex rounded-full p-1" style={{ backgroundColor: '#f3f4f6' }}>
-            {tabs.map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
-                className="px-3 md:px-5 py-2 rounded-full text-xs md:text-sm font-bold transition-all"
-                style={activeTab === tab.key
-                  ? { backgroundColor: accentColor, color: '#fff', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }
-                  : { color: '#6b7280' }
-                }
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Scroll Hint */}
-          {showScrollHint && (
-            <div className="flex flex-col items-center mt-4 animate-bounce">
-              <span className="text-xs font-medium mb-1" style={{ color: '#9ca3af' }}>
-                {t('hero.bottomSections.rall.scrollHint')}
-              </span>
-              <ICONS.ChevronDown className="w-4 h-4" style={{ color: '#9ca3af' }} />
+        {/* Pillars Grid */}
+        <div className="grid grid-cols-2 gap-2 md:gap-6 mb-4 md:mb-12">
+          {pillars.map((pillar, index) => (
+            <div
+              key={index}
+              className="rounded-xl md:rounded-2xl p-3 md:p-6 shadow-sm bg-white"
+            >
+              <div className="flex items-center gap-2 mb-1 md:mb-3">
+                <pillar.icon className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: accentColor }} />
+                <h3 className="font-bold text-xs md:text-base leading-tight" style={{ color: '#1a1a2e' }}>
+                  {pillar.title}
+                </h3>
+              </div>
+              <p className="text-xs md:text-sm mb-1 md:mb-3 line-clamp-3 md:line-clamp-none" style={{ color: '#4b5563' }}>
+                {pillar.description}
+              </p>
+              <p className="text-[10px] md:text-xs font-medium hidden md:block" style={{ color: accentColor }}>
+                {pillar.citation}
+              </p>
             </div>
-          )}
+          ))}
         </div>
 
+        {/* Key Insight */}
+        <div
+          className="rounded-2xl md:rounded-3xl p-4 md:p-8 text-center"
+          style={{ background: accentColor }}
+        >
+          <p className="text-white text-sm md:text-xl font-medium leading-relaxed">
+            {t('hero.bottomSections.rall.quote')}
+          </p>
+          <p className="text-white/70 text-xs md:text-sm mt-2 md:mt-4">
+            {t('hero.bottomSections.rall.quoteAttribution')}
+          </p>
+        </div>
+
+        {/* Anxiety Note - hidden on mobile */}
+        <div className="mt-4 md:mt-8 text-center hidden md:block">
+          <p className="text-sm" style={{ color: '#4b5563' }}>
+            <strong>{t('hero.bottomSections.rall.anxietyTitle')}</strong> {t('hero.bottomSections.rall.anxietyDesc')}
+          </p>
+          <p className="text-xs mt-2" style={{ color: accentColor }}>
+            {t('hero.bottomSections.rall.anxietyCitation')}
+          </p>
+        </div>
       </div>
     </section>
   );
