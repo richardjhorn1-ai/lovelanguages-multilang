@@ -45,7 +45,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   const tier = getTutorTierFromXP(tutorXp);
   const tierProgress = getTutorTierProgress(tutorXp);
   const xpToNext = getXPToNextTutorTier(tutorXp);
-  const tierColor = tier.color || accentHex;
+  const tierColor = accentHex;
 
   useEffect(() => {
     fetchAnalytics();

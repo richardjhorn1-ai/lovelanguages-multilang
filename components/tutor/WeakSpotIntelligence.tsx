@@ -72,7 +72,7 @@ const WeakSpotIntelligence: React.FC<WeakSpotIntelligenceProps> = ({
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-red-500 text-scale-caption font-bold">
+                  <span className="text-scale-caption font-bold" style={{ color: tierColor }}>
                     {word.fail_count} {t('tutor.weakSpots.misses', 'misses')}
                   </span>
                 </div>
@@ -86,7 +86,7 @@ const WeakSpotIntelligence: React.FC<WeakSpotIntelligenceProps> = ({
       {improvingWords.length > 0 && (
         <div>
           <p className="text-scale-caption text-[var(--text-secondary)] mb-2 flex items-center gap-1">
-            <ICONS.TrendingUp className="w-3.5 h-3.5 text-green-500" />
+            <ICONS.TrendingUp className="w-3.5 h-3.5" style={{ color: tierColor }} />
             {t('tutor.weakSpots.improving', 'Getting better!')}
           </p>
           <div className="flex flex-wrap gap-2">
@@ -94,12 +94,12 @@ const WeakSpotIntelligence: React.FC<WeakSpotIntelligenceProps> = ({
               <div
                 key={word.word_id}
                 className="px-3 py-1.5 rounded-full border flex items-center gap-2"
-                style={{ backgroundColor: '#10B98110', borderColor: '#10B98130' }}
+                style={{ backgroundColor: `${tierColor}10`, borderColor: `${tierColor}30` }}
               >
-                <span className="font-bold text-scale-caption text-green-700 dark:text-green-400">
+                <span className="font-bold text-scale-caption" style={{ color: tierColor }}>
                   {word.word}
                 </span>
-                <span className="text-scale-micro text-green-600 dark:text-green-500">
+                <span className="text-scale-micro" style={{ color: tierColor, opacity: 0.8 }}>
                   {word.streak}/5 🔥
                 </span>
               </div>
