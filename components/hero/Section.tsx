@@ -77,12 +77,12 @@ const Section: React.FC<SectionProps> = ({
     return (
       <section
         data-section={index}
-        className="min-h-screen snap-start flex flex-col px-8 md:px-16 lg:px-24 py-8 md:py-12 relative z-10"
+        className="min-h-screen snap-start flex flex-col justify-center px-8 md:px-16 lg:px-24 py-12 md:py-16 relative z-10"
       >
-        <div className={`max-w-4xl mx-auto w-full flex flex-col flex-1 section-content ${isVisible ? 'visible' : ''}`}>
+        <div className={`max-w-4xl mx-auto w-full section-content ${isVisible ? 'visible' : ''}`}>
 
           {/* Logo - Always visible */}
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-5 mb-8 md:mb-10">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 600.000000 600.000000"
@@ -101,28 +101,26 @@ const Section: React.FC<SectionProps> = ({
           </div>
 
           {/* Content Area - Changes based on tab */}
-          <div className="flex-1 flex items-center min-h-0 overflow-hidden">
-            <div className="w-full max-h-full overflow-y-auto">
-              {activeTab === 'method' && (
-                <div className="max-w-xl">
-                  <h2
-                    className="text-2xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-4 tracking-tight"
-                    style={{ color: '#1a1a2e' }}
-                  >
-                    {renderWithHighlights(headline, headlineHighlights, isStudent)}
-                  </h2>
-                  <p className="text-sm md:text-lg leading-relaxed font-medium" style={{ color: '#4b5563' }}>
-                    {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
-                  </p>
-                  <div
-                    className="mt-8 h-1.5 w-24 rounded-full"
-                    style={{ backgroundColor: accentColor, opacity: 0.3 }}
-                  />
-                </div>
-              )}
-              {activeTab === 'story' && <StoryContent accentColor={accentColor} t={t} />}
-              {activeTab === 'offer' && <OfferContent accentColor={accentColor} t={t} isStudent={isStudent} />}
-            </div>
+          <div className="mt-6 md:mt-8">
+            {activeTab === 'method' && (
+              <div className="max-w-xl">
+                <h2
+                  className="text-2xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-4 tracking-tight"
+                  style={{ color: '#1a1a2e' }}
+                >
+                  {renderWithHighlights(headline, headlineHighlights, isStudent)}
+                </h2>
+                <p className="text-sm md:text-lg leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+                  {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
+                </p>
+                <div
+                  className="mt-8 h-1.5 w-24 rounded-full"
+                  style={{ backgroundColor: accentColor, opacity: 0.3 }}
+                />
+              </div>
+            )}
+            {activeTab === 'story' && <StoryContent accentColor={accentColor} t={t} />}
+            {activeTab === 'offer' && <OfferContent accentColor={accentColor} t={t} isStudent={isStudent} />}
           </div>
 
           {/* Segmented Control + Scroll Hint - BOTTOM */}
