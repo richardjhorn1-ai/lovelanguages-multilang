@@ -81,48 +81,41 @@ const Section: React.FC<SectionProps> = ({
       >
         <div className={`max-w-4xl mx-auto w-full flex flex-col flex-1 section-content ${isVisible ? 'visible' : ''}`}>
 
-          {/* Static Header - TOP */}
-          <div className="mb-6 md:mb-8">
-            {/* Logo */}
-            <div className="flex items-center gap-5 mb-8 md:mb-10">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 600.000000 600.000000"
-                preserveAspectRatio="xMidYMid meet"
-                fill={accentColor}
-                className="w-[70px] h-[70px] md:w-[90px] md:h-[90px] shrink-0"
-              >
-                <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
-                  <path d={LOGO_PATH} />
-                  {LOGO_DETAIL_PATHS.map((d, i) => <path key={i} d={d} />)}
-                </g>
-              </svg>
-              <h1 className="text-2xl md:text-3xl font-black font-header tracking-tight" style={{ color: accentColor }}>
-                Love Languages
-              </h1>
-            </div>
-
-            {/* Headline & Copy */}
-            <h2
-              className="text-2xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-4 tracking-tight"
-              style={{ color: '#1a1a2e' }}
+          {/* Logo - Always visible */}
+          <div className="flex items-center gap-4 mb-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 600.000000 600.000000"
+              preserveAspectRatio="xMidYMid meet"
+              fill={accentColor}
+              className="w-[60px] h-[60px] md:w-[80px] md:h-[80px] shrink-0"
             >
-              {renderWithHighlights(headline, headlineHighlights, isStudent)}
-            </h2>
-
-            <p className="text-sm md:text-lg leading-relaxed font-medium max-w-2xl" style={{ color: '#4b5563' }}>
-              {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
-            </p>
+              <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d={LOGO_PATH} />
+                {LOGO_DETAIL_PATHS.map((d, i) => <path key={i} d={d} />)}
+              </g>
+            </svg>
+            <h1 className="text-xl md:text-2xl font-black font-header tracking-tight" style={{ color: accentColor }}>
+              Love Languages
+            </h1>
           </div>
 
-          {/* Content Area - MIDDLE (flex-1 to fill space) */}
-          <div className="flex-1 flex items-center justify-center py-2 md:py-4 min-h-0 overflow-hidden">
+          {/* Content Area - Changes based on tab */}
+          <div className="flex-1 flex items-center min-h-0 overflow-hidden">
             <div className="w-full max-h-full overflow-y-auto">
               {activeTab === 'method' && (
                 <div className="max-w-xl">
-                  {/* Original section 0 content */}
+                  <h2
+                    className="text-2xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-4 tracking-tight"
+                    style={{ color: '#1a1a2e' }}
+                  >
+                    {renderWithHighlights(headline, headlineHighlights, isStudent)}
+                  </h2>
+                  <p className="text-sm md:text-lg leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+                    {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
+                  </p>
                   <div
-                    className="mt-6 h-1.5 w-24 rounded-full"
+                    className="mt-8 h-1.5 w-24 rounded-full"
                     style={{ backgroundColor: accentColor, opacity: 0.3 }}
                   />
                 </div>
