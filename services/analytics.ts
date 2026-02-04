@@ -338,7 +338,7 @@ class AnalyticsService {
    */
   private getGaMeasurementId(): string {
     // This should match the ID in index.html
-    return 'G-LWVWLRMW3R';
+    return 'G-ZJWLDBC5QP';
   }
 
   // ===== Convenience Methods =====

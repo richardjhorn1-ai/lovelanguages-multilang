@@ -7,8 +7,13 @@
  * content_html=null and converts their raw MDX content to proper HTML.
  */
 
-const SUPABASE_URL = 'https://iiusoobuoxurysrhqptx.supabase.co';
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlpdXNvb2J1b3h1cnlzcmhxcHR4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2ODA1NTI3MSwiZXhwIjoyMDgzNjMxMjcxfQ.sVStyBe6WUBry9_WuTjhL7fzoBO_34L9xfORlVwQDBE';
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://iiusoobuoxurysrhqptx.supabase.co';
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
+
+if (!SUPABASE_KEY) {
+  console.error('Error: SUPABASE_SERVICE_KEY environment variable is required');
+  process.exit(1);
+}
 
 const nativeLang = process.argv[2];
 
