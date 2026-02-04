@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect fill="#f3f4f6" width="400" height="400"/>
+  <circle cx="140" cy="170" r="50" fill="#d1d5db"/>
+  <circle cx="260" cy="170" r="50" fill="#d1d5db"/>
+  <ellipse cx="140" cy="260" rx="60" ry="80" fill="#d1d5db"/>
+  <ellipse cx="260" cy="260" rx="60" ry="80" fill="#d1d5db"/>
+  <text x="200" y="380" text-anchor="middle" font-family="system-ui" font-size="16" fill="#9ca3af">Add founders.jpg</text>
+</svg>
