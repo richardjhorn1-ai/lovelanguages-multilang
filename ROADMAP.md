@@ -1,11 +1,69 @@
 # Love Languages - Development Roadmap
 
-**Last Updated:** February 1, 2026
+**Last Updated:** February 4, 2026
 **Project:** Love Languages Multilang
 
 ---
 
-## ✅ Recently Completed (Feb 1, 2026)
+## ✅ Recently Completed (Feb 4, 2026)
+
+### Tutor Experience Enhancement (Complete)
+Major investment in tutor role with progression, analytics, and engagement features.
+
+**Features Shipped:**
+- ✅ **Coach Mode** — AI-powered agentic actions (word gifts, quizzes, challenges)
+- ✅ **Tutor Analytics Dashboard** — Teaching impact, partner progress trends, weak spot intelligence
+- ✅ **Tutor XP & Tiers** — 6 tiers from Language Whisperer to Love Linguist
+- ✅ **Love Notes System** — Quick messages with templates + free text
+- ✅ **Activity Feed** — Shared partner timeline (word mastered, level up, etc.)
+- ✅ **Achievement System** — Tutor, student, and couple achievements
+
+**New API Endpoints:**
+- `POST /api/execute-coach-action` — Execute AI-suggested actions
+- `GET /api/coach-context` — Context for coach mode decisions
+- `POST /api/tutor-award-xp` — Award XP for teaching actions
+- `GET /api/tutor-stats` — Teaching statistics
+- `GET /api/tutor-analytics` — Full dashboard data
+- `POST /api/send-love-note` — Send love notes
+- `GET /api/activity-feed` — Partner timeline
+- `POST /api/check-achievements` — Check and unlock achievements
+- `GET /api/achievements` — Get user's achievements
+
+**New Components:**
+- `TutorAnalyticsDashboard.tsx` — Main analytics dashboard
+- `TeachingImpactCard.tsx` — Hero metrics
+- `TrendCharts.tsx` — Progress charts
+- `WeakSpotIntelligence.tsx` — Stuck words analysis
+- `LoveNoteComposer.tsx` — Send love notes
+- `ActivityFeed.tsx` — Partner timeline
+- `CoachActionConfirmModal.tsx` — Confirm AI-suggested actions
+- `ThinkingIndicator.tsx` — Coach mode thinking state
+
+**Database:**
+- `migrations/036_tutor_experience_enhancement.sql`
+- `migrations/037_linked_challenges.sql`
+
+---
+
+### SEO & Content Expansion (Feb 4, 2026)
+
+**Features:**
+- ✅ **Topic Hub Pages** — Browse articles by topic (pet-names, i-love-you, etc.)
+- ✅ **Couples Methodology Articles** — 144 articles (17 languages × 8 topics)
+- ✅ **Google Startup Program About Section** — Tabbed interface with team info
+- ✅ **llms.txt** — AI agent discoverability file
+
+**Bug Fixes:**
+- ✅ Race conditions in challenge submission
+- ✅ Data integrity issues in word requests
+- ✅ Input validation and sanitization improvements
+- ✅ Mobile swipe on bottom sections
+- ✅ SSR page warnings (removed unused getStaticPaths)
+- ✅ Tutor colors now use user's accent color
+
+---
+
+## ✅ Previously Completed (Feb 1, 2026)
 
 ### 7-Day Free Trial System
 Replaced permanent free tier with time-limited trial to improve conversion.
@@ -396,9 +454,11 @@ Allow creators to earn commission by referring new subscribers.
 
 ---
 
-### G. Tutor Experience Enhancement
+### G. Tutor Experience Enhancement ✅ COMPLETE (Feb 4, 2026)
 
-The tutor role needs investment before iOS launch. Currently tutors have no progression, limited feedback, and minimal engagement hooks.
+~~The tutor role needs investment before iOS launch. Currently tutors have no progression, limited feedback, and minimal engagement hooks.~~
+
+**Status:** Fully implemented. See "Recently Completed (Feb 4, 2026)" section above.
 
 **Problems:**
 - Tutors earn zero XP and have no progression
@@ -849,17 +909,17 @@ No daily login bonus, no streak rewards for consecutive days, no incentive loops
 
 ---
 
-### 23. Achievements System
-No achievements currently. Could add: "First 100 XP", "10-day streak", "100 words mastered", etc.
+### ✅ 23. Achievements System (DONE Feb 4, 2026)
+~~No achievements currently. Could add: "First 100 XP", "10-day streak", "100 words mastered", etc.~~
 
-**Effort:** Large (design + DB + UI)
+**Fixed:** Full achievement system with tutor, student, and couple achievements. Includes `check-achievements` API, `AchievementBadge` component, unlock celebrations.
 
 ---
 
-### 24. Partner Analytics Dashboard
-Let tutors see learner's daily streak, weak words, time spent practicing, challenge completion rate.
+### ✅ 24. Partner Analytics Dashboard (DONE Feb 4, 2026)
+~~Let tutors see learner's daily streak, weak words, time spent practicing, challenge completion rate.~~
 
-**Effort:** Large (new component + APIs)
+**Fixed:** `TutorAnalyticsDashboard` with teaching impact metrics, partner progress trends, weak spot intelligence, and activity feed.
 
 ---
 
@@ -903,6 +963,9 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 | ~~XP not awarded for games~~ | 🔴 High | 🔴 High | Quick | ✅ Done |
 | ~~Score column mismatch~~ | 🔴 High | 🔴 High | Medium | ✅ Not an issue |
 | ~~Learn Hub missing langs~~ | 🔴 High | 🟡 Medium | Quick | ✅ Done |
+| ~~Tutor Experience~~ | 🔴 High | 🔴 High | Large | ✅ Done (Feb 4) |
+| ~~Partner Analytics~~ | 🟡 Medium | 🔴 High | Large | ✅ Done (Feb 4) |
+| ~~Achievements System~~ | 🟡 Medium | 🔴 High | Large | ✅ Done (Feb 4) |
 | Verb Mastery Polish-only | 🟡 Medium | 🔴 High | Quick | ⚠️ Infrastructure ready |
 | TTS missing in games | 🟡 Medium | 🔴 High | Quick | ⚠️ Service ready |
 | ~~Component splitting~~ | 🟢 Low | 🔴 High | Large | ✅ Mostly Done |
