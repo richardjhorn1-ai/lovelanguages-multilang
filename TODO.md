@@ -108,6 +108,16 @@ Still at 1,877 lines. Refactor when there's bandwidth.
 
 ## 🎯 Future Features
 
+### Spaced Repetition System (SRS) 🧠
+- Proper review scheduling (Anki-like intervals)
+- Track `next_review` dates for vocabulary
+- Resurface words at optimal intervals
+
+### Partner Real-Time Sync 💕
+- Supabase realtime subscriptions for partner activity
+- Live updates when partner completes challenges
+- No more manual refresh needed
+
 ### Curriculum/Tutor Guidance 📚
 - No structured learning path currently
 - Tutor needs curriculum to follow
