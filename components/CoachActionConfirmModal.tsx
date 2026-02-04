@@ -1,12 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ProposedAction } from '../types';
-
-interface WordItem {
-  word: string;
-  translation: string;
-  word_type?: string;
-  included: boolean;
-}
 
 interface Props {
   isOpen: boolean;
@@ -24,34 +17,19 @@ const ICONS: Record<string, string> = {
 };
 
 export function CoachActionConfirmModal({ isOpen, action, partnerName, onConfirm, onCancel }: Props) {
-  const [step, setStep] = useState<'preview' | 'editing' | 'executing' | 'success' | 'error'>('preview');
+  const [step, setStep] = useState<'preview' | 'executing' | 'success' | 'error'>('preview');
   const [createLinked, setCreateLinked] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [words, setWords] = useState<WordItem[]>([]);
-  const [newWord, setNewWord] = useState('');
-  const [newTranslation, setNewTranslation] = useState('');
-
-  // Initialize words when action changes
-  useEffect(() => {
-    if (action.words) {
-      setWords(action.words.map(w => ({ ...w, included: true })));
-    }
-  }, [action]);
 
   if (!isOpen) return null;
 
-  const includedWords = words.filter(w => w.included);
   const hasWords = action.type === 'word_gift' || action.type === 'quiz' || action.type === 'quickfire';
+  const wordCount = action.words?.length || 0;
 
   const handleConfirm = async () => {
     setStep('executing');
     try {
-      // Build modified action with filtered words
-      const modifiedAction: ProposedAction = {
-        ...action,
-        words: hasWords ? includedWords.map(({ word, translation, word_type }) => ({ word, translation, word_type })) : action.words,
-      };
-      await onConfirm(modifiedAction, createLinked);
+      await onConfirm(action, createLinked);
       setStep('success');
     } catch (e: any) {
       setError(e.message || 'Something went wrong');
@@ -63,21 +41,7 @@ export function CoachActionConfirmModal({ isOpen, action, partnerName, onConfirm
     setStep('preview');
     setCreateLinked(false);
     setError(null);
-    setNewWord('');
-    setNewTranslation('');
     onCancel();
-  };
-
-  const toggleWord = (index: number) => {
-    setWords(prev => prev.map((w, i) => i === index ? { ...w, included: !w.included } : w));
-  };
-
-  const addWord = () => {
-    if (newWord.trim() && newTranslation.trim()) {
-      setWords(prev => [...prev, { word: newWord.trim(), translation: newTranslation.trim(), word_type: 'phrase', included: true }]);
-      setNewWord('');
-      setNewTranslation('');
-    }
   };
 
   const icon = ICONS[action.type] || '✨';
@@ -93,21 +57,13 @@ export function CoachActionConfirmModal({ isOpen, action, partnerName, onConfirm
               <p className="text-[var(--text-secondary)] text-sm">{action.description}</p>
             </div>
 
-            {/* Show words summary for word-based actions */}
-            {hasWords && words.length > 0 && (
+            {/* Show words summary for word-based actions (read-only) */}
+            {hasWords && wordCount > 0 && (
               <div className="mb-4 p-3 rounded-xl bg-[var(--bg-secondary)]">
-                <div className="flex justify-between items-center">
-                  <p className="text-sm font-medium">{includedWords.length} words selected</p>
-                  <button
-                    onClick={() => setStep('editing')}
-                    className="text-xs font-bold text-[var(--accent-color)] hover:underline"
-                  >
-                    Edit words
-                  </button>
-                </div>
+                <p className="text-sm font-medium">{wordCount} words</p>
                 <p className="text-xs text-[var(--text-secondary)] mt-1">
-                  {includedWords.slice(0, 4).map(w => w.word).join(', ')}
-                  {includedWords.length > 4 && ` +${includedWords.length - 4} more`}
+                  {action.words!.slice(0, 4).map(w => w.word).join(', ')}
+                  {wordCount > 4 && ` +${wordCount - 4} more`}
                 </p>
               </div>
             )}
@@ -139,83 +95,12 @@ export function CoachActionConfirmModal({ isOpen, action, partnerName, onConfirm
               </button>
               <button
                 onClick={handleConfirm}
-                disabled={hasWords && includedWords.length === 0}
+                disabled={hasWords && !wordCount}
                 className="flex-1 py-3 px-4 rounded-xl bg-[var(--accent-color)] text-white font-bold text-sm disabled:opacity-50"
               >
                 Send It!
               </button>
             </div>
-          </>
-        )}
-
-        {step === 'editing' && (
-          <>
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-black">Edit Words</h3>
-              <button
-                onClick={() => setStep('preview')}
-                className="text-sm font-bold text-[var(--accent-color)]"
-              >
-                Done
-              </button>
-            </div>
-
-            {/* Word list */}
-            <div className="flex-1 overflow-y-auto space-y-2 mb-4 max-h-[40vh]">
-              {words.map((w, i) => (
-                <div
-                  key={i}
-                  onClick={() => toggleWord(i)}
-                  className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all ${
-                    w.included
-                      ? 'bg-[var(--accent-light)] border border-[var(--accent-color)]'
-                      : 'bg-[var(--bg-secondary)] border border-transparent opacity-50'
-                  }`}
-                >
-                  <div className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
-                    w.included ? 'bg-[var(--accent-color)] border-[var(--accent-color)]' : 'border-[var(--border-color)]'
-                  }`}>
-                    {w.included && <span className="text-white text-xs">✓</span>}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-bold text-sm truncate">{w.word}</p>
-                    <p className="text-xs text-[var(--text-secondary)] truncate">{w.translation}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Add new word */}
-            <div className="border-t border-[var(--border-color)] pt-4">
-              <p className="text-xs font-bold text-[var(--text-secondary)] mb-2">ADD A WORD</p>
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  value={newWord}
-                  onChange={e => setNewWord(e.target.value)}
-                  placeholder="Word"
-                  className="flex-1 px-3 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)] text-sm"
-                />
-                <input
-                  type="text"
-                  value={newTranslation}
-                  onChange={e => setNewTranslation(e.target.value)}
-                  placeholder="Translation"
-                  className="flex-1 px-3 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)] text-sm"
-                />
-                <button
-                  onClick={addWord}
-                  disabled={!newWord.trim() || !newTranslation.trim()}
-                  className="px-4 py-2 rounded-lg bg-[var(--accent-color)] text-white font-bold text-sm disabled:opacity-50"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-            <p className="text-xs text-[var(--text-secondary)] mt-3 text-center">
-              {includedWords.length} of {words.length} words selected
-            </p>
           </>
         )}
 
