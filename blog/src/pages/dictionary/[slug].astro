@@ -2,18 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { polishDictionary, getWordBySlug, getRelatedWords, type DictionaryWord } from '../../data/polish-dictionary';
 
-export async function getStaticPaths() {
-  return polishDictionary.map(word => ({
-    params: { slug: word.slug },
-    props: { word }
-  }));
-}
+// SSR: Get slug from params and look up word
+const { slug } = Astro.params;
+const word = getWordBySlug(slug || '');
 
-interface Props {
-  word: DictionaryWord;
+if (!word) {
+  return Astro.redirect('/dictionary');
 }
-
-const { word } = Astro.props;
 const relatedWords = getRelatedWords(word.relatedWords);
 
 // Word type display

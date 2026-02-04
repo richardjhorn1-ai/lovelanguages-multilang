@@ -6,21 +6,10 @@ import { LANGUAGES, getLanguageForDisplay, SUPPORTED_NATIVE_LANGS } from '../../
 import { getTopicDisplayName, getTopicIcon, TOPICS, isValidTopic } from '../../../../../data/topic-info';
 import { LANGUAGE_HUB_DATA } from '../../../../../data/language-hub-data';
 
-export async function getStaticPaths() {
-  const paths = [];
-  for (const nativeLang of SUPPORTED_NATIVE_LANGS) {
-    for (const topic of TOPICS) {
-      paths.push({
-        params: { nativeLang, topic },
-      });
-    }
-  }
-  return paths;
-}
-
+// SSR: Get params directly (normalize to lowercase)
 const { nativeLang, topic } = Astro.params;
-const nativeLanguageCode = nativeLang || 'en';
-const topicSlug = topic || 'pet-names';
+const nativeLanguageCode = nativeLang?.toLowerCase() || 'en';
+const topicSlug = topic?.toLowerCase() || 'pet-names';
 
 // Validate
 if (!SUPPORTED_NATIVE_LANGS.includes(nativeLanguageCode)) {
