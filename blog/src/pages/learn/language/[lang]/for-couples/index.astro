@@ -5,27 +5,20 @@ import FAQSection from '../../../../../components/hub/FAQSection.astro';
 import ArticlesGrid from '../../../../../components/hub/ArticlesGrid.astro';
 import { LANGUAGE_HUB_DATA, type LanguageHubData } from '../../../../../data/language-hub-data';
 
-// Generate static paths for all languages
-export async function getStaticPaths() {
-  const paths = [];
+// SSR: Get lang from params and look up data (normalize to lowercase)
+const { lang } = Astro.params;
+const langSlug = lang?.toLowerCase();
 
-  for (const [code, data] of Object.entries(LANGUAGE_HUB_DATA)) {
-    const slug = data.name.toLowerCase();
-    paths.push({
-      params: { lang: slug },
-      props: { langCode: code, langData: data }
-    });
-  }
+// Find language by slug (lowercase name)
+const entry = Object.entries(LANGUAGE_HUB_DATA).find(
+  ([code, data]) => data.name.toLowerCase() === langSlug
+);
 
-  return paths;
+if (!entry) {
+  return Astro.redirect('/learn/');
 }
 
-interface Props {
-  langCode: string;
-  langData: LanguageHubData;
-}
-
-const { langCode, langData } = Astro.props;
+const [langCode, langData] = entry;
 
 // Find romantic phrases
 const lovePhrase = langData.essentialPhrases.find(p =>
