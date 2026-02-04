@@ -247,60 +247,56 @@ export const StoryContent: React.FC<{ accentColor: string; t: any }> = ({ accent
   const [imgSrc, setImgSrc] = useState('/founders.jpg');
 
   return (
-    <div className="w-full max-w-2xl mx-auto text-center">
-      {/* Founder Photo in Heart Shape */}
-      <div className="mb-4 md:mb-6 flex justify-center">
-        <div className="relative w-32 h-28 md:w-44 md:h-40">
-          {/* SVG Heart Clip Definition */}
-          <svg className="absolute w-0 h-0">
-            <defs>
-              <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
-                <path d="M0.5,0.15 C0.5,0.15 0.2,-0.1 0.05,0.2 C-0.1,0.5 0.15,0.75 0.5,1 C0.85,0.75 1.1,0.5 0.95,0.2 C0.8,-0.1 0.5,0.15 0.5,0.15" />
-              </clipPath>
-            </defs>
-          </svg>
-          <img
-            src={imgSrc}
-            alt={t('hero.bottomSections.rall.story.names')}
-            className="w-full h-full object-cover object-top"
-            style={{
-              clipPath: 'url(#heartClip)',
-              filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))'
-            }}
-            onError={() => setImgSrc('/founders.svg')}
-          />
+    <div className="w-full max-w-xl mx-auto">
+      <div className="flex items-start gap-4">
+        {/* Founder Photo in Heart Shape */}
+        <div className="flex-shrink-0">
+          <div className="relative w-20 h-[70px] md:w-28 md:h-24">
+            <svg className="absolute w-0 h-0">
+              <defs>
+                <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+                  <path d="M0.5,0.15 C0.5,0.15 0.2,-0.1 0.05,0.2 C-0.1,0.5 0.15,0.75 0.5,1 C0.85,0.75 1.1,0.5 0.95,0.2 C0.8,-0.1 0.5,0.15 0.5,0.15" />
+                </clipPath>
+              </defs>
+            </svg>
+            <img
+              src={imgSrc}
+              alt={t('hero.bottomSections.rall.story.names')}
+              className="w-full h-full object-cover object-top"
+              style={{
+                clipPath: 'url(#heartClip)',
+                filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))'
+              }}
+              onError={() => setImgSrc('/founders.svg')}
+            />
+          </div>
+          <p className="text-xs font-bold mt-1 text-center" style={{ color: '#1a1a2e' }}>
+            {t('hero.bottomSections.rall.story.names')}
+          </p>
         </div>
-      </div>
 
-      {/* Names & Title */}
-      <h3 className="text-lg md:text-2xl font-black mb-1" style={{ color: '#1a1a2e' }}>
-        {t('hero.bottomSections.rall.story.names')}
-      </h3>
-      <p className="text-sm md:text-base font-medium mb-4 md:mb-6" style={{ color: accentColor }}>
-        {t('hero.bottomSections.rall.story.title')}
-      </p>
-
-      {/* Story - scrollable on mobile */}
-      <div className="max-h-[45vh] md:max-h-none overflow-y-auto md:overflow-visible">
-        <div className="space-y-3 md:space-y-4 text-left md:text-center">
-          <p className="text-sm md:text-base leading-relaxed font-medium" style={{ color: '#1a1a2e' }}>
-            {t('hero.bottomSections.rall.story.paragraph1')}
-          </p>
-          <p className="text-sm md:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-            {t('hero.bottomSections.rall.story.paragraph2')}
-          </p>
-          <p className="text-sm md:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-            {t('hero.bottomSections.rall.story.paragraph3')}
-          </p>
-          <p className="text-sm md:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-            {t('hero.bottomSections.rall.story.paragraph4')}
-          </p>
-          <p className="text-sm md:text-base leading-relaxed" style={{ color: '#4b5563' }}>
-            {t('hero.bottomSections.rall.story.paragraph5')}
-          </p>
-          <p className="text-sm md:text-base leading-relaxed font-medium" style={{ color: accentColor }}>
-            {t('hero.bottomSections.rall.story.paragraph6')}
-          </p>
+        {/* Story */}
+        <div className="flex-1 max-h-[50vh] overflow-y-auto text-left">
+          <div className="space-y-2">
+            <p className="text-sm leading-relaxed font-medium" style={{ color: '#1a1a2e' }}>
+              {t('hero.bottomSections.rall.story.paragraph1')}
+            </p>
+            <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+              {t('hero.bottomSections.rall.story.paragraph2')}
+            </p>
+            <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+              {t('hero.bottomSections.rall.story.paragraph3')}
+            </p>
+            <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+              {t('hero.bottomSections.rall.story.paragraph4')}
+            </p>
+            <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+              {t('hero.bottomSections.rall.story.paragraph5')}
+            </p>
+            <p className="text-xs md:text-sm leading-relaxed font-medium" style={{ color: accentColor }}>
+              {t('hero.bottomSections.rall.story.paragraph6')}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -317,40 +313,35 @@ export const OfferContent: React.FC<{ accentColor: string; t: any; isStudent: bo
   const icons = isStudent ? studentIcons : tutorIcons;
 
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="w-full max-w-2xl mx-auto">
       {/* Headline */}
-      <h3 className="text-lg md:text-2xl font-black text-center mb-4 md:mb-6" style={{ color: '#1a1a2e' }}>
+      <h3 className="text-base md:text-xl font-black text-center mb-3" style={{ color: '#1a1a2e' }}>
         {t(`hero.bottomSections.rall.offer.${headlineKey}`)}
       </h3>
 
-      {/* Feature Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      {/* Feature Cards Grid - 2 cols mobile, 3 cols desktop */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
         {[1, 2, 3, 4, 5, 6].map((num, index) => {
           const Icon = icons[index];
           return (
             <div
               key={num}
-              className="rounded-xl p-4 md:p-5 bg-white shadow-sm"
+              className="rounded-lg p-2 md:p-3 bg-white shadow-sm"
             >
-              <div className="flex items-start gap-3">
+              <div className="flex items-center gap-2 mb-1">
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  className="w-6 h-6 rounded flex items-center justify-center flex-shrink-0"
                   style={{ background: `${accentColor}15` }}
                 >
-                  <Icon className="w-5 h-5" style={{ color: accentColor }} />
+                  <Icon className="w-3.5 h-3.5" style={{ color: accentColor }} />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-bold text-sm md:text-base mb-0.5" style={{ color: '#1a1a2e' }}>
-                    "{t(`hero.bottomSections.rall.offer.${role}.feature${num}.pain`)}"
-                  </h4>
-                  <p className="text-xs font-semibold mb-1" style={{ color: accentColor }}>
-                    {t(`hero.bottomSections.rall.offer.${role}.feature${num}.feature`)}
-                  </p>
-                  <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#6b7280' }}>
-                    {t(`hero.bottomSections.rall.offer.${role}.feature${num}.desc`)}
-                  </p>
-                </div>
+                <p className="text-[10px] font-bold" style={{ color: accentColor }}>
+                  {t(`hero.bottomSections.rall.offer.${role}.feature${num}.feature`)}
+                </p>
               </div>
+              <p className="text-xs font-semibold leading-tight" style={{ color: '#1a1a2e' }}>
+                {t(`hero.bottomSections.rall.offer.${role}.feature${num}.pain`)}
+              </p>
             </div>
           );
         })}
