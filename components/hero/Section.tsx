@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BRAND } from './heroConstants';
 import { renderWithHighlights } from './heroHighlighting';
-import { MethodContent, StoryContent, OfferContent } from './HeroBottomSections';
+import { StoryContent, OfferContent } from './HeroBottomSections';
 import { ICONS } from '../../constants';
 
 // SVG Logo paths - shared between Section and MobileSection
@@ -118,7 +118,15 @@ const Section: React.FC<SectionProps> = ({
           {/* Content Area - MIDDLE (flex-1 to fill space) */}
           <div className="flex-1 flex items-center justify-center py-2 md:py-4 min-h-0 overflow-hidden">
             <div className="w-full max-h-full overflow-y-auto">
-              {activeTab === 'method' && <MethodContent accentColor={accentColor} t={t} />}
+              {activeTab === 'method' && (
+                <div className="max-w-xl">
+                  {/* Original section 0 content */}
+                  <div
+                    className="mt-6 h-1.5 w-24 rounded-full"
+                    style={{ backgroundColor: accentColor, opacity: 0.3 }}
+                  />
+                </div>
+              )}
               {activeTab === 'story' && <StoryContent accentColor={accentColor} t={t} />}
               {activeTab === 'offer' && <OfferContent accentColor={accentColor} t={t} isStudent={isStudent} />}
             </div>
