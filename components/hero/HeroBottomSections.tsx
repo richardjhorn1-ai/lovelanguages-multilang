@@ -262,7 +262,7 @@ const StoryContent: React.FC<{ accentColor: string; t: any }> = ({ accentColor, 
           <img
             src={imgSrc}
             alt={t('hero.bottomSections.rall.story.names')}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
             style={{
               clipPath: 'url(#heartClip)',
               filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))'
