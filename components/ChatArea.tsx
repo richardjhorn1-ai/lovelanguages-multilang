@@ -16,6 +16,8 @@ import { ChatEmptySuggestions } from './ChatEmptySuggestions';
 import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
 import { ThinkingIndicator } from './ThinkingIndicator';
 import { CoachActionConfirmModal } from './CoachActionConfirmModal';
+import { useOffline } from '../hooks/useOffline';
+import OfflineIndicator from './OfflineIndicator';
 
 // Listen session types
 interface TranscriptEntry {
@@ -250,6 +252,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Language
   const { languageParams, targetLanguage, nativeLanguage, targetFlag, targetName, nativeFlag } = useLanguage();
+
+  // Offline state
+  const { isOnline, cachedWordCount, lastSyncTime } = useOffline(profile.id, targetLanguage);
 
   // Track voice session messages for post-session extraction
   const voiceSessionStartIdx = useRef<number>(0);
@@ -1104,7 +1109,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       {/* Sidebar with Actions - Collapsible */}
       <div className={`border-r border-[var(--border-color)] hidden lg:flex flex-col bg-[var(--bg-card)] transition-all duration-300 ${isSidebarCollapsed ? 'w-14' : 'w-64'}`}>
         {/* Header */}
-        <div className={`p-2 border-b border-[var(--border-color)] flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-2'}`}>
+        <div className={`p-2 md:p-3 border-b border-[var(--border-color)] flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-2'}`}>
           {/* Collapsed: Just the new chat button at top */}
           {isSidebarCollapsed ? (
             <button
@@ -1268,6 +1273,18 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </button>
           )}
         </div>
+
+        {/* Offline Indicator */}
+        {!isOnline && (
+          <div className="px-4 py-2 bg-amber-500/10 border-b border-amber-500/20">
+            <OfflineIndicator
+              isOnline={isOnline}
+              cachedWordCount={cachedWordCount}
+              lastSyncTime={lastSyncTime}
+              compact={true}
+            />
+          </div>
+        )}
 
         {/* Messages / Listen Transcripts */}
         <div ref={scrollRef} className="flex-1 min-h-0 overflow-y-auto p-2 md:p-4 space-y-3 md:space-y-6 bg-[var(--bg-primary)] no-scrollbar">
@@ -1511,24 +1528,26 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         {/* Input - Hidden in listen mode */}
         {!isListening && !activeListenSession && (
           <div className="p-2 md:p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] relative safe-area-bottom shrink-0">
-            <div className={`absolute bottom-16 md:bottom-20 left-2 md:left-4 flex flex-col items-center gap-3 md:gap-4 transition-all duration-300 z-20 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
-               <button onClick={() => imgInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
-                  <ICONS.Image className="w-5 h-5 md:w-6 md:h-6" />
-               </button>
-               <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
-                  <ICONS.FileText className="w-5 h-5 md:w-6 md:h-6" />
-               </button>
-            </div>
-
-            <div className="max-w-4xl mx-auto flex items-end gap-1.5 md:gap-3">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                disabled={isLive}
-                className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${isMenuOpen ? 'bg-[var(--bg-primary)] border-[var(--border-color)] text-[var(--text-secondary)] rotate-90' : 'bg-[var(--bg-card)] border-[var(--accent-border)] hover:bg-[var(--accent-light)]'} disabled:opacity-50`}
-                style={!isMenuOpen ? { color: accentHex } : {}}
-              >
-                  {isMenuOpen ? <ICONS.X className="w-5 h-5 md:w-6 md:h-6" /> : <ICONS.Plus className="w-5 h-5 md:w-6 md:h-6" />}
-              </button>
+            <div className="max-w-4xl mx-auto flex items-center gap-1.5 md:gap-3">
+              {/* Attach button with popup */}
+              <div className="relative shrink-0">
+                <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 flex flex-col items-center gap-3 md:gap-4 transition-all duration-300 z-20 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
+                  <button onClick={() => imgInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
+                    <ICONS.Image className="w-5 h-5 md:w-6 md:h-6" />
+                  </button>
+                  <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
+                    <ICONS.FileText className="w-5 h-5 md:w-6 md:h-6" />
+                  </button>
+                </div>
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  disabled={isLive}
+                  className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 ${isMenuOpen ? 'bg-[var(--bg-primary)] border-[var(--border-color)] text-[var(--text-secondary)] rotate-45' : 'bg-[var(--bg-card)] border-[var(--accent-border)] hover:bg-[var(--accent-light)]'} disabled:opacity-50`}
+                  style={!isMenuOpen ? { color: accentHex } : {}}
+                >
+                  <ICONS.Plus className="w-5 h-5 md:w-6 md:h-6" />
+                </button>
+              </div>
 
               {/* Microphone Button */}
               <button
@@ -1565,15 +1584,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         type="text"
                         value={input}
                         onChange={e => setInput(e.target.value)}
-                        onKeyDown={e => e.key === 'Enter' && handleSend()}
+                        onKeyDown={e => e.key === 'Enter' && !isLive && isOnline && handleSend()}
                         onFocus={() => {
                           // Auto-scroll to bottom when user focuses input
                           setTimeout(() => {
                             scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
                           }, 100);
                         }}
-                        placeholder={isLive ? (liveState === 'listening' ? t('chat.input.listeningPlaceholder') : liveState === 'speaking' ? t('chat.input.speakingPlaceholder') : t('chat.input.connectingPlaceholder')) : (profile.role === 'tutor' ? t('chat.input.tutorPlaceholder') : mode === 'ask' ? t('chat.input.askPlaceholder') : t('chat.input.learnPlaceholder'))}
-                        disabled={isLive}
+                        placeholder={!isOnline ? t('offline.chat_unavailable', 'Chat unavailable offline') : isLive ? (liveState === 'listening' ? t('chat.input.listeningPlaceholder') : liveState === 'speaking' ? t('chat.input.speakingPlaceholder') : t('chat.input.connectingPlaceholder')) : (profile.role === 'tutor' ? t('chat.input.tutorPlaceholder') : mode === 'ask' ? t('chat.input.askPlaceholder') : t('chat.input.learnPlaceholder'))}
+                        disabled={isLive || !isOnline}
                         className="w-full bg-transparent border-none text-scale-body font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
                       />
                   </div>
@@ -1581,7 +1600,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
               <button
                 onClick={() => handleSend()}
-                disabled={loading || (!input.trim() && attachments.length === 0)}
+                disabled={loading || !isOnline || (!input.trim() && attachments.length === 0)}
                 className="w-10 h-10 md:w-14 md:h-14 text-white rounded-full flex items-center justify-center shadow-xl active:scale-95 disabled:opacity-50 transition-all shrink-0"
                 style={{ backgroundColor: accentHex }}
               >
