@@ -91,18 +91,54 @@ Still at 1,877 lines. Refactor when there's bandwidth.
 
 ---
 
-## 🎯 Phase 3: iOS Launch 📱
+## 🎯 Phase 3: iOS Launch 📱 (Valentine's Target)
 
-### Heavy Testing
-- [ ] Full regression testing
-- [ ] Edge cases & error states
-- [ ] Performance testing on device
+**Detailed specs:**
+- `docs/OFFLINE_MODE_PLAN.md` — Full offline architecture + decisions
+- `docs/IOS_TESTING_PLAN.md` — 60+ test cases
+- `docs/PWA_INSTALL_GUIDE.md` — PWA fallback instructions
 
-### TestFlight → App Store
-- [ ] Capacitor build
-- [ ] TestFlight beta
-- [ ] Apple submission
-- [ ] PostedApp creator marketplace (needs TestFlight first)
+### Track 1: Offline Mode (Richard building now)
+| Task | Status | Time |
+|------|--------|------|
+| Phase 1: IndexedDB setup | ☐ | 2-3h |
+| Phase 2: Cache population | ☐ | 2-3h |
+| Phase 3: Offline detection + UI | ☐ | 1-2h |
+| Phase 4: Offline-first fetching | ☐ | 2-3h |
+| Phase 5: Background sync queue | ☐ | 2-3h |
+| i18n strings (18 langs) | ☐ | 1h |
+
+### Track 2: iOS App
+| Task | Status | Notes |
+|------|--------|-------|
+| Apple Developer account | ⏳ | Enrollment rejected, emailed support |
+| Capacitor iOS build | ☐ | `npx cap add ios` done |
+| iOS testing (full suite) | ☐ | See `IOS_TESTING_PLAN.md` |
+| App Store assets | ☐ | Screenshots, description |
+| TestFlight internal | ☐ | Richard + Misia |
+| TestFlight beta | ☐ | ~10 external testers |
+| App Store submission | ☐ | Review 1-3 days |
+
+### Track 3: Launch Prep
+| Task | Status |
+|------|--------|
+| Landing page polish | ☐ |
+| Product Hunt draft | ☐ |
+| Social content (IG/TikTok) | ☐ |
+| Press kit | ☐ |
+
+### Timeline
+| Date | Milestone |
+|------|-----------|
+| Feb 4-7 | Offline mode |
+| Feb 7 | Apple account (hopefully) |
+| Feb 8-9 | iOS testing + fixes |
+| Feb 10 | TestFlight internal |
+| Feb 11-12 | Beta + fixes |
+| Feb 13 | App Store submit |
+| Feb 14 | 💘 Launch (if approved) |
+
+**Fallback:** PWA-first launch if App Store delayed
 
 ---
 
@@ -131,9 +167,11 @@ Two accounts for one payment.
 10% commission for referrals.
 See ROADMAP.md section "F. Creator/Affiliate Program"
 
-### Master Vocabulary Bank
+### Master Vocabulary Bank ⏸️ PAUSED
 Pre-computed vocabulary to reduce AI costs.
-See ROADMAP.md section "E. Master Vocabulary Bank"
+**Status:** ~26K words generated, paused due to Claude Code credit limits (85% weekly used).
+**Next:** Bulk insert to Supabase, connect app, then continue slowly.
+See `docs/VOCAB_BANK_STATUS.md` for full details.
 
 ---
 
@@ -148,6 +186,24 @@ See ROADMAP.md section "E. Master Vocabulary Bank"
 - [x] Verb conjugations fix
 - [x] Onboarding words to Love Log
 - [x] Analytics for returning users
+
+---
+
+## 🎯 Marketing & Growth
+
+### PostedApp UGC Campaign (Active)
+**Started:** Feb 5, 2026
+**Status:** Brief posted, awaiting creator responses
+
+Launched UGC creator campaign on PostedApp to get authentic couple content promoting Love Languages. Paying creators to make organic-style videos showcasing the app for international couples.
+
+**Brief highlights:**
+- Full creative freedom for creators
+- Focus on authentic, non-ad-like content
+- Themes: storytime, couple moments, funny/relatable, spicy/cheeky
+- CTA: lovelanguages.io, 7-day free trial
+
+**Next:** Review incoming creator pitches, select creators, track content performance
 
 ---
 
