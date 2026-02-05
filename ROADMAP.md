@@ -636,42 +636,27 @@ if (result.isCorrect) {
 
 ## 🛠 High Priority (Should Fix Soon)
 
-### 5. Verb Mastery Only Works for Polish (INFRASTRUCTURE READY)
-`VERB_PERSONS` array has hardcoded Polish pronouns. Other languages can't use Verb Mastery mode.
+### ✅ 5. Verb Mastery Multilingual (DONE)
+~~`VERB_PERSONS` array has hardcoded Polish pronouns. Other languages can't use Verb Mastery mode.~~
 
-**Status (Jan 29):**
+**Fixed:** VerbMastery.tsx now takes `verbPersons` as a prop, dynamically configured per language.
+
+**Status:**
 - ✅ All 18 languages have `conjugationPersons` defined in `language-config.ts`
 - ✅ Helper functions exist: `getConjugationPersons(code)`, `getConjugationLabel(key, code)`
-- ✅ Schema builders use normalized keys that map correctly
-- ❌ `FlashcardGame.tsx` lines 38-46 has hardcoded Polish pronouns
+- ✅ VerbMastery component accepts `verbPersons` prop
+- ✅ Dynamic per-language conjugation support
 
-**Fix:** ~20 lines to wire up:
-```typescript
-import { getConjugationPersons } from '../constants/language-config';
-// Replace hardcoded VERB_PERSONS with dynamic builder using targetLanguage
-```
-
-**Tenses supported:** Present ✅, Past ✅, Future ✅, Conditional ❌, Subjunctive ❌
-
-**Effort:** Quick (30 min — infrastructure is ready, just needs wiring)
+**Tenses supported:** Present ✅, Past ✅, Future ✅, Conditional ✅, Subjunctive ✅, Imperative ✅
 
 ---
 
-### 6. `xp-gain` Sound Never Used
-The `xp-gain` sound is defined but never played anywhere in the app.
+### ✅ 6. `xp-gain` Sound (DONE)
+~~The `xp-gain` sound is defined but never played anywhere in the app.~~
 
-**Status (Jan 29):**
-- ✅ Sound defined in `services/sounds.ts` (type + file list)
-- ✅ Haptic pattern defined in `services/haptics.ts`
-- ❌ `sounds.play('xp-gain')` called 0 times in codebase
-
-**Where to add:**
-- `PlayQuizChallenge.tsx` — result screen showing `xp_earned`
-- `PlayQuickFireChallenge.tsx` — result screen showing `xp_earned`
-- `FlashcardGame.tsx` — game completion
-- `WordGiftLearning.tsx` — shows `+{xpEarned} XP`
-
-**Effort:** Quick (15 min — add 4 calls)
+**Fixed:** Now played in:
+- `LoveLog.tsx` — when syncing words that earn XP
+- `FlashcardGame.tsx` — on word mastery (5x streak) and game completion
 
 ---
 
@@ -711,29 +696,40 @@ Timer callback captures stale state. Uses refs as workaround but pattern is frag
 
 ---
 
-### ⚠️ 9. Exit Confirmation for In-Progress Games (PARTIAL)
+### ✅ 9. Exit Confirmation for In-Progress Games (DONE)
 ~~Users can accidentally lose progress by clicking back button mid-game.~~
 
-**Status (Jan 29):**
-- ✅ `FlashcardGame.tsx` — Implemented! Has `beforeunload` + custom `ExitConfirmModal`
-- ❌ `TutorGames.tsx` — NOT implemented, needs adding
-
-**Remaining fix:** Copy exit confirmation pattern to TutorGames.tsx
-
-**Effort:** Quick (15 min)
+**Fixed:** Both components now have exit confirmation:
+- ✅ `FlashcardGame.tsx` — `beforeunload` + `ExitConfirmModal`
+- ✅ `TutorGames.tsx` — `showExitConfirm` state + modal
 
 ---
 
-### 10. Offline Game Sessions Not Saved
-`useOffline()` hook caches vocabulary but game sessions aren't cached and score updates aren't queued. Offline play records are lost.
+### 10. Offline Mode — IN PROGRESS 🚧
+Full offline support with background sync. Currently: `useOffline()` caches vocab but game sessions lost.
 
-**Files:**
-- `services/offline.ts` — has `queueScoreUpdate()` but unused
-- `components/FlashcardGame.tsx` — doesn't use offline queue
+**Spec:** `docs/OFFLINE_MODE_PLAN.md` (full architecture + decisions)
 
-**Fix:** Integrate offline score queueing for local games.
+**Decisions locked:**
+- Conflict resolution: Timestamp wins (last sync overwrites)
+- Cache: All vocabulary on login (IndexedDB)
+- Refresh: On-open background update
+- SRS: Adjust intervals on sync based on elapsed time
+- Errors: i18n in all 18 languages
 
-**Effort:** Medium (2-3 hours)
+**Phases:**
+| Phase | Description | Time |
+|-------|-------------|------|
+| 1 | IndexedDB setup | 2-3h |
+| 2 | Cache population | 2-3h |
+| 3 | Offline detection + UI | 1-2h |
+| 4 | Offline-first fetching | 2-3h |
+| 5 | Background sync queue | 2-3h |
+| **Total** | | **10-16h** |
+
+**MVP (4-6h):** Phases 1-3 only — games work offline, no sync
+
+**Status:** Richard implementing with Claude Code (Feb 4)
 
 ---
 
@@ -757,17 +753,10 @@ Timer callback captures stale state. Uses refs as workaround but pattern is frag
 
 ---
 
-### 12. No Volume Control (API READY)
-Only mute/unmute toggle exists in UI. Volume is fixed at 0.5.
+### ✅ 12. Volume Control (DONE)
+~~Only mute/unmute toggle exists in UI. Volume is fixed at 0.5.~~
 
-**Status (Jan 29):**
-- ✅ `services/sounds.ts` has `setVolume(vol)` and `getVolume()` methods ready
-- ❌ UI only shows mute toggle (ProfileView.tsx lines 470-510)
-- ❌ Volume slider not exposed to users
-
-**Fix:** Add volume slider to ProfileView that calls `sounds.setVolume()`, persist preference.
-
-**Effort:** Quick (45 min)
+**Fixed:** Volume slider added to ProfileView.tsx, calls `sounds.setVolume(vol / 100)`.
 
 ---
 
@@ -784,26 +773,20 @@ Can't use 1/2/3/4 or A/B/C/D keys to select options.
 
 ---
 
-### 14. No Reduced Motion Support
-Animations may cause motion sickness. No reduced motion alternative.
+### ✅ 14. Reduced Motion Support (DONE)
+~~Animations may cause motion sickness. No reduced motion alternative.~~
 
-**Status (Jan 29):**
-- ❌ Zero `prefers-reduced-motion` media queries in app code
-- ❌ `animate-pulse`, `animate-ping`, `animate-spin`, `slide-in`, `fade-in` all run without checks
-- ⚠️ ARIA attributes partial (dialogs good, incomplete elsewhere)
-- ❌ No `sr-only` screen reader text found
-
-**Fix:** Add global CSS:
+**Fixed:** Global CSS in `src/index.css`:
 ```css
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+  *, :before, :after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 ```
-
-**Effort:** Quick (15 min for global fix)
 
 ---
 
@@ -944,14 +927,14 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 | Item | Time | Status |
 |------|------|--------|
 | ~~Add `nl`, `ro`, `uk` to Learn Hub~~ | 5 min | ✅ Done |
-| Play `xp-gain` sound when XP awarded | 15 min | ⚠️ Open |
-| ~~Add exit confirmation for games~~ | 30 min | ✅ FlashcardGame done, TutorGames needs it |
+| ~~Play `xp-gain` sound when XP awarded~~ | 15 min | ✅ Done (LoveLog + FlashcardGame) |
+| ~~Add exit confirmation for games~~ | 30 min | ✅ Done (FlashcardGame + TutorGames) |
 | Add keyboard shortcuts (1-4) for MC | 30 min | ⚠️ Open (Enter works, numbers don't) |
 | ~~Add streak indicator in game UI~~ | 30 min | ✅ Done |
-| Add volume slider | 45 min | ⚠️ Open (API ready, needs UI) |
+| ~~Add volume slider~~ | 45 min | ✅ Done (ProfileView.tsx) |
 | ~~Remove console.log statements~~ | 30 min | ✅ Done |
-| Add reduced-motion support | 15 min | ⚠️ Open (global CSS fix) |
-| Wire up Verb Mastery multilingual | 30 min | ⚠️ Open (infrastructure ready) |
+| ~~Add reduced-motion support~~ | 15 min | ✅ Done (index.css) |
+| ~~Wire up Verb Mastery multilingual~~ | 30 min | ✅ Done (verbPersons prop) |
 | ~~Add TTS to one game mode~~ | ~~15 min~~ | ✅ Done (Jan 28) |
 
 ---
@@ -966,11 +949,33 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 | ~~Tutor Experience~~ | 🔴 High | 🔴 High | Large | ✅ Done (Feb 4) |
 | ~~Partner Analytics~~ | 🟡 Medium | 🔴 High | Large | ✅ Done (Feb 4) |
 | ~~Achievements System~~ | 🟡 Medium | 🔴 High | Large | ✅ Done (Feb 4) |
-| Verb Mastery Polish-only | 🟡 Medium | 🔴 High | Quick | ⚠️ Infrastructure ready |
-| TTS missing in games | 🟡 Medium | 🔴 High | Quick | ⚠️ Service ready |
+| ~~Verb Mastery multilingual~~ | 🟡 Medium | 🔴 High | Quick | ✅ Done |
+| ~~TTS in games~~ | 🟡 Medium | 🔴 High | Quick | ✅ Done (Jan 28) |
 | ~~Component splitting~~ | 🟢 Low | 🔴 High | Large | ✅ Mostly Done |
+| ~~xp-gain sound~~ | 🟢 Low | 🟡 Medium | Quick | ✅ Done |
+| ~~Exit confirmation~~ | 🟢 Low | 🟡 Medium | Quick | ✅ Done |
+| ~~Volume slider~~ | 🟢 Low | 🟡 Medium | Quick | ✅ Done |
+| ~~Reduced motion~~ | 🟢 Low | 🟡 Medium | Quick | ✅ Done |
+| Keyboard shortcuts (1-4) | 🟢 Low | 🟡 Medium | Quick | ⚠️ Open |
+| Offline mode | 🔴 High | 🔴 High | Large | 🚧 In Progress |
 | SRS implementation | 🟢 Low | 🔴 High | Large | ⚠️ Open |
 | Mobile app deployment | 🟢 Low | 🔴 High | Large | ⚠️ Open |
+
+---
+
+## 🎯 Marketing & Growth (Feb 2026)
+
+### PostedApp UGC Campaign
+**Status:** 🚧 Active — Brief posted Feb 5, awaiting creator responses
+
+Partnered with PostedApp to source UGC creators making authentic couple content for international relationship audience. Full creative freedom, focus on organic feel over ads.
+
+### Analytics Infrastructure
+**Status:** ✅ Complete — Deployed Feb 5
+
+- GA4 tracking (50+ events)
+- Supabase per-user journey tracking (new)
+- Can now query individual user funnels
 
 ---
 
