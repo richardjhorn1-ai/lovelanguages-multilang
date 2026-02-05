@@ -7,6 +7,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
+  server: {
+    allowedHosts: ['.loca.lt', '.ngrok.io', '.ngrok-free.app']
+  },
   plugins: [
     // MDX must come before React plugin
     mdx({

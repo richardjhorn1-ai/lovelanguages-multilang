@@ -189,7 +189,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `${item.hideOnMobile ? 'hidden md:flex' : 'flex'} items-center gap-2 px-2 md:px-3 py-1.5 md:py-2 rounded-xl transition-all relative ${
+                `${item.hideOnMobile ? 'hidden md:flex' : 'flex'} items-center gap-2 px-2 md:px-3 py-2 rounded-xl transition-all relative ${
                   isActive
                     ? 'font-bold'
                     : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
