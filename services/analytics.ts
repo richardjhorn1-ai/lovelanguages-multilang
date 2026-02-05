@@ -248,8 +248,31 @@ const cleanParams = (params: BaseEventParams): Record<string, string | number | 
   return cleaned;
 };
 
+// Generate anonymous ID for non-logged-in users
+const getAnonymousId = (): string => {
+  if (!isBrowser) return '';
+  let anonId = localStorage.getItem('ll_anonymous_id');
+  if (!anonId) {
+    anonId = 'anon_' + Math.random().toString(36).substring(2, 15);
+    localStorage.setItem('ll_anonymous_id', anonId);
+  }
+  return anonId;
+};
+
+// Generate session ID
+const getSessionId = (): string => {
+  if (!isBrowser) return '';
+  let sessionId = sessionStorage.getItem('ll_session_id');
+  if (!sessionId) {
+    sessionId = 'sess_' + Date.now().toString(36) + Math.random().toString(36).substring(2, 8);
+    sessionStorage.setItem('ll_session_id', sessionId);
+  }
+  return sessionId;
+};
+
 class AnalyticsService {
   private userId: string | null = null;
+  private rawUserId: string | null = null; // Unhashed for Supabase
   private sessionStartTime: number = Date.now();
   private eventQueue: Array<{ name: string; params: BaseEventParams }> = [];
   private initialized: boolean = false;
@@ -258,6 +281,7 @@ class AnalyticsService {
    * Initialize analytics with user context
    */
   identify(userId: string, properties?: Partial<UserProperties>): void {
+    this.rawUserId = userId; // Store raw ID for Supabase
     this.userId = hashUserId(userId);
 
     if (hasGtag()) {
@@ -302,9 +326,51 @@ class AnalyticsService {
       window.gtag('event', eventName, cleanParams(enrichedParams));
     }
 
+    // Send to Supabase for per-user tracking
+    this.sendToSupabase(eventName, enrichedParams);
+
     // Debug logging
     if (isDebugMode()) {
       console.log('[Analytics] Event:', eventName, cleanParams(enrichedParams));
+    }
+  }
+
+  /**
+   * Send event to Supabase for per-user journey tracking
+   */
+  private async sendToSupabase(eventName: string, params: BaseEventParams): Promise<void> {
+    if (!isBrowser) return;
+
+    // Skip high-frequency events to avoid spamming
+    const skipEvents = ['page_view', 'scroll', 'user_engagement'];
+    if (skipEvents.includes(eventName)) return;
+
+    try {
+      const payload = {
+        user_id: this.rawUserId || null,
+        anonymous_id: this.rawUserId ? null : getAnonymousId(),
+        event_name: eventName,
+        event_params: cleanParams(params),
+        page_path: window.location.pathname,
+        referrer: document.referrer || null,
+        session_id: getSessionId(),
+      };
+
+      // Fire and forget - don't block on response
+      fetch('/api/analytics-event', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).catch((e) => {
+        if (isDebugMode()) {
+          console.warn('[Analytics] Supabase send failed:', e);
+        }
+      });
+    } catch (e) {
+      // Silently fail - analytics shouldn't break the app
+      if (isDebugMode()) {
+        console.warn('[Analytics] Supabase send error:', e);
+      }
     }
   }
 
