@@ -153,6 +153,14 @@ STRIPE_WEBHOOK_SECRET=
 
 **CRITICAL: Read this section before making any changes.**
 
+### Debugging & Problem-Solving
+
+**Get error logs first.** When debugging, ask for actual error messages/logs before speculating about causes. Don't guess — diagnose.
+
+**Clarify context.** When resuming work that references a "previous session" or "earlier conversation," ask to clarify the specific goal and any decisions made. Context does not persist between sessions.
+
+**For mobile/simulator tasks:** Default to simulator testing unless user explicitly requests physical device. Ask "simulator or physical device?" if ambiguous.
+
 ### Shared Utilities - USE, DON'T COPY
 
 These utilities exist in `utils/`. **Import them, never copy the code:**
