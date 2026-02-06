@@ -7,6 +7,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
+  build: {
+    chunkSizeWarningLimit: 3000, // Main bundle is ~2.9MB; suppress false warning
+  },
   server: {
     allowedHosts: ['.loca.lt', '.ngrok.io', '.ngrok-free.app']
   },

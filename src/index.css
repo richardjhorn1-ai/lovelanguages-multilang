@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Exclude non-source dirs from Tailwind v4 auto-detection */
+@source not "../.claude";
+@source not "../promo-video";
+
 /* Theme CSS Variables */
 :root {
     --accent-color: #FF4761;
