@@ -60,3 +60,7 @@ scripts/run-batch*.js
 **/get-sample*.mjs
 **/check-existing*.mjs
 **/count-*.mjs
+
+# Promo video build outputs and assets
+promo-video/out/
+promo-video/public/audio/
