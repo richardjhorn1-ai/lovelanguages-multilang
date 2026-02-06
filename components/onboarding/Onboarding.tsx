@@ -629,7 +629,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   const [trialError, setTrialError] = useState<string | null>(null);
 
   // Get setLanguageOverride to update language context during onboarding
-  const { setLanguageOverride } = useLanguage();
+  const { targetLanguage: contextTargetLang, nativeLanguage: contextNativeLang, setLanguageOverride } = useLanguage();
 
   // When user has inherited subscription, skip the PlanSelectionStep
   const totalSteps = role === 'student'
@@ -660,6 +660,19 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       }
     }
   }, [userId, role, setLanguageOverride]);
+
+  // Ensure language data is populated from context (RoleSelection sets these in DB)
+  // Without this, handleComplete writes undefined over the correct values
+  useEffect(() => {
+    setData(prev => {
+      if (prev.targetLanguage && prev.nativeLanguage) return prev; // Already set (e.g., from localStorage)
+      return {
+        ...prev,
+        targetLanguage: prev.targetLanguage || contextTargetLang,
+        nativeLanguage: prev.nativeLanguage || contextNativeLang,
+      };
+    });
+  }, [contextTargetLang, contextNativeLang]);
 
   // Save progress to localStorage
   useEffect(() => {
@@ -1309,7 +1322,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   // ============================================
   return (
     <OnboardingContext.Provider value={{ onQuit: handleQuit }}>
-      <div className="fixed inset-0 overflow-y-auto bg-[#fdfcfd]">
+      <div className="fixed inset-0 overflow-hidden bg-[#fdfcfd]">
         <FloatingHeartsBackground
           currentStep={currentStep}
           totalSteps={totalSteps}
