@@ -4,9 +4,81 @@ Developer guidance for Claude Code when working with this repository.
 
 ## Project Overview
 
-**Love Languages** - Multi-language learning app for couples. Built with React, Supabase, Google Gemini. 18 supported languages where any can be native or target.
+**Love Languages** — Multi-language learning app for couples. Built with React, Supabase, Google Gemini. 18 supported languages where any can be native or target.
 
-**Key Document:** `ML_MASTER_PLAN.md` - Source of truth for project status and architecture.
+**Key Document:** `docs/archived/ML_MASTER_PLAN.md` — Source of truth for project status and architecture.
+
+## Agent Rules
+
+**CRITICAL: Read this section before making any changes.**
+
+### Requirements First
+
+For complex or ambiguous tasks, confirm **goal, constraints, and non-goals** before writing code. Ask clarifying questions up front — don't assume. This prevents wasted work and context-loss rework.
+
+### Session Handoff
+
+Context does not persist between sessions. When resuming work that references a "previous session" or "earlier conversation," ask to clarify the specific goal and any decisions made. Use `/session-summary` at end of sessions to capture context for next time.
+
+### Debugging
+
+**Get error logs first.** Ask for actual error messages/logs before speculating about causes. Don't guess — diagnose. Use `/debug` for structured workflow.
+
+**For mobile/simulator tasks:** Default to simulator testing unless user explicitly requests physical device.
+
+### Parallel Agents
+
+Use Task sub-agents for independent, parallelizable work (audits, multi-file searches, research). Don't parallelize dependent tasks. Don't duplicate work a sub-agent is already doing.
+
+### Shared Utilities — USE, DON'T COPY
+
+These utilities exist in `utils/`. **Import them, never copy the code:**
+
+| File | Key Exports | Use For |
+|------|-------------|---------|
+| `api-middleware.ts` | `setCorsHeaders`, `verifyAuth`, `createServiceClient`, `getSubscriptionPlan`, `checkRateLimit` | All API endpoints |
+| `language-helpers.ts` | `extractLanguages`, `getProfileLanguages`, `requireLanguagePair`, `validateLanguageCode` | Language params from requests or profiles |
+| `prompt-templates.ts` | `buildChatPrompt`, `buildAnswerValidationPrompt`, `buildLevelTestPrompt`, `buildEnhancedCoachPrompt` | All Gemini AI prompts |
+| `schema-builders.ts` | `buildConjugationSchema`, `buildVocabularySchema`, `buildLevelTestSchema`, `buildAnswerValidationSchema` + more | Gemini structured output schemas |
+| `answer-helpers.ts` | `normalizeAnswer`, `isCorrectAnswer`, `validateAnswerSmart` | Answer validation in games/challenges |
+| `sanitize.ts` | `sanitizeInput`, `sanitizeHtml`, `escapeHtml` | User input sanitization |
+| `logger.ts` | `logger`, `generateRequestId` | Structured logging (not console.log) |
+| `date-helpers.ts` | `formatRelativeTime`, `formatShortDate`, `getDaysSince` | Date formatting |
+| `array.ts` | `shuffleArray` | Array manipulation |
+
+### Language Parameters
+
+Use the centralized helpers — never manual fallbacks like `|| 'pl'` or `|| 'en'`.
+
+| Context | Use This |
+|---------|----------|
+| Frontend (React) | `useLanguage()` from `context/LanguageContext` |
+| API — from request body | `extractLanguages(req.body)` from `utils/language-helpers` |
+| API — from user profile | `getProfileLanguages(supabase, userId)` from `utils/language-helpers` |
+| API — strict validation | `requireLanguagePair(target, native)` — throws on invalid |
+
+**Intentional exceptions** (use stored record language, not profile):
+`submit-level-test`, `submit-challenge`, `complete-word-request`, `unlock-tense`, `complete-invite`
+
+### Common Mistakes — DO NOT DO
+
+1. **Copying validation** — Import from `utils/answer-helpers.ts`, never local copies
+2. **Manual language fallbacks** — Use `getProfileLanguages()` or `extractLanguages()`
+3. **Looping API calls** — Never `for (item) { await callGemini(item) }` — use batch schemas
+4. **Direct Supabase imports** — Use `createServiceClient()` from api-middleware (22 files still import directly as tech debt — don't add more)
+5. **Skipping auth** — Every API must call `verifyAuth(req)` first
+6. **console.log** — Use `logger` from `utils/logger.ts` instead
+7. **Creating unnecessary files** — Check if shared utilities already exist
+
+## Skills & Commands
+
+| Command | Type | Purpose |
+|---------|------|---------|
+| `/debug` | Command | Structured debugging workflow — gather evidence, trace, diagnose, fix |
+| `/audit` | Command | Codebase audit (security, pattern compliance, or full) with parallel agents |
+| `/session-summary` | Command | End-of-session context capture for handoff |
+| `/design` | Skill | UI/UX design system — colors, typography, components, mobile, motion |
+| `/remotion-best-practices` | Skill | Remotion video creation best practices |
 
 ## Quick Commands
 
@@ -22,305 +94,141 @@ npm run test:e2e         # Playwright E2E tests
 
 ### API Pattern
 
-All endpoints accept both `targetLanguage` and `nativeLanguage`:
-
-```typescript
-POST /api/chat
-{
-  targetLanguage: 'pl',    // Learning Polish
-  nativeLanguage: 'es',    // Spanish speaker
-  mode: 'learn',
-  message: '...'
-}
-```
+All endpoints accept `targetLanguage` and `nativeLanguage`. Every handler: CORS → auth → logic → response. See `utils/api-middleware.ts` for the standard pattern.
 
 ### Key Directories
 
 | Path | Purpose |
 |------|---------|
-| `api/` | 40 Vercel serverless functions |
+| `api/` | Vercel serverless functions |
 | `components/` | React components |
-| `constants/language-config.ts` | All 18 language configurations |
-| `utils/prompt-templates.ts` | Language-agnostic AI prompts |
-| `utils/schema-builders.ts` | Dynamic Gemini response schemas |
-| `utils/api-middleware.ts` | CORS, auth, rate limiting |
+| `constants/language-config.ts` | 18 language configurations |
+| `utils/` | Shared utilities (prompts, schemas, middleware, helpers) |
 | `services/` | Gemini, Supabase, WebSocket clients |
-| `blog/` | Astro static site for SEO content |
+| `blog/` | Astro static site for SEO |
 | `e2e/` | Playwright E2E tests |
 | `migrations/` | SQL migrations (run manually in Supabase) |
+
+### Vercel Serverless Limitation
+
+API files cannot import from sibling directories. Shared code goes in `utils/` or `services/`.
+
+### Custom Markdown Blocks
+
+AI outputs special blocks rendered by `ChatArea.tsx`:
+- `::: table` — Conjugation tables
+- `::: drill` — Practice challenges
+- `::: culture [Title]` — Cultural notes
+- `::: slang [Title]` — Slang notes (aliases to culture card)
 
 ### User Roles
 
 - **Students**: Ask/Learn modes, games, vocabulary tracking
 - **Tutors**: Coach mode only, create challenges, send word gifts
 
-## Critical Patterns
-
-### Vercel Serverless Limitation
-
-API files cannot import from sibling directories. Shared code goes in `utils/` or `services/`.
-
-### API Middleware
-
-```typescript
-import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware';
-
-export default async function handler(req: any, res: any) {
-  if (setCorsHeaders(req, res)) return res.status(200).end();
-  const auth = await verifyAuth(req);
-  if (!auth) return res.status(401).json({ error: 'Unauthorized' });
-  // ...
-}
-```
-
-### Custom Markdown Blocks
-
-AI outputs special blocks rendered by `ChatArea.tsx`:
-- `::: table` - Conjugation tables
-- `::: drill` - Practice challenges
-- `::: culture [Title]` - Cultural notes
-
-## Testing
-
-### E2E Tests (Playwright)
-
-```bash
-# Run against Vercel preview
-PLAYWRIGHT_BASE_URL=https://your-preview.vercel.app npm run test:e2e
-
-# Interactive mode
-npm run test:e2e:ui
-```
-
-Test accounts: `testaccount[1-6]@gmail.com` / `tester[1-6]`
-
-### Type Check Before Commit
-
-```bash
-npx tsc --noEmit && npm run build
-```
-
-## Cost Optimization
-
-Gemini API is the main cost driver. Key patterns:
-
-1. **Batch operations** - Never loop N API calls; use array schemas
-2. **Local-first validation** - Try exact match before calling AI
-3. **Limit fetching** - Use `.limit()` and `.select()` specific columns
-
-See `TROUBLESHOOTING.md` Issues #42-43 for examples.
-
-## Environment Variables
-
-```env
-# Client-side
-VITE_SUPABASE_URL=
-VITE_SUPABASE_ANON_KEY=
-
-# Server-side
-SUPABASE_URL=
-SUPABASE_SERVICE_KEY=
-GEMINI_API_KEY=
-GLADIA_API_KEY=
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-```
-
-## Key Files
+### Key Files & Docs
 
 | File | Purpose |
 |------|---------|
 | `App.tsx` | Routes, auth, PersistentTabs |
 | `ChatArea.tsx` | Text/voice chat, Listen Mode |
 | `LoveLog.tsx` | Vocabulary browser |
-| `FlashcardGame.tsx` | 5 game modes |
+| `FlashcardGame.tsx` | 7 game modes |
 | `Progress.tsx` | XP, levels, test history |
 | `types.ts` | All TypeScript interfaces |
-| `constants/language-config.ts` | 18 language configs |
-
-## Documentation
-
-| Document | Purpose |
-|----------|---------|
-| `ML_MASTER_PLAN.md` | **Source of truth** - status, architecture |
-| `TROUBLESHOOTING.md` | 36+ solved issues |
-| `DESIGN.md` | UI/UX patterns |
+| `docs/archived/ML_MASTER_PLAN.md` | Source of truth for project status |
+| `TROUBLESHOOTING.md` | 61 solved issues |
 | `docs/SYSTEM_PROMPTS.md` | AI prompt documentation |
 
----
+## Testing
 
-## Agent Guidelines
-
-**CRITICAL: Read this section before making any changes.**
-
-### Debugging & Problem-Solving
-
-**Get error logs first.** When debugging, ask for actual error messages/logs before speculating about causes. Don't guess — diagnose.
-
-**Clarify context.** When resuming work that references a "previous session" or "earlier conversation," ask to clarify the specific goal and any decisions made. Context does not persist between sessions.
-
-**For mobile/simulator tasks:** Default to simulator testing unless user explicitly requests physical device. Ask "simulator or physical device?" if ambiguous.
-
-### Shared Utilities - USE, DON'T COPY
-
-These utilities exist in `utils/`. **Import them, never copy the code:**
-
-| File | Exports | Use For |
-|------|---------|---------|
-| `api-middleware.ts` | `setCorsHeaders`, `verifyAuth`, `createServiceClient`, `getSubscriptionPlan`, `checkRateLimit`, `incrementUsage`, `RATE_LIMITS` | All API endpoints |
-| `language-helpers.ts` | `extractLanguages`, `getProfileLanguages`, `validateLanguageCode` | Getting target/native languages from requests or profiles |
-| `prompt-templates.ts` | `buildSystemPrompt`, `buildUserPrompt`, mode-specific builders | All Gemini AI prompts |
-| `schema-builders.ts` | `buildResponseSchema`, mode-specific schema builders | Gemini structured output schemas |
-| `sanitize.ts` | `sanitizeInput`, `sanitizeHtml` | User input sanitization |
-| `array.ts` | `shuffleArray`, `chunkArray` | Array manipulation |
-| `article-generator.ts` | Blog article generation utilities | Blog content only |
-| `answer-helpers.ts` | `normalizeAnswer`, `isCorrectAnswer`, `validateAnswerSmart` | Answer validation in games/challenges |
-
-### Language Parameters - Use the Helpers
-
-**The infrastructure exists - use it consistently.**
-
-`utils/language-helpers.ts` provides centralized language handling with proper fallbacks for backward compatibility.
-
-**Frontend (React components):**
-```typescript
-import { useLanguage } from '../context/LanguageContext';
-
-const { targetLanguage, nativeLanguage, languageParams } = useLanguage();
-// Languages come from: Override (onboarding) → Profile → Default
+```bash
+PLAYWRIGHT_BASE_URL=https://your-preview.vercel.app npm run test:e2e  # Against preview
+npm run test:e2e:ui                                                     # Interactive
+npx tsc --noEmit && npm run build                                       # Type check + build
 ```
 
-**APIs - from request body:**
-```typescript
-import { extractLanguages } from '../utils/language-helpers';
+Test accounts: `testaccount[1-6]@gmail.com` / `tester[1-6]`
 
-const { targetLanguage, nativeLanguage } = extractLanguages(req.body);
-// Handles missing params, validation, backward compatibility
-```
+## Cost Optimization
 
-**APIs - from user profile (preferred for authenticated endpoints):**
-```typescript
-import { getProfileLanguages } from '../utils/language-helpers';
+Gemini API is the main cost driver:
 
-const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, auth.userId);
-// Fetches from profiles table with proper fallback
-```
+1. **Batch operations** — Never loop N API calls; use array schemas
+2. **Local-first validation** — Try exact match before calling AI
+3. **Limit fetching** — Use `.limit()` and `.select()` specific columns
 
-**APIs - strict validation (fail if invalid):**
-```typescript
-import { requireLanguagePair } from '../utils/language-helpers';
+See `TROUBLESHOOTING.md` Issues #42-43.
 
-try {
-  const { targetLanguage, nativeLanguage } = requireLanguagePair(body.targetLanguage, body.nativeLanguage);
-} catch (err) {
-  return res.status(400).json({ error: err.message });
-}
-```
+## Component & State Reference
 
-### Technical Debt: Scattered Manual Fallbacks (FIXED)
+### Monster Components — Handle With Care
 
-~~These files bypassed `language-helpers.ts` with manual fallbacks.~~ **Fixed** - now use `getProfileLanguages()`:
-- ~~`api/progress-summary.ts`~~ ✅
-- ~~`api/complete-word-request.ts`~~ ✅
-- ~~`api/submit-challenge.ts`~~ ✅
-- ~~`api/boot-session.ts`~~ ✅
-- ~~`api/create-word-request.ts`~~ ✅
-- ~~`api/create-challenge.ts`~~ ✅
+High state complexity. Changes require thorough testing:
 
-**Exception:** `api/submit-level-test.ts` intentionally uses test record's language settings (not profile) for grading consistency.
+| Component | useState | Lines | Risk |
+|-----------|----------|-------|------|
+| `ChatArea.tsx` | 39 | ~2,000 | High |
+| `FlashcardGame.tsx` | 24 | 1,372 | High |
+| `TutorGames.tsx` | 24 | 923 | High |
+| `Hero.tsx` | 18 | 1,464 | Medium |
 
-### Event System Matrix
-
-Custom events for cross-component communication:
+### Event System
 
 | Event | Dispatched By | Listened By | Payload |
 |-------|---------------|-------------|---------|
-| `dictionary-updated` | `ChatArea.tsx`, `WordGiftLearning.tsx` | `LoveLog.tsx`, `ChatArea.tsx` | `{ count: number }` |
-| `language-switched` | `LanguagesSection.tsx` | `LoveLog.tsx`, `FlashcardGame.tsx`, `Progress.tsx` | none |
-| `level-changed` | **NOWHERE (dead code)** | `ChatArea.tsx` | - |
-
-**Note:** `level-changed` listener exists but is never dispatched. This is dead code, not a bug.
-
-### Common Mistakes - DO NOT DO
-
-1. **Copying validation functions** - Use `import { normalizeAnswer, isCorrectAnswer, validateAnswerSmart } from '../utils/answer-helpers'`. **Never copy these functions** - they exist in 4 files as technical debt to be consolidated.
-
-2. **Adding manual language fallbacks** - Never use `|| 'pl'` or `|| 'en'`. Use `getProfileLanguages()` or `extractLanguages()` from `utils/language-helpers.ts` which handle fallbacks centrally.
-
-3. **Looping API calls** - Never `for (item of items) { await callGemini(item) }`. Use batch operations with array schemas.
-
-4. **Direct Supabase imports in API files** - Always use `createServiceClient()` from api-middleware.
-
-5. **Skipping auth checks** - Every API must call `verifyAuth(req)` before processing.
-
-6. **Adding console.log for debugging** - 60+ debug logs exist as technical debt. Don't add more. Use proper error handling.
-
-7. **Creating new files for one-time code** - Check if shared utilities already exist before creating new files.
-
-### Monster Components - Handle With Care
-
-These components have high state complexity. Changes require thorough testing:
-
-| Component | useState calls | Lines | Risk Level |
-|-----------|---------------|-------|------------|
-| `FlashcardGame.tsx` | 56 | 2,373 | High |
-| `ChatArea.tsx` | 36 | 1,892 | High |
-| `Hero.tsx` | 20 | 3,038 | Medium |
-| `TutorGames.tsx` | 32 | 1,398 | High |
+| `dictionary-updated` | `ChatArea`, `WordGiftLearning`, `Onboarding` | `LoveLog`, `ChatArea` | `{ count, source? }` |
+| `language-switched` | `LanguagesSection` | `LoveLog`, `FlashcardGame`, `Progress`, `useGameDeck`, `useScoreTracking` | `{ languageCode }` |
 
 ### localStorage Keys
 
 | Key | Purpose | Set By |
 |-----|---------|--------|
-| `preferredTargetLanguage` | User's target language | `Hero.tsx`, `LanguagesSection.tsx` |
-| `preferredLanguage` | User's native language (tech debt: should be `preferredNativeLanguage`) | `Hero.tsx` |
-| `couple_link_token` | Partner linking token | `LinkPartner.tsx` |
-| `selectedRole` | student or tutor | `RoleSelection.tsx` |
+| `preferredTargetLanguage` | Target language | `App`, `Hero`, `LanguagesSection` |
+| `preferredNativeLanguage` | Native language | `App`, `Hero` |
+| `preferredLanguage` | Legacy fallback (read-only) | Not set (legacy) |
+| `intended_role` | student/tutor | `LoginForm`, `Hero`, `RoleSelection` |
+| `THEME_STORAGE_KEY` | Light/dark theme | `services/theme.ts` |
+| `MUTE_STORAGE_KEY` | Audio mute | `services/sounds.ts` |
+| `HAPTICS_STORAGE_KEY` | Haptic toggle | `services/haptics.ts` |
 
-**Note:** `LanguageContext` reads from the user's Supabase profile, not localStorage. localStorage is only used for pre-login preferences on the Hero page.
+`LanguageContext` reads from Supabase profile, not localStorage. localStorage is for pre-login preferences and service settings.
 
-### PersistentTabs Pattern
+### PersistentTabs
 
-Main app tabs stay mounted and hidden via CSS (`display: none`) rather than unmounting. This preserves state but means:
-- All tabs initialize on first load
-- Event listeners in hidden tabs still fire
-- State persists across tab switches
+Tabs stay mounted via CSS (`display: none`) rather than unmounting. All tabs initialize on first load, event listeners in hidden tabs still fire, state persists across tab switches.
 
-## Security Checklist (MANDATORY before completing any task)
+### Known Security Gap
 
-**Every task, every time. No exceptions.**
+`api/analytics-event.ts` — bypasses middleware entirely. No CORS, no auth, direct Supabase import. Needs refactoring.
 
-### Before Committing Code:
-- [ ] **Secrets scan** — No hardcoded API keys, passwords, tokens in code or comments
-- [ ] **Input validation** — All user inputs sanitized (use `sanitizeInput()` from `utils/sanitize.ts`)
-- [ ] **SQL injection** — Using parameterized queries (Supabase client handles this)
-- [ ] **Auth check** — Every API endpoint calls `verifyAuth(req)` first
-- [ ] **Type safety** — Run `npx tsc --noEmit` passes
-- [ ] **Build check** — Run `npm run build` passes
+## Security & Git Workflow
 
-### Before Pushing:
-- [ ] **Branch check** — NOT on `main` (create feature branch first!)
-- [ ] **Diff review** — `git diff` looks correct, no debug code left
-- [ ] **Test** — Verified the change works (browser, console, network)
+### Before Committing
 
-### Git Workflow (IMPORTANT):
-- **ONE branch per feature/session** — Don't create separate branches for every small fix
-- **Batch commits** — Make multiple commits locally, push once when ready
-- **Push sparingly** — Each push triggers a Vercel build. Push when feature is complete, not continuously
-- **Consolidate before pushing** — If you have related fixes, commit them all, then push once
+- [ ] No hardcoded secrets in code or comments
+- [ ] User inputs sanitized (`sanitizeInput()` from `utils/sanitize.ts`)
+- [ ] Every API endpoint calls `verifyAuth(req)`
+- [ ] `npx tsc --noEmit` passes
+- [ ] `npm run build` passes
 
-### Red Flags to Watch For:
-- `.env` values appearing in code
-- `console.log` with sensitive data
-- `eval()`, `dangerouslySetInnerHTML`, `innerHTML`
-- Disabled TypeScript (`// @ts-ignore`, `any` types)
-- Direct string concatenation in queries
+### Before Pushing
 
-### Self-Testing Prompts (use these):
-When completing complex features, ask yourself:
-1. "Write 20 unit tests designed to break this function"
-2. "Find every security vulnerability in this code"
-3. "What happens with null, undefined, empty string, huge array?"
+- [ ] NOT on `main` — create feature branch first
+- [ ] `git diff` looks correct, no debug code
+- [ ] Change verified working (browser, console, network)
+
+### Git Workflow
+
+- **ONE branch per feature/session** — don't create branches for every small fix
+- **Batch commits** — commit locally, push once when ready
+- **Push sparingly** — each push triggers a Vercel build
+- **Consolidate** — related fixes go in one push
+
+### Environment Variables
+
+Client-side: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
+Server-side: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GEMINI_API_KEY`, `GLADIA_API_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
 
 ---
 
