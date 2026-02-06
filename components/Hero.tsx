@@ -307,6 +307,9 @@ const Hero: React.FC = () => {
 
   // Bottom sheet touch handlers
   const handleSheetTouchStart = (e: React.TouchEvent) => {
+    // Only initiate drag from the drag handle area (top ~60px of sheet)
+    const sheetRect = bottomSheetRef.current?.getBoundingClientRect();
+    if (sheetRect && e.touches[0].clientY > sheetRect.top + 60) return;
     sheetDragStart.current = {
       y: e.touches[0].clientY,
       expanded: sheetExpanded
@@ -649,7 +652,7 @@ const Hero: React.FC = () => {
       }}
     >
       {/* Mobile: Full-screen layout with horizontal swipe carousel */}
-      <div className="md:hidden flex flex-col h-screen overflow-hidden">
+      <div className="md:hidden flex flex-col h-screen-safe overflow-hidden">
         {/* Top: Logo on left, Learn/Teach Toggle on right */}
         <div className="flex-shrink-0 px-4 pb-3 flex items-center justify-between" style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 0.75rem)' }}>
           {/* Logo */}
@@ -955,11 +958,12 @@ const Hero: React.FC = () => {
           className="flex-shrink-0 rounded-t-3xl shadow-2xl px-6 pt-2 pb-6 relative overflow-y-auto overflow-x-hidden"
           style={{
             backgroundColor: '#ffffff',
-            height: `calc(${sheetExpanded ? '80vh' : '45vh'} + ${sheetDragOffset}px)`,
+            height: `calc(${sheetExpanded ? '80dvh' : '45dvh'} + ${sheetDragOffset}px)`,
             minHeight: '320px',
-            maxHeight: '85vh',
+            maxHeight: '85dvh',
             transition: sheetDragOffset === 0 ? 'height 0.3s ease-out' : 'none',
-            zIndex: 10
+            zIndex: 10,
+            paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 0px))'
           }}
           onTouchStart={handleSheetTouchStart}
           onTouchMove={handleSheetTouchMove}

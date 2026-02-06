@@ -36,15 +36,16 @@ export const GoalStep: React.FC<GoalStepProps> = ({
     { id: 'custom', label: t('onboarding.student.goal.custom'), emoji: '✏️' },
   ];
 
-  const [selected, setSelected] = useState(initialValue || '');
-  const [customGoal, setCustomGoal] = useState('');
+  const goalOptionIds = goalOptions.map(o => o.id);
+  const isCustomValue = initialValue && !goalOptionIds.includes(initialValue);
+  const [selected, setSelected] = useState(isCustomValue ? 'custom' : (initialValue || ''));
+  const [customGoal, setCustomGoal] = useState(isCustomValue ? initialValue : '');
 
   const handleNext = () => {
     if (selected === 'custom' && customGoal.trim()) {
       onNext(customGoal.trim());
     } else if (selected && selected !== 'custom') {
-      const option = goalOptions.find(o => o.id === selected);
-      onNext(option?.label || selected);
+      onNext(selected);
     }
   };
 

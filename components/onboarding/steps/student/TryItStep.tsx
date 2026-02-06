@@ -112,7 +112,7 @@ export const TryItStep: React.FC<TryItStepProps> = ({
         disabled={false}
         accentColor={accentColor}
       >
-        {hasTried ? 'Continue' : 'Skip for now'}
+        {hasTried ? t('onboarding.step.continue') : t('onboarding.step.skipForNow')}
       </NextButton>
 
       {!hasTried && (

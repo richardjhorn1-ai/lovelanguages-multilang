@@ -7,7 +7,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import './i18n';
 import { useI18nSync } from './hooks/useI18nSync';
-import { trackPageView, analytics, captureReferralSource, getReferralData } from './services/analytics';
+import { trackPageView, analytics, captureReferralSource, getReferralData, initWebVitals } from './services/analytics';
 import { offline } from './services/offline';
 import { migrateFromLocalStorage } from './services/offline-db';
 import Hero from './components/Hero';
@@ -146,6 +146,7 @@ const App: React.FC = () => {
   // Capture UTM params from blog referrals on first load
   useEffect(() => {
     captureReferralSource();
+    initWebVitals();
     migrateFromLocalStorage();
   }, []);
 

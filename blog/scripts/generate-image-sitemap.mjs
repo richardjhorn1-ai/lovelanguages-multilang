@@ -15,7 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BLOG_DIR = path.join(__dirname, '..');
 const IMAGES_DIR = path.join(BLOG_DIR, 'public', 'blog');
 const DIST_DIR = path.join(BLOG_DIR, 'dist');
-const SITE_URL = 'https://lovelanguages.io';
+const SITE_URL = 'https://www.lovelanguages.io';
 
 // Get all blog images
 function getBlogImages() {
@@ -51,7 +51,9 @@ function findArticleUrl(imageSlug, articleUrls) {
 
 // Get all article URLs from the built sitemap
 function getArticleUrls() {
-  const sitemapPath = path.join(DIST_DIR, 'sitemap-0.xml');
+  // Astro outputs sitemap to dist/client/, check both locations
+  const clientPath = path.join(BLOG_DIR, 'dist', 'client', 'sitemap-0.xml');
+  const sitemapPath = fs.existsSync(clientPath) ? clientPath : path.join(DIST_DIR, 'sitemap-0.xml');
   if (!fs.existsSync(sitemapPath)) {
     console.log('Main sitemap not found, using default article patterns');
     return [];

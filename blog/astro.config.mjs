@@ -90,7 +90,8 @@ export default defineConfig({
       },
       serialize: (item) => ({
         ...item,
-        lastmod: new Date().toISOString(),
+        // Hub/index pages change on each build as articles are added
+        lastmod: new Date().toISOString().split('T')[0],
         changefreq: getSitemapChangefreq(item.url),
         priority: getSitemapPriority(item.url)
       }),

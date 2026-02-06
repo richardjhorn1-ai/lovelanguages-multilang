@@ -7,6 +7,7 @@ import { getLevelFromXP, getTierColor, translateLevel } from '../services/level-
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
+import { analytics } from '../services/analytics';
 
 interface LevelTestProps {
   profile: Profile;
@@ -81,6 +82,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
     setState('in_progress');
     setCurrentIndex(0);
     setAnswers({});
+    analytics.track('level_test_started', { target_lang: languageParams.targetLanguage });
   };
 
   const handleAnswer = (answer: string) => {
@@ -131,6 +133,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
     }
 
     setResults(result.data);
+    analytics.track('level_test_completed', { target_lang: languageParams.targetLanguage, level_result: result.data.passed ? 'passed' : 'failed', score: result.data.score });
     setState('results');
   };
 

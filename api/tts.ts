@@ -9,8 +9,7 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
-import { getTTSLangCode, getTTSVoice } from '../constants/language-config.js';
-import { extractLanguages } from '../utils/language-helpers.js';
+import { getTTSLangCode, getTTSVoice, isLanguageSupported } from '../constants/language-config.js';
 
 // Generate hash for cache key - includes userId to prevent cross-user cache sharing
 function generateCacheKey(text: string, userId: string): string {
@@ -119,11 +118,15 @@ export default async function handler(req: any, res: any) {
 
     const { text } = body || {};
 
-    // Extract language - check languageCode first (legacy), then standard extraction
-    // This ensures backward compatibility with older clients
-    const { targetLanguage } = body.languageCode
-      ? { targetLanguage: body.languageCode }
-      : extractLanguages(body);
+    // Extract target language directly — TTS only needs the voice language,
+    // not a full language pair. Using extractLanguages() here caused a bug:
+    // when targetLanguage='en' and no nativeLanguage is sent, it defaults
+    // nativeLanguage to 'en' too, triggering the same-language guard and
+    // falling back to Polish, making English words sound foreign.
+    const targetLanguage = body.languageCode || body.targetLanguage;
+    if (!targetLanguage || !isLanguageSupported(targetLanguage)) {
+      return res.status(400).json({ error: 'Valid targetLanguage is required' });
+    }
 
     if (!text || typeof text !== 'string') {
       return res.status(400).json({ error: 'Text is required' });
