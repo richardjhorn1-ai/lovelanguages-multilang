@@ -18,6 +18,7 @@ import { ThinkingIndicator } from './ThinkingIndicator';
 import { CoachActionConfirmModal } from './CoachActionConfirmModal';
 import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
+import { analytics } from '../services/analytics';
 
 // Listen session types
 interface TranscriptEntry {
@@ -462,6 +463,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     // ACT 1: SAVE USER MESSAGE
     await saveMessage('user', currentAttachments.length > 0 ? `${userMessage} [Media Attached]`.trim() : userMessage);
+    const sendStartTime = Date.now();
+
+    analytics.trackChatMessage({ mode, message_length: userMessage.trim().length, session_message_count: messages.length + 1 });
 
     const userWords = messages.map(m => m.content);
     const messageHistory = messages.map(m => ({ role: m.role, content: m.content }));
@@ -517,6 +521,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     // ACT 3: SAVE MODEL REPLY
     await saveMessage('model', replyText);
+    analytics.trackChatResponse({ mode, message_length: replyText.trim().length, session_message_count: messages.length + 2, response_time_ms: Date.now() - sendStartTime });
 
     // Release loading state immediately so user can send next message
     setLoading(false);
@@ -533,6 +538,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         ).then(extracted => {
           if (extracted.length > 0) {
             saveExtractedWords(extracted).catch(console.error);
+            analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: extracted.length, source: 'chat' });
             setNewWordsNotification(extracted);
             setTimeout(() => setNewWordsNotification([]), 5000);
           }
@@ -540,6 +546,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       } else if (newWords.length > 0) {
         // Image path - words already extracted in generateReply
         saveExtractedWords(newWords).catch(console.error);
+        analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: newWords.length, source: 'image' });
         setNewWordsNotification(newWords);
         setTimeout(() => setNewWordsNotification([]), 5000);
       }
@@ -554,11 +561,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     }
   };
 
+  const voiceStartTimeRef = useRef<number>(0);
+
   const startLive = async () => {
     if (isLive || !activeChat) return;
     setIsLive(true);
     setIsMenuOpen(false);
     setLiveError(null);
+    voiceStartTimeRef.current = Date.now();
+    analytics.track('voice_session_started', { mode: 'voice' });
 
     // Mark the current message count so we can extract vocabulary later
     voiceSessionStartIdx.current = messages.length;
@@ -612,6 +623,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setIsLive(false);
     setLiveUserText("");
     setLiveModelText("");
+    analytics.track('voice_session_ended', { mode: 'voice', duration_ms: Date.now() - voiceStartTimeRef.current });
 
     if (!chatId) return;
 
