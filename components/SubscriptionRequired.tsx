@@ -36,9 +36,11 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   // Track paywall view on mount
   const paywallViewedRef = useRef(false);
+  const paywallViewedAt = useRef(Date.now());
   useEffect(() => {
     if (!paywallViewedRef.current) {
       paywallViewedRef.current = true;
+      paywallViewedAt.current = Date.now();
       analytics.trackPaywallView({
         trigger_reason: 'subscription_required',
         page_context: 'onboarding',
@@ -51,6 +53,10 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     const params = new URLSearchParams(window.location.search);
     if (params.get('subscription') === 'canceled') {
       setShowCanceledMessage(true);
+      analytics.trackPaywallDismissed({
+        trigger_reason: trialExpired ? 'trial_expired' : 'subscription_required',
+        time_viewed_ms: Date.now() - paywallViewedAt.current,
+      });
       // Clean up URL
       window.history.replaceState({}, '', window.location.pathname);
     }

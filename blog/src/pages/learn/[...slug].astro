@@ -32,7 +32,7 @@ const { slug } = Astro.params;
 const slugParts = (slug || '').split('/');
 
 if (slugParts.length < 3) {
-  return Astro.redirect('/learn/');
+  return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
 const nativeLanguageCode = slugParts[0];
@@ -43,7 +43,7 @@ const articleSlug = slugParts.slice(2).join('/');
 const article = await getArticle(nativeLanguageCode, targetLanguageCode, articleSlug);
 
 if (!article) {
-  return Astro.redirect('/learn/');
+  return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
 const nativeLanguageInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
