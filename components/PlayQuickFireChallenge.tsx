@@ -46,7 +46,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   const words = challenge.words_data || [];
 
   const { t } = useTranslation();
-  const { targetName } = useLanguage();
+  const { targetName, languageParams } = useLanguage();
 
   useEffect(() => {
     return () => {
@@ -109,7 +109,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
     let isCorrect: boolean;
     let explanation = '';
     if (smartValidation && !useBasicValidation) {
-      const result = await validateAnswerSmart(userInput, word.translation, { targetWord: word.word });
+      const result = await validateAnswerSmart(userInput, word.translation, { targetWord: word.word, languageParams });
       isCorrect = result.accepted;
       explanation = result.explanation;
       // Check if rate limit was hit

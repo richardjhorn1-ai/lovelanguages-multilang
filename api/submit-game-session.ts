@@ -18,6 +18,7 @@ interface SubmitSessionRequest {
   totalTimeSeconds?: number;
   answers: GameAnswer[];
   targetUserId?: string; // For tutors saving to their partner's progress
+  targetLanguage?: string;
 }
 
 export default async function handler(req: any, res: any) {
@@ -44,7 +45,7 @@ export default async function handler(req: any, res: any) {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    const { gameMode, correctCount, incorrectCount, totalTimeSeconds, answers, targetUserId } = req.body as SubmitSessionRequest;
+    const { gameMode, correctCount, incorrectCount, totalTimeSeconds, answers, targetUserId, targetLanguage } = req.body as SubmitSessionRequest;
 
     if (!gameMode || answers === undefined) {
       return res.status(400).json({ error: 'Missing required fields: gameMode and answers' });
@@ -82,6 +83,7 @@ export default async function handler(req: any, res: any) {
         correct_count: correctCount || 0,
         incorrect_count: incorrectCount || 0,
         total_time_seconds: totalTimeSeconds || null,
+        language_code: targetLanguage || null,
         completed_at: new Date().toISOString()
       })
       .select()

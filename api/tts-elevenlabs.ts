@@ -8,8 +8,7 @@ import {
   incrementUsage,
   RATE_LIMITS
 } from '../utils/api-middleware.js';
-import { extractLanguages } from '../utils/language-helpers.js';
-import { LANGUAGE_CONFIGS } from '../constants/language-config.js';
+import { LANGUAGE_CONFIGS, isLanguageSupported } from '../constants/language-config.js';
 
 /**
  * ElevenLabs TTS API Endpoint
@@ -168,7 +167,13 @@ export default async function handler(req: any, res: any) {
     }
 
     const { text } = body || {};
-    const { targetLanguage } = extractLanguages(body);
+
+    // Extract target language directly — TTS only needs the voice language,
+    // not a full language pair (same fix as api/tts.ts)
+    const targetLanguage = body.languageCode || body.targetLanguage;
+    if (!targetLanguage || !isLanguageSupported(targetLanguage)) {
+      return res.status(400).json({ error: 'Valid targetLanguage is required' });
+    }
 
     if (!text || typeof text !== 'string') {
       return res.status(400).json({ error: 'Text is required' });
