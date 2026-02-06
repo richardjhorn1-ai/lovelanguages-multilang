@@ -199,7 +199,8 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
         const harvested = await geminiService.analyzeHistory(
           batch.map(m => ({ role: m.role, content: m.content })),
-          knownWords
+          knownWords,
+          languageParams
         );
 
         if (harvested.length > 0) {

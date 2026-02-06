@@ -547,7 +547,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     // Generate title in background if needed
     if (activeChat.title === 'New Session') {
-      geminiService.generateTitle(userMessage).then(async title => {
+      geminiService.generateTitle(userMessage, languageParams).then(async title => {
         await supabase.from('chats').update({ title }).eq('id', activeChat.id);
         setChats(prev => prev.map(c => c.id === activeChat.id ? { ...c, title } : c));
       }).catch(console.error);

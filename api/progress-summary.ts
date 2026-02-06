@@ -119,19 +119,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    // STEP 1: Check for previous summary to determine incremental vs full mode
-    const { data: lastSummary } = await supabase
-      .from('progress_summaries')
-      .select('id, created_at, topics_explored, can_now_say, words_learned')
-      .eq('user_id', auth.userId)
-      .order('created_at', { ascending: false })
-      .limit(1)
-      .single();
-
-    const isIncremental = !!lastSummary;
-    const sinceDate = lastSummary?.created_at || new Date(0).toISOString();
-
-    // STEP 2: Fetch profile and language settings
+    // STEP 1: Fetch profile and language settings FIRST (needed for all queries)
     const [{ data: profile }, { targetLanguage, nativeLanguage }] = await Promise.all([
       supabase
         .from('profiles')
@@ -143,6 +131,19 @@ export default async function handler(req: any, res: any) {
 
     const targetName = getLanguageName(targetLanguage);
     const nativeName = getLanguageName(nativeLanguage);
+
+    // STEP 2: Check for previous summary (filtered by current language)
+    const { data: lastSummary } = await supabase
+      .from('progress_summaries')
+      .select('id, created_at, topics_explored, can_now_say, words_learned')
+      .eq('user_id', auth.userId)
+      .eq('language_code', targetLanguage)
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .single();
+
+    const isIncremental = !!lastSummary;
+    const sinceDate = lastSummary?.created_at || new Date(0).toISOString();
 
     // STEP 3: Incremental fetches - only data SINCE last summary
     // Vocabulary: only new words since last summary (or all if first summary, limited to 100)
@@ -184,6 +185,7 @@ export default async function handler(req: any, res: any) {
       .from('game_sessions')
       .select('id, game_mode, correct_count, incorrect_count, completed_at')
       .eq('user_id', auth.userId)
+      .or(`language_code.eq.${targetLanguage},language_code.is.null`)
       .order('completed_at', { ascending: false });
 
     if (isIncremental) {
@@ -206,6 +208,7 @@ export default async function handler(req: any, res: any) {
       .select('from_level, to_level, passed, score, completed_at')
       .eq('user_id', auth.userId)
       .eq('status', 'completed')
+      .eq('language_code', targetLanguage)
       .order('completed_at', { ascending: false });
 
     if (isIncremental) {

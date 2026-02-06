@@ -197,13 +197,13 @@ export const geminiService = {
     }
   },
 
-  async generateTitle(firstMessage: string): Promise<string> {
+  async generateTitle(firstMessage: string, languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<string> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ prompt: firstMessage, action: 'generateTitle' })
+        body: JSON.stringify({ prompt: firstMessage, action: 'generateTitle', ...languageParams })
       });
 
       if (response.status === 401) {
