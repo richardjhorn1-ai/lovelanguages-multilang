@@ -1591,7 +1591,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                             scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
                           }, 100);
                         }}
-                        placeholder={!isOnline ? t('offline.chat_unavailable', 'Chat unavailable offline') : isLive ? (liveState === 'listening' ? t('chat.input.listeningPlaceholder') : liveState === 'speaking' ? t('chat.input.speakingPlaceholder') : t('chat.input.connectingPlaceholder')) : (profile.role === 'tutor' ? t('chat.input.tutorPlaceholder') : mode === 'ask' ? t('chat.input.askPlaceholder') : t('chat.input.learnPlaceholder'))}
+                        placeholder={!isOnline ? t('offline.chatUnavailable', 'Chat unavailable offline') : isLive ? (liveState === 'listening' ? t('chat.input.listeningPlaceholder') : liveState === 'speaking' ? t('chat.input.speakingPlaceholder') : t('chat.input.connectingPlaceholder')) : (profile.role === 'tutor' ? t('chat.input.tutorPlaceholder') : mode === 'ask' ? t('chat.input.askPlaceholder') : t('chat.input.learnPlaceholder'))}
                         disabled={isLive || !isOnline}
                         className="w-full bg-transparent border-none text-scale-body font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
                       />
