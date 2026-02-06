@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Je hebt al een actief abonnement",
     "errorActive": "Je hebt al actieve creator toegang",
     "errorMaxUses": "Deze code heeft zijn limiet bereikt"
+  },
+  "offline": {
+    "title": "Je bent offline",
+    "offlineMode": "Offline",
+    "canPractice": "Je kunt nog steeds oefenen met {{count}} opgeslagen woorden uit je Love Log.",
+    "noCache": "Geen opgeslagen woordenschat beschikbaar. Maak verbinding met internet om je Love Log te synchroniseren.",
+    "lastSync": "Laatst gesynchroniseerd: {{time}}",
+    "never": "Nooit",
+    "justNow": "Zojuist",
+    "minsAgo": "{{mins}} minuten geleden",
+    "hoursAgo": "{{hours}} uur geleden",
+    "daysAgo": "{{days}} dagen geleden",
+    "chatUnavailable": "Chat is offline niet beschikbaar",
+    "pendingSync": "{{count}} items wachten op synchronisatie",
+    "syncing": "Synchroniseren...",
+    "syncComplete": "Synchronisatie voltooid!",
+    "readOnly": "Opgeslagen gegevens bekijken",
+    "featureUnavailable": "Offline niet beschikbaar",
+    "scoresQueued": "Scores lokaal opgeslagen",
+    "sessionQueued": "Sessie lokaal opgeslagen"
   }
 }

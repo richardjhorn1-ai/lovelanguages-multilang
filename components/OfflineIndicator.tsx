@@ -12,13 +12,17 @@ interface OfflineIndicatorProps {
   cachedWordCount: number;
   lastSyncTime: string | null;
   compact?: boolean;
+  pendingCount?: number;
+  isSyncing?: boolean;
 }
 
 const OfflineIndicator: React.FC<OfflineIndicatorProps> = ({
   isOnline,
   cachedWordCount,
   lastSyncTime,
-  compact = false
+  compact = false,
+  pendingCount = 0,
+  isSyncing = false,
 }) => {
   const { t } = useTranslation();
 
@@ -66,6 +70,13 @@ const OfflineIndicator: React.FC<OfflineIndicatorProps> = ({
           {lastSyncTime && (
             <p className="text-scale-caption text-[var(--text-tertiary)] mt-2">
               {t('offline.lastSync', 'Last synced: {{time}}', { time: formatSyncTime(lastSyncTime) })}
+            </p>
+          )}
+          {pendingCount > 0 && (
+            <p className="text-scale-caption text-amber-600 dark:text-amber-400 mt-1 font-medium">
+              {isSyncing
+                ? t('offline.syncing', 'Syncing...')
+                : t('offline.pendingSync', '{{count}} items waiting to sync', { count: pendingCount })}
             </p>
           )}
         </div>

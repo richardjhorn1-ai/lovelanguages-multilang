@@ -12,6 +12,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import GameHistory from './GameHistory';
 import TutorAnalyticsDashboard from './tutor/TutorAnalyticsDashboard';
+import { useOffline } from '../hooks/useOffline';
+import OfflineIndicator from './OfflineIndicator';
 
 interface ProgressProps {
   profile: Profile;
@@ -138,6 +140,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   // Theme
   const { accentHex } = useTheme();
   const { targetLanguage, targetName, languageParams } = useLanguage();
+  const { isOnline, cachedWordCount, lastSyncTime, pendingCount, isSyncing: offlineSyncing, cacheVocabulary, getCachedVocabulary, cacheWordScores, getCachedWordScores } = useOffline(profile.id, targetLanguage);
   const previousTests = getPreviousLevelTests(levelInfo.displayName);
 
 
@@ -291,6 +294,21 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   }, [stats.totalWords, profile.xp]);
 
   const fetchEntries = async () => {
+    // Offline: load from IndexedDB cache
+    if (!isOnline) {
+      const cachedVocab = await getCachedVocabulary();
+      if (cachedVocab && cachedVocab.length > 0) {
+        setEntries(cachedVocab);
+        const nouns = cachedVocab.filter((e: any) => e.word_type === 'noun').length;
+        const verbs = cachedVocab.filter((e: any) => e.word_type === 'verb').length;
+        const adjectives = cachedVocab.filter((e: any) => e.word_type === 'adjective').length;
+        const phrases = cachedVocab.filter((e: any) => e.word_type === 'phrase').length;
+        const other = cachedVocab.length - nouns - verbs - adjectives - phrases;
+        setStats({ totalWords: cachedVocab.length, nouns, verbs, adjectives, phrases, other });
+      }
+      return;
+    }
+
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
     const { data } = await supabase
       .from('dictionary')
@@ -300,6 +318,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
     if (data) {
       setEntries(data);
+      await cacheVocabulary(data);
       const nouns = data.filter(e => e.word_type === 'noun').length;
       const verbs = data.filter(e => e.word_type === 'verb').length;
       const adjectives = data.filter(e => e.word_type === 'adjective').length;
@@ -411,6 +430,16 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   return (
     <div className="h-full overflow-y-auto p-3 md:p-8 bg-[var(--bg-primary)]">
       <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
+
+        {!isOnline && (
+          <OfflineIndicator
+            isOnline={isOnline}
+            cachedWordCount={cachedWordCount}
+            lastSyncTime={lastSyncTime}
+            pendingCount={pendingCount}
+            isSyncing={offlineSyncing}
+          />
+        )}
 
         {/* Level & XP Card */}
         <div
@@ -655,9 +684,10 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             </div>
             <button
               onClick={generateNewSummary}
-              disabled={generating}
+              disabled={generating || !isOnline}
               className="px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-scale-caption font-bold text-white flex items-center gap-1.5 md:gap-2 transition-all active:scale-95 disabled:opacity-50"
               style={{ backgroundColor: tierColor }}
+              title={!isOnline ? t('offline.featureUnavailable', 'Unavailable offline') : ''}
             >
               {generating ? (
                 <>

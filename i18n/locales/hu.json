@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Már van aktív előfizetésed",
     "errorActive": "Már van aktív alkotói hozzáférésed",
     "errorMaxUses": "Ez a kód elérte a limitjét"
+  },
+  "offline": {
+    "title": "Offline vagy",
+    "offlineMode": "Offline",
+    "canPractice": "Még mindig gyakorolhatsz {{count}} gyorsítótárazott szóval a Love Log-odból.",
+    "noCache": "Nincs gyorsítótárazott szókincs. Csatlakozz az internethez a Love Log szinkronizálásához.",
+    "lastSync": "Utoljára szinkronizálva: {{time}}",
+    "never": "Soha",
+    "justNow": "Épp most",
+    "minsAgo": "{{mins}} perce",
+    "hoursAgo": "{{hours}} órája",
+    "daysAgo": "{{days}} napja",
+    "chatUnavailable": "A chat offline nem elérhető",
+    "pendingSync": "{{count}} elem vár szinkronizálásra",
+    "syncing": "Szinkronizálás...",
+    "syncComplete": "Szinkronizálás kész!",
+    "readOnly": "Gyorsítótárazott adatok megtekintése",
+    "featureUnavailable": "Offline nem elérhető",
+    "scoresQueued": "Eredmények helyileg mentve",
+    "sessionQueued": "Munkamenet helyileg mentve"
   }
 }

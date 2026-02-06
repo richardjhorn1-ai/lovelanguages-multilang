@@ -2199,5 +2199,25 @@
     "errorSubscribed": "You already have an active subscription",
     "errorActive": "You already have active creator access",
     "errorMaxUses": "This code has reached its limit"
+  },
+  "offline": {
+    "title": "You're offline",
+    "offlineMode": "Offline",
+    "canPractice": "You can still practice with {{count}} cached words from your Love Log.",
+    "noCache": "No cached vocabulary available. Connect to the internet to sync your Love Log.",
+    "lastSync": "Last synced: {{time}}",
+    "never": "Never",
+    "justNow": "Just now",
+    "minsAgo": "{{mins}} mins ago",
+    "hoursAgo": "{{hours}} hours ago",
+    "daysAgo": "{{days}} days ago",
+    "chatUnavailable": "Chat is unavailable offline",
+    "pendingSync": "{{count}} items waiting to sync",
+    "syncing": "Syncing...",
+    "syncComplete": "Sync complete!",
+    "readOnly": "Viewing cached data",
+    "featureUnavailable": "Unavailable offline",
+    "scoresQueued": "Scores saved locally",
+    "sessionQueued": "Session saved locally"
   }
 }

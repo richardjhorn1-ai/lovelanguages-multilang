@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Du har allerede et aktivt abonnement",
     "errorActive": "Du har allerede aktiv skaber-adgang",
     "errorMaxUses": "Denne kode har nået sin grænse"
+  },
+  "offline": {
+    "title": "Du er offline",
+    "offlineMode": "Offline",
+    "canPractice": "Du kan stadig øve med {{count}} cachede ord fra din Love Log.",
+    "noCache": "Ingen cached ordforråd tilgængelig. Opret forbindelse til internettet for at synkronisere din Love Log.",
+    "lastSync": "Sidst synkroniseret: {{time}}",
+    "never": "Aldrig",
+    "justNow": "Lige nu",
+    "minsAgo": "{{mins}} minutter siden",
+    "hoursAgo": "{{hours}} timer siden",
+    "daysAgo": "{{days}} dage siden",
+    "chatUnavailable": "Chat er utilgængelig offline",
+    "pendingSync": "{{count}} elementer venter på at synkronisere",
+    "syncing": "Synkroniserer...",
+    "syncComplete": "Synkronisering fuldført!",
+    "readOnly": "Viser cachede data",
+    "featureUnavailable": "Utilgængelig offline",
+    "scoresQueued": "Scores gemt lokalt",
+    "sessionQueued": "Session gemt lokalt"
   }
 }

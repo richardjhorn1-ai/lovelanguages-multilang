@@ -10,6 +10,8 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { getConjugationPersons, getAvailableTenses, isTenseGendered, isTenseLimited, getImperativePersons, type VerbTense } from '../constants/language-config';
 import { sounds } from '../services/sounds';
+import { useOffline } from '../hooks/useOffline';
+import OfflineIndicator from './OfflineIndicator';
 
 interface LoveLogProps {
   profile: Profile;
@@ -43,6 +45,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const { targetLanguage, languageParams } = useLanguage();
   const { t } = useTranslation();
 
+  // Offline
+  const { isOnline, cachedWordCount, lastSyncTime, pendingCount, isSyncing: offlineSyncing, cacheVocabulary, getCachedVocabulary, cacheWordScores, getCachedWordScores } = useOffline(profile.id, targetLanguage);
+
   // Get dynamic pronouns for the target language
   const pronouns = getConjugationPersons(targetLanguage);
 
@@ -67,6 +72,22 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const fetchEntries = useCallback(async () => {
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id) ? profile.linked_user_id : profile.id;
 
+    // Offline: load from IndexedDB cache
+    if (!isOnline) {
+      const cachedVocab = await getCachedVocabulary();
+      if (cachedVocab && cachedVocab.length > 0) {
+        setEntries(cachedVocab.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()));
+      }
+      const cachedScores = await getCachedWordScores();
+      if (cachedScores.length > 0) {
+        const map = new Map<string, WordScore>();
+        cachedScores.forEach(s => map.set(s.word_id, s as WordScore));
+        setScoresMap(map);
+      }
+      setLoading(false);
+      return;
+    }
+
     // Fetch dictionary entries filtered by target language
     const { data } = await supabase
       .from('dictionary')
@@ -75,7 +96,10 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       .eq('language_code', targetLanguage)
       .order('created_at', { ascending: false });
 
-    if (data) setEntries(data as DictionaryEntry[]);
+    if (data) {
+      setEntries(data as DictionaryEntry[]);
+      await cacheVocabulary(data as DictionaryEntry[]);
+    }
 
     // Fetch scores for mastery badges (filtered by language)
     const { data: scoreData } = await supabase
@@ -88,6 +112,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       const map = new Map<string, WordScore>();
       scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
       setScoresMap(map);
+      await cacheWordScores(scoreData as WordScore[]);
     }
 
     // Fetch gift words to show "Gift from Partner" badge (filtered by language)
@@ -114,7 +139,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     }
 
     setLoading(false);
-  }, [profile, targetLanguage]);
+  }, [profile, targetLanguage, isOnline, getCachedVocabulary, getCachedWordScores, cacheVocabulary, cacheWordScores]);
 
   // Fetch entries on mount and when profile/language changes
   useEffect(() => { fetchEntries(); }, [fetchEntries]);
@@ -366,9 +391,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               {/* Mobile sync button - scans chat history for new words */}
               <button
                 onClick={handleSync}
-                disabled={isSyncing}
+                disabled={isSyncing || !isOnline}
                 className="p-2 bg-[var(--accent-light)] rounded-lg transition-all disabled:opacity-50"
-                title={t('loveLog.sync.scanTooltip')}
+                title={!isOnline ? t('offline.featureUnavailable', 'Unavailable offline') : t('loveLog.sync.scanTooltip')}
               >
                 <ICONS.RefreshCw className={`w-4 h-4 text-[var(--accent-color)] ${isSyncing ? 'animate-spin' : ''}`} />
               </button>
@@ -408,9 +433,9 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               </div>
               <button
                 onClick={handleSync}
-                disabled={isSyncing}
+                disabled={isSyncing || !isOnline}
                 className="flex items-center gap-2 px-3 py-2 bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] rounded-xl transition-all disabled:opacity-50"
-                title={t('loveLog.sync.scanTooltip')}
+                title={!isOnline ? t('offline.featureUnavailable', 'Unavailable offline') : t('loveLog.sync.scanTooltip')}
               >
                 <ICONS.RefreshCw className={`w-4 h-4 text-[var(--accent-color)] ${isSyncing ? 'animate-spin' : ''}`} />
                 <span className="text-[10px] font-bold text-[var(--accent-color)]">
@@ -460,6 +485,17 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       </div>
 
       <div className="flex-1 overflow-y-auto p-2 md:p-4 lg:p-6 bg-[var(--bg-primary)]">
+        {!isOnline && (
+          <div className="max-w-7xl mx-auto mb-3">
+            <OfflineIndicator
+              isOnline={isOnline}
+              cachedWordCount={cachedWordCount}
+              lastSyncTime={lastSyncTime}
+              pendingCount={pendingCount}
+              isSyncing={offlineSyncing}
+            />
+          </div>
+        )}
         <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-5">
           {filtered.map(e => {
             // Get mastery status for this word

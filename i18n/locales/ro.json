@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Ai deja un abonament activ",
     "errorActive": "Ai deja acces creator activ",
     "errorMaxUses": "Acest cod a atins limita"
+  },
+  "offline": {
+    "title": "Ești offline",
+    "offlineMode": "Offline",
+    "canPractice": "Poți exersa în continuare cu {{count}} cuvinte cache din Love Log.",
+    "noCache": "Nu există vocabular în cache. Conectează-te la internet pentru a sincroniza Love Log.",
+    "lastSync": "Ultima sincronizare: {{time}}",
+    "never": "Niciodată",
+    "justNow": "Acum",
+    "minsAgo": "Acum {{mins}} min",
+    "hoursAgo": "Acum {{hours}} ore",
+    "daysAgo": "Acum {{days}} zile",
+    "chatUnavailable": "Chat-ul nu este disponibil offline",
+    "pendingSync": "{{count}} elemente așteaptă să fie sincronizate",
+    "syncing": "Se sincronizează...",
+    "syncComplete": "Sincronizare completă!",
+    "readOnly": "Vizualizare date cache",
+    "featureUnavailable": "Indisponibil offline",
+    "scoresQueued": "Scoruri salvate local",
+    "sessionQueued": "Sesiune salvată local"
   }
 }
