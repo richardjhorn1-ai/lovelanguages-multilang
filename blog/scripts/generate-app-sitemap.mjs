@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, '..', 'dist');
-const SITE_URL = 'https://lovelanguages.io';
+const SITE_URL = 'https://www.lovelanguages.io';
 
 // Main app pages that should be in the sitemap
 // These are pages from the React app that aren't built by Astro
