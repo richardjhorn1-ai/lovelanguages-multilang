@@ -5,6 +5,9 @@
     --accent-color: #FF4761;
     --accent-light: #fff1f3;
     --accent-border: #fecdd3;
+    --accent-hover: #E63E56;
+    --accent-text: #BE123C;
+    --accent-shadow: rgba(255, 71, 97, 0.25);
     --bg-primary: #fdfcfd;
     --bg-card: #ffffff;
     --text-primary: #292F36;

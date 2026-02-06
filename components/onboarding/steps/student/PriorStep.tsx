@@ -53,13 +53,14 @@ export const PriorStep: React.FC<PriorStepProps> = ({
         <button
           onClick={() => setHasTried(true)}
           className={`p-6 rounded-2xl border-2 transition-all ${
-            hasTried === true
-              ? 'border-green-300 bg-green-50'
-              : 'border-gray-100 bg-white hover:border-gray-200'
+            hasTried !== true
+              ? 'border-gray-100 bg-white hover:border-gray-200'
+              : ''
           }`}
+          style={hasTried === true ? { borderColor: `${accentColor}60`, backgroundColor: `${accentColor}10` } : undefined}
         >
           <span className="text-3xl block mb-2">👍</span>
-          <span className={`font-bold ${hasTried === true ? 'text-green-600' : 'text-gray-700'}`}>
+          <span className="font-bold" style={{ color: hasTried === true ? accentColor : '#374151' }}>
             {t('onboarding.student.prior.yes')}
           </span>
         </button>

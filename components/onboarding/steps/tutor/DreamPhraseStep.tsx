@@ -68,7 +68,7 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
         onClick={() => onNext(phrase.trim() || defaultPhrase)}
         accentColor={accentColor}
       >
-        {phrase.trim() ? 'Continue' : 'Skip for now'}
+        {phrase.trim() ? t('onboarding.step.continue') : t('onboarding.step.skipForNow')}
       </NextButton>
     </OnboardingStep>
   );

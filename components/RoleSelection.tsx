@@ -150,9 +150,9 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   const roleContent = {
     student: {
       emoji: '📚',
-      title: t('roleSelection.student.title', { language: targetConfig.name }),
-      subtitle: t('roleSelection.student.subtitle', { language: targetConfig.name }),
-      confirmMessage: t('roleSelection.student.confirmMessage', { language: targetConfig.name }),
+      title: t('roleSelection.student.title', { language: t(`languageNames.${targetLanguage}`) }),
+      subtitle: t('roleSelection.student.subtitle', { language: t(`languageNames.${targetLanguage}`) }),
+      confirmMessage: t('roleSelection.student.confirmMessage', { language: t(`languageNames.${targetLanguage}`) }),
       confirmSubtext: t('roleSelection.student.confirmSubtext'),
       accentColor: '#FF4761',
       bgLight: 'bg-rose-50',
@@ -163,9 +163,9 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
     },
     tutor: {
       emoji: '🎓',
-      title: t('roleSelection.tutor.title', { language: targetConfig.name }),
+      title: t('roleSelection.tutor.title', { language: t(`languageNames.${targetLanguage}`) }),
       subtitle: t('roleSelection.tutor.subtitle'),
-      confirmMessage: t('roleSelection.tutor.confirmMessage', { language: targetConfig.name }),
+      confirmMessage: t('roleSelection.tutor.confirmMessage', { language: t(`languageNames.${targetLanguage}`) }),
       confirmSubtext: t('roleSelection.tutor.confirmSubtext'),
       accentColor: '#FF4761',
       bgLight: 'bg-rose-50',
@@ -208,7 +208,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
           <div className="flex items-center gap-3">
             <span className="text-2xl">{config.flag}</span>
             <div className="text-left">
-              <div className="font-semibold text-gray-800">{config.name}</div>
+              <div className="font-semibold text-gray-800">{t(`languageNames.${value}`)}</div>
               <div className="text-sm text-gray-500">{config.nativeName}</div>
             </div>
           </div>
@@ -229,7 +229,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                 >
                   <span className="text-xl">{langConfig.flag}</span>
                   <div>
-                    <div className="font-medium text-gray-800">{langConfig.name}</div>
+                    <div className="font-medium text-gray-800">{t(`languageNames.${code}`)}</div>
                     <div className="text-sm text-gray-500">{langConfig.nativeName}</div>
                   </div>
                   {code === value && (

@@ -6,6 +6,7 @@ import { speak } from '../../../../services/audio';
 import { sounds } from '../../../../services/sounds';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
+import { escapeHtml } from '../../../../utils/sanitize';
 
 interface LearnLoveStepProps {
   currentStep: number;
@@ -86,7 +87,7 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
           <div
             className="text-scale-label text-amber-800"
             dangerouslySetInnerHTML={{
-              __html: t('onboarding.student.learnLove.proTip', { name: partnerName, language: targetName })
+              __html: t('onboarding.student.learnLove.proTip', { name: escapeHtml(partnerName), language: targetName })
             }}
           />
         </div>
