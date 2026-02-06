@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
-import { geminiService, Attachment, ExtractedWord, SessionContext, ProposedAction } from '../services/gemini';
+import { geminiService, BootSessionResult, Attachment, ExtractedWord, SessionContext, ProposedAction } from '../services/gemini';
 import { LiveSession, LiveSessionState } from '../services/live-session';
 import { GladiaSession, GladiaState, TranscriptChunk } from '../services/gladia-session';
 import { Profile, Chat, Message, ChatMode, WordType } from '../types';
@@ -296,10 +296,24 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   useEffect(() => {
     const bootSession = async () => {
       if (contextLoadedRef.current) return;
-      const context = await geminiService.bootSession();
-      if (context) {
-        sessionContextRef.current = context;
+      const result = await geminiService.bootSession();
+      if (result) {
+        sessionContextRef.current = result.context;
         contextLoadedRef.current = true;
+
+        // Set milestone flags for first-time event tracking
+        if (!result.milestones.hasWords || !result.milestones.hasGames || !result.milestones.hasChats) {
+          (window as any).__milestones = {
+            needsFirstWord: !result.milestones.hasWords,
+            needsFirstGame: !result.milestones.hasGames,
+            needsFirstChat: !result.milestones.hasChats,
+          };
+        }
+
+        // Fire session_start for daily return tracking
+        if (result.daysSinceLastActive !== null && result.daysSinceLastActive >= 1) {
+          analytics.track('session_start', { days_since_last: result.daysSinceLastActive });
+        }
       }
     };
     bootSession();
@@ -311,9 +325,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       contextLoadedRef.current = false;
       sessionContextRef.current = null;
       // Re-boot after invalidation
-      geminiService.bootSession().then(context => {
-        if (context) {
-          sessionContextRef.current = context;
+      geminiService.bootSession().then(result => {
+        if (result) {
+          sessionContextRef.current = result.context;
           contextLoadedRef.current = true;
         }
       });
@@ -445,6 +459,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     // Notify Love Log to refresh
     window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: words.length } }));
 
+    // Fire first_word_added milestone event (once per user lifetime)
+    if ((window as any).__milestones?.needsFirstWord) {
+      analytics.track('first_word_added', { source: 'chat', word_count: words.length });
+      (window as any).__milestones.needsFirstWord = false;
+    }
+
     // Increment XP only for NEW words (1 XP per new word)
     if (newWordCount > 0) {
       await geminiService.incrementXP(newWordCount);
@@ -466,6 +486,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     const sendStartTime = Date.now();
 
     analytics.trackChatMessage({ mode, message_length: userMessage.trim().length, session_message_count: messages.length + 1 });
+
+    // Fire first_chat_message milestone event (once per user lifetime)
+    if ((window as any).__milestones?.needsFirstChat) {
+      analytics.track('first_chat_message', { mode });
+      (window as any).__milestones.needsFirstChat = false;
+    }
 
     const userWords = messages.map(m => m.content);
     const messageHistory = messages.map(m => ({ role: m.role, content: m.content }));

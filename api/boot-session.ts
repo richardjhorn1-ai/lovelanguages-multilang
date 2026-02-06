@@ -103,14 +103,24 @@ export default async function handler(req: any, res: any) {
     }
     const bootedAt = new Date().toISOString();
 
-    // Fetch profile and language settings in parallel
-    const [profileResult, languageParams] = await Promise.all([
+    // Fetch profile, language settings, and milestone counts in parallel
+    const [profileResult, languageParams, gameCountResult, chatCountResult] = await Promise.all([
       supabase
         .from('profiles')
-        .select('full_name, xp, level, partner_name, linked_user_id, role')
+        .select('full_name, xp, level, partner_name, linked_user_id, role, updated_at')
         .eq('id', auth.userId)
         .single(),
-      getProfileLanguages(supabase, auth.userId)
+      getProfileLanguages(supabase, auth.userId),
+      supabase
+        .from('game_sessions')
+        .select('id')
+        .eq('user_id', auth.userId)
+        .limit(1),
+      supabase
+        .from('chats')
+        .select('id')
+        .eq('user_id', auth.userId)
+        .limit(1)
     ]);
 
     const { data: profile, error: profileError } = profileResult;
@@ -120,8 +130,33 @@ export default async function handler(req: any, res: any) {
 
     const { targetLanguage, nativeLanguage } = languageParams;
 
+    // Compute milestones and daily_return
+    const hasGames = (gameCountResult.data?.length ?? 0) > 0;
+    const hasChats = (chatCountResult.data?.length ?? 0) > 0;
+
+    // Calculate days since last active (using profile.updated_at as last login marker)
+    const lastUpdated = profile?.updated_at ? new Date(profile.updated_at) : null;
+    const daysSinceLastActive = lastUpdated
+      ? Math.floor((Date.now() - lastUpdated.getTime()) / (1000 * 60 * 60 * 24))
+      : null;
+
+    // Touch updated_at to mark this login (fire-and-forget)
+    supabase
+      .from('profiles')
+      .update({ updated_at: bootedAt })
+      .eq('id', auth.userId)
+      .then(() => {})
+      .catch(() => {});
+
     // Fetch user's learning context with language filter
     const userContext = await fetchLearnerContext(supabase, auth.userId, targetLanguage);
+
+    // Word count comes from the vocabulary query already in userContext
+    const milestones = {
+      hasWords: userContext.stats.totalWords > 0,
+      hasGames,
+      hasChats,
+    };
 
     const isStudent = profile.role !== 'tutor';
 
@@ -146,7 +181,9 @@ export default async function handler(req: any, res: any) {
     if (isStudent) {
       return res.status(200).json({
         success: true,
-        context: baseContext
+        context: baseContext,
+        milestones,
+        daysSinceLastActive
       });
     }
 
@@ -158,7 +195,9 @@ export default async function handler(req: any, res: any) {
         context: {
           ...baseContext,
           partner: null  // No partner linked yet
-        }
+        },
+        milestones,
+        daysSinceLastActive
       });
     }
 
@@ -201,7 +240,9 @@ export default async function handler(req: any, res: any) {
           stats: partnerContext.stats,
           lastActive: partnerContext.lastActive
         }
-      }
+      },
+      milestones,
+      daysSinceLastActive
     });
 
   } catch (error: any) {
