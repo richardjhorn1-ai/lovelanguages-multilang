@@ -434,6 +434,12 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           sounds.play('xp-gain');
           haptics.trigger('xp-gain');
         }
+
+        // Fire first_game_played milestone event (once per user lifetime)
+        if ((window as any).__milestones?.needsFirstGame) {
+          analytics.track('first_game_played', { game_type: gameMode });
+          (window as any).__milestones.needsFirstGame = false;
+        }
       }
     } catch (error) {
       console.error('Error saving game session:', error);

@@ -17,9 +17,15 @@ async function getAuthHeaders(): Promise<HeadersInit> {
   return headers;
 }
 
+export interface BootSessionResult {
+  context: SessionContext;
+  milestones: { hasWords: boolean; hasGames: boolean; hasChats: boolean };
+  daysSinceLastActive: number | null;
+}
+
 export const geminiService = {
   // Boot session - fetch context once per chat session
-  async bootSession(): Promise<SessionContext | null> {
+  async bootSession(): Promise<BootSessionResult | null> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/boot-session', {
@@ -34,7 +40,11 @@ export const geminiService = {
 
       const data = await response.json();
       if (data.success && data.context) {
-        return data.context as SessionContext;
+        return {
+          context: data.context as SessionContext,
+          milestones: data.milestones || { hasWords: true, hasGames: true, hasChats: true },
+          daysSinceLastActive: data.daysSinceLastActive ?? null,
+        };
       }
       return null;
     } catch (e) {
