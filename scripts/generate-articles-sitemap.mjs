@@ -89,6 +89,10 @@ function updateSitemapIndex(sitemapFiles) {
     <loc>${SITE_URL}/sitemap-app.xml</loc>
     <lastmod>${today}</lastmod>
   </sitemap>
+  <sitemap>
+    <loc>${SITE_URL}/sitemap-images.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
 `;
 
   for (const file of sitemapFiles) {
@@ -102,7 +106,7 @@ function updateSitemapIndex(sitemapFiles) {
   xml += `</sitemapindex>`;
 
   fs.writeFileSync(indexPath, xml);
-  console.log(`Updated sitemap-index.xml with ${sitemapFiles.length} article sitemaps`);
+  console.log(`Updated sitemap-index.xml with ${sitemapFiles.length + 3} total sitemaps`);
 }
 
 async function main() {

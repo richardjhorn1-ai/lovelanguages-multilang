@@ -37,7 +37,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative z-10" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+    <div className="h-full flex flex-col relative z-10" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       {/* Progress bar */}
       <div className="w-full h-1 bg-gray-100">
         <div
@@ -87,6 +87,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         className="flex-1 overflow-y-auto overscroll-contain px-6 min-h-0"
         style={{
           WebkitOverflowScrolling: 'touch',
+          touchAction: 'pan-y',
           paddingBottom: 'max(3rem, env(safe-area-inset-bottom, 0px))'
         }}
       >

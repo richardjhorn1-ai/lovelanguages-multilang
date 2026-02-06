@@ -39,7 +39,7 @@ export const LanguageConnectionStep: React.FC<LanguageConnectionStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-6">
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: `${accentColor}15` }}>
           <span className="text-3xl">{targetFlag}</span>
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
@@ -56,14 +56,15 @@ export const LanguageConnectionStep: React.FC<LanguageConnectionStepProps> = ({
             key={option.id}
             onClick={() => setSelected(option.id)}
             className={`w-full p-4 rounded-2xl border-2 transition-all flex items-center gap-4 ${
-              selected === option.id
-                ? 'border-rose-300 bg-rose-50'
-                : 'border-gray-100 bg-white hover:border-gray-200'
+              selected !== option.id
+                ? 'border-gray-100 bg-white hover:border-gray-200'
+                : ''
             }`}
+            style={selected === option.id ? { borderColor: `${accentColor}60`, backgroundColor: `${accentColor}10` } : undefined}
           >
             <span className="text-2xl">{option.emoji}</span>
             <div className="text-left">
-              <span className={`font-bold block ${selected === option.id ? 'text-rose-700' : 'text-gray-700'}`}>
+              <span className="font-bold block" style={{ color: selected === option.id ? accentColor : '#374151' }}>
                 {option.label}
               </span>
               <span className="text-scale-label text-gray-500">{option.description}</span>

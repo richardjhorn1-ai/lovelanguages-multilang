@@ -87,7 +87,7 @@ interface ChatMessageParams extends BaseEventParams {
 interface WordParams extends BaseEventParams {
   target_lang: string;
   word_count_total?: number;
-  source?: 'chat' | 'manual';
+  source?: 'chat' | 'manual' | 'image' | 'listen';
   word?: string;
 }
 
@@ -509,6 +509,93 @@ declare global {
 }
 
 /**
+ * Core Web Vitals monitoring - sends LCP, FID/INP, CLS to GA4
+ * No external dependency required - uses Performance Observer API
+ */
+export const initWebVitals = (): void => {
+  if (!isBrowser || typeof PerformanceObserver === 'undefined') return;
+
+  const sendVital = (name: string, value: number, rating: string) => {
+    if (hasGtag()) {
+      window.gtag('event', name, {
+        value: Math.round(name === 'CLS' ? value * 1000 : value),
+        event_category: 'Web Vitals',
+        event_label: rating,
+        non_interaction: true,
+      });
+    }
+    if (isDebugMode()) {
+      console.log(`[Analytics] Web Vital: ${name}=${value.toFixed(2)} (${rating})`);
+    }
+  };
+
+  const getRating = (name: string, value: number): string => {
+    const thresholds: Record<string, [number, number]> = {
+      LCP: [2500, 4000],
+      FID: [100, 300],
+      INP: [200, 500],
+      CLS: [0.1, 0.25],
+    };
+    const [good, poor] = thresholds[name] || [0, 0];
+    return value <= good ? 'good' : value <= poor ? 'needs-improvement' : 'poor';
+  };
+
+  // LCP (Largest Contentful Paint)
+  try {
+    new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      const last = entries[entries.length - 1] as PerformanceEntry;
+      if (last) sendVital('LCP', last.startTime, getRating('LCP', last.startTime));
+    }).observe({ type: 'largest-contentful-paint', buffered: true });
+  } catch (e) { /* unsupported */ }
+
+  // FID (First Input Delay)
+  try {
+    new PerformanceObserver((list) => {
+      const entry = list.getEntries()[0] as PerformanceEventTiming;
+      if (entry) {
+        const fid = entry.processingStart - entry.startTime;
+        sendVital('FID', fid, getRating('FID', fid));
+      }
+    }).observe({ type: 'first-input', buffered: true });
+  } catch (e) { /* unsupported */ }
+
+  // CLS (Cumulative Layout Shift)
+  try {
+    let clsValue = 0;
+    new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (!(entry as any).hadRecentInput) {
+          clsValue += (entry as any).value;
+        }
+      }
+    }).observe({ type: 'layout-shift', buffered: true });
+    // Report CLS on page hide
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        sendVital('CLS', clsValue, getRating('CLS', clsValue));
+      }
+    }, { once: true });
+  } catch (e) { /* unsupported */ }
+
+  // INP (Interaction to Next Paint) - replaces FID as of March 2024
+  try {
+    let maxInp = 0;
+    new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        const duration = (entry as PerformanceEventTiming).duration;
+        if (duration > maxInp) maxInp = duration;
+      }
+    }).observe({ type: 'event', buffered: true });
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden' && maxInp > 0) {
+        sendVital('INP', maxInp, getRating('INP', maxInp));
+      }
+    }, { once: true });
+  } catch (e) { /* unsupported */ }
+};
+
+/**
  * Legacy trackPageView function for backward compatibility
  * Used by App.tsx for SPA navigation tracking
  */
@@ -531,6 +618,28 @@ export default analytics;
  * Capture UTM parameters and blog referral data from URL
  * Call this on app load to attribute signups to blog articles
  */
+// Known AI engine referral sources for GEO tracking
+const AI_REFERRAL_SOURCES = [
+  'chatgpt.com', 'perplexity.ai', 'you.com', 'bing.com',
+  'copilot.microsoft.com', 'claude.ai', 'gemini.google.com',
+  'phind.com', 'bard.google.com',
+];
+
+/**
+ * Detect if traffic came from an AI engine (GEO tracking)
+ */
+export const detectAiReferral = (): string | null => {
+  if (!isBrowser) return null;
+  const referrer = document.referrer || '';
+  const utmSource = new URLSearchParams(window.location.search).get('utm_source') || '';
+  for (const source of AI_REFERRAL_SOURCES) {
+    if (referrer.includes(source) || utmSource.includes(source)) {
+      return source;
+    }
+  }
+  return null;
+};
+
 export const captureReferralSource = (): {
   source: string;
   medium: string;
@@ -538,21 +647,25 @@ export const captureReferralSource = (): {
   content: string;
   refNative: string;
   refTarget: string;
+  aiSource?: string;
 } | null => {
   if (!isBrowser) return null;
 
   const params = new URLSearchParams(window.location.search);
   const source = params.get('utm_source');
+  const aiSource = detectAiReferral();
 
-  if (!source) return null;
+  // Track AI referral even without UTM params (AI engines add their own)
+  if (!source && !aiSource) return null;
 
   const referralData = {
-    source: source,
-    medium: params.get('utm_medium') || '',
+    source: source || aiSource || '',
+    medium: params.get('utm_medium') || (aiSource ? 'ai_referral' : ''),
     campaign: params.get('utm_campaign') || '',
     content: params.get('utm_content') || '',
     refNative: params.get('ref_native') || '',
     refTarget: params.get('ref_target') || '',
+    ...(aiSource && { aiSource }),
   };
 
   // Store in sessionStorage for attribution across pages
@@ -560,15 +673,27 @@ export const captureReferralSource = (): {
 
   // Track the landing event
   if (hasGtag()) {
-    window.gtag('event', 'blog_referral_landing', {
-      utm_source: referralData.source,
-      utm_medium: referralData.medium,
-      utm_campaign: referralData.campaign,
-      article_slug: referralData.content,
-      native_lang: referralData.refNative,
-      target_lang: referralData.refTarget,
-      event_category: 'acquisition',
-    });
+    if (aiSource) {
+      // Dedicated AI referral event for GEO analytics
+      window.gtag('event', 'ai_referral_landing', {
+        ai_source: aiSource,
+        referrer: document.referrer,
+        landing_page: window.location.pathname,
+        event_category: 'acquisition',
+      });
+    }
+
+    if (source) {
+      window.gtag('event', 'blog_referral_landing', {
+        utm_source: referralData.source,
+        utm_medium: referralData.medium,
+        utm_campaign: referralData.campaign,
+        article_slug: referralData.content,
+        native_lang: referralData.refNative,
+        target_lang: referralData.refTarget,
+        event_category: 'acquisition',
+      });
+    }
   }
 
   // Clean URL (remove UTM params)

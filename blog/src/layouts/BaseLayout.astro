@@ -52,7 +52,29 @@ const { title, description, image, article, hideNavigation = false, nativeLang =
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', gaId);
+    gtag('config', gaId, {
+      cookie_domain: 'lovelanguages.io',
+      cookie_flags: 'SameSite=Lax;Secure'
+    });
+
+    // Detect AI referral traffic (GEO tracking)
+    (function() {
+      var ref = document.referrer || '';
+      var src = new URLSearchParams(window.location.search).get('utm_source') || '';
+      var aiSources = ['chatgpt.com','perplexity.ai','you.com','bing.com','copilot.microsoft.com','claude.ai','gemini.google.com','phind.com','bard.google.com'];
+      for (var i = 0; i < aiSources.length; i++) {
+        if (ref.indexOf(aiSources[i]) !== -1 || src.indexOf(aiSources[i]) !== -1) {
+          gtag('event', 'ai_referral_landing', {
+            ai_source: aiSources[i],
+            referrer: ref,
+            landing_page: window.location.pathname,
+            event_category: 'acquisition'
+          });
+          gtag('set', 'user_properties', { traffic_channel: 'ai_referral' });
+          break;
+        }
+      }
+    })();
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased" style="font-family: 'Outfit', sans-serif;">

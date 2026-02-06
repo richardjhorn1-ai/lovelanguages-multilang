@@ -42,8 +42,8 @@ export const RelationStep: React.FC<RelationStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-6">
-          <ICONS.Users className="w-8 h-8 text-rose-500" />
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: `${accentColor}15` }}>
+          <ICONS.Users className="w-8 h-8" style={{ color: accentColor }} />
         </div>
         <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
           {t('onboarding.tutor.relation.title', { name: learnerName })}
@@ -59,13 +59,14 @@ export const RelationStep: React.FC<RelationStepProps> = ({
             key={option.id}
             onClick={() => setSelected(option.id)}
             className={`p-4 rounded-2xl border-2 transition-all flex flex-col items-center gap-2 ${
-              selected === option.id
-                ? 'border-rose-300 bg-rose-50'
-                : 'border-gray-100 bg-white hover:border-gray-200'
+              selected !== option.id
+                ? 'border-gray-100 bg-white hover:border-gray-200'
+                : ''
             }`}
+            style={selected === option.id ? { borderColor: `${accentColor}60`, backgroundColor: `${accentColor}10` } : undefined}
           >
             <span className="text-3xl">{option.emoji}</span>
-            <span className={`font-bold ${selected === option.id ? 'text-rose-700' : 'text-gray-700'}`}>
+            <span className="font-bold" style={{ color: selected === option.id ? accentColor : '#374151' }}>
               {option.label}
             </span>
           </button>

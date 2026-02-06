@@ -49,7 +49,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   const [useBasicValidation, setUseBasicValidation] = useState(false);
 
   const { t } = useTranslation();
-  const { targetName } = useLanguage();
+  const { targetName, languageParams } = useLanguage();
 
   useEffect(() => {
     if (started) {
@@ -116,7 +116,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
       explanation = correct ? 'Self-assessed correct' : 'Self-assessed incorrect';
     } else if (smartValidation && !useBasicValidation && question.type === 'type_it') {
       // Smart validation for type_it questions
-      const result = await validateAnswerSmart(answer, question.translation, { targetWord: question.word });
+      const result = await validateAnswerSmart(answer, question.translation, { targetWord: question.word, languageParams });
       correct = result.accepted;
       explanation = result.explanation;
       // Check if rate limit was hit
