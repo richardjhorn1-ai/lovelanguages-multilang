@@ -1,7 +1,46 @@
 # Love Languages - Development Roadmap
 
-**Last Updated:** February 4, 2026
+**Last Updated:** February 6, 2026
 **Project:** Love Languages Multilang
+
+---
+
+## ✅ Recently Completed (Feb 6, 2026)
+
+### Offline Mode Complete
+Full offline support across all tabs with background sync.
+
+**Features:**
+- ✅ **IndexedDB Storage** — All vocabulary cached locally for offline access
+- ✅ **Offline Detection** — Visual indicators when connection lost
+- ✅ **Background Sync** — Queue actions while offline, sync on reconnect
+- ✅ **All Tabs Supported** — Chat, Games, Progress, Dictionary work offline
+
+**Technical:**
+- New service: `offline-db.ts` (458 lines)
+- Commits: 161f0804, cc9f444d, 814a7896
+
+---
+
+### Analytics Overhaul
+Comprehensive analytics infrastructure with engagement tracking, Core Web Vitals, and AI referral tracking.
+
+**Features:**
+- ✅ **Core Web Vitals** — LCP, FID, CLS tracking
+- ✅ **Engagement Events** — game_started, game_completed, word_practiced now firing
+- ✅ **Chat Events** — Message sent/received tracking
+- ✅ **Retention Events** — Streak milestones, return visits
+- ✅ **AI Referral Tracking** — Track users from AI assistants (ChatGPT, Claude, Perplexity)
+
+---
+
+### SEO/Technical Fixes
+Infrastructure improvements for better indexing and tracking consistency.
+
+**Fixes:**
+- ✅ **Sitemap www URLs** — All sitemap URLs now use www prefix consistently
+- ✅ **Canonical URLs** — Proper canonical tags across all pages
+- ✅ **GA4 Unified** — Same tracking between blog and app (G-LWVWLRMW3R)
 
 ---
 
@@ -152,19 +191,17 @@ paywall_view → plan_selected → checkout_started → subscription_completed/f
 
 This answers: **"Where do users drop off?"**
 
-### ⏸️ Phase 2: Engagement Tracking (CONDITIONAL)
+### ✅ Phase 2: Engagement Tracking (MOSTLY COMPLETE - Feb 6, 2026)
 
-**Trigger criteria — implement when ANY of these are true:**
-- [ ] 100+ signups (need retention data at scale)
-- [ ] Conversion rate known and we're optimizing for retention
-- [ ] Specific question like "do game users convert better?"
+**Implemented events:**
+- ✅ Games: `game_started`, `game_completed`, `word_practiced`
+- ✅ Chat: `chat_message_sent`, `chat_response_received`
+- ✅ Retention: `streak_maintained`, `return_visit` milestones
+- ✅ AI Referral: Track users arriving from ChatGPT, Claude, Perplexity
 
-**Events to add when triggered:**
-- Chat: `chat_message_sent`, `chat_response_received`
-- Games: `game_started`, `game_completed`, `word_practiced`
-- Learning: `word_added`, `level_test_completed`
-- Retention: `streak_maintained`, `partner_invited`
-- Churn: `error_encountered`, `feature_abandoned`
+**Still pending:**
+- [ ] Learning: `word_added`, `level_test_completed`
+- [ ] Churn: `error_encountered`, `feature_abandoned`
 
 Full spec: `docs/ANALYTICS_IMPLEMENTATION.md`
 
@@ -308,63 +345,53 @@ Let users input open-ended goals like "meet the in-laws" or "order food on vacat
 
 These are foundational systems that need holistic redesign, not quick fixes.
 
-### A. XP & Progression System Overhaul
-The current XP system is essentially "number of words in dictionary." Needs complete rethink.
+### A. XP & Progression System — ✅ COMPLETE (Feb 4, 2026)
 
-**Problems:**
-- XP not awarded for actual practice (games, challenges)
-- Levels don't mean anything
-- No daily/streak incentives
-- Score tracking columns inconsistent (`success_count` vs `total_attempts`)
+**Student XP:**
+- ✅ XP awarded for games (1 XP per 5 consecutive correct)
+- ✅ XP for word mastery, challenges, gifts received
+- ✅ 18 levels across 6 tiers (Beginner → Master)
+- ✅ Streak-based mastery (5 correct = learned)
 
-**Needs:**
-- XP formula based on actual learning (practice, streaks, mastery)
-- Meaningful level progression
-- Daily bonuses, streak rewards
-- Unified score tracking across all features
-- Connect XP to skill progression, not just word count
+**Tutor XP:**
+- ✅ 8 action types award XP (create_challenge, send_word_gift, partner_completes, etc.)
+- ✅ 6 tutor tiers (Language Whisperer → Love Linguist)
+- ✅ Stats tracking (challenges_created, gifts_sent, perfect_scores, words_mastered)
 
-**Related items:** #1, #2, #6, #16, #22
+**Files:** `api/tutor-award-xp.ts`, `api/submit-game-session.ts`, `constants/levels.ts`
 
 ---
 
-### B. Verb System & Conjugation
-Verb Mastery is Polish-only and limited to 3 tenses. Real languages have many more.
+### B. Verb System & Conjugation — ✅ COMPLETE (Jan 28, 2026)
 
-**Problems:**
-- Hardcoded Polish pronouns in Verb Mastery
-- Only present/past/future — missing conditional, subjunctive, imperative, perfect, etc.
-- No way to add new tenses
-- Love Log doesn't handle verbs properly
+**Implemented:**
+- ✅ Per-language `conjugationPersons` (no more hardcoded Polish)
+- ✅ `availableTenses` per language (present, past, future, conditional, subjunctive, imperative)
+- ✅ `tenseStructures` defined per language
+- ✅ VerbMastery accepts `verbPersons` prop dynamically
+- ✅ VerbDojo game mode added
+- ✅ Love Log handles verbs with `getConjValue()` helper
+- ✅ All 18 languages configured
 
-**Needs:**
-- Per-language conjugation structures (each language is different)
-- Full tense support (varies by language)
-- Verb data generation/sourcing pipeline
-- Love Log verb integration
-- Works for all 18 languages
-
-**Related items:** #5, #20
+**Files:** `constants/language-config.ts`, `components/games/modes/VerbMastery.tsx`, `components/games/modes/VerbDojo/`
 
 ---
 
-### C. Curriculum & Tutor Guidance
-No structured learning path. Users wander aimlessly.
+### C. Curriculum & Tutor Guidance — ⚠️ PARTIAL (Feb 4, 2026)
 
-**Problems:**
-- Tutor has no curriculum to follow
-- No connection between learned words and next steps
-- No milestones or progression targets
-- Each language needs its own path (grammar structures differ)
+**Implemented:**
+- ✅ Coach Mode — AI-powered suggestions (word gift, quiz, quickfire, love note)
+- ✅ Weak Spot Intelligence — identifies stuck words (multiple failures, no improvement 7+ days)
+- ✅ Tutor Analytics Dashboard — teaching impact, partner progress trends
+- ✅ Activity Feed — shared partner timeline
+- ✅ Nudge System — reminders when partner inactive
 
-**Needs:**
-- Per-language learning curriculum
-- Tutor targets based on user's current vocabulary
-- "You've learned X, now practice Y" guidance
-- Fixed progression milestones per level
-- Connect vocabulary → grammar → conversation skills
+**Still Open:**
+- ❌ Formal per-language learning curriculum
+- ❌ Fixed progression milestones
+- ❌ "You've learned X, now practice Y" structured guidance
 
-**Related items:** #24
+**Files:** `components/tutor/WeakSpotIntelligence.tsx`, `api/coach-context.ts`
 
 ---
 
@@ -705,31 +732,28 @@ Timer callback captures stale state. Uses refs as workaround but pattern is frag
 
 ---
 
-### 10. Offline Mode — IN PROGRESS 🚧
-Full offline support with background sync. Currently: `useOffline()` caches vocab but game sessions lost.
+### 10. Offline Mode — ✅ COMPLETE
+Full offline support with background sync across all tabs.
 
 **Spec:** `docs/OFFLINE_MODE_PLAN.md` (full architecture + decisions)
 
-**Decisions locked:**
+**Implementation (Feb 6, 2026):**
+- ✅ IndexedDB setup and cache population
+- ✅ Offline detection with visual UI indicators
+- ✅ Offline-first fetching for all vocabulary
+- ✅ Background sync queue with automatic reconnect
+- ✅ All tabs work offline: Chat, Games, Progress, Dictionary
+
+**Technical:**
+- New service: `services/offline-db.ts` (458 lines)
+- Commits: 161f0804, cc9f444d, 814a7896
+
+**Decisions implemented:**
 - Conflict resolution: Timestamp wins (last sync overwrites)
 - Cache: All vocabulary on login (IndexedDB)
 - Refresh: On-open background update
 - SRS: Adjust intervals on sync based on elapsed time
 - Errors: i18n in all 18 languages
-
-**Phases:**
-| Phase | Description | Time |
-|-------|-------------|------|
-| 1 | IndexedDB setup | 2-3h |
-| 2 | Cache population | 2-3h |
-| 3 | Offline detection + UI | 1-2h |
-| 4 | Offline-first fetching | 2-3h |
-| 5 | Background sync queue | 2-3h |
-| **Total** | | **10-16h** |
-
-**MVP (4-6h):** Phases 1-3 only — games work offline, no sync
-
-**Status:** Richard implementing with Claude Code (Feb 4)
 
 ---
 
@@ -957,7 +981,7 @@ Capacitor configured but not fully deployed. iOS project exists but untested on 
 | ~~Volume slider~~ | 🟢 Low | 🟡 Medium | Quick | ✅ Done |
 | ~~Reduced motion~~ | 🟢 Low | 🟡 Medium | Quick | ✅ Done |
 | Keyboard shortcuts (1-4) | 🟢 Low | 🟡 Medium | Quick | ⚠️ Open |
-| Offline mode | 🔴 High | 🔴 High | Large | 🚧 In Progress |
+| Offline mode | 🔴 High | 🔴 High | Large | ✅ Done (Feb 6) |
 | SRS implementation | 🟢 Low | 🔴 High | Large | ⚠️ Open |
 | Mobile app deployment | 🟢 Low | 🔴 High | Large | ⚠️ Open |
 
