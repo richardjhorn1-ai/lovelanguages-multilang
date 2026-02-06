@@ -5,6 +5,7 @@ import { Profile, DictionaryEntry, WordScore } from '../../../types';
 import { useLanguage } from '../../../context/LanguageContext';
 import { sounds } from '../../../services/sounds';
 import { haptics } from '../../../services/haptics';
+import { useOffline } from '../../../hooks/useOffline';
 
 /** Number of consecutive correct answers needed to mark a word as "learned" */
 export const STREAK_TO_LEARN = 5;
@@ -69,6 +70,13 @@ export function useScoreTracking({
   );
 
   const { targetLanguage } = useLanguage();
+  const {
+    isOnline,
+    cacheWordScores,
+    getCachedWordScores,
+    updateCachedWordScore,
+    queueScoreUpdate,
+  } = useOffline(profile.id, targetLanguage);
 
   // Determine which user's scores to load
   const targetUserId =
@@ -80,6 +88,18 @@ export function useScoreTracking({
     setLoading(true);
 
     try {
+      // Offline: load from IndexedDB cache
+      if (!isOnline) {
+        const cachedScores = await getCachedWordScores();
+        if (cachedScores.length > 0 && mountedRef.current) {
+          const map = new Map<string, WordScore>();
+          cachedScores.forEach(s => map.set(s.word_id, s));
+          setScoresMap(map);
+        }
+        if (mountedRef.current) setLoading(false);
+        return;
+      }
+
       const { data: scoreData, error } = await supabase
         .from('word_scores')
         .select('*, dictionary:word_id(word, translation)')
@@ -89,10 +109,11 @@ export function useScoreTracking({
       if (error) {
         console.error('Error fetching scores:', error);
       } else if (scoreData && mountedRef.current) {
-        // Create a map for quick lookup
         const map = new Map<string, WordScore>();
         scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
         setScoresMap(map);
+        // Cache for offline use
+        await cacheWordScores(scoreData as WordScore[]);
       }
     } catch (error) {
       console.error('Error fetching scores:', error);
@@ -101,7 +122,7 @@ export function useScoreTracking({
     if (mountedRef.current) {
       setLoading(false);
     }
-  }, [targetUserId, targetLanguage]);
+  }, [targetUserId, targetLanguage, isOnline, getCachedWordScores, cacheWordScores]);
 
   // Fetch scores on mount and when dependencies change
   useEffect(() => {
@@ -154,10 +175,24 @@ export function useScoreTracking({
         learned_at: learnedAt,
       };
 
-      // Update in database
-      await supabase.from('word_scores').upsert(scoreUpdate, {
-        onConflict: 'user_id,word_id',
-      });
+      if (isOnline) {
+        // Update in database
+        await supabase.from('word_scores').upsert(scoreUpdate, {
+          onConflict: 'user_id,word_id',
+        });
+      } else {
+        // Queue for sync when back online + update local cache
+        await queueScoreUpdate({
+          userId: profile.id,
+          wordId,
+          languageCode: targetLanguage,
+          totalAttempts: newTotalAttempts,
+          correctAttempts: newCorrectAttempts,
+          correctStreak: newStreak,
+          learnedAt: learnedAt,
+        });
+        await updateCachedWordScore(scoreUpdate as WordScore);
+      }
 
       // Update local state (only if still mounted)
       if (mountedRef.current) {
@@ -188,7 +223,7 @@ export function useScoreTracking({
 
       return { justLearned, newStreak };
     },
-    [profile.id, targetLanguage, deckMap] // Removed scoresMap - using ref instead
+    [profile.id, targetLanguage, deckMap, isOnline] // Removed scoresMap - using ref instead
   );
 
   const getWordStreak = useCallback(

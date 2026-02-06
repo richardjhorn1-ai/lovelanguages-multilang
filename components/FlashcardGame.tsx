@@ -114,7 +114,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const { t } = useTranslation();
 
   // Offline mode
-  const { isOnline, cacheVocabulary, getCachedVocabulary, cachedWordCount, lastSyncTime } = useOffline(profile.id, targetLanguage);
+  const {
+    isOnline, isSyncing, cacheVocabulary, getCachedVocabulary, cachedWordCount, lastSyncTime,
+    cacheWordScores, getCachedWordScores, updateCachedWordScore,
+    queueScoreUpdate, queueGameSession, pendingCount: offlinePendingCount,
+  } = useOffline(profile.id, targetLanguage);
 
   // Challenge modes with translations (moved from module level to use t())
   const challengeModes = useMemo(() => [
@@ -180,12 +184,19 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     // If offline, try to use cached data
     if (!isOnline) {
-      const cachedData = getCachedVocabulary();
+      const cachedData = await getCachedVocabulary();
       if (cachedData && cachedData.length > 0) {
         setDeck(shuffleArray(cachedData));
-        setLoading(false);
-        return;
       }
+      const cachedScores = await getCachedWordScores();
+      if (cachedScores.length > 0) {
+        setScores(cachedScores);
+        const map = new Map<string, WordScore>();
+        cachedScores.forEach(s => map.set(s.word_id, s));
+        setScoresMap(map);
+      }
+      setLoading(false);
+      return;
     }
 
     const { data: dictData } = await supabase
@@ -196,8 +207,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     if (dictData) {
       setDeck(shuffleArray(dictData));
-      // Cache for offline use
-      cacheVocabulary(dictData);
+      await cacheVocabulary(dictData);
     }
 
     const { data: scoreData } = await supabase
@@ -208,10 +218,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
     if (scoreData) {
       setScores(scoreData as WordScore[]);
-      // Create a map for quick lookup
       const map = new Map<string, WordScore>();
       scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
       setScoresMap(map);
+      await cacheWordScores(scoreData as WordScore[]);
     }
 
     // Fetch pending challenges and word requests for students
@@ -316,10 +326,22 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       learned_at: learnedAt
     };
 
-    // Update in database
-    await supabase.from('word_scores').upsert(scoreUpdate, {
-      onConflict: 'user_id,word_id'
-    });
+    if (isOnline) {
+      await supabase.from('word_scores').upsert(scoreUpdate, {
+        onConflict: 'user_id,word_id'
+      });
+    } else {
+      await queueScoreUpdate({
+        userId: profile.id,
+        wordId,
+        languageCode: targetLanguage,
+        totalAttempts: newTotalAttempts,
+        correctAttempts: newCorrectAttempts,
+        correctStreak: newStreak,
+        learnedAt: learnedAt,
+      });
+      await updateCachedWordScore(scoreUpdate as WordScore);
+    }
 
     // Update local state
     setScoresMap(prev => {
@@ -370,10 +392,24 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Save game session to database
   const saveGameSession = async (gameMode: string, answers: GameSessionAnswer[], correct: number, incorrect: number) => {
     try {
+      const totalTimeSeconds = Math.floor((Date.now() - sessionStartTime) / 1000);
+
+      if (!isOnline) {
+        await queueGameSession({
+          userId: profile.id,
+          gameMode,
+          correctCount: correct,
+          incorrectCount: incorrect,
+          totalTimeSeconds,
+          answers,
+          targetLanguage,
+          nativeLanguage,
+        });
+        return;
+      }
+
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) return;
-
-      const totalTimeSeconds = Math.floor((Date.now() - sessionStartTime) / 1000);
 
       const response = await fetch('/api/submit-game-session', {
         method: 'POST',
@@ -391,7 +427,6 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         })
       });
 
-      // Play XP sound if XP was awarded
       if (response.ok) {
         const data = await response.json();
         if (data.xpAwarded > 0) {
@@ -827,6 +862,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             isOnline={isOnline}
             cachedWordCount={cachedWordCount}
             lastSyncTime={lastSyncTime}
+            pendingCount={offlinePendingCount}
+            isSyncing={isSyncing}
           />
         </div>
       )}

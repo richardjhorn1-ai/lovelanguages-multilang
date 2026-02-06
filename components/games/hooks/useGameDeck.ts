@@ -48,14 +48,16 @@ export function useGameDeck({ profile }: UseGameDeckOptions): UseGameDeckReturn 
   const fetchDeck = useCallback(async () => {
     setLoading(true);
 
-    // If offline, try to use cached data
+    // If offline, use cached data only — never fall through to Supabase
     if (!isOnline) {
-      const cachedData = getCachedVocabulary();
+      const cachedData = await getCachedVocabulary();
       if (cachedData && cachedData.length > 0) {
         setDeck(shuffleArray(cachedData));
-        setLoading(false);
-        return;
+      } else {
+        setDeck([]);
       }
+      setLoading(false);
+      return;
     }
 
     try {
@@ -71,8 +73,8 @@ export function useGameDeck({ profile }: UseGameDeckOptions): UseGameDeckReturn 
       } else if (dictData) {
         const shuffled = shuffleArray(dictData);
         setDeck(shuffled);
-        // Cache for offline use
-        cacheVocabulary(dictData);
+        // Cache separately so failure doesn't wipe the deck
+        cacheVocabulary(dictData).catch(() => {});
       }
     } catch (error) {
       console.error('Error fetching deck:', error);
