@@ -23,6 +23,7 @@ import { StreakIndicator, StreakCelebrationModal } from './games/components';
 import { Flashcards, MultipleChoice, TypeIt, QuickFire, AIChallenge } from './games/modes';
 import { VerbDojo } from './games/modes/VerbDojo';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
+import { analytics } from '../services/analytics';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
 import LimitReachedModal from './LimitReachedModal';
@@ -471,6 +472,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       setSessionScore({ correct: 0, incorrect: 0 });
       setSessionAnswers([]);
       setDeck(shuffleArray([...deck]));
+      // Track game start for completion rate analytics
+      analytics.trackGameStarted({ game_type: gameType, word_count: deck.length });
       // Note: QuickFire and VerbMastery components manage their own internal state
     }
   };
@@ -603,18 +606,21 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
       setFinished(true);
       saveGameSession('flashcards', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
+      analytics.trackGameCompleted({ game_type: 'flashcards', word_count: deck.length, score: sessionScore.correct, correct: sessionScore.incorrect === 0, accuracy: Math.round((sessionScore.correct / Math.max(sessionScore.correct + sessionScore.incorrect, 1)) * 100) });
     },
     multiple_choice: () => {
       if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
       setFinished(true);
       saveGameSession('multiple_choice', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
+      analytics.trackGameCompleted({ game_type: 'multiple_choice', word_count: deck.length, score: sessionScore.correct, correct: sessionScore.incorrect === 0, accuracy: Math.round((sessionScore.correct / Math.max(sessionScore.correct + sessionScore.incorrect, 1)) * 100) });
     },
     type_it: () => {
       if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
       setFinished(true);
       saveGameSession('type_it', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
+      analytics.trackGameCompleted({ game_type: 'type_it', word_count: deck.length, score: sessionScore.correct, correct: sessionScore.incorrect === 0, accuracy: Math.round((sessionScore.correct / Math.max(sessionScore.correct + sessionScore.incorrect, 1)) * 100) });
     },
-  }), [sessionScore, sessionAnswers, saveGameSession]);
+  }), [sessionScore, sessionAnswers, saveGameSession, deck.length]);
 
   // TypeIt validation wrapper (memoized)
   const handleTypeItValidation = useCallback(async (
@@ -659,6 +665,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setSessionAnswers(results.answers);
     setFinished(true);
     saveGameSession('quick_fire', results.answers, results.score.correct, results.score.incorrect);
+    analytics.trackGameCompleted({ game_type: 'quick_fire', word_count: results.answers.length, score: results.score.correct, correct: results.score.incorrect === 0, accuracy: Math.round((results.score.correct / Math.max(results.score.correct + results.score.incorrect, 1)) * 100) });
   }, [saveGameSession]);
 
   const handleQuickFireValidation = useCallback(async (
@@ -695,6 +702,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setSessionAnswers(results.answers);
     setFinished(true);
     saveGameSession('verb_mastery', results.answers, results.score.correct, results.score.incorrect);
+    analytics.trackGameCompleted({ game_type: 'verb_mastery', word_count: results.answers.length, score: results.score.correct, correct: results.score.incorrect === 0, accuracy: Math.round((results.score.correct / Math.max(results.score.correct + results.score.incorrect, 1)) * 100) });
   }, [saveGameSession]);
 
   const handleVerbMasteryValidation = useCallback(async (
@@ -731,6 +739,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setSessionAnswers(results.answers);
     setFinished(true);
     saveGameSession('ai_challenge', results.answers, results.score.correct, results.score.incorrect);
+    analytics.trackGameCompleted({ game_type: 'ai_challenge', word_count: results.answers.length, score: results.score.correct, correct: results.score.incorrect === 0, accuracy: Math.round((results.score.correct / Math.max(results.score.correct + results.score.incorrect, 1)) * 100) });
   }, [saveGameSession]);
 
   const handleAIChallengeValidation = useCallback(async (

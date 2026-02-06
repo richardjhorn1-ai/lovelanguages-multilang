@@ -13,7 +13,7 @@
     <meta name="keywords" content="learn language for couples, language learning for relationships, learn language for boyfriend, learn language for girlfriend, family vocabulary, meet in-laws, language learning app, couples language learning">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://lovelanguages.io/">
+    <link rel="canonical" href="https://www.lovelanguages.io/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -80,7 +80,31 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-ZJWLDBC5QP');
+      gtag('config', 'G-ZJWLDBC5QP', {
+        cookie_domain: 'lovelanguages.io',
+        cookie_flags: 'SameSite=Lax;Secure'
+      });
+
+      // Detect AI referral traffic (GEO tracking)
+      (function() {
+        var ref = document.referrer || '';
+        var src = new URLSearchParams(window.location.search).get('utm_source') || '';
+        var aiSources = ['chatgpt.com','perplexity.ai','you.com','bing.com','copilot.microsoft.com','claude.ai','gemini.google.com','phind.com','bard.google.com'];
+        var channel = 'direct';
+        for (var i = 0; i < aiSources.length; i++) {
+          if (ref.indexOf(aiSources[i]) !== -1 || src.indexOf(aiSources[i]) !== -1) {
+            channel = 'ai_referral';
+            gtag('event', 'ai_referral_landing', {
+              ai_source: aiSources[i],
+              referrer: ref,
+              landing_page: window.location.pathname,
+              event_category: 'acquisition'
+            });
+            break;
+          }
+        }
+        gtag('set', 'user_properties', { traffic_channel: channel !== 'direct' ? channel : undefined });
+      })();
     </script>
 </head>
 <body>
