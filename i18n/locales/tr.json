@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Zaten aktif bir aboneliğiniz var",
     "errorActive": "Zaten aktif içerik üretici erişiminiz var",
     "errorMaxUses": "Bu kod limitine ulaştı"
+  },
+  "offline": {
+    "title": "Çevrimdışısınız",
+    "offlineMode": "Çevrimdışı",
+    "canPractice": "Love Log'unuzdan {{count}} önbelleğe alınmış kelime ile hala pratik yapabilirsiniz.",
+    "noCache": "Önbelleğe alınmış kelime yok. Love Log'unuzu senkronize etmek için internete bağlanın.",
+    "lastSync": "Son senkronizasyon: {{time}}",
+    "never": "Hiç",
+    "justNow": "Az önce",
+    "minsAgo": "{{mins}} dk önce",
+    "hoursAgo": "{{hours}} saat önce",
+    "daysAgo": "{{days}} gün önce",
+    "chatUnavailable": "Sohbet çevrimdışı kullanılamaz",
+    "pendingSync": "{{count}} öğe senkronizasyon bekliyor",
+    "syncing": "Senkronize ediliyor...",
+    "syncComplete": "Senkronizasyon tamamlandı!",
+    "readOnly": "Önbelleğe alınmış veri görüntüleniyor",
+    "featureUnavailable": "Çevrimdışı kullanılamaz",
+    "scoresQueued": "Skorlar yerel olarak kaydedildi",
+    "sessionQueued": "Oturum yerel olarak kaydedildi"
   }
 }

@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Již máte aktivní předplatné",
     "errorActive": "Již máte aktivní přístup pro tvůrce",
     "errorMaxUses": "Tento kód dosáhl svého limitu"
+  },
+  "offline": {
+    "title": "Jste offline",
+    "offlineMode": "Offline",
+    "canPractice": "Stále můžete cvičit s {{count}} uloženými slovy z vašeho Love Logu.",
+    "noCache": "Nejsou k dispozici žádná uložená slovíčka. Připojte se k internetu pro synchronizaci Love Logu.",
+    "lastSync": "Naposledy synchronizováno: {{time}}",
+    "never": "Nikdy",
+    "justNow": "Právě teď",
+    "minsAgo": "Před {{mins}} minutami",
+    "hoursAgo": "Před {{hours}} hodinami",
+    "daysAgo": "Před {{days}} dny",
+    "chatUnavailable": "Chat není offline dostupný",
+    "pendingSync": "{{count}} položek čeká na synchronizaci",
+    "syncing": "Synchronizace...",
+    "syncComplete": "Synchronizace dokončena!",
+    "readOnly": "Zobrazení uložených dat",
+    "featureUnavailable": "Offline nedostupné",
+    "scoresQueued": "Skóre uloženo lokálně",
+    "sessionQueued": "Relace uložena lokálně"
   }
 }

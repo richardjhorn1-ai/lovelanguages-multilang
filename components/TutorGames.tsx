@@ -19,6 +19,8 @@ import {
   TutorGameResults,
   type TutorAnswerResult,
 } from './games/tutor-modes';
+import { useOffline } from '../hooks/useOffline';
+import OfflineIndicator from './OfflineIndicator';
 
 interface TutorGamesProps {
   profile: Profile;
@@ -42,6 +44,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const { t } = useTranslation();
   const { accentHex } = useTheme();
   const { targetLanguage, nativeLanguage, languageParams, targetName, nativeName } = useLanguage();
+  const { isOnline, cachedWordCount, lastSyncTime, pendingCount, isSyncing: offlineSyncing } = useOffline(profile.id, targetLanguage);
   const [challenges, setChallenges] = useState<TutorChallenge[]>([]);
   const [wordRequests, setWordRequests] = useState<WordRequest[]>([]);
   const [tutorStats, setTutorStats] = useState<TutorStats | null>(null);
@@ -548,6 +551,16 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[var(--bg-primary)]">
       <div className="max-w-4xl mx-auto space-y-6">
 
+        {!isOnline && (
+          <OfflineIndicator
+            isOnline={isOnline}
+            cachedWordCount={cachedWordCount}
+            lastSyncTime={lastSyncTime}
+            pendingCount={pendingCount}
+            isSyncing={offlineSyncing}
+          />
+        )}
+
         {/* Header with Mode Toggle and Streak */}
         <div className="text-center">
           {/* Teaching Streak Badge */}
@@ -691,7 +704,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           {/* Do You Remember Quiz */}
           <button
             onClick={() => setShowQuizModal(true)}
-            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
+            disabled={!isOnline}
+            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
@@ -711,7 +725,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           {/* Quick Fire */}
           <button
             onClick={() => setShowQuickFireModal(true)}
-            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-amber-500/30 transition-all text-left"
+            disabled={!isOnline}
+            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
@@ -731,7 +746,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           {/* Word Gift */}
           <button
             onClick={() => setShowWordRequestModal(true)}
-            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-teal-500/30 transition-all text-left"
+            disabled={!isOnline}
+            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-teal-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 bg-teal-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">

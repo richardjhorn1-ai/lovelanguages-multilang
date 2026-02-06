@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Vous avez déjà un abonnement actif",
     "errorActive": "Vous avez déjà un accès créateur actif",
     "errorMaxUses": "Ce code a atteint sa limite"
+  },
+  "offline": {
+    "title": "Vous êtes hors ligne",
+    "offlineMode": "Hors ligne",
+    "canPractice": "Vous pouvez toujours pratiquer avec {{count}} mots en cache de votre Love Log.",
+    "noCache": "Aucun vocabulaire en cache disponible. Connectez-vous à Internet pour synchroniser votre Love Log.",
+    "lastSync": "Dernière synchronisation : {{time}}",
+    "never": "Jamais",
+    "justNow": "À l'instant",
+    "minsAgo": "Il y a {{mins}} minutes",
+    "hoursAgo": "Il y a {{hours}} heures",
+    "daysAgo": "Il y a {{days}} jours",
+    "chatUnavailable": "Le chat n'est pas disponible hors ligne",
+    "pendingSync": "{{count}} éléments en attente de synchronisation",
+    "syncing": "Synchronisation...",
+    "syncComplete": "Synchronisation terminée !",
+    "readOnly": "Affichage des données en cache",
+    "featureUnavailable": "Indisponible hors ligne",
+    "scoresQueued": "Scores enregistrés localement",
+    "sessionQueued": "Session enregistrée localement"
   }
 }

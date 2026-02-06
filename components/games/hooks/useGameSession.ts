@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { supabase } from '../../../services/supabase';
 import { useLanguage } from '../../../context/LanguageContext';
+import { useOffline } from '../../../hooks/useOffline';
 
 export interface GameSessionAnswer {
   wordId?: string;
@@ -24,6 +25,7 @@ interface SessionEndData {
 }
 
 interface UseGameSessionOptions {
+  userId?: string;
   onSessionEnd?: (results: SessionEndData) => void;
 }
 
@@ -55,7 +57,8 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
   const [finished, setFinished] = useState(false);
   const sessionStartTimeRef = useRef<number>(Date.now());
 
-  const { languageParams } = useLanguage();
+  const { languageParams, targetLanguage } = useLanguage();
+  const { isOnline, queueGameSession } = useOffline(options?.userId, targetLanguage);
 
   // Use refs to avoid stale closures in callbacks
   const sessionScoreRef = useRef(sessionScore);
@@ -119,19 +122,34 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
   const saveSession = useCallback(
     async (gameMode: string) => {
       try {
+        const totalTimeSeconds = Math.floor(
+          (Date.now() - sessionStartTimeRef.current) / 1000
+        );
+        const currentScore = sessionScoreRef.current;
+        const currentAnswers = sessionAnswersRef.current;
+
+        if (!isOnline) {
+          // Queue for sync when back online
+          if (options?.userId) {
+            await queueGameSession({
+              userId: options.userId,
+              gameMode,
+              correctCount: currentScore.correct,
+              incorrectCount: currentScore.incorrect,
+              totalTimeSeconds,
+              answers: currentAnswers,
+              targetLanguage: languageParams.targetLanguage || '',
+              nativeLanguage: languageParams.nativeLanguage || '',
+            });
+          }
+          return;
+        }
+
         const token = (await supabase.auth.getSession()).data.session?.access_token;
         if (!token) {
           console.error('No auth token available for saving session');
           return;
         }
-
-        const totalTimeSeconds = Math.floor(
-          (Date.now() - sessionStartTimeRef.current) / 1000
-        );
-
-        // Use refs for current values
-        const currentScore = sessionScoreRef.current;
-        const currentAnswers = sessionAnswersRef.current;
 
         const response = await fetch('/api/submit-game-session', {
           method: 'POST',
@@ -156,7 +174,7 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
         console.error('Error saving game session:', error);
       }
     },
-    [languageParams]
+    [languageParams, isOnline, queueGameSession, options?.userId]
   );
 
   /**

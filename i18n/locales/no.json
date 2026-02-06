@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Du har allerede et aktivt abonnement",
     "errorActive": "Du har allerede aktiv skaper-tilgang",
     "errorMaxUses": "Denne koden har nådd sin grense"
+  },
+  "offline": {
+    "title": "Du er frakoblet",
+    "offlineMode": "Frakoblet",
+    "canPractice": "Du kan fortsatt øve med {{count}} lagrede ord fra Love Log.",
+    "noCache": "Ingen lagret ordforråd tilgjengelig. Koble til internett for å synkronisere Love Log.",
+    "lastSync": "Sist synkronisert: {{time}}",
+    "never": "Aldri",
+    "justNow": "Akkurat nå",
+    "minsAgo": "{{mins}} minutter siden",
+    "hoursAgo": "{{hours}} timer siden",
+    "daysAgo": "{{days}} dager siden",
+    "chatUnavailable": "Chat er ikke tilgjengelig frakoblet",
+    "pendingSync": "{{count}} elementer venter på synkronisering",
+    "syncing": "Synkroniserer...",
+    "syncComplete": "Synkronisering fullført!",
+    "readOnly": "Viser lagrede data",
+    "featureUnavailable": "Ikke tilgjengelig frakoblet",
+    "scoresQueued": "Resultater lagret lokalt",
+    "sessionQueued": "Økt lagret lokalt"
   }
 }

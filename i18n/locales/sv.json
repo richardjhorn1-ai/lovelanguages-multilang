@@ -2154,5 +2154,25 @@
     "errorSubscribed": "Du har redan en aktiv prenumeration",
     "errorActive": "Du har redan aktiv skapare-åtkomst",
     "errorMaxUses": "Denna kod har nått sin gräns"
+  },
+  "offline": {
+    "title": "Du är offline",
+    "offlineMode": "Offline",
+    "canPractice": "Du kan fortfarande öva med {{count}} cachade ord från din Love Log.",
+    "noCache": "Inget cachat ordförråd tillgängligt. Anslut till internet för att synka din Love Log.",
+    "lastSync": "Senast synkad: {{time}}",
+    "never": "Aldrig",
+    "justNow": "Nyss",
+    "minsAgo": "{{mins}} min sedan",
+    "hoursAgo": "{{hours}} timmar sedan",
+    "daysAgo": "{{days}} dagar sedan",
+    "chatUnavailable": "Chatt är inte tillgänglig offline",
+    "pendingSync": "{{count}} objekt väntar på att synkas",
+    "syncing": "Synkar...",
+    "syncComplete": "Synkning klar!",
+    "readOnly": "Visar cachad data",
+    "featureUnavailable": "Ej tillgänglig offline",
+    "scoresQueued": "Resultat sparade lokalt",
+    "sessionQueued": "Session sparad lokalt"
   }
 }
