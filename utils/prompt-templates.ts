@@ -309,25 +309,17 @@ CONCEPTS TO TEST:
 ${theme.concepts.map((c, i) => `${i + 1}. ${c}`).join('\n')}
 
 QUESTION MIX:
-- 60% Multiple Choice (4 options)
-- 25% Fill in the Blank
-- 15% Translation
+- 60% multiple_choice (4 options each)
+- 25% fill_blank
+- 15% translation
 
 REQUIREMENTS:
-- Instructions in ${native.name}
+- Write question text and explanations in ${native.name}
 - One question per concept minimum
-- Difficulty appropriate for level transition
-
-OUTPUT JSON array:
-[{
-  "type": "multipleChoice" | "fillBlank" | "translation",
-  "question": "${native.name} question text",
-  "targetText": "${target.name} text if any",
-  "options": ["A", "B", "C", "D"],
-  "correctAnswer": "answer",
-  "explanation": "${native.name} explanation",
-  "concept": "which concept tested"
-}]`;
+- Difficulty appropriate for ${fromLevel} → ${toLevel} transition
+- Use unique IDs: q1, q2, q3, etc.
+- Mark each question isCore: true for core concept questions, false for personalized vocabulary questions
+- Set each question's theme to the specific concept it tests from the list above`;
 }
 
 // =============================================================================
