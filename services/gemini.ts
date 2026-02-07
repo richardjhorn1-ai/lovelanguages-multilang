@@ -280,13 +280,22 @@ export const geminiService = {
   },
 
   async generateLevelTest(fromLevel: string, toLevel: string, languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string }> {
+    let fetchTimeout: ReturnType<typeof setTimeout> | undefined;
+
     try {
       const headers = await getAuthHeaders();
+
+      const controller = new AbortController();
+      fetchTimeout = setTimeout(() => controller.abort(), 65_000);
+
       const response = await fetch('/api/generate-level-test', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ fromLevel, toLevel, ...languageParams })
+        body: JSON.stringify({ fromLevel, toLevel, ...languageParams }),
+        signal: controller.signal
       });
+
+      clearTimeout(fetchTimeout);
 
       if (response.status === 401) {
         return { success: false, error: "Please log in." };
@@ -299,7 +308,11 @@ export const geminiService = {
       }
 
       return { success: true, data };
-    } catch (e) {
+    } catch (e: any) {
+      clearTimeout(fetchTimeout);
+      if (e.name === 'AbortError') {
+        return { success: false, error: "Test generation timed out. Please try again." };
+      }
       console.error("Generate Level Test Error:", e);
       return { success: false, error: "Failed to connect to server" };
     }

@@ -1,5 +1,4 @@
 import { GoogleGenAI } from "@google/genai";
-import { createClient } from '@supabase/supabase-js';
 import {
   setCorsHeaders,
   verifyAuth,
@@ -18,6 +17,10 @@ import {
   CORE_QUESTIONS_RATIO,
   getThemeForTransition
 } from '../constants/levels.js';
+
+export const config = {
+  maxDuration: 60,
+};
 
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
@@ -124,14 +127,28 @@ export default async function handler(req: any, res: any) {
 
     const prompt = basePrompt + questionRequirements + vocabContext + '\n\nGenerate the test questions now.';
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: prompt,
-      config: {
-        responseMimeType: 'application/json',
-        responseSchema: buildLevelTestSchema()
+    const controller = new AbortController();
+    const geminiTimeout = setTimeout(() => controller.abort(), 45_000);
+
+    let response;
+    try {
+      response = await ai.models.generateContent({
+        model: 'gemini-3-flash-preview',
+        contents: prompt,
+        config: {
+          responseMimeType: 'application/json',
+          responseSchema: buildLevelTestSchema(),
+          abortSignal: controller.signal
+        }
+      });
+    } catch (err: any) {
+      if (controller.signal.aborted) {
+        return res.status(504).json({ error: 'Test generation timed out. Please try again.' });
       }
-    });
+      throw err;
+    } finally {
+      clearTimeout(geminiTimeout);
+    }
 
     const text = response.text || '';
 
