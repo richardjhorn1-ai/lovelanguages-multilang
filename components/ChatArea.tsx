@@ -11,7 +11,6 @@ import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import { speak } from '../services/audio';
-import NewWordsNotification from './NewWordsNotification';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
 import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
 import { ThinkingIndicator } from './ThinkingIndicator';
@@ -245,8 +244,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [liveError, setLiveError] = useState<string | null>(null);
   const liveSessionRef = useRef<LiveSession | null>(null);
 
-  // New words notification state
-  const [newWordsNotification, setNewWordsNotification] = useState<ExtractedWord[]>([]);
+  // Extraction progress indicator (counter handles overlapping extractions)
+  const extractingCountRef = useRef(0);
+  const [extractingWords, setExtractingWords] = useState(false);
 
   // Theme
   const { accentHex } = useTheme();
@@ -471,6 +471,14 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     }
   };
 
+  // Dispatch custom event for App-level notification (visible on all tabs)
+  const notifyNewWords = (words: ExtractedWord[]) => {
+    window.dispatchEvent(new CustomEvent('new-words-extracted', { detail: { words } }));
+  };
+
+  const startExtracting = () => { extractingCountRef.current++; setExtractingWords(true); };
+  const stopExtracting = () => { extractingCountRef.current = Math.max(0, extractingCountRef.current - 1); if (extractingCountRef.current === 0) setExtractingWords(false); };
+
   const handleSend = async (directMessage?: string) => {
     const messageToSend = directMessage || input;
     if ((!messageToSend.trim() && attachments.length === 0) || !activeChat || loading) return;
@@ -557,24 +565,27 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (mode !== 'coach') {
       if (currentAttachments.length === 0) {
         // Streaming path - extract vocabulary from conversation
+        startExtracting();
         geminiService.analyzeHistory(
           [...messageHistory, { role: 'user', content: userMessage }, { role: 'assistant', content: replyText }],
           userWords,
           languageParams
-        ).then(extracted => {
+        ).then(async (extracted) => {
           if (extracted.length > 0) {
-            saveExtractedWords(extracted).catch(console.error);
-            analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: extracted.length, source: 'chat' });
-            setNewWordsNotification(extracted);
-            setTimeout(() => setNewWordsNotification([]), 5000);
+            try {
+              await saveExtractedWords(extracted);
+              analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: extracted.length, source: 'chat' });
+              notifyNewWords(extracted);
+            } catch (err) { console.error('Failed to save extracted words:', err); }
           }
-        }).catch(console.error);
+        }).catch(console.error).finally(() => stopExtracting());
       } else if (newWords.length > 0) {
         // Image path - words already extracted in generateReply
-        saveExtractedWords(newWords).catch(console.error);
-        analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: newWords.length, source: 'image' });
-        setNewWordsNotification(newWords);
-        setTimeout(() => setNewWordsNotification([]), 5000);
+        startExtracting();
+        saveExtractedWords(newWords).then(() => {
+          analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: newWords.length, source: 'image' });
+          notifyNewWords(newWords);
+        }).catch(console.error).finally(() => stopExtracting());
       }
     }
 
@@ -673,31 +684,36 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       const voiceMessages = allMessages.slice(startIdx);
 
       if (voiceMessages.length > 0) {
-        // Get known words to avoid duplicates
-        const { data: existingWords } = await supabase
-          .from('dictionary')
-          .select('word')
-          .eq('user_id', profile.id);
+        startExtracting();
+        try {
+          // Get known words to avoid duplicates
+          const { data: existingWords } = await supabase
+            .from('dictionary')
+            .select('word')
+            .eq('user_id', profile.id);
 
-        const knownWords = existingWords?.map(w => w.word.toLowerCase()) || [];
+          const knownWords = existingWords?.map(w => w.word.toLowerCase()) || [];
 
-        // Analyze the voice transcripts
-        const harvested = await geminiService.analyzeHistory(
-          voiceMessages.map(m => ({ role: m.role, content: m.content })),
-          knownWords,
-          languageParams
-        );
+          // Analyze the voice transcripts
+          const harvested = await geminiService.analyzeHistory(
+            voiceMessages.map(m => ({ role: m.role, content: m.content })),
+            knownWords,
+            languageParams
+          );
 
-        if (harvested.length > 0) {
-          // Save extracted words
-          await saveExtractedWords(harvested);
+          if (harvested.length > 0) {
+            // Save extracted words
+            await saveExtractedWords(harvested);
 
-          // Show notification
-          setNewWordsNotification(harvested);
-          setTimeout(() => setNewWordsNotification([]), 5000);
+            // Show notification via App-level event
+            notifyNewWords(harvested);
+          }
+        } finally {
+          stopExtracting();
         }
       }
     } catch (e) {
+      stopExtracting();
       console.error('Voice vocabulary extraction failed:', e);
     }
   };
@@ -1075,8 +1091,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         console.error('Supabase error adding words:', error);
         alert(t('chat.errors.addWordsFailed', { message: error.message }));
       } else {
-        // Play new words sound
-        sounds.play('new-words');
         setShowWordExtractor(false);
         setExtractedWords([]);
         setSelectedWords(new Set());
@@ -1086,6 +1100,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         }
         // Dispatch event for Love Log to refresh
         window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: data?.length || 0 } }));
+        // Notify App-level notification (plays sound + shows toast)
+        notifyNewWords(wordsToAdd);
       }
     } catch (err) {
       console.error('Failed to add words:', err);
@@ -1563,9 +1579,17 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           </div>
         )}
 
+        {/* Extraction progress indicator — hidden in Listen Mode */}
+        {extractingWords && !isListening && !activeListenSession && (
+          <div className="flex items-center gap-2 px-4 py-1.5 text-scale-micro text-[var(--text-secondary)] bg-[var(--bg-card)] border-t border-[var(--border-color)]">
+            <ICONS.Sparkles className="w-3 h-3 animate-pulse text-[var(--accent-color)]" />
+            {t('chat.extractingWords', 'Finding new words...')}
+          </div>
+        )}
+
         {/* Input - Hidden in listen mode */}
         {!isListening && !activeListenSession && (
-          <div className="p-2 md:p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] relative safe-area-bottom shrink-0">
+          <div className={`p-2 md:p-4 bg-[var(--bg-card)] ${extractingWords ? '' : 'border-t border-[var(--border-color)]'} relative safe-area-bottom shrink-0`}>
             <div className="max-w-4xl mx-auto flex items-center gap-1.5 md:gap-3">
               {/* Attach button with popup */}
               <div className="relative shrink-0">
@@ -1818,14 +1842,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           </div>
         </div>
       </div>
-
-      {/* New Words Notification */}
-      {newWordsNotification.length > 0 && (
-        <NewWordsNotification
-          words={newWordsNotification}
-          onClose={() => setNewWordsNotification([])}
-        />
-      )}
 
       {/* Word Extractor Modal */}
       {showWordExtractor && (

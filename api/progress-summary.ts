@@ -135,74 +135,67 @@ export default async function handler(req: any, res: any) {
     // STEP 2: Check for previous summary (filtered by current language)
     const { data: lastSummary } = await supabase
       .from('progress_summaries')
-      .select('id, created_at, topics_explored, can_now_say, words_learned')
+      .select('id, created_at, topics_explored, can_now_say, words_learned, title, summary, grammar_highlights, suggestions, xp_at_time, level_at_time, native_language')
       .eq('user_id', auth.userId)
       .eq('language_code', targetLanguage)
       .order('created_at', { ascending: false })
       .limit(1)
       .single();
 
+    // Cache check: if summary was generated in the last 10 minutes, return it
+    if (lastSummary && (Date.now() - new Date(lastSummary.created_at).getTime() < 10 * 60 * 1000)) {
+      return res.status(200).json({
+        success: true,
+        cached: true,
+        id: lastSummary.id,
+        title: lastSummary.title,
+        summary: lastSummary.summary,
+        topicsExplored: lastSummary.topics_explored,
+        grammarHighlights: lastSummary.grammar_highlights,
+        canNowSay: lastSummary.can_now_say,
+        suggestions: lastSummary.suggestions,
+        wordsLearned: lastSummary.words_learned,
+        xpAtTime: lastSummary.xp_at_time,
+        levelAtTime: lastSummary.level_at_time,
+        newWordsSinceLastVisit: 0,
+        createdAt: lastSummary.created_at,
+        generatedAt: lastSummary.created_at,
+        validationPatterns: null,
+      });
+    }
+
     const isIncremental = !!lastSummary;
     const sinceDate = lastSummary?.created_at || new Date(0).toISOString();
 
-    // STEP 3: Incremental fetches - only data SINCE last summary
-    // Vocabulary: only new words since last summary (or all if first summary, limited to 100)
+    // STEP 3: Parallel fetches - 5 independent queries at once
+    const messagesSinceDate = isIncremental ? sinceDate : (() => {
+      const d = new Date(); d.setDate(d.getDate() - 14); return d.toISOString();
+    })();
+
     const vocabQuery = supabase
       .from('dictionary')
       .select('word, translation, word_type, context, unlocked_at')
       .eq('user_id', auth.userId)
       .eq('language_code', targetLanguage)
       .order('unlocked_at', { ascending: false });
-
     if (isIncremental) {
       vocabQuery.gte('unlocked_at', sinceDate);
     } else {
       vocabQuery.limit(100);
     }
-    const { data: vocabulary } = await vocabQuery;
 
-    // Total word count (for stats)
-    const { count: totalWordCount } = await supabase
-      .from('dictionary')
-      .select('id', { count: 'exact', head: true })
-      .eq('user_id', auth.userId)
-      .eq('language_code', targetLanguage);
-
-    // Messages: only since last summary (or last 14 days if first)
-    const messagesSinceDate = isIncremental ? sinceDate : (() => {
-      const d = new Date(); d.setDate(d.getDate() - 14); return d.toISOString();
-    })();
-    const { data: messages } = await supabase
-      .from('messages')
-      .select('content, role, created_at')
-      .eq('user_id', auth.userId)
-      .gte('created_at', messagesSinceDate)
-      .order('created_at', { ascending: false })
-      .limit(isIncremental ? 50 : 100);
-
-    // Game sessions: only since last summary
     const gameQuery = supabase
       .from('game_sessions')
       .select('id, game_mode, correct_count, incorrect_count, completed_at')
       .eq('user_id', auth.userId)
       .or(`language_code.eq.${targetLanguage},language_code.is.null`)
       .order('completed_at', { ascending: false });
-
     if (isIncremental) {
       gameQuery.gte('completed_at', sinceDate);
     } else {
       gameQuery.limit(20);
     }
-    const { data: gameSessions } = await gameQuery;
 
-    // Game answers (skip if no sessions to analyze)
-    const sessionIds = gameSessions?.map(s => s.id) || [];
-    const { data: gameAnswers } = sessionIds.length > 0 ? await supabase
-      .from('game_session_answers')
-      .select('is_correct, explanation')
-      .in('session_id', sessionIds) : { data: [] };
-
-    // Level tests: only since last summary
     const testQuery = supabase
       .from('level_tests')
       .select('from_level, to_level, passed, score, completed_at')
@@ -210,13 +203,32 @@ export default async function handler(req: any, res: any) {
       .eq('status', 'completed')
       .eq('language_code', targetLanguage)
       .order('completed_at', { ascending: false });
-
     if (isIncremental) {
       testQuery.gte('completed_at', sinceDate);
     } else {
       testQuery.limit(5);
     }
-    const { data: levelTests } = await testQuery;
+
+    const [
+      { data: vocabulary },
+      { count: totalWordCount },
+      { data: messages },
+      { data: gameSessions },
+      { data: levelTests }
+    ] = await Promise.all([
+      vocabQuery,
+      supabase.from('dictionary').select('id', { count: 'exact', head: true }).eq('user_id', auth.userId).eq('language_code', targetLanguage),
+      supabase.from('messages').select('content, role, created_at').eq('user_id', auth.userId).gte('created_at', messagesSinceDate).order('created_at', { ascending: false }).limit(isIncremental ? 50 : 100),
+      gameQuery,
+      testQuery
+    ]);
+
+    // Game answers (depends on gameSessions result)
+    const sessionIds = gameSessions?.map(s => s.id) || [];
+    const { data: gameAnswers } = sessionIds.length > 0 ? await supabase
+      .from('game_session_answers')
+      .select('is_correct, explanation')
+      .in('session_id', sessionIds) : { data: [] };
 
     // Use total count from DB, not just fetched vocabulary length
     const totalWords = totalWordCount || 0;
@@ -503,6 +515,6 @@ The summary should make them feel seen, not just measured.`;
 
   } catch (error: any) {
     console.error('Error generating progress summary:', error);
-    return res.status(500).json({ error: 'Failed to generate summary' });
+    return res.status(500).json({ error: 'Failed to generate summary. Please try again.', retryable: true });
   }
 }

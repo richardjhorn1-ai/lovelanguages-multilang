@@ -344,14 +344,23 @@ export const geminiService = {
     }
   },
 
-  async getProgressSummary(languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string }> {
+  async getProgressSummary(languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string; retryable?: boolean }> {
+    let fetchTimeout: ReturnType<typeof setTimeout> | undefined;
+
     try {
       const headers = await getAuthHeaders();
+
+      const controller = new AbortController();
+      fetchTimeout = setTimeout(() => controller.abort(), 45_000);
+
       const response = await fetch('/api/progress-summary', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ action: 'generate', ...languageParams })
+        body: JSON.stringify({ action: 'generate', ...languageParams }),
+        signal: controller.signal
       });
+
+      clearTimeout(fetchTimeout);
 
       if (response.status === 401) {
         return { success: false, error: "Please log in." };
@@ -360,13 +369,17 @@ export const geminiService = {
       const data = await response.json();
 
       if (!response.ok) {
-        return { success: false, error: data.error || "Failed to get progress summary" };
+        return { success: false, error: data.error || "Failed to get progress summary", retryable: data.retryable || false };
       }
 
       return { success: true, data };
-    } catch (e) {
+    } catch (e: any) {
+      clearTimeout(fetchTimeout);
+      if (e.name === 'AbortError') {
+        return { success: false, error: "Summary generation timed out. Please try again.", retryable: true };
+      }
       console.error("Progress Summary Error:", e);
-      return { success: false, error: "Failed to connect to server" };
+      return { success: false, error: "Failed to connect to server", retryable: true };
     }
   },
 

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { supabase } from './services/supabase';
 import { Profile } from './types';
@@ -10,6 +10,9 @@ import { useI18nSync } from './hooks/useI18nSync';
 import { trackPageView, analytics, captureReferralSource, getReferralData, initWebVitals } from './services/analytics';
 import { offline } from './services/offline';
 import { migrateFromLocalStorage } from './services/offline-db';
+import { sounds } from './services/sounds';
+import NewWordsNotification from './components/NewWordsNotification';
+import { ExtractedWord } from './types';
 import Hero from './components/Hero';
 import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
@@ -142,6 +145,8 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [dbError, setDbError] = useState<string | null>(null);
   const [successToast, setSuccessToast] = useState<string | null>(null);
+  const [newWordsNotification, setNewWordsNotification] = useState<ExtractedWord[]>([]);
+  const notificationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Capture UTM params from blog referrals on first load
   useEffect(() => {
@@ -197,6 +202,24 @@ const App: React.FC = () => {
       url.searchParams.delete('onboarding');
       window.history.replaceState({}, '', url.pathname + url.hash);
     }
+  }, []);
+
+  // Listen for new-words-extracted events from ChatArea (visible on all tabs)
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const { words } = (e as CustomEvent).detail;
+      if (words?.length > 0) {
+        if (notificationTimerRef.current) clearTimeout(notificationTimerRef.current);
+        setNewWordsNotification(words);
+        sounds.play('new-words');
+        notificationTimerRef.current = setTimeout(() => setNewWordsNotification([]), 6000);
+      }
+    };
+    window.addEventListener('new-words-extracted', handler);
+    return () => {
+      window.removeEventListener('new-words-extracted', handler);
+      if (notificationTimerRef.current) clearTimeout(notificationTimerRef.current);
+    };
   }, []);
 
   const fetchProfile = async (userId: string) => {
@@ -392,6 +415,16 @@ const App: React.FC = () => {
           {/* Success toast */}
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
+          )}
+          {/* New words notification - visible on all tabs */}
+          {newWordsNotification.length > 0 && (
+            <NewWordsNotification
+              words={newWordsNotification}
+              onClose={() => {
+                setNewWordsNotification([]);
+                if (notificationTimerRef.current) clearTimeout(notificationTimerRef.current);
+              }}
+            />
           )}
           {/* Promo expired banner */}
           {profile && (

@@ -88,25 +88,30 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       return;
     }
 
-    // Fetch dictionary entries filtered by target language
-    const { data } = await supabase
-      .from('dictionary')
-      .select('id, user_id, word, translation, word_type, pronunciation, gender, plural, conjugations, adjective_forms, example_sentence, pro_tip, notes, source, language_code, created_at')
-      .eq('user_id', targetUserId)
-      .eq('language_code', targetLanguage)
-      .order('created_at', { ascending: false });
+    // Parallel fetch: dictionary, word_scores, gift_words
+    const [{ data }, { data: scoreData }, { data: giftData }] = await Promise.all([
+      supabase
+        .from('dictionary')
+        .select('id, user_id, word, translation, word_type, pronunciation, gender, plural, conjugations, adjective_forms, example_sentence, pro_tip, notes, source, language_code, created_at')
+        .eq('user_id', targetUserId)
+        .eq('language_code', targetLanguage)
+        .order('created_at', { ascending: false }),
+      supabase
+        .from('word_scores')
+        .select('*')
+        .eq('user_id', targetUserId)
+        .eq('language_code', targetLanguage),
+      supabase
+        .from('gift_words')
+        .select('*')
+        .eq('student_id', targetUserId)
+        .eq('language_code', targetLanguage)
+    ]);
 
     if (data) {
       setEntries(data as DictionaryEntry[]);
       await cacheVocabulary(data as DictionaryEntry[]);
     }
-
-    // Fetch scores for mastery badges (filtered by language)
-    const { data: scoreData } = await supabase
-      .from('word_scores')
-      .select('*')
-      .eq('user_id', targetUserId)
-      .eq('language_code', targetLanguage);
 
     if (scoreData) {
       const map = new Map<string, WordScore>();
@@ -115,20 +120,13 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       await cacheWordScores(scoreData as WordScore[]);
     }
 
-    // Fetch gift words to show "Gift from Partner" badge (filtered by language)
-    const { data: giftData } = await supabase
-      .from('gift_words')
-      .select('*')
-      .eq('student_id', targetUserId)
-      .eq('language_code', targetLanguage);
-
     if (giftData) {
       const giftMap = new Map<string, GiftWord>();
       giftData.forEach((g: any) => giftMap.set(g.word_id, g as GiftWord));
       setGiftedWordsMap(giftMap);
     }
 
-    // Get partner name for gift badges
+    // Get partner name for gift badges (separate query — depends on profile)
     if (profile.linked_user_id) {
       const { data: partner } = await supabase
         .from('profiles')
@@ -144,23 +142,23 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   // Fetch entries on mount and when profile/language changes
   useEffect(() => { fetchEntries(); }, [fetchEntries]);
 
-  // Listen for dictionary updates from other components (e.g., Listen Mode word extraction)
+  // Listen for dictionary updates from other components (debounced to avoid rapid refetches)
   useEffect(() => {
-    const handleDictionaryUpdate = () => {
-      fetchEntries();
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const handler = () => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => fetchEntries(), 500);
     };
-    window.addEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
-    return () => window.removeEventListener('dictionary-updated', handleDictionaryUpdate as EventListener);
+    window.addEventListener('dictionary-updated', handler as EventListener);
+    return () => {
+      window.removeEventListener('dictionary-updated', handler as EventListener);
+      if (timer) clearTimeout(timer);
+    };
   }, [fetchEntries]);
 
-  // Listen for language switch events from Profile settings
-  useEffect(() => {
-    const handleLanguageSwitch = () => {
-      fetchEntries();
-    };
-    window.addEventListener('language-switched', handleLanguageSwitch);
-    return () => window.removeEventListener('language-switched', handleLanguageSwitch);
-  }, [fetchEntries]);
+  // Note: language-switched listener removed — fetchEntries reference changes when
+  // targetLanguage changes (via useCallback deps), so useEffect([fetchEntries]) above
+  // already triggers a refetch on language switch.
 
   const handleSync = async () => {
     setIsSyncing(true);
