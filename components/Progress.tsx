@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
@@ -356,38 +356,71 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
     }
   };
 
-  const generateNewSummary = async () => {
-    setGenerating(true);
-    const result = await geminiService.getProgressSummary(languageParams);
-    if (result.success && result.data) {
-      // Play notification sound on success
-      sounds.play('notification');
-      // Add to index and select it
-      const newEntry: SummaryIndex = {
-        id: result.data.id,
-        summary: result.data.summary,
-        words_learned: result.data.wordsLearned,
-        xp_at_time: result.data.xpAtTime,
-        level_at_time: result.data.levelAtTime,
-        created_at: result.data.createdAt
-      };
+  const [summaryError, setSummaryError] = useState<string | null>(null);
+  const [retrying, setRetrying] = useState(false);
+  const lastGeneratedRef = useRef<number>(0);
+
+  const handleSummaryResult = (data: any) => {
+    if (!data.cached) sounds.play('notification');
+    const newEntry: SummaryIndex = {
+      id: data.id,
+      summary: data.summary,
+      words_learned: data.wordsLearned,
+      xp_at_time: data.xpAtTime,
+      level_at_time: data.levelAtTime,
+      created_at: data.createdAt
+    };
+    // Only add to index if not cached (avoid duplicates)
+    if (!data.cached) {
       setSummaryIndex(prev => [newEntry, ...prev]);
-      setSelectedSummary({
-        id: result.data.id,
-        summary: result.data.summary,
-        topicsExplored: result.data.topicsExplored,
-        grammarHighlights: result.data.grammarHighlights,
-        canNowSay: result.data.canNowSay,
-        suggestions: result.data.suggestions,
-        wordsLearned: result.data.wordsLearned,
-        newWordsSinceLastVisit: result.data.newWordsSinceLastVisit,
-        generatedAt: result.data.generatedAt,
-        xpAtTime: result.data.xpAtTime,
-        levelAtTime: result.data.levelAtTime,
-        createdAt: result.data.createdAt
-      });
     }
-    setGenerating(false);
+    setSelectedSummary({
+      id: data.id,
+      summary: data.summary,
+      topicsExplored: data.topicsExplored,
+      grammarHighlights: data.grammarHighlights,
+      canNowSay: data.canNowSay,
+      suggestions: data.suggestions,
+      wordsLearned: data.wordsLearned,
+      newWordsSinceLastVisit: data.newWordsSinceLastVisit,
+      generatedAt: data.generatedAt,
+      xpAtTime: data.xpAtTime,
+      levelAtTime: data.levelAtTime,
+      createdAt: data.createdAt
+    });
+  };
+
+  const generateNewSummary = async () => {
+    // Cooldown only after non-cached SUCCESS (not after errors or cache hits)
+    if (Date.now() - lastGeneratedRef.current < 30_000) {
+      setSummaryError(t('progress.journey.cooldown', 'Please wait before generating another entry.'));
+      return;
+    }
+    setGenerating(true);
+    setSummaryError(null);
+    setRetrying(false);
+    try {
+      let result = await geminiService.getProgressSummary(languageParams);
+      // Single transparent auto-retry on retryable errors (transient 503)
+      if (!result.success && result.retryable) {
+        setRetrying(true);
+        await new Promise(r => setTimeout(r, 3000));
+        result = await geminiService.getProgressSummary(languageParams);
+        setRetrying(false);
+      }
+      if (result.success && result.data) {
+        if (!result.data.cached) lastGeneratedRef.current = Date.now();
+        handleSummaryResult(result.data);
+        setSummaryError(null);
+      } else {
+        setSummaryError(result.error || t('progress.journey.generateFailed', 'Failed to generate summary.'));
+      }
+    } catch (e) {
+      setSummaryError(t('progress.journey.generateFailed', 'Failed to generate summary.'));
+    } finally {
+      setGenerating(false);
+      setRetrying(false);
+    }
   };
 
   const formatDate = (dateString: string) => {
@@ -664,18 +697,10 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               {/* Mobile hamburger menu button with entry count */}
               <button
                 onClick={() => setShowJourneyMenu(true)}
-                className="md:hidden p-1.5 -ml-1 rounded-lg hover:bg-[var(--bg-primary)] transition-colors relative"
+                className="md:hidden p-1.5 -ml-1 rounded-lg hover:bg-[var(--bg-primary)] transition-colors"
                 aria-label="View journal entries"
               >
                 <ICONS.Menu className="w-4 h-4 text-[var(--text-secondary)]" />
-                {summaryIndex.length > 0 && (
-                  <span
-                    className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[8px] font-bold text-white flex items-center justify-center"
-                    style={{ backgroundColor: tierColor }}
-                  >
-                    {summaryIndex.length}
-                  </span>
-                )}
               </button>
               <h3 className="text-scale-caption font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
                 <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
@@ -692,7 +717,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               {generating ? (
                 <>
                   <ICONS.RefreshCw className="w-3 h-3 md:w-3.5 md:h-3.5 animate-spin" />
-                  <span className="hidden md:inline">{t('progress.journey.analyzing')}</span>
+                  <span className="hidden md:inline">{retrying ? t('progress.journey.retrying', 'AI busy, trying again...') : t('progress.journey.analyzing')}</span>
                   <span className="md:hidden">...</span>
                 </>
               ) : (
@@ -704,6 +729,20 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               )}
             </button>
           </div>
+
+          {/* Error + Retry UI */}
+          {summaryError && !generating && (
+            <div className="mx-3 md:mx-6 mt-2 px-3 py-2 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 flex items-center gap-2">
+              <ICONS.X className="w-4 h-4 text-red-500 shrink-0" />
+              <span className="text-scale-caption text-red-600 dark:text-red-400 flex-1">{summaryError}</span>
+              <button
+                onClick={generateNewSummary}
+                className="text-scale-caption font-bold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors px-2 py-1 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/30 shrink-0"
+              >
+                {t('progress.journey.retry', 'Retry')}
+              </button>
+            </div>
+          )}
 
           <div className="flex flex-col md:flex-row min-h-[250px] md:min-h-[400px]">
             {/* Left Page: Index - hidden on mobile (use hamburger menu), sidebar on desktop */}
