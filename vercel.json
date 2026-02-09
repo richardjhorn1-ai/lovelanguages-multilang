@@ -5,7 +5,7 @@
     }
   },
   "cleanUrls": false,
-  "trailingSlash": false,
+  "trailingSlash": true,
   "redirects": [
     {
       "source": "/learn/polish-pet-names",
@@ -4005,6 +4005,121 @@
     {
       "source": "/learn/fr/pl/ecrire-lettres-amour-polonais-guide-romantique-couples/",
       "destination": "/learn/fr/pl/writing-love-letters-in-polish-a-romantic-guide-for-couples/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/da/emotional-support-fraze-danstina/",
+      "destination": "/learn/cs/da/jak-vyjadrit-podporu-a-utechu-v-danstine/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/uk/emotional-support-fraze-ukrajinstina/",
+      "destination": "/learn/cs/uk/jak-vyjadrit-podporu-a-utechu-v-ukrajinstine/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/ru/ru-support-phrases-for-czech-speakers/",
+      "destination": "/learn/cs/ru/ruske-fraze-pro-emocionalni-podporu-a-utechu/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/ro/emotional-support-fraze-rumunstina/",
+      "destination": "/learn/cs/ro/jak-vyjadrit-podporu-a-utechu-v-rumunstine/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/es/tr/turkish-pronunciation-guide/",
+      "destination": "/learn/es/tr/turkish-pronunciation-guide-for-beginners/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/no/emotional-support-fraze-norstina/",
+      "destination": "/learn/cs/no/jak-vyjadrit-podporu-a-utechu-v-norstine/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/ro/no/fraze-support-emotional-norvegiana/",
+      "destination": "/learn/ro/no/fraze-sustinere-emotionala-norvegiana/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/sv/emotional-support-fraze-svedstina/",
+      "destination": "/learn/cs/sv/jak-vyjadrit-podporu-a-utechu-ve-svedstine/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/el/emotional-support-fraze-rectina/",
+      "destination": "/learn/cs/el/jak-vyjadrit-podporu-a-utechu-v-rectine/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/tr/emotional-support-fraze-turectina/",
+      "destination": "/learn/cs/tr/jak-vyjadrit-podporu-a-utechu-v-turectine/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/hu/emotional-support-fraze-madarstina/",
+      "destination": "/learn/cs/hu/jak-vyjadrit-podporu-a-utechu-v-madarstine/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/cs/pl/pl-support-phrases-for-czech-speakers/",
+      "destination": "/learn/cs/pl/polske-fraze-pro-emocionalni-podporu-a-utechu/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/sv/ru/how-to-say-i-love-you/",
+      "destination": "/learn/sv/ru/russian-how-to-say-i-love-you/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/hu/el/greek-how-to-say-i-love-you/",
+      "destination": "/learn/hu/el/how-to-say-i-love-you/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/tr/sv/isvecce-ozlem-hasret-ifadeleri/",
+      "destination": "/learn/tr/sv/isvecce-ozlem-ifadeleri-seni-ozledim/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/no/ro/how-to-say-i-love-you/",
+      "destination": "/learn/no/ro/romanian-how-to-say-i-love-you/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/no/hu/hungarian-how-to-say-i-love-you/",
+      "destination": "/learn/no/hu/how-to-say-i-love-you/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/no/it/italian-how-to-say-i-love-you/",
+      "destination": "/learn/no/it/how-to-say-i-love-you/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/no/uk/ukrainian-how-to-say-i-love-you/",
+      "destination": "/learn/no/uk/how-to-say-i-love-you/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/sv/da/how-to-say-i-love-you/",
+      "destination": "/learn/sv/da/danish-how-to-say-i-love-you/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/sv/cs/how-to-say-i-love-you/",
+      "destination": "/learn/sv/cs/czech-how-to-say-i-love-you/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/da/en/engelske-udtryk-til-foelsesmaessig-stoette-og-troest-support/",
+      "destination": "/learn/da/en/engelske-udtryk-til-foelelsesmaessig-stoette-og-troest-support/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/de/pl/polish-pet-names-terms-of-endearment/",
+      "destination": "/learn/de/pl/polish-pet-names-for-german-speakers/",
       "permanent": true
     }
   ],

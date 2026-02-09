@@ -7,33 +7,20 @@ import { getArticlesByLangPair, getArticleCountsByTargetLang } from '../../../..
 import { getUITranslations, insertLanguage } from '../../../../data/ui-translations';
 import { LANGUAGES, getLanguageForDisplay, getAllLanguagesForDisplay, SUPPORTED_NATIVE_LANGS } from '../../../../data/language-info';
 
-export const prerender = true;
-
-export function getStaticPaths() {
-  // 18 native languages × 17 target languages = 306 combinations
-  const langs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'nl', 'ro', 'ru', 'tr', 'uk', 'sv', 'no', 'da', 'cs', 'el', 'hu'];
-  const paths = [];
-  for (const nativeLang of langs) {
-    for (const targetLang of langs) {
-      if (nativeLang !== targetLang) {
-        paths.push({ params: { nativeLang, targetLang } });
-      }
-    }
-  }
-  return paths;
-}
+const VALID_LANGS = ['en','es','fr','de','it','pt','pl','nl','ro','ru','tr','uk','sv','no','da','cs','el','hu'];
 
 const { nativeLang, targetLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
 const targetLanguageCode = targetLang || 'pl';
 
-// Validate languages
-if (!LANGUAGES[nativeLanguageCode] || !LANGUAGES[targetLanguageCode]) {
-  return Astro.redirect('/learn/');
+// Validate languages — return 404 for invalid pairs
+if (!VALID_LANGS.includes(nativeLanguageCode) || !VALID_LANGS.includes(targetLanguageCode) || nativeLanguageCode === targetLanguageCode) {
+  return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
-if (nativeLanguageCode === targetLanguageCode) {
-  return Astro.redirect('/learn/');
+// Validate language info exists
+if (!LANGUAGES[nativeLanguageCode] || !LANGUAGES[targetLanguageCode]) {
+  return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
 // Get language info with names translated to user's native language
@@ -228,7 +215,7 @@ const jsonLd = {
       <p class="text-gray-600 mb-6">{text.footerTagline}</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
         <a href={`/learn/${nativeLanguageCode}/`} class="hover:text-accent">{text.blog}</a>
-        <a href="/tools" class="hover:text-accent">{text.tools}</a>
+        <a href="/tools/" class="hover:text-accent">{text.tools}</a>
       </nav>
     </div>
   </footer>

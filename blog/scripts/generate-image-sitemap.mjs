@@ -139,32 +139,6 @@ function escapeXml(str) {
     .replace(/'/g, '&apos;');
 }
 
-// Update sitemap-index.xml to include the image sitemap
-function updateSitemapIndex() {
-  const indexPath = path.join(DIST_DIR, 'sitemap-index.xml');
-  if (!fs.existsSync(indexPath)) {
-    console.log('sitemap-index.xml not found');
-    return;
-  }
-
-  let content = fs.readFileSync(indexPath, 'utf-8');
-
-  // Check if image sitemap is already included
-  if (content.includes('sitemap-images.xml')) {
-    console.log('Image sitemap already in index');
-    return;
-  }
-
-  // Add image sitemap reference before closing tag
-  content = content.replace(
-    '</sitemapindex>',
-    `<sitemap><loc>${SITE_URL}/sitemap-images.xml</loc></sitemap>\n</sitemapindex>`
-  );
-
-  fs.writeFileSync(indexPath, content);
-  console.log('Updated sitemap-index.xml to include image sitemap');
-}
-
 // Main execution
 async function main() {
   console.log('Generating image sitemap...');
@@ -186,9 +160,6 @@ async function main() {
   const outputPath = path.join(DIST_DIR, 'sitemap-images.xml');
   fs.writeFileSync(outputPath, xml);
   console.log(`Image sitemap written to: ${outputPath}`);
-
-  // Update sitemap index
-  updateSitemapIndex();
 
   console.log('Done!');
 }

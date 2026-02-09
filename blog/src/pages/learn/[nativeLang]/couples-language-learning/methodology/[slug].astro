@@ -24,31 +24,44 @@ if (!supabaseUrl || !supabaseKey) {
   return Astro.redirect('/learn/en/couples-language-learning/');
 }
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+let article: any = null;
+let relatedArticles: any[] = [];
 
-const { data: article, error } = await supabase
-  .from('blog_articles')
-  .select('*')
-  .eq('native_lang', nativeLang)
-  .eq('target_lang', 'all')
-  .eq('slug', slug)
-  .eq('published', true)
-  .single();
+try {
+  const supabase = createClient(supabaseUrl, supabaseKey);
 
-if (error || !article) {
-  return Astro.redirect(`/learn/${nativeLang}/couples-language-learning/methodology/`);
+  const { data, error } = await supabase
+    .from('blog_articles')
+    .select('*')
+    .eq('native_lang', nativeLang)
+    .eq('target_lang', 'all')
+    .eq('slug', slug)
+    .eq('published', true)
+    .single();
+
+  if (error || !data) {
+    console.error('Methodology article not found:', slug, error?.message);
+    return new Response(null, { status: 404, statusText: 'Not Found' });
+  }
+
+  article = data;
+
+  // Get other methodology articles for sidebar
+  const { data: related } = await supabase
+    .from('blog_articles')
+    .select('slug, title')
+    .eq('native_lang', nativeLang)
+    .eq('target_lang', 'all')
+    .eq('category', 'couples-methodology')
+    .eq('published', true)
+    .neq('slug', slug)
+    .limit(7);
+
+  relatedArticles = related || [];
+} catch (err) {
+  console.error('Methodology article error:', err);
+  return new Response(null, { status: 404, statusText: 'Not Found' });
 }
-
-// Get other methodology articles for sidebar
-const { data: relatedArticles } = await supabase
-  .from('blog_articles')
-  .select('slug, title')
-  .eq('native_lang', nativeLang)
-  .eq('target_lang', 'all')
-  .eq('category', 'couples-methodology')
-  .eq('published', true)
-  .neq('slug', slug)
-  .limit(7);
 
 // Hreflang alternates for all languages
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
