@@ -1,2 +1,4 @@
 .vercel
 .env*.local
+.astro/
+public/sitemap-*.xml

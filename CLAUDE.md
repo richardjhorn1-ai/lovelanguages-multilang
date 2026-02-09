@@ -230,6 +230,26 @@ Tabs stay mounted via CSS (`display: none`) rather than unmounting. All tabs ini
 Client-side: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
 Server-side: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GEMINI_API_KEY`, `GLADIA_API_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
 
+### Blog URL Convention
+
+**All URLs use trailing slashes.** This is enforced by `vercel.json` (`trailingSlash: true`).
+
+| Rule | Example |
+|------|---------|
+| Article URLs | `/learn/{native}/{target}/{slug}/` |
+| Hub pages | `/learn/{native}/{target}/` |
+| All internal links | Must end with `/` |
+| Canonical URLs | Always trailing slash |
+| Sitemap URLs | Always trailing slash |
+
+**Use `blog/src/lib/urls.ts`** for URL building — never hardcode URL patterns in templates:
+- `canonicalUrl(pathname)` — full URL with trailing slash
+- `articleUrl(native, target, slug)` — article path
+- `hubUrl(native, target?)` — hub page path
+- `normalizePathname(path)` — ensure trailing slash
+
+**Never hardcode URL patterns** like `` `https://www.lovelanguages.io${Astro.url.pathname}` ``. Use the helper instead.
+
 ---
 
 ## Mistakes (don't repeat these)
