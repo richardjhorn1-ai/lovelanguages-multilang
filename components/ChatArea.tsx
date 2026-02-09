@@ -511,46 +511,56 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     // Use non-streaming for: images OR coach mode (coach needs structured output)
     console.log('[ChatArea] handleSend - mode:', mode, 'attachments:', currentAttachments.length, 'sessionContext.role:', sessionContextRef.current?.role);
 
-    if (currentAttachments.length > 0 || mode === 'coach') {
-      console.log('[ChatArea] Using NON-STREAMING path (generateReply)');
-      setIsThinking(true);
+    try {
+      if (currentAttachments.length > 0 || mode === 'coach') {
+        console.log('[ChatArea] Using NON-STREAMING path (generateReply)');
+        setIsThinking(true);
 
-      const result = await geminiService.generateReply(
-        userMessage,
-        mode,
-        currentAttachments,
-        userWords,
-        messageHistory,
-        sessionContextRef.current,
-        languageParams
-      );
+        const result = await geminiService.generateReply(
+          userMessage,
+          mode,
+          currentAttachments,
+          userWords,
+          messageHistory,
+          sessionContextRef.current,
+          languageParams
+        );
 
-      console.log('[ChatArea] generateReply result:', { replyText: result.replyText?.slice(0, 100), newWords: result.newWords?.length, proposedAction: result.proposedAction });
+        console.log('[ChatArea] generateReply result:', { replyText: result.replyText?.slice(0, 100), newWords: result.newWords?.length, proposedAction: result.proposedAction });
 
-      setIsThinking(false);
-      replyText = result.replyText;
-      newWords = result.newWords;
+        setIsThinking(false);
+        replyText = result.replyText;
+        newWords = result.newWords;
 
-      // Handle proposed action from coach mode
-      if (result.proposedAction) {
-        console.log('[ChatArea] Got proposedAction:', result.proposedAction);
-        setPendingAction(result.proposedAction);
-        setShowActionConfirm(true);
+        // Handle proposed action from coach mode
+        if (result.proposedAction) {
+          console.log('[ChatArea] Got proposedAction:', result.proposedAction);
+          setPendingAction(result.proposedAction);
+          setShowActionConfirm(true);
+        }
+      } else {
+        console.log('[ChatArea] Using STREAMING path (generateReplyStream)');
+        // Use streaming for text-only student messages (shows typing effect)
+        replyText = await geminiService.generateReplyStream(
+          userMessage,
+          mode,
+          userWords,
+          messageHistory,
+          languageParams,
+          (chunk) => setStreamingText(prev => prev + chunk)
+        );
+
+        // Clear streaming UI immediately after stream completes
+        setStreamingText('');
       }
-    } else {
-      console.log('[ChatArea] Using STREAMING path (generateReplyStream)');
-      // Use streaming for text-only student messages (shows typing effect)
-      replyText = await geminiService.generateReplyStream(
-        userMessage,
-        mode,
-        userWords,
-        messageHistory,
-        languageParams,
-        (chunk) => setStreamingText(prev => prev + chunk)
-      );
-
-      // Clear streaming UI immediately after stream completes
+    } catch (aiError) {
+      console.error('[ChatArea] AI response failed:', aiError);
+      setIsThinking(false);
       setStreamingText('');
+      setLoading(false);
+      // Show error as a system message so the user knows what happened
+      await saveMessage('model', "Sorry, I couldn't respond right now. Please try sending your message again.");
+      return;
     }
 
     // ACT 3: SAVE MODEL REPLY

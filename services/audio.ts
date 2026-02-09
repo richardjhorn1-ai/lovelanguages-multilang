@@ -25,7 +25,7 @@ export const getVoicesForLanguage = (languageCode: string): SpeechSynthesisVoice
 };
 
 // Fallback: Browser Web Speech API (language-aware)
-const fallbackSpeak = (text: string, languageCode: string = 'pl', rate: number = 0.85): void => {
+const fallbackSpeak = (text: string, languageCode: string, rate: number = 0.85): void => {
   if (!isSpeechSupported()) {
     console.warn('[audio] Speech synthesis not supported');
     return;
@@ -106,7 +106,7 @@ export interface SpeakResult {
  * Only falls back to browser TTS for unauthenticated users.
  * Returns result indicating success/failure and audio source.
  */
-export const speak = async (text: string, languageCode: string = 'pl', rate: number = 0.85): Promise<SpeakResult> => {
+export const speak = async (text: string, languageCode: string, rate: number = 0.85): Promise<SpeakResult> => {
   if (!text || !text.trim()) {
     console.warn('[audio] Empty text provided');
     return { success: false, source: 'none', error: 'No text provided' };

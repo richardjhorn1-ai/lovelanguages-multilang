@@ -194,11 +194,7 @@ export default async function handler(req: any, res: any) {
           word: wordText,
           translation: translationText,
           word_type: 'other',
-          importance: 3,
-          context: `Added by ${profile.full_name} in challenge`,
-          root_word: wordText,
-          examples: [],
-          pro_tip: ''
+          pro_tip: `Added by ${profile.full_name} in challenge`
         };
       });
 

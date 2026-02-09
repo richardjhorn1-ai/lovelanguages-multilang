@@ -4,6 +4,7 @@ import {
   createServiceClient,
   requireSubscription,
 } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 import { sanitizeInput } from '../utils/sanitize.js';
 
 export default async function handler(req: any, res: any) {
@@ -68,6 +69,8 @@ export default async function handler(req: any, res: any) {
     if (!profile.linked_user_id) {
       return res.status(400).json({ error: 'No linked tutor' });
     }
+
+    const { targetLanguage } = await getProfileLanguages(supabase, auth.userId);
 
     // Verify linked user is a tutor
     const { data: tutorProfile } = await supabase
@@ -161,6 +164,7 @@ export default async function handler(req: any, res: any) {
       title: 'Requested a challenge',
       subtitle: requestType === 'topic' ? `Topic: ${sanitizedTopic}` : requestType === 'specific_words' ? `${validWordIds.length} words` : 'General practice',
       data: { request_id: request.id },
+      language_code: targetLanguage,
     });
 
     return res.status(200).json({

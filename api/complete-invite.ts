@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers
@@ -89,8 +90,12 @@ export default async function handler(req: any, res: any) {
       .eq('id', auth.userId)
       .single();
 
-    // Determine the language to use (from token, or inviter's profile, or default)
-    const inviterLearningLanguage = tokenData.language_code || inviterProfile.active_language || 'pl';
+    // Determine the language to use (from token, inviter's profile, or profile languages helper)
+    let inviterLearningLanguage = tokenData.language_code || inviterProfile.active_language;
+    if (!inviterLearningLanguage) {
+      const inviterLangs = await getProfileLanguages(supabase, tokenData.inviter_id);
+      inviterLearningLanguage = inviterLangs.targetLanguage;
+    }
 
     // Check if inviter already has a partner
     if (inviterProfile.linked_user_id) {

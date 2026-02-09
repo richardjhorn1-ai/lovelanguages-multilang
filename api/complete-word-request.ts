@@ -192,7 +192,6 @@ export default async function handler(req: any, res: any) {
         word: word.word.toLowerCase().trim(),
         translation: word.translation,
         word_type: word.word_type || 'phrase',
-        importance: 3,
         example_sentence: enriched.original || null,
         pro_tip: enriched.proTip || 'A gift from your partner!',
         gender: enriched.gender || null,

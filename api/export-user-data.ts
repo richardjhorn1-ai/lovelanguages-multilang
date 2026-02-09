@@ -98,7 +98,7 @@ export default async function handler(req: any, res: any) {
         .from('profiles')
         .select(`
           id, email, full_name, role, onboarding_completed_at, onboarding_data,
-          current_level, total_xp, linked_user_id, subscription_plan, subscription_status,
+          level, xp, linked_user_id, subscription_plan, subscription_status,
           subscription_period, subscription_started_at, subscription_ends_at,
           smart_validation, created_at
         `)
@@ -143,8 +143,8 @@ export default async function handler(req: any, res: any) {
       supabase
         .from('game_sessions')
         .select(`
-          id, game_mode, words_practiced, correct_count, incorrect_count,
-          score, streak, duration_seconds, completed_at, created_at,
+          id, game_mode, correct_count, incorrect_count,
+          total_time_seconds, completed_at, created_at,
           game_session_answers (id, word_id, user_answer, correct_answer, is_correct, created_at)
         `)
         .eq('user_id', userId)
@@ -187,7 +187,7 @@ export default async function handler(req: any, res: any) {
       supabase
         .from('challenge_results')
         .select('*')
-        .eq('user_id', userId)
+        .eq('student_id', userId)
         .order('completed_at', { ascending: false })
         .limit(EXPORT_LIMITS.challengeResults),
 
@@ -196,7 +196,7 @@ export default async function handler(req: any, res: any) {
         .from('word_requests')
         .select(`
           *,
-          gift_words (id, word, translation, pronunciation, word_type, difficulty, created_at)
+          gift_words (id, word_id, xp_earned, created_at, dictionary:word_id (word, translation, word_type))
         `)
         .eq('tutor_id', userId)
         .order('created_at', { ascending: false })
@@ -207,7 +207,7 @@ export default async function handler(req: any, res: any) {
         .from('word_requests')
         .select(`
           *,
-          gift_words (id, word, translation, pronunciation, word_type, difficulty, created_at)
+          gift_words (id, word_id, xp_earned, created_at, dictionary:word_id (word, translation, word_type))
         `)
         .eq('student_id', userId)
         .order('created_at', { ascending: false })

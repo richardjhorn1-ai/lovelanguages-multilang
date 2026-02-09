@@ -760,8 +760,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
 
       if (role === 'student') {
         // Save onboarding words to dictionary and award XP
+        if (!data.targetLanguage) console.warn('[Onboarding] targetLanguage missing from onboarding data, falling back to pl');
         const targetLanguage = data.targetLanguage || 'pl';
         const targetConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[targetLanguage];
+        if (!data.nativeLanguage) console.warn('[Onboarding] nativeLanguage missing from onboarding data, falling back to en');
         const nativeLanguage = data.nativeLanguage || 'en';
         const nativeConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[nativeLanguage];
 

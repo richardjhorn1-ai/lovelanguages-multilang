@@ -166,7 +166,7 @@ export class LiveSession {
           this.session.sendClientContent({
             turns: [{
               role: 'user',
-              parts: [{ text: `[The customer has just arrived. Begin the conversation in ${LANGUAGE_CONFIGS[this.config.targetLanguage || 'pl']?.name || 'the target language'} as instructed in your role.]` }]
+              parts: [{ text: `[The customer has just arrived. Begin the conversation in ${LANGUAGE_CONFIGS[this.config.targetLanguage!]?.name || 'the target language'} as instructed in your role.]` }]
             }],
             turnComplete: true
           });

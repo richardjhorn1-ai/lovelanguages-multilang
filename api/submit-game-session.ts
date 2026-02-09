@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 
 interface GameAnswer {
   wordId?: string;
@@ -74,6 +75,13 @@ export default async function handler(req: any, res: any) {
       sessionUserId = targetUserId;
     }
 
+    // Resolve language: prefer request body, fall back to user profile
+    let resolvedLanguage = targetLanguage;
+    if (!resolvedLanguage) {
+      const profileLangs = await getProfileLanguages(supabase, sessionUserId);
+      resolvedLanguage = profileLangs.targetLanguage;
+    }
+
     // Create the game session
     const { data: session, error: sessionError } = await supabase
       .from('game_sessions')
@@ -83,7 +91,7 @@ export default async function handler(req: any, res: any) {
         correct_count: correctCount || 0,
         incorrect_count: incorrectCount || 0,
         total_time_seconds: totalTimeSeconds || null,
-        language_code: targetLanguage || null,
+        language_code: resolvedLanguage,
         completed_at: new Date().toISOString()
       })
       .select()

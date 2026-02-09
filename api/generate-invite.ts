@@ -9,6 +9,7 @@ import {
   RATE_LIMITS,
   SubscriptionPlan,
 } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 
 // Generate a secure random token
 function generateToken(): string {
@@ -159,6 +160,8 @@ export default async function handler(req: any, res: any) {
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 7); // 7 days from now
 
+    const { targetLanguage } = await getProfileLanguages(supabase, auth.userId);
+
     const { data: newToken, error: insertError } = await supabase
       .from('invite_tokens')
       .insert({
@@ -167,7 +170,7 @@ export default async function handler(req: any, res: any) {
         inviter_name: profile.full_name,
         inviter_email: profile.email,
         expires_at: expiresAt.toISOString(),
-        language_code: profile.active_language || 'pl'  // Store inviter's learning language
+        language_code: targetLanguage
       })
       .select()
       .single();

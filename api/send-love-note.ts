@@ -4,6 +4,7 @@ import {
   createServiceClient,
   requireSubscription,
 } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 import { LOVE_NOTE_TEMPLATES } from '../constants/levels.js';
 import { sanitizeInput } from '../utils/sanitize.js';
 
@@ -76,6 +77,8 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner' });
     }
 
+    const { targetLanguage } = await getProfileLanguages(supabase, auth.userId);
+
     // Check daily rate limit
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -137,6 +140,7 @@ export default async function handler(req: any, res: any) {
       title: 'Sent a love note',
       subtitle: noteText,
       data: { note_id: loveNote.id },
+      language_code: targetLanguage,
     });
 
     return res.status(200).json({

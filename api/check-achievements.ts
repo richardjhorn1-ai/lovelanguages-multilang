@@ -3,6 +3,7 @@ import {
   verifyAuth,
   createServiceClient,
 } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 import { ACHIEVEMENT_DEFINITIONS, LEVEL_TIERS } from '../constants/levels.js';
 
 interface AchievementCheck {
@@ -40,6 +41,8 @@ export default async function handler(req: any, res: any) {
     if (!profile) {
       return res.status(404).json({ error: 'Profile not found' });
     }
+
+    const { targetLanguage } = await getProfileLanguages(supabase, auth.userId);
 
     // Get already unlocked achievements
     const { data: existingAchievements } = await supabase
@@ -238,6 +241,7 @@ export default async function handler(req: any, res: any) {
           title: `Unlocked: ${achievement.name}`,
           subtitle: achievement.description,
           data: { code: achievement.code, icon: achievement.icon },
+          language_code: targetLanguage,
         });
       }
     }

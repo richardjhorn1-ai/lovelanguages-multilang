@@ -188,7 +188,7 @@ export default async function handler(req: any, res: any) {
     await supabase.from('tutor_challenges').delete().eq('student_id', userId);
 
     // 6. Delete challenge results
-    await supabase.from('challenge_results').delete().eq('user_id', userId);
+    await supabase.from('challenge_results').delete().eq('student_id', userId);
 
     // 7. Delete word requests where user is tutor or student
     await supabase.from('word_requests').delete().eq('tutor_id', userId);

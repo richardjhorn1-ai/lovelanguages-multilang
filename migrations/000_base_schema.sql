@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS profiles (
   id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
 
   -- Basic user info
-  name TEXT,
+  full_name TEXT,
   email TEXT,
   avatar_url TEXT,
 

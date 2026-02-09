@@ -441,6 +441,7 @@ export default async function handler(req: any, res: any) {
           title: 'Sent a love note',
           subtitle: noteText,
           data: { note_id: loveNote.id },
+          language_code: targetLanguage,
         });
 
         response.createdItems!.loveNoteId = loveNote.id;
