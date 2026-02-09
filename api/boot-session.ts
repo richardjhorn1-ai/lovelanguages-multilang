@@ -141,12 +141,10 @@ export default async function handler(req: any, res: any) {
       : null;
 
     // Touch updated_at to mark this login (fire-and-forget)
-    supabase
+    void supabase
       .from('profiles')
       .update({ updated_at: bootedAt })
-      .eq('id', auth.userId)
-      .then(() => {})
-      .catch(() => {});
+      .eq('id', auth.userId);
 
     // Fetch user's learning context with language filter
     const userContext = await fetchLearnerContext(supabase, auth.userId, targetLanguage);
