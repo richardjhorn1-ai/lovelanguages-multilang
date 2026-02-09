@@ -22,6 +22,7 @@ import GameResults from './games/GameResults';
 import { StreakIndicator, StreakCelebrationModal } from './games/components';
 import { Flashcards, MultipleChoice, TypeIt, QuickFire, AIChallenge } from './games/modes';
 import { VerbDojo } from './games/modes/VerbDojo';
+import type { DojoSessionResult } from './games/modes/VerbDojo/types';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import { analytics } from '../services/analytics';
 import WordGiftLearning from './WordGiftLearning';
@@ -696,19 +697,16 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   }, [profile.smart_validation, useBasicValidation, languageParams]);
 
   // VerbMastery handlers (memoized)
-  const handleVerbMasteryComplete = useCallback((results: {
-    answers: (GameSessionAnswer & { explanation?: string })[];
-    score: { correct: number; incorrect: number };
-  }) => {
-    if (results.score.incorrect === 0 && results.score.correct > 0) {
+  const handleVerbMasteryComplete = useCallback((result: DojoSessionResult) => {
+    if (result.wrong === 0 && result.correct > 0) {
       sounds.play('perfect');
       haptics.trigger('perfect');
     }
-    setSessionScore(results.score);
-    setSessionAnswers(results.answers);
+    setSessionScore({ correct: result.correct, incorrect: result.wrong });
+    setSessionAnswers([]);
     setFinished(true);
-    saveGameSession('verb_mastery', results.answers, results.score.correct, results.score.incorrect);
-    analytics.trackGameCompleted({ game_type: 'verb_mastery', word_count: results.answers.length, score: results.score.correct, correct: results.score.incorrect === 0, accuracy: Math.round((results.score.correct / Math.max(results.score.correct + results.score.incorrect, 1)) * 100) });
+    saveGameSession('verb_mastery', [], result.correct, result.wrong);
+    analytics.trackGameCompleted({ game_type: 'verb_mastery', word_count: result.totalQuestions, score: result.correct, correct: result.wrong === 0, accuracy: Math.round((result.correct / Math.max(result.totalQuestions, 1)) * 100) });
   }, [saveGameSession]);
 
   const handleVerbMasteryValidation = useCallback(async (

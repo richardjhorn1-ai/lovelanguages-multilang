@@ -10,12 +10,30 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createClient } from '@supabase/supabase-js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BLOG_DIR = path.join(__dirname, '..');
 const IMAGES_DIR = path.join(BLOG_DIR, 'public', 'blog');
 const DIST_DIR = path.join(BLOG_DIR, 'dist');
 const SITE_URL = 'https://www.lovelanguages.io';
+
+// Load env from .env.local for local dev (Vercel has process.env set)
+function loadEnv() {
+  const env = { ...process.env };
+  const envPath = path.join(__dirname, '../../.env.local');
+  if (fs.existsSync(envPath)) {
+    fs.readFileSync(envPath, 'utf-8').split('\n').forEach(line => {
+      const [key, ...vals] = line.split('=');
+      if (key && vals.length) {
+        env[key.trim()] = vals.join('=').trim().replace(/^["']|["']$/g, '');
+      }
+    });
+  }
+  return env;
+}
+
+const env = loadEnv();
 
 // Get all blog images
 function getBlogImages() {
@@ -49,24 +67,44 @@ function findArticleUrl(imageSlug, articleUrls) {
   return partialMatch || null;
 }
 
-// Get all article URLs from the built sitemap
-function getArticleUrls() {
-  // Astro outputs sitemap to dist/client/, check both locations
-  const clientPath = path.join(BLOG_DIR, 'dist', 'client', 'sitemap-0.xml');
-  const sitemapPath = fs.existsSync(clientPath) ? clientPath : path.join(DIST_DIR, 'sitemap-0.xml');
-  if (!fs.existsSync(sitemapPath)) {
-    console.log('Main sitemap not found, using default article patterns');
+// Get all article URLs by querying Supabase directly
+async function getArticleUrls() {
+  const supabaseUrl = env.SUPABASE_URL || env.VITE_SUPABASE_URL;
+  const supabaseKey = env.SUPABASE_ANON_KEY || env.VITE_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    console.log('Supabase credentials not found, using default article patterns');
     return [];
   }
 
-  const content = fs.readFileSync(sitemapPath, 'utf-8');
-  const urls = [];
-  const regex = /<loc>([^<]+)<\/loc>/g;
-  let match;
-  while ((match = regex.exec(content)) !== null) {
-    urls.push(match[1]);
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  const allUrls = [];
+  const PAGE_SIZE = 1000;
+  let offset = 0;
+
+  while (true) {
+    const { data, error } = await supabase
+      .from('blog_articles')
+      .select('native_lang, target_lang, slug')
+      .eq('published', true)
+      .range(offset, offset + PAGE_SIZE - 1);
+
+    if (error) {
+      console.error('Error fetching article URLs from Supabase:', error.message);
+      return allUrls;
+    }
+
+    if (!data || data.length === 0) break;
+
+    for (const row of data) {
+      allUrls.push(`${SITE_URL}/learn/${row.native_lang}/${row.target_lang}/${row.slug}/`);
+    }
+
+    if (data.length < PAGE_SIZE) break;
+    offset += PAGE_SIZE;
   }
-  return urls;
+
+  return allUrls;
 }
 
 // Generate image sitemap XML
@@ -146,7 +184,7 @@ async function main() {
   const images = getBlogImages();
   console.log(`Found ${images.length} blog images`);
 
-  const articleUrls = getArticleUrls();
+  const articleUrls = await getArticleUrls();
   console.log(`Found ${articleUrls.length} article URLs`);
 
   const xml = generateImageSitemap(images, articleUrls);

@@ -33,6 +33,16 @@ export interface BlogArticle {
   published: boolean;
 }
 
+export type BlogArticleSummary = Pick<BlogArticle,
+  'id' | 'slug' | 'native_lang' | 'target_lang' | 'title' | 'description' |
+  'category' | 'difficulty' | 'read_time' | 'image' | 'tags' | 'date'
+>;
+
+export type BlogArticleSearchResult = Pick<BlogArticle,
+  'id' | 'slug' | 'native_lang' | 'target_lang' | 'title' | 'description' |
+  'category' | 'image' | 'date'
+>;
+
 /**
  * Get a single article by slug and language pair
  */
@@ -69,7 +79,7 @@ export async function getArticlesByLangPair(
     limit?: number;
     offset?: number;
   }
-): Promise<BlogArticle[]> {
+): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
     .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
@@ -108,10 +118,10 @@ export async function getArticlesByNativeLang(
   options?: {
     limit?: number;
   }
-): Promise<BlogArticle[]> {
+): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, image, tags, date')
+    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('published', true)
     .order('date', { ascending: false });
@@ -205,10 +215,10 @@ export async function getArticlesByCategory(
     targetLang?: string;
     limit?: number;
   }
-): Promise<BlogArticle[]> {
+): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, image, tags, date')
+    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('category', category)
     .eq('published', true)
     .order('date', { ascending: false });
@@ -244,7 +254,7 @@ export async function searchArticles(
     nativeLang?: string;
     limit?: number;
   }
-): Promise<BlogArticle[]> {
+): Promise<BlogArticleSearchResult[]> {
   let dbQuery = supabase
     .from('blog_articles')
     .select('id, slug, native_lang, target_lang, title, description, category, image, date')
@@ -332,7 +342,7 @@ export const TOPIC_DEFINITIONS: Record<string, { patterns: string[]; icon: strin
 export async function getArticlesByTopic(
   nativeLang: string,
   topicSlug: string
-): Promise<{ targetLang: string; articles: BlogArticle[] }[]> {
+): Promise<{ targetLang: string; articles: BlogArticleSummary[] }[]> {
   const topic = TOPIC_DEFINITIONS[topicSlug];
   if (!topic) return [];
 
@@ -353,7 +363,7 @@ export async function getArticlesByTopic(
   }
 
   // Group by target language
-  const grouped: Record<string, BlogArticle[]> = {};
+  const grouped: Record<string, BlogArticleSummary[]> = {};
   for (const article of data || []) {
     if (!grouped[article.target_lang]) {
       grouped[article.target_lang] = [];

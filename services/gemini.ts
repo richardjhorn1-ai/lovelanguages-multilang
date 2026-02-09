@@ -1,5 +1,6 @@
 import { supabase } from './supabase';
 import { ExtractedWord, Attachment, SessionContext, ProposedAction } from '../types';
+import type { VerbTense } from '../constants/language-config';
 
 export type { ExtractedWord, Attachment, SessionContext, ProposedAction };
 
@@ -227,7 +228,7 @@ export const geminiService = {
     }
   },
 
-  async unlockTense(wordId: string, word: string, tense: 'past' | 'future'): Promise<{ success: boolean; data?: any; error?: string }> {
+  async unlockTense(wordId: string, word: string, tense: VerbTense): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const headers = await getAuthHeaders();
       const response = await fetch('/api/unlock-tense', {

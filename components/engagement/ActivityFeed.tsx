@@ -27,6 +27,7 @@ const EVENT_ICONS: Record<ActivityEventType, string> = {
   level_up: '🎉',
   challenge_completed: '🏆',
   challenge_sent: '🎯',
+  challenge_request: '📩',
   gift_sent: '🎁',
   gift_received: '💝',
   streak_milestone: '🔥',
@@ -104,6 +105,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
       level_up: '#10B981', // Emerald
       challenge_completed: '#8B5CF6', // Purple
       challenge_sent: '#3B82F6', // Blue
+      challenge_request: '#3B82F6', // Blue
       gift_sent: '#EC4899', // Pink
       gift_received: '#EC4899', // Pink
       streak_milestone: '#EF4444', // Red

@@ -346,7 +346,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     };
   };
 
-  const handleUnlockTense = async (entry: DictionaryEntry, tense: 'past' | 'future') => {
+  const handleUnlockTense = async (entry: DictionaryEntry, tense: VerbTense) => {
     setUnlocking(true);
     try {
       const result = await geminiService.unlockTense(entry.id, entry.word, tense);
@@ -850,7 +850,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                               {pronounLabels.map(row => (
                                 <tr key={row.key} className="hover:bg-[var(--border-color)]/30">
                                   <td className="px-4 py-2 text-[var(--text-secondary)] text-scale-caption">{row.pronoun} {row.english}</td>
-                                  <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{getConjValue(tenseData, row.key) || '—'}</td>
+                                  <td className="px-4 py-2 font-bold text-[var(--accent-color)]">{(() => { const v = getConjValue(tenseData, row.key); return typeof v === 'object' ? [v?.masculine, v?.feminine, v?.neuter].filter(Boolean).join(' / ') || '—' : v || '—'; })()}</td>
                                 </tr>
                               ))}
                             </tbody>
