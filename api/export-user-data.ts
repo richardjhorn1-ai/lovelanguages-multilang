@@ -196,7 +196,7 @@ export default async function handler(req: any, res: any) {
         .from('word_requests')
         .select(`
           *,
-          gift_words (id, word_id, xp_earned, created_at, dictionary:word_id (word, translation, word_type))
+          gift_words (id, word_id, xp_earned, gifted_at, dictionary:word_id (word, translation, word_type))
         `)
         .eq('tutor_id', userId)
         .order('created_at', { ascending: false })
@@ -207,7 +207,7 @@ export default async function handler(req: any, res: any) {
         .from('word_requests')
         .select(`
           *,
-          gift_words (id, word_id, xp_earned, created_at, dictionary:word_id (word, translation, word_type))
+          gift_words (id, word_id, xp_earned, gifted_at, dictionary:word_id (word, translation, word_type))
         `)
         .eq('student_id', userId)
         .order('created_at', { ascending: false })

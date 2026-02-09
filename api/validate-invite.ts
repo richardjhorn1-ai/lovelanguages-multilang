@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders } from '../utils/api-middleware.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 import { getLanguageName } from '../constants/language-config.js';
 
 export default async function handler(req: any, res: any) {
@@ -82,7 +83,11 @@ export default async function handler(req: any, res: any) {
         .eq('id', tokenData.inviter_id)
         .single();
 
-      languageCode = inviterProfile?.active_language || 'pl';
+      languageCode = inviterProfile?.active_language;
+      if (!languageCode) {
+        const inviterLangs = await getProfileLanguages(supabase, tokenData.inviter_id);
+        languageCode = inviterLangs.targetLanguage;
+      }
     }
 
     // Token is valid - return inviter info with language context
