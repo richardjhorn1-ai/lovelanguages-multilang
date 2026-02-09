@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "node scripts/generate-image-sitemap.mjs && node scripts/generate-app-sitemap.mjs && node ../scripts/generate-articles-sitemap.mjs",
+    "postbuild": "node scripts/generate-image-sitemap.mjs",
     "preview": "astro preview",
     "generate": "npx ts-node --esm scripts/generate-article.ts"
   },
