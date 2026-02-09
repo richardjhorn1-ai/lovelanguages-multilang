@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import CTA from '../components/CTA.astro';
+import { canonicalUrl as buildCanonicalUrl, normalizePathname } from '../lib/urls';
 
 interface RelatedArticle {
   slug: string;
@@ -158,8 +159,8 @@ const LANG_FLAGS: Record<string, string> = {
   cs: '🇨🇿', hu: '🇭🇺', ro: '🇷🇴', sv: '🇸🇪', no: '🇳🇴', da: '🇩🇰'
 };
 
-// Build canonical URL
-const canonicalUrl = `https://www.lovelanguages.io${Astro.url.pathname}`;
+// Build canonical URL (always trailing slash)
+const canonicalUrl = buildCanonicalUrl(Astro.url.pathname);
 
 // Use language flag for culture category
 const categoryConfig = {
@@ -204,7 +205,7 @@ const jsonLd = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://www.lovelanguages.io${Astro.url.pathname}`
+    "@id": canonicalUrl
   },
   "articleSection": category,
   "keywords": tags?.join(', '),
@@ -592,9 +593,9 @@ const faqJsonLd = {
       <p class="text-gray-600 mb-6">Learn {languageInfo.name} together with your partner</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
         <a href="/learn/" class="hover:text-accent">Blog</a>
-        <a href="/tools" class="hover:text-accent">Tools</a>
-        <a href="/terms" class="hover:text-accent">Terms</a>
-        <a href="/privacy" class="hover:text-accent">Privacy</a>
+        <a href="/tools/" class="hover:text-accent">Tools</a>
+        <a href="/terms/" class="hover:text-accent">Terms</a>
+        <a href="/privacy/" class="hover:text-accent">Privacy</a>
       </nav>
     </div>
   </footer>

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Sitemap (Astro-generated, includes all blog articles)
+# Sitemap (dynamic, SSR-generated from Supabase)
 Sitemap: https://www.lovelanguages.io/sitemap-index.xml
 
 # LLM Context Files (for AI assistants)

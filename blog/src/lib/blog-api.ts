@@ -277,27 +277,41 @@ export async function getAllSlugs(
   nativeLang?: string,
   targetLang?: string
 ): Promise<{ native_lang: string; target_lang: string; slug: string }[]> {
-  let query = supabase
-    .from('blog_articles')
-    .select('native_lang, target_lang, slug')
-    .eq('published', true);
+  const allData: { native_lang: string; target_lang: string; slug: string }[] = [];
+  const PAGE_SIZE = 1000;
+  let offset = 0;
 
-  if (nativeLang) {
-    query = query.eq('native_lang', nativeLang);
+  while (true) {
+    let query = supabase
+      .from('blog_articles')
+      .select('native_lang, target_lang, slug')
+      .eq('published', true)
+      .range(offset, offset + PAGE_SIZE - 1);
+
+    if (nativeLang) {
+      query = query.eq('native_lang', nativeLang);
+    }
+
+    if (targetLang) {
+      query = query.eq('target_lang', targetLang);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      console.error('Error fetching slugs:', error);
+      return allData;
+    }
+
+    if (!data || data.length === 0) break;
+
+    allData.push(...data);
+
+    if (data.length < PAGE_SIZE) break;
+    offset += PAGE_SIZE;
   }
 
-  if (targetLang) {
-    query = query.eq('target_lang', targetLang);
-  }
-
-  const { data, error } = await query;
-
-  if (error) {
-    console.error('Error fetching slugs:', error);
-    return [];
-  }
-
-  return data || [];
+  return allData;
 }
 
 /**
