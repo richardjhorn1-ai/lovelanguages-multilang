@@ -31,7 +31,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         .gt('expires_at', new Date().toISOString())
         .order('created_at', { ascending: false })
         .limit(1)
-        .single();
+        .maybeSingle();
 
       if (data && !error) {
         const baseUrl = window.location.origin;

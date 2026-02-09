@@ -141,7 +141,7 @@ export default async function handler(req: any, res: any) {
       .gt('expires_at', new Date().toISOString())
       .order('created_at', { ascending: false })
       .limit(1)
-      .single();
+      .maybeSingle();
 
     if (existingToken) {
       incrementUsage(supabase, auth.userId, RATE_LIMITS.generateInvite.type);

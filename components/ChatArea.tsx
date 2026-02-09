@@ -906,6 +906,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       // Save raw session first
       const { data, error } = await supabase.from('listen_sessions').insert({
         user_id: profile.id,
+        language_code: targetLanguage,
         context_label: listenContextLabel.trim() || null,
         duration_seconds: listenDuration,
         transcript: listenEntries,

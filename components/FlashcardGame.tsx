@@ -322,6 +322,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     const scoreUpdate = {
       user_id: profile.id,
       word_id: wordId,
+      language_code: targetLanguage,
       total_attempts: newTotalAttempts,
       correct_attempts: newCorrectAttempts,
       correct_streak: newStreak,

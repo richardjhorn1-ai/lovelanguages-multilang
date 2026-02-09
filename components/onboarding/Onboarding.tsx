@@ -790,12 +790,12 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         ];
 
         // Save words to dictionary (don't await)
-        supabase.from('dictionary').upsert(onboardingWords, {
+        Promise.resolve(supabase.from('dictionary').upsert(onboardingWords, {
           onConflict: 'user_id,word,language_code',
           ignoreDuplicates: true
-        }).then(() => {
+        })).then(() => {
           window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: 2 } }));
-        }).catch(() => {});
+        }).catch(err => console.error('Failed to save onboarding words:', err));
 
         // Award 1 XP per word (2 words = 2 XP)
         supabase.auth.getSession().then(({ data: sessionData }) => {

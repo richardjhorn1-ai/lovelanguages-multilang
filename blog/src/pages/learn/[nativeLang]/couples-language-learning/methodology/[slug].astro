@@ -37,7 +37,7 @@ try {
     .eq('target_lang', 'all')
     .eq('slug', slug)
     .eq('published', true)
-    .single();
+    .maybeSingle();
 
   if (error || !data) {
     console.error('Methodology article not found:', slug, error?.message);

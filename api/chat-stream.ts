@@ -61,7 +61,7 @@ async function getJourneyContext(
     .eq('language_code', targetLanguage)
     .order('created_at', { ascending: false })
     .limit(1)
-    .single();
+    .maybeSingle();
 
   const { data: scores } = await supabase
     .from('word_scores')

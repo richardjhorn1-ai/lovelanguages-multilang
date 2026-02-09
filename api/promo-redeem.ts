@@ -113,7 +113,7 @@ export default async function handler(req: any, res: any) {
       .select('id')
       .eq('user_id', auth.userId)
       .eq('code_id', promoResult.id)
-      .single();
+      .maybeSingle();
 
     if (existingRedemption) {
       return res.status(400).json({

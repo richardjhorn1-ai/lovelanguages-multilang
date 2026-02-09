@@ -41,7 +41,7 @@ async function getLearningJourneyContext(
     .eq('language_code', targetLanguage)
     .order('created_at', { ascending: false })
     .limit(1)
-    .single();
+    .maybeSingle();
 
   // Fetch struggled words (words with incorrect attempts)
   const { data: scores } = await supabase

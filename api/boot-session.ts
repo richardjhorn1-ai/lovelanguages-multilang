@@ -29,7 +29,7 @@ async function fetchLearnerContext(supabase: any, userId: string, targetLanguage
       .limit(100),
     supabase
       .from('word_scores')
-      .select('word_id, correct_count, incorrect_count, learned_at, last_practiced, dictionary:word_id(word, translation)')
+      .select('word_id, correct_attempts, total_attempts, learned_at, updated_at, dictionary:word_id(word, translation)')
       .eq('user_id', userId)
       .eq('language_code', targetLanguage)
   ]);
@@ -39,13 +39,13 @@ async function fetchLearnerContext(supabase: any, userId: string, targetLanguage
 
   // Calculate weak spots (words with failures, sorted by fail count)
   const weakSpots = scores
-    .filter((s: any) => s.incorrect_count > 0)
-    .sort((a: any, b: any) => b.incorrect_count - a.incorrect_count)
+    .filter((s: any) => (s.total_attempts - s.correct_attempts) > 0)
+    .sort((a: any, b: any) => (b.total_attempts - b.correct_attempts) - (a.total_attempts - a.correct_attempts))
     .slice(0, 10)
     .map((s: any) => ({
       word: s.dictionary?.word || 'unknown',
       translation: s.dictionary?.translation || '',
-      failCount: s.incorrect_count
+      failCount: s.total_attempts - s.correct_attempts
     }));
 
   // Calculate mastered count
@@ -60,9 +60,9 @@ async function fetchLearnerContext(supabase: any, userId: string, targetLanguage
   // Find last active time from scores
   const lastActive = scores.length > 0
     ? scores.reduce((latest: string | null, s: any) => {
-        if (!s.last_practiced) return latest;
-        if (!latest) return s.last_practiced;
-        return s.last_practiced > latest ? s.last_practiced : latest;
+        if (!s.updated_at) return latest;
+        if (!latest) return s.updated_at;
+        return s.updated_at > latest ? s.updated_at : latest;
       }, null)
     : null;
 

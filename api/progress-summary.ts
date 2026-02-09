@@ -139,7 +139,7 @@ export default async function handler(req: any, res: any) {
       .eq('language_code', targetLanguage)
       .order('created_at', { ascending: false })
       .limit(1)
-      .single();
+      .maybeSingle();
 
     // Cache check: if summary was generated in the last 10 minutes, return it
     if (lastSummary && (Date.now() - new Date(lastSummary.created_at).getTime() < 10 * 60 * 1000)) {
@@ -171,9 +171,16 @@ export default async function handler(req: any, res: any) {
       const d = new Date(); d.setDate(d.getDate() - 14); return d.toISOString();
     })();
 
+    // Pre-query chat IDs for messages (messages links to users through chats.user_id)
+    const { data: userChats } = await supabase
+      .from('chats')
+      .select('id')
+      .eq('user_id', auth.userId);
+    const chatIds = (userChats || []).map((c: any) => c.id);
+
     const vocabQuery = supabase
       .from('dictionary')
-      .select('word, translation, word_type, context, unlocked_at')
+      .select('word, translation, word_type, unlocked_at')
       .eq('user_id', auth.userId)
       .eq('language_code', targetLanguage)
       .order('unlocked_at', { ascending: false });
@@ -217,7 +224,9 @@ export default async function handler(req: any, res: any) {
     ] = await Promise.all([
       vocabQuery,
       supabase.from('dictionary').select('id', { count: 'exact', head: true }).eq('user_id', auth.userId).eq('language_code', targetLanguage),
-      supabase.from('messages').select('content, role, created_at').eq('user_id', auth.userId).gte('created_at', messagesSinceDate).order('created_at', { ascending: false }).limit(isIncremental ? 50 : 100),
+      chatIds.length > 0
+        ? supabase.from('messages').select('content, role, created_at').in('chat_id', chatIds).gte('created_at', messagesSinceDate).order('created_at', { ascending: false }).limit(isIncremental ? 50 : 100)
+        : Promise.resolve({ data: [] }),
       gameQuery,
       testQuery
     ]);

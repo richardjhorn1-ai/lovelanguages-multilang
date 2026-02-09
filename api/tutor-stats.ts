@@ -45,7 +45,7 @@ export default async function handler(req: any, res: any) {
       .from('tutor_stats')
       .select('*')
       .eq('user_id', auth.userId)
-      .single();
+      .maybeSingle();
 
     // Get achievements
     const { data: achievements } = await supabase

@@ -86,7 +86,7 @@ export default async function handler(req: any, res: any) {
       .select('id')
       .eq('student_id', auth.userId)
       .eq('status', 'pending')
-      .single();
+      .maybeSingle();
 
     if (existingRequest) {
       return res.status(400).json({ error: 'You already have a pending request' });

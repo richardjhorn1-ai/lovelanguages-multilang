@@ -168,7 +168,7 @@ async function getPartnerContext(userId: string, targetLanguage: string): Promis
     .eq('language_code', targetLanguage)
     .order('created_at', { ascending: false })
     .limit(1)
-    .single();
+    .maybeSingle();
 
   return {
     learnerName: learnerProfile?.full_name || 'your partner',
@@ -218,7 +218,7 @@ async function getLearningJourneyContext(
     .eq('language_code', targetLanguage)
     .order('created_at', { ascending: false })
     .limit(1)
-    .single();
+    .maybeSingle();
 
   // Fetch struggled words (words with incorrect attempts)
   const { data: scores } = await supabase

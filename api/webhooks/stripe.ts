@@ -217,7 +217,7 @@ export default async function handler(req: any, res: any) {
             .from('profiles')
             .select('id, subscription_plan')
             .eq('stripe_customer_id', customerId)
-            .single();
+            .maybeSingle();
 
           if (!profile) {
             console.error(`[stripe-webhook] No user found for customer ${customerId}`);
@@ -315,7 +315,7 @@ export default async function handler(req: any, res: any) {
           .from('profiles')
           .select('id, subscription_plan, linked_user_id')
           .eq('stripe_customer_id', customerId)
-          .single();
+          .maybeSingle();
 
         if (!profile) {
           console.error(`[stripe-webhook] No user found for deleted subscription (customer: ${customerId})`);
@@ -394,7 +394,7 @@ export default async function handler(req: any, res: any) {
           .from('profiles')
           .select('id')
           .eq('stripe_customer_id', customerId)
-          .single();
+          .maybeSingle();
 
         if (!profile) {
           console.error(`[stripe-webhook] No user found for failed invoice (customer: ${customerId})`);

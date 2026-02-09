@@ -771,7 +771,7 @@ export function incrementUsage(
         .eq('user_id', userId)
         .eq('usage_type', usageType)
         .eq('usage_date', today)
-        .single();
+        .maybeSingle();
 
       const currentCount = existing?.count || 0;
 

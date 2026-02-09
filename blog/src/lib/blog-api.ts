@@ -58,7 +58,7 @@ export async function getArticle(
     .eq('target_lang', targetLang)
     .eq('slug', slug)
     .eq('published', true)
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error fetching article:', error);

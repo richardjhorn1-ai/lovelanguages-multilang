@@ -131,7 +131,7 @@ export default async function handler(req: any, res: any) {
         .from('tutor_stats')
         .select('*')
         .eq('user_id', tutorId)
-        .single();
+        .maybeSingle();
 
       if (existingStats) {
         const updateData: any = {
@@ -190,7 +190,7 @@ export default async function handler(req: any, res: any) {
       .from('tutor_stats')
       .select('*')
       .eq('user_id', tutorId)
-      .single();
+      .maybeSingle();
 
     // Get already unlocked achievements
     const { data: existingAchievements } = await supabase
