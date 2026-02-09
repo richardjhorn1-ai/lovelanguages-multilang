@@ -58,7 +58,6 @@ export default async function handler(req: any, res: any) {
         .select('id, title, summary, words_learned, xp_at_time, level_at_time, language_code, created_at')
         .eq('user_id', auth.userId)
         .eq('language_code', targetLanguage)
-        .eq('native_language', nativeLanguage)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
@@ -135,7 +134,7 @@ export default async function handler(req: any, res: any) {
     // STEP 2: Check for previous summary (filtered by current language)
     const { data: lastSummary } = await supabase
       .from('progress_summaries')
-      .select('id, created_at, topics_explored, can_now_say, words_learned, title, summary, grammar_highlights, suggestions, xp_at_time, level_at_time, native_language')
+      .select('id, created_at, topics_explored, can_now_say, words_learned, title, summary, grammar_highlights, suggestions, xp_at_time, level_at_time')
       .eq('user_id', auth.userId)
       .eq('language_code', targetLanguage)
       .order('created_at', { ascending: false })
@@ -200,7 +199,7 @@ export default async function handler(req: any, res: any) {
       .from('level_tests')
       .select('from_level, to_level, passed, score, completed_at')
       .eq('user_id', auth.userId)
-      .eq('status', 'completed')
+      .not('completed_at', 'is', null)
       .eq('language_code', targetLanguage)
       .order('completed_at', { ascending: false });
     if (isIncremental) {
@@ -472,7 +471,6 @@ The summary should make them feel seen, not just measured.`;
       .insert({
         user_id: auth.userId,
         language_code: targetLanguage,
-        native_language: nativeLanguage,
         title: parsed.title,
         summary: parsed.summary,
         topics_explored: parsed.topicsExplored,

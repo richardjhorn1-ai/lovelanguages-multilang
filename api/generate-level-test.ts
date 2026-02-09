@@ -176,7 +176,6 @@ export default async function handler(req: any, res: any) {
         id: testId,
         user_id: auth.userId,
         language_code: targetLanguage,
-        native_language: nativeLanguage,
         from_level: fromLevel,
         to_level: toLevel,
         passed: false,

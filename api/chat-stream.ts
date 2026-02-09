@@ -52,15 +52,13 @@ async function getUserRole(supabase: any, userId: string): Promise<{
 async function getJourneyContext(
   supabase: any,
   userId: string,
-  targetLanguage: string,
-  nativeLanguage: string
+  targetLanguage: string
 ): Promise<LearningJourneyContext | null> {
   const { data: summary } = await supabase
     .from('progress_summaries')
     .select('level_at_time, words_learned, topics_explored, can_now_say, suggestions')
     .eq('user_id', userId)
     .eq('language_code', targetLanguage)
-    .eq('native_language', nativeLanguage)
     .order('created_at', { ascending: false })
     .limit(1)
     .single();
@@ -94,8 +92,7 @@ async function getPartnerContext(
   supabase: any,
   tutorId: string,
   linkedUserId: string,
-  targetLanguage: string,
-  nativeLanguage: string
+  targetLanguage: string
 ): Promise<PartnerContext | null> {
   const { data: partner } = await supabase
     .from('profiles')
@@ -132,7 +129,7 @@ async function getPartnerContext(
     .eq('user_id', linkedUserId)
     .not('learned_at', 'is', null);
 
-  const journey = await getJourneyContext(supabase, linkedUserId, targetLanguage, nativeLanguage);
+  const journey = await getJourneyContext(supabase, linkedUserId, targetLanguage);
 
   return {
     learnerName: partner.full_name || 'Your partner',
@@ -197,10 +194,10 @@ export default async function handler(req: any, res: any) {
     // Get user context
     const { role: userRole, partnerName, linkedUserId } = await getUserRole(supabase, auth.userId);
     const journeyContext = userRole === 'student'
-      ? await getJourneyContext(supabase, auth.userId, targetLanguage, nativeLanguage)
+      ? await getJourneyContext(supabase, auth.userId, targetLanguage)
       : null;
     const partnerContext = userRole === 'tutor' && linkedUserId
-      ? await getPartnerContext(supabase, auth.userId, linkedUserId, targetLanguage, nativeLanguage)
+      ? await getPartnerContext(supabase, auth.userId, linkedUserId, targetLanguage)
       : null;
 
     // Build prompt using shared function

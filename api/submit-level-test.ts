@@ -12,6 +12,7 @@ import {
 } from '../utils/api-middleware.js';
 import { buildAnswerValidationPrompt } from '../utils/prompt-templates.js';
 import { buildBatchValidationSchema } from '../utils/schema-builders.js';
+import { getProfileLanguages } from '../utils/language-helpers.js';
 
 // Inline constant to avoid module resolution issues in Vercel serverless
 const PASS_THRESHOLD = 80;
@@ -190,9 +191,9 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Test already completed' });
     }
 
-    // Get languages from test record (set during generation)
+    // Get target language from test record, native language from user profile
     const targetLanguage = test.language_code || 'pl';
-    const nativeLanguage = test.native_language || 'en';
+    const { nativeLanguage } = await getProfileLanguages(supabase, auth.userId);
 
     // Grade the answers using BATCH smart validation (one Gemini call for all answers)
     const questions = test.questions as any[];

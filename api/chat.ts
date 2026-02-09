@@ -201,8 +201,7 @@ interface LearningJourneyContext {
 
 async function getLearningJourneyContext(
   userId: string,
-  targetLanguage: string,
-  nativeLanguage: string
+  targetLanguage: string
 ): Promise<LearningJourneyContext | null> {
   const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
@@ -217,7 +216,6 @@ async function getLearningJourneyContext(
     .select('level_at_time, words_learned, topics_explored, can_now_say, suggestions')
     .eq('user_id', userId)
     .eq('language_code', targetLanguage)
-    .eq('native_language', nativeLanguage)
     .order('created_at', { ascending: false })
     .limit(1)
     .single();
@@ -428,7 +426,7 @@ export default async function handler(req: any, res: any) {
     const hasConjugation = targetConfig?.grammar.hasConjugation || false;
 
     // Fetch learning journey context for personalization
-    const journeyContext = await getLearningJourneyContext(auth.userId, targetLanguage, nativeLanguage);
+    const journeyContext = await getLearningJourneyContext(auth.userId, targetLanguage);
 
     // Build learning journey section
     const learningJourneySection = journeyContext ? `
