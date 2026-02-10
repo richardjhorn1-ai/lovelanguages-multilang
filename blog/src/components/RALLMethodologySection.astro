@@ -1,0 +1,98 @@
+---
+/**
+ * RALLMethodologySection — Promotes RALL methodology articles on every blog page.
+ *
+ * Renders 3 rotating methodology article cards with a "See All" link.
+ * The rotation is deterministic per article slug (cache-friendly).
+ */
+import { getMethodologyArticles, selectRotatingArticles } from '../data/methodology-articles';
+import { methodologyIndexUrl, methodologyArticleUrl } from '../lib/urls';
+
+interface Props {
+  nativeLang: string;
+  seed: string; // article slug — drives deterministic rotation
+}
+
+const { nativeLang, seed } = Astro.props;
+
+const allArticles = getMethodologyArticles(nativeLang);
+const articles = selectRotatingArticles(allArticles, seed, 3);
+const indexUrl = methodologyIndexUrl(nativeLang);
+
+// Section copy translations
+const SECTION_COPY: Record<string, { heading: string; subtitle: string; seeAll: string }> = {
+  en: { heading: 'Learn Your Partner\u2019s Language Together', subtitle: 'Our RALL methodology \u2014 Relationship-Assisted Language Learning \u2014 turns your partnership into a language-learning superpower.', seeAll: 'See All Methodology Articles' },
+  es: { heading: 'Aprende el Idioma de tu Pareja Juntos', subtitle: 'Nuestra metodolog\u00eda RALL convierte vuestra relaci\u00f3n en un superpoder para aprender idiomas.', seeAll: 'Ver Todos los Art\u00edculos de Metodolog\u00eda' },
+  fr: { heading: 'Apprenez la Langue de Votre Partenaire Ensemble', subtitle: 'Notre m\u00e9thodologie RALL transforme votre couple en superpouvoir linguistique.', seeAll: 'Voir Tous les Articles de M\u00e9thodologie' },
+  de: { heading: 'Lernt die Sprache des Partners Gemeinsam', subtitle: 'Unsere RALL-Methodik verwandelt eure Partnerschaft in eine Sprachlern-Superkraft.', seeAll: 'Alle Methodik-Artikel Ansehen' },
+  it: { heading: 'Imparate la Lingua del Partner Insieme', subtitle: 'La nostra metodologia RALL trasforma la vostra relazione in un superpotere linguistico.', seeAll: 'Vedi Tutti gli Articoli di Metodologia' },
+  pt: { heading: 'Aprendam a L\u00edngua do Parceiro Juntos', subtitle: 'Nossa metodologia RALL transforma seu relacionamento em um superpoder para aprender idiomas.', seeAll: 'Ver Todos os Artigos de Metodologia' },
+  pl: { heading: 'Uczcie Si\u0119 J\u0119zyka Partnera Razem', subtitle: 'Nasza metodologia RALL zamienia wasz zwi\u0105zek w supermoc do nauki j\u0119zyk\u00f3w.', seeAll: 'Zobacz Wszystkie Artyku\u0142y o Metodologii' },
+  nl: { heading: 'Leer Samen de Taal van je Partner', subtitle: 'Onze RALL-methodologie maakt van jullie relatie een taalleer-superkracht.', seeAll: 'Bekijk Alle Methodologie Artikelen' },
+  ro: { heading: '\u00cenv\u0103\u021ba\u021bi Limba Partenerului \u00cempreun\u0103', subtitle: 'Metodologia noastr\u0103 RALL transform\u0103 rela\u021bia voastr\u0103 \u00eentr-o superputere lingvistic\u0103.', seeAll: 'Vezi Toate Articolele de Metodologie' },
+  ru: { heading: '\u0423\u0447\u0438\u0442\u0435 \u042f\u0437\u044b\u043a \u041f\u0430\u0440\u0442\u043d\u0451\u0440\u0430 \u0412\u043c\u0435\u0441\u0442\u0435', subtitle: '\u041d\u0430\u0448\u0430 \u043c\u0435\u0442\u043e\u0434\u043e\u043b\u043e\u0433\u0438\u044f RALL \u043f\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u0435\u0442 \u0432\u0430\u0448\u0438 \u043e\u0442\u043d\u043e\u0448\u0435\u043d\u0438\u044f \u0432 \u0441\u0432\u0435\u0440\u0445\u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u044c \u0434\u043b\u044f \u0438\u0437\u0443\u0447\u0435\u043d\u0438\u044f \u044f\u0437\u044b\u043a\u043e\u0432.', seeAll: '\u0421\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0412\u0441\u0435 \u0421\u0442\u0430\u0442\u044c\u0438 \u043e \u041c\u0435\u0442\u043e\u0434\u043e\u043b\u043e\u0433\u0438\u0438' },
+  uk: { heading: '\u0412\u0438\u0432\u0447\u0430\u0439\u0442\u0435 \u041c\u043e\u0432\u0443 \u041f\u0430\u0440\u0442\u043d\u0435\u0440\u0430 \u0420\u0430\u0437\u043e\u043c', subtitle: '\u041d\u0430\u0448\u0430 \u043c\u0435\u0442\u043e\u0434\u043e\u043b\u043e\u0433\u0456\u044f RALL \u043f\u0435\u0440\u0435\u0442\u0432\u043e\u0440\u044e\u0454 \u0432\u0430\u0448\u0456 \u0441\u0442\u043e\u0441\u0443\u043d\u043a\u0438 \u043d\u0430 \u043d\u0430\u0434\u0437\u0434\u0430\u0442\u043d\u0456\u0441\u0442\u044c \u0434\u043b\u044f \u0432\u0438\u0432\u0447\u0435\u043d\u043d\u044f \u043c\u043e\u0432.', seeAll: '\u0414\u0438\u0432\u0438\u0442\u0438\u0441\u044c \u0412\u0441\u0456 \u0421\u0442\u0430\u0442\u0442\u0456 \u043f\u0440\u043e \u041c\u0435\u0442\u043e\u0434\u043e\u043b\u043e\u0433\u0456\u044e' },
+  tr: { heading: 'Partnerinizin Dilini Birlikte \u00d6\u011frenin', subtitle: 'RALL metodolojimiz ili\u015fkinizi dil \u00f6\u011frenimi i\u00e7in bir s\u00fcper g\u00fcc\u00e9 d\u00f6n\u00fc\u015ft\u00fcr\u00fcr.', seeAll: 'T\u00fcm Metodoloji Makalelerini G\u00f6r' },
+  sv: { heading: 'L\u00e4r Er Partnerns Spr\u00e5k Tillsammans', subtitle: 'V\u00e5r RALL-metodik f\u00f6rvandlar ert f\u00f6rh\u00e5llande till en spr\u00e5kinl\u00e4rnings-superkraft.', seeAll: 'Se Alla Metodik-Artiklar' },
+  no: { heading: 'L\u00e6r Partnerens Spr\u00e5k Sammen', subtitle: 'V\u00e5r RALL-metodikk gj\u00f8r forholdet deres til en superkraft for spr\u00e5kl\u00e6ring.', seeAll: 'Se Alle Metodikk-Artikler' },
+  da: { heading: 'L\u00e6r Partnerens Sprog Sammen', subtitle: 'Vores RALL-metode g\u00f8r jeres forhold til en superkraft for sprogl\u00e6ring.', seeAll: 'Se Alle Metode-Artikler' },
+  cs: { heading: 'U\u010dte Se Jazyk Partnera Spole\u010dn\u011b', subtitle: 'Na\u0161e metodika RALL prom\u011bn\u00ed v\u00e1\u0161 vztah v superschopnost pro u\u010den\u00ed jazyk\u016f.', seeAll: 'Zobrazit V\u0161echny \u010cl\u00e1nky o Metodice' },
+  el: { heading: '\u039C\u03AC\u03B8\u03B5\u03C4\u03B5 \u03C4\u03B7 \u0393\u03BB\u03CE\u03C3\u03C3\u03B1 \u03C4\u03BF\u03C5 \u03A3\u03C5\u03BD\u03C4\u03C1\u03CC\u03C6\u03BF\u03C5 \u03C3\u03B1\u03C2 \u039C\u03B1\u03B6\u03AF', subtitle: '\u0397 \u03BC\u03B5\u03B8\u03BF\u03B4\u03BF\u03BB\u03BF\u03B3\u03AF\u03B1 RALL \u03BC\u03B5\u03C4\u03B1\u03C4\u03C1\u03AD\u03C0\u03B5\u03B9 \u03C4\u03B7 \u03C3\u03C7\u03AD\u03C3\u03B7 \u03C3\u03B1\u03C2 \u03C3\u03B5 \u03C5\u03C0\u03B5\u03C1\u03B4\u03CD\u03BD\u03B1\u03BC\u03B7 \u03B3\u03BB\u03C9\u03C3\u03C3\u03B9\u03BA\u03AE\u03C2 \u03B5\u03BA\u03BC\u03AC\u03B8\u03B7\u03C3\u03B7\u03C2.', seeAll: '\u0394\u03B5\u03AF\u03C4\u03B5 \u038C\u03BB\u03B1 \u03C4\u03B1 \u0386\u03C1\u03B8\u03C1\u03B1 \u039C\u03B5\u03B8\u03BF\u03B4\u03BF\u03BB\u03BF\u03B3\u03AF\u03B1\u03C2' },
+  hu: { heading: 'Tanuljatok P\u00e1rod Nyelv\u00e9t Egy\u00fctt', subtitle: 'A RALL m\u00f3dszertanunk szuperk\u00e9pess\u00e9gg\u00e9 v\u00e1ltoztatja kapcsolatotokat a nyelvtanul\u00e1sban.', seeAll: '\u00d6sszes M\u00f3dszertani Cikk Megtekint\u00e9se' },
+};
+
+const copy = SECTION_COPY[nativeLang] || SECTION_COPY.en;
+---
+
+<section class="max-w-3xl mx-auto px-4 pb-12">
+  <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-violet-600 to-pink-500 p-[1px]">
+    <div class="bg-white rounded-2xl p-6 md:p-8">
+      <!-- Header -->
+      <div class="text-center mb-6">
+        <span class="text-3xl mb-2 block">\u{1F491}</span>
+        <h3 class="text-xl md:text-2xl font-bold font-header text-gray-900 mb-2">
+          {copy.heading}
+        </h3>
+        <p class="text-sm text-gray-600 max-w-lg mx-auto">
+          {copy.subtitle}
+        </p>
+      </div>
+
+      <!-- Article Cards -->
+      <div class="space-y-3 mb-6">
+        {articles.map((article) => (
+          <a
+            href={methodologyArticleUrl(nativeLang, article.slug)}
+            class="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:border-violet-200 hover:bg-violet-50/50 transition-all group"
+          >
+            <span class="text-2xl flex-shrink-0 mt-0.5">{article.icon}</span>
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-gray-900 group-hover:text-violet-700 transition-colors text-sm leading-snug">
+                {article.title}
+              </p>
+              <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">
+                {article.description}
+              </p>
+            </div>
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-violet-500 flex-shrink-0 mt-1 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        ))}
+      </div>
+
+      <!-- See All Link -->
+      <div class="text-center">
+        <a
+          href={indexUrl}
+          class="inline-flex items-center gap-1.5 text-sm font-bold text-violet-600 hover:text-violet-800 transition-colors"
+        >
+          {copy.seeAll}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

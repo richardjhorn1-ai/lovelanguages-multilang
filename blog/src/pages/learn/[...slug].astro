@@ -125,6 +125,7 @@ const { firstHalf, secondHalf } = splitContentAtMidpoint(sanitizedContent);
   alternateVersions={alternateVersions}
   reverseArticle={undefined}
   crossPairArticles={crossPairArticles}
+  articleSlug={articleSlug}
 >
   <Fragment set:html={firstHalf} />
   {secondHalf && (

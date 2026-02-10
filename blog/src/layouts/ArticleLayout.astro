@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import CTA from '../components/CTA.astro';
+import RALLMethodologySection from '../components/RALLMethodologySection.astro';
 import { canonicalUrl as buildCanonicalUrl, normalizePathname } from '../lib/urls';
 
 interface RelatedArticle {
@@ -66,6 +67,7 @@ interface Props {
   alternateVersions?: AlternateVersion[];  // For hreflang support
   reverseArticle?: ReverseArticle;  // SEO: Link to reverse language pair
   crossPairArticles?: CrossPairArticle[];  // SEO: Similar topics in other pairs
+  articleSlug?: string;  // For RALL methodology section rotation seed
 }
 
 // AEO: Detect if article is a "How to" guide (multilingual patterns)
@@ -142,7 +144,8 @@ const {
   nativeLanguageInfo = { flag: '🇬🇧', name: 'English', nativeName: 'English' },
   alternateVersions = [],
   reverseArticle,
-  crossPairArticles = []
+  crossPairArticles = [],
+  articleSlug
 } = Astro.props;
 
 // Safe fallbacks for nullable fields
@@ -509,6 +512,11 @@ const faqJsonLd = {
         })}
       </div>
     </section>
+  )}
+
+  <!-- RALL Methodology Section -->
+  {articleSlug && (
+    <RALLMethodologySection nativeLang={nativeLanguageCode} seed={articleSlug} />
   )}
 
   <!-- SEO: Reverse Language Pair Link -->
