@@ -423,6 +423,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
         {/* Question */}
         {currentQuestion.mode === 'fill_template' && (
           <FillTemplate
+            key={`${currentQuestion.verb.id}-${currentQuestion.tense}-${currentQuestion.personKey}`}
             question={currentQuestion as FillTemplateQuestion}
             targetLanguage={targetLanguage}
             accentColor={accentColor}
@@ -434,6 +435,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
 
         {currentQuestion.mode === 'multiple_choice' && (
           <MultipleChoiceInline
+            key={`${currentQuestion.verb.id}-${currentQuestion.tense}-${currentQuestion.personKey}`}
             question={currentQuestion}
             accentColor={accentColor}
             onAnswer={handleAnswer}
@@ -443,6 +445,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
 
         {currentQuestion.mode === 'match_pairs' && (
           <MatchPairsWrapper
+            key={`${currentQuestion.verb.id}-${currentQuestion.tense}-pairs`}
             question={currentQuestion}
             targetLanguage={targetLanguage}
             accentColor={accentColor}

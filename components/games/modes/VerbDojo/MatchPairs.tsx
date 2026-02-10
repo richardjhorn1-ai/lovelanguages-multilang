@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../../constants';
 import { speak } from '../../../../services/audio';
@@ -43,6 +43,13 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
   const [wrongPair, setWrongPair] = useState<{ pronoun: number; conj: number } | null>(null);
   // Currently selected item
   const [selected, setSelected] = useState<SelectionState>(null);
+
+  // Defensive reset when pairs change (belt-and-suspenders alongside key prop)
+  useEffect(() => {
+    setMatchedIndices(new Set());
+    setWrongPair(null);
+    setSelected(null);
+  }, [pairs]);
 
   // Shuffle conjugations for display (pronouns stay in order)
   const shuffledConjugations = useMemo(() => {
