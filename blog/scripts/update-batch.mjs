@@ -142,10 +142,10 @@ async function main() {
         continue;
       }
 
-      // Regenerate content_html from content
+      // Regenerate content_html from content (pass language params for translated labels/flags)
       if (REGENERATE_HTML) {
         try {
-          const { html } = convertMdxToHtml(fields.content);
+          const { html } = convertMdxToHtml(fields.content, record.native_lang || 'en', record.target_lang || null);
           fields.content_html = html;
           stats.htmlRegenerated++;
         } catch (e) {
