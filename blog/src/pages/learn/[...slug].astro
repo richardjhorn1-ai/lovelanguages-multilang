@@ -39,6 +39,16 @@ const nativeLanguageCode = slugParts[0];
 const targetLanguageCode = slugParts[1];
 const articleSlug = slugParts.slice(2).join('/');
 
+// Validate language codes — only real languages, not 'all'
+const VALID_LANGS = Object.keys(LANGUAGE_INFO);
+if (!VALID_LANGS.includes(nativeLanguageCode) || !VALID_LANGS.includes(targetLanguageCode)) {
+  // Redirect methodology articles (target_lang='all') to their correct URL
+  if (targetLanguageCode === 'all' && VALID_LANGS.includes(nativeLanguageCode)) {
+    return Astro.redirect(`/learn/${nativeLanguageCode}/couples-language-learning/methodology/${articleSlug}/`, 301);
+  }
+  return new Response(null, { status: 404, statusText: 'Not Found' });
+}
+
 // Fetch article from Supabase
 const article = await getArticle(nativeLanguageCode, targetLanguageCode, articleSlug);
 
