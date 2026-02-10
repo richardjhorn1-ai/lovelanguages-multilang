@@ -41,9 +41,9 @@ const dedupedRedirects = allRedirects.filter(r => {
 
 console.log(`Total after dedup: ${dedupedRedirects.length}`);
 
-// Check Vercel limits
+// Check Vercel limits (https://vercel.com/docs/projects/project-configuration#redirects)
 const VERCEL_HOBBY_LIMIT = 1024;
-const VERCEL_PRO_LIMIT = 4096;
+const VERCEL_PRO_LIMIT = 2048;
 
 if (dedupedRedirects.length > VERCEL_PRO_LIMIT) {
   console.warn(`\n⚠️  WARNING: ${dedupedRedirects.length} redirects exceeds Vercel Pro limit (${VERCEL_PRO_LIMIT})`);

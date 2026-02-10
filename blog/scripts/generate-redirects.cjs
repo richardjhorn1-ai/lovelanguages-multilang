@@ -168,23 +168,13 @@ function deduplicateRedirects(redirects) {
 }
 
 function generateVercelRedirects(redirects) {
-  const vercelRedirects = [];
-
-  for (const r of redirects) {
-    // Add both with and without trailing slash
-    vercelRedirects.push({
-      source: r.source,
-      destination: r.destination,
-      permanent: true
-    });
-    vercelRedirects.push({
-      source: r.source + '/',
-      destination: r.destination,
-      permanent: true
-    });
-  }
-
-  return vercelRedirects;
+  // Only emit trailing-slash variants — trailingSlash: true in vercel.json
+  // normalizes /path → /path/ automatically before redirects fire.
+  return redirects.map(r => ({
+    source: r.source.endsWith('/') ? r.source : r.source + '/',
+    destination: r.destination,
+    permanent: true
+  }));
 }
 
 // Main execution
@@ -206,7 +196,7 @@ const allRedirects = deduplicateRedirects([...gitRenames, ...mappingRenames, ...
 console.error(`Total unique redirects: ${allRedirects.length}`);
 
 const vercelRedirects = generateVercelRedirects(allRedirects);
-console.error(`Vercel redirect rules (with trailing slash variants): ${vercelRedirects.length}`);
+console.error(`Vercel redirect rules: ${vercelRedirects.length}`);
 
 // Output the redirects as JSON
 console.log(JSON.stringify(vercelRedirects, null, 2));
